@@ -1,2 +1,5 @@
-
+# for macOS
 .DS_Store
+
+# for EAGLE
+*.s#?
