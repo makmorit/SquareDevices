@@ -675,6 +675,51 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="1.4" y1="-0.6" x2="-1.4" y2="-0.6" width="0.127" layer="21"/>
 <wire x1="-1.4" y1="-0.6" x2="-1.4" y2="0.6" width="0.127" layer="21"/>
 </package>
+<package name="SOT23">
+<description>&lt;b&gt;SOT-23&lt;/b&gt;</description>
+<smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
+<smd name="2" x="0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
+<smd name="1" x="-0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
+<text x="-1.42875" y="2.2225" size="0.7112" layer="25">&gt;NAME</text>
+<text x="-1.508125" y="-3.4925" size="0.7112" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
+<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
+<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
+<wire x1="-1.4" y1="0.65" x2="-1.4" y2="-0.65" width="0.127" layer="51"/>
+<wire x1="-1.4" y1="-0.65" x2="1.4" y2="-0.65" width="0.127" layer="51"/>
+<wire x1="1.4" y1="-0.65" x2="1.4" y2="0.65" width="0.127" layer="51"/>
+<wire x1="1.4" y1="0.65" x2="-1.4" y2="0.65" width="0.127" layer="51"/>
+</package>
+<package name="SOD323-W">
+<description>&lt;b&gt;SOD323 &lt;/b&gt; &lt;p&gt;
+Wave soldering</description>
+<wire x1="-1" y1="0.7" x2="1" y2="0.7" width="0.1524" layer="51"/>
+<wire x1="1" y1="0.7" x2="1" y2="-0.7" width="0.1524" layer="51"/>
+<wire x1="1" y1="-0.7" x2="-1" y2="-0.7" width="0.1524" layer="51"/>
+<wire x1="-1" y1="-0.7" x2="-1" y2="0.7" width="0.1524" layer="51"/>
+<wire x1="-0.5" y1="0" x2="0.1" y2="0.4" width="0.1524" layer="51"/>
+<wire x1="0.1" y1="0.4" x2="0.1" y2="-0.4" width="0.1524" layer="51"/>
+<wire x1="0.1" y1="-0.4" x2="-0.5" y2="0" width="0.1524" layer="51"/>
+<smd name="C" x="-1.2" y="0" dx="1" dy="1.2" layer="1"/>
+<smd name="A" x="1.2" y="0" dx="1" dy="1.2" layer="1"/>
+<rectangle x1="-0.7" y1="-0.7" x2="-0.5" y2="0.7" layer="51"/>
+<text x="-2.41125" y="1.1875" size="0.7112" layer="25">&gt;NAME</text>
+<text x="-2.56125" y="-1.54625" size="0.7112" layer="27" align="top-left">&gt;VALUE</text>
+<rectangle x1="-2.65" y1="-1.25" x2="-2.25" y2="-0.85" layer="21"/>
+</package>
+<package name="DFN1006D-2">
+<description>&lt;b&gt; Leadless ultra small plastic package&lt;/b&gt;&lt;p&gt;
+SOD882D&lt;br&gt;
+2 terminals</description>
+<smd name="2" x="0.4" y="0" dx="0.5" dy="0.7" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-0.4" y="0" dx="0.5" dy="0.7" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.1" y1="-0.4" x2="0.7" y2="0.4" layer="29"/>
+<rectangle x1="-0.7" y1="-0.4" x2="-0.1" y2="0.4" layer="29"/>
+<rectangle x1="0.2" y1="-0.3" x2="0.5" y2="0.3" layer="31"/>
+<rectangle x1="-0.5" y1="-0.3" x2="-0.2" y2="0.3" layer="31"/>
+<text x="-0.7" y="0.7" size="0.6" layer="25">&gt;NAME</text>
+<text x="-0.7" y="-0.7" size="0.6" layer="27" align="top-left">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -721,6 +766,33 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <vertex x="-2.921" y="-2.413"/>
 <vertex x="-2.413" y="-2.921"/>
 </polygon>
+</symbol>
+<symbol name="XC6206">
+<description>&lt;b&gt;LDO電圧レギュレータ&lt;/b&gt;&lt;p&gt;</description>
+<wire x1="2.54" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="2.54" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-7.62" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="2.54" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VSS" x="22.86" y="-5.08" length="short" direction="pas" rot="R180"/>
+<pin name="VOUT" x="22.86" y="0" length="short" direction="pas" rot="R180"/>
+<pin name="VIN" x="0" y="-2.54" length="short" direction="pas"/>
+</symbol>
+<symbol name="SBD">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1044,6 +1116,73 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="XC6206" prefix="U">
+<description>&lt;b&gt;電圧レギュレータ&lt;/b&gt;&lt;p&gt;
+出力電圧: 3.3 V &lt;br&gt;
+出力電流: 200 mA&lt;br&gt;
+入力電圧最大値: 6 V &lt;br&gt;
+最小入力電圧: 1.8 V&lt;br&gt;
+動作供給電流: 1 uA&lt;br&gt;
+最低動作温度: - 40 C &lt;br&gt;
+最高動作温度: + 85 C</description>
+<gates>
+<gate name="G$1" symbol="XC6206" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="P332MR-G" package="SOT23">
+<connects>
+<connect gate="G$1" pin="VIN" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="2"/>
+<connect gate="G$1" pin="VSS" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="P302MR-G" package="SOT23">
+<connects>
+<connect gate="G$1" pin="VIN" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="2"/>
+<connect gate="G$1" pin="VSS" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PMEG2005" prefix="D">
+<description>&lt;b&gt;ショットキーダイオード&lt;/b&gt;&lt;p&gt;
+If - 順電流: 500 mA &lt;br&gt;
+Vrrm - 繰返し逆電圧: 20 V  &lt;br&gt;
+Vf - 順電圧: 0.39 V  &lt;br&gt;
+Ifsm - 順方向サージ電流: 10 A &lt;br&gt;
+最低動作温度: - 65 C  &lt;br&gt;
+最高動作温度: + 150 C &lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="SBD" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="AEA,115" package="SOD323-W">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="BELD,315" package="DFN1006D-2">
+<connects>
+<connect gate="G$1" pin="A" pad="2"/>
+<connect gate="G$1" pin="C" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="Supply">
@@ -1084,6 +1223,22 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <text x="-7.62" y="-1.27" size="0.889" layer="27" ratio="11" align="top-left">&gt;value</text>
 <pad name="6" x="6.35" y="0" drill="0.889" diameter="1.651" rot="R90"/>
 </package>
+<package name="BAT-HLD-012-SMT">
+<description>&lt;b&gt;Battery Holders&lt;/B&gt; &lt;p&gt;
+CR1216/1225&lt;br&gt;
+9.5 mm x 15.3 mm x 3.6 mm</description>
+<smd name="-" x="0" y="0" dx="10.16" dy="10.16" layer="1" roundness="100" cream="no"/>
+<smd name="+@1" x="-7.62" y="0" dx="2.54" dy="5.08" layer="1"/>
+<smd name="+@2" x="7.62" y="0" dx="2.54" dy="5.08" layer="1"/>
+<wire x1="6.35" y1="3.048" x2="4.826" y2="4.572" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="3.048" x2="-4.826" y2="4.572" width="0.127" layer="21"/>
+<wire x1="-4.826" y1="4.572" x2="-3.048" y2="4.572" width="0.127" layer="21"/>
+<wire x1="4.826" y1="4.572" x2="3.048" y2="4.572" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-3.048" x2="-2.54" y2="-4.826" width="0.127" layer="21" curve="61.172159"/>
+<wire x1="6.35" y1="-3.048" x2="2.54" y2="-4.826" width="0.127" layer="21" curve="-61.172159"/>
+<text x="9.58" y="3.79" size="0.7" layer="25">&gt;NAME</text>
+<text x="9.83" y="0.79" size="0.7" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="IF_6PIN">
@@ -1107,6 +1262,19 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <wire x1="3.81" y1="0" x2="5.08" y2="0" width="0.6096" layer="94"/>
 <pin name="6" x="0" y="0" length="middle" direction="pas" swaplevel="1"/>
 </symbol>
+<symbol name="3V">
+<description>&lt;b&gt;ボタン電池&lt;/b&gt;</description>
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-0.635" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.635" y1="0" x2="-0.635" y2="-0.635" width="0.4064" layer="94"/>
+<wire x1="0.635" y1="2.54" x2="0.635" y2="0" width="0.4064" layer="94"/>
+<wire x1="0.635" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="0.635" y1="0" x2="0.635" y2="-2.54" width="0.4064" layer="94"/>
+<text x="-1.27" y="3.175" size="1.778" layer="95">&gt;NAME</text>
+<text x="-1.27" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="+" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="-" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IF_6PIN" prefix="CN">
@@ -1123,6 +1291,23 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <connect gate="G$1" pin="4" pad="4"/>
 <connect gate="G$1" pin="5" pad="5"/>
 <connect gate="G$1" pin="6" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BAT-HLD-012-SMT" prefix="BAT">
+<description>&lt;b&gt;ボタン電池ホルダー(CR1216/1225) &lt;/B&gt;&lt;p&gt;</description>
+<gates>
+<gate name="G$1" symbol="3V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BAT-HLD-012-SMT">
+<connects>
+<connect gate="G$1" pin="+" pad="+@2"/>
+<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1162,6 +1347,16 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 <part name="R6" library="Parts" deviceset="RESISTOR" device="_0402N" value="1.2k"/>
 <part name="R7" library="Parts" deviceset="RESISTOR" device="_0402N" value="1.5k"/>
 <part name="R8" library="Parts" deviceset="RESISTOR" device="_0402N" value="390"/>
+<part name="U2" library="Parts" deviceset="XC6206" device="P302MR-G"/>
+<part name="C2" library="Parts" deviceset="CAP" device="_0603N" value="TMR107B7105KA-T"/>
+<part name="C3" library="Parts" deviceset="CAP" device="_0603N" value="TMR107B7105KA-T"/>
+<part name="D5" library="Parts" deviceset="PMEG2005" device="AEA,115"/>
+<part name="D6" library="Parts" deviceset="PMEG2005" device="AEA,115"/>
+<part name="BAT1" library="Connectors" deviceset="BAT-HLD-012-SMT" device=""/>
+<part name="GND3" library="Supply" deviceset="0V" device=""/>
+<part name="GND4" library="Supply" deviceset="0V" device=""/>
+<part name="GND5" library="Supply" deviceset="0V" device=""/>
+<part name="GND6" library="Supply" deviceset="0V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1189,10 +1384,85 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
+<instance part="U2" gate="G$1" x="66.04" y="78.74"/>
+<instance part="C2" gate="G$1" x="55.88" y="71.12"/>
+<instance part="C3" gate="G$1" x="106.68" y="71.12"/>
+<instance part="D5" gate="G$1" x="116.84" y="78.74"/>
+<instance part="D6" gate="G$1" x="116.84" y="45.72"/>
+<instance part="BAT1" gate="G$1" x="76.2" y="45.72"/>
+<instance part="GND3" gate="1" x="55.88" y="55.88"/>
+<instance part="GND4" gate="1" x="55.88" y="35.56"/>
+<instance part="GND5" gate="1" x="96.52" y="55.88"/>
+<instance part="GND6" gate="1" x="106.68" y="55.88"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="VBUS_NRF" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="VIN"/>
+<wire x1="66.04" y1="76.2" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="76.2" x2="45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="71.12" x2="55.88" y2="76.2" width="0.1524" layer="91"/>
+<label x="45.72" y="76.2" size="1.778" layer="95" rot="R180" xref="yes"/>
+<junction x="55.88" y="76.2"/>
+</segment>
+</net>
+<net name="0V" class="0">
+<segment>
+<pinref part="BAT1" gate="G$1" pin="-"/>
+<pinref part="GND4" gate="1" pin="0V"/>
+<wire x1="71.12" y1="45.72" x2="55.88" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="45.72" x2="55.88" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="GND3" gate="1" pin="0V"/>
+<wire x1="55.88" y1="63.5" x2="55.88" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VSS"/>
+<pinref part="GND5" gate="1" pin="0V"/>
+<wire x1="88.9" y1="73.66" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="73.66" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="GND6" gate="1" pin="0V"/>
+<wire x1="106.68" y1="63.5" x2="106.68" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="VOUT"/>
+<pinref part="D5" gate="G$1" pin="A"/>
+<wire x1="88.9" y1="78.74" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="78.74" x2="114.3" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="71.12" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
+<junction x="106.68" y="78.74"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="BAT1" gate="G$1" pin="+"/>
+<pinref part="D6" gate="G$1" pin="A"/>
+<wire x1="81.28" y1="45.72" x2="114.3" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VDD_NRF" class="0">
+<segment>
+<pinref part="D5" gate="G$1" pin="C"/>
+<wire x1="119.38" y1="78.74" x2="142.24" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="D6" gate="G$1" pin="C"/>
+<wire x1="119.38" y1="45.72" x2="142.24" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="45.72" x2="142.24" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="78.74" x2="149.86" y2="78.74" width="0.1524" layer="91"/>
+<label x="149.86" y="78.74" size="1.778" layer="95" xref="yes"/>
+<junction x="142.24" y="78.74"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
