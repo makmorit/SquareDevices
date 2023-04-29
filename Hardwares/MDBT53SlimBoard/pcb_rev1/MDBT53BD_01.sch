@@ -805,6 +805,100 @@ P-channel enhancement mode Field-Effect Transistor</description>
 <vertex x="-0.45" y="-0.41"/>
 </polygon>
 </package>
+<package name="SKRPACE010_DEV">
+<description>&lt;b&gt;ALPS TACT Switch&lt;/b&gt;&lt;p&gt;
+4.2×3.2mm小型重作動力タイプ(表面実装) SKRP シリーズ&lt;br&gt;
+手はんだパターン</description>
+<smd name="3" x="-2.225" y="-1.075" dx="1.35" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="4" x="2.225" y="-1.075" dx="1.35" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="2" x="2.225" y="1.075" dx="1.35" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-2.225" y="1.075" dx="1.35" dy="0.65" layer="1" stop="no" cream="no"/>
+<text x="-2.54" y="2.175" size="1.016" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-2.945" size="1.016" layer="27">&gt;VALUE</text>
+<rectangle x1="2.1" y1="-1.35" x2="2.3" y2="-0.8" layer="51"/>
+<wire x1="-2.1" y1="1.6" x2="2.1" y2="1.6" width="0.127" layer="21"/>
+<wire x1="2.1" y1="-1.6" x2="-2.1" y2="-1.6" width="0.127" layer="21"/>
+<rectangle x1="-2.3" y1="0.8" x2="-2.1" y2="1.35" layer="51"/>
+<rectangle x1="-2.3" y1="-1.35" x2="-2.1" y2="-0.8" layer="51"/>
+<rectangle x1="2.1" y1="0.8" x2="2.3" y2="1.35" layer="51"/>
+<wire x1="-1.5" y1="0" x2="-0.5" y2="1.1" width="0.127" layer="21" curve="-84.805571"/>
+<wire x1="-0.5" y1="-1.1" x2="-1.5" y2="0" width="0.127" layer="21" curve="-84.805571"/>
+<wire x1="1.5" y1="0" x2="0.45" y2="-1.1" width="0.127" layer="21" curve="-87.397438"/>
+<wire x1="1.5" y1="0" x2="0.5" y2="1.1" width="0.127" layer="21" curve="84.805571"/>
+<wire x1="-0.5" y1="1.1" x2="0.5" y2="1.1" width="0.127" layer="21"/>
+<wire x1="-0.5" y1="-1.1" x2="0.45" y2="-1.1" width="0.127" layer="21"/>
+<rectangle x1="-2.875" y1="0.775" x2="-1.575" y2="1.375" layer="31"/>
+<rectangle x1="1.575" y1="0.775" x2="2.875" y2="1.375" layer="31"/>
+<rectangle x1="1.575" y1="-1.375" x2="2.875" y2="-0.775" layer="31"/>
+<rectangle x1="-2.875" y1="-1.375" x2="-1.575" y2="-0.775" layer="31"/>
+<rectangle x1="1.5" y1="0.7" x2="2.95" y2="1.45" layer="29"/>
+<rectangle x1="-2.95" y1="0.7" x2="-1.5" y2="1.45" layer="29"/>
+<rectangle x1="-2.95" y1="-1.45" x2="-1.5" y2="-0.7" layer="29"/>
+<rectangle x1="1.5" y1="-1.45" x2="2.95" y2="-0.7" layer="29"/>
+<wire x1="-2.1" y1="0.6" x2="-2.1" y2="-0.6" width="0.127" layer="21"/>
+<wire x1="2.1" y1="0.6" x2="2.1" y2="-0.6" width="0.127" layer="21"/>
+</package>
+<package name="SKRPACE010">
+<description>&lt;b&gt;ALPS TACT Switch&lt;/b&gt;&lt;p&gt;
+4.2×3.2mm小型重作動力タイプ(表面実装) SKRP シリーズ&lt;br&gt;</description>
+<smd name="3" x="-2.075" y="-1.075" dx="1.05" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="4" x="2.075" y="-1.075" dx="1.05" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="2" x="2.075" y="1.075" dx="1.05" dy="0.65" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-2.075" y="1.075" dx="1.05" dy="0.65" layer="1" stop="no" cream="no"/>
+<text x="-2.143125" y="1.8575" size="0.7112" layer="25">&gt;NAME</text>
+<text x="-2.143125" y="-2.548125" size="0.7112" layer="27">&gt;VALUE</text>
+<rectangle x1="2.1" y1="-1.35" x2="2.3" y2="-0.8" layer="51"/>
+<wire x1="-2.1" y1="1.6" x2="2.1" y2="1.6" width="0.127" layer="51"/>
+<wire x1="2.1" y1="1.6" x2="2.1" y2="-1.6" width="0.127" layer="51"/>
+<wire x1="2.1" y1="-1.6" x2="-2.1" y2="-1.6" width="0.127" layer="51"/>
+<wire x1="-2.1" y1="-1.6" x2="-2.1" y2="1.6" width="0.127" layer="51"/>
+<rectangle x1="-2.3" y1="0.8" x2="-2.1" y2="1.35" layer="51"/>
+<rectangle x1="-2.3" y1="-1.35" x2="-2.1" y2="-0.8" layer="51"/>
+<rectangle x1="2.1" y1="0.8" x2="2.3" y2="1.35" layer="51"/>
+<wire x1="-1.5" y1="0" x2="-0.5" y2="1.1" width="0.127" layer="51" curve="-84.805571"/>
+<wire x1="-0.5" y1="-1.1" x2="-1.5" y2="0" width="0.127" layer="51" curve="-84.805571"/>
+<wire x1="1.5" y1="0" x2="0.45" y2="-1.1" width="0.127" layer="51" curve="-87.397438"/>
+<wire x1="1.5" y1="0" x2="0.5" y2="1.1" width="0.127" layer="51" curve="84.805571"/>
+<wire x1="-0.5" y1="1.1" x2="0.5" y2="1.1" width="0.127" layer="51"/>
+<wire x1="-0.5" y1="-1.1" x2="0.45" y2="-1.1" width="0.127" layer="51"/>
+<rectangle x1="-2.6" y1="0.75" x2="-1.55" y2="1.4" layer="31"/>
+<rectangle x1="1.55" y1="0.75" x2="2.6" y2="1.4" layer="31"/>
+<rectangle x1="1.55" y1="-1.4" x2="2.6" y2="-0.75" layer="31"/>
+<rectangle x1="-2.6" y1="-1.4" x2="-1.55" y2="-0.75" layer="31"/>
+<rectangle x1="1.5" y1="0.7" x2="2.65" y2="1.45" layer="29"/>
+<rectangle x1="-2.65" y1="0.7" x2="-1.5" y2="1.45" layer="29"/>
+<rectangle x1="-2.65" y1="-1.45" x2="-1.5" y2="-0.7" layer="29"/>
+<rectangle x1="1.5" y1="-1.45" x2="2.65" y2="-0.7" layer="29"/>
+</package>
+<package name="SKTADAE010">
+<description>&lt;b&gt;タクタイルスイッチ 2.6X1.6X.56MM&lt;/b&gt;&lt;p&gt;
+ALPS SKTADAE010</description>
+<smd name="1" x="-1.325" y="0.375" dx="0.55" dy="0.55" layer="1"/>
+<smd name="3" x="-1.325" y="-0.375" dx="0.55" dy="0.55" layer="1"/>
+<smd name="4" x="1.325" y="-0.375" dx="0.55" dy="0.55" layer="1"/>
+<smd name="2" x="1.325" y="0.375" dx="0.55" dy="0.55" layer="1"/>
+<wire x1="-1.3" y1="-0.8" x2="-1.3" y2="0.8" width="0.127" layer="51"/>
+<wire x1="1.3" y1="0.8" x2="1.3" y2="-0.8" width="0.127" layer="51"/>
+<text x="-1.349375" y="1.190625" size="0.7112" layer="25" ratio="11">&gt;NAME</text>
+<text x="-1.349375" y="-1.285875" size="0.7112" layer="27" ratio="11" align="top-left">&gt;VALUE</text>
+<circle x="0" y="0" radius="0.5" width="0.127" layer="21"/>
+<wire x1="-1.3" y1="0.8" x2="1.3" y2="0.8" width="0.127" layer="51"/>
+<wire x1="-1.3" y1="-0.8" x2="1.3" y2="-0.8" width="0.127" layer="51"/>
+</package>
+<package name="FC-135">
+<description>&lt;b&gt;kHz RANGE CRYSTAL UNIT&lt;/b&gt;&lt;p&gt;
+3.2 mm x 1.5 mm x 0.8 mm&lt;b&gt;</description>
+<wire x1="-1.6" y1="0.75" x2="1.6" y2="0.75" width="0.2032" layer="51"/>
+<wire x1="1.6" y1="0.75" x2="1.6" y2="-0.75" width="0.2032" layer="51"/>
+<wire x1="1.6" y1="-0.75" x2="-1.6" y2="-0.75" width="0.2032" layer="51"/>
+<wire x1="-1.6" y1="-0.75" x2="-1.6" y2="0.75" width="0.2032" layer="51"/>
+<circle x="0" y="0" radius="0.175" width="0" layer="21"/>
+<smd name="1" x="-1.25" y="0" dx="1" dy="1.8" layer="1"/>
+<smd name="2" x="1.25" y="0" dx="1" dy="1.8" layer="1"/>
+<text x="-1.8" y="1.3" size="0.6" layer="25">&gt;NAME</text>
+<text x="-1.8" y="-1.8" size="0.6" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.7" y1="-0.9" x2="0.7" y2="0.9" layer="39"/>
+</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -948,6 +1042,44 @@ P-channel enhancement mode Field-Effect Transistor</description>
 <pin name="G" x="-5.08" y="2.54" visible="off" length="short" direction="pas"/>
 <pin name="D" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 <pin name="S" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+</symbol>
+<symbol name="TS2">
+<wire x1="0" y1="1.905" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="1.905" x2="-3.175" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="-1.905" x2="-3.175" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="1.905" x2="-4.445" y2="0" width="0.254" layer="94"/>
+<wire x1="-4.445" y1="0" x2="-4.445" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-0.635" y2="0" width="0.1524" layer="94"/>
+<wire x1="-4.445" y1="0" x2="-3.175" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<circle x="0" y="-2.54" radius="0.127" width="0.4064" layer="94"/>
+<circle x="0" y="2.54" radius="0.127" width="0.4064" layer="94"/>
+<text x="-6.35" y="-2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="-3.81" y="3.175" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="P" x="0" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
+<pin name="S" x="0" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="S1" x="2.54" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="P1" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
+</symbol>
+<symbol name="XTAL">
+<description>&lt;b&gt;クリスタル&lt;/b&gt;&lt;p&gt;</description>
+<wire x1="1.016" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.016" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.381" y1="1.524" x2="-0.381" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="-0.381" y1="-1.524" x2="0.381" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="0.381" y1="-1.524" x2="0.381" y2="1.524" width="0.254" layer="94"/>
+<wire x1="0.381" y1="1.524" x2="-0.381" y2="1.524" width="0.254" layer="94"/>
+<wire x1="1.016" y1="1.778" x2="1.016" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="1.778" x2="-1.016" y2="-1.778" width="0.254" layer="94"/>
+<text x="2.54" y="1.016" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.159" y="-1.143" size="0.8636" layer="93">1</text>
+<text x="1.524" y="-1.143" size="0.8636" layer="93">2</text>
+<pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-2.54" y="0" visible="pad" length="point" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1395,6 +1527,87 @@ DFN-1110D-3</description>
 <connect gate="G$1" pin="D" pad="3"/>
 <connect gate="G$1" pin="G" pad="1"/>
 <connect gate="G$1" pin="S" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SKRPACE010" prefix="SW">
+<description>&lt;b&gt;表面実装用タクトスイッチ&lt;/b&gt;&lt;p&gt;
+４．２×３．２ｍｍ小型重作動力タイプ&lt;br&gt;
+・作動力：２．５５Ｎ&lt;br&gt;
+・操作方向：垂直&lt;br&gt;
+・移動量：０．２ｍｍ&lt;br&gt;
+・動作寿命：５０，０００ｃｙｃｌｅｓ&lt;br&gt;
+　　　　　　（５ｍＡ　５ＶＤＣ）&lt;br&gt;
+・初期接触抵抗：最大５００ｍΩ&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="TS2" x="0" y="5.08"/>
+</gates>
+<devices>
+<device name="_" package="SKRPACE010_DEV">
+<connects>
+<connect gate="G$1" pin="P" pad="1"/>
+<connect gate="G$1" pin="P1" pad="2"/>
+<connect gate="G$1" pin="S" pad="3"/>
+<connect gate="G$1" pin="S1" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="SKRPACE010">
+<connects>
+<connect gate="G$1" pin="P" pad="1"/>
+<connect gate="G$1" pin="P1" pad="2"/>
+<connect gate="G$1" pin="S" pad="3"/>
+<connect gate="G$1" pin="S1" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SKTADAE010" prefix="SW">
+<description>&lt;b&gt;表面実装用タクトスイッチ&lt;/b&gt;&lt;p&gt;
+2.6×1.6ｍｍ小型重作動力タイプ&lt;br&gt;
+・作動力：2.4 N&lt;br&gt;
+・操作方向：垂直&lt;br&gt;
+・移動量：0.11 mm&lt;br&gt;
+・定格：50 mA　12 VDC&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="TS2" x="0" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="SKTADAE010">
+<connects>
+<connect gate="G$1" pin="P" pad="1"/>
+<connect gate="G$1" pin="P1" pad="3"/>
+<connect gate="G$1" pin="S" pad="2"/>
+<connect gate="G$1" pin="S1" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FC-135_32.7680KA" prefix="X">
+<description>&lt;b&gt;kHz RANGE CRYSTAL UNIT&lt;/b&gt;&lt;p&gt;
+Frequency range : 32.768 kHz&lt;br&gt;
+External dimensions : 3.2 × 1.5 × 0.80 mm&lt;br&gt;
+Overtone order : Fundamental&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="XTAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-AC" package="FC-135">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1858,6 +2071,21 @@ Right Angle, Bottom Contact</description>
 <part name="R11" library="Parts" deviceset="RESISTOR" device="_0402N"/>
 <part name="R12" library="Parts" deviceset="RESISTOR" device="_0402N"/>
 <part name="Q1" library="Parts" deviceset="BSS84AKQB" device="Z"/>
+<part name="SW1" library="Parts" deviceset="SKRPACE010" device=""/>
+<part name="SW2" library="Parts" deviceset="SKTADAE010" device=""/>
+<part name="GND14" library="Supply" deviceset="0V" device=""/>
+<part name="GND15" library="Supply" deviceset="0V" device=""/>
+<part name="GND16" library="Supply" deviceset="0V" device=""/>
+<part name="GND17" library="Supply" deviceset="0V" device=""/>
+<part name="GND18" library="Supply" deviceset="0V" device=""/>
+<part name="GND19" library="Supply" deviceset="0V" device=""/>
+<part name="C8" library="Parts" deviceset="CAP" device="_0402K" value="UMK105B7104KV-FR"/>
+<part name="C9" library="Parts" deviceset="CAP" device="_0402K" value="04025A120F4T2A"/>
+<part name="C10" library="Parts" deviceset="CAP" device="_0402K" value="04025A120F4T2A"/>
+<part name="C11" library="Parts" deviceset="CAP" device="_0603N" value="C1608X7S1A475M080AC"/>
+<part name="C12" library="Parts" deviceset="CAP" device="_0603N" value="C1608X7S1A475M080AC"/>
+<part name="X1" library="Parts" deviceset="FC-135_32.7680KA" device="-AC"/>
+<part name="R13" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW040210K0JNEDC"/>
 </parts>
 <sheets>
 <sheet>
@@ -1866,13 +2094,166 @@ Right Angle, Bottom Contact</description>
 <text x="182.88" y="10.16" size="3.175" layer="91">(rev1)</text>
 <text x="217.17" y="20.32" size="1.778" layer="91">MDBT53 evaluation board</text>
 <text x="20.32" y="157.48" size="3.302" layer="91">モジュール部</text>
+<text x="149.86" y="154.94" size="2.794" layer="91">32.768kHzクリスタル</text>
+<text x="205.74" y="154.94" size="2.794" layer="91">バイパスコンデンサー</text>
+<text x="165.1" y="93.98" size="2.794" layer="91">リセットボタン</text>
+<text x="165.1" y="53.34" size="2.794" layer="91">ユーザーボタン</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="SW1" gate="G$1" x="200.66" y="40.64" rot="R270"/>
+<instance part="SW2" gate="G$1" x="210.82" y="76.2" smashed="yes">
+<attribute name="NAME" x="215.9" y="74.93" size="1.778" layer="95"/>
+<attribute name="VALUE" x="215.9" y="71.755" size="1.778" layer="96"/>
+</instance>
+<instance part="GND14" gate="1" x="195.58" y="63.5"/>
+<instance part="GND15" gate="1" x="213.36" y="63.5"/>
+<instance part="GND16" gate="1" x="213.36" y="33.02"/>
+<instance part="GND17" gate="1" x="210.82" y="106.68"/>
+<instance part="GND18" gate="1" x="210.82" y="132.08"/>
+<instance part="GND19" gate="1" x="167.64" y="106.68"/>
+<instance part="C8" gate="G$1" x="195.58" y="78.74" smashed="yes">
+<attribute name="NAME" x="192.024" y="74.93" size="1.778" layer="95" align="bottom-right"/>
+<attribute name="VALUE" x="192.024" y="71.501" size="1.778" layer="96" align="bottom-right"/>
+</instance>
+<instance part="C9" gate="G$1" x="154.94" y="127"/>
+<instance part="C10" gate="G$1" x="180.34" y="127"/>
+<instance part="C11" gate="G$1" x="210.82" y="119.38"/>
+<instance part="C12" gate="G$1" x="210.82" y="144.78"/>
+<instance part="X1" gate="G$1" x="167.64" y="134.62" smashed="yes">
+<attribute name="NAME" x="165.1" y="138.176" size="1.778" layer="95"/>
+<attribute name="VALUE" x="165.1" y="129.54" size="1.778" layer="96"/>
+</instance>
+<instance part="R13" gate="G$1" x="180.34" y="83.82" smashed="yes">
+<attribute name="NAME" x="182.88" y="88.9" size="1.778" layer="95"/>
+<attribute name="VALUE" x="182.88" y="85.598" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="0V" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="S1"/>
+<pinref part="GND16" gate="1" pin="0V"/>
+<wire x1="205.74" y1="38.1" x2="213.36" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="38.1" x2="213.36" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="SW1" gate="G$1" pin="S"/>
+<wire x1="205.74" y1="40.64" x2="213.36" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="40.64" x2="213.36" y2="38.1" width="0.1524" layer="91"/>
+<junction x="213.36" y="38.1"/>
+</segment>
+<segment>
+<pinref part="GND18" gate="1" pin="0V"/>
+<pinref part="C12" gate="G$1" pin="2"/>
+<wire x1="210.82" y1="134.62" x2="210.82" y2="137.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C11" gate="G$1" pin="2"/>
+<pinref part="GND17" gate="1" pin="0V"/>
+<wire x1="210.82" y1="111.76" x2="210.82" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="119.38" x2="154.94" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="GND19" gate="1" pin="0V"/>
+<wire x1="154.94" y1="114.3" x2="167.64" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="114.3" x2="167.64" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="167.64" y1="114.3" x2="180.34" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="114.3" x2="180.34" y2="119.38" width="0.1524" layer="91"/>
+<junction x="167.64" y="114.3"/>
+</segment>
+<segment>
+<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="GND14" gate="1" pin="0V"/>
+<wire x1="195.58" y1="71.12" x2="195.58" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="SW2" gate="G$1" pin="P"/>
+<wire x1="210.82" y1="71.12" x2="210.82" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="68.58" x2="213.36" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="GND15" gate="1" pin="0V"/>
+<wire x1="213.36" y1="68.58" x2="213.36" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="SW2" gate="G$1" pin="P1"/>
+<wire x1="213.36" y1="68.58" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
+<junction x="213.36" y="68.58"/>
+</segment>
+</net>
+<net name="USER_SW" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="P1"/>
+<wire x1="195.58" y1="38.1" x2="187.96" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="38.1" x2="187.96" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="SW1" gate="G$1" pin="P"/>
+<wire x1="195.58" y1="40.64" x2="187.96" y2="40.64" width="0.1524" layer="91"/>
+<label x="180.34" y="40.64" size="1.778" layer="95" rot="R180" xref="yes"/>
+<junction x="187.96" y="40.64"/>
+<wire x1="187.96" y1="40.64" x2="180.34" y2="40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="210.82" y1="119.38" x2="210.82" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="124.46" x2="220.98" y2="124.46" width="0.1524" layer="91"/>
+<label x="220.98" y="124.46" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="XL1" class="0">
+<segment>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="154.94" y1="127" x2="154.94" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="X1" gate="G$1" pin="1"/>
+<wire x1="154.94" y1="134.62" x2="165.1" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="134.62" x2="154.94" y2="139.7" width="0.1524" layer="91"/>
+<junction x="154.94" y="134.62"/>
+<label x="154.94" y="139.7" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="XL2" class="0">
+<segment>
+<pinref part="X1" gate="G$1" pin="2"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="170.18" y1="134.62" x2="180.34" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="134.62" x2="180.34" y2="127" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="134.62" x2="180.34" y2="139.7" width="0.1524" layer="91"/>
+<junction x="180.34" y="134.62"/>
+<label x="180.34" y="139.7" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="SW2" gate="G$1" pin="S"/>
+<wire x1="210.82" y1="81.28" x2="210.82" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="78.74" x2="195.58" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="83.82" x2="210.82" y2="83.82" width="0.1524" layer="91"/>
+<junction x="210.82" y="83.82"/>
+<wire x1="210.82" y1="83.82" x2="213.36" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="SW2" gate="G$1" pin="S1"/>
+<wire x1="213.36" y1="83.82" x2="220.98" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="81.28" x2="213.36" y2="83.82" width="0.1524" layer="91"/>
+<junction x="213.36" y="83.82"/>
+<label x="220.98" y="83.82" size="1.778" layer="95" xref="yes"/>
+<pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="190.5" y1="83.82" x2="195.58" y2="83.82" width="0.1524" layer="91"/>
+<junction x="195.58" y="83.82"/>
+</segment>
+</net>
+<net name="VDD_NRF" class="0">
+<segment>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="83.82" x2="172.72" y2="83.82" width="0.1524" layer="91"/>
+<label x="172.72" y="83.82" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="C12" gate="G$1" pin="1"/>
+<wire x1="210.82" y1="144.78" x2="210.82" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="149.86" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
+<label x="220.98" y="149.86" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
