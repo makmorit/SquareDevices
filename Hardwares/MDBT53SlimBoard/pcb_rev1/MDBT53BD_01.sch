@@ -2068,8 +2068,8 @@ CR1216/1225&lt;br&gt;
 <part name="U1" library="MDBT53_210707" deviceset="MDBT53" device=""/>
 <part name="X1" library="Parts" deviceset="NX3215SA" device="-32.768K-STD-MUA-9"/>
 <part name="R7" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW04022R20FKEDC"/>
-<part name="R8" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW040227R0FKEDC"/>
-<part name="R9" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW040227R0FKEDC"/>
+<part name="R8" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW04020000Z0EDC"/>
+<part name="R9" library="Parts" deviceset="RESISTOR" device="_0402N" value="CRCW04020000Z0EDC"/>
 <part name="SW1" library="Parts" deviceset="SKRPACE010" device=""/>
 <part name="GND14" library="Supply" deviceset="0V" device=""/>
 <part name="SW2" library="Parts" deviceset="SKRPACE010" device=""/>
