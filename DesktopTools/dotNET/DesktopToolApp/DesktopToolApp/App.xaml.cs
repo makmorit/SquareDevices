@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using AppCommon;
+using System.Threading;
 using System.Windows;
 using static DesktopTool.AppMessages;
 
@@ -20,11 +21,15 @@ namespace DesktopToolApp
                 MutexRef.Close();
                 Shutdown();
             }
+
+            // ログ記録開始
+            AppUtil.StartLogging();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             // TODO: 業務終了時の処理
+            AppUtil.StopLogging();
 
             // Mutexを解放
             if (MutexRef != null) {

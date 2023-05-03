@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using static DesktopTool.AppMessages;
 
 namespace AppCommon
 {
@@ -11,6 +12,7 @@ namespace AppCommon
         private readonly string AppVersion;
         private readonly string AppCopyright;
         private readonly string AppBundleName;
+        private readonly string AppTitle;
 
         private AppUtil()
         {
@@ -18,6 +20,13 @@ namespace AppCommon
             AppVersion = string.Format("Version {0}", GetAppVersion());
             AppCopyright = GetAppCopyright();
             AppBundleName = GetAppBundleName();
+
+            // メイン画面のタイトルを設定
+            if (IsVendorDesktopTool()) {
+                AppTitle = MSG_VENDOR_TOOL_TITLE;
+            } else {
+                AppTitle = MSG_TOOL_TITLE;
+            }
         }
 
         private static string GetAppVersion()
@@ -56,6 +65,39 @@ namespace AppCommon
             }
         }
 
+        public static string GetApplicationName()
+        {
+            // 製品名の文字列を戻す
+            AssemblyProductAttribute attribute = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyProductAttribute>()!;
+            if (attribute == null) {
+                return "DesktopToolApp";
+            } else {
+                return attribute.Product;
+            }
+        }
+
+        //
+        // ログ関連
+        //
+        public static void StartLogging()
+        {
+            // アプリケーション開始ログを出力
+            // ログ出力を行うアプリケーション名を設定
+            AppLogUtil.SetOutputLogApplName(GetApplicationName());
+            AppLogUtil.OutputLogInfo(string.Format("{0}を起動しました: {1}", GetAppTitleString(), AppUtil.GetAppVersionString()));
+        }
+
+        public static void StopLogging()
+        {
+            // アプリケーション終了ログを出力
+            AppLogUtil.OutputLogInfo(string.Format("{0}を終了しました", GetAppTitleString()));
+        }
+
+        public static bool IsVendorDesktopTool()
+        {
+            return GetApplicationName().Equals("VendorDesktopTool");
+        }
+
         //
         // 公開用メソッド
         //
@@ -72,6 +114,11 @@ namespace AppCommon
         public static string GetAppBundleNameString()
         {
             return Instance.AppBundleName;
+        }
+
+        public static string GetAppTitleString()
+        {
+            return Instance.AppTitle;
         }
 
         // 
