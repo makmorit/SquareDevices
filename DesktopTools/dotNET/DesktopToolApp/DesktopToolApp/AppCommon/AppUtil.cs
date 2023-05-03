@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopTool;
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -83,14 +84,14 @@ namespace AppCommon
         {
             // アプリケーション開始ログを出力
             // ログ出力を行うアプリケーション名を設定
-            AppLogUtil.SetOutputLogApplName(GetApplicationName());
-            AppLogUtil.OutputLogInfo(string.Format("{0}を起動しました: {1}", GetAppTitleString(), AppUtil.GetAppVersionString()));
+            AppLogUtil.SetOutputLogApplName(AppInfoUtil.GetAppBundleNameString());
+            AppLogUtil.OutputLogInfo(string.Format("{0}を起動しました: {1}", AppInfoUtil.GetAppTitleString(), AppInfoUtil.GetAppVersionString()));
         }
 
         public static void StopLogging()
         {
             // アプリケーション終了ログを出力
-            AppLogUtil.OutputLogInfo(string.Format("{0}を終了しました", GetAppTitleString()));
+            AppLogUtil.OutputLogInfo(string.Format("{0}を終了しました", AppInfoUtil.GetAppTitleString()));
         }
 
         public static bool IsVendorDesktopTool()

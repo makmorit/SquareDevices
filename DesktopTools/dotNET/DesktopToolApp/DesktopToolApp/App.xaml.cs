@@ -1,4 +1,6 @@
 ﻿using AppCommon;
+using DesktopTool;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 using static DesktopTool.AppMessages;
@@ -23,6 +25,7 @@ namespace DesktopToolApp
             }
 
             // ログ記録開始
+            AppInfoUtil.NewInstance(Assembly.GetExecutingAssembly());
             AppUtil.StartLogging();
         }
 
