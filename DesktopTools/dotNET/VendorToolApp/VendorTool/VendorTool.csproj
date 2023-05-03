@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Compile Include="..\..\DesktopToolApp\DesktopToolApp\MainWindow.xaml.cs" Link="MainWindow.xaml.cs" />
+    <Compile Include="..\..\DesktopToolApp\DesktopToolApp\MainWindowViewModel.cs" Link="MainWindowViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
