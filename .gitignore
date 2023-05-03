@@ -1,2 +1,11 @@
 
 .DS_Store
+
+# ignore sub directories for Visual Studio
+obj
+Release
+
+# ignore sub directories
+core
+.vs
+.vscode
