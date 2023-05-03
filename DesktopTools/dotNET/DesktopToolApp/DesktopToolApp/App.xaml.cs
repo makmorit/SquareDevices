@@ -26,13 +26,13 @@ namespace DesktopToolApp
 
             // ログ記録開始
             AppInfoUtil.NewInstance(Assembly.GetExecutingAssembly());
-            AppUtil.StartLogging();
+            AppLogUtil.StartLogging();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             // TODO: 業務終了時の処理
-            AppUtil.StopLogging();
+            AppLogUtil.StopLogging();
 
             // Mutexを解放
             if (MutexRef != null) {

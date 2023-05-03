@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopTool;
+using System;
 using System.IO;
 using System.Text;
 
@@ -9,13 +10,24 @@ namespace AppCommon
         private static AppLogUtil Instance = new AppLogUtil();
         private string ApplicationName = "";
 
-        private AppLogUtil()
-        {
-        }
-
         //
         // 公開用メソッド
         //
+        public static void StartLogging()
+        {
+            // ログ出力を行うアプリケーション名を設定
+            SetApplicationName(AppInfoUtil.GetAppBundleNameString());
+
+            // アプリケーション開始ログを出力
+            OutputLogInfo(string.Format("{0}を起動しました: {1}", AppInfoUtil.GetAppTitleString(), AppInfoUtil.GetAppVersionString()));
+        }
+
+        public static void StopLogging()
+        {
+            // アプリケーション終了ログを出力
+            OutputLogInfo(string.Format("{0}を終了しました", AppInfoUtil.GetAppTitleString()));
+        }
+
         public static void SetApplicationName(string applicationName)
         {
             Instance.ApplicationName = applicationName;
@@ -37,11 +49,6 @@ namespace AppCommon
             } catch (Exception e) {
                 Console.Write(e.Message);
             }
-        }
-
-        public static void SetOutputLogApplName(string applName)
-        {
-            SetApplicationName(applName);
         }
 
         public static void OutputLogText(string logText)
