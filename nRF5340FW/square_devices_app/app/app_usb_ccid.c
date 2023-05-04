@@ -14,6 +14,7 @@
 #include "app_usb_bos.h"
 #include "app_usb_ccid_define.h"
 #include "app_event.h"
+#include "app_event_define.h"
 
 #define LOG_LEVEL LOG_LEVEL_DBG
 #include <zephyr/logging/log.h>

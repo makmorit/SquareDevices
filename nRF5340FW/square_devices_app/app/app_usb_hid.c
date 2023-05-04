@@ -12,6 +12,7 @@
 #include <zephyr/usb/class/usb_hid.h>
 
 #include "app_event.h"
+#include "app_event_define.h"
 
 // ログ出力制御
 #define LOG_LEVEL LOG_LEVEL_DBG

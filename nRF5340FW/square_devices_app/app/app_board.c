@@ -14,6 +14,7 @@
 
 #include "app_board.h"
 #include "app_event.h"
+#include "app_event_define.h"
 
 // ログ出力制御
 #include <zephyr/logging/log.h>

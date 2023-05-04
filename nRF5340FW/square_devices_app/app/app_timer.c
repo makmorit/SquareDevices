@@ -7,6 +7,8 @@
 #include <zephyr/types.h>
 #include <zephyr/kernel.h>
 
+#include "app_event.h"
+#include "app_event_define.h"
 #include "app_timer_define.h"
 
 // ログ出力制御

@@ -9,6 +9,7 @@
 #include <zephyr/usb/usb_device.h>
 
 #include "app_event.h"
+#include "app_event_define.h"
 #include "app_usb_bos.h"
 #include "app_usb_hid.h"
 

@@ -7,6 +7,7 @@
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_event.h"
+#include "app_event_define.h"
 #include "app_main.h"
 #include "app_rtcc.h"
 #include "app_timer.h"

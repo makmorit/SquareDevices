@@ -7,7 +7,8 @@
 #ifndef APP_TIMER_DEFINE_H
 #define APP_TIMER_DEFINE_H
 
-#include "app_event.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,7 +19,7 @@ extern "C" {
 //
 typedef struct {
     uint32_t    timeout_ms;
-    APP_EVENT_T callback_event;
+    uint8_t     callback_event;
     bool        is_repeat;
 } TIMER_CFG;
 
