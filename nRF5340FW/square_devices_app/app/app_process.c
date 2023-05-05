@@ -10,6 +10,8 @@
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_channel.h"
+#include "app_crypto.h"
+#include "app_crypto_define.h"
 #include "app_event.h"
 #include "app_event_define.h"
 #include "app_rtcc.h"
@@ -57,7 +59,15 @@ void app_process_subsys_init(void)
     // リアルタイムクロックカレンダーの初期化
     app_rtcc_initialize();
 
-    // Bluetoothサービス開始を指示
+    // 暗号化関連の初期化
+    //   別スレッドでランダムシードを生成
+    app_crypto_do_process(CRYPTO_EVT_INIT);
+}
+
+void app_process_app_crypto_init_done(void)
+{
+    // 暗号化関連の初期化処理完了
+    //   Bluetoothサービス開始を指示
     //   同時に、Flash ROMストレージが
     //   使用可能となります。
     app_ble_init();
@@ -190,6 +200,9 @@ void app_process_for_event(uint8_t event)
             break;
         case APEVT_CHANNEL_INIT_TIMEOUT:
             app_channel_on_channel_init_timeout();
+            break;
+        case APEVT_APP_CRYPTO_INIT_DONE:
+            app_process_app_crypto_init_done();
             break;
         default:
             // 業務イベントとして転送
