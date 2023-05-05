@@ -7,6 +7,8 @@
 #ifndef APP_PROCESS_H
 #define APP_PROCESS_H
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -16,6 +18,7 @@ extern "C" {
 //
 void        app_process_init(void);
 void        app_process_subsys_init(void);
+void        app_process_for_event(uint8_t event);
 
 #ifdef __cplusplus
 }

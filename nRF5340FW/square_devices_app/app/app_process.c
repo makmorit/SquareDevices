@@ -4,14 +4,22 @@
  *
  * Created on 2023/05/05, 11:27
  */
+#include <zephyr/types.h>
+#include <zephyr/kernel.h>
+
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_event.h"
 #include "app_event_define.h"
-#include "app_main.h"
 #include "app_rtcc.h"
+#include "app_status_indicator.h"
 #include "app_timer.h"
 #include "app_usb.h"
+
+// ログ出力制御
+#define LOG_LEVEL LOG_LEVEL_DBG
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(app_process);
 
 //
 // アプリケーション初期化処理
@@ -44,4 +52,96 @@ void app_process_subsys_init(void)
     //   同時に、Flash ROMストレージが
     //   使用可能となります。
     app_ble_init();
+}
+
+//
+// ボタンイベント振分け処理
+//
+static void button_pushed_long(void)
+{
+    // ボタン押下後、３秒経過した時の処理
+    app_channel_on_button_pushed_long();
+}
+
+static void button_pressed_long(void)
+{
+    // ボタン押下-->３秒経過後にボタンを離した時の処理
+    LOG_DBG("Long pushed");
+    app_channel_on_button_pressed_long();
+}
+
+static void button_pressed_short(void)
+{
+    // ボタン押下-->３秒以内にボタンを離した時の処理
+    // 各種業務処理を実行
+    if (app_main_button_pressed_short() == false) {
+        app_channel_on_button_pressed_short();
+    }
+}
+
+static void button_pressed(APP_EVENT_T event)
+{
+    // ボタン検知時刻を取得
+    static uint32_t time_pressed = 0;
+    uint32_t time_now = app_board_kernel_uptime_ms_get();
+
+    // ボタン検知間隔を取得
+    uint32_t elapsed = time_now - time_pressed;
+    time_pressed = time_now;
+
+    // ボタン検知間隔で判定
+    if (event == APEVT_BUTTON_RELEASED) {
+        if (elapsed > 3000) {
+            // 長押し
+            button_pressed_long();
+        } else {
+            // 短押し
+            button_pressed_short();
+        }
+        // 開始済みのタイマーを停止
+        app_timer_stop_for_longpush();
+    }
+
+    if (event == APEVT_BUTTON_PUSHED) {
+        // ボタン長押し時に先行してLEDを
+        // 点灯させるためのタイマーを開始
+        app_timer_start_for_longpush(3000, APEVT_BUTTON_PUSHED_LONG);
+    }
+}
+
+static void led_blink(void)
+{
+    // LED点滅管理を実行
+    app_status_indicator_blink();
+}
+
+static void enter_to_bootloader(void)
+{
+    // ブートローダーに制御を移すため、システムを再始動
+    app_board_prepare_for_system_reset();
+}
+
+void app_process_for_event(uint8_t event)
+{
+    // イベントに対応する処理を実行
+    switch (event) {
+        case APEVT_SUBSYS_INIT:
+            app_process_subsys_init();
+            break;
+        case APEVT_BUTTON_PUSHED_LONG:
+            button_pushed_long();
+            break;
+        case APEVT_BUTTON_PUSHED:
+        case APEVT_BUTTON_RELEASED:
+            button_pressed(event);
+            break;
+        case APEVT_LED_BLINK:
+            led_blink();
+            break;
+        case APEVT_ENTER_TO_BOOTLOADER:
+            enter_to_bootloader();
+            break;
+        default:
+            break;
+    }
 }
