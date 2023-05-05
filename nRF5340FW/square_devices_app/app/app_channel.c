@@ -14,7 +14,6 @@
 #include "app_event.h"
 #include "app_event_define.h"
 #include "app_flash_general_status.h"
-#include "app_func.h"
 #include "app_status_indicator.h"
 #include "app_settings.h"
 #include "app_timer.h"
@@ -106,23 +105,6 @@ void app_channel_on_ble_unavailable(void)
 {
     // 全色LEDを点灯し、ファームウェア異常停止を通知
     app_status_indicator_abort();
-}
-
-void app_channel_on_usb_configured(void)
-{
-    if (app_main_is_data_channel_initialized()) {
-        // 既にBLEチャネルが起動している場合は、
-        // システムを再始動させる
-        app_board_prepare_for_system_reset();
-        return;
-    }
-
-    // USBが使用可能になったことを
-    // LED点滅制御に通知
-    app_status_indicator_notify_usb_available(true);
-
-    // 各種業務処理を実行
-    app_main_hid_configured();
 }
 
 void app_channel_on_usb_disconnected(void)

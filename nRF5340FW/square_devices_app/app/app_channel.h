@@ -16,7 +16,6 @@ extern "C" {
 //
 void        app_channel_on_ble_available(void);
 void        app_channel_on_ble_unavailable(void);
-void        app_channel_on_usb_configured(void);
 void        app_channel_on_usb_disconnected(void);
 void        app_channel_on_channel_init_timeout(void);
 void        app_channel_on_ble_advertise_started(void);

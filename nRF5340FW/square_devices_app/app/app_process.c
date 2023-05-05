@@ -182,9 +182,6 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_PAIRING_ACCEPTED:
             app_channel_on_ble_pairing_accepted();
             break;
-        case APEVT_USB_CONFIGURED:
-            app_channel_on_usb_configured();
-            break;
         case APEVT_USB_DISCONNECTED:
             app_channel_on_usb_disconnected();
             break;
