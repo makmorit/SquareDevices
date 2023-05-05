@@ -1,8 +1,8 @@
 /* 
- * File:   app_main.c
+ * File:   app_process.c
  * Author: makmorit
  *
- * Created on 2023/05/04, 18:05
+ * Created on 2023/05/05, 11:27
  */
 #include "app_ble_init.h"
 #include "app_board.h"
@@ -16,7 +16,7 @@
 //
 // アプリケーション初期化処理
 //
-void app_main_init(void) 
+void app_process_init(void) 
 {
     // ボタン、LEDを使用可能にする
     app_board_initialize();
@@ -35,7 +35,7 @@ void app_main_init(void)
     app_event_notify(APEVT_SUBSYS_INIT);
 }
 
-void app_main_subsys_init(void)
+void app_process_subsys_init(void)
 {
     // リアルタイムクロックカレンダーの初期化
     app_rtcc_initialize();

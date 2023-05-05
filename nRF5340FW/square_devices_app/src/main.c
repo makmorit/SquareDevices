@@ -22,7 +22,7 @@
 #include <zephyr/settings/settings.h>
 
 #else
-#include "app_main.h"
+#include "app_process.h"
 #endif
 
 #ifdef ORIGINAL_SOURCE
@@ -111,6 +111,6 @@ void main(void)
 
 	printk("Advertising successfully started\n");
 #else
-        app_main_init();
+        app_process_init();
 #endif
 }
