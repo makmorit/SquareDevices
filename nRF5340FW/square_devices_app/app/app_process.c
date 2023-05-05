@@ -23,6 +23,14 @@
 LOG_MODULE_REGISTER(app_process);
 
 //
+// 業務イベント転送用
+//
+void app_main_for_event(APP_EVENT_T event);
+void app_main_for_data_event(DATA_EVENT_T event, uint8_t *data, size_t size);
+bool app_main_button_pressed_short(void);
+void app_main_button_pressed_sub(void);
+
+//
 // アプリケーション初期化処理
 //
 void app_process_init(void) 
@@ -110,6 +118,11 @@ static void button_pressed(APP_EVENT_T event)
     }
 }
 
+static void button_1_pressed(void)
+{
+    app_main_button_pressed_sub();
+}
+
 static void led_blink(void)
 {
     // LED点滅管理を実行
@@ -135,6 +148,9 @@ void app_process_for_event(uint8_t event)
         case APEVT_BUTTON_PUSHED:
         case APEVT_BUTTON_RELEASED:
             button_pressed(event);
+            break;
+        case APEVT_BUTTON_1_RELEASED:
+            button_1_pressed();
             break;
         case APEVT_LED_BLINK:
             led_blink();
@@ -179,6 +195,22 @@ void app_process_for_event(uint8_t event)
             app_channel_on_channel_init_timeout();
             break;
         default:
+            // 業務イベントとして転送
+            app_main_for_event(event);
+            break;
+    }
+}
+
+//
+// データ処理イベント
+//
+void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
+{
+    // イベントに対応する処理を実行
+    switch (event) {
+        default:
+            // 業務イベントとして転送
+            app_main_for_data_event(event, data, size);
             break;
     }
 }
