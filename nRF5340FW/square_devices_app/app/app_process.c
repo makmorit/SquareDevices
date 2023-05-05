@@ -9,6 +9,7 @@
 
 #include "app_ble_init.h"
 #include "app_board.h"
+#include "app_channel.h"
 #include "app_event.h"
 #include "app_event_define.h"
 #include "app_rtcc.h"
@@ -140,6 +141,42 @@ void app_process_for_event(uint8_t event)
             break;
         case APEVT_ENTER_TO_BOOTLOADER:
             enter_to_bootloader();
+            break;
+        case APEVT_BLE_AVAILABLE:
+            app_channel_on_ble_available();
+            break;
+        case APEVT_BLE_UNAVAILABLE:
+            app_channel_on_ble_unavailable();
+            break;
+        case APEVT_BLE_ADVERTISE_STARTED:
+            app_channel_on_ble_advertise_started();
+            break;
+        case APEVT_BLE_CONNECTED:
+            app_channel_on_ble_connected();
+            break;
+        case APEVT_BLE_DISCONNECTED:
+            app_channel_on_ble_disconnected();
+            break;
+        case APEVT_BLE_CONNECTION_FAILED:
+            app_channel_on_ble_connection_failed();
+            break;
+        case APEVT_BLE_PAIRING_FAILED:
+            app_channel_on_ble_pairing_failed();
+            break;
+        case APEVT_BLE_PAIRING_ACCEPTED:
+            app_channel_on_ble_pairing_accepted();
+            break;
+        case APEVT_USB_CONFIGURED:
+            app_channel_on_usb_configured();
+            break;
+        case APEVT_USB_DISCONNECTED:
+            app_channel_on_usb_disconnected();
+            break;
+        case APEVT_IDLING_DETECTED:
+            app_channel_on_ble_idling_detected();
+            break;
+        case APEVT_CHANNEL_INIT_TIMEOUT:
+            app_channel_on_channel_init_timeout();
             break;
         default:
             break;
