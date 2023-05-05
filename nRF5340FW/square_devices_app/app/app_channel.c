@@ -60,14 +60,7 @@ static void change_to_pairing_mode(void)
 static void data_channel_initialized(void)
 {
     // 業務処理の初期化
-    app_main_data_channel_initialized();
-
-    // データ処理イベント（DATEVT_XXXX）を
-    // 通知できるようにする
-    app_event_data_enable(true);
-
-    // ボタン押下検知ができるようにする
-    app_board_button_press_enable(true);
+    app_event_notify(APEVT_CHANNEL_INITIALIZED);
 }
 
 static void idling_timer_start(void)
