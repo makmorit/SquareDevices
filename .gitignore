@@ -4,3 +4,12 @@
 # for EAGLE
 *.s#?
 *.b#?
+
+# ignore sub directories for Visual Studio
+obj
+Release
+
+# ignore sub directories
+core
+.vs
+.vscode
