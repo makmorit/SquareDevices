@@ -1,5 +1,6 @@
-
+# ignore for Xcode
 .DS_Store
+build
 
 # ignore sub directories for Visual Studio
 obj
