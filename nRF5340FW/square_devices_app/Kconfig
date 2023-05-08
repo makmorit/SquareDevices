@@ -1,0 +1,57 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+#
+# Application settings
+#
+config APP_FW_BUILD
+	int "Firmware build revision serial number"
+	default 100
+	help
+	  Serial number of application firmware build revision
+
+config APP_SETTINGS_BUFFER_SIZE
+	int "Read buffer size for app_settings"
+	default 128
+	depends on SETTINGS && SETTINGS_NVS
+	help
+	  Size of buffer for reading data from NVS
+
+config APP_SETTINGS_THREAD_STACK_SIZE
+	int "Stack size for application thread"
+	default 2048
+	help
+	  Size of stack area used by application thread
+
+config APP_SETTINGS_THREAD_PRIORITY
+	int "Priority for application thread"
+	default 7
+	help
+	  Number of scheduling priority used by application thread
+
+config APP_SETTINGS_GENERATE_RSA2048_KEYPAIR
+	bool "Generate RSA-2048 new keypair"
+	default n
+	help
+	  Enables generating RSA-2048 new keypair
+
+#
+# Enable external RTCC
+#
+config USE_EXTERNAL_RTCC
+	bool "Use external RTCC"
+	default n
+	depends on I2C
+	help
+	  Enables using of RV-3028-C7 as external RTCC
+
+#
+# Enable tiny TFT display
+#
+config USE_TINY_TFT
+	bool "Use external tiny TFT display"
+	default n
+	depends on SPI
+	help
+	  Enables using of KWH009ST01-F01 as external TFT display
+
+source "Kconfig.zephyr"

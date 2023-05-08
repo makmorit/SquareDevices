@@ -9,3 +9,6 @@ Release
 core
 .vs
 .vscode
+
+# ignore for Zephyr
+build_signed

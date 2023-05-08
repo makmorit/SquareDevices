@@ -1,0 +1,16 @@
+/* Disable unused peripherals to reduce power consumption */
+&i2c1 {
+    status = "okay";
+};
+&spi2 {
+    status = "disabled";
+};
+&adc {
+    status = "disabled";
+};
+&pwm0 {
+    status = "disabled";
+};
+&qspi {
+    status = "disabled";
+};
