@@ -61,7 +61,7 @@ void app_process_subsys_init(void)
 
     // 暗号化関連の初期化
     //   別スレッドでランダムシードを生成
-    app_crypto_do_process(CRYPTO_EVT_INIT);
+    app_crypto_event_notify(CRYPTO_EVT_INIT);
 }
 
 void app_process_app_crypto_init_done(void)
