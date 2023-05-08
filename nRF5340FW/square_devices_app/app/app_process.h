@@ -19,7 +19,6 @@ extern "C" {
 // 関数群
 //
 void        app_process_init(void);
-void        app_process_subsys_init(void);
 void        app_process_for_event(uint8_t event);
 void        app_process_for_data_event(uint8_t event, uint8_t *data, size_t size);
 

@@ -54,7 +54,7 @@ void app_process_init(void)
     app_event_notify(APEVT_SUBSYS_INIT);
 }
 
-void app_process_subsys_init(void)
+static void subsys_init(void)
 {
     // リアルタイムクロックカレンダーの初期化
     app_rtcc_initialize();
@@ -64,7 +64,7 @@ void app_process_subsys_init(void)
     app_crypto_event_notify(CRYPTO_EVT_INIT);
 }
 
-void app_process_app_crypto_init_done(void)
+static void app_crypto_init_done(void)
 {
     // 暗号化関連の初期化処理完了
     //   Bluetoothサービス開始を指示
@@ -150,7 +150,7 @@ void app_process_for_event(uint8_t event)
     // イベントに対応する処理を実行
     switch (event) {
         case APEVT_SUBSYS_INIT:
-            app_process_subsys_init();
+            subsys_init();
             break;
         case APEVT_BUTTON_PUSHED_LONG:
             button_pushed_long();
@@ -202,7 +202,7 @@ void app_process_for_event(uint8_t event)
             app_channel_on_channel_init_timeout();
             break;
         case APEVT_APP_CRYPTO_INIT_DONE:
-            app_process_app_crypto_init_done();
+            app_crypto_init_done();
             break;
         default:
             // 業務イベントとして転送
