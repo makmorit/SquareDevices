@@ -10,6 +10,7 @@ target_sources(app PRIVATE
     src/main.c
     ${app_sources}
     ${wrapper_sources}
+    $ENV{NCS_HOME}/mbedtls/library/ctr_drbg.c
 )
 target_include_directories(app PRIVATE 
     $ENV{NCS_HOME}/modules/lib/tinycbor/include
