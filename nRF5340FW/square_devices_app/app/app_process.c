@@ -7,6 +7,7 @@
 #include <zephyr/types.h>
 #include <zephyr/kernel.h>
 
+#include "app_ble_advertise.h"
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_channel.h"
@@ -27,10 +28,7 @@ LOG_MODULE_REGISTER(app_process);
 //
 // 業務イベント転送用
 //
-void app_main_for_event(APP_EVENT_T event);
-void app_main_for_data_event(DATA_EVENT_T event, uint8_t *data, size_t size);
-bool app_main_button_pressed_short(void);
-void app_main_button_pressed_sub(void);
+#include "wrapper_main.h"
 
 //
 // アプリケーション初期化処理
@@ -93,7 +91,7 @@ static void button_pressed_short(void)
 {
     // ボタン押下-->３秒以内にボタンを離した時の処理
     // 各種業務処理を実行
-    if (app_main_button_pressed_short() == false) {
+    if (wrapper_main_button_pressed_short() == false) {
         app_channel_on_button_pressed_short();
     }
 }
@@ -130,7 +128,7 @@ static void button_pressed(APP_EVENT_T event)
 
 static void button_1_pressed(void)
 {
-    app_main_button_pressed_sub();
+    wrapper_main_button_pressed_sub();
 }
 
 static void led_blink(void)
@@ -143,6 +141,23 @@ static void enter_to_bootloader(void)
 {
     // ブートローダーに制御を移すため、システムを再始動
     app_board_prepare_for_system_reset();
+}
+
+static void usb_configured(void)
+{
+    if (app_ble_advertise_is_available() && (app_ble_advertise_is_stopped() == false)) {
+        // 既にBLEチャネルが起動している場合は、
+        // システムを再始動させる
+        app_board_prepare_for_system_reset();
+        return;
+    }
+
+    // USBが使用可能になったことを
+    // LED点滅制御に通知
+    app_status_indicator_notify_usb_available(true);
+
+    // 各種業務処理を実行
+    wrapper_main_usb_configured();
 }
 
 void app_process_for_event(uint8_t event)
@@ -204,9 +219,34 @@ void app_process_for_event(uint8_t event)
         case APEVT_APP_CRYPTO_INIT_DONE:
             app_crypto_init_done();
             break;
+        case APEVT_USB_CONFIGURED:
+            usb_configured();
+            break;
+        case APEVT_CHANNEL_INITIALIZED:
+            wrapper_main_data_channel_initialized();
+            break;
+        case APEVT_APP_CRYPTO_RANDOM_PREGEN_DONE:
+            wrapper_main_crypto_random_pregen_done();
+            break;
+        case APEVT_HID_REQUEST_RECEIVED:
+            wrapper_main_hid_request_received();
+            break;
+        case APEVT_BLE_REQUEST_RECEIVED:
+            wrapper_main_ble_request_received();
+            break;
+        case APEVT_BLE_DISCONNECTED_WHILE_UNPAIRING:
+            wrapper_main_ble_disconnected_while_unpairing();
+            break;
+        case APEVT_CCID_REQUEST_RECEIVED:
+            wrapper_main_ccid_request_received();
+            break;
+        case APEVT_APP_SETTINGS_SAVED:
+            wrapper_main_app_settings_saved();
+            break;
+        case APEVT_APP_SETTINGS_DELETED:
+            wrapper_main_app_settings_deleted();
+            break;
         default:
-            // 業務イベントとして転送
-            app_main_for_event(event);
             break;
     }
 }
@@ -218,9 +258,55 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
 {
     // イベントに対応する処理を実行
     switch (event) {
+        case DATEVT_HID_DATA_FRAME_RECEIVED:
+            wrapper_main_hid_data_frame_received(data, size);
+            break;
+        case DATEVT_HID_REPORT_SENT:
+            wrapper_main_hid_report_sent();
+            break;
+        case DATEVT_CCID_DATA_FRAME_RECEIVED:
+            wrapper_main_ccid_data_frame_received(data, size);
+            break;
+        case DATEVT_BLE_DATA_FRAME_RECEIVED:
+            wrapper_main_ble_data_frame_received(data, size);
+            break;
+        case DATEVT_BLE_RESPONSE_SENT:
+            wrapper_main_ble_response_sent();
+            break;
         default:
-            // 業務イベントとして転送
-            app_main_for_data_event(event, data, size);
             break;
     }
+}
+
+//
+// 業務処理-->プラットフォーム連携用
+//   以下の関数は、
+//   wrapper_main.c から呼び出されます。
+//
+void app_main_wrapper_initialized(void)
+{
+    // データ処理イベント（DATEVT_XXXX）を
+    // 通知できるようにする
+    app_event_data_enable(true);
+
+    // ボタン押下検知ができるようにする
+    app_board_button_press_enable(true);
+
+    // バージョンをデバッグ出力
+    LOG_INF("Square device application (%s) version %s (%d)", CONFIG_BT_DIS_HW_REV_STR, CONFIG_BT_DIS_FW_REV_STR, CONFIG_APP_FW_BUILD);
+}
+
+void app_main_event_notify_hid_request_received(void)
+{
+    app_event_notify(APEVT_HID_REQUEST_RECEIVED);
+}
+
+void app_main_event_notify_ccid_request_received(void)
+{
+    app_event_notify(APEVT_CCID_REQUEST_RECEIVED);
+}
+
+void app_main_event_notify_ble_request_received(void)
+{
+    app_event_notify(APEVT_BLE_REQUEST_RECEIVED);
 }
