@@ -1,5 +1,9 @@
-
+# for macOS
 .DS_Store
+
+# for EAGLE
+*.s#?
+*.b#?
 
 # ignore sub directories for Visual Studio
 obj
