@@ -8,6 +8,7 @@
 #define FIDO_BLE_RECEIVE_H
 
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -17,7 +18,7 @@ extern "C" {
 //
 // 関数群
 //
-bool        fido_ble_receive_control_point(uint8_t *data, uint16_t length);
+bool        fido_ble_receive_control_point(uint8_t *data, size_t size);
 void        fido_ble_receive_on_request_received(void);
 
 #ifdef __cplusplus
