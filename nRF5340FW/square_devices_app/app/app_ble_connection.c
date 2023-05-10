@@ -15,9 +15,6 @@
 #include "app_event.h"
 #include "app_event_define.h"
 
-// 業務処理関連
-#include "fido_platform.h"
-
 #define LOG_LEVEL LOG_LEVEL_DBG
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app_ble_connection);
