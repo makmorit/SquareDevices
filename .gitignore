@@ -1,6 +1,12 @@
-# ignore for Xcode
+# for macOS
 .DS_Store
+
+# for Xcode
 build
+
+# for EAGLE
+*.s#?
+*.b#?
 
 # ignore sub directories for Visual Studio
 obj
@@ -10,3 +16,6 @@ Release
 core
 .vs
 .vscode
+
+# ignore for Zephyr
+build_signed
