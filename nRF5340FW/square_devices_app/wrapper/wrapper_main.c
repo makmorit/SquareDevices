@@ -10,6 +10,8 @@
 //
 // TODO: 業務処理関連のヘッダーをインクルード
 //
+#include "fido_ble_receive.h"
+#include "fido_ble_send.h"
 
 //
 // 業務処理-->プラットフォーム連携用
@@ -94,17 +96,21 @@ void wrapper_main_ccid_request_received(void)
 
 void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 {
-    // TODO: 各種業務処理を実行
+    if (fido_ble_receive_control_point(data, size)) {
+        // メインスレッドを経由し、
+        // wrapper_main_ble_request_received を実行させる
+        app_main_event_notify_ble_request_received();
+    }
 }
 
 void wrapper_main_ble_request_received(void)
 {
-    // TODO: 各種業務処理を実行
+    fido_ble_receive_on_request_received();
 }
 
 void wrapper_main_ble_response_sent(void)
 {
-    // TODO: 各種業務処理を実行
+    fido_ble_send_on_tx_complete();
 }
 
 void wrapper_main_ble_nus_data_frame_received(uint8_t *data, size_t size)
