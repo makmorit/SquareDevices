@@ -48,8 +48,15 @@ static void bt_receive_cb(struct bt_conn *conn, const uint8_t *const data, uint1
     }
 }
 
+static void bt_sent_cb(struct bt_conn *conn)
+{
+    // データ処理スレッドに通知
+    app_event_notify_for_data(DATEVT_BLE_NUS_RESPONSE_SENT, NULL, 0);
+}
+
 static struct bt_nus_cb nus_cb = {
     .received = bt_receive_cb,
+    .sent     = bt_sent_cb,
 };
 
 void app_ble_nus_init(void)
