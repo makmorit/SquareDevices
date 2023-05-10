@@ -17,24 +17,35 @@ LOG_MODULE_REGISTER(app_ble_nus);
 //
 #include <bluetooth/services/nus.h>
 
+#include "app_event.h"
+#include "app_event_define.h"
+
 #define LOG_HEXDUMP_DEBUG_RX        false
 #define LOG_HEXDUMP_DEBUG_TX        false
 
 // データ送受信用の一時変数
-static uint8_t m_rx_buf[80];
+static uint8_t m_rx_buf[64];
 static size_t  m_rx_buf_size;
 
 static void bt_receive_cb(struct bt_conn *conn, const uint8_t *const data, uint16_t len)
 {
-    // 受信バイトを一時領域に格納
+    // データ処理スレッドで処理できる最大バイト数
     size_t max_size = sizeof(m_rx_buf);
-    m_rx_buf_size = (len > max_size) ? max_size : len;
-    memcpy(m_rx_buf, data, m_rx_buf_size);
+
+    for (size_t received = 0; received < len; received += m_rx_buf_size) {
+        // 受信バイトを一時領域に格納
+        size_t remaining = len - received;
+        m_rx_buf_size = (remaining > max_size) ? max_size : remaining;
+        memcpy(m_rx_buf, data + received, m_rx_buf_size);
+
+        // データ処理スレッドに引き渡し
+        app_event_notify_for_data(DATEVT_BLE_NUS_DATA_FRAME_RECEIVED, m_rx_buf, m_rx_buf_size);
 
 #if LOG_HEXDUMP_DEBUG_RX
-    LOG_DBG("bt_receive_cb done (%d bytes)", m_rx_buf_size);
-    LOG_HEXDUMP_DBG(m_rx_buf, m_rx_buf_size, "Read buffer data");
+        LOG_DBG("bt_receive_cb done (%d bytes)", m_rx_buf_size);
+        LOG_HEXDUMP_DBG(m_rx_buf, m_rx_buf_size, "Read buffer data");
 #endif
+    }
 }
 
 static struct bt_nus_cb nus_cb = {
