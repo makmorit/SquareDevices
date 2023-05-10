@@ -59,3 +59,19 @@ void app_ble_nus_init(void)
         LOG_ERR("NUS init failed (bt_nus_init returns %d)", err);
 	}
 }
+
+bool app_ble_nus_send_data(uint8_t *data, size_t size)
+{
+    // BLEデバイスにフレーム送信
+    int ret = bt_nus_send(NULL, data, size);
+    if (ret != 0) {
+        LOG_ERR("bt_nus_send returns %d", ret);
+        return false;
+    }
+
+#if LOG_HEXDUMP_DEBUG_TX
+    LOG_DBG("bt_nus_send done (%d bytes)", size);
+    LOG_HEXDUMP_DBG(data, size, "Send data");
+#endif
+    return true;
+}
