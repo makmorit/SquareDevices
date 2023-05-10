@@ -56,6 +56,9 @@ typedef enum {
     DATEVT_BLE_RESPONSE_SENT,
 } DATA_EVENT_T;
 
+// データイベントで処理できるデータ長
+#define DATEVT_DATA_SIZE    64
+
 #ifdef __cplusplus
 }
 #endif

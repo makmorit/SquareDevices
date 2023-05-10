@@ -24,7 +24,7 @@ LOG_MODULE_REGISTER(app_ble_nus);
 #define LOG_HEXDUMP_DEBUG_TX        false
 
 // データ送受信用の一時変数
-static uint8_t m_rx_buf[64];
+static uint8_t m_rx_buf[DATEVT_DATA_SIZE];
 static size_t  m_rx_buf_size;
 
 static void bt_receive_cb(struct bt_conn *conn, const uint8_t *const data, uint16_t len)
