@@ -17,10 +17,24 @@ LOG_MODULE_REGISTER(app_ble_nus);
 //
 #include <bluetooth/services/nus.h>
 
+#define LOG_HEXDUMP_DEBUG_RX        false
+#define LOG_HEXDUMP_DEBUG_TX        false
+
+// データ送受信用の一時変数
+static uint8_t m_rx_buf[80];
+static size_t  m_rx_buf_size;
+
 static void bt_receive_cb(struct bt_conn *conn, const uint8_t *const data, uint16_t len)
 {
-    // TODO: 仮の実装です。
-    LOG_HEXDUMP_INF(data, len, "Received data");
+    // 受信バイトを一時領域に格納
+    size_t max_size = sizeof(m_rx_buf);
+    m_rx_buf_size = (len > max_size) ? max_size : len;
+    memcpy(m_rx_buf, data, m_rx_buf_size);
+
+#if LOG_HEXDUMP_DEBUG_RX
+    LOG_DBG("bt_receive_cb done (%d bytes)", m_rx_buf_size);
+    LOG_HEXDUMP_DBG(m_rx_buf, m_rx_buf_size, "Read buffer data");
+#endif
 }
 
 static struct bt_nus_cb nus_cb = {
