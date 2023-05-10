@@ -19,4 +19,5 @@ target_include_directories(app PRIVATE
     $ENV{ZEPHYR_BASE}/subsys/settings/include
     app
     $ENV{FWLIB_PATH}/fido2_lib
+    $ENV{FWLIB_PATH}/wrapper_header
 )

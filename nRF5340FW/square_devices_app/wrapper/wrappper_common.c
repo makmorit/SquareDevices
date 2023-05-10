@@ -1,0 +1,36 @@
+/* 
+ * File:   wrapper_common.c
+ * Author: makmorit
+ *
+ * Created on 2023/05/10, 17:22
+ */
+#include <zephyr/types.h>
+#include <zephyr/kernel.h>
+
+#include <stdio.h>
+
+// メッセージを保持
+static char message_buff[1024];
+
+void fido_log_debug(const char *fmt, ...)
+{
+    // メッセージをフォーマット
+    va_list ap;
+    va_start(ap, fmt);
+    vsprintf(message_buff, fmt, ap);
+    va_end(ap);
+
+    // メッセージを出力
+    printk("%s\n", message_buff);
+}
+
+void fido_log_print_hexdump_debug(uint8_t *data, size_t size)
+{
+    for (int i = 0; i < size; i++) {
+        printk("%02x ", data[i]);
+        if ((i % 16 == 15) && (i < size - 1)) {
+            printk("\n");
+        }
+    }
+    printk("\n");
+}
