@@ -58,6 +58,9 @@ extern "C" {
 #define U2F_COMMAND_CANCEL                  0x3e
 #define U2F_COMMAND_ERROR                   0x3f
 
+// U2Fトランスポート関連
+#define U2F_CONTROL_POINT_SIZE_MAX          64
+
 #ifdef __cplusplus
 }
 #endif
