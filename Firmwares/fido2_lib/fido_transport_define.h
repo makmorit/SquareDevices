@@ -44,6 +44,10 @@ typedef struct {
     uint8_t  ctap2_command;
 } FIDO_APDU_T;
 
+// U2Fトランスポート関連
+#define U2F_CONTROL_POINT_SIZE_MAX          64
+#define U2F_APDU_DATA_SIZE_MAX              1024
+
 #ifdef __cplusplus
 }
 #endif

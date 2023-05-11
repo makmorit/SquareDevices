@@ -51,15 +51,21 @@ extern "C" {
 #define CTAP2_ERR_VENDOR_FIRST              0xf0
 #define CTAP2_ERR_VENDOR_LAST               0xff
 
+// Command status responses
+#define U2F_SW_NO_ERROR                     0x9000
+#define U2F_SW_WRONG_DATA                   0x6A80
+#define U2F_SW_CONDITIONS_NOT_SATISFIED     0x6985
+#define U2F_SW_COMMAND_NOT_ALLOWED          0x6986
+#define U2F_SW_INS_NOT_SUPPORTED            0x6D00
+#define U2F_SW_WRONG_LENGTH                 0x6700
+#define U2F_SW_CLA_NOT_SUPPORTED            0x6E00
+
 // U2Fコマンドの識別用
 #define U2F_COMMAND_PING                    0x01
 #define U2F_COMMAND_KEEPALIVE               0x02
 #define U2F_COMMAND_MSG                     0x03
 #define U2F_COMMAND_CANCEL                  0x3e
 #define U2F_COMMAND_ERROR                   0x3f
-
-// U2Fトランスポート関連
-#define U2F_CONTROL_POINT_SIZE_MAX          64
 
 #ifdef __cplusplus
 }
