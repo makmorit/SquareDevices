@@ -258,6 +258,11 @@ void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer
 #endif
 }
 
+void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
+{
+    // TODO: 仮の実装です。
+}
+
 static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 先頭データが２回連続で送信された場合はエラー
@@ -372,10 +377,46 @@ static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffe
     fido_receive_apdu_from_init_frame(p_apdu, control_point_buffer, control_point_buffer_length, offset);
 }
 
-static void extract_apdu_from_continuation_packet(FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
+static void extract_apdu_from_continuation_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
-    // TODO: 仮の実装です。
-    fido_log_error("CONT frame process not implemented");
+    // 後続データフラグをクリア
+    p_command->CONT = false;
+
+    // CMDが空の場合は先頭レコード未送信とみなし、エラーと扱う
+    if (p_command->CMD == 0x00) {
+        fido_log_error("INIT frame not received ");
+        set_u2f_command_error(p_command, CTAP1_ERR_INVALID_SEQ);
+        return;
+    }
+
+    // SEQには、分割受信時の２番目以降の
+    // レコード連番が入ります
+    uint8_t sequence = control_point_buffer[0];
+
+    // シーケンスチェック
+    if (sequence == 0) {
+        if (p_command->SEQ != 0xff) {
+            fido_log_error("Irregular 1st sequence %d ", sequence);
+            set_u2f_command_error(p_command, CTAP1_ERR_INVALID_SEQ);
+            return;
+        }
+    } else {
+        if (sequence != p_command->SEQ+1) {
+            fido_log_error("Bad sequence %d-->%d ", p_command->SEQ, sequence);
+            set_u2f_command_error(p_command, CTAP1_ERR_INVALID_SEQ);
+            return;
+        }
+    }
+
+    // シーケンスを更新
+    p_command->SEQ = sequence;
+
+#if NRF_LOG_DEBUG_COMMAND
+    fido_log_debug("recv CONT frame: CMD(0x%02x) LEN(%d) SEQ(%d) ", p_command->CMD, p_command->LEN, p_command->SEQ);
+#endif
+
+    // パケットからAPDU(データ部分)を取り出し、別途確保した領域に格納
+    fido_receive_apdu_from_cont_frame(p_apdu, control_point_buffer, control_point_buffer_length);
 }
 
 //
@@ -409,7 +450,7 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size)
         extract_apdu_from_initialization_packet(data, size, &m_command, &m_apdu);
     } else {
         // 後続パケットに対する処理を行う
-        extract_apdu_from_continuation_packet(&m_command, &m_apdu);
+        extract_apdu_from_continuation_packet(data, size, &m_command, &m_apdu);
     }
 
     if (is_apdu_size_overflow(&m_apdu)) {
