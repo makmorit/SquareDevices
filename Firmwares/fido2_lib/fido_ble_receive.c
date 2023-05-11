@@ -60,6 +60,14 @@ static bool is_initialization_packet(uint8_t first_byte)
 
 static void u2f_request_receive_leading_packet(FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
+    // 先頭データが２回連続で送信された場合はエラー
+    // （前回リクエスト受信時に設定されたCMD、CONTを参照して判定）
+    if ((p_command->CMD & 0x80) && p_command->CONT) {
+        fido_log_error("INIT frame received again while CONT is expected ");
+        set_u2f_command_error(p_command, CTAP1_ERR_INVALID_SEQ);
+        return;
+    }
+
     // コマンドとAPDUを初期化
     memset(p_command, 0, sizeof(FIDO_COMMAND_T));
     memset(p_apdu,    0, sizeof(FIDO_APDU_T));
