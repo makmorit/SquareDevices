@@ -77,6 +77,12 @@ bool is_valid_ble_command(uint8_t command)
     }
 }
 
+uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+{
+    // TODO: 仮の実装です。
+    return offset;
+}
+
 static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 先頭データが２回連続で送信された場合はエラー
@@ -133,6 +139,34 @@ static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, si
     // APDUが送信されない場合は、ここで処理を終了
     if (control_point_buffer_length == 3) {
         return;
+    }
+
+    // Control Point参照用の先頭インデックス（＝処理済みバイト数）を保持
+    int offset = 3;
+
+    // CTAP2コマンドをクリア
+    p_apdu->ctap2_command = 0x00;
+
+    if (command == U2F_COMMAND_PING) {
+        // コマンドがPINGの場合
+        // データ長だけセットしておく
+        p_apdu->Lc = p_command->LEN;
+    } else {
+        uint8_t first_byte = control_point_buffer[offset];
+        if (first_byte != 0x00) {
+            // control pointの先頭から4バイトめが
+            // 0x00以外の場合は、CTAP2（または管理用）コマンドとみなし、
+            // ctap2_commandおよびデータ長だけをセットしておく
+            p_apdu->ctap2_command = first_byte;
+            p_apdu->Lc            = p_command->LEN;
+#if NRF_LOG_DEBUG_COMMAND
+            fido_log_debug("CTAP2 command(0x%02x) CBOR size(%d) ", first_byte, p_apdu->Lc - 1);
+#endif
+        } else {
+            // PING以外のU2Fコマンドである場合
+            // APDUヘッダー項目を編集して保持
+            offset += fido_receive_apdu_header(p_apdu, control_point_buffer, control_point_buffer_length, offset);
+        }
     }
 
     // TODO: 仮の実装です。

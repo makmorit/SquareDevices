@@ -41,6 +41,7 @@ typedef struct {
     uint8_t *data;
     uint32_t data_length;
     uint32_t Le;
+    uint8_t  ctap2_command;
 } FIDO_APDU_T;
 
 #ifdef __cplusplus
