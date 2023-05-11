@@ -52,7 +52,7 @@ static bool is_apdu_received_completely(FIDO_APDU_T *p_apdu)
 {
     if (p_apdu->data_length == p_apdu->Lc) {
 #if NRF_LOG_DEBUG_COMMAND
-        fido_log_debug("apdu data received(%d bytes)", p_apdu->data_length);
+        fido_log_debug("apdu data received completely(%d bytes)", p_apdu->data_length);
 #endif
         return true;
     } else {
@@ -260,7 +260,30 @@ void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer
 
 void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
 {
-    // TODO: 仮の実装です。
+    // 受信データの先頭アドレスとデータ長を取得
+    uint8_t *received_data        = control_point_buffer + 1;
+    uint16_t received_data_length = control_point_buffer_length - 1;
+
+    FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
+    if (p_apdu->data_length + received_data_length > p_apdu->Lc) {
+        // データの最終パケットだが、データ長をオーバーしている場合、
+        // オーバーした部分はLeバイトとして扱い、
+        // Leバイトを除いた部分を、データ部として扱う
+        uint16_t le_length = get_apdu_le_value(p_apdu, received_data, received_data_length);
+        received_data_length = received_data_length - le_length;
+    }
+
+    // コピー済みのデータの直後に取得したデータを連結
+    memcpy(p_apdu->data + p_apdu->data_length, received_data, received_data_length);
+    p_apdu->data_length += received_data_length;
+
+#if NRF_LOG_DEBUG_APDU
+    if (p_apdu->data_length < p_apdu->Lc) {
+        fido_log_debug("recv CONT frame: received data (%d of %d) ", p_apdu->data_length, p_apdu->Lc);
+    } else {
+        fido_log_debug("recv CONT frame: received data (%d bytes) ", p_apdu->data_length);
+    }
+#endif
 }
 
 static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
