@@ -52,6 +52,10 @@ extern "C" {
 #define CTAP2_ERR_VENDOR_LAST               0xff
 
 // U2Fコマンドの識別用
+#define U2F_COMMAND_PING                    0x01
+#define U2F_COMMAND_KEEPALIVE               0x02
+#define U2F_COMMAND_MSG                     0x03
+#define U2F_COMMAND_CANCEL                  0x3e
 #define U2F_COMMAND_ERROR                   0x3f
 
 #ifdef __cplusplus
