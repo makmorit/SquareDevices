@@ -105,7 +105,7 @@ void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 
 void wrapper_main_ble_request_received(void)
 {
-    fido_ble_receive_on_request_received();
+    // TODO: 各種業務処理を実行
 }
 
 void wrapper_main_ble_response_sent(void)

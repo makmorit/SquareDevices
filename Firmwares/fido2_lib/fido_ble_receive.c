@@ -496,7 +496,3 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size)
         return false;
     }
 }
-
-void fido_ble_receive_on_request_received(void)
-{
-}
