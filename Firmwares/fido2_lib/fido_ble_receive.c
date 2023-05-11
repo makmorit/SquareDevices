@@ -83,6 +83,17 @@ uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint
     return offset;
 }
 
+void fido_receive_apdu_initialize(void *apdu)
+{
+    // TODO: 仮の実装です。
+}
+
+void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+{
+    // TODO: 仮の実装です。
+    return offset;
+}
+
 static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 先頭データが２回連続で送信された場合はエラー
@@ -169,8 +180,32 @@ static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, si
         }
     }
 
-    // TODO: 仮の実装です。
-    fido_log_error("INIT frame process not implemented");
+    if (p_apdu->Lc > U2F_APDU_DATA_SIZE_MAX) {
+        // ヘッダーに設定されたデータ長が不正の場合、
+        // ここで処理を終了
+        fido_log_error("u2f_request_receive: too long length (%d) ", p_apdu->Lc);
+        set_u2f_command_error(p_command, CTAP1_ERR_INVALID_LENGTH);
+        return;
+    }
+
+    if (p_apdu->Lc == 0) {
+        if (offset < control_point_buffer_length) {
+            // データ長が0にもかかわらず、
+            // APDUヘッダーの後ろにデータが存在している場合、
+            // リクエストとしては不正ではないが、
+            // ステータスワード(SW_WRONG_LENGTH)を設定
+            fido_log_error("INIT frame has data (%d bytes) while Lc=0 ", control_point_buffer_length - offset);
+            p_command->STATUS_WORD = U2F_SW_WRONG_LENGTH;
+        }
+        // データ長が0の場合は以降の処理を行わない
+        return;
+    }
+
+    // データ格納領域を初期化し、アドレスを保持
+    fido_receive_apdu_initialize(p_apdu);
+
+    // パケットからAPDU(データ部分)を取り出し、別途確保した領域に格納
+    fido_receive_apdu_from_init_frame(p_apdu, control_point_buffer, control_point_buffer_length, offset);
 }
 
 static void u2f_request_receive_following_packet(FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
