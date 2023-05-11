@@ -258,7 +258,7 @@ void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer
 #endif
 }
 
-static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
+static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 先頭データが２回連続で送信された場合はエラー
     // （前回リクエスト受信時に設定されたCMD、CONTを参照して判定）
@@ -372,12 +372,15 @@ static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, si
     fido_receive_apdu_from_init_frame(p_apdu, control_point_buffer, control_point_buffer_length, offset);
 }
 
-static void u2f_request_receive_following_packet(FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
+static void extract_apdu_from_continuation_packet(FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // TODO: 仮の実装です。
     fido_log_error("CONT frame process not implemented");
 }
 
+//
+// FIDO BLEトランスポート関連
+//
 // u2f control point（コマンドバッファ）には、64バイトまで書込み可能とします
 static uint8_t control_point_buffer[U2F_CONTROL_POINT_SIZE_MAX];
 static size_t  control_point_buffer_length;
@@ -403,10 +406,10 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size)
 
     if (is_initialization_packet(control_point_buffer[0])) {
         // 先頭パケットに対する処理を行う
-        u2f_request_receive_leading_packet(data, size, &m_command, &m_apdu);
+        extract_apdu_from_initialization_packet(data, size, &m_command, &m_apdu);
     } else {
         // 後続パケットに対する処理を行う
-        u2f_request_receive_following_packet(&m_command, &m_apdu);
+        extract_apdu_from_continuation_packet(&m_command, &m_apdu);
     }
 
     if (is_apdu_size_overflow(&m_apdu)) {
