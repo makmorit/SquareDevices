@@ -66,8 +66,7 @@ static bool is_initialization_packet(uint8_t first_byte)
 
 bool is_valid_ble_command(uint8_t command)
 {
-    // FIDO BLEの仕様で定義されている
-    // 受信可能コマンドである場合、true を戻す
+    // FIDO BLEサービスで実行可能なコマンドである場合、true を戻す
     switch (command) {
         case U2F_COMMAND_PING:
         case U2F_COMMAND_MSG:
@@ -100,7 +99,7 @@ static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, si
     memset(p_command, 0, sizeof(FIDO_COMMAND_T));
     memset(p_apdu,    0, sizeof(FIDO_APDU_T));
 
-    // BLEヘッダー項目を保持
+    // コマンドを保持
     p_command->CMD = control_point_buffer[0];
     // データ（APDUまたはPINGパケット）の長さを取得
     p_command->LEN = (uint32_t)((control_point_buffer[1] << 8 & 0xFF00) + control_point_buffer[2]);
@@ -112,9 +111,27 @@ static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, si
 
     uint8_t command = get_u2f_command_byte(p_command);
     if (is_valid_ble_command(command) == false) {
-        // BLEヘッダーに設定されたコマンドが不正の場合、ここで処理を終了
+        // 設定されたコマンドが不正の場合、ここで処理を終了
         fido_log_error("u2f_request_receive: invalid command (0x%02x) ", command);
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_COMMAND);
+        return;
+    }
+
+    if (p_command->LEN > U2F_CONTROL_POINT_SIZE_MAX - 3) {
+        // 設定されたデータ長が61文字を超える場合、後続データがあると判断
+        p_command->CONT = true;
+    } else {
+        p_command->CONT = false;
+    }
+
+#if NRF_LOG_DEBUG_COMMAND
+    if (p_command->CONT) {
+        fido_log_debug("u2f_request_receive: CONT frame will receive ");
+    }
+#endif
+
+    // APDUが送信されない場合は、ここで処理を終了
+    if (control_point_buffer_length == 3) {
         return;
     }
 
