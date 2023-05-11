@@ -25,7 +25,7 @@ void fido_log_error(const char *fmt, ...)
     va_end(ap);
 
     // メッセージをZephyrログに出力
-    LOG_ERR("%s\n", message_buff);
+    LOG_ERR("%s", message_buff);
 }
 
 void fido_log_debug(const char *fmt, ...)
