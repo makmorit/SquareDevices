@@ -17,6 +17,7 @@ extern "C" {
 //
 // 関数群
 //
+void        fido_log_error(const char *fmt, ...);
 void        fido_log_debug(const char *fmt, ...);
 void        fido_log_print_hexdump_debug(uint8_t *data, size_t size);
 

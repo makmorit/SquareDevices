@@ -9,8 +9,24 @@
 
 #include <stdio.h>
 
+#define LOG_LEVEL LOG_LEVEL_DBG
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(app);
+
 // メッセージを保持
 static char message_buff[1024];
+
+void fido_log_error(const char *fmt, ...)
+{
+    // メッセージをフォーマット
+    va_list ap;
+    va_start(ap, fmt);
+    vsprintf(message_buff, fmt, ap);
+    va_end(ap);
+
+    // メッセージをZephyrログに出力
+    LOG_ERR("%s\n", message_buff);
+}
 
 void fido_log_debug(const char *fmt, ...)
 {
