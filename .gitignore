@@ -15,4 +15,5 @@ core
 .vscode
 
 # ignore for Zephyr
+build
 build_signed
