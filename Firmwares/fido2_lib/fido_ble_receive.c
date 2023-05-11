@@ -17,6 +17,7 @@
 // for debug hex dump data
 #define NRF_LOG_HEXDUMP_DEBUG_PACKET        false
 #define NRF_LOG_DEBUG_COMMAND               false
+#define NRF_LOG_DEBUG_APDU                  false
 
 //
 // 内部処理
@@ -151,6 +152,48 @@ static uint16_t get_apdu_lc_value(FIDO_APDU_T *p_apdu, uint8_t *control_point_bu
     return lc_length;
 }
 
+static uint16_t get_apdu_le_value(FIDO_APDU_T *p_apdu, uint8_t *received_data, uint16_t received_data_length)
+{
+    // Leのバイト数を求める
+    uint16_t le_length = (p_apdu->data_length + received_data_length) - p_apdu->Lc;
+
+    if (le_length == 2) {
+        // Leバイトが2バイトの場合
+        // Extended Length Encoding と扱い、データの長さを
+        // control_point_bufferの末尾２バイトから取得
+        p_apdu->Le = (uint32_t)(
+            (received_data[received_data_length-2] << 8 & 0xFF00) +
+             received_data[received_data_length-1]);
+        if (p_apdu->Le == 0) {
+            p_apdu->Le = 65536;
+        }
+#if NRF_LOG_DEBUG_APDU
+        fido_log_debug("Le(%d bytes) in Extended Length Encoding ", p_apdu->Le);
+#endif
+
+    } else if (le_length == 1) {
+        // Leバイトが1バイトの場合
+        // Short Encoding と扱い、データの長さを
+        // control_point_bufferの最終バイトから取得
+        p_apdu->Le = (uint32_t)received_data[received_data_length-1];
+        if (p_apdu->Le == 0) {
+            p_apdu->Le = 256;
+        }
+#if NRF_LOG_DEBUG_APDU
+        fido_log_debug("Le(%d bytes) in Short Encoding ", p_apdu->Le);
+#endif
+
+    } else {
+        // エンコーディングルールに反している場合はエラーとして長さ0を戻す
+        le_length = 0;
+#if NRF_LOG_DEBUG_APDU
+        fido_log_debug("Le(%d bytes) in Unknown Encoding ", le_length);
+#endif
+    }
+    
+    return le_length;
+}
+
 uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     uint8_t apdu_header_length = 4;
@@ -181,12 +224,38 @@ uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint
 
 void fido_receive_apdu_initialize(void *apdu)
 {
-    // TODO: 仮の実装です。
+    // 確保領域は0で初期化
+    FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
+    memset(p_apdu->data, 0, U2F_APDU_DATA_SIZE_MAX);
 }
 
 void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
-    // TODO: 仮の実装です。
+    // Control Pointに格納されている
+    // 受信データの先頭アドレスとデータ長を取得
+    uint8_t *received_data        = control_point_buffer + offset;
+    int      received_data_length = control_point_buffer_length - offset;
+
+    FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
+    if (received_data_length > p_apdu->Lc) {
+        // データの先頭パケットだが、データ長をオーバーしている場合、
+        // オーバーした部分はLeバイトとして扱い、
+        // Leバイトを除いた部分を、データ部として扱う
+        uint16_t le_length = get_apdu_le_value(p_apdu, received_data, received_data_length);
+        received_data_length = received_data_length - le_length;
+    }
+
+    // データを格納し、格納データのバイト数を保持
+    memcpy(p_apdu->data, received_data, received_data_length);
+    p_apdu->data_length = received_data_length;
+
+#if NRF_LOG_DEBUG_APDU
+    if (p_apdu->data_length < p_apdu->Lc) {
+        fido_log_debug("recv INIT frame: received data (%d of %d) ", p_apdu->data_length, p_apdu->Lc);
+    } else {
+        fido_log_debug("recv INIT frame: received data (%d bytes) ", p_apdu->data_length);
+    }
+#endif
 }
 
 static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
