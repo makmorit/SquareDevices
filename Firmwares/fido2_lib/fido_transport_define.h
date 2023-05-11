@@ -14,6 +14,10 @@
 extern "C" {
 #endif
 
+// U2Fトランスポート関連
+#define U2F_CONTROL_POINT_SIZE_MAX          64
+#define U2F_APDU_DATA_SIZE_MAX              1024
+
 // リクエストデータに含まれるコマンドヘッダーを保持
 typedef struct {
     uint32_t CID;
@@ -38,15 +42,11 @@ typedef struct {
     uint8_t  P1;
     uint8_t  P2;
     uint32_t Lc;
-    uint8_t *data;
+    uint8_t  data[U2F_APDU_DATA_SIZE_MAX];
     uint32_t data_length;
     uint32_t Le;
     uint8_t  ctap2_command;
 } FIDO_APDU_T;
-
-// U2Fトランスポート関連
-#define U2F_CONTROL_POINT_SIZE_MAX          64
-#define U2F_APDU_DATA_SIZE_MAX              1024
 
 #ifdef __cplusplus
 }
