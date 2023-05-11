@@ -77,10 +77,106 @@ bool is_valid_ble_command(uint8_t command)
     }
 }
 
+//
+// APDU関連
+//
+static uint16_t get_apdu_lc_value(FIDO_APDU_T *p_apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+{
+    // Leの先頭バイトの値を参照し
+    // APDUのエンコード種類を判定
+    uint16_t lc_length;
+    if (control_point_buffer[offset] == 0) {
+        // Lcバイト数は3バイト
+        lc_length = 3;
+
+        // Extended Length Encoding と扱い、
+        // データの長さを取得
+        uint32_t length = (uint32_t)((control_point_buffer[offset+1] << 8 & 0xFF00) + control_point_buffer[offset+2]);
+
+        if (control_point_buffer_length == (offset + lc_length)) {
+            // Lcバイトが存在しない場合は
+            // Leバイトと扱う
+            p_apdu->Lc = 0;
+            if (length == 0) {
+                // Leが0の場合は65536と扱う
+                p_apdu->Le = 65536;
+            } else {
+                p_apdu->Le = length;
+            }
+#if NRF_LOG_DEBUG_COMMAND
+            fido_log_debug("Lc(%d bytes) Le(%d bytes) in Extended Length Encoding", p_apdu->Lc, p_apdu->Le);
+#endif
+
+        } else {
+            // 先頭パケットからはLcの値だけしか取得できない
+            // Leの値は最終パケットから取得する
+            p_apdu->Lc = length;
+#if NRF_LOG_DEBUG_COMMAND
+            fido_log_debug("Lc(%d bytes) in Extended Length Encoding", p_apdu->Lc);
+#endif
+        }
+
+    } else {
+        // Lcバイト数は1バイト
+        lc_length = 1;
+
+        // Short Encoding と扱い、
+        // データの長さを取得
+        uint32_t length = (uint32_t)control_point_buffer[offset];
+
+        if (control_point_buffer_length == (offset + lc_length)) {
+            // Lcバイトが存在しない場合は
+            // Leバイトと扱う
+            p_apdu->Lc = 0;
+            if (length == 0) {
+                // Leが0の場合は256と扱う
+                p_apdu->Le = 256;
+            } else {
+                p_apdu->Le = length;
+            }
+#if NRF_LOG_DEBUG_COMMAND
+            fido_log_debug("Lc(%d bytes) Le(%d bytes) in Short Encoding", p_apdu->Lc, p_apdu->Le);
+#endif
+
+        } else {
+            // 先頭パケットからはLcの値だけしか取得できない
+            // Leの値は最終パケットから取得する
+            p_apdu->Lc = length;
+#if NRF_LOG_DEBUG_COMMAND
+            fido_log_debug("Lc(%d bytes) in Short Encoding", p_apdu->Lc);
+#endif
+        }
+    }
+
+    return lc_length;
+}
+
 uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
-    // TODO: 仮の実装です。
-    return offset;
+    uint8_t apdu_header_length = 4;
+    
+    // APDUヘッダー項目を保持
+    FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
+    p_apdu->CLA = control_point_buffer[offset];
+    p_apdu->INS = control_point_buffer[offset + 1];
+    p_apdu->P1  = control_point_buffer[offset + 2];
+    p_apdu->P2  = control_point_buffer[offset + 3];
+
+#if NRF_LOG_DEBUG_COMMAND
+    fido_log_debug("CLA(0x%02x) INS(0x%02x) P1(0x%02x) P2(0x%02x) ", p_apdu->CLA, p_apdu->INS, p_apdu->P1, p_apdu->P2);
+#endif
+
+    // APDUヘッダーだけの場合はここで終了
+    offset += apdu_header_length;
+    if (control_point_buffer_length == offset) {
+        return apdu_header_length;
+    }
+
+    // Lcの値をAPDUから取得する
+    uint16_t lc_length = get_apdu_lc_value(p_apdu, control_point_buffer, control_point_buffer_length, offset);
+    
+    // (APDUヘッダー長+LCバイト長)を戻す
+    return apdu_header_length + lc_length;
 }
 
 void fido_receive_apdu_initialize(void *apdu)
@@ -91,7 +187,6 @@ void fido_receive_apdu_initialize(void *apdu)
 void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     // TODO: 仮の実装です。
-    return offset;
 }
 
 static void u2f_request_receive_leading_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
