@@ -54,6 +54,15 @@ typedef struct {
     FIDO_APDU_T    apdu;
 } FIDO_REQUEST_T;
 
+// レスポンスデータを集約
+typedef struct {
+    uint32_t cid;
+    uint8_t  cmd;
+    uint8_t  data[U2F_APDU_DATA_SIZE_MAX];
+    uint32_t size;
+    uint16_t sw;
+} FIDO_RESPONSE_T;
+
 #ifdef __cplusplus
 }
 #endif
