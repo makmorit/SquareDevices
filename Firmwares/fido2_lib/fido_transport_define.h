@@ -16,6 +16,7 @@ extern "C" {
 
 // U2Fトランスポート関連
 #define U2F_CONTROL_POINT_SIZE_MAX          64
+#define U2F_STATUS_SIZE_MAX                 64
 #define U2F_APDU_DATA_SIZE_MAX              1024
 
 // リクエストデータに含まれるコマンドヘッダーを保持
