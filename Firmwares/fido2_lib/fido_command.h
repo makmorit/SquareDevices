@@ -14,7 +14,7 @@ extern "C" {
 //
 // 関数群
 //
-void        fido_command_on_ble_request_receive_completed(void *p_fido_request);
+void        fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response);
 
 #ifdef __cplusplus
 }

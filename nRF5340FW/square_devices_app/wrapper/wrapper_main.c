@@ -16,7 +16,8 @@
 #include "fido_transport_define.h"
 
 // 業務リクエスト／レスポンスデータを保持
-static FIDO_REQUEST_T m_fido_request;
+static FIDO_REQUEST_T  m_fido_request;
+static FIDO_RESPONSE_T m_fido_response;
 
 //
 // 業務処理-->プラットフォーム連携用
@@ -110,12 +111,12 @@ void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 
 void wrapper_main_ble_request_received(void)
 {
-    fido_command_on_ble_request_receive_completed(&m_fido_request);
+    fido_command_on_ble_request_received(&m_fido_request, &m_fido_response);
 }
 
 void wrapper_main_ble_response_sent(void)
 {
-    fido_ble_send_on_tx_complete();
+    // TODO: 各種業務処理を実行
 }
 
 void wrapper_main_ble_nus_data_frame_received(uint8_t *data, size_t size)
