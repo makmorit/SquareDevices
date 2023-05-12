@@ -48,7 +48,7 @@ static bool is_apdu_size_overflow(FIDO_APDU_T *p_apdu)
     }
 }
 
-static bool is_apdu_received_completely(FIDO_APDU_T *p_apdu)
+static bool is_request_received_completely(FIDO_APDU_T *p_apdu)
 {
     if (p_apdu->data_length == p_apdu->Lc) {
 #if NRF_LOG_DEBUG_COMMAND
@@ -65,9 +65,9 @@ static bool is_initialization_packet(uint8_t first_byte)
     return (first_byte & 0x80);
 }
 
-bool is_valid_ble_command(uint8_t command)
+static bool is_valid_fido_command(uint8_t command)
 {
-    // FIDO BLEサービスで実行可能なコマンドである場合、true を戻す
+    // FIDOで実行可能なコマンドである場合、true を戻す
     switch (command) {
         case U2F_COMMAND_PING:
         case U2F_COMMAND_MSG:
@@ -194,7 +194,7 @@ static uint16_t get_apdu_le_value(FIDO_APDU_T *p_apdu, uint8_t *received_data, u
     return le_length;
 }
 
-uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+static uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     uint8_t apdu_header_length = 4;
     
@@ -222,14 +222,14 @@ uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint
     return apdu_header_length + lc_length;
 }
 
-void fido_receive_apdu_initialize(void *apdu)
+static void fido_receive_apdu_initialize(void *apdu)
 {
     // 確保領域は0で初期化
     FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
     memset(p_apdu->data, 0, U2F_APDU_DATA_SIZE_MAX);
 }
 
-void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+static void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     // Control Pointに格納されている
     // 受信データの先頭アドレスとデータ長を取得
@@ -258,7 +258,7 @@ void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer
 #endif
 }
 
-void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
+static void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
 {
     // 受信データの先頭アドレスとデータ長を取得
     uint8_t *received_data        = control_point_buffer + 1;
@@ -286,7 +286,7 @@ void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer
 #endif
 }
 
-static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
+static void extract_request_from_initialization_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 先頭データが２回連続で送信された場合はエラー
     // （前回リクエスト受信時に設定されたCMD、CONTを参照して判定）
@@ -319,7 +319,7 @@ static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffe
 #endif
 
     uint8_t command = get_u2f_command_byte(p_command);
-    if (is_valid_ble_command(command) == false) {
+    if (is_valid_fido_command(command) == false) {
         // 設定されたコマンドが不正の場合、ここで処理を終了
         fido_log_error("u2f_request_receive: invalid command (0x%02x) ", command);
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_COMMAND);
@@ -400,7 +400,7 @@ static void extract_apdu_from_initialization_packet(uint8_t *control_point_buffe
     fido_receive_apdu_from_init_frame(p_apdu, control_point_buffer, control_point_buffer_length, offset);
 }
 
-static void extract_apdu_from_continuation_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
+static void extract_request_from_continuation_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
 {
     // 後続データフラグをクリア
     p_command->CONT = false;
@@ -470,10 +470,10 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size, void *p_fido_req
 
     if (is_initialization_packet(control_point_buffer[0])) {
         // 先頭パケットに対する処理を行う
-        extract_apdu_from_initialization_packet(data, size, p_command, p_apdu);
+        extract_request_from_initialization_packet(data, size, p_command, p_apdu);
     } else {
         // 後続パケットに対する処理を行う
-        extract_apdu_from_continuation_packet(data, size, p_command, p_apdu);
+        extract_request_from_continuation_packet(data, size, p_command, p_apdu);
     }
 
     if (is_apdu_size_overflow(p_apdu)) {
@@ -482,7 +482,7 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size, void *p_fido_req
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_LENGTH);
     }
 
-    if (is_apdu_received_completely(p_apdu)) {
+    if (is_request_received_completely(p_apdu)) {
         // 全ての受信データが完備したらtrueを戻す
         return true;
 
