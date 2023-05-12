@@ -28,6 +28,18 @@ void fido_log_error(const char *fmt, ...)
     LOG_ERR("%s", message_buff);
 }
 
+void fido_log_info(const char *fmt, ...)
+{
+    // メッセージをフォーマット
+    va_list ap;
+    va_start(ap, fmt);
+    vsprintf(message_buff, fmt, ap);
+    va_end(ap);
+
+    // メッセージをZephyrログに出力
+    LOG_INF("%s", message_buff);
+}
+
 void fido_log_debug(const char *fmt, ...)
 {
     // メッセージをフォーマット

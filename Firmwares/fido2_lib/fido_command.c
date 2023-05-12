@@ -20,6 +20,8 @@ static uint8_t u2f_command_byte(FIDO_REQUEST_T *p_fido_request)
 
 static void fido_u2f_command_ping(FIDO_REQUEST_T *p_fido_request)
 {
+    fido_log_info("U2F ping start");
+
     // TODO: 仮の実装です。
     FIDO_APDU_T *p_apdu = &p_fido_request->apdu;
     fido_log_debug("U2F Ping start (%d bytes):", p_apdu->data_length);
