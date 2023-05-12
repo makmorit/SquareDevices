@@ -117,7 +117,9 @@ void wrapper_main_ble_request_received(void)
 
 void wrapper_main_ble_response_sent(void)
 {
-    // TODO: 各種業務処理を実行
+    if (fido_ble_send_response_done()) {
+        fido_command_on_ble_response_sent(&m_fido_request, &m_fido_response);
+    }
 }
 
 void wrapper_main_ble_nus_data_frame_received(uint8_t *data, size_t size)

@@ -33,6 +33,11 @@ static void fido_u2f_command_ping(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_
     memcpy(p_fido_response->data, p_apdu->data, p_apdu->data_length);
 }
 
+static void fido_u2f_command_ping_done(void)
+{
+    fido_log_info("U2F ping end");
+}
+
 void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response)
 {
     // データ受信後に実行すべき処理を判定
@@ -40,6 +45,18 @@ void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_res
         case U2F_COMMAND_PING:
             // PINGレスポンスを実行
             fido_u2f_command_ping(p_fido_request, p_fido_response);
+            break;
+        default:
+            break;
+    }
+}
+
+void fido_command_on_ble_response_sent(void *p_fido_request, void *p_fido_response)
+{
+    // レスポンス送信完了後に実行すべき処理を判定
+    switch (u2f_command_byte(p_fido_request)) {
+        case U2F_COMMAND_PING:
+            fido_u2f_command_ping_done();
             break;
         default:
             break;

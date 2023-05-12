@@ -7,6 +7,8 @@
 #ifndef FIDO_BLE_SEND_H
 #define FIDO_BLE_SEND_H
 
+#include <stdbool.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -15,6 +17,7 @@ extern "C" {
 // 関数群
 //
 void        fido_ble_send_response(void *p_fido_response);
+bool        fido_ble_send_response_done(void);
 
 #ifdef __cplusplus
 }
