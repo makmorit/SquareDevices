@@ -12,6 +12,10 @@
 //
 #include "fido_ble_receive.h"
 #include "fido_ble_send.h"
+#include "fido_transport_define.h"
+
+// 業務リクエスト／レスポンスデータを保持
+static FIDO_REQUEST_T m_fido_request;
 
 //
 // 業務処理-->プラットフォーム連携用
@@ -96,7 +100,7 @@ void wrapper_main_ccid_request_received(void)
 
 void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 {
-    if (fido_ble_receive_control_point(data, size)) {
+    if (fido_ble_receive_control_point(data, size, &m_fido_request)) {
         // メインスレッドを経由し、
         // wrapper_main_ble_request_received を実行させる
         app_main_event_notify_ble_request_received();
