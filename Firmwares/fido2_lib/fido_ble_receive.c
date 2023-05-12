@@ -449,16 +449,16 @@ static void extract_apdu_from_continuation_packet(uint8_t *control_point_buffer,
 static uint8_t control_point_buffer[U2F_CONTROL_POINT_SIZE_MAX];
 static size_t  control_point_buffer_length;
 
-// リクエストデータに含まれるBLEコマンド、APDU項目は
-// このモジュール内で保持
-static FIDO_COMMAND_T m_command;
-static FIDO_APDU_T    m_apdu;
-
 //
 // 公開用関数
 //
-bool fido_ble_receive_control_point(uint8_t *data, size_t size)
+bool fido_ble_receive_control_point(uint8_t *data, size_t size, void *p_fido_request)
 {
+    // リクエストデータ格納領域の参照を取得
+    FIDO_REQUEST_T *fido_request = (FIDO_REQUEST_T *)p_fido_request;
+    FIDO_COMMAND_T *p_command    = &fido_request->command;
+    FIDO_APDU_T    *p_apdu       = &fido_request->apdu;
+
     // U2Fクライアントから受信したリクエストデータを、内部バッファに保持
     memcpy(control_point_buffer, data, size);
     control_point_buffer_length = size;
@@ -470,23 +470,23 @@ bool fido_ble_receive_control_point(uint8_t *data, size_t size)
 
     if (is_initialization_packet(control_point_buffer[0])) {
         // 先頭パケットに対する処理を行う
-        extract_apdu_from_initialization_packet(data, size, &m_command, &m_apdu);
+        extract_apdu_from_initialization_packet(data, size, p_command, p_apdu);
     } else {
         // 後続パケットに対する処理を行う
-        extract_apdu_from_continuation_packet(data, size, &m_command, &m_apdu);
+        extract_apdu_from_continuation_packet(data, size, p_command, p_apdu);
     }
 
-    if (is_apdu_size_overflow(&m_apdu)) {
+    if (is_apdu_size_overflow(p_apdu)) {
         // データヘッダー設定されたデータ長が不正の場合
         // エラーレスポンスメッセージを作成
-        set_u2f_command_error(&m_command, CTAP1_ERR_INVALID_LENGTH);
+        set_u2f_command_error(p_command, CTAP1_ERR_INVALID_LENGTH);
     }
 
-    if (is_apdu_received_completely(&m_apdu)) {
+    if (is_apdu_received_completely(p_apdu)) {
         // 全ての受信データが完備したらtrueを戻す
         return true;
 
-    } else if (is_u2f_command_error(&m_command)) {
+    } else if (is_u2f_command_error(p_command)) {
         // リクエストデータの検査中にエラーが確認された場合、
         // エラーレスポンス実行のため、trueを戻す
         return true;

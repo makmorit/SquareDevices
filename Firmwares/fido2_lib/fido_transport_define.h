@@ -48,6 +48,12 @@ typedef struct {
     uint8_t  ctap2_command;
 } FIDO_APDU_T;
 
+// リクエストデータを集約
+typedef struct {
+    FIDO_COMMAND_T command;
+    FIDO_APDU_T    apdu;
+} FIDO_REQUEST_T;
+
 #ifdef __cplusplus
 }
 #endif

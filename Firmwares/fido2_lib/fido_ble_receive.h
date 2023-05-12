@@ -18,7 +18,7 @@ extern "C" {
 //
 // 関数群
 //
-bool        fido_ble_receive_control_point(uint8_t *data, size_t size);
+bool        fido_ble_receive_control_point(uint8_t *data, size_t size, void *p_fido_request);
 
 #ifdef __cplusplus
 }
