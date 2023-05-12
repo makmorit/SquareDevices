@@ -299,7 +299,7 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
     if (control_point_buffer_length < 3) {
         // 受取ったバイト数が３バイトに満たない場合は、
         // リクエストとして成立しないので終了
-        fido_log_error("u2f_request_receive: invalid request ");
+        fido_log_error("Received invalid request (%d bytes)", control_point_buffer_length);
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_LENGTH);
         return;
     }
@@ -321,7 +321,7 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
     uint8_t command = get_u2f_command_byte(p_command);
     if (is_valid_fido_command(command) == false) {
         // 設定されたコマンドが不正の場合、ここで処理を終了
-        fido_log_error("u2f_request_receive: invalid command (0x%02x) ", command);
+        fido_log_error("Received invalid command (0x%02x) ", command);
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_COMMAND);
         return;
     }
@@ -335,7 +335,7 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
 
 #if NRF_LOG_DEBUG_COMMAND
     if (p_command->CONT) {
-        fido_log_debug("u2f_request_receive: CONT frame will receive ");
+        fido_log_debug("CONT frame will receive ");
     }
 #endif
 
@@ -375,7 +375,7 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
     if (p_apdu->Lc > U2F_APDU_DATA_SIZE_MAX) {
         // ヘッダーに設定されたデータ長が不正の場合、
         // ここで処理を終了
-        fido_log_error("u2f_request_receive: too long length (%d) ", p_apdu->Lc);
+        fido_log_error("apdu data Lc(%d) exceeds max buffer size(%d) ", p_apdu->Lc, U2F_APDU_DATA_SIZE_MAX);
         set_u2f_command_error(p_command, CTAP1_ERR_INVALID_LENGTH);
         return;
     }
