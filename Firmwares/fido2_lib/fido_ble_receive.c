@@ -81,7 +81,7 @@ static bool is_valid_fido_command(uint8_t command)
 //
 // APDU関連
 //
-static uint16_t get_apdu_lc_value(FIDO_APDU_T *p_apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+static uint16_t calculate_apdu_lc_value(FIDO_APDU_T *p_apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     // Leの先頭バイトの値を参照し
     // APDUのエンコード種類を判定
@@ -152,7 +152,7 @@ static uint16_t get_apdu_lc_value(FIDO_APDU_T *p_apdu, uint8_t *control_point_bu
     return lc_length;
 }
 
-static uint16_t get_apdu_le_value(FIDO_APDU_T *p_apdu, uint8_t *received_data, uint16_t received_data_length)
+static uint16_t calculate_apdu_le_value(FIDO_APDU_T *p_apdu, uint8_t *received_data, uint16_t received_data_length)
 {
     // Leのバイト数を求める
     uint16_t le_length = (p_apdu->data_length + received_data_length) - p_apdu->Lc;
@@ -194,7 +194,7 @@ static uint16_t get_apdu_le_value(FIDO_APDU_T *p_apdu, uint8_t *received_data, u
     return le_length;
 }
 
-static uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+static uint8_t extract_apdu_header_from_initialization_packet(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     uint8_t apdu_header_length = 4;
     
@@ -216,20 +216,20 @@ static uint8_t fido_receive_apdu_header(void *apdu, uint8_t *control_point_buffe
     }
 
     // Lcの値をAPDUから取得する
-    uint16_t lc_length = get_apdu_lc_value(p_apdu, control_point_buffer, control_point_buffer_length, offset);
+    uint16_t lc_length = calculate_apdu_lc_value(p_apdu, control_point_buffer, control_point_buffer_length, offset);
     
     // (APDUヘッダー長+LCバイト長)を戻す
     return apdu_header_length + lc_length;
 }
 
-static void fido_receive_apdu_initialize(void *apdu)
+static void initialize_apdu(void *apdu)
 {
     // 確保領域は0で初期化
     FIDO_APDU_T *p_apdu = (FIDO_APDU_T *)apdu;
     memset(p_apdu->data, 0, U2F_APDU_DATA_SIZE_MAX);
 }
 
-static void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
+static void extract_apdu_from_initialization_packet(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length, uint8_t offset)
 {
     // Control Pointに格納されている
     // 受信データの先頭アドレスとデータ長を取得
@@ -241,7 +241,7 @@ static void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point
         // データの先頭パケットだが、データ長をオーバーしている場合、
         // オーバーした部分はLeバイトとして扱い、
         // Leバイトを除いた部分を、データ部として扱う
-        uint16_t le_length = get_apdu_le_value(p_apdu, received_data, received_data_length);
+        uint16_t le_length = calculate_apdu_le_value(p_apdu, received_data, received_data_length);
         received_data_length = received_data_length - le_length;
     }
 
@@ -258,7 +258,7 @@ static void fido_receive_apdu_from_init_frame(void *apdu, uint8_t *control_point
 #endif
 }
 
-static void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
+static void extract_apdu_from_continuation_packet(void *apdu, uint8_t *control_point_buffer, uint16_t control_point_buffer_length)
 {
     // 受信データの先頭アドレスとデータ長を取得
     uint8_t *received_data        = control_point_buffer + 1;
@@ -269,7 +269,7 @@ static void fido_receive_apdu_from_cont_frame(void *apdu, uint8_t *control_point
         // データの最終パケットだが、データ長をオーバーしている場合、
         // オーバーした部分はLeバイトとして扱い、
         // Leバイトを除いた部分を、データ部として扱う
-        uint16_t le_length = get_apdu_le_value(p_apdu, received_data, received_data_length);
+        uint16_t le_length = calculate_apdu_le_value(p_apdu, received_data, received_data_length);
         received_data_length = received_data_length - le_length;
     }
 
@@ -368,7 +368,7 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
         } else {
             // PING以外のU2Fコマンドである場合
             // APDUヘッダー項目を編集して保持
-            offset += fido_receive_apdu_header(p_apdu, control_point_buffer, control_point_buffer_length, offset);
+            offset += extract_apdu_header_from_initialization_packet(p_apdu, control_point_buffer, control_point_buffer_length, offset);
         }
     }
 
@@ -394,10 +394,10 @@ static void extract_request_from_initialization_packet(uint8_t *control_point_bu
     }
 
     // データ格納領域を初期化し、アドレスを保持
-    fido_receive_apdu_initialize(p_apdu);
+    initialize_apdu(p_apdu);
 
     // パケットからAPDU(データ部分)を取り出し、別途確保した領域に格納
-    fido_receive_apdu_from_init_frame(p_apdu, control_point_buffer, control_point_buffer_length, offset);
+    extract_apdu_from_initialization_packet(p_apdu, control_point_buffer, control_point_buffer_length, offset);
 }
 
 static void extract_request_from_continuation_packet(uint8_t *control_point_buffer, size_t control_point_buffer_length, FIDO_COMMAND_T *p_command, FIDO_APDU_T *p_apdu)
@@ -439,7 +439,7 @@ static void extract_request_from_continuation_packet(uint8_t *control_point_buff
 #endif
 
     // パケットからAPDU(データ部分)を取り出し、別途確保した領域に格納
-    fido_receive_apdu_from_cont_frame(p_apdu, control_point_buffer, control_point_buffer_length);
+    extract_apdu_from_continuation_packet(p_apdu, control_point_buffer, control_point_buffer_length);
 }
 
 //
