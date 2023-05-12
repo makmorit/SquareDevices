@@ -62,3 +62,13 @@ void fido_log_print_hexdump_debug(uint8_t *data, size_t size)
     }
     printk("\n");
 }
+
+//
+// トランスポート関連
+//
+#include "app_ble_fido.h"
+
+bool fido_ble_response_send(uint8_t *u2f_status_buffer, size_t u2f_status_buffer_length)
+{
+    return app_ble_fido_send_data(u2f_status_buffer, u2f_status_buffer_length);
+}
