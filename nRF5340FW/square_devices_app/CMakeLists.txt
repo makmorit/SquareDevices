@@ -13,6 +13,7 @@ target_sources(app PRIVATE
     $ENV{NCS_HOME}/mbedtls/library/ctr_drbg.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_ble_receive.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_ble_send.c
+    $ENV{FWLIB_PATH}/fido2_lib/fido_command.c
 )
 target_include_directories(app PRIVATE 
     $ENV{NCS_HOME}/modules/lib/tinycbor/include
