@@ -4,6 +4,8 @@
  *
  * Created on 2023/05/12, 10:51
  */
+#include <string.h>
+
 #include "wrapper_common.h"
 
 #include "fido_define.h"
@@ -38,6 +40,17 @@ static void fido_u2f_command_ping_done(void)
     fido_log_info("U2F ping end");
 }
 
+static void fido_u2f_command_error(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // エラーレスポンスを生成
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    p_fido_response->cid     = p_command->CID;
+    p_fido_response->cmd     = p_command->CMD;
+    p_fido_response->size    = 1;
+    p_fido_response->data[0] = p_command->ERROR;
+}
+
 void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response)
 {
     // データ受信後に実行すべき処理を判定
@@ -45,6 +58,10 @@ void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_res
         case U2F_COMMAND_PING:
             // PINGレスポンスを実行
             fido_u2f_command_ping(p_fido_request, p_fido_response);
+            break;
+        case U2F_COMMAND_ERROR:
+            // エラーレスポンスを実行
+            fido_u2f_command_error(p_fido_request, p_fido_response);
             break;
         default:
             break;
