@@ -1,6 +1,9 @@
 # ignore for Xcode
 .DS_Store
-build
+xcuserdata
+
+# temporary ignored
+DesktopTools/macOS/packages
 
 # for EAGLE
 *.s#?
