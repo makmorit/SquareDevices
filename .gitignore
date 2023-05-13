@@ -2,6 +2,10 @@
 .DS_Store
 build
 
+# for EAGLE
+*.s#?
+*.b#?
+
 # ignore sub directories for Visual Studio
 obj
 Release
@@ -10,3 +14,7 @@ Release
 core
 .vs
 .vscode
+
+# ignore for Zephyr
+build
+build_signed
