@@ -41,4 +41,8 @@
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_TERMINATED, [[self window] title]];
     }
 
+    - (IBAction)menuItemVendorDidSelect:(id)sender {
+        // TODO: ベンダー向け機能画面を開く
+    }
+
 @end
