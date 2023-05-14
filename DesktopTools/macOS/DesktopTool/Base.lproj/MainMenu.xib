@@ -422,6 +422,13 @@
                                                                         <color key="textColor" red="0.4392156862745098" green="0.49411764705882355" blue="0.5490196078431373" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="noi-1x-vd8" name="value" keyPath="objectValue.title" id="ZXf-CF-pxd">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                            </dictionary>
+                                                                        </binding>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -448,6 +455,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="Uu3-sd-e1q" name="value" keyPath="objectValue.title" id="ifQ-Hf-xbu"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -467,6 +477,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="wtJ-2e-sD2" name="content" keyPath="arrangedObjects" id="cwU-HP-vmz"/>
+                                                <outlet property="delegate" destination="494" id="Cua-aW-ZSX"/>
+                                            </connections>
                                         </outlineView>
                                     </subviews>
                                     <nil key="backgroundColor"/>
@@ -524,10 +538,20 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="menuItemVendor" destination="zay-JM-FMA" id="3Gi-YW-Usl"/>
+                <outlet property="sidebar" destination="I4D-7M-S4Y" id="mWP-Pa-diK"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <treeController objectClassName="NSDictionary" editable="NO" childrenKeyPath="children" id="wtJ-2e-sD2" userLabel="Sidebar Controller">
+            <declaredKeys>
+                <string>title</string>
+            </declaredKeys>
+            <classReference key="objectClass" className="NSDictionary"/>
+            <connections>
+                <binding destination="494" name="contentArray" keyPath="sidebarItems" id="hpk-B1-YhK"/>
+            </connections>
+        </treeController>
     </objects>
     <resources>
         <image name="icon" width="128" height="128"/>
