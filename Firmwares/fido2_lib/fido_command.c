@@ -51,6 +51,7 @@ static void fido_u2f_command_msg(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T
     if (ctap2_command >= CTAPHID_VENDOR_FIRST && ctap2_command <= CTAPHID_VENDOR_LAST) {
         // リクエストがベンダー固有コマンドの場合
         vendor_command_on_fido_msg(p_fido_request, p_fido_response);
+        return;
     }
 
     // コマンドがサポート外の場合はエラーコードを戻す
