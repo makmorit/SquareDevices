@@ -41,7 +41,7 @@ static void initialize_pairing_mode(void)
 
     // LED点灯パターン設定
     if (app_ble_pairing_mode()) {
-        // ペアリングモード時は黄色LEDを連続点灯させる
+        // ペアリングモード時は黄色LEDを２秒ごとに点滅させる
         app_status_indicator_pairing_mode();
     } else {
         // アイドル時のLED点滅パターンを設定
@@ -257,7 +257,7 @@ void app_channel_on_button_pressed_short(void)
         // ペアリング障害時にアドバタイズが停止された場合は
         // ボタン短押しでペアリングモードに遷移-->アドバタイズ再開
         change_to_pairing_mode();
-        // 黄色LEDを連続点灯させる
+        // 黄色LEDを２秒ごとに点滅させる
         app_status_indicator_pairing_mode();
     } else {
         // ボタン短押しでスリープ状態に遷移
@@ -271,7 +271,7 @@ void app_channel_on_button_pushed_long(void)
         // 非ペアリングモード時は、
         // ペアリングモード遷移前に
         // 黄色LEDを連続点灯させる
-        app_status_indicator_pairing_mode();
+        app_status_indicator_pre_pairing_mode();
     }
 }
 
@@ -279,7 +279,9 @@ void app_channel_on_button_pressed_long(void)
 {
     if (app_ble_pairing_mode() == false) {
         // 非ペアリングモード時は、
-        // ペアリングモード遷移-->アドバタイズ再開
+        // ペアリングモード遷移-->黄色LEDを２秒ごとに点滅させる
+        app_status_indicator_pairing_mode();
+        // アドバタイズを再開
         change_to_pairing_mode();
     }
 }
