@@ -16,6 +16,9 @@ extern "C" {
 #define VENDOR_COMMAND_UNPAIRING_CANCEL     0x4e
 #define VENDOR_COMMAND_ERASE_BONDING_DATA   0x4f
 
+// ペアリング関連
+#define PEER_ID_NOT_EXIST                   0xffff
+
 #ifdef __cplusplus
 }
 #endif
