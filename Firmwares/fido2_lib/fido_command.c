@@ -10,6 +10,7 @@
 
 #include "fido_define.h"
 #include "fido_transport_define.h"
+#include "vendor_command.h"
 
 //
 // 内部処理
@@ -43,7 +44,14 @@ static void fido_u2f_command_ping_done(void)
 static void fido_u2f_command_msg(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
 {
     // リクエストの参照を取得
+    FIDO_APDU_T    *p_apdu    = &p_fido_request->apdu;
     FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    uint8_t ctap2_command = p_apdu->ctap2_command;
+    if (ctap2_command >= CTAPHID_VENDOR_FIRST && ctap2_command <= CTAPHID_VENDOR_LAST) {
+        // リクエストがベンダー固有コマンドの場合
+        vendor_command_on_fido_msg(p_fido_request, p_fido_response);
+    }
 
     // コマンドがサポート外の場合はエラーコードを戻す
     p_fido_response->cid     = p_command->CID;

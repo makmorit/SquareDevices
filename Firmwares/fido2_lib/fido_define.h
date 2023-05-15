@@ -60,6 +60,10 @@ extern "C" {
 #define U2F_SW_WRONG_LENGTH                 0x6700
 #define U2F_SW_CLA_NOT_SUPPORTED            0x6E00
 
+// CTAP2コマンドの識別用
+#define CTAPHID_VENDOR_FIRST                0x40
+#define CTAPHID_VENDOR_LAST                 0x7f
+
 // U2Fコマンドの識別用
 #define U2F_COMMAND_PING                    0x01
 #define U2F_COMMAND_KEEPALIVE               0x02
