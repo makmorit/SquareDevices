@@ -9,6 +9,7 @@
 
 #include "app_ble_advertise.h"
 #include "app_ble_init.h"
+#include "app_ble_pairing.h"
 #include "app_board.h"
 #include "app_channel.h"
 #include "app_crypto.h"
@@ -163,6 +164,20 @@ static void usb_configured(void)
     wrapper_main_usb_configured();
 }
 
+static void data_channel_initialized(void)
+{
+    if (app_ble_pairing_mode()) {
+        // ペアリングモードの場合、業務処理を閉塞
+        //   データ処理イベント（DATEVT_XXXX）を
+        //   通知できないようにする
+        app_event_data_enable(false);
+
+    } else {
+        // 非ペアリングモードの場合、業務関連の初期化処理に移行
+        wrapper_main_data_channel_initialized();
+    }
+}
+
 void app_process_for_event(uint8_t event)
 {
     // イベントに対応する処理を実行
@@ -226,7 +241,7 @@ void app_process_for_event(uint8_t event)
             usb_configured();
             break;
         case APEVT_CHANNEL_INITIALIZED:
-            wrapper_main_data_channel_initialized();
+            data_channel_initialized();
             break;
         case APEVT_APP_CRYPTO_RANDOM_PREGEN_DONE:
             wrapper_main_crypto_random_pregen_done();
