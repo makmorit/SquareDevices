@@ -30,6 +30,15 @@ static void set_uint16_bytes(uint8_t *p_dest_buffer, uint16_t bytes)
     p_dest_buffer[1] = bytes >>  0 & 0xff;
 }
 
+static void set_error_response(FIDO_RESPONSE_T *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t error_status)
+{
+    // エラー情報をレスポンス領域に設定
+    p_fido_response->cid     = cid;
+    p_fido_response->cmd     = cmd;
+    p_fido_response->size    = 1;
+    p_fido_response->data[0] = error_status;
+}
+
 static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
 {
     // リクエストの参照を取得
@@ -51,18 +60,12 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
 
         } else {
             // エラー情報をレスポンス領域に設定
-            p_fido_response->cid     = p_command->CID;
-            p_fido_response->cmd     = p_command->CMD;
-            p_fido_response->size    = 1;
-            p_fido_response->data[0] = CTAP1_ERR_OTHER;
+            set_error_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
         }
 
     } else {
         // エラー情報をレスポンス領域に設定
-        p_fido_response->cid     = p_command->CID;
-        p_fido_response->cmd     = p_command->CMD;
-        p_fido_response->size    = 1;
-        p_fido_response->data[0] = CTAP1_ERR_INVALID_LENGTH;
+        set_error_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_INVALID_LENGTH);
     }
 }
 
@@ -89,11 +92,8 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
         default:
             break;
     }
-    fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
 
     // コマンドがサポート外の場合はエラーコードを戻す
-    p_fido_response->cid     = p_command->CID;
-    p_fido_response->cmd     = U2F_COMMAND_ERROR | 0x80;
-    p_fido_response->size    = 1;
-    p_fido_response->data[0] = CTAP1_ERR_INVALID_COMMAND;
+    fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
+    set_error_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
 }
