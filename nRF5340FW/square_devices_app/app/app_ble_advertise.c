@@ -134,7 +134,11 @@ static void advertise_start(struct k_work *work)
     LOG_INF("Advertising successfully started (%s mode)", app_ble_pairing_mode() ? "Pairing" : "Non-Pairing");
 
     // BLEアドバタイズ開始イベントを業務処理スレッドに引き渡す
-    app_event_notify(APEVT_BLE_ADVERTISE_STARTED);
+    if (advertise_is_available) {
+        app_event_notify(APEVT_BLE_ADVERTISE_RESTARTED);
+    } else {
+        app_event_notify(APEVT_BLE_ADVERTISE_STARTED);
+    }
     advertise_is_available = true;
     advertise_is_stopped = false;
 }
