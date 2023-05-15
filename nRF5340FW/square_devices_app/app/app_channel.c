@@ -82,6 +82,20 @@ static void idling_timer_start(void)
 //
 // イベント処理
 //
+void app_channel_data_event_enable(void)
+{
+   if (app_ble_pairing_mode()) {
+        // ペアリングモードの場合、業務処理を閉塞
+        //   データ処理イベント（DATEVT_XXXX）を
+        //   通知できないようにする
+        app_event_data_enable(false);
+
+    } else {
+        // 非ペアリングモードの場合、業務処理の閉塞を解除
+        app_event_data_enable(true);
+    }
+}
+
 void app_channel_on_ble_available(void)
 {
     // チャネル開始待機用のタイマーを
@@ -143,6 +157,16 @@ void app_channel_on_ble_advertise_started(void)
 
     // BLEチャネル初期化完了
     data_channel_initialized();
+}
+
+void app_channel_on_ble_advertise_restarted(void)
+{
+    // BLE接続アイドルタイマーを開始
+    idling_timer_start();
+
+    // ペアリングモードに応じ、
+    // データイベントを閉塞／閉塞解除
+    app_channel_data_event_enable();
 }
 
 void app_channel_on_ble_connected(void)

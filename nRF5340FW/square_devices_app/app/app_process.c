@@ -211,6 +211,7 @@ void app_process_for_event(uint8_t event)
             app_channel_on_ble_advertise_started();
             break;
         case APEVT_BLE_ADVERTISE_RESTARTED:
+            app_channel_on_ble_advertise_restarted();
             break;
         case APEVT_BLE_CONNECTED:
             app_channel_on_ble_connected();
