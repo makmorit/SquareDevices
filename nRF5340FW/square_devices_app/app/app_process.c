@@ -25,6 +25,9 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app_process);
 
+// 作業領域
+static char work_buf[32];
+
 //
 // 業務イベント転送用
 //
@@ -297,6 +300,11 @@ void app_main_wrapper_initialized(void)
 
     // ボタン押下検知ができるようにする
     app_board_button_press_enable(true);
+
+    // RTCCの現在時刻を参照
+    if (app_rtcc_get_timestamp(work_buf, sizeof(work_buf))) {
+        LOG_INF("RTCC is available. Current timestamp: %s", work_buf);
+    }
 
     // バージョンをデバッグ出力
     LOG_INF("Square device application (%s) version %s (%d)", CONFIG_BT_DIS_HW_REV_STR, CONFIG_BT_DIS_FW_REV_STR, CONFIG_APP_FW_BUILD);
