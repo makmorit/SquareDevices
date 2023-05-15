@@ -9,7 +9,6 @@
 
 #include "app_ble_advertise.h"
 #include "app_ble_init.h"
-#include "app_ble_pairing.h"
 #include "app_board.h"
 #include "app_channel.h"
 #include "app_crypto.h"
@@ -166,16 +165,8 @@ static void usb_configured(void)
 
 static void data_channel_initialized(void)
 {
-    if (app_ble_pairing_mode()) {
-        // ペアリングモードの場合、業務処理を閉塞
-        //   データ処理イベント（DATEVT_XXXX）を
-        //   通知できないようにする
-        app_event_data_enable(false);
-
-    } else {
-        // 非ペアリングモードの場合、業務関連の初期化処理に移行
-        wrapper_main_data_channel_initialized();
-    }
+    // 業務関連の初期化処理に移行
+    wrapper_main_data_channel_initialized();
 }
 
 void app_process_for_event(uint8_t event)
@@ -312,9 +303,9 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
 //
 void app_main_wrapper_initialized(void)
 {
-    // データ処理イベント（DATEVT_XXXX）を
-    // 通知できるようにする
-    app_event_data_enable(true);
+    // ペアリングモードに応じ、
+    // データイベントを閉塞／閉塞解除
+    app_channel_data_event_enable();
 
     // ボタン押下検知ができるようにする
     app_board_button_press_enable(true);
