@@ -10,6 +10,7 @@
 
 #include "fido_define.h"
 #include "fido_transport_define.h"
+#include "vendor_command_define.h"
 
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
@@ -23,6 +24,16 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 
     // TODO: 仮の実装です。
     uint8_t ctap2_command = p_apdu->ctap2_command;
+    switch (ctap2_command) {
+        case VENDOR_COMMAND_UNPAIRING_REQUEST:
+            break;
+        case VENDOR_COMMAND_UNPAIRING_CANCEL:
+            break;
+        case VENDOR_COMMAND_ERASE_BONDING_DATA:
+            break;
+        default:
+            break;
+    }
     fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
 
     // コマンドがサポート外の場合はエラーコードを戻す
