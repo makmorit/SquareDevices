@@ -62,6 +62,24 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
     }
 }
 
+static void command_unpairing_cancel(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // ペアリング情報削除の実行を回避
+    fido_log_info("Unpairing process for peer_id=0x%04x canceled.", m_peer_id_to_unpair);
+
+    // peer_idを初期化
+    m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
+
+    // 成功レスポンスを設定
+    p_fido_response->cid     = p_command->CID;
+    p_fido_response->cmd     = p_command->CMD;
+    p_fido_response->size    = 1;
+    p_fido_response->data[0] = CTAP1_ERR_SUCCESS;
+}
+
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
     // 引数の型変換
@@ -79,7 +97,8 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
             command_unpairing_request(p_fido_request, p_fido_response);
             return;
         case VENDOR_COMMAND_UNPAIRING_CANCEL:
-            break;
+            command_unpairing_cancel(p_fido_request, p_fido_response);
+            return;
         case VENDOR_COMMAND_ERASE_BONDING_DATA:
             break;
         default:
