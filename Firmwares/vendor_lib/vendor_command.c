@@ -36,19 +36,18 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         uint16_t peer_id_to_unpair;
         if (p_apdu->ctap2_command == VENDOR_COMMAND_ERASE_BONDING_DATA) {
             // ペアリング情報削除要求の場合
-            fw_common_set_uint16_bytes(work_buf, PEER_ID_FOR_ALL);
-            fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(peer_id_to_unpair));
+            peer_id_to_unpair = PEER_ID_FOR_ALL;
 
-        } else if (fido_ble_unpairing_get_peer_id(&peer_id_to_unpair)) {
+        } else if (fido_ble_unpairing_get_peer_id(&peer_id_to_unpair) == false) {
             // ペアリング済みデバイスを走査し、peer_idを取得
-            // peer_id をレスポンス領域に設定
-            fw_common_set_uint16_bytes(work_buf, peer_id_to_unpair);
-            fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(peer_id_to_unpair));
-
-        } else {
-            // エラー情報をレスポンス領域に設定
+            // 取得失敗時は、エラー情報をレスポンス領域に設定
             fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+            return;
         }
+
+        // peer_id をレスポンス領域に設定
+        fw_common_set_uint16_bytes(work_buf, peer_id_to_unpair);
+        fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(peer_id_to_unpair));
 
     } else if (request_size == 2) {
         // データにpeer_idが指定されている場合
