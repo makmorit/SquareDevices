@@ -76,10 +76,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         fido_log_info("Unpairing will process for peer_id=0x%04x", m_peer_id_to_unpair);
 
         // 成功レスポンスを設定
-        p_fido_response->cid     = p_command->CID;
-        p_fido_response->cmd     = p_command->CMD;
-        p_fido_response->size    = 1;
-        p_fido_response->data[0] = CTAP1_ERR_SUCCESS;
+        set_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
 
     } else {
         // エラー情報をレスポンス領域に設定
@@ -99,10 +96,7 @@ static void command_unpairing_cancel(FIDO_REQUEST_T *p_fido_request, FIDO_RESPON
     m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
 
     // 成功レスポンスを設定
-    p_fido_response->cid     = p_command->CID;
-    p_fido_response->cmd     = p_command->CMD;
-    p_fido_response->size    = 1;
-    p_fido_response->data[0] = CTAP1_ERR_SUCCESS;
+    set_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
 }
 
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
