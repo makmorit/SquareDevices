@@ -18,6 +18,7 @@ extern "C" {
 
 // ペアリング関連
 #define PEER_ID_NOT_EXIST                   0xffff
+#define PEER_ID_FOR_ALL                     0xfffe
 
 #ifdef __cplusplus
 }
