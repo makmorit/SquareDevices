@@ -70,10 +70,11 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
     if (request_size == 0) {
         // データが無い場合（peer_id 取得要求の場合）
         // ペアリング済みデバイスを走査し、peer_idを取得
-        if (fido_ble_unpairing_get_peer_id(&m_peer_id_to_unpair)) {
+        uint16_t peer_id_to_unpair;
+        if (fido_ble_unpairing_get_peer_id(&peer_id_to_unpair)) {
             // peer_id をレスポンス領域に設定
-            set_uint16_bytes(work_buf, m_peer_id_to_unpair);
-            set_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(m_peer_id_to_unpair));
+            set_uint16_bytes(work_buf, peer_id_to_unpair);
+            set_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(peer_id_to_unpair));
 
         } else {
             // エラー情報をレスポンス領域に設定
