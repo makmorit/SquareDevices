@@ -13,6 +13,46 @@
 #include "vendor_command.h"
 
 //
+// 共通処理
+//
+void fido_command_ctap1_status_response(void *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t ctap1_status)
+{
+    // ステータス情報をレスポンス領域に設定
+    FIDO_RESPONSE_T *p_resp = (FIDO_RESPONSE_T *)p_fido_response;
+    p_resp->cid     = cid;
+    p_resp->cmd     = cmd;
+    p_resp->size    = 1;
+    p_resp->data[0] = ctap1_status;
+}
+
+void fido_command_ctap_status_and_data_response(void *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t ctap1_status, uint8_t *data, size_t data_size)
+{
+    // ステータス／データ情報をレスポンス領域に設定
+    FIDO_RESPONSE_T *p_resp = (FIDO_RESPONSE_T *)p_fido_response;
+    p_resp->cid     = cid;
+    p_resp->cmd     = cmd;
+    p_resp->size    = 1 + data_size;
+    p_resp->data[0] = ctap1_status;
+    memcpy(p_resp->data + 1, data, data_size);
+}
+
+void fido_command_u2f_ping_response(void *p_fido_request, void *p_fido_response)
+{
+    // 引数の型変換
+    FIDO_REQUEST_T  *p_req  = (FIDO_REQUEST_T *)p_fido_request;
+    FIDO_APDU_T     *p_apdu = &p_req->apdu;
+    FIDO_COMMAND_T  *p_cmnd = &p_req->command;
+
+    // リクエストのヘッダーとデータを編集せず
+    // レスポンスとして戻す（エコーバック）
+    FIDO_RESPONSE_T *p_resp = (FIDO_RESPONSE_T *)p_fido_response;
+    p_resp->cid  = p_cmnd->CID;
+    p_resp->cmd  = p_cmnd->CMD;
+    p_resp->size = p_apdu->data_length;
+    memcpy(p_resp->data, p_apdu->data, p_apdu->data_length);
+}
+
+//
 // 内部処理
 //
 static uint8_t u2f_command_byte(FIDO_REQUEST_T *p_fido_request)
@@ -27,13 +67,7 @@ static void fido_u2f_command_ping(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_
 
     // リクエストのヘッダーとデータを編集せず
     // レスポンスとして戻す（エコーバック）
-    FIDO_APDU_T    *p_apdu    = &p_fido_request->apdu;
-    FIDO_COMMAND_T *p_command = &p_fido_request->command;
-
-    p_fido_response->cid  = p_command->CID;
-    p_fido_response->cmd  = p_command->CMD;
-    p_fido_response->size = p_apdu->data_length;
-    memcpy(p_fido_response->data, p_apdu->data, p_apdu->data_length);
+    fido_command_u2f_ping_response(p_fido_request, p_fido_response);
 }
 
 static void fido_u2f_command_ping_done(void)
@@ -55,21 +89,14 @@ static void fido_u2f_command_msg(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T
     }
 
     // コマンドがサポート外の場合はエラーコードを戻す
-    p_fido_response->cid     = p_command->CID;
-    p_fido_response->cmd     = U2F_COMMAND_ERROR | 0x80;
-    p_fido_response->size    = 1;
-    p_fido_response->data[0] = CTAP1_ERR_INVALID_COMMAND;
+    fido_command_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
 }
 
 static void fido_u2f_command_error(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
 {
     // エラーレスポンスを生成
     FIDO_COMMAND_T *p_command = &p_fido_request->command;
-
-    p_fido_response->cid     = p_command->CID;
-    p_fido_response->cmd     = p_command->CMD;
-    p_fido_response->size    = 1;
-    p_fido_response->data[0] = p_command->ERROR;
+    fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, p_command->ERROR);
 }
 
 void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response)
