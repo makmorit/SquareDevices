@@ -72,3 +72,13 @@ bool fido_ble_response_send(uint8_t *u2f_status_buffer, size_t u2f_status_buffer
 {
     return app_ble_fido_send_data(u2f_status_buffer, u2f_status_buffer_length);
 }
+
+//
+// ペアリング関連
+//
+#include "app_ble_unpairing.h"
+
+bool fido_ble_unpairing_get_peer_id(uint16_t *peer_id_to_unpair)
+{
+    return app_ble_unpairing_get_peer_id(peer_id_to_unpair);
+}

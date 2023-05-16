@@ -15,13 +15,6 @@
 // ペアリング解除対象の peer_id を保持
 static uint16_t m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
 
-static bool get_peer_id_for_unpairing(uint16_t *peer_id_to_unpair)
-{
-    // TODO: 仮の実装です。
-    *peer_id_to_unpair = m_peer_id_to_unpair;
-    return false;
-}
-
 static void set_uint16_bytes(uint8_t *p_dest_buffer, uint16_t bytes)
 {
     // ２バイトの整数をビッグエンディアン形式で
@@ -50,7 +43,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
     if (request_size == 0) {
         // データが無い場合（peer_id 取得要求の場合）
         // ペアリング済みデバイスを走査し、peer_idを取得
-        if (get_peer_id_for_unpairing(&m_peer_id_to_unpair)) {
+        if (fido_ble_unpairing_get_peer_id(&m_peer_id_to_unpair)) {
             // peer_id をレスポンス領域に設定
             p_fido_response->cid     = p_command->CID;
             p_fido_response->cmd     = p_command->CMD;
