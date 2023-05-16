@@ -19,6 +19,7 @@ void app_status_indicator_idle(void);
 void app_status_indicator_busy(void);
 void app_status_indicator_prompt_reset(void);
 void app_status_indicator_prompt_tup(void);
+void app_status_indicator_pre_pairing_mode(void);
 void app_status_indicator_pairing_mode(void);
 void app_status_indicator_pairing_fail(void);
 void app_status_indicator_connection_fail(void);

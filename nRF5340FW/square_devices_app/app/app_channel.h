@@ -14,11 +14,13 @@ extern "C" {
 //
 // 関数群
 //
+void        app_channel_data_event_enable(void);
 void        app_channel_on_ble_available(void);
 void        app_channel_on_ble_unavailable(void);
 void        app_channel_on_usb_disconnected(void);
 void        app_channel_on_channel_init_timeout(void);
 void        app_channel_on_ble_advertise_started(void);
+void        app_channel_on_ble_advertise_restarted(void);
 void        app_channel_on_ble_connected(void);
 void        app_channel_on_ble_disconnected(void);
 void        app_channel_on_ble_connection_failed(void);

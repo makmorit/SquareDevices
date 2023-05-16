@@ -67,8 +67,36 @@ void fido_log_print_hexdump_debug(uint8_t *data, size_t size)
 // トランスポート関連
 //
 #include "app_ble_fido.h"
+#include "app_event.h"
+#include "app_event_define.h"
 
 bool fido_ble_response_send(uint8_t *u2f_status_buffer, size_t u2f_status_buffer_length)
 {
     return app_ble_fido_send_data(u2f_status_buffer, u2f_status_buffer_length);
+}
+
+void fido_ble_peripheral_terminate(void)
+{
+    // BLEペリフェラルの稼働を停止（スリープ状態に遷移）
+    app_event_notify(APEVT_IDLING_DETECTED);
+}
+
+//
+// ペアリング関連
+//
+#include "app_ble_unpairing.h"
+
+bool fido_ble_unpairing_get_peer_id(uint16_t *peer_id_to_unpair)
+{
+    return app_ble_unpairing_get_peer_id(peer_id_to_unpair);
+}
+
+bool fido_ble_unpairing_delete_peer_id(uint16_t peer_id_to_unpair)
+{
+    return app_ble_unpairing_delete_peer_id(peer_id_to_unpair);
+}
+
+bool fido_ble_unpairing_delete_all_peers(void)
+{
+    return app_ble_unpairing_delete_all_peers(NULL);
 }
