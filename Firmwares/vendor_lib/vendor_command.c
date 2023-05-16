@@ -34,13 +34,13 @@ static uint16_t get_uint16_from_bytes(uint8_t *p_src_buffer)
     return uint16;
 }
 
-static void set_error_response(FIDO_RESPONSE_T *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t error_status)
+static void set_ctap1_status_response(FIDO_RESPONSE_T *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t ctap1_status)
 {
     // エラー情報をレスポンス領域に設定
     p_fido_response->cid     = cid;
     p_fido_response->cmd     = cmd;
     p_fido_response->size    = 1;
-    p_fido_response->data[0] = error_status;
+    p_fido_response->data[0] = ctap1_status;
 }
 
 static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
@@ -64,7 +64,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
 
         } else {
             // エラー情報をレスポンス領域に設定
-            set_error_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+            set_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
         }
 
     } else if (request_size == 2) {
@@ -83,7 +83,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
 
     } else {
         // エラー情報をレスポンス領域に設定
-        set_error_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_INVALID_LENGTH);
+        set_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_INVALID_LENGTH);
     }
 }
 
@@ -132,5 +132,5 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 
     // コマンドがサポート外の場合はエラーコードを戻す
     fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
-    set_error_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
+    set_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
 }
