@@ -12,6 +12,9 @@
 #include "fido_transport_define.h"
 #include "vendor_command_define.h"
 
+// 作業領域
+static uint8_t work_buf[8];
+
 // ペアリング解除対象の peer_id を保持
 static uint16_t m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
 
@@ -36,11 +39,21 @@ static uint16_t get_uint16_from_bytes(uint8_t *p_src_buffer)
 
 static void set_ctap1_status_response(FIDO_RESPONSE_T *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t ctap1_status)
 {
-    // エラー情報をレスポンス領域に設定
+    // ステータス情報をレスポンス領域に設定
     p_fido_response->cid     = cid;
     p_fido_response->cmd     = cmd;
     p_fido_response->size    = 1;
     p_fido_response->data[0] = ctap1_status;
+}
+
+static void set_ctap_status_and_data_response(FIDO_RESPONSE_T *p_fido_response, uint32_t cid, uint8_t cmd, uint8_t ctap1_status, uint8_t *data, size_t data_size)
+{
+    // ステータス／データ情報をレスポンス領域に設定
+    p_fido_response->cid     = cid;
+    p_fido_response->cmd     = cmd;
+    p_fido_response->size    = 1 + data_size;
+    p_fido_response->data[0] = ctap1_status;
+    memcpy(p_fido_response->data + 1, data, data_size);
 }
 
 static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
@@ -56,11 +69,8 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         // ペアリング済みデバイスを走査し、peer_idを取得
         if (fido_ble_unpairing_get_peer_id(&m_peer_id_to_unpair)) {
             // peer_id をレスポンス領域に設定
-            p_fido_response->cid     = p_command->CID;
-            p_fido_response->cmd     = p_command->CMD;
-            p_fido_response->size    = 3;
-            p_fido_response->data[0] = CTAP1_ERR_SUCCESS;
-            set_uint16_bytes(p_fido_response->data + 1, m_peer_id_to_unpair);
+            set_uint16_bytes(work_buf, m_peer_id_to_unpair);
+            set_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(m_peer_id_to_unpair));
 
         } else {
             // エラー情報をレスポンス領域に設定
