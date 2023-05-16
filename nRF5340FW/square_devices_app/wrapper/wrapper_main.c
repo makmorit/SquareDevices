@@ -139,7 +139,8 @@ void wrapper_main_ble_nus_response_sent(void)
 
 void wrapper_main_notify_ble_disconnected(void)
 {
-    // TODO: 各種業務処理を実行
+    // 各種業務処理を実行
+    fido_command_on_ble_disconnected();
 }
 
 //
@@ -160,12 +161,12 @@ void wrapper_main_app_settings_deleted(void)
 //
 bool wrapper_main_button_pressed_short(void)
 {
-    // TODO: 各種業務処理を実行
-    return false;
+    // 各種業務処理を実行
+    return fido_command_on_button_pressed_short();
 }
 
 bool wrapper_main_button_pressed_sub(void)
 {
-    // TODO: 各種業務処理を実行
-    return false;
+    // 各種業務処理を実行
+    return fido_command_on_button_pressed_sub();
 }
