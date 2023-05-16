@@ -185,9 +185,8 @@ void app_channel_on_ble_disconnected(void)
         // BLE接続アイドルタイマーを停止-->再開
         idling_timer_start();
 
-        // ペアリング解除要求時は、
-        // 接続の切断検知時点でペアリング情報を削除
-        app_event_notify(APEVT_BLE_DISCONNECTED_WHILE_UNPAIRING);
+        // BLE接続が切断された旨を業務処理に通知
+        app_event_notify(APEVT_NOTIFY_BLE_DISCONNECTED);
         return;
     }
 

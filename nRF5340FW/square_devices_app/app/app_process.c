@@ -246,8 +246,8 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_REQUEST_RECEIVED:
             wrapper_main_ble_request_received();
             break;
-        case APEVT_BLE_DISCONNECTED_WHILE_UNPAIRING:
-            wrapper_main_ble_disconnected_while_unpairing();
+        case APEVT_NOTIFY_BLE_DISCONNECTED:
+            wrapper_main_notify_ble_disconnected();
             break;
         case APEVT_CCID_REQUEST_RECEIVED:
             wrapper_main_ccid_request_received();

@@ -137,7 +137,7 @@ void wrapper_main_ble_nus_response_sent(void)
     // TODO: 各種業務処理を実行
 }
 
-void wrapper_main_ble_disconnected_while_unpairing(void)
+void wrapper_main_notify_ble_disconnected(void)
 {
     // TODO: 各種業務処理を実行
 }
