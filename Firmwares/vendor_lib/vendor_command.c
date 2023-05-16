@@ -15,6 +15,9 @@
 // 作業領域
 static uint8_t work_buf[8];
 
+// ペアリング解除の待機中かどうかを保持
+static volatile bool waiting_for_unpair = false;
+
 // ペアリング解除対象の peer_id を保持
 static uint16_t m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
 
@@ -85,6 +88,9 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         m_peer_id_to_unpair = get_uint16_from_bytes(request_buffer);
         fido_log_info("Unpairing will process for peer_id=0x%04x", m_peer_id_to_unpair);
 
+        // ペアリング解除を待機（基板上のボタンを押下不可とする）
+        waiting_for_unpair = true;
+
         // 成功レスポンスを設定
         set_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
 
@@ -141,20 +147,31 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 
 void vendor_command_on_ble_disconnected(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("vendor_command_on_ble_disconnected");
+    if (m_peer_id_to_unpair != PEER_ID_NOT_EXIST) {
+        // 接続されていたBLEセントラルのペアリング情報を削除
+        if (fido_ble_unpairing_delete_peer_id(m_peer_id_to_unpair) == false) {
+            fido_log_error("Unpairing process for peer_id=0x%04x failed", m_peer_id_to_unpair);
+        } else {
+            // ペアリング情報削除が成功時は、BLEペリフェラルの稼働を停止（スリープ状態に遷移）
+            fido_log_debug("Unpairing process for peer_id=0x%04x done", m_peer_id_to_unpair);
+            fido_ble_peripheral_terminate();
+        }
+        // peer_idを初期化
+        m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
+    }
+
+    // ペアリング解除の待機を終了（基板上のボタンを押下可能とする）
+    waiting_for_unpair = false;
 }
 
 bool vendor_command_on_button_pressed_short(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("vendor_command_on_button_pressed_short");
-    return false;
+    // ペアリング処理中はボタン押下を抑止
+    return waiting_for_unpair;
 }
 
 bool vendor_command_on_button_pressed_sub(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("vendor_command_on_button_pressed_sub");
-    return false;
+    // ペアリング処理中はボタン押下を抑止
+    return waiting_for_unpair;
 }
