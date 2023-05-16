@@ -6,6 +6,7 @@
  */
 #include <string.h>
 
+#include "fw_common.h"
 #include "wrapper_common.h"
 
 #include "fido_command.h"
@@ -22,25 +23,6 @@ static volatile bool waiting_for_unpair = false;
 // ペアリング解除対象の peer_id を保持
 static uint16_t m_peer_id_to_unpair = PEER_ID_NOT_EXIST;
 
-static void set_uint16_bytes(uint8_t *p_dest_buffer, uint16_t bytes)
-{
-    // ２バイトの整数をビッグエンディアン形式で
-    // 指定の領域に格納
-    p_dest_buffer[0] = bytes >>  8 & 0xff;
-    p_dest_buffer[1] = bytes >>  0 & 0xff;
-}
-
-static uint16_t get_uint16_from_bytes(uint8_t *p_src_buffer)
-{
-    // ２バイトのビッグエンディアン形式配列を、
-    // ２バイト整数に変換
-    uint16_t uint16;
-    uint8_t *p_dest_buffer = (uint8_t *)&uint16;
-    p_dest_buffer[0] = p_src_buffer[1];
-    p_dest_buffer[1] = p_src_buffer[0];
-    return uint16;
-}
-
 static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
 {
     // リクエストの参照を取得
@@ -55,7 +37,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         uint16_t peer_id_to_unpair;
         if (fido_ble_unpairing_get_peer_id(&peer_id_to_unpair)) {
             // peer_id をレスポンス領域に設定
-            set_uint16_bytes(work_buf, peer_id_to_unpair);
+            fw_common_set_uint16_bytes(work_buf, peer_id_to_unpair);
             fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, sizeof(peer_id_to_unpair));
 
         } else {
@@ -68,7 +50,7 @@ static void command_unpairing_request(FIDO_REQUEST_T *p_fido_request, FIDO_RESPO
         // 接続の切断検知時点で、
         // peer_id に対応するペアリング情報を削除
         uint8_t *request_buffer = p_apdu->data + 1;
-        m_peer_id_to_unpair = get_uint16_from_bytes(request_buffer);
+        m_peer_id_to_unpair = fw_common_get_uint16_from_bytes(request_buffer);
         fido_log_info("Unpairing will process for peer_id=0x%04x", m_peer_id_to_unpair);
 
         // ペアリング解除を待機（基板上のボタンを押下不可とする）

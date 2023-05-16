@@ -6,6 +6,7 @@
  */
 #include <string.h>
 
+#include "fw_common.h"
 #include "wrapper_common.h"
 
 #include "fido_define.h"
@@ -14,14 +15,6 @@
 
 // 作業領域
 static uint8_t work_buf[8];
-
-static void set_uint16_bytes(uint8_t *p_dest_buffer, uint16_t bytes)
-{
-    // ２バイトの整数をビッグエンディアン形式で
-    // 指定の領域に格納
-    p_dest_buffer[0] = bytes >>  8 & 0xff;
-    p_dest_buffer[1] = bytes >>  0 & 0xff;
-}
 
 //
 // 共通処理
@@ -66,7 +59,7 @@ void fido_command_u2f_ping_response(void *p_fido_request, void *p_fido_response)
 void fido_command_u2f_sw_response(void *p_fido_response, uint32_t cid, uint8_t cmd, uint16_t status_word)
 {
     // ステータスワードをエンディアン変換
-    set_uint16_bytes(work_buf, status_word);
+    fw_common_set_uint16_bytes(work_buf, status_word);
 
     // ステータス情報をレスポンス領域に設定
     FIDO_RESPONSE_T *p_resp = (FIDO_RESPONSE_T *)p_fido_response;
