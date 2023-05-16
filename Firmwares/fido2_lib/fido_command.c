@@ -107,20 +107,18 @@ void fido_command_on_ble_response_sent(void *p_fido_request, void *p_fido_respon
 
 void fido_command_on_ble_disconnected(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("fido_command_on_ble_disconnected");
+    // ベンダー固有コマンドに伝搬
+    vendor_command_on_ble_disconnected();
 }
 
 bool fido_command_on_button_pressed_short(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("fido_command_on_button_pressed_short");
-    return false;
+    // ベンダー固有コマンドに伝搬
+    return vendor_command_on_button_pressed_short();
 }
 
 bool fido_command_on_button_pressed_sub(void)
 {
-    // TODO: 仮の実装です。
-    fido_log_debug("fido_command_on_button_pressed_sub");
-    return false;
+    // ベンダー固有コマンドに伝搬
+    return vendor_command_on_button_pressed_sub();
 }

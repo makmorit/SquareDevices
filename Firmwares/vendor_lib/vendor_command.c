@@ -138,3 +138,23 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
     fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
     set_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
 }
+
+void vendor_command_on_ble_disconnected(void)
+{
+    // TODO: 仮の実装です。
+    fido_log_debug("vendor_command_on_ble_disconnected");
+}
+
+bool vendor_command_on_button_pressed_short(void)
+{
+    // TODO: 仮の実装です。
+    fido_log_debug("vendor_command_on_button_pressed_short");
+    return false;
+}
+
+bool vendor_command_on_button_pressed_sub(void)
+{
+    // TODO: 仮の実装です。
+    fido_log_debug("vendor_command_on_button_pressed_sub");
+    return false;
+}
