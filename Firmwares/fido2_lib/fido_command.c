@@ -12,6 +12,17 @@
 #include "fido_transport_define.h"
 #include "vendor_command.h"
 
+// 作業領域
+static uint8_t work_buf[8];
+
+static void set_uint16_bytes(uint8_t *p_dest_buffer, uint16_t bytes)
+{
+    // ２バイトの整数をビッグエンディアン形式で
+    // 指定の領域に格納
+    p_dest_buffer[0] = bytes >>  8 & 0xff;
+    p_dest_buffer[1] = bytes >>  0 & 0xff;
+}
+
 //
 // 共通処理
 //
@@ -52,6 +63,19 @@ void fido_command_u2f_ping_response(void *p_fido_request, void *p_fido_response)
     memcpy(p_resp->data, p_apdu->data, p_apdu->data_length);
 }
 
+void fido_command_u2f_sw_response(void *p_fido_response, uint32_t cid, uint8_t cmd, uint16_t status_word)
+{
+    // ステータスワードをエンディアン変換
+    set_uint16_bytes(work_buf, status_word);
+
+    // ステータス情報をレスポンス領域に設定
+    FIDO_RESPONSE_T *p_resp = (FIDO_RESPONSE_T *)p_fido_response;
+    p_resp->cid     = cid;
+    p_resp->cmd     = cmd;
+    p_resp->size    = sizeof(status_word);
+    memcpy(p_resp->data, work_buf, sizeof(status_word));
+}
+
 //
 // 内部処理
 //
@@ -86,10 +110,15 @@ static void fido_u2f_command_msg(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T
         // リクエストがベンダー固有コマンドの場合
         vendor_command_on_fido_msg(p_fido_request, p_fido_response);
         return;
+    } else if (ctap2_command > 0) {
+        // コマンドがサポート外の場合はエラーコードを戻す
+        fido_log_error("CTAP2 command (0x%02x) received while not supported", ctap2_command);
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_INVALID_COMMAND);
+    } else {
+        // コマンドがサポート外の場合はエラーコードを戻す
+        fido_log_error("U2F command (INS=0x%02x) received while not supported", p_apdu->INS);
+        fido_command_u2f_sw_response(p_fido_response, p_command->CID, p_command->CMD, U2F_SW_INS_NOT_SUPPORTED);
     }
-
-    // コマンドがサポート外の場合はエラーコードを戻す
-    fido_command_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
 }
 
 static void fido_u2f_command_error(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
