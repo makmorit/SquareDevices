@@ -15,7 +15,7 @@
 #include "vendor_command_define.h"
 
 // 作業領域
-static uint8_t work_buf[8];
+static uint8_t work_buf[32];
 
 // ペアリング解除の待機中かどうかを保持
 static volatile bool waiting_for_unpair = false;
@@ -92,6 +92,21 @@ static void command_unpairing_cancel(FIDO_REQUEST_T *p_fido_request, FIDO_RESPON
     fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
 }
 
+static void command_get_timestamp(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // RTCCが保持する現在時刻を、"yyyy/mm/dd hh:mm:ss"形式の文字列で取得
+    if (fido_rtcc_get_timestamp(work_buf, sizeof(work_buf)) == false) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+        return;
+    }
+
+    // 現在時刻をレスポンス領域に設定
+    fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, strlen(work_buf));
+}
+
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
     // 引数の型変換
@@ -106,6 +121,8 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
     uint8_t ctap2_command = p_apdu->ctap2_command;
     switch (ctap2_command) {
         case VENDOR_COMMAND_GET_TIMESTAMP:
+            command_get_timestamp(p_fido_request, p_fido_response);
+            return;
         case VENDOR_COMMAND_SET_TIMESTAMP:
             break;
         case VENDOR_COMMAND_UNPAIRING_REQUEST:
