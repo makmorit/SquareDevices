@@ -115,3 +115,19 @@ bool fido_rtcc_set_timestamp(uint32_t seconds_since_epoch, uint8_t timezone_diff
 {
     return app_rtcc_set_timestamp(seconds_since_epoch, timezone_diff_hours);
 }
+
+//
+// ユーティリティー関数群
+//
+#include "app_board.h"
+#include "app_flash.h"
+
+bool fido_flash_get_stat_csv(uint8_t *stat_csv_data, size_t *stat_csv_size)
+{
+    return app_flash_get_stat_csv(stat_csv_data, stat_csv_size);
+}
+
+bool fido_board_get_version_info_csv(uint8_t *info_csv_data, size_t *info_csv_size)
+{
+    return app_board_get_version_info_csv(info_csv_data, info_csv_size);
+}
