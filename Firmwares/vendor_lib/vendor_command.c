@@ -15,7 +15,7 @@
 #include "vendor_command_define.h"
 
 // 作業領域
-static uint8_t work_buf[8];
+static uint8_t work_buf[32];
 
 // ペアリング解除の待機中かどうかを保持
 static volatile bool waiting_for_unpair = false;
@@ -92,6 +92,48 @@ static void command_unpairing_cancel(FIDO_REQUEST_T *p_fido_request, FIDO_RESPON
     fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
 }
 
+static void command_get_timestamp(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // RTCCが保持する現在時刻を、"yyyy/mm/dd hh:mm:ss"形式の文字列で取得
+    if (fido_rtcc_get_timestamp(work_buf, sizeof(work_buf)) == false) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+        return;
+    }
+
+    // 現在時刻をレスポンス領域に設定
+    fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, strlen(work_buf));
+}
+
+static void command_set_timestamp(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_APDU_T    *p_apdu    = &p_fido_request->apdu;
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // コマンドバイトを除いたデータサイズを取得
+    size_t request_size = p_apdu->data_length - 1;
+    if (request_size != 4) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_INVALID_LENGTH);
+        return;
+    }
+
+    // 現在時刻を設定
+    // リクエスト＝４バイトのUNIX時間整数（ビッグエンディアン）
+    uint8_t *request_buffer = p_apdu->data + 1;
+    uint32_t seconds_since_epoch = fw_common_get_uint32_from_bytes(request_buffer);
+    uint8_t timezone_diff_hours = 9;
+    if (fido_rtcc_set_timestamp(seconds_since_epoch, timezone_diff_hours) == false) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+        return;
+    }
+
+    // レスポンスとして、現在時刻を送信
+    command_get_timestamp(p_fido_request, p_fido_response);
+}
+
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
     // 引数の型変換
@@ -105,6 +147,12 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
     // TODO: 仮の実装です。
     uint8_t ctap2_command = p_apdu->ctap2_command;
     switch (ctap2_command) {
+        case VENDOR_COMMAND_GET_TIMESTAMP:
+            command_get_timestamp(p_fido_request, p_fido_response);
+            return;
+        case VENDOR_COMMAND_SET_TIMESTAMP:
+            command_set_timestamp(p_fido_request, p_fido_response);
+            return;
         case VENDOR_COMMAND_UNPAIRING_REQUEST:
         case VENDOR_COMMAND_ERASE_BONDING_DATA:
             command_unpairing_request(p_fido_request, p_fido_response);
