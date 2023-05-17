@@ -105,6 +105,9 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
     // TODO: 仮の実装です。
     uint8_t ctap2_command = p_apdu->ctap2_command;
     switch (ctap2_command) {
+        case VENDOR_COMMAND_GET_TIMESTAMP:
+        case VENDOR_COMMAND_SET_TIMESTAMP:
+            break;
         case VENDOR_COMMAND_UNPAIRING_REQUEST:
         case VENDOR_COMMAND_ERASE_BONDING_DATA:
             command_unpairing_request(p_fido_request, p_fido_response);
