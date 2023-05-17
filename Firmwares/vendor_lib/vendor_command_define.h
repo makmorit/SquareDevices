@@ -12,6 +12,8 @@ extern "C" {
 #endif
 
 // ベンダー固有コマンドの識別用
+#define VENDOR_COMMAND_GET_FLASH_STAT       0x42
+#define VENDOR_COMMAND_GET_APP_VERSION      0x43
 #define VENDOR_COMMAND_GET_TIMESTAMP        0x4a
 #define VENDOR_COMMAND_SET_TIMESTAMP        0x4b
 #define VENDOR_COMMAND_UNPAIRING_REQUEST    0x4d

@@ -160,6 +160,9 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
         case VENDOR_COMMAND_UNPAIRING_CANCEL:
             command_unpairing_cancel(p_fido_request, p_fido_response);
             return;
+        case VENDOR_COMMAND_GET_FLASH_STAT:
+        case VENDOR_COMMAND_GET_APP_VERSION:
+            break;
         default:
             break;
     }
