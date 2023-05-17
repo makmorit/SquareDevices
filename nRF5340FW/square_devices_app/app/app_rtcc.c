@@ -471,6 +471,11 @@ void app_rtcc_initialize(void)
 
 bool app_rtcc_set_timestamp(uint32_t seconds_since_epoch, uint8_t timezone_diff_hours)
 {
+    // RTCCが搭載されていない場合は終了
+    if (rtcc_is_available == false) {
+        return false;
+    }
+
     // UNIX時間を使って時刻合わせ
     //  UNIX時間カウンターには、引数をそのまま設定し、
     //  カレンダーには、タイムゾーンに対応した時刻を設定
@@ -487,6 +492,11 @@ bool app_rtcc_set_timestamp(uint32_t seconds_since_epoch, uint8_t timezone_diff_
 
 bool app_rtcc_get_timestamp(char *buf, size_t size)
 {
+    // RTCCが搭載されていない場合は終了
+    if (rtcc_is_available == false) {
+        return false;
+    }
+
     // レジスター（Clock register）から現在時刻を取得
     if (read_bytes_from_register(RV3028C7_REG_CLOCK_SECONDS, m_datetime, DATETIME_COMPONENTS_SIZE) == false) {
         return false;
