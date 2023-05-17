@@ -29,6 +29,8 @@ bool        fido_ble_unpairing_delete_peer_id(uint16_t peer_id_to_unpair);
 bool        fido_ble_unpairing_delete_all_peers(void);
 bool        fido_rtcc_get_timestamp(char *buf, size_t size);
 bool        fido_rtcc_set_timestamp(uint32_t seconds_since_epoch, uint8_t timezone_diff_hours);
+bool        fido_flash_get_stat_csv(uint8_t *stat_csv_data, size_t *stat_csv_size);
+bool        fido_board_get_version_info_csv(uint8_t *info_csv_data, size_t *info_csv_size);
 
 #ifdef __cplusplus
 }

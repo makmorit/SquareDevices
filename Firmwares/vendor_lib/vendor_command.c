@@ -15,7 +15,7 @@
 #include "vendor_command_define.h"
 
 // 作業領域
-static uint8_t work_buf[32];
+static uint8_t work_buf[128];
 
 // ペアリング解除の待機中かどうかを保持
 static volatile bool waiting_for_unpair = false;
@@ -134,6 +134,40 @@ static void command_set_timestamp(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_
     command_get_timestamp(p_fido_request, p_fido_response);
 }
 
+static void command_get_flash_stat(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // 統計情報CSVを取得
+    size_t buffer_size = sizeof(work_buf);
+    if (fido_flash_get_stat_csv(work_buf, &buffer_size) == false) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+        return;
+    }
+
+    // CSVデータ（下記のようなCSV形式のテキスト）をレスポンス領域に設定
+    //   <項目名1>=<値2>,<項目名2>=<値2>,...,<項目名k>=<値k>
+    fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, buffer_size);
+}
+
+static void command_get_app_version(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // バージョン情報CSVを取得
+    size_t buffer_size = sizeof(work_buf);
+    if (fido_board_get_version_info_csv(work_buf, &buffer_size) == false) {
+        fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_OTHER);
+        return;
+    }
+
+    // CSVデータ（下記のようなCSV形式のテキスト）をレスポンス領域に設定
+    //   <項目名1>=<値2>,<項目名2>=<値2>,...,<項目名k>=<値k>
+    fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, buffer_size);
+}
+
 void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
     // 引数の型変換
@@ -159,6 +193,12 @@ void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
             return;
         case VENDOR_COMMAND_UNPAIRING_CANCEL:
             command_unpairing_cancel(p_fido_request, p_fido_response);
+            return;
+        case VENDOR_COMMAND_GET_FLASH_STAT:
+            command_get_flash_stat(p_fido_request, p_fido_response);
+            return;
+        case VENDOR_COMMAND_GET_APP_VERSION:
+            command_get_app_version(p_fido_request, p_fido_response);
             return;
         default:
             break;
