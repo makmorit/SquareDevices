@@ -111,10 +111,10 @@ static void advertise_start(struct k_work *work)
     // FIDO以外のBLEサービスUUIDを追加設定（非ペアリングモード時）
     if (app_ble_pairing_mode() == false) {
         // TODO: 後日、NUSとSMPを切り替える機能を追加する必要があります。
-        //       現状、デフォルト＝NUSとしておきます。
-        ad[ad_len] = ad_uuid_nus;
+        //       現状、デフォルト＝SMPとしておきます。
+        ad[ad_len] = ad_uuid_smp;
         ad_len++;
-        (void)ad_uuid_smp;
+        (void)ad_uuid_nus;
     }
 
     // サービスデータフィールドを追加設定（ペアリングモード時のみ）
