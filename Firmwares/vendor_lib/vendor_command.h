@@ -7,6 +7,8 @@
 #ifndef VENDOR_COMMAND_H
 #define VENDOR_COMMAND_H
 
+#include <stdbool.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -14,7 +16,7 @@ extern "C" {
 //
 // 関数群
 //
-void        vendor_command_on_fido_msg(void *p_fido_request, void *p_fido_response);
+bool        vendor_command_on_fido_msg(void *p_fido_request, void *p_fido_response);
 void        vendor_command_on_ble_disconnected(void);
 bool        vendor_command_on_button_pressed_short(void);
 bool        vendor_command_on_button_pressed_sub(void);
