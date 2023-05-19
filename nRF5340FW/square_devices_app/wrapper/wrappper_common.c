@@ -66,6 +66,7 @@ void fido_log_print_hexdump_debug(uint8_t *data, size_t size)
 //
 // トランスポート関連
 //
+#include "app_ble_advertise.h"
 #include "app_ble_fido.h"
 #include "app_event.h"
 #include "app_event_define.h"
@@ -79,6 +80,12 @@ void fido_ble_peripheral_terminate(void)
 {
     // BLEペリフェラルの稼働を停止（スリープ状態に遷移）
     app_event_notify(APEVT_IDLING_DETECTED);
+}
+
+void fido_ble_advertise_start_smp_service(void)
+{
+    // BLE SMPサービスのアドバタイズ開始を指示
+    app_ble_advertise_start_smp_service();
 }
 
 //

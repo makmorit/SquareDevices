@@ -71,6 +71,9 @@ bool app_ble_advertise_is_stopped(void)
     return advertise_is_stopped;
 }
 
+// SMPサービスのアドバタイズが利用可能かどうかを保持
+static bool smp_advertise_is_available = false;
+
 // advertising data
 static struct bt_data ad[3];
 static struct bt_data ad_nobredr = BT_DATA_BYTES(BT_DATA_FLAGS, BT_LE_AD_NO_BREDR);
@@ -110,10 +113,10 @@ static void advertise_start(struct k_work *work)
 
     // FIDO以外のBLEサービスUUIDを追加設定（非ペアリングモード時）
     if (app_ble_pairing_mode() == false) {
-        // TODO: 後日、NUSとSMPを切り替える機能を追加する必要があります。
-        //       現状、デフォルト＝SMPとしておきます。
-        ad[ad_len] = ad_uuid_smp;
-        ad_len++;
+        if (smp_advertise_is_available) {
+            ad[ad_len] = ad_uuid_smp;
+            ad_len++;
+        }
         (void)ad_uuid_nus;
     }
 
@@ -162,4 +165,13 @@ void app_ble_advertise_init(void)
     // アドバタイズ処理を work queue に入れる
     k_work_init(&advertise_work_for_start, advertise_start);
     k_work_init(&advertise_work_for_stop, advertise_stop);
+}
+
+void app_ble_advertise_start_smp_service(void)
+{
+    // BLE SMPサービスをアドバタイズ可能にする
+    smp_advertise_is_available = true;
+
+    // BLEアドバタイズ開始を指示
+    app_ble_advertise_start();
 }

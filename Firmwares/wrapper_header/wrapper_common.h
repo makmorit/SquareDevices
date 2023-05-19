@@ -24,6 +24,7 @@ void        fido_log_debug(const char *fmt, ...);
 void        fido_log_print_hexdump_debug(uint8_t *data, size_t size);
 bool        fido_ble_response_send(uint8_t *u2f_status_buffer, size_t u2f_status_buffer_length);
 void        fido_ble_peripheral_terminate(void);
+void        fido_ble_advertise_start_smp_service(void);
 bool        fido_ble_unpairing_get_peer_id(uint16_t *peer_id_to_unpair);
 bool        fido_ble_unpairing_delete_peer_id(uint16_t peer_id_to_unpair);
 bool        fido_ble_unpairing_delete_all_peers(void);
