@@ -144,6 +144,12 @@ void wrapper_main_notify_ble_disconnected(void)
     fido_command_on_ble_disconnected();
 }
 
+void wrapper_main_notify_ble_advertise_started_smp_service(void)
+{
+    // 各種業務処理を実行
+    fido_command_on_ble_advertise_started_smp_service();
+}
+
 //
 // Flash ROM更新時の処理
 //

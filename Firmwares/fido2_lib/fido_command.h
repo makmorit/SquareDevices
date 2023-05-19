@@ -20,6 +20,7 @@ void        fido_command_u2f_ping_response(void *p_fido_request, void *p_fido_re
 bool        fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response);
 void        fido_command_on_ble_response_sent(void *p_fido_request, void *p_fido_response);
 void        fido_command_on_ble_disconnected(void);
+void        fido_command_on_ble_advertise_started_smp_service(void);
 bool        fido_command_on_button_pressed_short(void);
 bool        fido_command_on_button_pressed_sub(void);
 

@@ -169,6 +169,15 @@ static void data_channel_initialized(void)
     wrapper_main_data_channel_initialized();
 }
 
+static void ble_advertise_started_smp_service(void)
+{
+    // FIDOリクエストを閉塞
+    app_event_data_enable(false);
+
+    // 業務処理を再開
+    wrapper_main_notify_ble_advertise_started_smp_service();
+}
+
 void app_process_for_event(uint8_t event)
 {
     // イベントに対応する処理を実行
@@ -203,6 +212,9 @@ void app_process_for_event(uint8_t event)
             break;
         case APEVT_BLE_ADVERTISE_RESTARTED:
             app_channel_on_ble_advertise_restarted();
+            break;
+        case APEVT_BLE_ADVERTISE_STARTED_SMP_SERVICE:
+            ble_advertise_started_smp_service();
             break;
         case APEVT_BLE_CONNECTED:
             app_channel_on_ble_connected();

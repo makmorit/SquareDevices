@@ -18,6 +18,7 @@ extern "C" {
 //
 bool        vendor_command_on_fido_msg(void *p_fido_request, void *p_fido_response);
 void        vendor_command_on_ble_disconnected(void);
+void        vendor_command_on_ble_advertise_started_smp_service(void);
 bool        vendor_command_on_button_pressed_short(void);
 bool        vendor_command_on_button_pressed_sub(void);
 

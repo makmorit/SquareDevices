@@ -138,7 +138,11 @@ static void advertise_start(struct k_work *work)
 
     // BLEアドバタイズ開始イベントを業務処理スレッドに引き渡す
     if (advertise_is_available) {
-        app_event_notify(APEVT_BLE_ADVERTISE_RESTARTED);
+        if (smp_advertise_is_available) {
+            app_event_notify(APEVT_BLE_ADVERTISE_STARTED_SMP_SERVICE);
+        } else {
+            app_event_notify(APEVT_BLE_ADVERTISE_RESTARTED);
+        }
     } else {
         app_event_notify(APEVT_BLE_ADVERTISE_STARTED);
     }
