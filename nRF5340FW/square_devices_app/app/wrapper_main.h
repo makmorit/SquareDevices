@@ -29,6 +29,7 @@ void        wrapper_main_ccid_data_frame_received(uint8_t *data, size_t size);
 void        wrapper_main_ccid_request_received(void);
 void        wrapper_main_ble_data_frame_received(uint8_t *data, size_t size);
 void        wrapper_main_ble_request_received(void);
+void        wrapper_main_ble_response_resume(void);
 void        wrapper_main_ble_response_sent(void);
 void        wrapper_main_ble_nus_data_frame_received(uint8_t *data, size_t size);
 void        wrapper_main_ble_nus_request_received(void);

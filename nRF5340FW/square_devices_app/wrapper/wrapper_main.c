@@ -116,6 +116,11 @@ void wrapper_main_ble_request_received(void)
     }
 }
 
+void wrapper_main_ble_response_resume(void)
+{
+    fido_ble_send_response(&m_fido_response);
+}
+
 void wrapper_main_ble_response_sent(void)
 {
     if (fido_ble_send_response_done()) {
