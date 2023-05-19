@@ -121,24 +121,24 @@ static void fido_u2f_command_error(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE
     fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, p_command->ERROR);
 }
 
-void fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response)
+bool fido_command_on_ble_request_received(void *p_fido_request, void *p_fido_response)
 {
     // データ受信後に実行すべき処理を判定
     switch (u2f_command_byte(p_fido_request)) {
         case U2F_COMMAND_PING:
             // PINGレスポンスを実行
             fido_u2f_command_ping(p_fido_request, p_fido_response);
-            break;
+            return true;
         case U2F_COMMAND_MSG:
             // MSGレスポンスを実行
             fido_u2f_command_msg(p_fido_request, p_fido_response);
-            break;
+            return true;
         case U2F_COMMAND_ERROR:
             // エラーレスポンスを実行
             fido_u2f_command_error(p_fido_request, p_fido_response);
-            break;
+            return true;
         default:
-            break;
+            return false;
     }
 }
 

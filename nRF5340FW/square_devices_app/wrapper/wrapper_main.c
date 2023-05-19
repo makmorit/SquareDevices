@@ -111,8 +111,9 @@ void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 
 void wrapper_main_ble_request_received(void)
 {
-    fido_command_on_ble_request_received(&m_fido_request, &m_fido_response);
-    fido_ble_send_response(&m_fido_response);
+    if (fido_command_on_ble_request_received(&m_fido_request, &m_fido_response)) {
+        fido_ble_send_response(&m_fido_response);
+    }
 }
 
 void wrapper_main_ble_response_sent(void)
