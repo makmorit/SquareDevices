@@ -111,7 +111,13 @@ void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
 
 void wrapper_main_ble_request_received(void)
 {
-    fido_command_on_ble_request_received(&m_fido_request, &m_fido_response);
+    if (fido_command_on_ble_request_received(&m_fido_request, &m_fido_response)) {
+        fido_ble_send_response(&m_fido_response);
+    }
+}
+
+void wrapper_main_ble_response_resume(void)
+{
     fido_ble_send_response(&m_fido_response);
 }
 
@@ -141,6 +147,12 @@ void wrapper_main_notify_ble_disconnected(void)
 {
     // 各種業務処理を実行
     fido_command_on_ble_disconnected();
+}
+
+void wrapper_main_notify_ble_advertise_started_smp_service(void)
+{
+    // 各種業務処理を実行
+    fido_command_on_ble_advertise_started_smp_service();
 }
 
 //

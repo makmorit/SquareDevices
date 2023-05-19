@@ -168,45 +168,65 @@ static void command_get_app_version(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONS
     fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, buffer_size);
 }
 
-void vendor_command_on_fido_msg(void *fido_request, void *fido_response)
+static void command_change_dfu_mode(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // BLE SMPのアドバタイズ開始を指示
+    fido_ble_advertise_start_smp_service();
+
+    // 成功レスポンスを設定（ただし、BLE SMPがアドバタイズ開始されるまで、レスポンスは抑止）
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+    fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
+}
+
+static void command_not_available(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
+{
+    // リクエストの参照を取得
+    FIDO_APDU_T    *p_apdu    = &p_fido_request->apdu;
+    FIDO_COMMAND_T *p_command = &p_fido_request->command;
+
+    // コマンドがサポート外の場合はエラーコードを戻す
+    uint8_t ctap2_command = p_apdu->ctap2_command;
+    fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
+    fido_command_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
+}
+
+bool vendor_command_on_fido_msg(void *fido_request, void *fido_response)
 {
     // 引数の型変換
     FIDO_REQUEST_T  *p_fido_request  = (FIDO_REQUEST_T *)fido_request;
     FIDO_RESPONSE_T *p_fido_response = (FIDO_RESPONSE_T *)fido_response;
 
     // リクエストの参照を取得
-    FIDO_APDU_T    *p_apdu    = &p_fido_request->apdu;
-    FIDO_COMMAND_T *p_command = &p_fido_request->command;
-
-    // TODO: 仮の実装です。
-    uint8_t ctap2_command = p_apdu->ctap2_command;
+    uint8_t ctap2_command = p_fido_request->apdu.ctap2_command;
     switch (ctap2_command) {
         case VENDOR_COMMAND_GET_TIMESTAMP:
             command_get_timestamp(p_fido_request, p_fido_response);
-            return;
+            break;
         case VENDOR_COMMAND_SET_TIMESTAMP:
             command_set_timestamp(p_fido_request, p_fido_response);
-            return;
+            break;
         case VENDOR_COMMAND_UNPAIRING_REQUEST:
         case VENDOR_COMMAND_ERASE_BONDING_DATA:
             command_unpairing_request(p_fido_request, p_fido_response);
-            return;
+            break;
         case VENDOR_COMMAND_UNPAIRING_CANCEL:
             command_unpairing_cancel(p_fido_request, p_fido_response);
-            return;
+            break;
         case VENDOR_COMMAND_GET_FLASH_STAT:
             command_get_flash_stat(p_fido_request, p_fido_response);
-            return;
+            break;
         case VENDOR_COMMAND_GET_APP_VERSION:
             command_get_app_version(p_fido_request, p_fido_response);
-            return;
+            break;
+        case VENDOR_COMMAND_CHANGE_DFU_MODE:
+            // BLE SMP開始までレスポンス抑止
+            command_change_dfu_mode(p_fido_request, p_fido_response);
+            return false;
         default:
+            command_not_available(p_fido_request, p_fido_response);
             break;
     }
-
-    // コマンドがサポート外の場合はエラーコードを戻す
-    fido_log_error("Vendor command (0x%02x) received while not supported", ctap2_command);
-    fido_command_ctap1_status_response(p_fido_response, p_command->CID, U2F_COMMAND_ERROR | 0x80, CTAP1_ERR_INVALID_COMMAND);
+    return true;
 }
 
 void vendor_command_on_ble_disconnected(void)
@@ -237,6 +257,13 @@ void vendor_command_on_ble_disconnected(void)
 
     // ペアリング解除の待機を終了（基板上のボタンを押下可能とする）
     waiting_for_unpair = false;
+}
+
+void vendor_command_on_ble_advertise_started_smp_service(void)
+{
+    // レスポンスを送信
+    fido_log_info("BLE SMP service is available");
+    fido_ble_response_send_resume();
 }
 
 bool vendor_command_on_button_pressed_short(void)
