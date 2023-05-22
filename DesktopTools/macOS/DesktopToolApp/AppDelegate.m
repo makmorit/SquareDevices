@@ -1,11 +1,12 @@
 //
 //  AppDelegate.m
-//  MaintenanceTool
+//  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/07.
 //
 #import "AppCommonMessage.h"
 #import "AppDelegate.h"
+#import "PopupWindow.h"
 #import "ToolCommonFunc.h"
 #import "ToolLogFile.h"
 
@@ -17,6 +18,7 @@
     // カスタマイズしたサイドバーメニュー
     @property(nonatomic, weak) IBOutlet NSOutlineView   *sidebar;
     @property(nonatomic, strong) NSArray                *sidebarItems;
+    @property(nonatomic) NSString                       *selectedItemTitle;
 
 @end
 
@@ -85,7 +87,17 @@
     }
 
     - (IBAction)menuItemVendorDidSelect:(id)sender {
-        // TODO: ベンダー向け機能画面を開く
+        // TODO: 仮の実装です。
+        NSMenuItem *menuItemVendor = (NSMenuItem *)sender;
+        NSString *titleString = [menuItemVendor title];
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:titleString
+                                   forObject:nil forSelector:nil parentWindow:[self window]];
+    }
+
+    - (void)sideMenuItemDidSelect {
+        // TODO: 仮の実装です。
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self selectedItemTitle]
+                                   forObject:nil forSelector:nil parentWindow:[self window]];
     }
 
 #pragma mark - Delegate methods for NSOutlineViewDelegate
@@ -104,6 +116,8 @@
     }
 
     - (BOOL) outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
+        [self setSelectedItemTitle:[[item representedObject] objectForKey:@"title"]];
+        [self performSelector:@selector(sideMenuItemDidSelect) withObject:nil afterDelay:0.0];
         return ![self outlineViewItemIsHeader:item];
     }
 

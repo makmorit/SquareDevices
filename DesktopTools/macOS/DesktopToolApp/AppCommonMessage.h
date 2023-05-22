@@ -1,6 +1,6 @@
 //
 //  AppCommonMessage.h
-//  MaintenanceTool
+//  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/07.
 //
@@ -19,5 +19,7 @@
 #define MSG_MENU_ITEM_NAME_TOOL_INFOS               @"ツール情報"
 #define MSG_MENU_ITEM_NAME_TOOL_VERSION             @"バージョン参照"
 #define MSG_MENU_ITEM_NAME_TOOL_LOG_FILES           @"ログファイル参照"
+
+#define MSG_ERROR_MENU_NOT_SUPPORTED                @"このメニューは実行できません。"
 
 #endif /* AppCommonMessage_h */
