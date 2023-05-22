@@ -5,6 +5,7 @@
 //  Created by Makoto Morita on 2023/05/22.
 //
 #import "AppCommonMessage.h"
+#import "PopupWindow.h"
 #import "SideMenu.h"
 
 @interface SideMenu ()
@@ -65,6 +66,12 @@
                                    nil];
         NSArray *array = [NSArray arrayWithObjects:menuItem1, menuItem2, nil];
         [self setSidebarItems:array];
+    }
+
+    - (void)sideMenuItemDidSelect {
+        // TODO: 仮の実装です。
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self selectedItemTitle]
+                                   forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
     }
 
 @end

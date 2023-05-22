@@ -15,12 +15,11 @@
 
     @property (assign) IBOutlet NSWindow        *window;
     @property (assign) IBOutlet NSMenuItem      *menuItemVendor;
+    @property (assign) IBOutlet NSOutlineView   *sidebar;
 
     // カスタマイズしたサイドバーメニュー
-    @property(nonatomic) SideMenu                       *sideMenu;
-    @property(nonatomic, weak) IBOutlet NSOutlineView   *sidebar;
-    @property(nonatomic) NSArray                        *sidebarItems;
-    @property(nonatomic) NSString                       *selectedItemTitle;
+    @property (nonatomic) SideMenu              *sideMenu;
+    @property (nonatomic) NSArray               *sidebarItems;
 
 @end
 
@@ -63,12 +62,6 @@
                                    forObject:nil forSelector:nil parentWindow:[self window]];
     }
 
-    - (void)sideMenuItemDidSelect {
-        // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self selectedItemTitle]
-                                   forObject:nil forSelector:nil parentWindow:[self window]];
-    }
-
 #pragma mark - Delegate methods for NSOutlineViewDelegate
 
     - (BOOL)outlineViewItemIsHeader:(id)item {
@@ -85,8 +78,8 @@
     }
 
     - (BOOL) outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
-        [self setSelectedItemTitle:[[item representedObject] objectForKey:@"title"]];
-        [self performSelector:@selector(sideMenuItemDidSelect) withObject:nil afterDelay:0.0];
+        [[self sideMenu] setSelectedItemTitle:[[item representedObject] objectForKey:@"title"]];
+        [[self sideMenu] performSelector:@selector(sideMenuItemDidSelect) withObject:nil afterDelay:0.0];
         return ![self outlineViewItemIsHeader:item];
     }
 

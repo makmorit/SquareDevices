@@ -11,9 +11,11 @@
 
 @interface SideMenu : NSObject
 
-    @property(nonatomic) NSArray *sidebarItems;
+    @property (nonatomic) NSArray  *sidebarItems;
+    @property (nonatomic) NSString *selectedItemTitle;
 
     - (id)initWithDelegate:(id)delegate;
+    - (void)sideMenuItemDidSelect;
 
 @end
 

@@ -387,13 +387,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="564" height="356"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3l8-pf-BiN">
-                                <rect key="frame" x="0.0" y="11" width="200" height="345"/>
+                                <rect key="frame" x="0.0" y="2" width="200" height="354"/>
                                 <clipView key="contentView" drawsBackground="NO" id="0cq-qd-5bd">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="345"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="354"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" autosaveExpandedItems="YES" outlineTableColumn="tcV-Z8-mas" id="I4D-7M-S4Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="345"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="354"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
