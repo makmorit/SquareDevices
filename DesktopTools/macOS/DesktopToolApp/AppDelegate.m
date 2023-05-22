@@ -9,6 +9,7 @@
 #import "PopupWindow.h"
 #import "ToolCommonFunc.h"
 #import "ToolLogFile.h"
+#import "SideMenu.h"
 
 @interface AppDelegate () <NSOutlineViewDelegate>
 
@@ -16,8 +17,9 @@
     @property (assign) IBOutlet NSMenuItem      *menuItemVendor;
 
     // カスタマイズしたサイドバーメニュー
+    @property(nonatomic) SideMenu                       *sideMenu;
     @property(nonatomic, weak) IBOutlet NSOutlineView   *sidebar;
-    @property(nonatomic, strong) NSArray                *sidebarItems;
+    @property(nonatomic) NSArray                        *sidebarItems;
     @property(nonatomic) NSString                       *selectedItemTitle;
 
 @end
@@ -35,42 +37,9 @@
         }
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
-
-        // TODO: 仮の実装です。（メニューに表示する画像のパスを取得）
-        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-        NSString *menu_image1 = [NSString stringWithFormat:@"%@/menu_image1.png", resourcePath];
-        NSString *menu_image2 = [NSString stringWithFormat:@"%@/menu_image2.png", resourcePath];
-
-        // TODO: 仮の実装です。（カスタマイズしたサイドメニューを生成）
-        NSDictionary *item11 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_BLE_PAIRING, @"title",
-                                menu_image1, @"image",
-                                nil];
-        NSDictionary *item12 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_BLE_UNPAIRING, @"title",
-                                menu_image1, @"image",
-                                nil];
-        NSDictionary *menuItem1 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_BLE_SETTINGS, @"title",
-                                   [NSArray arrayWithObjects:item11, item12, nil], @"children",
-                                   [NSNumber numberWithBool:YES], @"header",
-                                   nil];
-
-        NSDictionary *item13 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_VERSION, @"title",
-                                menu_image2, @"image",
-                                nil];
-        NSDictionary *item14 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_LOG_FILES, @"title",
-                                menu_image2, @"image",
-                                nil];
-        NSDictionary *menuItem2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_TOOL_INFOS, @"title",
-                                   [NSArray arrayWithObjects:item13, item14, nil], @"children",
-                                   [NSNumber numberWithBool:YES], @"header",
-                                   nil];
-        NSArray *array = [NSArray arrayWithObjects:menuItem1, menuItem2, nil];
-        [self setSidebarItems:array];
+        // サイドバーのインスタンスを生成
+        [self setSideMenu:[[SideMenu alloc] initWithDelegate:self]];
+        [self setSidebarItems:[[self sideMenu] sidebarItems]];
         [[self sidebar] setFloatsGroupRows:NO];
         [[self sidebar] expandItem:nil expandChildren:YES];
 
