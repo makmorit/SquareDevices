@@ -17,7 +17,9 @@
 #define MSG_MENU_ITEM_NAME_BLE_UNPAIRING            @"ペアリング解除要求"
 #define MSG_MENU_ITEM_NAME_BLE_ERASE_BOND           @"ペアリング情報削除"
 
-#define MSG_MENU_ITEM_NAME_DEVICE_INFOS             @"デバイス情報"
+#define MSG_MENU_ITEM_NAME_DEVICE_INFOS             @"デバイス保守"
+#define MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE          @"ファームウェア更新"
+#define MSG_MENU_ITEM_NAME_PING_TEST                @"PINGテスト実行"
 #define MSG_MENU_ITEM_NAME_GET_APP_VERSION          @"バージョン参照"
 #define MSG_MENU_ITEM_NAME_GET_FLASH_STAT           @"Flash ROM情報参照"
 

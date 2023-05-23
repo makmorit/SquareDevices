@@ -36,7 +36,9 @@
         NSString *action_log = [NSString stringWithFormat:@"%@/action_log.png", resourcePath];
         NSString *information = [NSString stringWithFormat:@"%@/information.png", resourcePath];
         NSString *statistics = [NSString stringWithFormat:@"%@/statistics.png", resourcePath];
-        NSString *bios = [NSString stringWithFormat:@"%@/bios.png", resourcePath];
+        NSString *update = [NSString stringWithFormat:@"%@/update.png", resourcePath];
+        NSString *check_box = [NSString stringWithFormat:@"%@/check_box.png", resourcePath];
+        NSString *processor = [NSString stringWithFormat:@"%@/processor.png", resourcePath];
         NSString *menu_image11 = [NSString stringWithFormat:@"%@/connect.png", resourcePath];
         NSString *menu_image12 = [NSString stringWithFormat:@"%@/disconnect.png", resourcePath];
         NSString *menu_image13 = [NSString stringWithFormat:@"%@/delete.png", resourcePath];
@@ -60,9 +62,17 @@
                                    [NSNumber numberWithBool:YES], @"header",
                                    nil];
 
+        NSDictionary *item18 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, @"title",
+                                update, @"image",
+                                nil];
+        NSDictionary *item19 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                MSG_MENU_ITEM_NAME_PING_TEST, @"title",
+                                check_box, @"image",
+                                nil];
         NSDictionary *item14 = [NSDictionary dictionaryWithObjectsAndKeys:
                                 MSG_MENU_ITEM_NAME_GET_APP_VERSION, @"title",
-                                bios, @"image",
+                                processor, @"image",
                                 nil];
         NSDictionary *item15 = [NSDictionary dictionaryWithObjectsAndKeys:
                                 MSG_MENU_ITEM_NAME_GET_FLASH_STAT, @"title",
@@ -70,7 +80,7 @@
                                 nil];
         NSDictionary *menuItem2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                    MSG_MENU_ITEM_NAME_DEVICE_INFOS, @"title",
-                                   [NSArray arrayWithObjects:item14, item15, nil], @"children",
+                                   [NSArray arrayWithObjects:item18, item19, item14, item15, nil], @"children",
                                    [NSNumber numberWithBool:YES], @"header",
                                    nil];
 
