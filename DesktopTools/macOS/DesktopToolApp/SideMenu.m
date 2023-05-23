@@ -33,11 +33,11 @@
     - (void)initializeMenuItems {
         // TODO: 仮の実装です。（メニューに表示する画像のパスを取得）
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-        NSString *menu_image1 = [NSString stringWithFormat:@"%@/menu_image1.png", resourcePath];
-        NSString *menu_image2 = [NSString stringWithFormat:@"%@/menu_image2.png", resourcePath];
-        NSString *menu_image11 = [NSString stringWithFormat:@"%@/start.png", resourcePath];
-        NSString *menu_image12 = [NSString stringWithFormat:@"%@/stop.png", resourcePath];
-        NSString *menu_image13 = [NSString stringWithFormat:@"%@/stop-red.png", resourcePath];
+        NSString *report_magnify = [NSString stringWithFormat:@"%@/report_magnify.png", resourcePath];
+        NSString *information = [NSString stringWithFormat:@"%@/information.png", resourcePath];
+        NSString *menu_image11 = [NSString stringWithFormat:@"%@/connect.png", resourcePath];
+        NSString *menu_image12 = [NSString stringWithFormat:@"%@/disconnect.png", resourcePath];
+        NSString *menu_image13 = [NSString stringWithFormat:@"%@/delete.png", resourcePath];
 
         // TODO: 仮の実装です。（カスタマイズしたサイドメニューを生成）
         NSDictionary *item11 = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -60,11 +60,11 @@
 
         NSDictionary *item14 = [NSDictionary dictionaryWithObjectsAndKeys:
                                 MSG_MENU_ITEM_NAME_TOOL_VERSION, @"title",
-                                menu_image1, @"image",
+                                information, @"image",
                                 nil];
         NSDictionary *item15 = [NSDictionary dictionaryWithObjectsAndKeys:
                                 MSG_MENU_ITEM_NAME_TOOL_LOG_FILES, @"title",
-                                menu_image2, @"image",
+                                report_magnify, @"image",
                                 nil];
         NSDictionary *menuItem2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                    MSG_MENU_ITEM_NAME_TOOL_INFOS, @"title",
