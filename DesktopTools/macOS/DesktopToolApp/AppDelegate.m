@@ -41,7 +41,7 @@
         [self setSidebarItems:[[self sideMenu] sidebarItems]];
         [[self sidebar] setFloatsGroupRows:NO];
         [[self sidebar] expandItem:nil expandChildren:YES];
-
+        [self enableSideMenuClick];
     }
 
     - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
@@ -78,9 +78,34 @@
     }
 
     - (BOOL) outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
-        [[self sideMenu] setSelectedItemTitle:[[item representedObject] objectForKey:@"title"]];
-        [[self sideMenu] performSelector:@selector(sideMenuItemDidSelect) withObject:nil afterDelay:0.0];
         return ![self outlineViewItemIsHeader:item];
+    }
+
+#pragma mark - Private functions for NSOutlineView
+
+    - (void)enableSideMenuClick {
+        // メニュー項目をクリックした時の処理を設定
+        [[self sidebar] setAction:@selector(sideMenuItemDidClicked)];
+    }
+
+    - (void)sideMenuItemDidClicked {
+        // メニュー項目以外の部位がクリックされた場合は処理を続行しない
+        NSInteger row = [[self sidebar] clickedRow];
+        if (row < 0) {
+            return;
+        }
+        // メニューヘッダーがクリックされた場合は処理を続行しない
+        NSTableCellView *cellView = [[self sidebar] viewAtColumn:0 row:row makeIfNecessary:YES];
+        id objectValue = [cellView objectValue];
+        if ([[objectValue allKeys] containsObject:@"header"]) {
+            return;
+        }
+        // ダブルクリック抑止
+        [[self sidebar] setAction:nil];
+        // クリックされたメニュー項目に対応する処理を実行
+        [[self sideMenu] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
+        // ダブルクリック抑止を解除
+        [self performSelector:@selector(enableSideMenuClick) withObject:nil afterDelay:0.5];
     }
 
 @end

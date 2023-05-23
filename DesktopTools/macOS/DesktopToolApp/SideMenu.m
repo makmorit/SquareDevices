@@ -75,15 +75,9 @@
         [self setSidebarItems:array];
     }
 
-    - (void)sideMenuItemDidSelect {
-        if ([[self selectedItemTitle] isEqualToString:MSG_MENU_ITEM_NAME_BLE_SETTINGS]) {
-            return;
-        }
-        if ([[self selectedItemTitle] isEqualToString:MSG_MENU_ITEM_NAME_TOOL_INFOS]) {
-            return;
-        }
+    - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
         // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self selectedItemTitle]
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
                                    forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
     }
 

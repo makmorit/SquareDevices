@@ -12,10 +12,9 @@
 @interface SideMenu : NSObject
 
     @property (nonatomic) NSArray  *sidebarItems;
-    @property (nonatomic) NSString *selectedItemTitle;
 
     - (id)initWithDelegate:(id)delegate;
-    - (void)sideMenuItemDidSelect;
+    - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle;
 
 @end
 
