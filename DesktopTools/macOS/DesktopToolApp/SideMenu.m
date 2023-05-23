@@ -33,8 +33,10 @@
     - (void)initializeMenuItems {
         // TODO: 仮の実装です。（メニューに表示する画像のパスを取得）
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-        NSString *report_magnify = [NSString stringWithFormat:@"%@/report_magnify.png", resourcePath];
+        NSString *action_log = [NSString stringWithFormat:@"%@/action_log.png", resourcePath];
         NSString *information = [NSString stringWithFormat:@"%@/information.png", resourcePath];
+        NSString *statistics = [NSString stringWithFormat:@"%@/statistics.png", resourcePath];
+        NSString *bios = [NSString stringWithFormat:@"%@/bios.png", resourcePath];
         NSString *menu_image11 = [NSString stringWithFormat:@"%@/connect.png", resourcePath];
         NSString *menu_image12 = [NSString stringWithFormat:@"%@/disconnect.png", resourcePath];
         NSString *menu_image13 = [NSString stringWithFormat:@"%@/delete.png", resourcePath];
@@ -59,19 +61,33 @@
                                    nil];
 
         NSDictionary *item14 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_VERSION, @"title",
-                                information, @"image",
+                                MSG_MENU_ITEM_NAME_GET_APP_VERSION, @"title",
+                                bios, @"image",
                                 nil];
         NSDictionary *item15 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_LOG_FILES, @"title",
-                                report_magnify, @"image",
+                                MSG_MENU_ITEM_NAME_GET_FLASH_STAT, @"title",
+                                statistics, @"image",
                                 nil];
         NSDictionary *menuItem2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_TOOL_INFOS, @"title",
+                                   MSG_MENU_ITEM_NAME_DEVICE_INFOS, @"title",
                                    [NSArray arrayWithObjects:item14, item15, nil], @"children",
                                    [NSNumber numberWithBool:YES], @"header",
                                    nil];
-        NSArray *array = [NSArray arrayWithObjects:menuItem1, menuItem2, nil];
+
+        NSDictionary *item16 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                MSG_MENU_ITEM_NAME_TOOL_VERSION, @"title",
+                                information, @"image",
+                                nil];
+        NSDictionary *item17 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                MSG_MENU_ITEM_NAME_TOOL_LOG_FILES, @"title",
+                                action_log, @"image",
+                                nil];
+        NSDictionary *menuItem3 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   MSG_MENU_ITEM_NAME_TOOL_INFOS, @"title",
+                                   [NSArray arrayWithObjects:item16, item17, nil], @"children",
+                                   [NSNumber numberWithBool:YES], @"header",
+                                   nil];
+        NSArray *array = [NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil];
         [self setSidebarItems:array];
     }
 
