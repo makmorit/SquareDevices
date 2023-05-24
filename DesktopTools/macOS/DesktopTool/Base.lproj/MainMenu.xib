@@ -378,16 +378,17 @@
         </menu>
         <window title="デスクトップツール" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="564" height="356"/>
+            <rect key="contentRect" x="335" y="390" width="564" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
             <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="564" height="356"/>
+                <rect key="frame" x="0.0" y="0.0" width="564" height="360"/>
                 <subviews>
                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-iV-Qih">
-                        <rect key="frame" x="0.0" y="0.0" width="564" height="356"/>
+                        <rect key="frame" x="0.0" y="0.0" width="564" height="360"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3l8-pf-BiN">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="3l8-pf-BiN">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="360"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" drawsBackground="NO" id="0cq-qd-5bd">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="360"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,7 +495,7 @@
                                 </scroller>
                             </scrollView>
                             <customView id="ozH-4j-S9H">
-                                <rect key="frame" x="204" y="0.0" width="360" height="356"/>
+                                <rect key="frame" x="204" y="0.0" width="360" height="360"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="XNW-6m-L2W"/>
@@ -502,8 +503,7 @@
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3l8-pf-BiN" secondAttribute="bottom" id="2iK-Bp-GwL"/>
-                            <constraint firstAttribute="height" constant="356" id="Qv2-of-DOk"/>
+                            <constraint firstAttribute="height" constant="360" id="Qv2-of-DOk"/>
                             <constraint firstAttribute="width" constant="564" id="rCw-oP-fhu"/>
                         </constraints>
                         <visibilityPriorities>
