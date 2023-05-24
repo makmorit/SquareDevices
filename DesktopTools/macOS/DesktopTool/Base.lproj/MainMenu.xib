@@ -493,23 +493,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ozH-4j-S9H">
+                            <customView id="ozH-4j-S9H">
                                 <rect key="frame" x="204" y="0.0" width="360" height="356"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-0f-Udl">
-                                        <rect key="frame" x="148" y="147" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="HRA-zh-4Ri"/>
-                                            <constraint firstAttribute="height" constant="64" id="eWM-Ib-DVv"/>
-                                        </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="9ug-ad-d4t"/>
-                                    </imageView>
-                                </subviews>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
-                                    <constraint firstItem="Mh5-0f-Udl" firstAttribute="centerX" secondItem="ozH-4j-S9H" secondAttribute="centerX" id="3SP-Xz-FQP"/>
-                                    <constraint firstItem="Mh5-0f-Udl" firstAttribute="top" secondItem="ozH-4j-S9H" secondAttribute="top" constant="145" id="Wgn-m6-Ao4"/>
                                     <constraint firstAttribute="width" constant="360" id="XNW-6m-L2W"/>
-                                    <constraint firstAttribute="height" constant="356" id="wAi-ll-f1d"/>
                                 </constraints>
                             </customView>
                         </subviews>
