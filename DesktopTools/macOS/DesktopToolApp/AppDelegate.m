@@ -9,17 +9,15 @@
 #import "PopupWindow.h"
 #import "ToolCommonFunc.h"
 #import "ToolLogFile.h"
-#import "SideMenu.h"
+#import "SideMenuView.h"
 
-@interface AppDelegate () <NSOutlineViewDelegate>
+@interface AppDelegate ()
 
     @property (assign) IBOutlet NSWindow        *window;
+    @property (assign) IBOutlet NSView          *stackView;
     @property (assign) IBOutlet NSMenuItem      *menuItemVendor;
-    @property (assign) IBOutlet NSOutlineView   *sidebar;
 
-    // カスタマイズしたサイドバーメニュー
-    @property (nonatomic) SideMenu              *sideMenu;
-    @property (nonatomic) NSArray               *sidebarItems;
+    @property (nonatomic) SideMenuView          *sideMenuView;
 
 @end
 
@@ -37,11 +35,8 @@
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         // サイドバーのインスタンスを生成
-        [self setSideMenu:[[SideMenu alloc] initWithDelegate:self]];
-        [self setSidebarItems:[[self sideMenu] sidebarItems]];
-        [[self sidebar] setFloatsGroupRows:NO];
-        [[self sidebar] expandItem:nil expandChildren:YES];
-        [self enableSideMenuClick];
+        [self setSideMenuView:[[SideMenuView alloc] init]];
+        [[self stackView] addSubview:[[self sideMenuView] view]];
     }
 
     - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
@@ -60,52 +55,6 @@
         NSString *titleString = [menuItemVendor title];
         [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:titleString
                                    forObject:nil forSelector:nil parentWindow:[self window]];
-    }
-
-#pragma mark - Delegate methods for NSOutlineViewDelegate
-
-    - (BOOL)outlineViewItemIsHeader:(id)item {
-        return [[[item representedObject] objectForKey:@"header"] boolValue];
-    }
-
-    - (NSView *) outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
-        bool isHeader = [self outlineViewItemIsHeader:item];
-        return [outlineView makeViewWithIdentifier:(isHeader ? @"HeaderCell" : @"DataCell") owner:self];
-    }
-
-    - (BOOL) outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item {
-        return [self outlineViewItemIsHeader:item];
-    }
-
-    - (BOOL) outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
-        return ![self outlineViewItemIsHeader:item];
-    }
-
-#pragma mark - Private functions for NSOutlineView
-
-    - (void)enableSideMenuClick {
-        // メニュー項目をクリックした時の処理を設定
-        [[self sidebar] setAction:@selector(sideMenuItemDidClicked)];
-    }
-
-    - (void)sideMenuItemDidClicked {
-        // メニュー項目以外の部位がクリックされた場合は処理を続行しない
-        NSInteger row = [[self sidebar] clickedRow];
-        if (row < 0) {
-            return;
-        }
-        // メニューヘッダーがクリックされた場合は処理を続行しない
-        NSTableCellView *cellView = [[self sidebar] viewAtColumn:0 row:row makeIfNecessary:YES];
-        id objectValue = [cellView objectValue];
-        if ([[objectValue allKeys] containsObject:@"header"]) {
-            return;
-        }
-        // ダブルクリック抑止
-        [[self sidebar] setAction:nil];
-        // クリックされたメニュー項目に対応する処理を実行
-        [[self sideMenu] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
-        // ダブルクリック抑止を解除
-        [self performSelector:@selector(enableSideMenuClick) withObject:nil afterDelay:0.5];
     }
 
 @end
