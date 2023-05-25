@@ -31,74 +31,44 @@
     }
 
     - (void)initializeMenuItems {
-        // TODO: 仮の実装です。（メニューに表示する画像のパスを取得）
+        // メニュー項目を生成（BLE設定）
+        NSDictionary *item11 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_BLE_PAIRING    withIconName:@"connect"];
+        NSDictionary *item12 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_BLE_UNPAIRING  withIconName:@"disconnect"];
+        NSDictionary *item13 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_BLE_ERASE_BOND withIconName:@"delete"];
+        NSDictionary *menuItem1 =
+        [self createMenuItemGroupWithName:MSG_MENU_ITEM_NAME_BLE_SETTINGS
+                                withItems:[NSArray arrayWithObjects:item11, item12, item13, nil]];
+        // メニュー項目を生成（デバイス保守）
+        NSDictionary *item18 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE withIconName:@"update"];
+        NSDictionary *item19 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_PING_TEST       withIconName:@"check_box"];
+        NSDictionary *item14 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_GET_APP_VERSION withIconName:@"processor"];
+        NSDictionary *item15 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_GET_FLASH_STAT  withIconName:@"statistics"];
+        NSDictionary *menuItem2 =
+        [self createMenuItemGroupWithName:MSG_MENU_ITEM_NAME_DEVICE_INFOS
+                                withItems:[NSArray arrayWithObjects:item18, item19, item14, item15, nil]];
+        // メニュー項目を生成（ツール情報）
+        NSDictionary *item16 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_TOOL_VERSION   withIconName:@"information"];
+        NSDictionary *item17 = [self createMenuItemWithTitle:MSG_MENU_ITEM_NAME_TOOL_LOG_FILES withIconName:@"action_log"];
+        NSDictionary *menuItem3 =
+        [self createMenuItemGroupWithName:MSG_MENU_ITEM_NAME_TOOL_INFOS
+                                withItems:[NSArray arrayWithObjects:item16, item17, nil]];
+        // カスタマイズしたサイドメニューを生成
+        [self setSidebarItems:[NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil]];
+    }
+
+    - (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
+        // 使用アイコンのフルパスを取得
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-        NSString *action_log = [NSString stringWithFormat:@"%@/action_log.png", resourcePath];
-        NSString *information = [NSString stringWithFormat:@"%@/information.png", resourcePath];
-        NSString *statistics = [NSString stringWithFormat:@"%@/statistics.png", resourcePath];
-        NSString *update = [NSString stringWithFormat:@"%@/update.png", resourcePath];
-        NSString *check_box = [NSString stringWithFormat:@"%@/check_box.png", resourcePath];
-        NSString *processor = [NSString stringWithFormat:@"%@/processor.png", resourcePath];
-        NSString *menu_image11 = [NSString stringWithFormat:@"%@/connect.png", resourcePath];
-        NSString *menu_image12 = [NSString stringWithFormat:@"%@/disconnect.png", resourcePath];
-        NSString *menu_image13 = [NSString stringWithFormat:@"%@/delete.png", resourcePath];
+        NSString *iconImagePath = [NSString stringWithFormat:@"%@/%@.png", resourcePath, iconName];
+        // メニューアイテムを生成
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", iconImagePath, @"image", nil];
+        return itemDict;
+    }
 
-        // TODO: 仮の実装です。（カスタマイズしたサイドメニューを生成）
-        NSDictionary *item11 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_BLE_PAIRING, @"title",
-                                menu_image11, @"image",
-                                nil];
-        NSDictionary *item12 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_BLE_UNPAIRING, @"title",
-                                menu_image12, @"image",
-                                nil];
-        NSDictionary *item13 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_BLE_ERASE_BOND, @"title",
-                                menu_image13, @"image",
-                                nil];
-        NSDictionary *menuItem1 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_BLE_SETTINGS, @"title",
-                                   [NSArray arrayWithObjects:item11, item12, item13, nil], @"children",
-                                   [NSNumber numberWithBool:YES], @"header",
-                                   nil];
-
-        NSDictionary *item18 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, @"title",
-                                update, @"image",
-                                nil];
-        NSDictionary *item19 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_PING_TEST, @"title",
-                                check_box, @"image",
-                                nil];
-        NSDictionary *item14 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_GET_APP_VERSION, @"title",
-                                processor, @"image",
-                                nil];
-        NSDictionary *item15 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_GET_FLASH_STAT, @"title",
-                                statistics, @"image",
-                                nil];
-        NSDictionary *menuItem2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_DEVICE_INFOS, @"title",
-                                   [NSArray arrayWithObjects:item18, item19, item14, item15, nil], @"children",
-                                   [NSNumber numberWithBool:YES], @"header",
-                                   nil];
-
-        NSDictionary *item16 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_VERSION, @"title",
-                                information, @"image",
-                                nil];
-        NSDictionary *item17 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                MSG_MENU_ITEM_NAME_TOOL_LOG_FILES, @"title",
-                                action_log, @"image",
-                                nil];
-        NSDictionary *menuItem3 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   MSG_MENU_ITEM_NAME_TOOL_INFOS, @"title",
-                                   [NSArray arrayWithObjects:item16, item17, nil], @"children",
-                                   [NSNumber numberWithBool:YES], @"header",
-                                   nil];
-        NSArray *array = [NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil];
-        [self setSidebarItems:array];
+    - (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items {
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  groupName, @"title", items, @"children", [NSNumber numberWithBool:YES], @"header", nil];
+        return itemDict;
     }
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
