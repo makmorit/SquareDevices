@@ -1,21 +1,21 @@
 //
-//  SideMenu.m
+//  SideMenuItem.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/22.
 //
 #import "AppCommonMessage.h"
 #import "PopupWindow.h"
-#import "SideMenu.h"
+#import "SideMenuItem.h"
 
-@interface SideMenu ()
+@interface SideMenuItem ()
 
     // 上位クラスの参照を保持
     @property (nonatomic, weak) id              delegate;
 
 @end
 
-@implementation SideMenu
+@implementation SideMenuItem
 
     - (id)init {
         return [self initWithDelegate:nil];
@@ -53,7 +53,7 @@
         [self createMenuItemGroupWithName:MSG_MENU_ITEM_NAME_TOOL_INFOS
                                 withItems:[NSArray arrayWithObjects:item16, item17, nil]];
         // カスタマイズしたサイドメニューを生成
-        [self setSideMenuItems:[NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil]];
+        [self setSideMenuItemsArray:[NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil]];
     }
 
     - (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {

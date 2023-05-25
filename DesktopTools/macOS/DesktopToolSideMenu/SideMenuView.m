@@ -4,15 +4,15 @@
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
-#import "SideMenu.h"
+#import "SideMenuItem.h"
 #import "SideMenuView.h"
 
 @interface SideMenuView () <NSOutlineViewDelegate>
 
     // カスタマイズしたサイドバーメニュー
-    @property (nonatomic, weak) IBOutlet NSOutlineView  *sidebar;
-    @property (nonatomic) SideMenu                      *sideMenu;
-    @property (nonatomic) NSArray                       *sidebarItems;
+    @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
+    @property (nonatomic) SideMenuItem                  *sideMenuItem;
+    @property (nonatomic) NSArray                       *sideMenuItemsArray;
     // サイドバーを使用可能／不可能に制御するためのフラグ
     @property (nonatomic) bool                           menuEnabled;
 
@@ -24,8 +24,8 @@
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
             // サイドバーのインスタンスを生成
-            [self setSideMenu:[[SideMenu alloc] initWithDelegate:nil]];
-            [self setSidebarItems:[[self sideMenu] sideMenuItems]];
+            [self setSideMenuItem:[[SideMenuItem alloc] initWithDelegate:nil]];
+            [self setSideMenuItemsArray:[[self sideMenuItem] sideMenuItemsArray]];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
@@ -38,8 +38,8 @@
         // サイドバーを使用可能とする
         [self setMenuEnabled:true];
         // サイドバーメニューの表示設定
-        [[self sidebar] setFloatsGroupRows:NO];
-        [[self sidebar] expandItem:nil expandChildren:YES];
+        [[self sideMenuBar] setFloatsGroupRows:NO];
+        [[self sideMenuBar] expandItem:nil expandChildren:YES];
         // メニュー項目クリック時の処理を設定
         [self enableSideMenuClick];
     }
@@ -81,26 +81,26 @@
 
     - (void)enableSideMenuClick {
         // メニュー項目クリック時の処理を設定
-        [[self sidebar] setAction:@selector(sideMenuItemDidClicked)];
+        [[self sideMenuBar] setAction:@selector(sideMenuItemDidClicked)];
     }
 
     - (void)sideMenuItemDidClicked {
         // メニュー項目以外の部位がクリックされた場合は処理を続行しない
-        NSInteger row = [[self sidebar] clickedRow];
+        NSInteger row = [[self sideMenuBar] clickedRow];
         if (row < 0) {
             return;
         }
         // メニューヘッダーがクリックされた場合は処理を続行しない
-        NSTableCellView *cellView = [[self sidebar] viewAtColumn:0 row:row makeIfNecessary:YES];
+        NSTableCellView *cellView = [[self sideMenuBar] viewAtColumn:0 row:row makeIfNecessary:YES];
         id objectValue = [cellView objectValue];
         if ([[objectValue allKeys] containsObject:@"header"]) {
             return;
         }
         // サイドバーを使用不能とする
-        [[self sidebar] setEnabled:false];
+        [[self sideMenuBar] setEnabled:false];
         [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
-        [[self sideMenu] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
+        [[self sideMenuItem] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }
 
 @end

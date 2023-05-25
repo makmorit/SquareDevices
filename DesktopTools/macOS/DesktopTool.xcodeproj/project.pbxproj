@@ -17,8 +17,8 @@
 		7A0EB185258066AA004ED59C /* PCSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0EB184258066AA004ED59C /* PCSC.framework */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
-		7A36FB482A1B44EA005C78D6 /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenu.m */; };
-		7A36FB492A1B44EA005C78D6 /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenu.m */; };
+		7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */; };
+		7A36FB492A1B44EA005C78D6 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
 		7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
 		7A53E2272A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
@@ -83,8 +83,8 @@
 		7A0EB184258066AA004ED59C /* PCSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PCSC.framework; path = System/Library/Frameworks/PCSC.framework; sourceTree = SDKROOT; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
-		7A36FB462A1B44D8005C78D6 /* SideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
-		7A36FB472A1B44EA005C78D6 /* SideMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenu.m; sourceTree = "<group>"; };
+		7A36FB462A1B44D8005C78D6 /* SideMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuItem.h; sourceTree = "<group>"; };
+		7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuItem.m; sourceTree = "<group>"; };
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				7A36FB462A1B44D8005C78D6 /* SideMenu.h */,
-				7A36FB472A1B44EA005C78D6 /* SideMenu.m */,
+				7A36FB462A1B44D8005C78D6 /* SideMenuItem.h */,
+				7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */,
 				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
@@ -386,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
-				7A36FB482A1B44EA005C78D6 /* SideMenu.m in Sources */,
+				7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
@@ -400,7 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
-				7A36FB492A1B44EA005C78D6 /* SideMenu.m in Sources */,
+				7A36FB492A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,

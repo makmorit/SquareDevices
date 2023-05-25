@@ -8,7 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SideMenuView">
             <connections>
-                <outlet property="sidebar" destination="uLf-y6-Nqn" id="zV6-fs-Gys"/>
+                <outlet property="sideMenuBar" destination="uLf-y6-Nqn" id="zV6-fs-Gys"/>
                 <outlet property="view" destination="QjG-py-O6I" id="rYT-ul-Nh6"/>
             </connections>
         </customObject>
