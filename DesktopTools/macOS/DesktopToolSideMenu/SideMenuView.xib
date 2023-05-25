@@ -132,7 +132,7 @@
             </declaredKeys>
             <classReference key="objectClass" className="NSDictionary"/>
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="sidebarItems" id="ZNI-yl-cVX"/>
+                <binding destination="-2" name="contentArray" keyPath="sideMenuItemsArray" id="UgO-4z-UGj"/>
             </connections>
         </treeController>
     </objects>
