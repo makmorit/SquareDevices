@@ -13,6 +13,8 @@
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sidebar;
     @property (nonatomic) SideMenu                      *sideMenu;
     @property (nonatomic) NSArray                       *sidebarItems;
+    // サイドバーを使用可能／不可能に制御するためのフラグ
+    @property (nonatomic) bool                           menuEnabled;
 
 @end
 
@@ -33,6 +35,8 @@
 
     - (void)viewDidLoad {
         [super viewDidLoad];
+        // サイドバーを使用可能とする
+        [self setMenuEnabled:true];
         // サイドバーメニューの表示設定
         [[self sidebar] setFloatsGroupRows:NO];
         [[self sidebar] expandItem:nil expandChildren:YES];
@@ -65,6 +69,14 @@
     - (void)outlineViewItemDidCollapse:(NSNotification *)notification {
     }
 
+    - (BOOL)outlineView:(NSOutlineView *)outlineView shouldExpandItem:(id)item {
+        return [self menuEnabled];
+    }
+
+    - (BOOL)outlineView:(NSOutlineView *)outlineView shouldCollapseItem:(id)item {
+        return [self menuEnabled];
+    }
+
 #pragma mark - Private functions for NSOutlineView
 
     - (void)enableSideMenuClick {
@@ -84,12 +96,11 @@
         if ([[objectValue allKeys] containsObject:@"header"]) {
             return;
         }
-        // ダブルクリック抑止
-        [[self sidebar] setAction:nil];
+        // サイドバーを使用不能とする
+        [[self sidebar] setEnabled:false];
+        [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
         [[self sideMenu] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
-        // ダブルクリック抑止を解除
-        [self performSelector:@selector(enableSideMenuClick) withObject:nil afterDelay:0.5];
     }
 
 @end
