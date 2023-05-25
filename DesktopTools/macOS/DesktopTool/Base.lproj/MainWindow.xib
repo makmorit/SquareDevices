@@ -27,12 +27,6 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="ベンダー向け機能" hidden="YES" id="zay-JM-FMA">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="menuItemVendorDidSelect:" target="494" id="Oj8-P2-dUP"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="129"/>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -423,7 +417,6 @@
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="menuItemVendor" destination="zay-JM-FMA" id="3Gi-YW-Usl"/>
                 <outlet property="stackView" destination="jP0-iV-Qih" id="Jil-rF-nIH"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
