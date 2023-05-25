@@ -25,7 +25,7 @@
         if (self != nil) {
             // サイドバーのインスタンスを生成
             [self setSideMenu:[[SideMenu alloc] initWithDelegate:nil]];
-            [self setSidebarItems:[[self sideMenu] sidebarItems]];
+            [self setSidebarItems:[[self sideMenu] sideMenuItems]];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];

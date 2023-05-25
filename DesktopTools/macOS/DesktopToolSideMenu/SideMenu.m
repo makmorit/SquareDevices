@@ -53,7 +53,7 @@
         [self createMenuItemGroupWithName:MSG_MENU_ITEM_NAME_TOOL_INFOS
                                 withItems:[NSArray arrayWithObjects:item16, item17, nil]];
         // カスタマイズしたサイドメニューを生成
-        [self setSidebarItems:[NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil]];
+        [self setSideMenuItems:[NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, nil]];
     }
 
     - (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
