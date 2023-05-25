@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  MaintenanceTool
+//  DesktopTool
 //
 //  Created by Makoto Morita on 2021/10/14.
 //
