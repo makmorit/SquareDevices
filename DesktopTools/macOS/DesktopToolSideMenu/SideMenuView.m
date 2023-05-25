@@ -7,7 +7,7 @@
 #import "SideMenuItem.h"
 #import "SideMenuView.h"
 
-@interface SideMenuView () <NSOutlineViewDelegate>
+@interface SideMenuView () <NSOutlineViewDelegate, SideMenuItemDelegate>
 
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
@@ -101,6 +101,14 @@
         [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
         [[self sideMenuItem] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
+    }
+
+#pragma mark - callback from SideMenuItem
+
+    - (void)sideMenuItemDidTerminateProcess {
+        // サイドバーを使用可能とする
+        [[self sideMenuBar] setEnabled:true];
+        [self setMenuEnabled:true];
     }
 
 @end
