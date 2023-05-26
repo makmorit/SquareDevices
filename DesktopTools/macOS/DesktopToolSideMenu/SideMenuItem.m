@@ -5,26 +5,17 @@
 //  Created by Makoto Morita on 2023/05/22.
 //
 #import "AppCommonMessage.h"
-#import "PopupWindow.h"
 #import "SideMenuItem.h"
 
 @interface SideMenuItem ()
-
-    // 上位クラスの参照を保持
-    @property (nonatomic, weak) id              delegate;
 
 @end
 
 @implementation SideMenuItem
 
-    - (id)init {
-        return [self initWithDelegate:nil];
-    }
-
-    - (id)initWithDelegate:(id)delegate {
+    - (instancetype)init {
         self = [super init];
         if (self) {
-            [self setDelegate:delegate];
             [self initializeMenuItems];
         }
         return self;
@@ -69,12 +60,6 @@
         NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                   groupName, @"title", items, @"children", [NSNumber numberWithBool:YES], @"header", nil];
         return itemDict;
-    }
-
-    - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
-        // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
-                                   forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
     }
 
 @end

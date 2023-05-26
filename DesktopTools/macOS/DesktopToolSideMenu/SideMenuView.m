@@ -4,10 +4,12 @@
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
+#import "AppCommonMessage.h"
+#import "PopupWindow.h"
 #import "SideMenuItem.h"
 #import "SideMenuView.h"
 
-@interface SideMenuView () <NSOutlineViewDelegate, SideMenuItemDelegate>
+@interface SideMenuView () <NSOutlineViewDelegate>
 
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
@@ -24,7 +26,7 @@
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
             // サイドバーのインスタンスを生成
-            [self setSideMenuItem:[[SideMenuItem alloc] initWithDelegate:nil]];
+            [self setSideMenuItem:[[SideMenuItem alloc] init]];
             [self setSideMenuItemsArray:[[self sideMenuItem] sideMenuItemsArray]];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
@@ -100,8 +102,15 @@
         [[self sideMenuBar] setEnabled:false];
         [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
-        [[self sideMenuItem] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
+        [self sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }
+
+    - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
+        // TODO: 仮の実装です。
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
+                                   forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
+    }
+
 
 #pragma mark - callback from SideMenuItem
 
