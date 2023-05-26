@@ -6,17 +6,17 @@
 //
 #import "AppCommonMessage.h"
 #import "AppDelegate.h"
-#import "PopupWindow.h"
 #import "ToolCommonFunc.h"
 #import "ToolLogFile.h"
-#import "SideMenuView.h"
+#import "SideMenuManager.h"
 
 @interface AppDelegate ()
-
-    @property (assign) IBOutlet NSWindow        *window;
-    @property (assign) IBOutlet NSView          *stackView;
-
-    @property (nonatomic) SideMenuView          *sideMenuView;
+    // ウインドウの参照を保持
+    @property (assign) IBOutlet NSWindow    *window;
+    // サイドメニュー領域を格納する領域の参照を保持
+    @property (assign) IBOutlet NSView      *stackView;
+    // ビュー管理クラスの参照を保持
+    @property (nonatomic) SideMenuManager   *sideMenuManager;
 
 @end
 
@@ -31,9 +31,8 @@
         }
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
-        // サイドバーのインスタンスを生成
-        [self setSideMenuView:[[SideMenuView alloc] init]];
-        [[self stackView] addSubview:[[self sideMenuView] view]];
+        // ビュー管理クラスのインスタンスを生成
+        [self setSideMenuManager:[[SideMenuManager alloc] initWithStackView:[self stackView]]];
     }
 
     - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {

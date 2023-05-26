@@ -417,7 +417,7 @@
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="stackView" destination="jP0-iV-Qih" id="Jil-rF-nIH"/>
+                <outlet property="stackView" destination="jP0-iV-Qih" id="9Jo-kZ-OI6"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
