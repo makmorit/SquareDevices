@@ -5,15 +5,12 @@
 //  Created by Makoto Morita on 2023/05/24.
 //
 #import "AppCommonMessage.h"
-#import "PopupWindow.h"
-#import "SideMenuItem.h"
 #import "SideMenuView.h"
 
 @interface SideMenuView () <NSOutlineViewDelegate>
 
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
-    @property (nonatomic) SideMenuItem                  *sideMenuItem;
     // サイドメニュー項目のインスタンスを保持
     @property (nonatomic) NSArray                       *sideMenuItemsArray;
     // サイドバーを使用可能／不可能に制御するためのフラグ
@@ -31,6 +28,9 @@
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
+            // 通知設定
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                selector:@selector(sideMenuItemDidTerminateProcess:) name:@"sideMenuItemDidTerminateProcess" object:nil];
         }
         return self;
     }
@@ -106,14 +106,15 @@
     }
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
-        // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
-                                   forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
+        // クリックされたメニュー項目の情報を通知
+        NSDictionary *message = @{@"title" : selectedItemTitle};
+        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidClicked" object:self userInfo:message];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 
 #pragma mark - callback from SideMenuItem
 
-    - (void)sideMenuItemDidTerminateProcess {
+    - (void)sideMenuItemDidTerminateProcess:(NSNotification *)notification {
         // サイドバーを使用可能とする
         [[self sideMenuBar] setEnabled:true];
         [self setMenuEnabled:true];

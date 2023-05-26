@@ -8,6 +8,10 @@
 #import "SideMenuManager.h"
 #import "SideMenuView.h"
 
+// for research
+#import "AppCommonMessage.h"
+#import "PopupWindow.h"
+
 @interface SideMenuManager ()
     // サイドメニュー領域を格納する領域の参照を保持
     @property (nonatomic, weak) NSView      *stackView;
@@ -30,8 +34,26 @@
             // サイドメニュー領域のインスタンスを生成
             [self setSideMenuView:[[SideMenuView alloc] initWithItemsArray:[[self sideMenuItem] sideMenuItemsArray]]];
             [[self stackView] addSubview:[[self sideMenuView] view]];
+            // 通知設定
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                selector:@selector(sideMenuItemDidSelectWithName:) name:@"sideMenuItemDidClicked" object:[self sideMenuView]];
         }
         return self;
+    }
+
+    - (void)sideMenuItemDidSelectWithName:(NSNotification *)notification {
+        // 通知メッセージから、選択メニュー項目のタイトルを抽出
+        NSDictionary *info = [notification userInfo];
+        NSString *selectedItemTitle = info[@"title"];
+        // TODO: 仮の実装です。
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
+                                   forObject:self forSelector:@selector(popupWindowClosed) parentWindow:[[NSApplication sharedApplication] mainWindow]];
+    }
+
+    - (void)popupWindowClosed {
+        // 処理完了通知を送信-->サイドメニュー領域を使用可能にする
+        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidTerminateProcess" object:self userInfo:@{}];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 
 @end
