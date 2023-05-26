@@ -10,6 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SideMenuView : NSViewController
 
+    - (instancetype)initWithItemsArray:(NSArray *)itemsArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

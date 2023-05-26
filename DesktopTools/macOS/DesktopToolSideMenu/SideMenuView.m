@@ -14,6 +14,7 @@
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
     @property (nonatomic) SideMenuItem                  *sideMenuItem;
+    // サイドメニュー項目のインスタンスを保持
     @property (nonatomic) NSArray                       *sideMenuItemsArray;
     // サイドバーを使用可能／不可能に制御するためのフラグ
     @property (nonatomic) bool                           menuEnabled;
@@ -22,12 +23,11 @@
 
 @implementation SideMenuView
 
-    - (instancetype)init {
+    - (instancetype)initWithItemsArray:(NSArray *)itemsArray {
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
-            // サイドバーのインスタンスを生成
-            [self setSideMenuItem:[[SideMenuItem alloc] init]];
-            [self setSideMenuItemsArray:[[self sideMenuItem] sideMenuItemsArray]];
+            // サイドメニュー項目のインスタンスを保持
+            [self setSideMenuItemsArray:itemsArray];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
@@ -110,7 +110,6 @@
         [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
                                    forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
     }
-
 
 #pragma mark - callback from SideMenuItem
 
