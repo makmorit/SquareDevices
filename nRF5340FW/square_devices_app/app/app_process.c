@@ -25,6 +25,9 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app_process);
 
+// 作業領域
+static char work_buf[32];
+
 //
 // 業務イベント転送用
 //
@@ -160,6 +163,21 @@ static void usb_configured(void)
     wrapper_main_usb_configured();
 }
 
+static void data_channel_initialized(void)
+{
+    // 業務関連の初期化処理に移行
+    wrapper_main_data_channel_initialized();
+}
+
+static void ble_advertise_started_smp_service(void)
+{
+    // FIDOリクエストを閉塞
+    app_event_data_enable(false);
+
+    // 業務処理を再開
+    wrapper_main_notify_ble_advertise_started_smp_service();
+}
+
 void app_process_for_event(uint8_t event)
 {
     // イベントに対応する処理を実行
@@ -192,6 +210,12 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_ADVERTISE_STARTED:
             app_channel_on_ble_advertise_started();
             break;
+        case APEVT_BLE_ADVERTISE_RESTARTED:
+            app_channel_on_ble_advertise_restarted();
+            break;
+        case APEVT_BLE_ADVERTISE_STARTED_SMP_SERVICE:
+            ble_advertise_started_smp_service();
+            break;
         case APEVT_BLE_CONNECTED:
             app_channel_on_ble_connected();
             break;
@@ -223,7 +247,7 @@ void app_process_for_event(uint8_t event)
             usb_configured();
             break;
         case APEVT_CHANNEL_INITIALIZED:
-            wrapper_main_data_channel_initialized();
+            data_channel_initialized();
             break;
         case APEVT_APP_CRYPTO_RANDOM_PREGEN_DONE:
             wrapper_main_crypto_random_pregen_done();
@@ -234,8 +258,8 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_REQUEST_RECEIVED:
             wrapper_main_ble_request_received();
             break;
-        case APEVT_BLE_DISCONNECTED_WHILE_UNPAIRING:
-            wrapper_main_ble_disconnected_while_unpairing();
+        case APEVT_NOTIFY_BLE_DISCONNECTED:
+            wrapper_main_notify_ble_disconnected();
             break;
         case APEVT_CCID_REQUEST_RECEIVED:
             wrapper_main_ccid_request_received();
@@ -273,6 +297,12 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
         case DATEVT_BLE_RESPONSE_SENT:
             wrapper_main_ble_response_sent();
             break;
+        case DATEVT_BLE_NUS_DATA_FRAME_RECEIVED:
+            wrapper_main_ble_data_frame_received(data, size);
+            break;
+        case DATEVT_BLE_NUS_RESPONSE_SENT:
+            wrapper_main_ble_response_sent();
+            break;
         default:
             break;
     }
@@ -285,12 +315,17 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
 //
 void app_main_wrapper_initialized(void)
 {
-    // データ処理イベント（DATEVT_XXXX）を
-    // 通知できるようにする
-    app_event_data_enable(true);
+    // ペアリングモードに応じ、
+    // データイベントを閉塞／閉塞解除
+    app_channel_data_event_enable();
 
     // ボタン押下検知ができるようにする
     app_board_button_press_enable(true);
+
+    // RTCCの現在時刻を参照
+    if (app_rtcc_get_timestamp(work_buf, sizeof(work_buf))) {
+        LOG_INF("RTCC is available. Current timestamp: %s", work_buf);
+    }
 
     // バージョンをデバッグ出力
     LOG_INF("Square device application (%s) version %s (%d)", CONFIG_BT_DIS_HW_REV_STR, CONFIG_BT_DIS_FW_REV_STR, CONFIG_APP_FW_BUILD);

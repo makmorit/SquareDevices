@@ -11,6 +11,9 @@ export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/opt/arm-gnu-toolchain-12.2.rel1-darwin-
 # Paths for command
 export PATH=${PATH}:/usr/local/bin
 
+# Paths for firmware source & header
+export FWLIB_PATH=../../Firmwares
+
 # bash completion
 export NCS_HOME=${HOME}/opt/ncs_2.2.0
 export ZEPHYR_BASE=${NCS_HOME}/zephyr

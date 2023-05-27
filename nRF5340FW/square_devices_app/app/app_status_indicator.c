@@ -133,15 +133,23 @@ void app_status_indicator_prompt_tup(void)
     led_blink_reset(true);
 }
 
-void app_status_indicator_pairing_mode(void)
+void app_status_indicator_pre_pairing_mode(void)
 {
-    // ペアリングモードの場合は
-    // 黄色LEDの連続点灯とします。
+    // ペアリングモード遷移の３秒長押し検知時は、
+    // 長押し解除までの間、黄色LEDの連続点灯とします。
     led_blink_reset(false);
     app_board_led_light(LED_COLOR_RED,    false);
     app_board_led_light(LED_COLOR_GREEN,  false);
     app_board_led_light(LED_COLOR_BLUE,   false);
     app_board_led_light(LED_COLOR_YELLOW, true);
+}
+
+void app_status_indicator_pairing_mode(void)
+{
+    // 長押し解除により、正式にペアリングモードに移行した場合は
+    // 黄色LEDを、約２秒ごとに点滅させる
+    led_blink_parameter_set(LED_COLOR_YELLOW, LED_IDLE_OFF_INTERVAL_CNT, LED_IDLE_ON_INTERVAL_CNT);
+    led_blink_reset(true);
 }
 
 void app_status_indicator_pairing_fail(void)

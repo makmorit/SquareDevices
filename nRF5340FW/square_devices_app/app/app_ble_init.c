@@ -25,9 +25,13 @@ LOG_MODULE_REGISTER(app_ble_init);
 #include "os_mgmt/os_mgmt.h"
 #include "img_mgmt/img_mgmt.h"
 
+// for NUS
+#include "app_ble_nus.h"
+
 //
 // パスキー関連
 //
+#if defined(CONFIG_BT_FIXED_PASSKEY)
 #include <zephyr/drivers/hwinfo.h>
 
 // Work for hardware ID & passkey
@@ -55,10 +59,9 @@ static void set_passkey_for_pairing(void)
     }
     
     LOG_INF("Passkey for BLE pairing: %06u", m_passkey);
-#if defined(CONFIG_BT_FIXED_PASSKEY)
     bt_passkey_set((unsigned int)m_passkey);
-#endif
 }
+#endif
 
 static void bt_ready(int err)
 {
@@ -72,8 +75,13 @@ static void bt_ready(int err)
     // Bluetooth初期処理完了
     LOG_INF("Bluetooth initialized");
 
+#if defined(CONFIG_BT_FIXED_PASSKEY)
     // BLEペアリング用のパスキーを設定
     set_passkey_for_pairing();
+#endif
+
+    // NUSの初期処理
+    app_ble_nus_init();
 
     // BLE使用可能イベントを業務処理スレッドに引き渡す
     app_event_notify(APEVT_BLE_AVAILABLE);

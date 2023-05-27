@@ -10,6 +10,9 @@
 #include <zephyr/bluetooth/gatt.h>
 #include <zephyr/settings/settings.h>
 
+// for Nordic UART Service
+#include <bluetooth/services/nus.h>
+
 #include "app_ble_fido_define.h"
 #include "app_ble_pairing.h"
 #include "app_event.h"
@@ -68,6 +71,9 @@ bool app_ble_advertise_is_stopped(void)
     return advertise_is_stopped;
 }
 
+// SMPサービスのアドバタイズが利用可能かどうかを保持
+static bool smp_advertise_is_available = false;
+
 // advertising data
 static struct bt_data ad[3];
 static struct bt_data ad_nobredr = BT_DATA_BYTES(BT_DATA_FLAGS, BT_LE_AD_NO_BREDR);
@@ -81,6 +87,9 @@ static struct bt_data ad_uuid_smp = BT_DATA_BYTES(BT_DATA_UUID128_ALL, 0x84, 0xa
 
 // Service data field for FIDO BLE service (0xfffd)
 static struct bt_data ad_svcdata = BT_DATA_BYTES(BT_DATA_SVC_DATA16, BT_UUID_16_ENCODE(BT_UUID_FIDO_VAL), 0x80);
+
+// UUID Nordic UART Service
+static struct bt_data ad_uuid_nus = BT_DATA_BYTES(BT_DATA_UUID128_ALL, BT_UUID_NUS_VAL);
 
 //
 // BLEアドバタイズ開始
@@ -102,10 +111,13 @@ static void advertise_start(struct k_work *work)
     ad[ad_len] = ad_uuid_fido;
     ad_len++;
 
-    // BLE SMPサービスUUIDを追加設定（非ペアリングモード時）
+    // FIDO以外のBLEサービスUUIDを追加設定（非ペアリングモード時）
     if (app_ble_pairing_mode() == false) {
-        ad[ad_len] = ad_uuid_smp;
-        ad_len++;
+        if (smp_advertise_is_available) {
+            ad[ad_len] = ad_uuid_smp;
+            ad_len++;
+        }
+        (void)ad_uuid_nus;
     }
 
     // サービスデータフィールドを追加設定（ペアリングモード時のみ）
@@ -125,7 +137,15 @@ static void advertise_start(struct k_work *work)
     LOG_INF("Advertising successfully started (%s mode)", app_ble_pairing_mode() ? "Pairing" : "Non-Pairing");
 
     // BLEアドバタイズ開始イベントを業務処理スレッドに引き渡す
-    app_event_notify(APEVT_BLE_ADVERTISE_STARTED);
+    if (advertise_is_available) {
+        if (smp_advertise_is_available) {
+            app_event_notify(APEVT_BLE_ADVERTISE_STARTED_SMP_SERVICE);
+        } else {
+            app_event_notify(APEVT_BLE_ADVERTISE_RESTARTED);
+        }
+    } else {
+        app_event_notify(APEVT_BLE_ADVERTISE_STARTED);
+    }
     advertise_is_available = true;
     advertise_is_stopped = false;
 }
@@ -149,4 +169,13 @@ void app_ble_advertise_init(void)
     // アドバタイズ処理を work queue に入れる
     k_work_init(&advertise_work_for_start, advertise_start);
     k_work_init(&advertise_work_for_stop, advertise_stop);
+}
+
+void app_ble_advertise_start_smp_service(void)
+{
+    // BLE SMPサービスをアドバタイズ可能にする
+    smp_advertise_is_available = true;
+
+    // BLEアドバタイズ開始を指示
+    app_ble_advertise_start();
 }

@@ -41,7 +41,7 @@ static void initialize_pairing_mode(void)
 
     // LED点灯パターン設定
     if (app_ble_pairing_mode()) {
-        // ペアリングモード時は黄色LEDを連続点灯させる
+        // ペアリングモード時は黄色LEDを２秒ごとに点滅させる
         app_status_indicator_pairing_mode();
     } else {
         // アイドル時のLED点滅パターンを設定
@@ -82,6 +82,20 @@ static void idling_timer_start(void)
 //
 // イベント処理
 //
+void app_channel_data_event_enable(void)
+{
+   if (app_ble_pairing_mode()) {
+        // ペアリングモードの場合、業務処理を閉塞
+        //   データ処理イベント（DATEVT_XXXX）を
+        //   通知できないようにする
+        app_event_data_enable(false);
+
+    } else {
+        // 非ペアリングモードの場合、業務処理の閉塞を解除
+        app_event_data_enable(true);
+    }
+}
+
 void app_channel_on_ble_available(void)
 {
     // チャネル開始待機用のタイマーを
@@ -145,6 +159,16 @@ void app_channel_on_ble_advertise_started(void)
     data_channel_initialized();
 }
 
+void app_channel_on_ble_advertise_restarted(void)
+{
+    // BLE接続アイドルタイマーを開始
+    idling_timer_start();
+
+    // ペアリングモードに応じ、
+    // データイベントを閉塞／閉塞解除
+    app_channel_data_event_enable();
+}
+
 void app_channel_on_ble_connected(void)
 {
     // BLE接続アイドルタイマーを停止
@@ -161,9 +185,8 @@ void app_channel_on_ble_disconnected(void)
         // BLE接続アイドルタイマーを停止-->再開
         idling_timer_start();
 
-        // ペアリング解除要求時は、
-        // 接続の切断検知時点でペアリング情報を削除
-        app_event_notify(APEVT_BLE_DISCONNECTED_WHILE_UNPAIRING);
+        // BLE接続が切断された旨を業務処理に通知
+        app_event_notify(APEVT_NOTIFY_BLE_DISCONNECTED);
         return;
     }
 
@@ -233,7 +256,7 @@ void app_channel_on_button_pressed_short(void)
         // ペアリング障害時にアドバタイズが停止された場合は
         // ボタン短押しでペアリングモードに遷移-->アドバタイズ再開
         change_to_pairing_mode();
-        // 黄色LEDを連続点灯させる
+        // 黄色LEDを２秒ごとに点滅させる
         app_status_indicator_pairing_mode();
     } else {
         // ボタン短押しでスリープ状態に遷移
@@ -247,7 +270,7 @@ void app_channel_on_button_pushed_long(void)
         // 非ペアリングモード時は、
         // ペアリングモード遷移前に
         // 黄色LEDを連続点灯させる
-        app_status_indicator_pairing_mode();
+        app_status_indicator_pre_pairing_mode();
     }
 }
 
@@ -255,7 +278,9 @@ void app_channel_on_button_pressed_long(void)
 {
     if (app_ble_pairing_mode() == false) {
         // 非ペアリングモード時は、
-        // ペアリングモード遷移-->アドバタイズ再開
+        // ペアリングモード遷移-->黄色LEDを２秒ごとに点滅させる
+        app_status_indicator_pairing_mode();
+        // アドバタイズを再開
         change_to_pairing_mode();
     }
 }

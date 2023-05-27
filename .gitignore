@@ -1,5 +1,9 @@
-# for macOS
+# ignore for Xcode
 .DS_Store
+xcuserdata
+
+# temporary ignored
+DesktopTools/macOS/packages
 
 # for EAGLE
 *.s#?
@@ -15,4 +19,5 @@ core
 .vscode
 
 # ignore for Zephyr
+build
 build_signed

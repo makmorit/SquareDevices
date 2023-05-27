@@ -32,7 +32,7 @@ typedef struct {
 typedef struct {
     void           *fifo_reserved;
     DATA_EVENT_T    event;
-    uint8_t         data[64];
+    uint8_t         data[DATEVT_DATA_SIZE];
     size_t          size;
 } APP_DATA_FIFO_T;
 
@@ -73,7 +73,11 @@ bool app_event_notify_for_data(uint8_t event, uint8_t *data, size_t data_size)
     // イベントデータを待ち行列にセット
     p_fifo->event = event;
     p_fifo->size = data_size;
-    memcpy(p_fifo->data, data, data_size);
+    if (data == NULL) {
+        memset(p_fifo->data, 0, DATEVT_DATA_SIZE);
+    } else {
+        memcpy(p_fifo->data, data, data_size);
+    }
     k_fifo_put(&app_data_fifo, p_fifo);
     return true;
 }
