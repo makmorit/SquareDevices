@@ -47,9 +47,8 @@
     }
 
     - (void)popupWindowClosed {
-        // 処理完了通知を送信-->サイドメニュー領域を使用可能にする
-        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidTerminateProcess" object:self userInfo:@{}];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        // サイドメニュー領域を使用可能にする
+        [[self sideMenuView] sideMenuItemDidTerminateProcess];
     }
 
 @end

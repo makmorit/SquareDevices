@@ -32,9 +32,6 @@
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
-            // 通知設定
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                selector:@selector(sideMenuItemDidTerminateProcess:) name:@"sideMenuItemDidTerminateProcess" object:nil];
         }
         return self;
     }
@@ -114,9 +111,7 @@
         [[self delegate] menuItemDidClickWithTitle:selectedItemTitle];
     }
 
-#pragma mark - callback from SideMenuItem
-
-    - (void)sideMenuItemDidTerminateProcess:(NSNotification *)notification {
+    - (void)sideMenuItemDidTerminateProcess {
         // サイドバーを使用可能とする
         [[self sideMenuBar] setEnabled:true];
         [self setMenuEnabled:true];
