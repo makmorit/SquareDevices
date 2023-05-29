@@ -13,8 +13,6 @@
 
 @interface SideMenuItem : NSObject
 
-    @property (nonatomic) NSArray *sideMenuItemsArray;
-
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)sideMenuItemWillProcessWithTitle:(NSString *)title;
 

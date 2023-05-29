@@ -7,6 +7,7 @@
 #import "SideMenuItem.h"
 #import "SideMenuManager.h"
 #import "SideMenuView.h"
+#import "ToolFunctionManager.h"
 
 @interface SideMenuManager () <SideMenuViewDelegate, SideMenuItemDelegate>
     // サイドメニュー領域を格納する領域の参照を保持
@@ -28,7 +29,7 @@
             // サイドメニュー項目のインスタンスを保持
             [self setSideMenuItem:[[SideMenuItem alloc] initWithDelegate:self]];
             // サイドメニュー領域のインスタンスを生成
-            [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[[self sideMenuItem] sideMenuItemsArray]]];
+            [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
             [[self stackView] addSubview:[[self sideMenuView] view]];
         }
         return self;
