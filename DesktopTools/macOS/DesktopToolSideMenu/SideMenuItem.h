@@ -9,9 +9,20 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SideMenuItemDelegate;
+
 @interface SideMenuItem : NSObject
 
     @property (nonatomic) NSArray *sideMenuItemsArray;
+
+    - (instancetype)initWithDelegate:(id)delegate;
+    - (void)sideMenuItemWillProcessWithTitle:(NSString *)title;
+
+@end
+
+@protocol SideMenuItemDelegate <NSObject>
+
+    - (void)menuItemDidTerminateProcess;
 
 @end
 

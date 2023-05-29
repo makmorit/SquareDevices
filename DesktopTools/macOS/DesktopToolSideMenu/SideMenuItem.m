@@ -8,19 +8,29 @@
 #import "SideMenuItem.h"
 #import "SideMenuView.h"
 
+// for research
+#import "PopupWindow.h"
+
 @interface SideMenuItem ()
+
+    // 上位クラスの参照を保持
+    @property (nonatomic) id                             delegate;
 
 @end
 
 @implementation SideMenuItem
 
-    - (instancetype)init {
+    - (instancetype)initWithDelegate:(id)delegate {
         self = [super init];
         if (self) {
+            // 上位クラスの参照を保持
+            [self setDelegate:delegate];
             [self initializeMenuItems];
         }
         return self;
     }
+
+#pragma mark - Menu item management
 
     - (void)initializeMenuItems {
         // メニュー項目を生成（BLE設定）
@@ -49,6 +59,19 @@
         ];
         // カスタマイズしたサイドメニューを生成
         [self setSideMenuItemsArray:menuItemGroupArray];
+    }
+
+#pragma mark - Process management
+
+    - (void)sideMenuItemWillProcessWithTitle:(NSString *)title {
+        // TODO: 仮の実装です。
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
+                                   forObject:self forSelector:@selector(popupWindowClosed) parentWindow:[[NSApplication sharedApplication] mainWindow]];
+    }
+
+    - (void)popupWindowClosed {
+        // 上位クラスに通知（サイドメニュー領域を使用可能にする）
+        [[self delegate] menuItemDidTerminateProcess];
     }
 
 @end

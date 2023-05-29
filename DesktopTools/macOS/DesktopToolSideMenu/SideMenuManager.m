@@ -8,11 +8,7 @@
 #import "SideMenuManager.h"
 #import "SideMenuView.h"
 
-// for research
-#import "AppCommonMessage.h"
-#import "PopupWindow.h"
-
-@interface SideMenuManager () <SideMenuViewDelegate>
+@interface SideMenuManager () <SideMenuViewDelegate, SideMenuItemDelegate>
     // サイドメニュー領域を格納する領域の参照を保持
     @property (nonatomic, weak) NSView      *stackView;
     // サイドメニュー領域の参照を保持
@@ -30,7 +26,7 @@
             // サイドメニュー領域を格納する領域の参照を保持
             [self setStackView:stackView];
             // サイドメニュー項目のインスタンスを保持
-            [self setSideMenuItem:[[SideMenuItem alloc] init]];
+            [self setSideMenuItem:[[SideMenuItem alloc] initWithDelegate:self]];
             // サイドメニュー領域のインスタンスを生成
             [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[[self sideMenuItem] sideMenuItemsArray]]];
             [[self stackView] addSubview:[[self sideMenuView] view]];
@@ -41,12 +37,13 @@
 #pragma mark - Callback from SideMenuView
 
     - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
-        // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
-                                   forObject:self forSelector:@selector(popupWindowClosed) parentWindow:[[NSApplication sharedApplication] mainWindow]];
+        // 下位クラスに制御を移す
+        [[self sideMenuItem] sideMenuItemWillProcessWithTitle:title];
     }
 
-    - (void)popupWindowClosed {
+#pragma mark - Callback from SideMenuItem
+
+    - (void)menuItemDidTerminateProcess {
         // サイドメニュー領域を使用可能にする
         [[self sideMenuView] sideMenuItemDidTerminateProcess];
     }
