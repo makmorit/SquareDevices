@@ -21,4 +21,9 @@
        return self;
     }
 
+    - (void)subViewWillTerminate {
+        // TODO: 仮の実装です。
+        NSLog(@"sub view will terminate...");
+    }
+
 @end

@@ -12,6 +12,7 @@
 @interface SubViewController : NSViewController
 
     - (instancetype)initWithViewName:(NSNibName)nibName;
+    - (void)subViewWillTerminate;
 
 @end
 

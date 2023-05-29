@@ -13,19 +13,17 @@
 @implementation ToolVersionInfoView
 
     - (instancetype)init {
-        self = [super initWithNibName:@"ToolVersionInfoView" bundle:nil];
+        self = [super initWithViewName:@"ToolVersionInfoView"];
         if (self != nil) {
             // TODO: 仮の実装です。
-            [[self view] setFrame:NSMakeRect(204, 0, 360, 360)];
-            [[self view] setWantsLayer:YES];
             NSLog(@"ToolVersionInfoView init");
         }
         return self;
     }
 
     - (IBAction)buttonOKDidPress:(id)sender {
-        // TODO: 仮の実装です。
-        NSLog(@"buttonOK did press");
+        // この画面を閉じる
+        [self subViewWillTerminate];
     }
 
 @end

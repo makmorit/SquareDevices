@@ -7,9 +7,9 @@
 #ifndef ToolVersionInfoView_h
 #define ToolVersionInfoView_h
 
-#import <Foundation/Foundation.h>
+#import "SubViewController.h"
 
-@interface ToolVersionInfoView : NSViewController
+@interface ToolVersionInfoView : SubViewController
 
 @end
 
