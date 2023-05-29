@@ -48,4 +48,9 @@
         [[self sideMenuView] sideMenuItemDidTerminateProcess];
     }
 
+    - (void)menuItemWillShowSubView:(NSView *)subView {
+        // 画面右側の領域に業務処理画面を表示
+        [[self stackView] addSubview:subView];
+    }
+
 @end

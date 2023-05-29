@@ -23,6 +23,7 @@
 @protocol SideMenuItemDelegate <NSObject>
 
     - (void)menuItemDidTerminateProcess;
+    - (void)menuItemWillShowSubView:(NSView *)subView;
 
 @end
 
