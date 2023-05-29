@@ -87,6 +87,8 @@
     - (void)subViewDidTerminate {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
         [[self delegate] menuItemDidTerminateProcess];
+        // サブ画面の参照をクリア
+        [self setSubView:nil];
     }
 
 @end
