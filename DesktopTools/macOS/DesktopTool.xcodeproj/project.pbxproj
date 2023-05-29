@@ -15,6 +15,8 @@
 		64ED9A9D164752C800F39EAE /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9A9C164752C800F39EAE /* IOBluetooth.framework */; };
 		7A0D20BF22408EB90022EA8E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0D20BE22408E920022EA8E /* IOKit.framework */; };
 		7A0EB185258066AA004ED59C /* PCSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0EB184258066AA004ED59C /* PCSC.framework */; };
+		7A2712592A242FE100FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712582A242FE100FA9030 /* SubViewController.m */; };
+		7A27125A2A242FE100FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712582A242FE100FA9030 /* SubViewController.m */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */; };
@@ -83,6 +85,8 @@
 		7A0587762A1DF5DC00BA3652 /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0D20BE22408E920022EA8E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		7A0EB184258066AA004ED59C /* PCSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PCSC.framework; path = System/Library/Frameworks/PCSC.framework; sourceTree = SDKROOT; };
+		7A2712572A242F8D00FA9030 /* SubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		7A2712582A242FE100FA9030 /* SubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A36FB462A1B44D8005C78D6 /* SideMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuItem.h; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		64ED9A6A1647439300F39EAE = {
 			isa = PBXGroup;
 			children = (
+				7A2712562A242F1E00FA9030 /* DesktopToolSubViews */,
 				7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
 				64ED9A7F1647439300F39EAE /* DesktopTool */,
@@ -226,6 +231,15 @@
 				7A6305C92A207E810007F468 /* SideMenuManager.m */,
 			);
 			path = DesktopToolSideMenu;
+			sourceTree = "<group>";
+		};
+		7A2712562A242F1E00FA9030 /* DesktopToolSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				7A2712572A242F8D00FA9030 /* SubViewController.h */,
+				7A2712582A242FE100FA9030 /* SubViewController.m */,
+			);
+			path = DesktopToolSubViews;
 			sourceTree = "<group>";
 		};
 		7A36FB302A1B3461005C78D6 /* Resources */ = {
@@ -394,6 +408,7 @@
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
+				7A2712592A242FE100FA9030 /* SubViewController.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A6305CA2A207E810007F468 /* SideMenuManager.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
@@ -409,6 +424,7 @@
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A36FB492A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
+				7A27125A2A242FE100FA9030 /* SubViewController.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A6305CB2A207E810007F468 /* SideMenuManager.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
