@@ -9,6 +9,8 @@
 
 @interface SideMenuView () <NSOutlineViewDelegate>
 
+    // 上位クラスの参照を保持
+    @property (nonatomic) id                             delegate;
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
     // サイドメニュー項目のインスタンスを保持
@@ -20,9 +22,11 @@
 
 @implementation SideMenuView
 
-    - (instancetype)initWithItemsArray:(NSArray *)itemsArray {
+    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
+            // 上位クラスの参照を保持
+            [self setDelegate:delegate];
             // サイドメニュー項目のインスタンスを保持
             [self setSideMenuItemsArray:itemsArray];
             // サイドバーを表示
@@ -107,9 +111,7 @@
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
         // クリックされたメニュー項目の情報を通知
-        NSDictionary *userInfo = @{@"title" : selectedItemTitle};
-        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidClickWithTitle" object:self userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        [[self delegate] menuItemDidClickWithTitle:selectedItemTitle];
     }
 
 #pragma mark - callback from SideMenuItem

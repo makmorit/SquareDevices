@@ -4,14 +4,23 @@
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
-#import <Cocoa/Cocoa.h>
+#ifndef SideMenuView_h
+#define SideMenuView_h
 
-NS_ASSUME_NONNULL_BEGIN
+#import <Foundation/Foundation.h>
+
+@protocol SideMenuViewDelegate;
 
 @interface SideMenuView : NSViewController
 
-    - (instancetype)initWithItemsArray:(NSArray *)itemsArray;
+    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@protocol SideMenuViewDelegate <NSObject>
+
+    - (void)menuItemDidClickWithTitle:(NSString *)title;
+
+@end
+
+#endif /* SideMenuView_h */

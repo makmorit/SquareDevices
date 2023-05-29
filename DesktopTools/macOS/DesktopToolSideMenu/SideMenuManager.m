@@ -12,7 +12,7 @@
 #import "AppCommonMessage.h"
 #import "PopupWindow.h"
 
-@interface SideMenuManager ()
+@interface SideMenuManager () <SideMenuViewDelegate>
     // サイドメニュー領域を格納する領域の参照を保持
     @property (nonatomic, weak) NSView      *stackView;
     // サイドメニュー領域の参照を保持
@@ -32,21 +32,17 @@
             // サイドメニュー項目のインスタンスを保持
             [self setSideMenuItem:[[SideMenuItem alloc] init]];
             // サイドメニュー領域のインスタンスを生成
-            [self setSideMenuView:[[SideMenuView alloc] initWithItemsArray:[[self sideMenuItem] sideMenuItemsArray]]];
+            [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[[self sideMenuItem] sideMenuItemsArray]]];
             [[self stackView] addSubview:[[self sideMenuView] view]];
-            // 通知設定
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                selector:@selector(sideMenuItemDidClickWithTitle:) name:@"sideMenuItemDidClickWithTitle" object:[self sideMenuView]];
         }
         return self;
     }
 
-    - (void)sideMenuItemDidClickWithTitle:(NSNotification *)notification {
-        // 通知メッセージから、選択メニュー項目のタイトルを抽出
-        NSDictionary *userInfo = [notification userInfo];
-        NSString *selectedItemTitle = userInfo[@"title"];
+#pragma mark - Callback from SideMenuView
+
+    - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
         // TODO: 仮の実装です。
-        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
+        [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
                                    forObject:self forSelector:@selector(popupWindowClosed) parentWindow:[[NSApplication sharedApplication] mainWindow]];
     }
 
