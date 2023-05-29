@@ -36,15 +36,15 @@
             [[self stackView] addSubview:[[self sideMenuView] view]];
             // 通知設定
             [[NSNotificationCenter defaultCenter] addObserver:self
-                selector:@selector(sideMenuItemDidSelectWithName:) name:@"sideMenuItemDidClicked" object:[self sideMenuView]];
+                selector:@selector(sideMenuItemDidClickWithTitle:) name:@"sideMenuItemDidClickWithTitle" object:[self sideMenuView]];
         }
         return self;
     }
 
-    - (void)sideMenuItemDidSelectWithName:(NSNotification *)notification {
+    - (void)sideMenuItemDidClickWithTitle:(NSNotification *)notification {
         // 通知メッセージから、選択メニュー項目のタイトルを抽出
-        NSDictionary *info = [notification userInfo];
-        NSString *selectedItemTitle = info[@"title"];
+        NSDictionary *userInfo = [notification userInfo];
+        NSString *selectedItemTitle = userInfo[@"title"];
         // TODO: 仮の実装です。
         [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:selectedItemTitle
                                    forObject:self forSelector:@selector(popupWindowClosed) parentWindow:[[NSApplication sharedApplication] mainWindow]];

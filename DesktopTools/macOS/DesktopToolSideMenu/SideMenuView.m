@@ -83,10 +83,10 @@
 
     - (void)enableSideMenuClick {
         // メニュー項目クリック時の処理を設定
-        [[self sideMenuBar] setAction:@selector(sideMenuItemDidClicked)];
+        [[self sideMenuBar] setAction:@selector(sideMenuItemDidClick)];
     }
 
-    - (void)sideMenuItemDidClicked {
+    - (void)sideMenuItemDidClick {
         // メニュー項目以外の部位がクリックされた場合は処理を続行しない
         NSInteger row = [[self sideMenuBar] clickedRow];
         if (row < 0) {
@@ -107,8 +107,8 @@
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
         // クリックされたメニュー項目の情報を通知
-        NSDictionary *message = @{@"title" : selectedItemTitle};
-        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidClicked" object:self userInfo:message];
+        NSDictionary *userInfo = @{@"title" : selectedItemTitle};
+        NSNotification *notification = [NSNotification notificationWithName:@"sideMenuItemDidClickWithTitle" object:self userInfo:userInfo];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 
