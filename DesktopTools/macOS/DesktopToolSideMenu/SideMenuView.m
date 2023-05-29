@@ -117,4 +117,21 @@
         [self setMenuEnabled:true];
     }
 
+#pragma mark - Utilities
+
+    + (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
+        // 使用アイコンのフルパスを取得
+        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *iconImagePath = [NSString stringWithFormat:@"%@/%@.png", resourcePath, iconName];
+        // メニューアイテムを生成
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", iconImagePath, @"image", nil];
+        return itemDict;
+    }
+
+    + (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items {
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  groupName, @"title", items, @"children", [NSNumber numberWithBool:YES], @"header", nil];
+        return itemDict;
+    }
+
 @end
