@@ -9,10 +9,18 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SubViewDelegate;
+
 @interface SubViewController : NSViewController
 
-    - (instancetype)initWithViewName:(NSNibName)nibName;
+    - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
     - (void)subViewWillTerminate;
+
+@end
+
+@protocol SubViewDelegate <NSObject>
+
+    - (void)subViewDidTerminate;
 
 @end
 

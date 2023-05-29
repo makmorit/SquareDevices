@@ -15,8 +15,12 @@
 		64ED9A9D164752C800F39EAE /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9A9C164752C800F39EAE /* IOBluetooth.framework */; };
 		7A0D20BF22408EB90022EA8E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0D20BE22408E920022EA8E /* IOKit.framework */; };
 		7A0EB185258066AA004ED59C /* PCSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0EB184258066AA004ED59C /* PCSC.framework */; };
-		7A2712592A242FE100FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712582A242FE100FA9030 /* SubViewController.m */; };
-		7A27125A2A242FE100FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712582A242FE100FA9030 /* SubViewController.m */; };
+		7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
+		7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
+		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
+		7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
+		7A2712752A247B2000FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* SubViewController.m */; };
+		7A2712762A247B2000FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* SubViewController.m */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB472A1B44EA005C78D6 /* SideMenuItem.m */; };
@@ -85,8 +89,11 @@
 		7A0587762A1DF5DC00BA3652 /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0D20BE22408E920022EA8E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		7A0EB184258066AA004ED59C /* PCSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PCSC.framework; path = System/Library/Frameworks/PCSC.framework; sourceTree = SDKROOT; };
-		7A2712572A242F8D00FA9030 /* SubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
-		7A2712582A242FE100FA9030 /* SubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
+		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
+		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
+		7A2712732A247B1F00FA9030 /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		7A2712742A247B1F00FA9030 /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A36FB462A1B44D8005C78D6 /* SideMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuItem.h; sourceTree = "<group>"; };
@@ -157,8 +164,9 @@
 		64ED9A6A1647439300F39EAE = {
 			isa = PBXGroup;
 			children = (
-				7A2712562A242F1E00FA9030 /* DesktopToolSubViews */,
+				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
 				7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */,
+				7A2712722A247B0300FA9030 /* DesktopToolSubViews */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
 				64ED9A7F1647439300F39EAE /* DesktopTool */,
 				7A3F4F1628755CB5003CFE67 /* DesktopToolApp */,
@@ -233,11 +241,29 @@
 			path = DesktopToolSideMenu;
 			sourceTree = "<group>";
 		};
-		7A2712562A242F1E00FA9030 /* DesktopToolSubViews */ = {
+		7A2712692A24714300FA9030 /* DesktopToolFunctions */ = {
 			isa = PBXGroup;
 			children = (
-				7A2712572A242F8D00FA9030 /* SubViewController.h */,
-				7A2712582A242FE100FA9030 /* SubViewController.m */,
+				7A27126A2A24716900FA9030 /* ToolInfos */,
+			);
+			path = DesktopToolFunctions;
+			sourceTree = "<group>";
+		};
+		7A27126A2A24716900FA9030 /* ToolInfos */ = {
+			isa = PBXGroup;
+			children = (
+				7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */,
+				7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */,
+				7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */,
+			);
+			path = ToolInfos;
+			sourceTree = "<group>";
+		};
+		7A2712722A247B0300FA9030 /* DesktopToolSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				7A2712732A247B1F00FA9030 /* SubViewController.h */,
+				7A2712742A247B1F00FA9030 /* SubViewController.m */,
 			);
 			path = DesktopToolSubViews;
 			sourceTree = "<group>";
@@ -364,6 +390,7 @@
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
+				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFA2A1C8AE400C0BAED /* check_box.png in Resources */,
@@ -385,6 +412,7 @@
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
+				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0662A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFB2A1C8AE400C0BAED /* check_box.png in Resources */,
@@ -408,8 +436,9 @@
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A36FB482A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
-				7A2712592A242FE100FA9030 /* SubViewController.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A2712752A247B2000FA9030 /* SubViewController.m in Sources */,
 				7A6305CA2A207E810007F468 /* SideMenuManager.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
@@ -424,8 +453,9 @@
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A36FB492A1B44EA005C78D6 /* SideMenuItem.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
-				7A27125A2A242FE100FA9030 /* SubViewController.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A2712762A247B2000FA9030 /* SubViewController.m in Sources */,
 				7A6305CB2A207E810007F468 /* SideMenuManager.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* SideMenuView.m in Sources */,

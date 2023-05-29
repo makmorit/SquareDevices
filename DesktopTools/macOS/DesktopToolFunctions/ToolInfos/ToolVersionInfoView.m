@@ -12,8 +12,8 @@
 
 @implementation ToolVersionInfoView
 
-    - (instancetype)init {
-        self = [super initWithViewName:@"ToolVersionInfoView"];
+    - (instancetype)initWithDelegate:(id)delegate {
+        self = [super initWithDelegate:delegate withViewName:@"ToolVersionInfoView"];
         if (self != nil) {
             // TODO: 仮の実装です。
             NSLog(@"ToolVersionInfoView init");

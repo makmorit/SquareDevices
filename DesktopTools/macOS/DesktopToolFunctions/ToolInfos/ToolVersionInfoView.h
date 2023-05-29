@@ -11,6 +11,8 @@
 
 @interface ToolVersionInfoView : SubViewController
 
+    - (instancetype)initWithDelegate:(id)delegate;
+
 @end
 
 #endif /* ToolVersionInfoView_h */
