@@ -13,23 +13,12 @@
 
 @interface ToolFunctionManager () <SubViewDelegate>
 
-    // 上位クラスの参照を保持
-    @property (nonatomic) id                             delegate;
     // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
     @property (nonatomic) NSViewController              *subView;
 
 @end
 
 @implementation ToolFunctionManager
-
-    - (instancetype)initWithDelegate:(id)delegate {
-        self = [super init];
-        if (self) {
-            // 上位クラスの参照を保持
-            [self setDelegate:delegate];
-        }
-        return self;
-    }
 
 #pragma mark - Process management
 
@@ -42,7 +31,8 @@
         }
         // メニュー項目に対応する画面を、サブ画面に表示
         if ([self subView]) {
-            [[self delegate] functionWillShowSubView:[[self subView] view]];
+            // TODO: 関数呼出に修正予定
+            // [[self delegate] functionWillShowSubView:[[self subView] view]];
         } else {
             [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
                                        forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
@@ -53,7 +43,8 @@
 
     - (void)subViewDidTerminate {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
-        [[self delegate] functionDidTerminateProcess];
+        // TODO: 関数呼出に修正予定
+        // [[self delegate] functionDidTerminateProcess];
         // サブ画面の参照をクリア
         [self setSubView:nil];
     }
