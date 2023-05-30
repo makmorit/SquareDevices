@@ -16,6 +16,8 @@ static DesktopToolStackView *sharedInstance;
     @property (assign) IBOutlet NSView      *stackView;
     // サイドメニュー領域の参照を保持
     @property (nonatomic) SideMenuView      *sideMenuView;
+    // 業務処理クラスの参照を保持
+    @property (nonatomic) ToolFunctionManager   *functionManager;
 
 @end
 
@@ -24,6 +26,8 @@ static DesktopToolStackView *sharedInstance;
     - (instancetype)init {
         self = [super initWithNibName:@"DesktopToolStackView" bundle:nil];
         if (self != nil) {
+            // 業務処理クラスを初期化
+            [self setFunctionManager:[[ToolFunctionManager alloc] init]];
             // スタックビューを表示
             sharedInstance = self;
             [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];

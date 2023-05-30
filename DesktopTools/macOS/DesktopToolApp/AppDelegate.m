@@ -8,15 +8,12 @@
 #import "AppDelegate.h"
 #import "DesktopToolStackView.h"
 #import "ToolCommonFunc.h"
-#import "ToolFunctionManager.h"
 #import "ToolLogFile.h"
 
 @interface AppDelegate ()
     // ウインドウの参照を保持
     @property (assign) IBOutlet NSWindow        *window;
     @property (assign) IBOutlet NSView          *mainView;
-    // 業務処理クラスの参照を保持
-    @property (nonatomic) ToolFunctionManager   *functionManager;
     // スタックビューの参照を保持
     @property (nonatomic) DesktopToolStackView  *desktopToolStackView;
 
@@ -33,8 +30,6 @@
         }
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
-        // 業務処理クラスを初期化
-        [self setFunctionManager:[[ToolFunctionManager alloc] init]];
         // スタックビューをウィンドウに表示
         [self setDesktopToolStackView:[[DesktopToolStackView alloc] init]];
         [[self mainView] addSubview:[[self desktopToolStackView] view]];
