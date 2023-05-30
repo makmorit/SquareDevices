@@ -11,6 +11,7 @@
 
 @interface ToolFunctionManager : NSObject
 
+    - (instancetype)initWithDelegate:(id)delegate;
     + (void)willProcessWithTitle:(NSString *)title;
     + (NSArray *)createMenuItemsArray;
 
