@@ -38,8 +38,6 @@
 		7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
-		7A6305CA2A207E810007F468 /* SideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6305C92A207E810007F468 /* SideMenuManager.m */; };
-		7A6305CB2A207E810007F468 /* SideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6305C92A207E810007F468 /* SideMenuManager.m */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -65,6 +63,10 @@
 		7A8B3E1A296E56640005F7B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64ED9A821647439300F39EAE /* InfoPlist.strings */; };
 		7A8B3E20296E56640005F7B1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED9A8E1647439300F39EAE /* MainWindow.xib */; };
 		7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */; };
+		7A98D7E02A258EE7005A593E /* DesktopToolStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* DesktopToolStackView.xib */; };
+		7A98D7E12A258EE7005A593E /* DesktopToolStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* DesktopToolStackView.xib */; };
+		7A98D7E42A259221005A593E /* DesktopToolStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolStackView.m */; };
+		7A98D7E52A259221005A593E /* DesktopToolStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolStackView.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
 		89C2DF652A073232004C282B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF642A0731F8004C282B /* libcrypto.a */; };
@@ -106,8 +108,6 @@
 		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
-		7A6305C82A207E400007F468 /* SideMenuManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuManager.h; sourceTree = "<group>"; };
-		7A6305C92A207E810007F468 /* SideMenuManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuManager.m; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -118,6 +118,9 @@
 		7A92D0E228754B140094D2DB /* AppCommonMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCommonMessage.h; sourceTree = "<group>"; };
 		7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCommonFunc.m; sourceTree = "<group>"; };
 		7A92D0E528754F3C0094D2DB /* ToolCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCommonFunc.h; sourceTree = "<group>"; };
+		7A98D7DF2A258EE7005A593E /* DesktopToolStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesktopToolStackView.xib; sourceTree = "<group>"; };
+		7A98D7E22A259221005A593E /* DesktopToolStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesktopToolStackView.h; sourceTree = "<group>"; };
+		7A98D7E32A259221005A593E /* DesktopToolStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesktopToolStackView.m; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
 				7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */,
 				7A2712722A247B0300FA9030 /* DesktopToolSubViews */,
+				7A98D7DE2A258EA7005A593E /* DesktopToolView */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
 				64ED9A7F1647439300F39EAE /* DesktopTool */,
 				7A3F4F1628755CB5003CFE67 /* DesktopToolApp */,
@@ -233,8 +237,6 @@
 				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
-				7A6305C82A207E400007F468 /* SideMenuManager.h */,
-				7A6305C92A207E810007F468 /* SideMenuManager.m */,
 			);
 			path = DesktopToolSideMenu;
 			sourceTree = "<group>";
@@ -316,6 +318,16 @@
 			path = VendorTool;
 			sourceTree = "<group>";
 		};
+		7A98D7DE2A258EA7005A593E /* DesktopToolView */ = {
+			isa = PBXGroup;
+			children = (
+				7A98D7E22A259221005A593E /* DesktopToolStackView.h */,
+				7A98D7E32A259221005A593E /* DesktopToolStackView.m */,
+				7A98D7DF2A258EE7005A593E /* DesktopToolStackView.xib */,
+			);
+			path = DesktopToolView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,6 +400,7 @@
 			files = (
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
+				7A98D7E02A258EE7005A593E /* DesktopToolStackView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -410,6 +423,7 @@
 			files = (
 				7A810FF92A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
+				7A98D7E12A258EE7005A593E /* DesktopToolStackView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -435,11 +449,11 @@
 			files = (
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
+				7A98D7E42A259221005A593E /* DesktopToolStackView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712752A247B2000FA9030 /* SubViewController.m in Sources */,
-				7A6305CA2A207E810007F468 /* SideMenuManager.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */,
@@ -452,11 +466,11 @@
 			files = (
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
+				7A98D7E52A259221005A593E /* DesktopToolStackView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712762A247B2000FA9030 /* SubViewController.m in Sources */,
-				7A6305CB2A207E810007F468 /* SideMenuManager.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A8B3DEE296E56640005F7B1 /* ToolCommonFunc.m in Sources */,

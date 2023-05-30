@@ -9,21 +9,20 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ToolFunctionDelegate;
+@protocol ToolFunctionManagerDelegate;
 
 @interface ToolFunctionManager : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)functionWillProcessWithTitle:(NSString *)title;
-
+    - (void)willProcessWithTitle:(NSString *)title;
     + (NSArray *)createMenuItemsArray;
 
 @end
 
-@protocol ToolFunctionDelegate <NSObject>
+@protocol ToolFunctionManagerDelegate <NSObject>
 
-    - (void)functionWillShowSubView:(NSView *)subView;
-    - (void)functionDidTerminateProcess;
+    - (void)notifyFunctionShowSubView:(NSView *)subView;
+    - (void)notifyFunctionTerminateProcess;
 
 @end
 

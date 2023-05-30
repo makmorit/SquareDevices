@@ -28,7 +28,7 @@
             // 上位クラスの参照を保持
             [self setDelegate:delegate];
             // サイドメニュー項目のインスタンスを保持
-            [self setSideMenuItemsArray:itemsArray];
+            [self setSideMenuItemsArray:[self createMenuItemsArrayFrom:itemsArray]];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
@@ -117,9 +117,28 @@
         [self setMenuEnabled:true];
     }
 
-#pragma mark - Utilities
+#pragma mark - Display menu items
 
-    + (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
+    - (NSArray *)createMenuItemsArrayFrom:(NSArray *)menuItemDescArray {
+        // メニュー項目定義配列を、画面表示用に再構築
+        NSMutableArray *menuItemGroupArray = [[NSMutableArray alloc] init];
+        for (NSArray *menuItemDesc in menuItemDescArray) {
+            NSString *menuGroupName = [menuItemDesc objectAtIndex:0];
+            NSArray *menuItems = [menuItemDesc objectAtIndex:1];
+            NSMutableArray *menuItemArray = [[NSMutableArray alloc] init];
+            for (NSArray *menuItem in menuItems) {
+                NSString *menuItemName  = [menuItem objectAtIndex:0];
+                NSString *menuItemImage = [menuItem objectAtIndex:1];
+                NSDictionary *menuItemDict = [self createMenuItemWithTitle:menuItemName withIconName:menuItemImage];
+                [menuItemArray addObject:menuItemDict];
+            }
+            NSDictionary *menuGroup = [self createMenuItemGroupWithName:menuGroupName withItems:menuItemArray];
+            [menuItemGroupArray addObject:menuGroup];
+        }
+        return menuItemGroupArray;
+    }
+
+    - (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
         // 使用アイコンのフルパスを取得
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
         NSString *iconImagePath = [NSString stringWithFormat:@"%@/%@.png", resourcePath, iconName];
@@ -128,7 +147,7 @@
         return itemDict;
     }
 
-    + (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items {
+    - (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items {
         NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                   groupName, @"title", items, @"children", [NSNumber numberWithBool:YES], @"header", nil];
         return itemDict;
