@@ -47,7 +47,7 @@ static DesktopToolStackView *sharedInstance;
 
     - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
         // 業務クラスに制御を移す
-        [ToolFunctionManager willProcessWithTitle:title];
+        [[self functionManager] willProcessWithTitle:title];
     }
 
 #pragma mark - Call from ToolFunctionManager

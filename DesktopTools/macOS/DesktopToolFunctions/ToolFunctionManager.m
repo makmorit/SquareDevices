@@ -12,8 +12,6 @@
 #import "PopupWindow.h"
 #import "ToolVersionInfoView.h"
 
-static ToolFunctionManager *sharedInstance;
-
 @interface ToolFunctionManager () <SubViewDelegate>
 
     // 上位クラスの参照を保持
@@ -28,7 +26,6 @@ static ToolFunctionManager *sharedInstance;
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super init];
         if (self != nil) {
-            sharedInstance = self;
             [self setDelegate:delegate];
         }
         return self;
@@ -36,11 +33,7 @@ static ToolFunctionManager *sharedInstance;
 
 #pragma mark - Process management
 
-    + (void)willProcessWithTitle:(NSString *)title {
-        [sharedInstance functionWillProcessWithTitle:title];
-    }
-
-    - (void)functionWillProcessWithTitle:(NSString *)title {
+    - (void)willProcessWithTitle:(NSString *)title {
         // メニュー項目に対応する画面の参照を保持
         if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
             [self setSubView:[[ToolVersionInfoView alloc] initWithDelegate:self]];
