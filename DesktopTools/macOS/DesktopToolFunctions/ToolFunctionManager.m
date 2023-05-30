@@ -6,7 +6,6 @@
 //
 #import "AppCommonMessage.h"
 #import "ToolFunctionManager.h"
-#import "DesktopToolStackView.h"
 
 // for functions
 #import "PopupWindow.h"
@@ -42,7 +41,7 @@
         }
         // メニュー項目に対応する画面を、サブ画面に表示
         if ([self subView]) {
-            [DesktopToolStackView notifyFunctionShowSubView:[[self subView] view]];
+            [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
         } else {
             [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
                                        forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
@@ -53,7 +52,7 @@
 
     - (void)subViewDidTerminate {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
-        [DesktopToolStackView notifyFunctionTerminateProcess];
+        [[self delegate] notifyFunctionTerminateProcess];
         // サブ画面の参照をクリア
         [self setSubView:nil];
     }

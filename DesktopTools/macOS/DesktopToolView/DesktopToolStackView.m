@@ -10,7 +10,7 @@
 
 static DesktopToolStackView *sharedInstance;
 
-@interface DesktopToolStackView () <SideMenuViewDelegate>
+@interface DesktopToolStackView () <SideMenuViewDelegate, ToolFunctionManagerDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
@@ -50,16 +50,16 @@ static DesktopToolStackView *sharedInstance;
         [[self functionManager] willProcessWithTitle:title];
     }
 
-#pragma mark - Call from ToolFunctionManager
+#pragma mark - Callback from ToolFunctionManager
 
-    + (void)notifyFunctionShowSubView:(NSView *)subView {
+    - (void)notifyFunctionShowSubView:(NSView *)subView {
         // 画面右側の領域に業務処理画面を表示
-        [[sharedInstance stackView] addSubview:subView];
+        [[self stackView] addSubview:subView];
     }
 
-    + (void)notifyFunctionTerminateProcess {
+    - (void)notifyFunctionTerminateProcess {
         // サイドメニュー領域を使用可能にする
-        [[sharedInstance sideMenuView] sideMenuItemDidTerminateProcess];
+        [[self sideMenuView] sideMenuItemDidTerminateProcess];
     }
 
 @end
