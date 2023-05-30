@@ -16,9 +16,6 @@
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
     - (void)sideMenuItemDidTerminateProcess;
 
-    + (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName;
-    + (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items;
-
 @end
 
 @protocol SideMenuViewDelegate <NSObject>
