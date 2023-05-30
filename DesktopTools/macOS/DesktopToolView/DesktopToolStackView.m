@@ -8,7 +8,7 @@
 #import "SideMenuView.h"
 #import "ToolFunctionManager.h"
 
-@interface DesktopToolStackView ()
+@interface DesktopToolStackView () <SideMenuViewDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView      *stackView;
@@ -34,6 +34,13 @@
         [super viewDidLoad];
         [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
         [[self stackView] addSubview:[[self sideMenuView] view]];
+    }
+
+#pragma mark - Callback from SideMenuView
+
+    - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
+        // 業務クラスに制御を移す
+        [ToolFunctionManager willProcessWithTitle:title];
     }
 
 @end

@@ -11,8 +11,7 @@
 
 @interface ToolFunctionManager : NSObject
 
-    - (void)functionWillProcessWithTitle:(NSString *)title;
-
+    + (void)willProcessWithTitle:(NSString *)title;
     + (NSArray *)createMenuItemsArray;
 
 @end

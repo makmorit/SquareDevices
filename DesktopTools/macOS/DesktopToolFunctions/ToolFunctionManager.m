@@ -11,6 +11,8 @@
 #import "PopupWindow.h"
 #import "ToolVersionInfoView.h"
 
+static ToolFunctionManager *sharedInstance;
+
 @interface ToolFunctionManager () <SubViewDelegate>
 
     // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
@@ -20,7 +22,19 @@
 
 @implementation ToolFunctionManager
 
+    - (instancetype)init {
+        self = [super init];
+        if (self != nil) {
+            sharedInstance = self;
+        }
+        return self;
+    }
+
 #pragma mark - Process management
+
+    + (void)willProcessWithTitle:(NSString *)title {
+        [sharedInstance functionWillProcessWithTitle:title];
+    }
 
     - (void)functionWillProcessWithTitle:(NSString *)title {
         // メニュー項目に対応する画面の参照を保持
