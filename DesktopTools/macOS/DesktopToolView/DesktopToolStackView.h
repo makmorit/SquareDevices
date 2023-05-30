@@ -11,6 +11,9 @@
 
 @interface DesktopToolStackView : NSViewController
 
+    + (void)notifyFunctionShowSubView:(NSView *)subView;
+    + (void)notifyFunctionTerminateProcess;
+
 @end
 
 #endif /* DesktopToolStackView_h */

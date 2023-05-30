@@ -8,6 +8,8 @@
 #import "SideMenuView.h"
 #import "ToolFunctionManager.h"
 
+static DesktopToolStackView *sharedInstance;
+
 @interface DesktopToolStackView () <SideMenuViewDelegate>
 
     // ビュー領域を格納する領域の参照を保持
@@ -23,6 +25,7 @@
         self = [super initWithNibName:@"DesktopToolStackView" bundle:nil];
         if (self != nil) {
             // スタックビューを表示
+            sharedInstance = self;
             [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];
             [[self view] setWantsLayer:YES];
         }
@@ -41,6 +44,18 @@
     - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
         // 業務クラスに制御を移す
         [ToolFunctionManager willProcessWithTitle:title];
+    }
+
+#pragma mark - Call from ToolFunctionManager
+
+    + (void)notifyFunctionShowSubView:(NSView *)subView {
+        // 画面右側の領域に業務処理画面を表示
+        [[sharedInstance stackView] addSubview:subView];
+    }
+
+    + (void)notifyFunctionTerminateProcess {
+        // サイドメニュー領域を使用可能にする
+        [[sharedInstance sideMenuView] sideMenuItemDidTerminateProcess];
     }
 
 @end
