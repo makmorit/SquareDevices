@@ -5,7 +5,6 @@
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "AppCommonMessage.h"
-#import "PopupWindow.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
@@ -26,17 +25,14 @@
     - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title {
         // メニュー項目に対応する画面の参照を保持
         NSViewController *subView = nil;
+        // 機能クラスのインスタンスを生成
+        [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
         if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
-            // 機能クラス／画面のインスタンスを生成
-            [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
+            // 画面のインスタンスを生成
             subView = [[ToolVersionInfoView alloc] initWithDelegate:[self currentFunction]];
-            // メニュー項目に対応する画面を、サブ画面に表示
-            [[self currentFunction] willProcessWithTitle:title withSubView:subView];
- 
-        } else {
-            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
-                                       forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
         }
+        // メニュー項目に対応する画面を、サブ画面に表示
+        [[self currentFunction] willProcessWithTitle:title withSubView:subView];
     }
 
 #pragma mark - Menu item management

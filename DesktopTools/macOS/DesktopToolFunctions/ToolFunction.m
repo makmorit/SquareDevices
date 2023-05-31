@@ -5,6 +5,7 @@
 //  Created by Makoto Morita on 2023/05/31.
 //
 #import "AppCommonMessage.h"
+#import "PopupWindow.h"
 #import "ToolFunctionView.h"
 #import "ToolFunction.h"
 
@@ -38,6 +39,9 @@
         // メニュー項目に対応する画面を、サブ画面に表示
         if ([self subView]) {
             [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
+        } else {
+            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self menuTitle]
+                                       forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
         }
     }
 
