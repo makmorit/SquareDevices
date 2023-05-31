@@ -38,6 +38,8 @@
 		7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
+		7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
+		7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -110,6 +112,8 @@
 		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
+		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
+		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 		7A27126A2A24716900FA9030 /* ToolInfos */ = {
 			isa = PBXGroup;
 			children = (
+				7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */,
+				7A60EA022A27091E006B25BA /* ToolVersionInfo.m */,
 				7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */,
 				7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */,
 				7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */,
@@ -441,6 +447,7 @@
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* DesktopToolMainView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
+				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
@@ -459,6 +466,7 @@
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A98D7E52A259221005A593E /* DesktopToolMainView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
+				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,

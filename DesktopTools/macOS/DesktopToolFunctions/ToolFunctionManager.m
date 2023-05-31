@@ -9,7 +9,7 @@
 #import "ToolFunctionManager.h"
 
 // for functions
-#import "ToolVersionInfoView.h"
+#import "ToolVersionInfo.h"
 
 @interface ToolFunctionManager ()
 
@@ -23,16 +23,14 @@
 #pragma mark - Process management
 
     - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title {
-        // メニュー項目に対応する画面の参照を保持
-        NSViewController *subView = nil;
         // 機能クラスのインスタンスを生成
-        [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
         if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
-            // 画面のインスタンスを生成
-            subView = [[ToolVersionInfoView alloc] initWithDelegate:[self currentFunction]];
+            [self setCurrentFunction:[[ToolVersionInfo alloc] initWithDelegate:delegate]];
+        } else {
+            [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
         }
         // メニュー項目に対応する画面を、サブ画面に表示
-        [[self currentFunction] willProcessWithTitle:title withSubView:subView];
+        [[self currentFunction] willProcessWithTitle:title];
     }
 
 #pragma mark - Menu item management
