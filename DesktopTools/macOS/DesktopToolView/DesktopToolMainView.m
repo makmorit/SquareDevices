@@ -1,16 +1,16 @@
 //
-//  DesktopToolStackView.m
+//  DesktopToolMainView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/30.
 //
-#import "DesktopToolStackView.h"
+#import "DesktopToolMainView.h"
 #import "SideMenuView.h"
 #import "ToolFunctionManager.h"
 
-static DesktopToolStackView *sharedInstance;
+static DesktopToolMainView *sharedInstance;
 
-@interface DesktopToolStackView () <SideMenuViewDelegate, ToolFunctionManagerDelegate>
+@interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionManagerDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
@@ -21,10 +21,10 @@ static DesktopToolStackView *sharedInstance;
 
 @end
 
-@implementation DesktopToolStackView
+@implementation DesktopToolMainView
 
     - (instancetype)init {
-        self = [super initWithNibName:@"DesktopToolStackView" bundle:nil];
+        self = [super initWithNibName:@"DesktopToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
             [self setFunctionManager:[[ToolFunctionManager alloc] initWithDelegate:self]];
