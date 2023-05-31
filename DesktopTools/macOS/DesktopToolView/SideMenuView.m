@@ -4,14 +4,16 @@
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
-#import "SideMenuItem.h"
+#import "AppCommonMessage.h"
 #import "SideMenuView.h"
 
-@interface SideMenuView () <NSOutlineViewDelegate, SideMenuItemDelegate>
+@interface SideMenuView () <NSOutlineViewDelegate>
 
+    // 上位クラスの参照を保持
+    @property (nonatomic) id                             delegate;
     // カスタマイズしたサイドバーメニュー
     @property (nonatomic, weak) IBOutlet NSOutlineView  *sideMenuBar;
-    @property (nonatomic) SideMenuItem                  *sideMenuItem;
+    // サイドメニュー項目のインスタンスを保持
     @property (nonatomic) NSArray                       *sideMenuItemsArray;
     // サイドバーを使用可能／不可能に制御するためのフラグ
     @property (nonatomic) bool                           menuEnabled;
@@ -20,12 +22,13 @@
 
 @implementation SideMenuView
 
-    - (instancetype)init {
+    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
-            // サイドバーのインスタンスを生成
-            [self setSideMenuItem:[[SideMenuItem alloc] initWithDelegate:nil]];
-            [self setSideMenuItemsArray:[[self sideMenuItem] sideMenuItemsArray]];
+            // 上位クラスの参照を保持
+            [self setDelegate:delegate];
+            // サイドメニュー項目のインスタンスを保持
+            [self setSideMenuItemsArray:[self createMenuItemsArrayFrom:itemsArray]];
             // サイドバーを表示
             [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
             [[self view] setWantsLayer:YES];
@@ -81,10 +84,10 @@
 
     - (void)enableSideMenuClick {
         // メニュー項目クリック時の処理を設定
-        [[self sideMenuBar] setAction:@selector(sideMenuItemDidClicked)];
+        [[self sideMenuBar] setAction:@selector(sideMenuItemDidClick)];
     }
 
-    - (void)sideMenuItemDidClicked {
+    - (void)sideMenuItemDidClick {
         // メニュー項目以外の部位がクリックされた場合は処理を続行しない
         NSInteger row = [[self sideMenuBar] clickedRow];
         if (row < 0) {
@@ -100,15 +103,54 @@
         [[self sideMenuBar] setEnabled:false];
         [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
-        [[self sideMenuItem] sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
+        [self sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }
 
-#pragma mark - callback from SideMenuItem
+    - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
+        // クリックされたメニュー項目の情報を通知
+        [[self delegate] menuItemDidClickWithTitle:selectedItemTitle];
+    }
 
     - (void)sideMenuItemDidTerminateProcess {
         // サイドバーを使用可能とする
         [[self sideMenuBar] setEnabled:true];
         [self setMenuEnabled:true];
+    }
+
+#pragma mark - Display menu items
+
+    - (NSArray *)createMenuItemsArrayFrom:(NSArray *)menuItemDescArray {
+        // メニュー項目定義配列を、画面表示用に再構築
+        NSMutableArray *menuItemGroupArray = [[NSMutableArray alloc] init];
+        for (NSArray *menuItemDesc in menuItemDescArray) {
+            NSString *menuGroupName = [menuItemDesc objectAtIndex:0];
+            NSArray *menuItems = [menuItemDesc objectAtIndex:1];
+            NSMutableArray *menuItemArray = [[NSMutableArray alloc] init];
+            for (NSArray *menuItem in menuItems) {
+                NSString *menuItemName  = [menuItem objectAtIndex:0];
+                NSString *menuItemImage = [menuItem objectAtIndex:1];
+                NSDictionary *menuItemDict = [self createMenuItemWithTitle:menuItemName withIconName:menuItemImage];
+                [menuItemArray addObject:menuItemDict];
+            }
+            NSDictionary *menuGroup = [self createMenuItemGroupWithName:menuGroupName withItems:menuItemArray];
+            [menuItemGroupArray addObject:menuGroup];
+        }
+        return menuItemGroupArray;
+    }
+
+    - (NSDictionary *)createMenuItemWithTitle:(NSString *)title withIconName:(NSString *)iconName {
+        // 使用アイコンのフルパスを取得
+        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *iconImagePath = [NSString stringWithFormat:@"%@/%@.png", resourcePath, iconName];
+        // メニューアイテムを生成
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", iconImagePath, @"image", nil];
+        return itemDict;
+    }
+
+    - (NSDictionary *)createMenuItemGroupWithName:(NSString *)groupName withItems:(NSArray *)items {
+        NSDictionary *itemDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  groupName, @"title", items, @"children", [NSNumber numberWithBool:YES], @"header", nil];
+        return itemDict;
     }
 
 @end

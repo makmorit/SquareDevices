@@ -374,50 +374,15 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="335" y="390" width="564" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
-            <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="372">
+            <view key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="564" height="360"/>
-                <subviews>
-                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-iV-Qih">
-                        <rect key="frame" x="0.0" y="0.0" width="564" height="360"/>
-                        <subviews>
-                            <customView id="jnR-cp-TFI">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="360"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </customView>
-                            <customView id="ozH-4j-S9H">
-                                <rect key="frame" x="204" y="0.0" width="360" height="360"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="XNW-6m-L2W"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="360" id="Qv2-of-DOk"/>
-                            <constraint firstAttribute="width" constant="564" id="rCw-oP-fhu"/>
-                        </constraints>
-                        <visibilityPriorities>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
-                        </visibilityPriorities>
-                        <customSpacing>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
-                        </customSpacing>
-                    </stackView>
-                </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="jP0-iV-Qih" secondAttribute="trailing" id="YQp-lr-Wte"/>
-                    <constraint firstItem="jP0-iV-Qih" firstAttribute="top" secondItem="372" secondAttribute="top" id="aE1-FT-Vjh"/>
-                    <constraint firstAttribute="bottom" secondItem="jP0-iV-Qih" secondAttribute="bottom" id="cxb-qz-v48"/>
-                    <constraint firstItem="jP0-iV-Qih" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="k3g-0t-hZ9"/>
-                </constraints>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             </view>
             <point key="canvasLocation" x="132" y="107"/>
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="stackView" destination="jP0-iV-Qih" id="Jil-rF-nIH"/>
+                <outlet property="mainView" destination="372" id="EsT-D8-ReQ"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
