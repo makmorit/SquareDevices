@@ -13,8 +13,6 @@
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
-    // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
-    @property (nonatomic) NSViewController              *subView;
     // メニュータイトル
     @property (nonatomic) NSString                      *menuTitle;
 
@@ -26,16 +24,16 @@
         self = [super init];
         if (self != nil) {
             [self setDelegate:delegate];
+            [self setSubView:nil];
         }
         return self;
     }
 
 #pragma mark - Process management
 
-    - (void)willProcessWithTitle:(NSString *)title withSubView:(NSViewController *)subView {
+    - (void)willProcessWithTitle:(NSString *)title {
         // メニュー項目に対応する情報を保持
         [self setMenuTitle:title];
-        [self setSubView:subView];
         // メニュー項目に対応する画面を、サブ画面に表示
         if ([self subView]) {
             [[self delegate] notifyFunctionShowSubView:[[self subView] view]];

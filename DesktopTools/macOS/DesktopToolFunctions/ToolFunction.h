@@ -12,9 +12,11 @@
 @protocol ToolFunctionDelegate;
 
 @interface ToolFunction : NSObject
+    // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
+    @property (nonatomic) NSViewController              *subView;
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)willProcessWithTitle:(NSString *)title withSubView:(NSViewController *)subView;
+    - (void)willProcessWithTitle:(NSString *)title;
 
 @end
 
