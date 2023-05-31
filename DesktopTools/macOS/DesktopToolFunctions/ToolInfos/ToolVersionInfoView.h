@@ -7,9 +7,9 @@
 #ifndef ToolVersionInfoView_h
 #define ToolVersionInfoView_h
 
-#import "SubViewController.h"
+#import "ToolFunctionView.h"
 
-@interface ToolVersionInfoView : SubViewController
+@interface ToolVersionInfoView : ToolFunctionView
 
     - (instancetype)initWithDelegate:(id)delegate;
 

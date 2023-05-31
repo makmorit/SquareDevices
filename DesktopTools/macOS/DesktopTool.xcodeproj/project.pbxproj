@@ -19,8 +19,8 @@
 		7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
 		7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
-		7A2712752A247B2000FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* SubViewController.m */; };
-		7A2712762A247B2000FA9030 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* SubViewController.m */; };
+		7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* ToolFunctionView.m */; };
+		7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* ToolFunctionView.m */; };
 		7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* ToolFunctionManager.m */; };
 		7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* ToolFunctionManager.m */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
@@ -96,8 +96,8 @@
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
 		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
 		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
-		7A2712732A247B1F00FA9030 /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
-		7A2712742A247B1F00FA9030 /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		7A2712732A247B1F00FA9030 /* ToolFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolFunctionView.h; sourceTree = "<group>"; };
+		7A2712742A247B1F00FA9030 /* ToolFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolFunctionView.m; sourceTree = "<group>"; };
 		7A2712772A24984F00FA9030 /* ToolFunctionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolFunctionManager.h; sourceTree = "<group>"; };
 		7A2712782A24987100FA9030 /* ToolFunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolFunctionManager.m; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 		7A2712722A247B0300FA9030 /* DesktopToolSubViews */ = {
 			isa = PBXGroup;
 			children = (
-				7A2712732A247B1F00FA9030 /* SubViewController.h */,
-				7A2712742A247B1F00FA9030 /* SubViewController.m */,
+				7A2712732A247B1F00FA9030 /* ToolFunctionView.h */,
+				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
 			);
 			path = DesktopToolSubViews;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
-				7A2712752A247B2000FA9030 /* SubViewController.m in Sources */,
+				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */,
@@ -478,7 +478,7 @@
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
-				7A2712762A247B2000FA9030 /* SubViewController.m in Sources */,
+				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A8B3DEE296E56640005F7B1 /* ToolCommonFunc.m in Sources */,

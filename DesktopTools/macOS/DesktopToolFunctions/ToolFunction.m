@@ -5,10 +5,10 @@
 //  Created by Makoto Morita on 2023/05/31.
 //
 #import "AppCommonMessage.h"
-#import "SubViewController.h"
+#import "ToolFunctionView.h"
 #import "ToolFunction.h"
 
-@interface ToolFunction () <SubViewDelegate>
+@interface ToolFunction () <ToolFunctionViewDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;

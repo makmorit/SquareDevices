@@ -1,27 +1,27 @@
 //
-//  SubViewController.h
+//  ToolFunctionView.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
-#ifndef SubViewController_h
-#define SubViewController_h
+#ifndef ToolFunctionView_h
+#define ToolFunctionView_h
 
 #import <Foundation/Foundation.h>
 
-@protocol SubViewDelegate;
+@protocol ToolFunctionViewDelegate;
 
-@interface SubViewController : NSViewController
+@interface ToolFunctionView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
     - (void)subViewWillTerminate;
 
 @end
 
-@protocol SubViewDelegate <NSObject>
+@protocol ToolFunctionViewDelegate <NSObject>
 
     - (void)subViewDidTerminate;
 
 @end
 
-#endif /* SubViewController_h */
+#endif /* ToolFunctionView_h */

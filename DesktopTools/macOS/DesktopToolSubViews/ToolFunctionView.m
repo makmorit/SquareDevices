@@ -1,19 +1,19 @@
 //
-//  SubViewController.m
+//  ToolFunctionView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
-#import "SubViewController.h"
+#import "ToolFunctionView.h"
 
-@interface SubViewController ()
+@interface ToolFunctionView ()
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
 
 @end
 
-@implementation SubViewController
+@implementation ToolFunctionView
 
     - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName {
        self = [super initWithNibName:nibName bundle:nil];
