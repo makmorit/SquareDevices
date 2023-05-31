@@ -32,14 +32,17 @@
 #pragma mark - Process management
 
     - (void)willProcessWithTitle:(NSString *)title {
+        // 機能クラスが指定されていない場合はサポート外のメッセージを表示
+        if ([[self className] isEqualToString:@"ToolFunction"]) {
+            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
+                                       forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
+            return;
+        }
         // メニュー項目に対応する情報を保持
         [self setMenuTitle:title];
         // メニュー項目に対応する画面を、サブ画面に表示
         if ([self subView]) {
             [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
-        } else {
-            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:[self menuTitle]
-                                       forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
         }
     }
 
