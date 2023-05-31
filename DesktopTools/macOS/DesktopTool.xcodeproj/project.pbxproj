@@ -172,8 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
-				7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */,
-				7A2712722A247B0300FA9030 /* DesktopToolSubViews */,
 				7A98D7DE2A258EA7005A593E /* DesktopToolView */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
 				64ED9A7F1647439300F39EAE /* DesktopTool */,
@@ -235,16 +233,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7A0587772A1DFFD900BA3652 /* DesktopToolSideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
-				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
-				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
-			);
-			path = DesktopToolSideMenu;
-			sourceTree = "<group>";
-		};
 		7A2712692A24714300FA9030 /* DesktopToolFunctions */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,15 +253,6 @@
 				7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */,
 			);
 			path = ToolInfos;
-			sourceTree = "<group>";
-		};
-		7A2712722A247B0300FA9030 /* DesktopToolSubViews */ = {
-			isa = PBXGroup;
-			children = (
-				7A2712732A247B1F00FA9030 /* ToolFunctionView.h */,
-				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
-			);
-			path = DesktopToolSubViews;
 			sourceTree = "<group>";
 		};
 		7A36FB302A1B3461005C78D6 /* Resources */ = {
@@ -330,6 +309,11 @@
 				7A98D7E22A259221005A593E /* DesktopToolMainView.h */,
 				7A98D7E32A259221005A593E /* DesktopToolMainView.m */,
 				7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */,
+				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
+				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
+				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
+				7A2712732A247B1F00FA9030 /* ToolFunctionView.h */,
+				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
 			);
 			path = DesktopToolView;
 			sourceTree = "<group>";
