@@ -8,8 +8,6 @@
 #import "SideMenuView.h"
 #import "ToolFunctionManager.h"
 
-static DesktopToolMainView *sharedInstance;
-
 @interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionManagerDelegate>
 
     // ビュー領域を格納する領域の参照を保持
@@ -29,7 +27,6 @@ static DesktopToolMainView *sharedInstance;
             // 業務処理クラスを初期化
             [self setFunctionManager:[[ToolFunctionManager alloc] initWithDelegate:self]];
             // スタックビューを表示
-            sharedInstance = self;
             [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];
             [[self view] setWantsLayer:YES];
         }
