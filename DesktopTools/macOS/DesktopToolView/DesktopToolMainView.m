@@ -6,9 +6,10 @@
 //
 #import "DesktopToolMainView.h"
 #import "SideMenuView.h"
+#import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
-@interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionManagerDelegate>
+@interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
@@ -25,7 +26,7 @@
         self = [super initWithNibName:@"DesktopToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
-            [self setFunctionManager:[[ToolFunctionManager alloc] initWithDelegate:self]];
+            [self setFunctionManager:[[ToolFunctionManager alloc] init]];
             // スタックビューを表示
             [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];
             [[self view] setWantsLayer:YES];
@@ -44,7 +45,7 @@
 
     - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
         // 業務クラスに制御を移す
-        [[self functionManager] willProcessWithTitle:title];
+        [[self functionManager] willProcessWithDelegate:self withTitle:title];
     }
 
 #pragma mark - Callback from ToolFunctionManager

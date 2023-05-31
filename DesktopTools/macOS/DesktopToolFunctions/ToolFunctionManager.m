@@ -5,56 +5,38 @@
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "AppCommonMessage.h"
+#import "PopupWindow.h"
+#import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
 // for functions
-#import "PopupWindow.h"
 #import "ToolVersionInfoView.h"
 
-@interface ToolFunctionManager () <SubViewDelegate>
+@interface ToolFunctionManager ()
 
-    // 上位クラスの参照を保持
-    @property (nonatomic) id                             delegate;
-    // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
-    @property (nonatomic) NSViewController              *subView;
+    // 現在実行中の機能クラスの参照を保持
+    @property (nonatomic) ToolFunction                  *currentFunction;
 
 @end
 
 @implementation ToolFunctionManager
 
-    - (instancetype)initWithDelegate:(id)delegate {
-        self = [super init];
-        if (self != nil) {
-            [self setDelegate:delegate];
-        }
-        return self;
-    }
-
 #pragma mark - Process management
 
-    - (void)willProcessWithTitle:(NSString *)title {
+    - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title {
         // メニュー項目に対応する画面の参照を保持
+        NSViewController *subView = nil;
         if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
-            [self setSubView:[[ToolVersionInfoView alloc] initWithDelegate:self]];
-        } else {
-            [self setSubView:nil];
-        }
-        // メニュー項目に対応する画面を、サブ画面に表示
-        if ([self subView]) {
-            [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
+            // 機能クラス／画面のインスタンスを生成
+            [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
+            subView = [[ToolVersionInfoView alloc] initWithDelegate:[self currentFunction]];
+            // メニュー項目に対応する画面を、サブ画面に表示
+            [[self currentFunction] willProcessWithTitle:title withSubView:subView];
+ 
         } else {
             [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
                                        forObject:self forSelector:@selector(subViewDidTerminate) parentWindow:[[NSApplication sharedApplication] mainWindow]];
         }
-    }
-
-#pragma mark - Callback from SubViewController
-
-    - (void)subViewDidTerminate {
-        // 上位クラスに通知（サイドメニュー領域を使用可能にする）
-        [[self delegate] notifyFunctionTerminateProcess];
-        // サブ画面の参照をクリア
-        [self setSubView:nil];
     }
 
 #pragma mark - Menu item management
