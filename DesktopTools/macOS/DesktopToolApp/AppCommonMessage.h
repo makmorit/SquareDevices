@@ -7,6 +7,11 @@
 #ifndef AppCommonMessage_h
 #define AppCommonMessage_h
 
+#define MSG_TOOL_TITLE_FULL                         @"Square device desktop tool"
+#define MSG_VENDOR_TOOL_TITLE_FULL                  @"Square device vendor tool"
+#define MSG_FORMAT_TOOL_VERSION                     @"Version %@ (%@)"
+#define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023 makmorit"
+
 #define MSG_TOOL_TITLE                              @"デスクトップツール"
 #define MSG_VENDOR_TOOL_TITLE                       @"ベンダーツール"
 #define MSG_FORMAT_TOOL_LAUNCHED                    @"%@を起動しました: Version %@(%@)"
