@@ -7,6 +7,7 @@
 #import "AppCommonMessage.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
+#import "ToolLogFile.h"
 
 // for functions
 #import "ToolVersionInfo.h"
@@ -24,13 +25,23 @@
 
     - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title {
         // 機能クラスのインスタンスを生成
-        if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
+        if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_LOG_FILES]) {
+            [self viewLogFileFolder];
+            return;
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
             [self setCurrentFunction:[[ToolVersionInfo alloc] initWithDelegate:delegate]];
         } else {
             [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
         }
         // メニュー項目に対応する画面を、サブ画面に表示
         [[self currentFunction] willProcessWithTitle:title];
+    }
+
+    - (void)viewLogFileFolder {
+        // ログファイル格納フォルダーをFinderで表示
+        NSURL *url = [NSURL fileURLWithPath:[[ToolLogFile defaultLogger] logFilePathString] isDirectory:false];
+        NSArray *fileURLs = [NSArray arrayWithObjects:url, nil];
+        [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
     }
 
 #pragma mark - Menu item management
