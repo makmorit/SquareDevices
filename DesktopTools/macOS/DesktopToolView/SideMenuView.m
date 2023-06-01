@@ -99,8 +99,6 @@
         if ([[objectValue allKeys] containsObject:@"header"]) {
             return;
         }
-        // サイドバーを使用不能とする
-        [self willEnableToSelect:false];
         // クリックされたメニュー項目に対応する処理を実行
         [self sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }

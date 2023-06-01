@@ -23,7 +23,7 @@
 @protocol ToolFunctionDelegate <NSObject>
 
     - (void)notifyFunctionShowSubView:(NSView *)subView;
-    - (void)notifyFunctionTerminateProcess;
+    - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled;
 
 @end
 

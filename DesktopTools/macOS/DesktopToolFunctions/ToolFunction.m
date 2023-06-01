@@ -32,6 +32,8 @@
 #pragma mark - Process management
 
     - (void)willProcessWithTitle:(NSString *)title {
+        // 上位クラスに通知（サイドメニュー領域を使用不能にする）
+        [[self delegate] notifyFunctionEnableMenuSelection:false];
         // 機能クラスが指定されていない場合はサポート外のメッセージを表示
         if ([[self className] isEqualToString:@"ToolFunction"]) {
             [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
@@ -50,7 +52,7 @@
 
     - (void)subViewDidTerminate {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
-        [[self delegate] notifyFunctionTerminateProcess];
+        [[self delegate] notifyFunctionEnableMenuSelection:true];
         // サブ画面の参照をクリア
         [self setSubView:nil];
     }

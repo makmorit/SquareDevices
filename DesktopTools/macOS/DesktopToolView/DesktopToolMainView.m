@@ -55,9 +55,9 @@
         [[self stackView] addSubview:subView];
     }
 
-    - (void)notifyFunctionTerminateProcess {
-        // サイドメニュー領域を使用可能にする
-        [[self sideMenuView] sideMenuItemDidTerminateProcess];
+    - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled {
+        // サイドメニュー領域を使用可能／不能にする
+        [[self sideMenuView] willEnableToSelect:isEnabled];
     }
 
 @end
