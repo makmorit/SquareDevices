@@ -100,8 +100,7 @@
             return;
         }
         // サイドバーを使用不能とする
-        [[self sideMenuBar] setEnabled:false];
-        [self setMenuEnabled:false];
+        [self willEnableToSelect:false];
         // クリックされたメニュー項目に対応する処理を実行
         [self sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }
@@ -113,8 +112,13 @@
 
     - (void)sideMenuItemDidTerminateProcess {
         // サイドバーを使用可能とする
-        [[self sideMenuBar] setEnabled:true];
-        [self setMenuEnabled:true];
+        [self willEnableToSelect:true];
+    }
+
+    - (void)willEnableToSelect:(bool)isEnabled {
+        // サイドバーを使用可能／不能とする
+        [[self sideMenuBar] setEnabled:isEnabled];
+        [self setMenuEnabled:isEnabled];
     }
 
 #pragma mark - Display menu items

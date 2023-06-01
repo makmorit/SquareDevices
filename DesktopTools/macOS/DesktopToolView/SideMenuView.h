@@ -14,6 +14,7 @@
 @interface SideMenuView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
+    - (void)willEnableToSelect:(bool)isEnabled;
     - (void)sideMenuItemDidTerminateProcess;
 
 @end
