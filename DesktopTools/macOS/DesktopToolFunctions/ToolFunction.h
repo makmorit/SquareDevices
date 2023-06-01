@@ -17,6 +17,7 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)willProcessWithTitle:(NSString *)title;
+    - (void)notifySubViewDidTerminate;
 
 @end
 

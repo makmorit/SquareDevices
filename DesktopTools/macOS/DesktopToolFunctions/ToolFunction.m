@@ -51,10 +51,15 @@
 #pragma mark - Callback from SubViewController
 
     - (void)subViewDidTerminate {
+        // サブクラスに通知
+        [self notifySubViewDidTerminate];
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
         [[self delegate] notifyFunctionEnableMenuSelection:true];
         // サブ画面の参照をクリア
         [self setSubView:nil];
+    }
+
+    - (void)notifySubViewDidTerminate {
     }
 
 @end
