@@ -27,11 +27,11 @@
        return self;
     }
 
-    - (void)subViewWillTerminate {
+    - (void)subViewWillRemove {
         // サブ画面を領域から消す
         [[self view] removeFromSuperview];
         // 上位クラスに通知
-        [[self delegate] subViewDidTerminate];
+        [[self delegate] subViewDidRemove];
     }
 
 @end

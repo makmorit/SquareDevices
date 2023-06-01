@@ -34,7 +34,7 @@
 
     - (IBAction)buttonOKDidPress:(id)sender {
         // この画面を閉じる
-        [self subViewWillTerminate];
+        [self subViewWillRemove];
     }
 
 @end
