@@ -71,6 +71,12 @@
 		7A98D7E12A258EE7005A593E /* DesktopToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */; };
 		7A98D7E42A259221005A593E /* DesktopToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolMainView.m */; };
 		7A98D7E52A259221005A593E /* DesktopToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolMainView.m */; };
+		7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
+		7AA301AB2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
+		7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */; };
+		7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */; };
+		7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
+		7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
 		89C2DF652A073232004C282B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF642A0731F8004C282B /* libcrypto.a */; };
@@ -129,6 +135,11 @@
 		7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesktopToolMainView.xib; sourceTree = "<group>"; };
 		7A98D7E22A259221005A593E /* DesktopToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesktopToolMainView.h; sourceTree = "<group>"; };
 		7A98D7E32A259221005A593E /* DesktopToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesktopToolMainView.m; sourceTree = "<group>"; };
+		7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolDoProcessView.xib; sourceTree = "<group>"; };
+		7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDoProcessView.m; sourceTree = "<group>"; };
+		7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcessView.h; sourceTree = "<group>"; };
+		7AA301B02A2874040039E7E0 /* ToolDoProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDoProcess.m; sourceTree = "<group>"; };
+		7AA301B12A2874040039E7E0 /* ToolDoProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcess.h; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -244,6 +255,7 @@
 				7A2712782A24987100FA9030 /* ToolFunctionManager.m */,
 				7A8913662A26EC8D00FC3C45 /* ToolFunction.h */,
 				7A8913672A26ECAD00FC3C45 /* ToolFunction.m */,
+				7AA301A82A286FB10039E7E0 /* ToolCommon */,
 				7A27126A2A24716900FA9030 /* ToolInfos */,
 			);
 			path = DesktopToolFunctions;
@@ -322,6 +334,18 @@
 				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
 			);
 			path = DesktopToolView;
+			sourceTree = "<group>";
+		};
+		7AA301A82A286FB10039E7E0 /* ToolCommon */ = {
+			isa = PBXGroup;
+			children = (
+				7AA301B12A2874040039E7E0 /* ToolDoProcess.h */,
+				7AA301B02A2874040039E7E0 /* ToolDoProcess.m */,
+				7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */,
+				7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */,
+				7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */,
+			);
+			path = ToolCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +434,7 @@
 				7A810FFC2A1C8AE400C0BAED /* update.png in Resources */,
 				64ED9A901647439300F39EAE /* MainWindow.xib in Resources */,
 				7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
+				7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +458,7 @@
 				7A810FFD2A1C8AE400C0BAED /* update.png in Resources */,
 				7A8B3E20296E56640005F7B1 /* MainWindow.xib in Resources */,
 				7A53E2272A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
+				7AA301AB2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* DesktopToolMainView.m in Sources */,
@@ -450,6 +477,7 @@
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
@@ -462,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A98D7E52A259221005A593E /* DesktopToolMainView.m in Sources */,
@@ -469,6 +498,7 @@
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
