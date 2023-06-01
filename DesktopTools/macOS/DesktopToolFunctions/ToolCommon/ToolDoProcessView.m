@@ -29,4 +29,12 @@
         [self subViewWillRemove];
     }
 
+    - (void)appendLogMessage:(NSString *)message {
+        // テキストエリアにメッセージを追加し、末尾に移動
+        if (message) {
+            [[self textStatus] setString:[[[self textStatus] string] stringByAppendingFormat:@"%@\n", message]];
+            [[self textStatus] performSelector:@selector(scrollToEndOfDocument:) withObject:nil afterDelay:0];
+        }
+    }
+
 @end
