@@ -17,7 +17,6 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)willProcessWithTitle:(NSString *)title;
-    - (void)notifySubViewDidRemove;
 
 @end
 

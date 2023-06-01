@@ -22,7 +22,4 @@
         return self;
     }
 
-    - (void)notifySubViewDidRemove {
-    }
-
 @end
