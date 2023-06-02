@@ -13,9 +13,11 @@
 
 @interface ToolFunctionView : NSViewController
 
-    - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
+    - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupSubView;
     - (void)subViewWillRemove;
+
+    - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
 
 @end
 

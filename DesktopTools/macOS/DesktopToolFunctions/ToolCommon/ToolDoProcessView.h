@@ -11,8 +11,6 @@
 
 @interface ToolDoProcessView : ToolFunctionView
 
-    - (instancetype)initWithDelegate:(id)delegate;
-
 @end
 
 #endif /* ToolDoProcessView_h */

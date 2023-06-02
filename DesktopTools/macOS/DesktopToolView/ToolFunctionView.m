@@ -15,6 +15,10 @@
 
 @implementation ToolFunctionView
 
+    - (instancetype)initWithDelegate:(id)delegate {
+        return [self initWithDelegate:delegate withViewName:nil];
+    }
+
     - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName {
        self = [super initWithNibName:nibName bundle:nil];
        if (self != nil) {

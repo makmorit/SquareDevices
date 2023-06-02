@@ -8,9 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolVersionInfoView">
             <connections>
-                <outlet property="labelCopyright" destination="0Gs-wb-1nv" id="6V7-D4-2rF"/>
-                <outlet property="labelToolName" destination="L0x-fV-v6g" id="jbf-zM-gF7"/>
-                <outlet property="labelVersion" destination="vHi-fm-sBk" id="waD-94-ePt"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5xe-EF-u5R"/>
             </connections>
         </customObject>
