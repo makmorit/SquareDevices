@@ -20,11 +20,14 @@
        if (self != nil) {
            // 上位クラスの参照を保持
            [self setDelegate:delegate];
-           // 描画領域を設定
-           [[self view] setFrame:NSMakeRect(204, 0, 360, 360)];
-           [[self view] setWantsLayer:YES];
        }
        return self;
+    }
+
+    - (void)setupSubView {
+        // 描画領域を設定
+        [[self view] setFrame:NSMakeRect(204, 0, 360, 360)];
+        [[self view] setWantsLayer:YES];
     }
 
     - (void)subViewWillRemove {

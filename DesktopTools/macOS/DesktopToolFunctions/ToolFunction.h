@@ -7,7 +7,7 @@
 #ifndef ToolFunction_h
 #define ToolFunction_h
 
-#import <Foundation/Foundation.h>
+#import "ToolFunctionView.h"
 
 @protocol ToolFunctionDelegate;
 
@@ -17,7 +17,7 @@
     - (void)setupSubView;
     - (void)willProcessWithTitle:(NSString *)title;
 
-    - (void)setSubViewRef:(NSViewController *)subView;
+    - (void)setSubViewRef:(ToolFunctionView *)subView;
 
 @end
 

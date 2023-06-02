@@ -14,7 +14,7 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
-    @property (nonatomic) NSViewController              *subView;
+    @property (nonatomic) ToolFunctionView              *subView;
     // メニュータイトル
     @property (nonatomic) NSString                      *menuTitle;
 
@@ -31,8 +31,13 @@
         return self;
     }
 
-    - (void)setSubViewRef:(NSViewController *)subView {
+    - (void)setSubViewRef:(ToolFunctionView *)subView {
+        // 画面の参照を保持
         [self setSubView:subView];
+        // 画面の描画領域を設定
+        if (subView) {
+            [[self subView] setupSubView];
+        }
     }
 
 #pragma mark - Process management
