@@ -36,7 +36,7 @@
         [self setSubView:subView];
         // 画面の描画領域を設定
         if (subView) {
-            [[self subView] setupSubView];
+            [[self subView] setupAttributes];
         }
     }
 
