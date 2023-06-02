@@ -25,6 +25,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="lIa-pG-tHh" name="value" keyPath="selection.toolName" id="tFx-v3-YZK"/>
+                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHi-fm-sBk" userLabel="labelVersion">
                     <rect key="frame" x="75" y="152" width="200" height="19"/>
@@ -34,6 +37,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="lIa-pG-tHh" name="value" keyPath="selection.version" id="KQ4-bj-2MC"/>
+                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Gs-wb-1nv" userLabel="labelCopyright">
                     <rect key="frame" x="75" y="103" width="200" height="14"/>
@@ -43,6 +49,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="lIa-pG-tHh" name="value" keyPath="selection.copyright" id="u1v-ye-Ggc"/>
+                    </connections>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uK-NS-bbR">
                     <rect key="frame" x="143" y="248" width="64" height="64"/>
@@ -63,6 +72,11 @@
             </subviews>
             <point key="canvasLocation" x="156" y="143"/>
         </customView>
+        <objectController id="lIa-pG-tHh">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="parameterObject" id="k6M-Bu-Xl7"/>
+            </connections>
+        </objectController>
     </objects>
     <resources>
         <image name="icon" width="128" height="128"/>

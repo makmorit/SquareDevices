@@ -18,7 +18,6 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self != nil) {
-            [self getVersionInfo];
         }
         return self;
     }
@@ -37,9 +36,18 @@
         [self setCopyright:MSG_APP_COPYRIGHT];
     }
 
+#pragma mark - Process management
+
     - (void)setupSubView {
         // 画面のインスタンスを生成
         [self setSubViewRef:[[ToolVersionInfoView alloc] initWithDelegate:self]];
+    }
+
+    - (void)willProcessWithTitle:(NSString *)title {
+        // 画面に表示する内容を取得
+        [self getVersionInfo];
+        // メニュー項目に対応する画面を、サブ画面に表示
+        [super willProcessWithTitle:title];
     }
 
 @end
