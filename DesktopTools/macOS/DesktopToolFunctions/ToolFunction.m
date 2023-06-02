@@ -4,8 +4,6 @@
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#import "AppCommonMessage.h"
-#import "PopupWindow.h"
 #import "ToolFunctionView.h"
 #import "ToolFunction.h"
 
@@ -50,12 +48,6 @@
     - (void)willProcessWithTitle:(NSString *)title {
         // 上位クラスに通知（サイドメニュー領域を使用不能にする）
         [[self delegate] notifyFunctionEnableMenuSelection:false];
-        // 機能クラスが指定されていない場合はサポート外のメッセージを表示
-        if ([[self className] isEqualToString:@"ToolFunction"]) {
-            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
-                                       forObject:self forSelector:@selector(subViewDidRemove) parentWindow:[[NSApplication sharedApplication] mainWindow]];
-            return;
-        }
         // メニュー項目に対応する情報を保持
         [self setMenuTitle:title];
         // メニュー項目に対応する画面を、サブ画面に表示

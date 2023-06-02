@@ -5,6 +5,7 @@
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "AppCommonMessage.h"
+#import "PopupWindow.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 #import "ToolLogFile.h"
@@ -31,7 +32,10 @@
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
             [self setCurrentFunction:[[ToolVersionInfo alloc] initWithDelegate:delegate]];
         } else {
-            [self setCurrentFunction:[[ToolFunction alloc] initWithDelegate:delegate]];
+            // サポート外のメッセージを表示
+            [[PopupWindow defaultWindow] message:MSG_ERROR_MENU_NOT_SUPPORTED withStyle:NSAlertStyleWarning withInformative:title
+                                       forObject:nil forSelector:nil parentWindow:[[NSApplication sharedApplication] mainWindow]];
+            return;
         }
         // メニュー項目に対応する画面を、サブ画面に表示
         [[self currentFunction] setupSubView];
