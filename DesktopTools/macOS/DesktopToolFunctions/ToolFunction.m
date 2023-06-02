@@ -32,10 +32,6 @@
     - (void)setSubViewRef:(ToolFunctionView *)subView {
         // 画面の参照を保持
         [self setSubView:subView];
-        // 画面の描画領域を設定
-        if (subView) {
-            [[self subView] setupAttributes];
-        }
     }
 
 #pragma mark - Process management
@@ -46,12 +42,16 @@
     }
 
     - (void)willProcessWithTitle:(NSString *)title {
-        // 上位クラスに通知（サイドメニュー領域を使用不能にする）
-        [[self delegate] notifyFunctionEnableMenuSelection:false];
         // メニュー項目に対応する情報を保持
         [self setMenuTitle:title];
-        // メニュー項目に対応する画面を、サブ画面に表示
+        // 画面のインスタンスを生成-->参照を内部保持
+        [self setupSubView];
         if ([self subView]) {
+            // 画面の描画領域を設定
+            [[self subView] setupAttributes];
+            // 上位クラスに通知（サイドメニュー領域を使用不能にする）
+            [[self delegate] notifyFunctionEnableMenuSelection:false];
+            // メニュー項目に対応する画面を、サブ画面に表示
             [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
         }
     }

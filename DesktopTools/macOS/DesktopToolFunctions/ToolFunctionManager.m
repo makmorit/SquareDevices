@@ -38,7 +38,6 @@
             return;
         }
         // メニュー項目に対応する画面を、サブ画面に表示
-        [[self currentFunction] setupSubView];
         [[self currentFunction] willProcessWithTitle:title];
     }
 
