@@ -18,9 +18,7 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self != nil) {
-            // 画面のインスタンスを生成
             [self getVersionInfo];
-            [self setSubView:[[ToolVersionInfoView alloc] initWithDelegate:self]];
         }
         return self;
     }
@@ -37,6 +35,11 @@
             [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         [self setVersion:versionString];
         [self setCopyright:MSG_APP_COPYRIGHT];
+    }
+
+    - (void)setupSubView {
+        // 画面のインスタンスを生成
+        [self setSubViewRef:[[ToolVersionInfoView alloc] initWithDelegate:self]];
     }
 
 @end

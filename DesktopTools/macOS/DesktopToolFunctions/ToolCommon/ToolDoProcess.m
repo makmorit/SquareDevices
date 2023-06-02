@@ -15,11 +15,12 @@
 
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
-        if (self != nil) {
-            // 画面のインスタンスを生成
-            [self setSubView:[[ToolDoProcessView alloc] initWithDelegate:self]];
-        }
         return self;
+    }
+
+    - (void)setupSubView {
+        // 画面のインスタンスを生成
+        [super setSubViewRef:[[ToolDoProcessView alloc] initWithDelegate:self]];
     }
 
 @end

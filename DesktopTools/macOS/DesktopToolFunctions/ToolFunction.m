@@ -13,6 +13,8 @@
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
+    // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
+    @property (nonatomic) NSViewController              *subView;
     // メニュータイトル
     @property (nonatomic) NSString                      *menuTitle;
 
@@ -29,7 +31,16 @@
         return self;
     }
 
+    - (void)setSubViewRef:(NSViewController *)subView {
+        [self setSubView:subView];
+    }
+
 #pragma mark - Process management
+
+    - (void)setupSubView {
+        // 画面のインスタンスを生成
+        [self setSubViewRef:nil];
+    }
 
     - (void)willProcessWithTitle:(NSString *)title {
         // 上位クラスに通知（サイドメニュー領域を使用不能にする）
