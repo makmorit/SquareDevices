@@ -10,6 +10,9 @@
 #import "ToolFunction.h"
 
 @interface ToolDoProcess : ToolFunction
+    // 画面に表示させるための情報を保持
+    @property (nonatomic) NSString  *title;
+    @property (nonatomic) NSString  *statusText;
 
 @end
 

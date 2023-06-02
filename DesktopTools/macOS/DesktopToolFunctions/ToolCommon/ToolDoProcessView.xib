@@ -8,8 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ToolDoProcessView">
             <connections>
-                <outlet property="labelTitle" destination="L0x-fV-v6g" id="YHo-eZ-YDF"/>
-                <outlet property="textStatus" destination="x4U-ea-cfn" id="lw7-Wm-uLu"/>
+                <outlet property="textStatus" destination="x4U-ea-cfn" id="OzN-JJ-Kcb"/>
                 <outlet property="view" destination="c22-O7-iKe" id="5xe-EF-u5R"/>
             </connections>
         </customObject>
@@ -24,9 +23,12 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="ここに機能名が入ります" id="yqC-e2-0zj">
                         <font key="font" metaFont="systemSemibold" size="16"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" red="0.32034655779271637" green="0.32106850294447631" blue="0.33208528853426078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="0wM-lp-rh3" name="value" keyPath="selection.title" id="1w6-1Y-RRA"/>
+                    </connections>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A76-uK-zL1" userLabel="buttonDoProcess">
                     <rect key="frame" x="42" y="284" width="134" height="32"/>
@@ -54,6 +56,9 @@
                                 <size key="minSize" width="345" height="256"/>
                                 <size key="maxSize" width="360" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="0wM-lp-rh3" name="value" keyPath="selection.statusText" id="g0G-Jb-RzR"/>
+                                </connections>
                             </textView>
                         </subviews>
                     </clipView>
@@ -80,5 +85,10 @@
             </subviews>
             <point key="canvasLocation" x="156" y="143"/>
         </customView>
+        <objectController id="0wM-lp-rh3">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="parameterObject" id="gbD-2b-h6D"/>
+            </connections>
+        </objectController>
     </objects>
 </document>
