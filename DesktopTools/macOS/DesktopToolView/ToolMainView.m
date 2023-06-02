@@ -4,12 +4,12 @@
 //
 //  Created by Makoto Morita on 2023/05/30.
 //
-#import "DesktopToolMainView.h"
+#import "ToolMainView.h"
 #import "SideMenuView.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
-@interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionDelegate>
+@interface ToolMainView () <SideMenuViewDelegate, ToolFunctionDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
@@ -20,10 +20,10 @@
 
 @end
 
-@implementation DesktopToolMainView
+@implementation ToolMainView
 
     - (instancetype)init {
-        self = [super initWithNibName:@"DesktopToolMainView" bundle:nil];
+        self = [super initWithNibName:@"ToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
             [self setFunctionManager:[[ToolFunctionManager alloc] init]];

@@ -67,10 +67,10 @@
 		7A8B3E1A296E56640005F7B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64ED9A821647439300F39EAE /* InfoPlist.strings */; };
 		7A8B3E20296E56640005F7B1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64ED9A8E1647439300F39EAE /* MainWindow.xib */; };
 		7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */; };
-		7A98D7E02A258EE7005A593E /* DesktopToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */; };
-		7A98D7E12A258EE7005A593E /* DesktopToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */; };
-		7A98D7E42A259221005A593E /* DesktopToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolMainView.m */; };
-		7A98D7E52A259221005A593E /* DesktopToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* DesktopToolMainView.m */; };
+		7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* ToolMainView.xib */; };
+		7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* ToolMainView.xib */; };
+		7A98D7E42A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
+		7A98D7E52A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
 		7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
 		7AA301AB2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
 		7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */; };
@@ -132,9 +132,9 @@
 		7A92D0E228754B140094D2DB /* AppCommonMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCommonMessage.h; sourceTree = "<group>"; };
 		7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCommonFunc.m; sourceTree = "<group>"; };
 		7A92D0E528754F3C0094D2DB /* ToolCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCommonFunc.h; sourceTree = "<group>"; };
-		7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesktopToolMainView.xib; sourceTree = "<group>"; };
-		7A98D7E22A259221005A593E /* DesktopToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesktopToolMainView.h; sourceTree = "<group>"; };
-		7A98D7E32A259221005A593E /* DesktopToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesktopToolMainView.m; sourceTree = "<group>"; };
+		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
+		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
+		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
 		7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolDoProcessView.xib; sourceTree = "<group>"; };
 		7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDoProcessView.m; sourceTree = "<group>"; };
 		7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcessView.h; sourceTree = "<group>"; };
@@ -324,9 +324,9 @@
 		7A98D7DE2A258EA7005A593E /* DesktopToolView */ = {
 			isa = PBXGroup;
 			children = (
-				7A98D7E22A259221005A593E /* DesktopToolMainView.h */,
-				7A98D7E32A259221005A593E /* DesktopToolMainView.m */,
-				7A98D7DF2A258EE7005A593E /* DesktopToolMainView.xib */,
+				7A98D7E22A259221005A593E /* ToolMainView.h */,
+				7A98D7E32A259221005A593E /* ToolMainView.m */,
+				7A98D7DF2A258EE7005A593E /* ToolMainView.xib */,
 				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
@@ -420,7 +420,7 @@
 			files = (
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
-				7A98D7E02A258EE7005A593E /* DesktopToolMainView.xib in Resources */,
+				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -444,7 +444,7 @@
 			files = (
 				7A810FF92A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
-				7A98D7E12A258EE7005A593E /* DesktopToolMainView.xib in Resources */,
+				7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -472,7 +472,7 @@
 				7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
-				7A98D7E42A259221005A593E /* DesktopToolMainView.m in Sources */,
+				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
@@ -493,7 +493,7 @@
 				7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
-				7A98D7E52A259221005A593E /* DesktopToolMainView.m in Sources */,
+				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
