@@ -10,6 +10,8 @@
 #import "ToolFunctionView.h"
 
 @interface ToolDoProcessView : ToolFunctionView
+    // 画面を操作するためのメソッド
+    - (void)scrollToEndOfStatusText;
 
 @end
 

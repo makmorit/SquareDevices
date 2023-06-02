@@ -15,6 +15,7 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupAttributes;
+    - (void)subViewWillNotifyEventWithName:(NSString *)eventName;
     - (void)subViewWillRemove;
 
     - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
@@ -23,6 +24,7 @@
 
 @protocol ToolFunctionViewDelegate <NSObject>
 
+    - (void)subViewNotifyEventWithName:(NSString *)eventName;
     - (void)subViewDidRemove;
 
 @end

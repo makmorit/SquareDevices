@@ -24,6 +24,7 @@
     }
 
     - (IBAction)buttonDoProcessDidPress:(id)sender {
+        [self subViewWillNotifyEventWithName:@"buttonDoProcessDidPress"];
     }
 
     - (IBAction)buttonCloseDidPress:(id)sender {

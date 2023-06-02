@@ -58,6 +58,9 @@
 
 #pragma mark - Callback from SubViewController
 
+    - (void)subViewNotifyEventWithName:(NSString *)eventName {
+    }
+
     - (void)subViewDidRemove {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
         [[self delegate] notifyFunctionEnableMenuSelection:true];

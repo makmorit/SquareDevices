@@ -41,4 +41,9 @@
         [[self delegate] subViewDidRemove];
     }
 
+    - (void)subViewWillNotifyEventWithName:(NSString *)eventName {
+        // 機能クラスに通知
+        [[self delegate] subViewNotifyEventWithName:eventName];
+    }
+
 @end
