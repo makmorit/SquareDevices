@@ -11,6 +11,7 @@
 
 @interface ToolDoProcessView : ToolFunctionView
     // 画面を操作するためのメソッド
+    - (void)enableButtonClick:(bool)isEnabled;
     - (void)scrollToEndOfStatusText;
 
 @end
