@@ -15,13 +15,6 @@
 
 @implementation ToolVersionInfo
 
-    - (instancetype)initWithDelegate:(id)delegate {
-        self = [super initWithDelegate:delegate];
-        if (self != nil) {
-        }
-        return self;
-    }
-
     - (void)getVersionInfo {
         // タイトル設定
         if ([ToolCommonFunc isVendorMaintenanceTool]) {

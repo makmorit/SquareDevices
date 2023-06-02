@@ -1,5 +1,5 @@
 //
-//  DesktopToolMainView.m
+//  ToolMainView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/30.

@@ -4,7 +4,6 @@
 //
 //  Created by Makoto Morita on 2023/06/01.
 //
-#import "ToolVersionInfo.h"
 #import "ToolDoProcessView.h"
 
 @interface ToolDoProcessView ()
@@ -17,8 +16,7 @@
 @implementation ToolDoProcessView
 
     - (instancetype)initWithDelegate:(id)delegate {
-        self = [super initWithDelegate:delegate withViewName:@"ToolDoProcessView"];
-        return self;
+        return [super initWithDelegate:delegate withViewName:@"ToolDoProcessView"];
     }
 
     - (IBAction)buttonDoProcessDidPress:(id)sender {

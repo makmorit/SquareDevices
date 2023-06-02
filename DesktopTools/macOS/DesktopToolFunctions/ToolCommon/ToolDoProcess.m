@@ -13,11 +13,6 @@
 
 @implementation ToolDoProcess
 
-    - (instancetype)initWithDelegate:(id)delegate {
-        self = [super initWithDelegate:delegate];
-        return self;
-    }
-
     - (void)setupSubView {
         // 画面のインスタンスを生成
         [super setSubViewRef:[[ToolDoProcessView alloc] initWithDelegate:self]];
