@@ -1,27 +1,27 @@
 //
-//  SideMenuView.h
+//  ToolSideMenuView.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
-#ifndef SideMenuView_h
-#define SideMenuView_h
+#ifndef ToolSideMenuView_h
+#define ToolSideMenuView_h
 
 #import <Foundation/Foundation.h>
 
-@protocol SideMenuViewDelegate;
+@protocol ToolSideMenuViewDelegate;
 
-@interface SideMenuView : NSViewController
+@interface ToolSideMenuView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
     - (void)willEnableToSelect:(bool)isEnabled;
 
 @end
 
-@protocol SideMenuViewDelegate <NSObject>
+@protocol ToolSideMenuViewDelegate <NSObject>
 
     - (void)menuItemDidClickWithTitle:(NSString *)title;
 
 @end
 
-#endif /* SideMenuView_h */
+#endif /* ToolSideMenuView_h */

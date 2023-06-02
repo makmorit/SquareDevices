@@ -5,16 +5,16 @@
 //  Created by Makoto Morita on 2023/05/30.
 //
 #import "ToolMainView.h"
-#import "SideMenuView.h"
+#import "ToolSideMenuView.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
-@interface ToolMainView () <SideMenuViewDelegate, ToolFunctionDelegate>
+@interface ToolMainView () <ToolSideMenuViewDelegate, ToolFunctionDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
     // サイドメニュー領域の参照を保持
-    @property (nonatomic) SideMenuView          *sideMenuView;
+    @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
     @property (nonatomic) ToolFunctionManager   *functionManager;
 
@@ -37,8 +37,8 @@
     - (void)viewDidLoad {
         // サイドメニュー領域のインスタンスを生成
         [super viewDidLoad];
-        [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
-        [[self stackView] addSubview:[[self sideMenuView] view]];
+        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
+        [[self stackView] addSubview:[[self toolSideMenuView] view]];
     }
 
 #pragma mark - Callback from SideMenuView
@@ -57,7 +57,7 @@
 
     - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled {
         // サイドメニュー領域を使用可能／不能にする
-        [[self sideMenuView] willEnableToSelect:isEnabled];
+        [[self toolSideMenuView] willEnableToSelect:isEnabled];
     }
 
 @end

@@ -26,10 +26,10 @@
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
-		7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
-		7A53E2272A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
-		7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */; };
-		7A53E22E2A1DAE94006BAA2B /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */; };
+		7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
+		7A53E2272A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
+		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
+		7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
 		7A58D0632A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
 		7A58D0642A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
 		7A58D0652A1C4661002FF8B6 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0612A1C4661002FF8B6 /* delete.png */; };
@@ -111,9 +111,9 @@
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
-		7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
-		7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
+		7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolSideMenuView.xib; sourceTree = "<group>"; };
+		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
+		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
 		7A58D0602A1C4661002FF8B6 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
@@ -327,9 +327,9 @@
 				7A98D7E22A259221005A593E /* ToolMainView.h */,
 				7A98D7E32A259221005A593E /* ToolMainView.m */,
 				7A98D7DF2A258EE7005A593E /* ToolMainView.xib */,
-				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
-				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
-				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
+				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
+				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
+				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
 				7A2712732A247B1F00FA9030 /* ToolFunctionView.h */,
 				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
 			);
@@ -433,7 +433,7 @@
 				64ED9A841647439300F39EAE /* InfoPlist.strings in Resources */,
 				7A810FFC2A1C8AE400C0BAED /* update.png in Resources */,
 				64ED9A901647439300F39EAE /* MainWindow.xib in Resources */,
-				7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
+				7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */,
 				7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +457,7 @@
 				7A8B3E1A296E56640005F7B1 /* InfoPlist.strings in Resources */,
 				7A810FFD2A1C8AE400C0BAED /* update.png in Resources */,
 				7A8B3E20296E56640005F7B1 /* MainWindow.xib in Resources */,
-				7A53E2272A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
+				7A53E2272A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */,
 				7AA301AB2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +481,7 @@
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
-				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
+				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +502,7 @@
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
-				7A53E22E2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
+				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A8B3DEE296E56640005F7B1 /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SideMenuView">
+        <customObject id="-2" userLabel="File's Owner" customClass="ToolSideMenuView">
             <connections>
                 <outlet property="sideMenuBar" destination="uLf-y6-Nqn" id="zV6-fs-Gys"/>
                 <outlet property="view" destination="QjG-py-O6I" id="rYT-ul-Nh6"/>

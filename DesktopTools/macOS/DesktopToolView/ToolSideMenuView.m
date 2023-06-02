@@ -1,13 +1,13 @@
 //
-//  SideMenuView.m
+//  ToolSideMenuView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
 #import "AppCommonMessage.h"
-#import "SideMenuView.h"
+#import "ToolSideMenuView.h"
 
-@interface SideMenuView () <NSOutlineViewDelegate>
+@interface ToolSideMenuView () <NSOutlineViewDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
@@ -20,10 +20,10 @@
 
 @end
 
-@implementation SideMenuView
+@implementation ToolSideMenuView
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
-        self = [super initWithNibName:@"SideMenuView" bundle:nil];
+        self = [super initWithNibName:@"ToolSideMenuView" bundle:nil];
         if (self != nil) {
             // 上位クラスの参照を保持
             [self setDelegate:delegate];
