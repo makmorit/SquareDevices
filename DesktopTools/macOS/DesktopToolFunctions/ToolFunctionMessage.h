@@ -29,6 +29,10 @@
 
 #define MSG_ERROR_MENU_NOT_SUPPORTED                @"このメニューは実行できません。"
 
+#pragma mark - デバイス情報参照画面
+
+#define MSG_DEVICE_FW_VERSION_INFO_SHOWING          @"デバイスに導入されているファームウェア等に関する情報を表示しています。"
+
 #pragma mark - ツールバージョン参照画面
 
 #define MSG_TOOL_TITLE_FULL                         @"Square device desktop tool"

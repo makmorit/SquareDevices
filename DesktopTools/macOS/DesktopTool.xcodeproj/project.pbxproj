@@ -86,6 +86,8 @@
 		7ADD427A2A2DA0360086CF47 /* ToolShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42772A2DA0360086CF47 /* ToolShowInfoView.m */; };
 		7ADD427D2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */; };
 		7ADD427E2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */; };
+		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
+		7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
 		89C2DF652A073232004C282B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF642A0731F8004C282B /* libcrypto.a */; };
 		89C2DF672A073264004C282B /* libtinycbor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF662A07324D004C282B /* libtinycbor.a */; };
@@ -159,6 +161,8 @@
 		7ADD42782A2DA0360086CF47 /* ToolShowInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShowInfoView.h; sourceTree = "<group>"; };
 		7ADD427B2A2DA1E00086CF47 /* ToolShowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShowInfo.h; sourceTree = "<group>"; };
 		7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolShowInfo.m; sourceTree = "<group>"; };
+		7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWVersionInfo.h; sourceTree = "<group>"; };
+		7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWVersionInfo.m; sourceTree = "<group>"; };
 		7AE6031B2875218100DA5BF3 /* ToolLogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolLogFile.m; sourceTree = "<group>"; };
 		7AE6031D287521A800DA5BF3 /* ToolLogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolLogFile.h; sourceTree = "<group>"; };
 		899EA1D929A746A10077BABD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				7A8913662A26EC8D00FC3C45 /* ToolFunction.h */,
 				7A8913672A26ECAD00FC3C45 /* ToolFunction.m */,
 				7ADD426D2A2D71190086CF47 /* BLEConnection */,
+				7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */,
 				7AA301A82A286FB10039E7E0 /* ToolCommon */,
 				7A27126A2A24716900FA9030 /* ToolInfos */,
 			);
@@ -378,6 +383,15 @@
 				7ADD426F2A2D71B70086CF47 /* BLEPairing.m */,
 			);
 			path = BLEConnection;
+			sourceTree = "<group>";
+		};
+		7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */ = {
+			isa = PBXGroup;
+			children = (
+				7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */,
+				7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */,
+			);
+			path = DeviceMaintenance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +530,7 @@
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
+				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
@@ -540,6 +555,7 @@
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
+				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
