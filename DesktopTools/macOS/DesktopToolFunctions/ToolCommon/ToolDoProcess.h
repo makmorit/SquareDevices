@@ -14,6 +14,9 @@
     @property (nonatomic) NSString  *title;
     @property (nonatomic) NSString  *statusText;
 
+    - (void)appendStatusText:(NSString *)statusText;
+    - (void)resumeProcess;
+
 @end
 
 #endif /* ToolDoProcess_h */
