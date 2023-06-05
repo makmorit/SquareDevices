@@ -4,13 +4,14 @@
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
-#import "AppCommonMessage.h"
 #import "PopupWindow.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
+#import "ToolFunctionMessage.h"
 #import "ToolLogFile.h"
 
 // for functions
+#import "BLEPairing.h"
 #import "ToolVersionInfo.h"
 
 @interface ToolFunctionManager ()
@@ -29,6 +30,8 @@
         if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_LOG_FILES]) {
             [self viewLogFileFolder];
             return;
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_PAIRING]) {
+            [self setCurrentFunction:[[BLEPairing alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
             [self setCurrentFunction:[[ToolVersionInfo alloc] initWithDelegate:delegate]];
         } else {
