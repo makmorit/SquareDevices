@@ -1,13 +1,13 @@
 //
-//  SideMenuView.m
+//  ToolSideMenuView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
 #import "AppCommonMessage.h"
-#import "SideMenuView.h"
+#import "ToolSideMenuView.h"
 
-@interface SideMenuView () <NSOutlineViewDelegate>
+@interface ToolSideMenuView () <NSOutlineViewDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
@@ -20,10 +20,10 @@
 
 @end
 
-@implementation SideMenuView
+@implementation ToolSideMenuView
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
-        self = [super initWithNibName:@"SideMenuView" bundle:nil];
+        self = [super initWithNibName:@"ToolSideMenuView" bundle:nil];
         if (self != nil) {
             // 上位クラスの参照を保持
             [self setDelegate:delegate];
@@ -99,9 +99,6 @@
         if ([[objectValue allKeys] containsObject:@"header"]) {
             return;
         }
-        // サイドバーを使用不能とする
-        [[self sideMenuBar] setEnabled:false];
-        [self setMenuEnabled:false];
         // クリックされたメニュー項目に対応する処理を実行
         [self sideMenuItemDidSelectWithName:[objectValue objectForKey:@"title"]];
     }
@@ -113,8 +110,13 @@
 
     - (void)sideMenuItemDidTerminateProcess {
         // サイドバーを使用可能とする
-        [[self sideMenuBar] setEnabled:true];
-        [self setMenuEnabled:true];
+        [self willEnableToSelect:true];
+    }
+
+    - (void)willEnableToSelect:(bool)isEnabled {
+        // サイドバーを使用可能／不能とする
+        [[self sideMenuBar] setEnabled:isEnabled];
+        [self setMenuEnabled:isEnabled];
     }
 
 #pragma mark - Display menu items

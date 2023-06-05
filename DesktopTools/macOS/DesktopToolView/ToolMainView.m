@@ -1,29 +1,29 @@
 //
-//  DesktopToolMainView.m
+//  ToolMainView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/30.
 //
-#import "DesktopToolMainView.h"
-#import "SideMenuView.h"
+#import "ToolMainView.h"
+#import "ToolSideMenuView.h"
 #import "ToolFunction.h"
 #import "ToolFunctionManager.h"
 
-@interface DesktopToolMainView () <SideMenuViewDelegate, ToolFunctionDelegate>
+@interface ToolMainView () <ToolSideMenuViewDelegate, ToolFunctionDelegate>
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
     // サイドメニュー領域の参照を保持
-    @property (nonatomic) SideMenuView          *sideMenuView;
+    @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
     @property (nonatomic) ToolFunctionManager   *functionManager;
 
 @end
 
-@implementation DesktopToolMainView
+@implementation ToolMainView
 
     - (instancetype)init {
-        self = [super initWithNibName:@"DesktopToolMainView" bundle:nil];
+        self = [super initWithNibName:@"ToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
             [self setFunctionManager:[[ToolFunctionManager alloc] init]];
@@ -37,8 +37,8 @@
     - (void)viewDidLoad {
         // サイドメニュー領域のインスタンスを生成
         [super viewDidLoad];
-        [self setSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
-        [[self stackView] addSubview:[[self sideMenuView] view]];
+        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
+        [[self stackView] addSubview:[[self toolSideMenuView] view]];
     }
 
 #pragma mark - Callback from SideMenuView
@@ -55,9 +55,9 @@
         [[self stackView] addSubview:subView];
     }
 
-    - (void)notifyFunctionTerminateProcess {
-        // サイドメニュー領域を使用可能にする
-        [[self sideMenuView] sideMenuItemDidTerminateProcess];
+    - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled {
+        // サイドメニュー領域を使用可能／不能にする
+        [[self toolSideMenuView] willEnableToSelect:isEnabled];
     }
 
 @end

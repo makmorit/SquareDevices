@@ -11,8 +11,6 @@
 
 @interface ToolVersionInfoView : ToolFunctionView
 
-    - (instancetype)initWithDelegate:(id)delegate;
-
 @end
 
 #endif /* ToolVersionInfoView_h */

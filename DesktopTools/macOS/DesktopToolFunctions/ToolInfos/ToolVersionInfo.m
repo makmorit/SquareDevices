@@ -4,8 +4,8 @@
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#import "AppCommonMessage.h"
 #import "ToolCommonFunc.h"
+#import "ToolFunctionMessage.h"
 #import "ToolVersionInfo.h"
 #import "ToolVersionInfoView.h"
 
@@ -14,16 +14,6 @@
 @end
 
 @implementation ToolVersionInfo
-
-    - (instancetype)initWithDelegate:(id)delegate {
-        self = [super initWithDelegate:delegate];
-        if (self != nil) {
-            // 画面のインスタンスを生成
-            [self getVersionInfo];
-            [self setSubView:[[ToolVersionInfoView alloc] initWithDelegate:self]];
-        }
-        return self;
-    }
 
     - (void)getVersionInfo {
         // タイトル設定
@@ -37,6 +27,20 @@
             [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         [self setVersion:versionString];
         [self setCopyright:MSG_APP_COPYRIGHT];
+    }
+
+#pragma mark - Process management
+
+    - (void)setupSubView {
+        // 画面のインスタンスを生成
+        [self setSubViewRef:[[ToolVersionInfoView alloc] initWithDelegate:self]];
+    }
+
+    - (void)willProcessWithTitle:(NSString *)title {
+        // 画面に表示する内容を取得
+        [self getVersionInfo];
+        // メニュー項目に対応する画面を、サブ画面に表示
+        [super willProcessWithTitle:title];
     }
 
 @end

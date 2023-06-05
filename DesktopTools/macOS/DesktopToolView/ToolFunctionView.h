@@ -13,14 +13,19 @@
 
 @interface ToolFunctionView : NSViewController
 
+    - (instancetype)initWithDelegate:(id)delegate;
+    - (void)setupAttributes;
+    - (void)subViewWillNotifyEventWithName:(NSString *)eventName;
+    - (void)subViewWillRemove;
+
     - (instancetype)initWithDelegate:(id)delegate withViewName:(NSNibName)nibName;
-    - (void)subViewWillTerminate;
 
 @end
 
 @protocol ToolFunctionViewDelegate <NSObject>
 
-    - (void)subViewDidTerminate;
+    - (void)subViewNotifyEventWithName:(NSString *)eventName;
+    - (void)subViewDidRemove;
 
 @end
 

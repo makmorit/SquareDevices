@@ -10,7 +10,7 @@
 #import "ToolFunction.h"
 
 @interface ToolVersionInfo : ToolFunction
-    // バージョン情報を保持
+    // 画面に表示させるためのバージョン情報を保持
     @property (nonatomic) NSString                     *toolName;
     @property (nonatomic) NSString                     *version;
     @property (nonatomic) NSString                     *copyright;
