@@ -4,8 +4,8 @@
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#import "AppCommonMessage.h"
 #import "ToolCommonFunc.h"
+#import "ToolFunctionMessage.h"
 #import "ToolVersionInfo.h"
 #import "ToolVersionInfoView.h"
 
