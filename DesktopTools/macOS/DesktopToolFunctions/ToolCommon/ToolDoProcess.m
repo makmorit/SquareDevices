@@ -6,6 +6,8 @@
 //
 #import "ToolDoProcess.h"
 #import "ToolDoProcessView.h"
+#import "ToolFunctionMessage.h"
+#import "ToolLogFile.h"
 
 @interface ToolDoProcess ()
     // 画面の参照を保持
@@ -41,23 +43,26 @@
         // 画面のボタンを使用不可に設定
         [self enableButtonClick:false];
         dispatch_async([self subQueue], ^{
+            // 処理開始メッセージを表示／ログ出力
+            [self processStartLogWithName:[self title]];
+            // 主処理を実行
             [self invokeProcessOnSubQueue];
         });
     }
 
     - (void)resumeProcess {
+        // 処理完了メッセージを表示／ログ出力
+        [self processTerminateLogWithName:[self title]];
         // 画面のボタンを使用可能に設定
         [self enableButtonClick:true];
     }
 
     - (void)invokeProcessOnSubQueue {
         // TODO: 仮の実装です。
-        [self appendStatusText:[[NSString alloc] initWithFormat:@"%@を開始します。", [self title]]];
         for (int i = 0; i < 5; i++) {
             [NSThread sleepForTimeInterval:1.0];
             [self appendStatusText:[[NSString alloc] initWithFormat:@"%d 秒が経過しました。", i+1]];
         }
-        [self appendStatusText:[[NSString alloc] initWithFormat:@"%@が終了しました。", [self title]]];
         [self resumeProcess];
     }
 
@@ -82,6 +87,18 @@
         if ([eventName isEqualToString:@"buttonDoProcessDidPress"]) {
             [self startProcess];
         }
+    }
+
+#pragma mark - Private functions
+
+    - (void)processStartLogWithName:(NSString *)processName {
+        [self appendStatusText:[[NSString alloc] initWithFormat:MSG_FORMAT_START_MESSAGE, processName]];
+        [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_START_MESSAGE, processName];
+    }
+
+    - (void)processTerminateLogWithName:(NSString *)processName {
+        [self appendStatusText:[[NSString alloc] initWithFormat:MSG_FORMAT_END_MESSAGE, processName]];
+        [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_END_MESSAGE, processName];
     }
 
 @end
