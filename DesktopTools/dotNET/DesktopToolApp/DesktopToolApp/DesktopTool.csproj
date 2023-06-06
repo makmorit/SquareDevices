@@ -12,7 +12,7 @@
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).001</FileVersion>
+    <FileVersion>$(Version).002</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
