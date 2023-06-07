@@ -3,8 +3,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DesktopTool"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="210">
+    <UserControl.DataContext>
+        <vm:SideMenuViewModel />
+    </UserControl.DataContext>
     <Grid>
+        <TreeView>
+            <TreeViewItem IsExpanded="True" ItemsSource="{Binding MenuItems}">
+                <TreeViewItem.Header>
+                    <StackPanel Orientation="Horizontal" Height="24">
+                        <TextBlock Text="{Binding MenuGroupName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    </StackPanel>
+                </TreeViewItem.Header>
+                <TreeViewItem.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Height="24">
+                            <Image Height="16" Source="{Binding Image}" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding ItemName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeViewItem.ItemTemplate>
+            </TreeViewItem>
+        </TreeView>
     </Grid>
 </UserControl>
