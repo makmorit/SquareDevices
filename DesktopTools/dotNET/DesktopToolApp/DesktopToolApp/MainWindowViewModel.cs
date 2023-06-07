@@ -25,5 +25,11 @@
         {
             get { return Model.MainWindowTitleString; }
         }
+
+        public ViewModelBase SideMenuView
+        {
+            get { return new SideMenuViewModel(); }
+            set { }
+        }
     }
 }
