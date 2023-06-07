@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-namespace DesktopTool
+﻿namespace DesktopTool
 {
     internal class MainWindowModel
     {
@@ -15,19 +12,13 @@ namespace DesktopTool
         }
     }
 
-    internal class MainWindowViewModel : INotifyPropertyChanged
+    internal class MainWindowViewModel : ViewModelBase
     {
         private readonly MainWindowModel Model;
 
         public MainWindowViewModel()
         {
             Model = new MainWindowModel();
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public string TitleString
