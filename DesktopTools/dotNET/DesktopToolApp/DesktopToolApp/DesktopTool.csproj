@@ -20,7 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\action_log.png" />
+    <Resource Include="Resources\check_box.png" />
+    <Resource Include="Resources\connect.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\disconnect.png" />
     <Resource Include="Resources\icon_128.png" />
+    <Resource Include="Resources\information.png" />
+    <Resource Include="Resources\processor.png" />
+    <Resource Include="Resources\statistics.png" />
+    <Resource Include="Resources\update.png" />
   </ItemGroup>
 
   <ItemGroup>
