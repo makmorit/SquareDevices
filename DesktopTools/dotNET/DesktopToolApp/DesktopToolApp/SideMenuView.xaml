@@ -10,22 +10,27 @@
         <vm:SideMenuViewModel />
     </UserControl.DataContext>
     <Grid>
-        <TreeView>
-            <TreeViewItem IsExpanded="True" ItemsSource="{Binding MenuItems}">
-                <TreeViewItem.Header>
+        <TreeView ItemsSource="{Binding MenuItemGroups}">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True" />
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding MenuItems}">
                     <StackPanel Orientation="Horizontal" Height="24">
                         <TextBlock Text="{Binding MenuGroupName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     </StackPanel>
-                </TreeViewItem.Header>
-                <TreeViewItem.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Height="24">
-                            <Image Height="16" Source="{Binding Image}" Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding ItemName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                        </StackPanel>
-                    </DataTemplate>
-                </TreeViewItem.ItemTemplate>
-            </TreeViewItem>
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="24">
+                                <Image Height="16" Source="{Binding Image}" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding ItemName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
         </TreeView>
     </Grid>
 </UserControl>
