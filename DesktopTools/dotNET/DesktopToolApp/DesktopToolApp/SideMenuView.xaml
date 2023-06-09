@@ -11,7 +11,7 @@
         <vm:SideMenuViewModel />
     </UserControl.DataContext>
     <Grid>
-        <TreeView ItemsSource="{Binding MenuItemGroups}" local:TreeViewBehaviors.OnSelectedItemChanged="">
+        <TreeView ItemsSource="{Binding MenuItemGroups}" local:TreeViewBehaviors.OnSelectedItemChanged="{Binding Path=SetSelectedItemCommand}">
             <TreeView.ItemContainerStyle>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="True" />

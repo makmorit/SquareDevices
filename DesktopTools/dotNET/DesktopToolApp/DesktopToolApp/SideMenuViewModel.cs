@@ -1,11 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using AppCommon;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace DesktopTool
 {
     internal class SideMenuViewModel : ViewModelBase
     {
+        private readonly RelayCommand<object> _setSelectedItemCommand;
+
         public SideMenuViewModel()
         {
+            _setSelectedItemCommand = new RelayCommand<object>(OnMenuItemSelected);
+        }
+
+        public ICommand SetSelectedItemCommand
+        {
+            get { return _setSelectedItemCommand; }
         }
 
         public List<MenuItemGroup> MenuItemGroups
@@ -37,7 +48,6 @@ namespace DesktopTool
             set { }
         }
 
-        
         private static List<MenuItemGroup> CreateMenuItemGroupList(string[][] menuItemsGroupArray)
         {
             List<MenuItemGroup> menuItemGroups = new List<MenuItemGroup>();
@@ -62,6 +72,16 @@ namespace DesktopTool
 
             MenuItemGroup group3 = new MenuItemGroup(groupName, menuItems3);
             return group3;
+        }
+
+        private void OnMenuItemSelected(object? o)
+        {
+            if (o is not MenuItemTemplate menuItem) {
+                return;
+            }
+
+            // TODO: 仮の実装です。
+            AppLogUtil.OutputLogInfo("SetSelectedItem " + menuItem.ItemName);
         }
     }
 
