@@ -14,30 +14,49 @@ namespace DesktopTool
                 List<MenuItemGroup> menuItemGroups = new List<MenuItemGroup>();
 
                 // TODO: 仮の実装です
-                List<MenuItemTemplate> menuItems1 = new List<MenuItemTemplate>();
-                menuItems1.Add(new MenuItemTemplate("ペアリング実行", "Resources\\connect.png"));
-                menuItems1.Add(new MenuItemTemplate("ペアリング解除要求", "Resources\\disconnect.png"));
-                menuItems1.Add(new MenuItemTemplate("ペアリング情報削除", "Resources\\delete.png"));
-                MenuItemGroup group1 = new MenuItemGroup("BLE設定", menuItems1);
-                menuItemGroups.Add(group1);
+                string[] menuItemsArray1 = new string[] {
+                    "BLE設定",
+                    "ペアリング実行",     "Resources\\connect.png",
+                    "ペアリング解除要求", "Resources\\disconnect.png",
+                    "ペアリング情報削除", "Resources\\delete.png"
+                };
+                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray1));
 
-                List<MenuItemTemplate> menuItems2 = new List<MenuItemTemplate>();
-                menuItems2.Add(new MenuItemTemplate("ファームウェア更新", "Resources\\update.png"));
-                menuItems2.Add(new MenuItemTemplate("PINGテスト実行", "Resources\\check_box.png"));
-                menuItems2.Add(new MenuItemTemplate("バージョン参照", "Resources\\processor.png"));
-                menuItems2.Add(new MenuItemTemplate("Flash ROM情報参照", "Resources\\statistics.png"));
-                MenuItemGroup group2 = new MenuItemGroup("デバイス保守", menuItems2);
-                menuItemGroups.Add(group2);
+                string[] menuItemsArray2 = new string[] {
+                    "デバイス保守",
+                    "ファームウェア更新", "Resources\\update.png",
+                    "PINGテスト実行",     "Resources\\check_box.png",
+                    "バージョン参照",     "Resources\\processor.png",
+                    "Flash ROM情報参照",  "Resources\\statistics.png"
+                };
+                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray2));
 
-                List<MenuItemTemplate> menuItems3 = new List<MenuItemTemplate>();
-                menuItems3.Add(new MenuItemTemplate("ツールのバージョン", "Resources\\information.png"));
-                menuItems3.Add(new MenuItemTemplate("ログファイル参照", "Resources\\action_log.png"));
-                MenuItemGroup group3 = new MenuItemGroup("ツール情報", menuItems3);
-                menuItemGroups.Add(group3);
+                string[] menuItemsArray3 = new string[] {
+                    "ツール情報",
+                    "ツールのバージョン", "Resources\\information.png",
+                    "ログファイル参照",   "Resources\\action_log.png",
+                };
+                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray3));
 
                 return menuItemGroups;
             }
             set { }
+        }
+
+        private MenuItemGroup CreateMenuItemGroup(string[] menuItemsArray)
+        {
+            int menuItemsArrayCnt = menuItemsArray.Length;
+            int menuItemsCount = (menuItemsArrayCnt - 1) / 2;
+
+            string groupName = menuItemsArray[0];
+            List<MenuItemTemplate> menuItems3 = new List<MenuItemTemplate>();
+            for (int i = 0; i < menuItemsCount; i++) {
+                int index = i * 2 + 1;
+                menuItems3.Add(new MenuItemTemplate(menuItemsArray[index], menuItemsArray[index + 1]));
+            }
+
+            MenuItemGroup group3 = new MenuItemGroup(groupName, menuItems3);
+            return group3;
         }
     }
 
