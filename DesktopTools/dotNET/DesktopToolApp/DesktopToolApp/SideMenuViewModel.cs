@@ -11,39 +11,44 @@ namespace DesktopTool
         public List<MenuItemGroup> MenuItemGroups
         {
             get {
-                List<MenuItemGroup> menuItemGroups = new List<MenuItemGroup>();
-
                 // TODO: 仮の実装です
-                string[] menuItemsArray1 = new string[] {
-                    "BLE設定",
-                    "ペアリング実行",     "Resources\\connect.png",
-                    "ペアリング解除要求", "Resources\\disconnect.png",
-                    "ペアリング情報削除", "Resources\\delete.png"
+                string[][] menuItemsArray = new string[][] {
+                    new string[] {
+                        "BLE設定",
+                        "ペアリング実行",     "Resources\\connect.png",
+                        "ペアリング解除要求", "Resources\\disconnect.png",
+                        "ペアリング情報削除", "Resources\\delete.png"
+                    },
+                    new string[] {
+                        "デバイス保守",
+                        "ファームウェア更新", "Resources\\update.png",
+                        "PINGテスト実行",     "Resources\\check_box.png",
+                        "バージョン参照",     "Resources\\processor.png",
+                        "Flash ROM情報参照",  "Resources\\statistics.png"
+                    },
+                    new string[] {
+                        "ツール情報",
+                        "ツールのバージョン", "Resources\\information.png",
+                        "ログファイル参照",   "Resources\\action_log.png"
+                    }
                 };
-                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray1));
-
-                string[] menuItemsArray2 = new string[] {
-                    "デバイス保守",
-                    "ファームウェア更新", "Resources\\update.png",
-                    "PINGテスト実行",     "Resources\\check_box.png",
-                    "バージョン参照",     "Resources\\processor.png",
-                    "Flash ROM情報参照",  "Resources\\statistics.png"
-                };
-                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray2));
-
-                string[] menuItemsArray3 = new string[] {
-                    "ツール情報",
-                    "ツールのバージョン", "Resources\\information.png",
-                    "ログファイル参照",   "Resources\\action_log.png",
-                };
-                menuItemGroups.Add(CreateMenuItemGroup(menuItemsArray3));
-
-                return menuItemGroups;
+                return CreateMenuItemGroupList(menuItemsArray);
             }
             set { }
         }
 
-        private MenuItemGroup CreateMenuItemGroup(string[] menuItemsArray)
+        
+        private static List<MenuItemGroup> CreateMenuItemGroupList(string[][] menuItemsGroupArray)
+        {
+            List<MenuItemGroup> menuItemGroups = new List<MenuItemGroup>();
+            for (int k = 0; k < menuItemsGroupArray.Length; k++) {
+                MenuItemGroup group = CreateMenuItemGroup(menuItemsGroupArray[k]);
+                menuItemGroups.Add(group);
+            }
+            return menuItemGroups;
+        }
+
+        private static MenuItemGroup CreateMenuItemGroup(string[] menuItemsArray)
         {
             int menuItemsArrayCnt = menuItemsArray.Length;
             int menuItemsCount = (menuItemsArrayCnt - 1) / 2;
