@@ -8,7 +8,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <Version>0.0.1</Version>
-    <Copyright>Copyright © 2023 Makoto Morita</Copyright>
+    <Copyright>Copyright © 2023 makmorit</Copyright>
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
