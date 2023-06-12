@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Windows.Input;
 
@@ -80,8 +79,8 @@ namespace DesktopTool
                 return;
             }
 
-            // TODO: 仮の実装です。
-            AppLogUtil.OutputLogInfo("SetSelectedItem " + menuItem.ItemName);
+            // 業務処理クラスに転送
+            FunctionManager.OnMenuItemSelected(menuItem.ItemName);
         }
     }
 
