@@ -1,9 +1,22 @@
-﻿using static DesktopTool.FunctionMessage;
+﻿using AppCommon;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
     internal class ToolVersionInfoViewModel : ViewModelBase
     {
+        private readonly RelayCommand<object> _ButtonOKClickedCommand;
+
+        public ToolVersionInfoViewModel() {
+            _ButtonOKClickedCommand = new RelayCommand<object>(OnButtonOKClicked);
+        }
+
+        public ICommand ButtonOKClicked {
+            get { return _ButtonOKClickedCommand; }
+        }
+
         public string ToolName { 
             get {
                 if (AppInfoUtil.GetAppBundleNameString().Equals("VendorTool")) {
@@ -24,6 +37,12 @@ namespace DesktopTool
             get { 
                 return AppInfoUtil.GetAppCopyrightString();
             } 
+        }
+
+        private void OnButtonOKClicked(object? o)
+        {
+            // TODO: 仮の実装です。
+            AppLogUtil.OutputLogDebug("OnButtonOKClicked");
         }
     }
 }
