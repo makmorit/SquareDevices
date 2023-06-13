@@ -16,6 +16,32 @@ namespace DesktopTool
             Instance.ProcessMenuItem(menuItemName);
         }
 
+        // メニュー項目管理
+        public static string[][] MenuItemsArray { 
+            get {
+                return new string[][] {
+                    new string[] {
+                        MSG_MENU_ITEM_NAME_BLE_SETTINGS,
+                        MSG_MENU_ITEM_NAME_BLE_PAIRING,     "Resources\\connect.png",
+                        MSG_MENU_ITEM_NAME_BLE_UNPAIRING,   "Resources\\disconnect.png",
+                        MSG_MENU_ITEM_NAME_BLE_ERASE_BOND,  "Resources\\delete.png"
+                    },
+                    new string[] {
+                        MSG_MENU_ITEM_NAME_DEVICE_INFOS,
+                        MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, "Resources\\update.png",
+                        MSG_MENU_ITEM_NAME_PING_TEST,       "Resources\\check_box.png",
+                        MSG_MENU_ITEM_NAME_GET_APP_VERSION, "Resources\\processor.png",
+                        MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  "Resources\\statistics.png"
+                    },
+                    new string[] {
+                        MSG_MENU_ITEM_NAME_TOOL_INFOS,
+                        MSG_MENU_ITEM_NAME_TOOL_VERSION,    "Resources\\information.png",
+                        MSG_MENU_ITEM_NAME_TOOL_LOG_FILES,  "Resources\\action_log.png"
+                    }
+                };
+            } 
+        }
+
         //
         // 内部処理
         //
