@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using static DesktopTool.FunctionMessage;
 
@@ -41,8 +40,8 @@ namespace DesktopTool
 
         private void OnButtonOKClicked()
         {
-            // TODO: 仮の実装です。
-            AppLogUtil.OutputLogDebug("OnButtonOKClicked");
+            // サブ画面を領域から消す
+            FunctionViewModel.ShowContentControl(false);
         }
     }
 }
