@@ -4,11 +4,9 @@
     {
         public string MainWindowTitleString { 
             get { return AppInfoUtil.GetAppTitleString(); }
-            set { }
         }
 
         public MainWindowModel() {
-            MainWindowTitleString = string.Empty;
         }
     }
 
@@ -29,7 +27,11 @@
         public ViewModelBase SideMenuView
         {
             get { return new SideMenuViewModel(); }
-            set { }
+        }
+
+        public ViewModelBase FunctionView
+        {
+            get { return new FunctionViewModel(); }
         }
     }
 }

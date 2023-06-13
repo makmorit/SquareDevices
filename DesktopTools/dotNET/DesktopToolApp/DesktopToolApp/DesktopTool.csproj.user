@@ -8,15 +8,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="FunctionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SideMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ToolVersionInfoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="FunctionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SideMenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ToolVersionInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
