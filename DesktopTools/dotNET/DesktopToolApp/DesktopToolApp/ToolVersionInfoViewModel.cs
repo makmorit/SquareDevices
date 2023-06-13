@@ -7,10 +7,10 @@ namespace DesktopTool
 {
     internal class ToolVersionInfoViewModel : ViewModelBase
     {
-        private readonly RelayCommand<object> _ButtonOKClickedCommand;
+        private readonly RelayCommand _ButtonOKClickedCommand;
 
         public ToolVersionInfoViewModel() {
-            _ButtonOKClickedCommand = new RelayCommand<object>(OnButtonOKClicked);
+            _ButtonOKClickedCommand = new RelayCommand(OnButtonOKClicked);
         }
 
         public ICommand ButtonOKClicked {
@@ -39,7 +39,7 @@ namespace DesktopTool
             } 
         }
 
-        private void OnButtonOKClicked(object? o)
+        private void OnButtonOKClicked()
         {
             // TODO: 仮の実装です。
             AppLogUtil.OutputLogDebug("OnButtonOKClicked");
