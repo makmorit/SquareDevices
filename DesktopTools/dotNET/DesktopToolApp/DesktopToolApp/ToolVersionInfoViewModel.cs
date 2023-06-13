@@ -8,34 +8,41 @@ namespace DesktopTool
     {
         private readonly RelayCommand _ButtonOKClickedCommand;
 
-        public ToolVersionInfoViewModel() {
+        public ToolVersionInfoViewModel()
+        {
             _ButtonOKClickedCommand = new RelayCommand(OnButtonOKClicked);
         }
 
-        public ICommand ButtonOKClicked {
+        public ICommand ButtonOKClicked
+        {
             get { return _ButtonOKClickedCommand; }
         }
 
-        public string ToolName { 
-            get {
-                if (AppInfoUtil.GetAppBundleNameString().Equals("VendorTool")) {
-                    return MSG_VENDOR_TOOL_TITLE_FULL;
-                } else {
-                    return MSG_TOOL_TITLE_FULL;
-                }
-            } 
+        public static string ToolName
+        {
+            get { return GetToolName(); }
         }
 
-        public string Version { 
-            get {
-                return AppInfoUtil.GetAppVersionString();
+        public static string Version
+        {
+            get { return AppInfoUtil.GetAppVersionString(); }
+        }
+
+        public static string Copyright
+        {
+            get { return AppInfoUtil.GetAppCopyrightString(); }
+        }
+
+        //
+        // 内部処理
+        //
+        private static string GetToolName()
+        {
+            if (AppInfoUtil.GetAppBundleNameString().Equals("VendorTool")) {
+                return MSG_VENDOR_TOOL_TITLE_FULL;
+            } else {
+                return MSG_TOOL_TITLE_FULL;
             }
-        }
-
-        public string Copyright { 
-            get { 
-                return AppInfoUtil.GetAppCopyrightString();
-            } 
         }
 
         private void OnButtonOKClicked()
