@@ -47,15 +47,24 @@ namespace DesktopTool
         //
         public void ProcessMenuItem(string menuItemName)
         {
-            // メニュー項目に応じて処理分岐
+            // 画面を表示しない機能の場合
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_LOG_FILES)) {
                 ViewLogFileFolder();
-            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
-                // サイドメニューを使用不能とする
-                SideMenuViewModel.EnableMenuItemSelection(false);
-                // サブ画面を領域内に表示
-                FunctionViewModel.ShowContentControl(true);
+                return;
             }
+
+            // メニュー項目に応じて処理分岐
+            if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
+                FunctionViewModel.SetActiveViewModel(new ToolVersionInfoViewModel());
+            } else {
+                return;
+            }
+
+            // サイドメニューを使用不能とする
+            SideMenuViewModel.EnableMenuItemSelection(false);
+            // サブ画面を領域内に表示
+            FunctionViewModel.ShowContentControl(true);
+
         }
 
         private static void ViewLogFileFolder()

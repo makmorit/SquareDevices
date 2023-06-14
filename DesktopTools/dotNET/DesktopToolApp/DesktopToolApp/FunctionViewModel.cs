@@ -10,7 +10,7 @@
 
         public FunctionViewModel()
         {
-            activeView = new ToolVersionInfoViewModel();
+            activeView = new ViewModelBase();
             contentControlVisibled = false;
             Instance = this;
         }
@@ -40,6 +40,12 @@
         //
         // 外部公開用
         //
+        public static void SetActiveViewModel(ViewModelBase activeViewModel)
+        {
+            // 表示画面に対応するビューモデルを設定
+            Instance.ActiveView = activeViewModel;
+        }
+
         public static void ShowContentControl(bool b)
         {
             // コンテンツビューを表示／非表示化
