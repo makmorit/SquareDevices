@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <vm:SideMenuViewModel />
     </UserControl.DataContext>
-    <Grid>
+    <Grid IsEnabled="{Binding IsEnabled}">
         <TreeView ItemsSource="{Binding MenuItemGroups}" local:TreeViewBehaviors.OnSelectedItemChanged="{Binding Path=SetSelectedItemCommand}">
             <TreeView.ItemContainerStyle>
                 <Style TargetType="TreeViewItem">

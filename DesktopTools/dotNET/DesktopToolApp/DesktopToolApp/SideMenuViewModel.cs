@@ -6,11 +6,26 @@ namespace DesktopTool
 {
     internal class SideMenuViewModel : ViewModelBase
     {
+        // このクラスのインスタンス
+        private static SideMenuViewModel Instance = null!;
+
         private readonly RelayCommand<object> _setSelectedItemCommand;
+        private bool isEnabled;
 
         public SideMenuViewModel()
         {
             _setSelectedItemCommand = new RelayCommand<object>(OnMenuItemSelected);
+            IsEnabled = true;
+            Instance = this;
+        }
+
+        public bool IsEnabled
+        {
+            get { return isEnabled; }
+            set { 
+                isEnabled = value; 
+                NotifyPropertyChanged(nameof(IsEnabled));
+            }
         }
 
         public ICommand SetSelectedItemCommand
@@ -58,6 +73,15 @@ namespace DesktopTool
 
             // 業務処理クラスに転送
             FunctionManager.OnMenuItemSelected(menuItem.ItemName);
+        }
+
+        //
+        // 外部公開用
+        //
+        public static void EnableMenuItemSelection(bool b)
+        {
+            // サイドバーを使用可能／不能とする
+            Instance.IsEnabled = b;
         }
     }
 
