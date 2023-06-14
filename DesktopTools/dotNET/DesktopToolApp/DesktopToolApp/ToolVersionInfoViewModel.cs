@@ -49,6 +49,8 @@ namespace DesktopTool
         {
             // サブ画面を領域から消す
             FunctionViewModel.ShowContentControl(false);
+            // サイドメニューを使用可能とする
+            SideMenuViewModel.EnableMenuItemSelection(true);
         }
     }
 }

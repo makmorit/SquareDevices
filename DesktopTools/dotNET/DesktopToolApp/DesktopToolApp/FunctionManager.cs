@@ -51,6 +51,9 @@ namespace DesktopTool
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_LOG_FILES)) {
                 ViewLogFileFolder();
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
+                // サイドメニューを使用不能とする
+                SideMenuViewModel.EnableMenuItemSelection(false);
+                // サブ画面を領域内に表示
                 FunctionViewModel.ShowContentControl(true);
             }
         }
