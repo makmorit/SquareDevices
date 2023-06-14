@@ -1,6 +1,7 @@
 ﻿using AppCommon;
 using System;
 using System.Diagnostics;
+using System.Windows;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -56,7 +57,12 @@ namespace DesktopTool
             // メニュー項目に応じて処理分岐
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
                 FunctionViewModel.SetActiveViewModel(new ToolVersionInfoViewModel());
+
             } else {
+                // サポート外のメッセージを表示
+                string message = string.Format(MSG_FORMAT_ERROR_MENU_NOT_SUPPORTED, menuItemName);
+                Window mainWindow = Application.Current.MainWindow;
+                DialogUtil.ShowWarningMessage(mainWindow, mainWindow.Title, message);
                 return;
             }
 
