@@ -11,7 +11,7 @@
         <vm:SideMenuViewModel />
     </UserControl.DataContext>
     <Grid IsEnabled="{Binding IsEnabled}">
-        <TreeView ItemsSource="{Binding MenuItemGroups}" local:TreeViewBehaviors.OnSelectedItemChanged="{Binding Path=SetSelectedItemCommand}">
+        <TreeView ItemsSource="{Binding MenuItemGroups}" SelectedItemChanged="OnSelectedItemChanged">
             <TreeView.ItemContainerStyle>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="True" />
@@ -24,7 +24,7 @@
                     </StackPanel>
                     <HierarchicalDataTemplate.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Height="24">
+                            <StackPanel Orientation="Horizontal" Height="24" MouseLeftButtonUp="OnMouseLeftButtonUp">
                                 <Image Height="16" Source="{Binding Image}" Margin="0,0,5,0"/>
                                 <TextBlock Text="{Binding ItemName}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
                             </StackPanel>
