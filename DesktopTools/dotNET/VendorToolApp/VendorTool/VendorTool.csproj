@@ -8,11 +8,11 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <Version>0.0.1</Version>
-    <Copyright>Copyright © 2023 Makoto Morita</Copyright>
+    <Copyright>Copyright © 2023 makmorit</Copyright>
     <Company>makmorit</Company>
     <Product>VendorTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).001</FileVersion>
+    <FileVersion>$(Version).002</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

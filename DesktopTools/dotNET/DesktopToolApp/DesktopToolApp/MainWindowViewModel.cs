@@ -1,21 +1,16 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-namespace DesktopTool
+﻿namespace DesktopTool
 {
     internal class MainWindowModel
     {
         public string MainWindowTitleString { 
             get { return AppInfoUtil.GetAppTitleString(); }
-            set { }
         }
 
         public MainWindowModel() {
-            MainWindowTitleString = string.Empty;
         }
     }
 
-    internal class MainWindowViewModel : INotifyPropertyChanged
+    internal class MainWindowViewModel : ViewModelBase
     {
         private readonly MainWindowModel Model;
 
@@ -24,15 +19,19 @@ namespace DesktopTool
             Model = new MainWindowModel();
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public string TitleString
         {
             get { return Model.MainWindowTitleString; }
+        }
+
+        public ViewModelBase SideMenuView
+        {
+            get { return new SideMenuViewModel(); }
+        }
+
+        public ViewModelBase FunctionView
+        {
+            get { return new FunctionViewModel(); }
         }
     }
 }

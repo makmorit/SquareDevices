@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:DesktopTool"
         xmlns:vm="clr-namespace:DesktopTool"
         mc:Ignorable="d"
         Title="{Binding TitleString}" Height="500" Width="700" ResizeMode="CanMinimize">
@@ -10,5 +11,25 @@
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type vm:SideMenuViewModel}">
+                    <view:SideMenuView />
+                </DataTemplate>
+            </Grid.Resources>
+            <ContentControl Content="{Binding SideMenuView}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type vm:FunctionViewModel}">
+                    <view:FunctionView />
+                </DataTemplate>
+            </Grid.Resources>
+            <ContentControl Content="{Binding FunctionView}"/>
+        </Grid>
     </Grid>
 </Window>

@@ -8,11 +8,11 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <Version>0.0.1</Version>
-    <Copyright>Copyright © 2023 Makoto Morita</Copyright>
+    <Copyright>Copyright © 2023 makmorit</Copyright>
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).001</FileVersion>
+    <FileVersion>$(Version).002</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,10 +20,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Views\Images\action_log.png" />
+    <Resource Include="Views\Images\check_box.png" />
+    <Resource Include="Views\Images\connect.png" />
+    <Resource Include="Views\Images\delete.png" />
+    <Resource Include="Views\Images\disconnect.png" />
     <Resource Include="Resources\icon_128.png" />
+    <Resource Include="Views\Images\information.png" />
+    <Resource Include="Views\Images\processor.png" />
+    <Resource Include="Views\Images\statistics.png" />
+    <Resource Include="Views\Images\update.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="QRCodeDecoder" Version="0.1.0" />
