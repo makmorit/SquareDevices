@@ -88,5 +88,16 @@ namespace DesktopTool
                 AppLogUtil.OutputLogError(string.Format(MSG_FORMAT_ERROR_CANNOT_VIEW_LOG_DIR, e.Message));
             }
         }
+
+        //
+        // 外部公開用
+        //
+        public static void HideFunctionView()
+        {
+            // サブ画面を領域から消す
+            FunctionViewModel.ShowContentControl(false);
+            // サイドメニューを使用可能とする
+            SideMenuViewModel.EnableMenuItemSelection(true);
+        }
     }
 }
