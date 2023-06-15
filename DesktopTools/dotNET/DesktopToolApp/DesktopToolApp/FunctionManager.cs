@@ -56,7 +56,7 @@ namespace DesktopTool
 
             // メニュー項目に応じて処理分岐
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
-                FunctionViewModel.SetActiveViewModel(new ToolVersionInfoViewModel());
+                FunctionViewModel.SetActiveViewModel(ToolVersionInfoViewModel.Instance);
 
             } else {
                 // サポート外のメッセージを表示
