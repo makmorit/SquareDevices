@@ -8,6 +8,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Functions\ToolCommon\ToolDoProcessView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\FunctionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Functions\ToolCommon\ToolDoProcessView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\FunctionView.xaml">
       <SubType>Designer</SubType>
     </Page>

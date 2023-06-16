@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="DesktopTool.ToolDoProcessView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DesktopTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <UserControl.DataContext>
+        <vm:ToolDoProcessViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <Label x:Name="labelTitle" Content="{Binding Title}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="400" FontSize="15" FontWeight="Bold" Foreground="#FF525252"/>
+        <Button x:Name="buttonDoProcess" Content="実行" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,50,0,0" Width="110" Height="24" FontSize="12"/>
+        <Button x:Name="buttonClose" Content="閉じる" Command="{Binding ButtonCloseClicked}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="269,50,0,0" Width="110" Height="24" FontSize="12"/>
+        <TextBox x:Name="textBoxMessage" Margin="0,90,0,15" TextWrapping="Wrap" FontSize="14" VerticalScrollBarVisibility="Visible"/>
+    </Grid>
+</UserControl>
