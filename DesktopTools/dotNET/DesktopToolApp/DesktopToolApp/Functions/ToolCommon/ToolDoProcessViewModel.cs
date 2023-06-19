@@ -10,6 +10,7 @@ namespace DesktopTool
         private readonly RelayCommand _ButtonDoProcessClickedCommand;
         private readonly RelayCommand _ButtonCloseClickedCommand;
         private static string _Title = string.Empty;
+        private string _StatusText = string.Empty;
 
         public ToolDoProcessViewModel()
         {
@@ -34,6 +35,15 @@ namespace DesktopTool
             set { _Title = value; }
         }
 
+        public string StatusText
+        {
+            get { return _StatusText; }
+            set {
+                _StatusText = value; 
+                NotifyPropertyChanged(nameof(StatusText));
+            }
+        }
+
         public static ToolDoProcessViewModel Instance
         {
             get { return _Instance; }
@@ -49,6 +59,7 @@ namespace DesktopTool
 
         private void OnButtonCloseClicked()
         {
+            StatusText = string.Empty;
             ToolDoProcess.CloseDoProcessView();
         }
     }
