@@ -56,7 +56,7 @@ namespace DesktopTool
 
             // メニュー項目に応じて処理分岐
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_PAIRING)) {
-                new BLEPairing().ShowDoProcessView(menuItemName);
+                new BLEPairing().ShowFunctionView(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
                 new ToolVersionInfo().ShowFunctionView(menuItemName);
