@@ -44,12 +44,12 @@ namespace DesktopTool
         //
         private void OnButtonDoProcessClicked()
         {
+            ToolDoProcess.StartProcess(Title);
         }
 
         private void OnButtonCloseClicked()
         {
-            // サブ画面を領域から消す
-            FunctionManager.HideFunctionView();
+            ToolDoProcess.CloseDoProcessView();
         }
     }
 }
