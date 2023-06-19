@@ -11,8 +11,12 @@ namespace DesktopTool
         // このクラスのインスタンス
         public static ToolDoProcess _Instance = null!;
 
+        // メニュー項目名称を保持
+        private string MenuItemName;
+
         public ToolDoProcess() { 
             _Instance = this;
+            MenuItemName = string.Empty;
         }
 
         public void ShowFunctionView(string menuItemName)
@@ -20,13 +24,19 @@ namespace DesktopTool
             // メイン画面右側の領域にビューを表示
             FunctionViewModel.SetActiveViewModel(ToolDoProcessViewModel.Instance);
 
-            // タイトルを設定
-            ToolDoProcessViewModel.Title = menuItemName;
+            // メニュー項目名称を保持
+            MenuItemName = menuItemName;
         }
 
         //
         // コールバック関数
         //
+        public static void InitFunctionView(ToolDoProcessViewModel model)
+        {
+            // 画面に表示するデータを取得
+            model.Title = _Instance.MenuItemName;
+        }
+
         public static void StartProcess(string menuItemName)
         {
             // 画面のボタンを使用不可に設定
@@ -58,7 +68,7 @@ namespace DesktopTool
         protected void ResumeProcess()
         {
             // 処理完了メッセージを表示／ログ出力
-            ProcessTerminateLogWithName(ToolDoProcessViewModel.Title);
+            ProcessTerminateLogWithName(MenuItemName);
 
             // 画面のボタンを使用可能に設定
             Application.Current.Dispatcher.Invoke(new Action(() => {

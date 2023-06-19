@@ -9,7 +9,7 @@ namespace DesktopTool
         private static ToolDoProcessViewModel _Instance = new ToolDoProcessViewModel();
         private readonly RelayCommand _ButtonDoProcessClickedCommand;
         private readonly RelayCommand _ButtonCloseClickedCommand;
-        private static string _Title = string.Empty;
+        private string title;
         private bool buttonDoProcessIsEnabled;
         private bool buttonCloseIsEnabled;
         private string _StatusText = string.Empty;
@@ -18,9 +18,12 @@ namespace DesktopTool
         {
             _ButtonDoProcessClickedCommand = new RelayCommand(OnButtonDoProcessClicked);
             _ButtonCloseClickedCommand = new RelayCommand(OnButtonCloseClicked);
+            title = string.Empty;
             buttonDoProcessIsEnabled = true;
             buttonCloseIsEnabled = true;
             _Instance = this;
+
+            ToolDoProcess.InitFunctionView(this);
         }
 
         public ICommand ButtonDoProcessClicked
@@ -33,10 +36,13 @@ namespace DesktopTool
             get { return _ButtonCloseClickedCommand; }
         }
 
-        public static string Title
+        public string Title
         {
-            get { return _Title; }
-            set { _Title = value; }
+            get { return title; }
+            set { 
+                title = value;
+                NotifyPropertyChanged(nameof(Title));
+            }
         }
 
         public bool ButtonDoProcessIsEnabled
