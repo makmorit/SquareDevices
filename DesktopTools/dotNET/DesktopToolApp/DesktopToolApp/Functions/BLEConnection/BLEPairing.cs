@@ -1,14 +1,20 @@
-﻿namespace DesktopTool
-{
-    internal class BLEPairing
-    {
-        public static void ShowDoProcessView(string menuItemName)
-        {
-            // メイン画面右側の領域にビューを表示
-            FunctionViewModel.SetActiveViewModel(ToolDoProcessViewModel.Instance);
+﻿using System.Threading;
 
-            // タイトルを設定
-            ToolDoProcessViewModel.Title = menuItemName;
+namespace DesktopTool
+{
+    internal class BLEPairing : ToolDoProcess
+    {
+        public BLEPairing()
+        {
+        }
+
+        protected override void InvokeProcessOnSubThread(string menuItemName)
+        {
+            // TODO: 仮の実装です。
+            for (int i = 0; i < 7; i++) {
+                Thread.Sleep(1000);
+                AppendStatusText(string.Format("{0} 秒が経過しました。", i + 1));
+            }
         }
     }
 }
