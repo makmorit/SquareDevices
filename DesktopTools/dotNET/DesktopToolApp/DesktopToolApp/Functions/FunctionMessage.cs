@@ -2,6 +2,9 @@
 {
     class FunctionMessage
     {
+        public const string MSG_FORMAT_START_MESSAGE = "{0}を開始します。";
+        public const string MSG_FORMAT_END_MESSAGE = "{0}が終了しました。";
+
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";
         public const string MSG_MENU_ITEM_NAME_BLE_PAIRING = "ペアリング実行";
         public const string MSG_MENU_ITEM_NAME_BLE_UNPAIRING = "ペアリング解除要求";
