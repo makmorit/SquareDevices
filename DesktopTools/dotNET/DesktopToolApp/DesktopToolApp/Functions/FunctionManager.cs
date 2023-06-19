@@ -59,7 +59,7 @@ namespace DesktopTool
                 new BLEPairing().ShowDoProcessView(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
-                FunctionViewModel.SetActiveViewModel(ToolVersionInfoViewModel.Instance);
+                new ToolVersionInfo().ShowFunctionView(menuItemName);
 
             } else {
                 // サポート外のメッセージを表示

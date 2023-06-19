@@ -17,7 +17,7 @@
     <Compile Update="Views\SideMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Functions\ToolVersionInfoView.xaml.cs">
+    <Compile Update="Functions\ToolInfos\ToolVersionInfoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -34,7 +34,7 @@
     <Page Update="Views\SideMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Functions\ToolVersionInfoView.xaml">
+    <Page Update="Functions\ToolInfos\ToolVersionInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
