@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
-using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -9,11 +8,19 @@ namespace DesktopTool
         // このクラスのインスタンス
         private static ToolVersionInfoViewModel _Instance = new ToolVersionInfoViewModel();
         private readonly RelayCommand _ButtonOKClickedCommand;
+        private string toolName;
+        private string version;
+        private string copyright; 
 
         public ToolVersionInfoViewModel()
         {
             _ButtonOKClickedCommand = new RelayCommand(OnButtonOKClicked);
             _Instance = this;
+            toolName = string.Empty;
+            version = string.Empty;
+            copyright = string.Empty;
+
+            ToolVersionInfo.InitFunctionView(this);
         }
 
         public ICommand ButtonOKClicked
@@ -21,19 +28,31 @@ namespace DesktopTool
             get { return _ButtonOKClickedCommand; }
         }
 
-        public static string ToolName
+        public string ToolName
         {
-            get { return GetToolName(); }
+            get { return toolName; }
+            set {
+                toolName = value; 
+                NotifyPropertyChanged(nameof(ToolName));
+            }
         }
 
-        public static string Version
+        public string Version
         {
-            get { return AppInfoUtil.GetAppVersionString(); }
+            get { return version; }
+            set {
+                version = value;
+                NotifyPropertyChanged(nameof(Version));
+            }
         }
 
-        public static string Copyright
+        public string Copyright
         {
-            get { return AppInfoUtil.GetAppCopyrightString(); }
+            get { return copyright; }
+            set {
+                copyright = value;
+                NotifyPropertyChanged(nameof(Copyright));
+            }
         }
 
         public static ToolVersionInfoViewModel Instance
@@ -44,19 +63,9 @@ namespace DesktopTool
         //
         // 内部処理
         //
-        private static string GetToolName()
-        {
-            if (AppInfoUtil.GetAppBundleNameString().Equals("VendorTool")) {
-                return MSG_VENDOR_TOOL_TITLE_FULL;
-            } else {
-                return MSG_TOOL_TITLE_FULL;
-            }
-        }
-
         private void OnButtonOKClicked()
         {
-            // サブ画面を領域から消す
-            FunctionManager.HideFunctionView();
+            ToolVersionInfo.CloseFunctionView();
         }
     }
 }
