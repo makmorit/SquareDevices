@@ -82,7 +82,7 @@ namespace DesktopTool
         private void OnButtonCloseClicked()
         {
             StatusText = string.Empty;
-            ToolDoProcess.CloseDoProcessView();
+            ToolDoProcess.CloseFunctionView();
         }
 
         //

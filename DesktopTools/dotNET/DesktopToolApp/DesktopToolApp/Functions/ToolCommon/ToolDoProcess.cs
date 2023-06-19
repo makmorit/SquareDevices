@@ -41,7 +41,7 @@ namespace DesktopTool
             });
         }
 
-        public static void CloseDoProcessView()
+        public static void CloseFunctionView()
         {
             // メイン画面右側の領域からビューを消す
             FunctionManager.HideFunctionView();
