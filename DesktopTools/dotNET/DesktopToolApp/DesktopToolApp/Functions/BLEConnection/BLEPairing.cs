@@ -15,6 +15,7 @@ namespace DesktopTool
                 Thread.Sleep(1000);
                 AppendStatusText(string.Format("{0} 秒が経過しました。", i + 1));
             }
+            ResumeProcess();
         }
     }
 }

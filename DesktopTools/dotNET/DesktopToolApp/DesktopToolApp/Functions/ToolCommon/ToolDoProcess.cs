@@ -27,7 +27,11 @@ namespace DesktopTool
         //
         public static void StartProcess(string menuItemName)
         {
+            // 画面のボタンを使用不可に設定
+            ToolDoProcessViewModel.EnableButtonClick(false);
+
             Task task = Task.Run(() => {
+                // 主処理を実行
                 _Instance.InvokeProcessOnSubThread(menuItemName);
             });
         }
@@ -43,6 +47,15 @@ namespace DesktopTool
         //
         protected virtual void InvokeProcessOnSubThread(string menuItemName) 
         {
+            ResumeProcess();
+        }
+
+        protected void ResumeProcess()
+        {
+            // 画面のボタンを使用可能に設定
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ToolDoProcessViewModel.EnableButtonClick(true);
+            }));
         }
 
         protected static void AppendStatusText(string text)
