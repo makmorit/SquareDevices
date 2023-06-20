@@ -5,7 +5,6 @@ namespace DesktopTool
 {
     internal class ToolDoProcessViewModel : ViewModelBase
     {
-        // このクラスのインスタンス
         private readonly RelayCommand ButtonDoProcessClickedRelayCommand;
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
         private string title;
