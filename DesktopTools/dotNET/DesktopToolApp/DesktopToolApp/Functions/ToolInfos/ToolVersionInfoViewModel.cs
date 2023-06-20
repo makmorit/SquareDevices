@@ -19,8 +19,10 @@ namespace DesktopTool
             toolName = string.Empty;
             version = string.Empty;
             copyright = string.Empty;
-
-            ToolVersionInfo.InitFunctionView(this);
+            try {
+                ToolVersionInfo.InitFunctionView(this); 
+            } catch { 
+            }
         }
 
         public ICommand ButtonOKClicked

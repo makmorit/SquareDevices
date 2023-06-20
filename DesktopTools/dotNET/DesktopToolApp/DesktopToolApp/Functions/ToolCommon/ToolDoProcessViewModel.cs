@@ -22,8 +22,10 @@ namespace DesktopTool
             buttonDoProcessIsEnabled = true;
             buttonCloseIsEnabled = true;
             _Instance = this;
-
-            ToolDoProcess.InitFunctionView(this);
+            try {
+                ToolDoProcess.InitFunctionView(this);
+            } catch {
+            }
         }
 
         public ICommand ButtonDoProcessClicked
