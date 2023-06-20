@@ -5,8 +5,6 @@ namespace DesktopTool
 {
     internal class ToolVersionInfoViewModel : ViewModelBase
     {
-        // このクラスのインスタンス
-        private static ToolVersionInfoViewModel _Instance = new ToolVersionInfoViewModel();
         private readonly RelayCommand _ButtonOKClickedCommand;
         private string toolName;
         private string version;
@@ -15,7 +13,6 @@ namespace DesktopTool
         public ToolVersionInfoViewModel()
         {
             _ButtonOKClickedCommand = new RelayCommand(OnButtonOKClicked);
-            _Instance = this;
             toolName = string.Empty;
             version = string.Empty;
             copyright = string.Empty;
@@ -43,11 +40,6 @@ namespace DesktopTool
         {
             get { return copyright; }
             set { copyright = value; NotifyPropertyChanged(nameof(Copyright)); }
-        }
-
-        public static ToolVersionInfoViewModel Instance
-        {
-            get { return _Instance; }
         }
 
         //
