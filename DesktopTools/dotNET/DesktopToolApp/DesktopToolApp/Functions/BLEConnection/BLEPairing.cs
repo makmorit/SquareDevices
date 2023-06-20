@@ -8,7 +8,7 @@ namespace DesktopTool
         {
         }
 
-        protected override void InvokeProcessOnSubThread(string menuItemName)
+        protected override void InvokeProcessOnSubThread()
         {
             // TODO: 仮の実装です。
             for (int i = 0; i < 7; i++) {

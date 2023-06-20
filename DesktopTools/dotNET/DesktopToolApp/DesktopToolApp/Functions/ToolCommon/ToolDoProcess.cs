@@ -10,6 +10,7 @@ namespace DesktopTool
     {
         // このクラスのインスタンス
         public static ToolDoProcess _Instance = null!;
+        public ToolDoProcessViewModel ViewModel = new ToolDoProcessViewModel();
 
         // メニュー項目名称を保持
         private string MenuItemName;
@@ -22,7 +23,7 @@ namespace DesktopTool
         public void ShowFunctionView(string menuItemName)
         {
             // メイン画面右側の領域にビューを表示
-            FunctionViewModel.SetActiveViewModel(ToolDoProcessViewModel.Instance);
+            FunctionViewModel.SetActiveViewModel(ViewModel);
 
             // メニュー項目名称を保持
             MenuItemName = menuItemName;
@@ -33,26 +34,19 @@ namespace DesktopTool
         //
         public static void InitFunctionView(ToolDoProcessViewModel model)
         {
-            // 画面に表示するデータを取得
-            model.Title = _Instance.MenuItemName;
+            _Instance.InitFunctionViewInner(model);
         }
 
-        public static void StartProcess(string menuItemName)
+        public static void StartProcess(ToolDoProcessViewModel model)
         {
-            // 画面のボタンを使用不可に設定
-            ToolDoProcessViewModel.EnableButtonClick(false);
-
-            Task task = Task.Run(() => {
-                // 処理開始メッセージを表示／ログ出力
-                _Instance.ProcessStartLogWithName(menuItemName);
-
-                // 主処理を実行
-                _Instance.InvokeProcessOnSubThread(menuItemName);
-            });
+            _Instance.StartProcessInner(model);
         }
 
-        public static void CloseFunctionView()
+        public static void CloseFunctionView(ToolDoProcessViewModel model)
         {
+            // 画面項目をクリア
+            model.StatusText = string.Empty;
+
             // メイン画面右側の領域からビューを消す
             FunctionManager.HideFunctionView();
         }
@@ -60,7 +54,30 @@ namespace DesktopTool
         //
         // 内部処理
         //
-        protected virtual void InvokeProcessOnSubThread(string menuItemName) 
+        private void InitFunctionViewInner(ToolDoProcessViewModel model)
+        {
+            // 画面に表示するデータを取得
+            model.Title = MenuItemName;
+        }
+
+        private void StartProcessInner(ToolDoProcessViewModel model)
+        {
+            // 表示中の画面に対応するViewModel参照を保持
+            ViewModel = model;
+
+            // 画面のボタンを使用不可に設定
+            EnableButtonClick(false);
+
+            Task task = Task.Run(() => {
+                // 処理開始メッセージを表示／ログ出力
+                ProcessStartLogWithName(MenuItemName);
+
+                // 主処理を実行
+                InvokeProcessOnSubThread();
+            });
+        }
+
+        protected virtual void InvokeProcessOnSubThread() 
         {
             ResumeProcess();
         }
@@ -72,7 +89,7 @@ namespace DesktopTool
 
             // 画面のボタンを使用可能に設定
             Application.Current.Dispatcher.Invoke(new Action(() => {
-                ToolDoProcessViewModel.EnableButtonClick(true);
+                EnableButtonClick(true);
             }));
         }
 
@@ -95,6 +112,12 @@ namespace DesktopTool
             string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
             AppendStatusText(message);
             AppLogUtil.OutputLogInfo(message);
+        }
+
+        private void EnableButtonClick(bool b)
+        {
+            ViewModel.ButtonDoProcessIsEnabled = b;
+            ViewModel.ButtonCloseIsEnabled = b;
         }
     }
 }
