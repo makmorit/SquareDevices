@@ -21,6 +21,9 @@
             <DataTemplate DataType="{x:Type vm:ToolDoProcessViewModel}">
                 <view:ToolDoProcessView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ToolShowInfoViewModel}">
+                <view:ToolShowInfoView />
+            </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding ActiveView}" Visibility="{Binding ContentControlVisibled, Converter={StaticResource VisibilityConverter}}"/>
     </Grid>

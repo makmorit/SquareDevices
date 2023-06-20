@@ -18,6 +18,7 @@ namespace DesktopTool
             caption = string.Empty;
             statusText = string.Empty;
             buttonCloseIsEnabled = true;
+            try { ToolShowInfo.InitFunctionView(this); } catch { }
         }
 
         public ICommand ButtonCloseClicked
@@ -54,6 +55,7 @@ namespace DesktopTool
         //
         private void OnButtonCloseClicked()
         {
+            ToolShowInfo.CloseFunctionView(this);
         }
     }
 }
