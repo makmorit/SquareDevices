@@ -1,13 +1,13 @@
 ﻿using System.Windows.Controls;
 
-namespace DesktopTool.Functions.ToolCommon
+namespace DesktopTool
 {
     /// <summary>
     /// ToolShowInfo.xaml の相互作用ロジック
     /// </summary>
-    public partial class ToolShowInfo : UserControl
+    public partial class ToolShowInfoView : UserControl
     {
-        public ToolShowInfo()
+        public ToolShowInfoView()
         {
             InitializeComponent();
         }
