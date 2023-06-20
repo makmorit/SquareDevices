@@ -19,10 +19,7 @@ namespace DesktopTool
             toolName = string.Empty;
             version = string.Empty;
             copyright = string.Empty;
-            try {
-                ToolVersionInfo.InitFunctionView(this); 
-            } catch { 
-            }
+            try { ToolVersionInfo.InitFunctionView(this); } catch { }
         }
 
         public ICommand ButtonOKClicked
@@ -33,28 +30,19 @@ namespace DesktopTool
         public string ToolName
         {
             get { return toolName; }
-            set {
-                toolName = value; 
-                NotifyPropertyChanged(nameof(ToolName));
-            }
+            set { toolName = value; NotifyPropertyChanged(nameof(ToolName)); }
         }
 
         public string Version
         {
             get { return version; }
-            set {
-                version = value;
-                NotifyPropertyChanged(nameof(Version));
-            }
+            set { version = value; NotifyPropertyChanged(nameof(Version)); }
         }
 
         public string Copyright
         {
             get { return copyright; }
-            set {
-                copyright = value;
-                NotifyPropertyChanged(nameof(Copyright));
-            }
+            set { copyright = value; NotifyPropertyChanged(nameof(Copyright)); }
         }
 
         public static ToolVersionInfoViewModel Instance

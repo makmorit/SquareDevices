@@ -12,20 +12,18 @@ namespace DesktopTool
         private string title;
         private bool buttonDoProcessIsEnabled;
         private bool buttonCloseIsEnabled;
-        private string _StatusText = string.Empty;
+        private string statusText;
 
         public ToolDoProcessViewModel()
         {
             _ButtonDoProcessClickedCommand = new RelayCommand(OnButtonDoProcessClicked);
             _ButtonCloseClickedCommand = new RelayCommand(OnButtonCloseClicked);
             title = string.Empty;
+            statusText = string.Empty;
             buttonDoProcessIsEnabled = true;
             buttonCloseIsEnabled = true;
             _Instance = this;
-            try {
-                ToolDoProcess.InitFunctionView(this);
-            } catch {
-            }
+            try { ToolDoProcess.InitFunctionView(this); } catch { }
         }
 
         public ICommand ButtonDoProcessClicked
@@ -41,37 +39,25 @@ namespace DesktopTool
         public string Title
         {
             get { return title; }
-            set { 
-                title = value;
-                NotifyPropertyChanged(nameof(Title));
-            }
+            set { title = value; NotifyPropertyChanged(nameof(Title)); }
         }
 
         public bool ButtonDoProcessIsEnabled
         {
             get { return buttonDoProcessIsEnabled; }
-            set {
-                buttonDoProcessIsEnabled = value;
-                NotifyPropertyChanged(nameof(ButtonDoProcessIsEnabled));
-            }
+            set { buttonDoProcessIsEnabled = value; NotifyPropertyChanged(nameof(ButtonDoProcessIsEnabled)); }
         }
 
         public bool ButtonCloseIsEnabled
         {
             get { return buttonCloseIsEnabled; }
-            set {
-                buttonCloseIsEnabled = value;
-                NotifyPropertyChanged(nameof(ButtonCloseIsEnabled));
-            }
+            set { buttonCloseIsEnabled = value; NotifyPropertyChanged(nameof(ButtonCloseIsEnabled)); }
         }
 
         public string StatusText
         {
-            get { return _StatusText; }
-            set {
-                _StatusText = value; 
-                NotifyPropertyChanged(nameof(StatusText));
-            }
+            get { return statusText; }
+            set { statusText = value; NotifyPropertyChanged(nameof(StatusText)); }
         }
 
         public static ToolDoProcessViewModel Instance

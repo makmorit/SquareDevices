@@ -22,10 +22,7 @@ namespace DesktopTool
         public bool IsEnabled
         {
             get { return isEnabled; }
-            set { 
-                isEnabled = value; 
-                NotifyPropertyChanged(nameof(IsEnabled));
-            }
+            set { isEnabled = value; NotifyPropertyChanged(nameof(IsEnabled)); }
         }
 
         public ICommand SetSelectedItemCommand
