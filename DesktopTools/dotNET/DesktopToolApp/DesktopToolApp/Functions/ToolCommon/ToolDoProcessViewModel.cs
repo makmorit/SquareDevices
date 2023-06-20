@@ -7,8 +7,8 @@ namespace DesktopTool
     {
         // このクラスのインスタンス
         private static ToolDoProcessViewModel _Instance = new ToolDoProcessViewModel();
-        private readonly RelayCommand _ButtonDoProcessClickedCommand;
-        private readonly RelayCommand _ButtonCloseClickedCommand;
+        private readonly RelayCommand ButtonDoProcessClickedRelayCommand;
+        private readonly RelayCommand ButtonCloseClickedRelayCommand;
         private string title;
         private bool buttonDoProcessIsEnabled;
         private bool buttonCloseIsEnabled;
@@ -16,8 +16,8 @@ namespace DesktopTool
 
         public ToolDoProcessViewModel()
         {
-            _ButtonDoProcessClickedCommand = new RelayCommand(OnButtonDoProcessClicked);
-            _ButtonCloseClickedCommand = new RelayCommand(OnButtonCloseClicked);
+            ButtonDoProcessClickedRelayCommand = new RelayCommand(OnButtonDoProcessClicked);
+            ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
             title = string.Empty;
             statusText = string.Empty;
             buttonDoProcessIsEnabled = true;
@@ -28,12 +28,12 @@ namespace DesktopTool
 
         public ICommand ButtonDoProcessClicked
         {
-            get { return _ButtonDoProcessClickedCommand; }
+            get { return ButtonDoProcessClickedRelayCommand; }
         }
 
         public ICommand ButtonCloseClicked
         {
-            get { return _ButtonCloseClickedCommand; }
+            get { return ButtonCloseClickedRelayCommand; }
         }
 
         public string Title
