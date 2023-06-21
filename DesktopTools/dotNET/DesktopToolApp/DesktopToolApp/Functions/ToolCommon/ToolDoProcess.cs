@@ -9,14 +9,14 @@ namespace DesktopTool
     internal class ToolDoProcess
     {
         // このクラスのインスタンス
-        public static ToolDoProcess _Instance = null!;
+        public static ToolDoProcess Instance = null!;
         public ToolDoProcessViewModel ViewModel = null!;
 
         // メニュー項目名称を保持
         private string MenuItemName;
 
         public ToolDoProcess() { 
-            _Instance = this;
+            Instance = this;
             MenuItemName = string.Empty;
         }
 
@@ -34,12 +34,12 @@ namespace DesktopTool
         //
         public static void InitFunctionView(ToolDoProcessViewModel model)
         {
-            _Instance.InitFunctionViewInner(model);
+            Instance.InitFunctionViewInner(model);
         }
 
         public static void StartProcess(ToolDoProcessViewModel model)
         {
-            _Instance.StartProcessInner(model);
+            Instance.StartProcessInner(model);
         }
 
         public static void CloseFunctionView(ToolDoProcessViewModel model)

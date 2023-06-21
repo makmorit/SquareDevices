@@ -9,7 +9,7 @@ namespace DesktopTool
     internal class ToolShowInfo
     {
         // このクラスのインスタンス
-        public static ToolShowInfo _Instance = null!;
+        public static ToolShowInfo Instance = null!;
         public ToolShowInfoViewModel ViewModel = null!;
 
         // メニュー項目名称を保持
@@ -17,7 +17,7 @@ namespace DesktopTool
 
         public ToolShowInfo()
         {
-            _Instance = this;
+            Instance = this;
             MenuItemName = string.Empty;
         }
 
@@ -35,7 +35,7 @@ namespace DesktopTool
         //
         public static void InitFunctionView(ToolShowInfoViewModel model)
         {
-            _Instance.InitFunctionViewInner(model);
+            Instance.InitFunctionViewInner(model);
         }
 
         public static void CloseFunctionView(ToolShowInfoViewModel model)
