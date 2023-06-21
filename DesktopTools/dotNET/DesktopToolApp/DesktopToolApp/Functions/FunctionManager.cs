@@ -56,13 +56,13 @@ namespace DesktopTool
 
             // メニュー項目に応じて処理分岐
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_PAIRING)) {
-                new BLEPairing().ShowFunctionView(menuItemName);
+                new BLEPairing(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_FLASH_STAT)) {
-                new FWVersionInfo().ShowFunctionView(menuItemName);
+                new FWVersionInfo(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
-                new ToolVersionInfo().ShowFunctionView(menuItemName);
+                new ToolVersionInfo();
 
             } else {
                 // サポート外のメッセージを表示

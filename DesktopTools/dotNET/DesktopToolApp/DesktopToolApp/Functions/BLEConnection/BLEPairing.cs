@@ -4,9 +4,7 @@ namespace DesktopTool
 {
     internal class BLEPairing : ToolDoProcess
     {
-        public BLEPairing()
-        {
-        }
+        public BLEPairing(string menuItemName) : base(menuItemName) { }
 
         protected override void InvokeProcessOnSubThread()
         {

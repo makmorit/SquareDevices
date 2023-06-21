@@ -15,14 +15,11 @@ namespace DesktopTool
         // メニュー項目名称を保持
         private string MenuItemName;
 
-        public ToolShowInfo()
+        public ToolShowInfo(string menuItemName)
         {
+            // このクラスのインスタンスを保持
             Instance = this;
-            MenuItemName = string.Empty;
-        }
 
-        public void ShowFunctionView(string menuItemName)
-        {
             // メニュー項目名称を保持
             MenuItemName = menuItemName;
 

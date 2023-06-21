@@ -4,7 +4,7 @@ namespace DesktopTool
 {
     internal class ToolVersionInfo
     {
-        public void ShowFunctionView(string menuItemName)
+        public ToolVersionInfo()
         {
             // メイン画面右側の領域にビューを表示
             FunctionView.SetViewContent(new ToolVersionInfoView());

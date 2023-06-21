@@ -5,9 +5,7 @@ namespace DesktopTool
 {
     internal class FWVersionInfo : ToolShowInfo
     {
-        public FWVersionInfo()
-        {
-        }
+        public FWVersionInfo(string menuItemName) : base(menuItemName) { }
 
         protected override void InvokeProcessOnSubThread()
         {
