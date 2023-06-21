@@ -119,5 +119,12 @@ namespace DesktopTool
                 ToolShowInfoView.AppendStatusText(text);
             }));
         }
+
+        protected void ShowCaption(string text)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ViewModel.Caption = text;
+            }));
+        }
     }
 }
