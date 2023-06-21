@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppCommon;
+using System;
+using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
 
@@ -54,6 +56,61 @@ namespace DesktopTool
             // 画面に表示するデータを取得
             model.Title = MenuItemName;
             model.Caption = MSG_FORMAT_PROCESSING_MESSAGE;
+
+            // 処理を開始
+            StartProcessInner(model);
+        }
+
+        private void StartProcessInner(ToolShowInfoViewModel model)
+        {
+            // 表示中の画面に対応するViewModel参照を保持
+            ViewModel = model;
+
+            // 画面のボタンを使用不可に設定
+            EnableButtonClick(false);
+
+            Task task = Task.Run(() => {
+                // 処理開始メッセージを表示／ログ出力
+                ProcessStartLogWithName(MenuItemName);
+
+                // 主処理を実行
+                InvokeProcessOnSubThread();
+            });
+        }
+
+        protected virtual void InvokeProcessOnSubThread()
+        {
+            ResumeProcess();
+        }
+
+        protected void ResumeProcess()
+        {
+            // 処理完了メッセージを表示／ログ出力
+            ProcessTerminateLogWithName(MenuItemName);
+
+            // 画面のボタンを使用可能に設定
+            EnableButtonClick(true);
+        }
+
+        private void ProcessStartLogWithName(string processName)
+        {
+            string message = string.Format(MSG_FORMAT_START_MESSAGE, processName);
+            AppendStatusText(message);
+            AppLogUtil.OutputLogInfo(message);
+        }
+
+        private void ProcessTerminateLogWithName(string processName)
+        {
+            string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
+            AppendStatusText(message);
+            AppLogUtil.OutputLogInfo(message);
+        }
+
+        private void EnableButtonClick(bool b)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ViewModel.ButtonCloseIsEnabled = b;
+            }));
         }
 
         protected static void AppendStatusText(string text)
