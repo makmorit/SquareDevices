@@ -4,14 +4,6 @@ namespace DesktopTool
 {
     internal class ToolVersionInfo
     {
-        // このクラスのインスタンス
-        public static ToolVersionInfo _Instance = null!;
-
-        public ToolVersionInfo()
-        {
-            _Instance = this;
-        }
-
         public void ShowFunctionView(string menuItemName)
         {
             // メイン画面右側の領域にビューを表示
