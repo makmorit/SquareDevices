@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:view="clr-namespace:DesktopTool"
              xmlns:vm="clr-namespace:DesktopTool"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
@@ -14,17 +13,6 @@
         <vm:FunctionViewModel />
     </UserControl.DataContext>
     <Grid>
-        <Grid.Resources>
-            <DataTemplate DataType="{x:Type vm:ToolVersionInfoViewModel}">
-                <view:ToolVersionInfoView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:ToolDoProcessViewModel}">
-                <view:ToolDoProcessView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:ToolShowInfoViewModel}">
-                <view:ToolShowInfoView />
-            </DataTemplate>
-        </Grid.Resources>
-        <ContentControl Content="{Binding ActiveView}" Visibility="{Binding ContentControlVisibled, Converter={StaticResource VisibilityConverter}}"/>
+        <ContentControl x:Name="ViewContent" Visibility="{Binding ContentControlVisibled, Converter={StaticResource VisibilityConverter}}"/>
     </Grid>
 </UserControl>

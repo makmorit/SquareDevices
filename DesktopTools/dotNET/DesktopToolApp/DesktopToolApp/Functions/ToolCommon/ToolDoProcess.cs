@@ -10,7 +10,7 @@ namespace DesktopTool
     {
         // このクラスのインスタンス
         public static ToolDoProcess _Instance = null!;
-        public ToolDoProcessViewModel ViewModel = new ToolDoProcessViewModel();
+        public ToolDoProcessViewModel ViewModel = null!;
 
         // メニュー項目名称を保持
         private string MenuItemName;
@@ -22,11 +22,11 @@ namespace DesktopTool
 
         public void ShowFunctionView(string menuItemName)
         {
-            // メイン画面右側の領域にビューを表示
-            FunctionViewModel.SetActiveViewModel(ViewModel);
-
             // メニュー項目名称を保持
             MenuItemName = menuItemName;
+
+            // メイン画面右側の領域にビューを表示
+            FunctionView.SetViewContent(new ToolDoProcessView());
         }
 
         //

@@ -6,7 +6,6 @@ namespace DesktopTool
     {
         // このクラスのインスタンス
         public static ToolVersionInfo _Instance = null!;
-        private readonly ToolVersionInfoViewModel ViewModel = new ToolVersionInfoViewModel();
 
         public ToolVersionInfo()
         {
@@ -16,7 +15,7 @@ namespace DesktopTool
         public void ShowFunctionView(string menuItemName)
         {
             // メイン画面右側の領域にビューを表示
-            FunctionViewModel.SetActiveViewModel(ViewModel);
+            FunctionView.SetViewContent(new ToolVersionInfoView());
         }
 
         //
