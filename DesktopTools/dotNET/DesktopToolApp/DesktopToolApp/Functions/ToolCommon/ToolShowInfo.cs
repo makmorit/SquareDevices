@@ -1,4 +1,6 @@
-﻿using static DesktopTool.FunctionMessage;
+﻿using System;
+using System.Windows;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -52,6 +54,13 @@ namespace DesktopTool
             // 画面に表示するデータを取得
             model.Title = MenuItemName;
             model.Caption = MSG_FORMAT_PROCESSING_MESSAGE;
+        }
+
+        protected static void AppendStatusText(string text)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ToolShowInfoView.AppendStatusText(text);
+            }));
         }
     }
 }
