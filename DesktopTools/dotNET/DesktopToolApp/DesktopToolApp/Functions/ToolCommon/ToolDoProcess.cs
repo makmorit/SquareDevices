@@ -100,9 +100,7 @@ namespace DesktopTool
 
         protected static void AppendStatusText(string text)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                ToolDoProcessView.AppendStatusText(text);
-            }));
+            ToolDoProcessView.AppendStatusText(text);
         }
     }
 }

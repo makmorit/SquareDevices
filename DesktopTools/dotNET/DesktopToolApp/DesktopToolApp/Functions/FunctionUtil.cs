@@ -1,5 +1,6 @@
 ﻿using AppCommon;
 using System;
+using System.Windows;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -13,18 +14,24 @@ namespace DesktopTool
         {
             string message = string.Format(MSG_FORMAT_START_MESSAGE, processName);
             AppLogUtil.OutputLogInfo(message);
-            if (AppendStatusText != null) {
-                AppendStatusText(message);
+            if (AppendStatusText == null) {
+                return;
             }
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                AppendStatusText(message);
+            }));
         }
 
         public static void ProcessTerminateLogWithName(string processName, Action<string> AppendStatusText)
         {
             string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
             AppLogUtil.OutputLogInfo(message);
-            if (AppendStatusText != null) {
-                AppendStatusText(message);
+            if (AppendStatusText == null) {
+                return;
             }
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                AppendStatusText(message);
+            }));
         }
 
     }
