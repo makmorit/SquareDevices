@@ -20,6 +20,16 @@ namespace DesktopTool
             }));
         }
 
+        public static void DisplayTextOnApp(string text, Action<string> DisplayTextAction)
+        {
+            if (DisplayTextAction == null) {
+                return;
+            }
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                DisplayTextAction(text);
+            }));
+        }
+
         //
         // ログ＋画面項目の両方に、処理開始・終了メッセージを追加出力
         //
@@ -27,24 +37,14 @@ namespace DesktopTool
         {
             string message = string.Format(MSG_FORMAT_START_MESSAGE, processName);
             AppLogUtil.OutputLogInfo(message);
-            if (AppendStatusText == null) {
-                return;
-            }
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                AppendStatusText(message);
-            }));
+            DisplayTextOnApp(message, AppendStatusText);
         }
 
         public static void ProcessTerminateLogWithName(string processName, Action<string> AppendStatusText)
         {
             string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
             AppLogUtil.OutputLogInfo(message);
-            if (AppendStatusText == null) {
-                return;
-            }
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                AppendStatusText(message);
-            }));
+            DisplayTextOnApp(message, AppendStatusText);
         }
 
     }
