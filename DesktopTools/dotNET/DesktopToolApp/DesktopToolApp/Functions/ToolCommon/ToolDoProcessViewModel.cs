@@ -78,6 +78,11 @@ namespace DesktopTool
             Title = text;
         }
 
+        public void AppendStatusText(string text)
+        {
+            ToolDoProcessView.AppendStatusText(text);
+        }
+
         public void EnableButtonClick(bool b)
         {
             ButtonDoProcessIsEnabled = b;

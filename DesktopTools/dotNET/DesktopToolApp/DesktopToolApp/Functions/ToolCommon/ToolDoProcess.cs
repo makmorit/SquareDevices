@@ -61,7 +61,7 @@ namespace DesktopTool
 
             Task task = Task.Run(() => {
                 // 処理開始メッセージを表示／ログ出力
-                FunctionUtil.ProcessStartLogWithName(MenuItemName, AppendStatusText);
+                FunctionUtil.ProcessStartLogWithName(MenuItemName, ViewModel.AppendStatusText);
 
                 // 主処理を実行
                 InvokeProcessOnSubThread();
@@ -76,18 +76,10 @@ namespace DesktopTool
         protected void ResumeProcess()
         {
             // 処理完了メッセージを表示／ログ出力
-            FunctionUtil.ProcessTerminateLogWithName(MenuItemName, AppendStatusText);
+            FunctionUtil.ProcessTerminateLogWithName(MenuItemName, ViewModel.AppendStatusText);
 
             // 画面のボタンを使用可能に設定
             FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
-        }
-
-        //
-        // 画面操作処理
-        //
-        protected static void AppendStatusText(string text)
-        {
-            ToolDoProcessView.AppendStatusText(text);
         }
     }
 }

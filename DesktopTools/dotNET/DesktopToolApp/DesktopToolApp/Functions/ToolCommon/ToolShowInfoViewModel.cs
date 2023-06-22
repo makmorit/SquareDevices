@@ -71,6 +71,11 @@ namespace DesktopTool
             Caption = text;
         }
 
+        public void AppendStatusText(string text)
+        {
+            ToolShowInfoView.AppendStatusText(text);
+        }
+
         public void EnableButtonClick(bool b)
         {
             ButtonCloseIsEnabled = b;
