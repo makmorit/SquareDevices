@@ -7,19 +7,19 @@ namespace DesktopTool
     {
         private readonly RelayCommand ButtonDoProcessClickedRelayCommand;
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
-        private string title;
+        private string title = null!;
+        private string statusText = null!;
         private bool buttonDoProcessIsEnabled;
         private bool buttonCloseIsEnabled;
-        private string statusText;
 
         public ToolDoProcessViewModel()
         {
             ButtonDoProcessClickedRelayCommand = new RelayCommand(OnButtonDoProcessClicked);
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
-            title = string.Empty;
-            statusText = string.Empty;
-            buttonDoProcessIsEnabled = true;
-            buttonCloseIsEnabled = true;
+            Title = string.Empty;
+            StatusText = string.Empty;
+            ButtonDoProcessIsEnabled = true;
+            ButtonCloseIsEnabled = true;
             try { ToolDoProcess.InitFunctionView(this); } catch { }
         }
 

@@ -34,10 +34,6 @@ namespace DesktopTool
 
         public static void CloseFunctionView(ToolShowInfoViewModel model)
         {
-            // 画面項目をクリア
-            model.Caption = string.Empty;
-            model.StatusText = string.Empty;
-
             // メイン画面右側の領域からビューを消す
             FunctionManager.HideFunctionView();
         }

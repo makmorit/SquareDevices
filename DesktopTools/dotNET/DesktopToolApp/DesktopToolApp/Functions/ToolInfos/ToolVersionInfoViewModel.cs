@@ -6,16 +6,16 @@ namespace DesktopTool
     internal class ToolVersionInfoViewModel : ViewModelBase
     {
         private readonly RelayCommand ButtonOKClickedRelayCommand;
-        private string toolName;
-        private string version;
-        private string copyright; 
+        private string toolName = null!;
+        private string version = null!;
+        private string copyright = null!;
 
         public ToolVersionInfoViewModel()
         {
             ButtonOKClickedRelayCommand = new RelayCommand(OnButtonOKClicked);
-            toolName = string.Empty;
-            version = string.Empty;
-            copyright = string.Empty;
+            ToolName = string.Empty;
+            Version = string.Empty;
+            Copyright = string.Empty;
             try { ToolVersionInfo.InitFunctionView(this); } catch { }
         }
 

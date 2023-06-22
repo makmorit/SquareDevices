@@ -6,18 +6,18 @@ namespace DesktopTool
     internal class ToolShowInfoViewModel : ViewModelBase
     {
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
-        private string title;
-        private string caption;
-        private string statusText;
+        private string title = null!;
+        private string caption = null!;
+        private string statusText = null!;
         private bool buttonCloseIsEnabled;
 
         public ToolShowInfoViewModel()
         {
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
-            title = string.Empty;
-            caption = string.Empty;
-            statusText = string.Empty;
-            buttonCloseIsEnabled = true;
+            Title = string.Empty;
+            Caption = string.Empty;
+            StatusText = string.Empty;
+            ButtonCloseIsEnabled = true;
             try { ToolShowInfo.InitFunctionView(this); } catch { }
         }
 
