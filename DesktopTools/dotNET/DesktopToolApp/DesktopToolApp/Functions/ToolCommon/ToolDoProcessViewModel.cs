@@ -77,5 +77,11 @@ namespace DesktopTool
         {
             Title = text;
         }
+
+        public void EnableButtonClick(bool b)
+        {
+            ButtonDoProcessIsEnabled = b;
+            ButtonCloseIsEnabled = b;
+        }
     }
 }
