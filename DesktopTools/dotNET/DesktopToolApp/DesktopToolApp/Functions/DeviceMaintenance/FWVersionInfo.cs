@@ -13,7 +13,7 @@ namespace DesktopTool
             for (int i = 0; i < 3; i++) {
                 Thread.Sleep(1000);
             }
-            ShowCaption(MSG_DEVICE_FW_VERSION_INFO_SHOWING);
+            FunctionUtil.DisplayTextOnApp(MSG_DEVICE_FW_VERSION_INFO_SHOWING, ShowCaption);
             ResumeProcess();
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -103,9 +101,7 @@ namespace DesktopTool
 
         protected void ShowCaption(string text)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                ViewModel.Caption = text;
-            }));
+            ViewModel.Caption = text;
         }
     }
 }
