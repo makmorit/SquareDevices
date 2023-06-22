@@ -63,7 +63,7 @@ namespace DesktopTool
             ViewModel = model;
 
             // 画面のボタンを使用不可に設定
-            EnableButtonClick(false);
+            FunctionUtil.EnableButtonClickOnApp(false, EnableButtonClick);
 
             Task task = Task.Run(() => {
                 // 処理開始メッセージを表示／ログ出力
@@ -85,7 +85,7 @@ namespace DesktopTool
             FunctionUtil.ProcessTerminateLogWithName(MenuItemName, AppendStatusText);
 
             // 画面のボタンを使用可能に設定
-            EnableButtonClick(true);
+            FunctionUtil.EnableButtonClickOnApp(true, EnableButtonClick);
         }
 
         //
@@ -93,9 +93,7 @@ namespace DesktopTool
         //
         private void EnableButtonClick(bool b)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                ViewModel.ButtonCloseIsEnabled = b;
-            }));
+            ViewModel.ButtonCloseIsEnabled = b;
         }
 
         protected static void AppendStatusText(string text)
