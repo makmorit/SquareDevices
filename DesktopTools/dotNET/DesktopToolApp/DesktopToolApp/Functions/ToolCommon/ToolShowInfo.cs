@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
@@ -68,7 +67,7 @@ namespace DesktopTool
 
             Task task = Task.Run(() => {
                 // 処理開始メッセージを表示／ログ出力
-                ProcessStartLogWithName(MenuItemName);
+                FunctionUtil.ProcessStartLogWithName(MenuItemName, AppendStatusText);
 
                 // 主処理を実行
                 InvokeProcessOnSubThread();
@@ -83,26 +82,15 @@ namespace DesktopTool
         protected void ResumeProcess()
         {
             // 処理完了メッセージを表示／ログ出力
-            ProcessTerminateLogWithName(MenuItemName);
+            FunctionUtil.ProcessTerminateLogWithName(MenuItemName, AppendStatusText);
 
             // 画面のボタンを使用可能に設定
             EnableButtonClick(true);
         }
 
-        private void ProcessStartLogWithName(string processName)
-        {
-            string message = string.Format(MSG_FORMAT_START_MESSAGE, processName);
-            AppendStatusText(message);
-            AppLogUtil.OutputLogInfo(message);
-        }
-
-        private void ProcessTerminateLogWithName(string processName)
-        {
-            string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
-            AppendStatusText(message);
-            AppLogUtil.OutputLogInfo(message);
-        }
-
+        //
+        // 画面操作処理
+        //
         private void EnableButtonClick(bool b)
         {
             Application.Current.Dispatcher.Invoke(new Action(() => {
