@@ -57,5 +57,18 @@ namespace DesktopTool
         {
             ToolShowInfo.CloseFunctionView(this);
         }
+
+        //
+        // 画面操作処理
+        //
+        public void ShowTitle(string text)
+        {
+            Title = text;
+        }
+
+        public void ShowCaption(string text)
+        {
+            Caption = text;
+        }
     }
 }

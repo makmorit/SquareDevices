@@ -43,9 +43,9 @@ namespace DesktopTool
         //
         private void InitFunctionViewInner(ToolShowInfoViewModel model)
         {
-            // 画面に表示するデータを取得
-            model.Title = MenuItemName;
-            model.Caption = MSG_FORMAT_PROCESSING_MESSAGE;
+            // メニュー項目名を画面表示
+            model.ShowTitle(MenuItemName);
+            model.ShowCaption(MSG_FORMAT_PROCESSING_MESSAGE);
 
             // 処理を開始
             StartProcessInner(model);
@@ -93,11 +93,6 @@ namespace DesktopTool
         protected static void AppendStatusText(string text)
         {
             ToolShowInfoView.AppendStatusText(text);
-        }
-
-        protected void ShowCaption(string text)
-        {
-            ViewModel.Caption = text;
         }
     }
 }

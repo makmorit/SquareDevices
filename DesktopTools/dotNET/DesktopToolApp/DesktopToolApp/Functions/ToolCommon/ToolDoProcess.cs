@@ -47,8 +47,8 @@ namespace DesktopTool
         //
         private void InitFunctionViewInner(ToolDoProcessViewModel model)
         {
-            // 画面に表示するデータを取得
-            model.Title = MenuItemName;
+            // メニュー項目名を画面表示
+            model.ShowTitle(MenuItemName);
         }
 
         private void StartProcessInner(ToolDoProcessViewModel model)
