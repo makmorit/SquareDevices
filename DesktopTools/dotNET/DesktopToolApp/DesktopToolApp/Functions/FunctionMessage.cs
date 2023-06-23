@@ -2,6 +2,10 @@
 {
     class FunctionMessage
     {
+        public const string MSG_FORMAT_START_MESSAGE = "{0}を開始します。";
+        public const string MSG_FORMAT_END_MESSAGE = "{0}が終了しました。";
+        public const string MSG_FORMAT_PROCESSING_MESSAGE = "しばらくお待ちください...";
+
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";
         public const string MSG_MENU_ITEM_NAME_BLE_PAIRING = "ペアリング実行";
         public const string MSG_MENU_ITEM_NAME_BLE_UNPAIRING = "ペアリング解除要求";
@@ -19,6 +23,9 @@
 
         public const string MSG_FORMAT_ERROR_MENU_NOT_SUPPORTED = "メニュー「{0}」は実行できません。";
         public const string MSG_FORMAT_ERROR_CANNOT_VIEW_LOG_DIR = "ログファイル格納フォルダーを参照できませんでした。{0}";
+
+        // デバイス情報参照画面
+        public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
 
         // ツールバージョン参照画面
         public const string MSG_TOOL_TITLE_FULL = "Square device desktop tool";

@@ -1,0 +1,20 @@
+﻿using System.Threading;
+
+namespace DesktopTool
+{
+    internal class BLEPairing : ToolDoProcess
+    {
+        public BLEPairing(string menuItemName) : base(menuItemName) { }
+
+        protected override void InvokeProcessOnSubThread()
+        {
+            // TODO: 仮の実装です。
+            for (int i = 0; i < 7; i++) {
+                Thread.Sleep(1000);
+                string message = string.Format("{0} 秒が経過しました。", i + 1);
+                FunctionUtil.DisplayTextOnApp(message, ViewModel.AppendStatusText);
+            }
+            ResumeProcess();
+        }
+    }
+}

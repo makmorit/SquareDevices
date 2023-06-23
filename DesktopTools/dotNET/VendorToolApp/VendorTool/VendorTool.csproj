@@ -12,11 +12,10 @@
     <Company>makmorit</Company>
     <Product>VendorTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).002</FileVersion>
+    <FileVersion>$(Version).003</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\DesktopToolApp\DesktopToolApp\MainWindow.xaml.cs" Link="MainWindow.xaml.cs" />
     <Compile Include="..\..\DesktopToolApp\DesktopToolApp\MainWindowViewModel.cs" Link="MainWindowViewModel.cs" />
   </ItemGroup>
 
@@ -25,17 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="QRCodeDecoder" Version="0.1.0" />
     <PackageReference Include="System.IO.Ports" Version="6.0.0" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="..\..\DesktopToolApp\DesktopToolApp\MainWindow.xaml" Link="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 
   <ItemGroup>

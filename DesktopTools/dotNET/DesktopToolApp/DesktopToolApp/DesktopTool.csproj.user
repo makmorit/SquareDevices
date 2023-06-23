@@ -8,17 +8,29 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Functions\ToolCommon\ToolDoProcessView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Functions\ToolCommon\ToolShowInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\FunctionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SideMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Functions\ToolVersionInfoView.xaml.cs">
+    <Compile Update="Functions\ToolInfos\ToolVersionInfoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Functions\ToolCommon\ToolDoProcessView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Functions\ToolCommon\ToolShowInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\FunctionView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -28,7 +40,7 @@
     <Page Update="Views\SideMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Functions\ToolVersionInfoView.xaml">
+    <Page Update="Functions\ToolInfos\ToolVersionInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

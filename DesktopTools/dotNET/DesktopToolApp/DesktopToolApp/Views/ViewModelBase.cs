@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace DesktopTool
 {
-    internal class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

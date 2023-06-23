@@ -9,12 +9,12 @@ namespace DesktopTool
         // このクラスのインスタンス
         private static SideMenuViewModel Instance = null!;
 
-        private readonly RelayCommand<object> _setSelectedItemCommand;
+        private readonly RelayCommand<object> SetSelectedItemRelayCommand;
         private bool isEnabled;
 
         public SideMenuViewModel()
         {
-            _setSelectedItemCommand = new RelayCommand<object>(OnMenuItemSelected);
+            SetSelectedItemRelayCommand = new RelayCommand<object>(OnMenuItemSelected);
             IsEnabled = true;
             Instance = this;
         }
@@ -22,15 +22,12 @@ namespace DesktopTool
         public bool IsEnabled
         {
             get { return isEnabled; }
-            set { 
-                isEnabled = value; 
-                NotifyPropertyChanged(nameof(IsEnabled));
-            }
+            set { isEnabled = value; NotifyPropertyChanged(nameof(IsEnabled)); }
         }
 
         public ICommand SetSelectedItemCommand
         {
-            get { return _setSelectedItemCommand; }
+            get { return SetSelectedItemRelayCommand; }
         }
 
         public List<MenuItemGroup> MenuItemGroups
