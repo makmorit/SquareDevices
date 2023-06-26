@@ -9,7 +9,7 @@ namespace DesktopTool
         public ToolDoProcessViewModel ViewModel = null!;
 
         // メニュー項目名称を保持
-        private string MenuItemName;
+        protected string MenuItemName;
 
         public ToolDoProcess(string menuItemName)
         {
@@ -19,8 +19,8 @@ namespace DesktopTool
             // メニュー項目名称を保持
             MenuItemName = menuItemName;
 
-            // メイン画面右側の領域にビューを表示
-            FunctionView.SetViewContent(new ToolDoProcessView());
+            // 画面表示前の処理を実行
+            Instance.PreProcess();
         }
 
         //
@@ -45,6 +45,12 @@ namespace DesktopTool
         //
         // 内部処理
         //
+        protected virtual void PreProcess()
+        {
+            // メイン画面右側の領域にビューを表示
+            FunctionView.SetViewContent(new ToolDoProcessView());
+        }
+
         private void InitFunctionViewInner(ToolDoProcessViewModel model)
         {
             // メニュー項目名を画面表示
