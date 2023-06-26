@@ -22,6 +22,7 @@ namespace DesktopTool
 
             // メイン画面右側の領域にビューを表示
             FunctionView.SetViewContent(new ToolShowInfoView());
+            FunctionManager.ShowFunctionView();
         }
 
         //
