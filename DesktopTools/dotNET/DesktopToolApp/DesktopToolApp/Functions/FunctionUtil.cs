@@ -40,12 +40,11 @@ namespace DesktopTool
             DisplayTextOnApp(message, AppendStatusText);
         }
 
-        public static void ProcessTerminateLogWithName(string processName, Action<string> AppendStatusText)
+        public static void ProcessTerminateLogWithName(string messageFormat, string processName, Action<string> AppendStatusText)
         {
-            string message = string.Format(MSG_FORMAT_END_MESSAGE, processName);
+            string message = string.Format(messageFormat, processName);
             AppLogUtil.OutputLogInfo(message);
             DisplayTextOnApp(message, AppendStatusText);
         }
-
     }
 }

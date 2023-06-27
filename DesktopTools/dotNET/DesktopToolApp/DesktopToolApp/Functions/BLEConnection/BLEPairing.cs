@@ -87,7 +87,7 @@ namespace DesktopTool
                 string message = string.Format("{0} 秒が経過しました。", i + 1);
                 FunctionUtil.DisplayTextOnApp(message, ViewModel.AppendStatusText);
             }
-            ResumeProcess();
+            ResumeProcess(true);
         }
     }
 }

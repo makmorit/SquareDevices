@@ -14,7 +14,7 @@ namespace DesktopTool
                 Thread.Sleep(1000);
             }
             FunctionUtil.DisplayTextOnApp(MSG_DEVICE_FW_VERSION_INFO_SHOWING, ViewModel.ShowCaption);
-            ResumeProcess();
+            ResumeProcess(true);
         }
     }
 }

@@ -3,7 +3,9 @@
     class FunctionMessage
     {
         public const string MSG_FORMAT_START_MESSAGE = "{0}を開始します。";
-        public const string MSG_FORMAT_END_MESSAGE = "{0}が終了しました。";
+        public const string MSG_FORMAT_CANCEL_MESSAGE = "{0}が中断されました。";
+        public const string MSG_FORMAT_SUCCESS_MESSAGE = "{0}が成功しました。";
+        public const string MSG_FORMAT_FAILURE_MESSAGE = "{0}が失敗しました。";
         public const string MSG_FORMAT_PROCESSING_MESSAGE = "しばらくお待ちください...";
 
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";

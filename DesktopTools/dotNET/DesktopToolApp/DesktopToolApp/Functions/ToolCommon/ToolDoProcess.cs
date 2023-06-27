@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -77,13 +78,22 @@ namespace DesktopTool
 
         protected virtual void InvokeProcessOnSubThread() 
         {
-            ResumeProcess();
+            ResumeProcess(true);
         }
 
-        protected void ResumeProcess()
+        protected void ResumeProcess(bool success)
         {
             // 処理完了メッセージを表示／ログ出力
-            FunctionUtil.ProcessTerminateLogWithName(MenuItemName, ViewModel.AppendStatusText);
+            FunctionUtil.ProcessTerminateLogWithName(success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
+
+            // 画面のボタンを使用可能に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
+        }
+
+        protected void CancelProcess()
+        {
+            // 処理中止メッセージを表示／ログ出力
+            FunctionUtil.ProcessTerminateLogWithName(MSG_FORMAT_CANCEL_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
 
             // 画面のボタンを使用可能に設定
             FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
