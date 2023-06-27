@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using System.Security;
 using System.Windows.Input;
 
 namespace DesktopTool
@@ -7,11 +8,13 @@ namespace DesktopTool
     {
         private readonly RelayCommand ButtonPairingClickedRelayCommand;
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
+        private SecureString passcode = null!;
 
         public BLEPairingCodeViewModel()
         {
             ButtonPairingClickedRelayCommand = new RelayCommand(OnButtonPairingClicked);
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
+            PassCode = new SecureString();
         }
 
         public ICommand ButtonPairingClicked
@@ -22,6 +25,12 @@ namespace DesktopTool
         public ICommand ButtonCloseClicked
         {
             get { return ButtonCloseClickedRelayCommand; }
+        }
+
+        public SecureString PassCode
+        {
+            get { return passcode; }
+            set { passcode = value; NotifyPropertyChanged(nameof(PassCode)); }
         }
 
         //
