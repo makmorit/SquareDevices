@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DesktopTool
@@ -11,6 +12,11 @@ namespace DesktopTool
         public BLEPairingCodeWindow()
         {
             InitializeComponent();
+        }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            passwordBoxPasscode.Focus();
         }
 
         private void passwordBoxPasscode_PasswordChanged(object sender, RoutedEventArgs e)
