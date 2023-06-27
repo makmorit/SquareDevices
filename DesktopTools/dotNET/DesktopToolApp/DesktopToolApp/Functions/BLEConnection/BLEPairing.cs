@@ -1,7 +1,7 @@
 ﻿using AppCommon;
 using DesktopTool.CommonWindow;
 using System;
-using System.Threading;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
@@ -82,11 +82,25 @@ namespace DesktopTool
         protected override void InvokeProcessOnSubThread()
         {
             // TODO: 仮の実装です。
-            for (int i = 0; i < 7; i++) {
-                Thread.Sleep(1000);
-                string message = string.Format("{0} 秒が経過しました。", i + 1);
-                FunctionUtil.DisplayTextOnApp(message, ViewModel.AppendStatusText);
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ShowPairingCodeWindow();
+            }));
+        }
+
+        private void ShowPairingCodeWindow()
+        {
+            // パスコード入力画面を表示
+            BLEPairingCode code = new BLEPairingCode();
+            if (code.OpenForm() == false) {
+                CancelProcess();
+                return;
             }
+
+            // パスコード入力画面からパスコードを取得
+            string passcode = new NetworkCredential(string.Empty, code.Passcode).Password;
+
+            // TODO: 仮の実装です。
+            FunctionUtil.DisplayTextOnApp(passcode, ViewModel.AppendStatusText);
             ResumeProcess(true);
         }
     }
