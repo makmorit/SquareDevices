@@ -85,6 +85,7 @@ namespace DesktopTool
 
                 // ペアリングが正常終了したら処理完了
                 if (Parameter.CancelPairing) {
+                    errorMessage = MSG_BLE_PARING_ERR_CANCELED_BY_USER;
                     AppLogUtil.OutputLogError("Pairing canceled by user");
 
                 } else if (result.Status == DevicePairingResultStatus.Paired) {

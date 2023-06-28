@@ -9,5 +9,6 @@
         public const string MSG_BLE_PARING_ERR_ALREADY_PAIRED = "ペアリング対象のBLEデバイスと既にペアリングされていたようです。WindowsのBluetooth環境設定画面から、デバイス「{0}」を削除した後、ペアリングを再実行してください。";
         public const string MSG_BLE_PARING_ERR_PROCESS = "BLEデバイスとのペアリング時にエラーが発生しました。";
         public const string MSG_BLE_PARING_ERR_UNKNOWN = "BLEデバイスとのペアリング時に不明なエラーが発生しました。";
+        public const string MSG_BLE_PARING_ERR_CANCELED_BY_USER = "BLEデバイスとのペアリング実行をユーザーが中止しました。";
     }
 }
