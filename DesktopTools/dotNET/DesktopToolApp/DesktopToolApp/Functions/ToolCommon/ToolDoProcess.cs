@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using AppCommon;
+using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -99,6 +100,18 @@ namespace DesktopTool
             // 画面のボタンを使用不可に設定
             FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonDoProcess);
             FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
+        }
+
+        protected void LogAndShowInfoMessage(string infoMessage)
+        {
+            AppLogUtil.OutputLogInfo(infoMessage);
+            FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+        }
+
+        protected void LogAndShowErrorMessage(string errorMessage)
+        {
+            AppLogUtil.OutputLogError(errorMessage);
+            FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
         }
     }
 }

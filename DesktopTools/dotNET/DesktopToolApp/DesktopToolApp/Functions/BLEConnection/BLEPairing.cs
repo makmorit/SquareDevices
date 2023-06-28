@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -41,23 +40,20 @@ namespace DesktopTool
 
             if (success == false) {
                 // 失敗時はログ出力
-                AppLogUtil.OutputLogError(errorMessage);
-                FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
+                LogAndShowErrorMessage(errorMessage);
                 CancelProcess();
                 return;
             }
 
             if (parameter.FIDOServiceDataFieldFound == false) {
                 // サービスデータフィールドがない場合はエラー扱い
-                AppLogUtil.OutputLogError(MSG_BLE_PARING_ERR_PAIR_MODE);
-                FunctionUtil.DisplayTextOnApp(MSG_BLE_PARING_ERR_PAIR_MODE, ViewModel.AppendStatusText);
+                LogAndShowErrorMessage(MSG_BLE_PARING_ERR_PAIR_MODE);
                 CancelProcess();
                 return;
             }
 
             // 成功時はログ出力
-            AppLogUtil.OutputLogInfo(MSG_BLE_PAIRING_SCAN_SUCCESS);
-            FunctionUtil.DisplayTextOnApp(MSG_BLE_PAIRING_SCAN_SUCCESS, ViewModel.AppendStatusText);
+            LogAndShowInfoMessage(MSG_BLE_PAIRING_SCAN_SUCCESS);
             ResumeProcess(true);
         }
     }
