@@ -11,13 +11,11 @@ namespace DesktopTool
     internal class BLEPairingParameter
     {
         public ulong BluetoothAddress { get; set; }
-        public string Passcode { get; set; }
         public string ErrorMessage { get; set; }
 
         public BLEPairingParameter()
         {
             BluetoothAddress = 0;
-            Passcode = string.Empty;
             ErrorMessage = string.Empty;
         }
     }
