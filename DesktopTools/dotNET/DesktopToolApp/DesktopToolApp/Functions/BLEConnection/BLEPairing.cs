@@ -1,9 +1,5 @@
 ﻿using AppCommon;
-using DesktopTool.CommonWindow;
-using System;
-using System.Net;
 using System.Threading.Tasks;
-using System.Windows;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
@@ -27,29 +23,13 @@ namespace DesktopTool
 
         public BLEPairing(string menuItemName) : base(menuItemName) { }
 
-        protected override void PreProcess()
+        protected override void InvokeProcessOnSubThread()
         {
             Task task = Task.Run(() => {
                 // BLEデバイスをスキャン
                 BLEPeripheralScannerParam parameter = BLEPeripheralScannerParam.PrepareParameterForFIDO();
                 new BLEPeripheralScanner().DoProcess(parameter, OnBLEPeripheralScanned);
             });
-
-            // 進捗画面を表示
-            Window mainWindow = Application.Current.MainWindow;
-            CommonProcessing.OpenForm(mainWindow);
-
-            // ペアリング対象のBLEデバイスが見つからなかった場合は終了
-            if (Parameter.BluetoothAddress == 0) {
-                DialogUtil.ShowWarningMessage(mainWindow, MenuItemName, Parameter.ErrorMessage);
-                return;
-            }
-
-            // 成功時はログ出力
-            AppLogUtil.OutputLogInfo(MSG_BLE_PAIRING_SCAN_SUCCESS);
-
-            // メイン画面右側の領域にビューを表示
-            base.PreProcess();
         }
 
         private void OnBLEPeripheralScanned(bool success, string errorMessage, BLEPeripheralScannerParam parameter)
@@ -62,43 +42,22 @@ namespace DesktopTool
             if (success == false) {
                 // 失敗時はログ出力
                 AppLogUtil.OutputLogError(errorMessage);
-
-            } else if (parameter.FIDOServiceDataFieldFound == false) {
-                // サービスデータフィールドがない場合は、エラー扱いとし、
-                // Bluetoothアドレスをゼロクリア
-                Parameter.BluetoothAddress = 0;
-                Parameter.ErrorMessage = MSG_BLE_PARING_ERR_PAIR_MODE;
-                AppLogUtil.OutputLogError(Parameter.ErrorMessage);
-            }
-
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                // 進捗画面を閉じる
-                CommonProcessing.NotifyTerminate();
-            }));
-        }
-
-        protected override void InvokeProcessOnSubThread()
-        {
-            // TODO: 仮の実装です。
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                ShowPairingCodeWindow();
-            }));
-        }
-
-        private void ShowPairingCodeWindow()
-        {
-            // パスコード入力画面を表示
-            BLEPairingCode code = new BLEPairingCode();
-            if (code.OpenForm() == false) {
+                FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
                 CancelProcess();
                 return;
             }
 
-            // パスコード入力画面からパスコードを取得
-            string passcode = new NetworkCredential(string.Empty, code.Passcode).Password;
+            if (parameter.FIDOServiceDataFieldFound == false) {
+                // サービスデータフィールドがない場合はエラー扱い
+                AppLogUtil.OutputLogError(MSG_BLE_PARING_ERR_PAIR_MODE);
+                FunctionUtil.DisplayTextOnApp(MSG_BLE_PARING_ERR_PAIR_MODE, ViewModel.AppendStatusText);
+                CancelProcess();
+                return;
+            }
 
-            // TODO: 仮の実装です。
-            FunctionUtil.DisplayTextOnApp(passcode, ViewModel.AppendStatusText);
+            // 成功時はログ出力
+            AppLogUtil.OutputLogInfo(MSG_BLE_PAIRING_SCAN_SUCCESS);
+            FunctionUtil.DisplayTextOnApp(MSG_BLE_PAIRING_SCAN_SUCCESS, ViewModel.AppendStatusText);
             ResumeProcess(true);
         }
     }
