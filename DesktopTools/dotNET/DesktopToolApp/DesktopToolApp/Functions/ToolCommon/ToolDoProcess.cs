@@ -65,7 +65,8 @@ namespace DesktopTool
             ViewModel = model;
 
             // 画面のボタンを使用不可に設定
-            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonClick);
+            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonDoProcess);
+            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonClose);
 
             Task task = Task.Run(() => {
                 // 処理開始メッセージを表示／ログ出力
@@ -86,8 +87,8 @@ namespace DesktopTool
             // 処理完了メッセージを表示／ログ出力
             FunctionUtil.ProcessTerminateLogWithName(success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
 
-            // 画面のボタンを使用可能に設定
-            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
+            // 閉じるボタンを使用可能に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
         }
 
         protected void CancelProcess()
@@ -95,8 +96,9 @@ namespace DesktopTool
             // 処理中止メッセージを表示／ログ出力
             FunctionUtil.ProcessTerminateLogWithName(MSG_FORMAT_CANCEL_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
 
-            // 画面のボタンを使用可能に設定
-            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
+            // 画面のボタンを使用不可に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonDoProcess);
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
         }
     }
 }
