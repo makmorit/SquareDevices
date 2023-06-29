@@ -58,6 +58,9 @@ namespace DesktopTool
             if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_PAIRING)) {
                 new BLEPairing(menuItemName);
 
+            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_ERASE_BOND)) {
+                new EraseBondingInfo(menuItemName);
+
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_FLASH_STAT)) {
                 new FWVersionInfo(menuItemName);
 
