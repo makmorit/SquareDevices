@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
+using static DesktopTool.BLEDefines;
 using static DesktopTool.HelperMessage;
 
 namespace DesktopTool
@@ -57,7 +58,7 @@ namespace DesktopTool
             int retry = 3;
             for (int k = 0; k < retry + 1; k++) {
                 if (k > 0) {
-                    AppLogUtil.OutputLogWarn(string.Format(MSG_BLE_U2F_NOTIFICATION_RETRY, k));
+                    AppLogUtil.OutputLogDebug(string.Format(MSG_BLE_U2F_NOTIFICATION_RETRY, k));
                     await Task.Run(() => System.Threading.Thread.Sleep(100));
                 }
 
@@ -75,6 +76,7 @@ namespace DesktopTool
 
             // 接続されなかった場合は false
             AppLogUtil.OutputLogError(string.Format("{0}({1})", MSG_BLE_U2F_NOTIFICATION_FAILED, BLEservice.Device.Name));
+            FreeResources();
             return false;
         }
 
@@ -133,7 +135,9 @@ namespace DesktopTool
                 return true;
 
             } catch (Exception e) {
-                AppLogUtil.OutputLogError(string.Format("BLEService.StartBLENotification: {0}", e.Message));
+                if ((uint)e.HResult != WINDOWS_ERROR_NO_MORE_FILES) {
+                    AppLogUtil.OutputLogError(string.Format("BLEService.StartBLENotification: {0}", e.Message));
+                }
                 return false;
             }
         }

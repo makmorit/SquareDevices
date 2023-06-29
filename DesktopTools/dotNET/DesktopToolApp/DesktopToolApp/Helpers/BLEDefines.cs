@@ -6,5 +6,8 @@
         public const string U2F_BLE_SERVICE_UUID_STR = "0000FFFD-0000-1000-8000-00805f9b34fb";
         public const string U2F_CONTROL_POINT_CHAR_UUID_STR = "F1D0FFF1-DEAA-ECEE-B42F-C9BA7ED623BB";
         public const string U2F_STATUS_CHAR_UUID_STR = "F1D0FFF2-DEAA-ECEE-B42F-C9BA7ED623BB";
+
+        // 定数
+        public const uint WINDOWS_ERROR_NO_MORE_FILES = 0x80650012;
     }
 }
