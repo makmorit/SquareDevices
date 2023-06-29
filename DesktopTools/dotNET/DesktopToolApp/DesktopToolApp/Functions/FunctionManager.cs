@@ -71,12 +71,6 @@ namespace DesktopTool
                 DialogUtil.ShowWarningMessage(mainWindow, mainWindow.Title, message);
                 return;
             }
-
-            // サイドメニューを使用不能とする
-            SideMenuViewModel.EnableMenuItemSelection(false);
-            // サブ画面を領域内に表示
-            FunctionViewModel.ShowContentControl(true);
-
         }
 
         private static void ViewLogFileFolder()
@@ -98,6 +92,14 @@ namespace DesktopTool
         //
         // 外部公開用
         //
+        public static void ShowFunctionView()
+        {
+            // サイドメニューを使用不能とする
+            SideMenuViewModel.EnableMenuItemSelection(false);
+            // サブ画面を領域内に表示
+            FunctionViewModel.ShowContentControl(true);
+        }
+
         public static void HideFunctionView()
         {
             // サブ画面を領域から消す

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using AppCommon;
+using System.Threading.Tasks;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -9,7 +11,7 @@ namespace DesktopTool
         public ToolDoProcessViewModel ViewModel = null!;
 
         // メニュー項目名称を保持
-        private string MenuItemName;
+        protected string MenuItemName;
 
         public ToolDoProcess(string menuItemName)
         {
@@ -19,8 +21,8 @@ namespace DesktopTool
             // メニュー項目名称を保持
             MenuItemName = menuItemName;
 
-            // メイン画面右側の領域にビューを表示
-            FunctionView.SetViewContent(new ToolDoProcessView());
+            // 画面表示前の処理を実行
+            Instance.PreProcess();
         }
 
         //
@@ -45,6 +47,13 @@ namespace DesktopTool
         //
         // 内部処理
         //
+        protected virtual void PreProcess()
+        {
+            // メイン画面右側の領域にビューを表示
+            FunctionView.SetViewContent(new ToolDoProcessView());
+            FunctionManager.ShowFunctionView();
+        }
+
         private void InitFunctionViewInner(ToolDoProcessViewModel model)
         {
             // メニュー項目名を画面表示
@@ -57,7 +66,8 @@ namespace DesktopTool
             ViewModel = model;
 
             // 画面のボタンを使用不可に設定
-            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonClick);
+            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonDoProcess);
+            FunctionUtil.EnableButtonClickOnApp(false, ViewModel.EnableButtonClose);
 
             Task task = Task.Run(() => {
                 // 処理開始メッセージを表示／ログ出力
@@ -70,16 +80,38 @@ namespace DesktopTool
 
         protected virtual void InvokeProcessOnSubThread() 
         {
-            ResumeProcess();
+            ResumeProcess(true);
         }
 
-        protected void ResumeProcess()
+        protected void ResumeProcess(bool success)
         {
             // 処理完了メッセージを表示／ログ出力
-            FunctionUtil.ProcessTerminateLogWithName(MenuItemName, ViewModel.AppendStatusText);
+            FunctionUtil.ProcessTerminateLogWithName(success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
 
-            // 画面のボタンを使用可能に設定
-            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClick);
+            // 閉じるボタンを使用可能に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
+        }
+
+        protected void CancelProcess()
+        {
+            // 処理中止メッセージを表示／ログ出力
+            FunctionUtil.ProcessTerminateLogWithName(MSG_FORMAT_CANCEL_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
+
+            // 画面のボタンを使用不可に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonDoProcess);
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
+        }
+
+        protected void LogAndShowInfoMessage(string infoMessage)
+        {
+            AppLogUtil.OutputLogInfo(infoMessage);
+            FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+        }
+
+        protected void LogAndShowErrorMessage(string errorMessage)
+        {
+            AppLogUtil.OutputLogError(errorMessage);
+            FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
         }
     }
 }

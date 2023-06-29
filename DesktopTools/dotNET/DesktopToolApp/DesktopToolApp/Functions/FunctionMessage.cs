@@ -3,7 +3,9 @@
     class FunctionMessage
     {
         public const string MSG_FORMAT_START_MESSAGE = "{0}を開始します。";
-        public const string MSG_FORMAT_END_MESSAGE = "{0}が終了しました。";
+        public const string MSG_FORMAT_CANCEL_MESSAGE = "{0}が中断されました。";
+        public const string MSG_FORMAT_SUCCESS_MESSAGE = "{0}が成功しました。";
+        public const string MSG_FORMAT_FAILURE_MESSAGE = "{0}が失敗しました。";
         public const string MSG_FORMAT_PROCESSING_MESSAGE = "しばらくお待ちください...";
 
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";
@@ -23,6 +25,12 @@
 
         public const string MSG_FORMAT_ERROR_MENU_NOT_SUPPORTED = "メニュー「{0}」は実行できません。";
         public const string MSG_FORMAT_ERROR_CANNOT_VIEW_LOG_DIR = "ログファイル格納フォルダーを参照できませんでした。{0}";
+
+        // BLEペアリング
+        public const string MSG_BLE_PARING_ERR_PAIR_MODE = "ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。";
+        public const string MSG_BLE_PAIRING_SCAN_SUCCESS = "ペアリング対象のBLEデバイスがスキャンされました。";
+        public const string MSG_PROMPT_INPUT_PAIRING_PASSCODE = "パスコードを６桁で入力してください";
+        public const string MSG_PROMPT_INPUT_PAIRING_PASSCODE_NUM = "パスコードを数字で入力してください";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
