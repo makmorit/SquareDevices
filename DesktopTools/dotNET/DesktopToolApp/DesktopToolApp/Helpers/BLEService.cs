@@ -36,6 +36,21 @@ namespace DesktopTool
 
         // ステータスを保持
         private GattCommunicationStatus CommunicationStatus;
+        //
+        // BLE接続検知関連イベント
+        //
+        public delegate void ConnectionStatusChangedHandler(BLEService service, bool connected);
+        private event ConnectionStatusChangedHandler ConnectionStatusChanged = null!;
+
+        private void BLEConnectionStatusChanged(BluetoothLEDevice sender, object args)
+        {
+            bool connected = (sender.ConnectionStatus == BluetoothConnectionStatus.Connected);
+            AppLogUtil.OutputLogDebug(string.Format("Connection status changed: BLE device is {0}", connected ? "connected" : "disconnected"));
+
+            if (ConnectionStatusChanged != null) {
+                ConnectionStatusChanged(this, connected);
+            }
+        }
 
         public async Task<bool> StartCommunicate(BLEServiceParam parameter)
         {
@@ -203,17 +218,6 @@ namespace DesktopTool
             } else {
                 return BLEservice.Device.Name;
             }
-        }
-
-        //
-        // BLE接続検知関連イベント
-        //
-        public delegate void HandlerOnConnectionStatusChanged(bool connected);
-        private event HandlerOnConnectionStatusChanged OnConnectionStatusChanged = null!;
-
-        private void BLEConnectionStatusChanged(BluetoothLEDevice sender, object args)
-        {
-            OnConnectionStatusChanged(sender.ConnectionStatus == BluetoothConnectionStatus.Connected);
         }
     }
 }
