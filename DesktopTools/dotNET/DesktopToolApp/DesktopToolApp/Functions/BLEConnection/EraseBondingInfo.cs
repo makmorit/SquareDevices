@@ -39,7 +39,7 @@ namespace DesktopTool
             // サービスに接続
             BLEServiceParam serviceParam = new BLEServiceParam(parameter);
             BLEService service = new BLEService();
-            await service.StartCommunicate(serviceParam);
+            await service.StartCommunicate(serviceParam, OnConnectionStatusChanged);
 
             if (service.IsConnected()) {
                 // 接続成功の場合
@@ -56,6 +56,15 @@ namespace DesktopTool
 
             // TODO: 仮の実装です。
             base.InvokeProcessOnSubThread();
+        }
+
+        private void OnConnectionStatusChanged(BLEService service, bool connected)
+        {
+            if (connected == false) {
+                // 切断検知時は、接続を終了させる
+                service.Disconnect();
+                AppLogUtil.OutputLogInfo(MSG_DISCONNECT_BLE_DEVICE);
+            }
         }
     }
 }

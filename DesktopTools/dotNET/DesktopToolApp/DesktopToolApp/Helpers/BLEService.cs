@@ -52,7 +52,7 @@ namespace DesktopTool
             }
         }
 
-        public async Task<bool> StartCommunicate(BLEServiceParam parameter)
+        public async Task<bool> StartCommunicate(BLEServiceParam parameter, ConnectionStatusChangedHandler handler)
         {
             // Bluetoothアドレスが不正の場合は処理を実行しない
             if (parameter.BluetoothAddress == 0) {
@@ -65,6 +65,9 @@ namespace DesktopTool
                 FreeResources();
                 return false;
             }
+
+            // 接続検知時のコールバックを設定
+            ConnectionStatusChanged += handler;
 
             //
             // データ受信監視を開始
@@ -209,6 +212,9 @@ namespace DesktopTool
             BluetoothLEDevice = null!;
             BLEservice = null!;
             U2FStatusChar = null!;
+
+            // コールバック解除
+            ConnectionStatusChanged = null!;
         }
 
         public string ConnectedDeviceName()
