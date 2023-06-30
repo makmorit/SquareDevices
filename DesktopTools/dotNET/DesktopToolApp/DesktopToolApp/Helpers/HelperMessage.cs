@@ -25,5 +25,13 @@
         public const string MSG_REQUEST_SEND_FAILED_WITH_EXCEPTION = "リクエスト送信が失敗しました：{0}";
         public const string MSG_REQUEST_SEND_TIMED_OUT = "リクエスト送信がタイムアウトしました。";
         public const string MSG_RESPONSE_RECEIVE_FAILED_WITH_EXCEPTION = "レスポンス受信が失敗しました：{0}";
+
+        // コマンド共通
+        public const string MSG_ERROR_FUNCTION_IN_PAIRING_MODE = "ペアリングモードでは、ペアリング実行以外の機能は使用できません。ペアリングモードを解除してから、機能を再度実行してください。";
+        public const string MSG_SCAN_BLE_DEVICE_SUCCESS = "対象のBLEデバイスがスキャンされました。";
+        public const string MSG_CONNECT_BLE_DEVICE_FAILURE = "BLEデバイスの接続に失敗しました。";
+        public const string MSG_CONNECT_BLE_DEVICE_SUCCESS = "BLEデバイスに接続しました。";
+        public const string MSG_NOTIFY_DISCONNECT_BLE_DEVICE = "BLEデバイスからの切断を検知しました。接続を終了します。";
+        public const string MSG_DISCONNECT_BLE_DEVICE = "BLEデバイスから切断しました。";
     }
 }

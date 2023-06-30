@@ -32,12 +32,6 @@
         public const string MSG_PROMPT_INPUT_PAIRING_PASSCODE = "パスコードを６桁で入力してください";
         public const string MSG_PROMPT_INPUT_PAIRING_PASSCODE_NUM = "パスコードを数字で入力してください";
 
-        public const string MSG_ERROR_FUNCTION_IN_PAIRING_MODE = "ペアリングモードでは、ペアリング実行以外の機能は使用できません。ペアリングモードを解除してから、機能を再度実行してください。";
-        public const string MSG_SCAN_BLE_DEVICE_SUCCESS = "対象のBLEデバイスがスキャンされました。";
-        public const string MSG_CONNECT_BLE_DEVICE_FAILURE = "BLEデバイスの接続に失敗しました。";
-        public const string MSG_CONNECT_BLE_DEVICE_SUCCESS = "BLEデバイスに接続しました。";
-        public const string MSG_DISCONNECT_BLE_DEVICE = "BLEデバイスから切断しました。";
-
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
 

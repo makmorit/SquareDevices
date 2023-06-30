@@ -1,6 +1,4 @@
-﻿using AppCommon;
-using System.Threading.Tasks;
-using static DesktopTool.FunctionMessage;
+﻿using System.Threading.Tasks;
 
 namespace DesktopTool
 {
@@ -11,13 +9,12 @@ namespace DesktopTool
         protected override void InvokeProcessOnSubThread()
         {
             Task task = Task.Run(() => {
-                // BLEデバイスをスキャン
-                BLEPeripheralScannerParam parameter = BLEPeripheralScannerParam.PrepareParameterForFIDO();
-                new BLEPeripheralScanner().DoProcess(parameter, OnBLEPeripheralScanned);
+                // BLEデバイスに接続
+                new BLETransport().Connect(OnNotifyConnection);
             });
         }
 
-        private async void OnBLEPeripheralScanned(bool success, string errorMessage, BLEPeripheralScannerParam parameter)
+        private void OnNotifyConnection(BLETransport sender, bool success, string errorMessage)
         {
             if (success == false) {
                 // 失敗時はログ出力
@@ -26,45 +23,9 @@ namespace DesktopTool
                 return;
             }
 
-            if (parameter.FIDOServiceDataFieldFound) {
-                // ペアリングモード時（＝サービスデータフィールドが存在する場合）はエラー扱い
-                LogAndShowErrorMessage(MSG_ERROR_FUNCTION_IN_PAIRING_MODE);
-                CancelProcess();
-                return;
-            }
-
-            // 成功時はログ出力
-            LogAndShowInfoMessage(MSG_SCAN_BLE_DEVICE_SUCCESS);
-
-            // サービスに接続
-            BLEServiceParam serviceParam = new BLEServiceParam(parameter);
-            BLEService service = new BLEService();
-            await service.StartCommunicate(serviceParam, OnConnectionStatusChanged);
-
-            if (service.IsConnected()) {
-                // 接続成功の場合
-                AppLogUtil.OutputLogInfo(MSG_CONNECT_BLE_DEVICE_SUCCESS);
-
-                // TODO: 仮の実装です。
-                service.Disconnect();
-                AppLogUtil.OutputLogInfo(MSG_DISCONNECT_BLE_DEVICE);
-
-            } else {
-                // 接続失敗の場合
-                AppLogUtil.OutputLogInfo(MSG_CONNECT_BLE_DEVICE_FAILURE);
-            }
-
-            // TODO: 仮の実装です。
-            base.InvokeProcessOnSubThread();
-        }
-
-        private void OnConnectionStatusChanged(BLEService service, bool connected)
-        {
-            if (connected == false) {
-                // 切断検知時は、接続を終了させる
-                service.Disconnect();
-                AppLogUtil.OutputLogInfo(MSG_DISCONNECT_BLE_DEVICE);
-            }
+            // 後続処理を実行
+            sender.Disconnect();
+            ResumeProcess(success);
         }
     }
 }
