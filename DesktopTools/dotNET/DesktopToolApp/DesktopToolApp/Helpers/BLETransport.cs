@@ -77,11 +77,11 @@ namespace DesktopTool
             }
         }
 
-        private void OnConnectionStatusChanged(BLEService service, bool connected)
+        private void OnConnectionStatusChanged(BLEService sender, bool connected)
         {
             if (connected == false) {
                 // 切断検知時は、接続を終了させる
-                service.Disconnect();
+                sender.Disconnect();
                 AppLogUtil.OutputLogInfo(MSG_NOTIFY_DISCONNECT_BLE_DEVICE);
             }
         }

@@ -53,7 +53,7 @@ namespace DesktopTool
         //
         // BLE接続検知関連イベント
         //
-        public delegate void ConnectionStatusChangedHandler(BLEService service, bool connected);
+        public delegate void ConnectionStatusChangedHandler(BLEService sender, bool connected);
         private event ConnectionStatusChangedHandler ConnectionStatusChanged = null!;
 
         private void BLEConnectionStatusChanged(BluetoothLEDevice sender, object args)
@@ -181,7 +181,7 @@ namespace DesktopTool
         //
         // 送受信関連イベント
         //
-        public delegate void ResponseReceivedHandler(BLEService service, bool success, string errorMessage, byte[] receivedData);
+        public delegate void ResponseReceivedHandler(BLEService sender, bool success, string errorMessage, byte[] receivedData);
         private event ResponseReceivedHandler ResponseReceived = null!;
 
         private void OnResponseReceived(bool success, string errorMessage, byte[] receivedData)
