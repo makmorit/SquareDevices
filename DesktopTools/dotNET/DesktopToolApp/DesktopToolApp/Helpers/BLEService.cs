@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
+using Windows.Storage.Streams;
 using static DesktopTool.BLEDefines;
 using static DesktopTool.HelperMessage;
 
@@ -26,6 +27,17 @@ namespace DesktopTool
 
     internal class BLEService
     {
+        // 応答タイムアウト監視用タイマー
+        private readonly CommonTimer ResponseTimer = null!;
+
+        public BLEService()
+        {
+            // 応答タイムアウト発生時のイベントを登録
+            ResponseTimer = new CommonTimer("BLEService", 3000);
+            ResponseTimer.CommandTimeoutEvent += OnResponseTimerElapsed;
+            FreeResources();
+        }
+
         //
         // BLE接続／送受信関連
         //
@@ -33,9 +45,11 @@ namespace DesktopTool
         private BluetoothLEDevice BluetoothLEDevice = null!;
         private GattDeviceService BLEservice = null!;
         private GattCharacteristic U2FStatusChar = null!;
+        private GattCharacteristic U2FControlPointChar = null!;
 
         // ステータスを保持
         private GattCommunicationStatus CommunicationStatus;
+
         //
         // BLE接続検知関連イベント
         //
@@ -140,6 +154,7 @@ namespace DesktopTool
 
             try {
                 U2FStatusChar = service.GetCharacteristics(parameter.CharactForWriteUUID)[0];
+                U2FControlPointChar = service.GetCharacteristics(parameter.CharactForReadUUID)[0];
 
                 CommunicationStatus = await U2FStatusChar.WriteClientCharacteristicConfigurationDescriptorAsync(
                     GattClientCharacteristicConfigurationDescriptorValue.Notify);
@@ -147,6 +162,9 @@ namespace DesktopTool
                     AppLogUtil.OutputLogDebug(string.Format("BLEService.StartBLENotification: GattCommunicationStatus={0}", CommunicationStatus));
                     return false;
                 }
+
+                // BLEデバイスからの送信データを受信できるよう設定
+                U2FStatusChar.ValueChanged += OnCharacteristicValueChanged;
 
                 // 監視開始したサービスを退避
                 BLEservice = service;
@@ -157,6 +175,90 @@ namespace DesktopTool
                     AppLogUtil.OutputLogError(string.Format("BLEService.StartBLENotification: {0}", e.Message));
                 }
                 return false;
+            }
+        }
+
+        //
+        // 送受信関連イベント
+        //
+        public delegate void ResponseReceivedHandler(BLEService service, bool success, string errorMessage, byte[] receivedData);
+        private event ResponseReceivedHandler ResponseReceived = null!;
+
+        private void OnResponseReceived(bool success, string errorMessage, byte[] receivedData)
+        {
+            ResponseReceived?.Invoke(this, success, errorMessage, receivedData);
+            ResponseReceived = null!;
+        }
+
+        //
+        // 送信処理
+        // 
+        public async void Send(byte[] requestData, ResponseReceivedHandler handler)
+        {
+            if (BLEservice == null) {
+                AppLogUtil.OutputLogDebug(string.Format("BLEService.Send: service is null"));
+                OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+            }
+
+            // コールバックを設定
+            ResponseReceived += handler;
+
+            try {
+                // リクエストデータを生成
+                DataWriter writer = new DataWriter();
+                for (int i = 0; i < requestData.Length; i++) {
+                    writer.WriteByte(requestData[i]);
+                }
+
+                // リクエストを実行（U2F Control Pointに書込）
+                if (U2FControlPointChar != null) {
+                    GattCommunicationStatus result = await U2FControlPointChar.WriteValueAsync(writer.DetachBuffer(), GattWriteOption.WriteWithoutResponse);
+                    if (result != GattCommunicationStatus.Success) {
+                        OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+
+                    } else {
+                        // 応答タイムアウト監視開始
+                        ResponseTimer.Start();
+                    }
+
+                } else {
+                    AppLogUtil.OutputLogDebug(string.Format("BLEService.Send: U2F control point characteristic is null"));
+                    OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+                }
+
+            } catch (Exception e) {
+                OnResponseReceived(false, string.Format(MSG_REQUEST_SEND_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
+            }
+        }
+
+        //
+        // 応答タイムアウト時の処理
+        //
+        private void OnResponseTimerElapsed(object sender, EventArgs e)
+        {
+            // 応答タイムアウトを通知
+            OnResponseReceived(false, MSG_REQUEST_SEND_TIMED_OUT, Array.Empty<byte>());
+        }
+
+        //
+        // 受信処理（コールバック）
+        //
+        private void OnCharacteristicValueChanged(GattCharacteristic sender, GattValueChangedEventArgs eventArgs)
+        {
+            // 応答タイムアウト監視終了
+            ResponseTimer.Stop();
+
+            try {
+                // レスポンスを受領（U2F Statusを読込）
+                uint len = eventArgs.CharacteristicValue.Length;
+                byte[] responseBytes = new byte[len];
+                DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(responseBytes);
+
+                // レスポンスを転送
+                OnResponseReceived(true, string.Empty, responseBytes);
+
+            } catch (Exception e) {
+                OnResponseReceived(false, string.Format(MSG_RESPONSE_RECEIVE_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
             }
         }
 
@@ -174,6 +276,9 @@ namespace DesktopTool
         private void StopCommunicate()
         {
             try {
+                if (U2FStatusChar != null) {
+                    U2FStatusChar.ValueChanged -= OnCharacteristicValueChanged;
+                }
                 if (BLEservice != null) {
                     BLEservice.Dispose();
                 }
@@ -212,6 +317,7 @@ namespace DesktopTool
             BluetoothLEDevice = null!;
             BLEservice = null!;
             U2FStatusChar = null!;
+            U2FControlPointChar = null!;
 
             // コールバック解除
             ConnectionStatusChanged = null!;

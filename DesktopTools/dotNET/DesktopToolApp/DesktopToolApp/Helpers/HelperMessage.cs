@@ -19,5 +19,11 @@
         public const string MSG_BLE_U2F_DEVICE_NOT_FOUND = "BLEサービスが動作するデバイスが見つかりません。";
         public const string MSG_BLE_U2F_SERVICE_NOT_FOUND = "BLEサービスが見つかりません。";
         public const string MSG_BLE_U2F_SERVICE_FOUND = "BLEサービスが見つかりました。";
+
+        // トランスポート共通
+        public const string MSG_REQUEST_SEND_FAILED = "リクエスト送信が失敗しました。";
+        public const string MSG_REQUEST_SEND_FAILED_WITH_EXCEPTION = "リクエスト送信が失敗しました：{0}";
+        public const string MSG_REQUEST_SEND_TIMED_OUT = "リクエスト送信がタイムアウトしました。";
+        public const string MSG_RESPONSE_RECEIVE_FAILED_WITH_EXCEPTION = "レスポンス受信が失敗しました：{0}";
     }
 }
