@@ -181,48 +181,48 @@ namespace DesktopTool
         //
         // 送受信関連イベント
         //
-        public delegate void ResponseReceivedHandler(BLEService sender, bool success, string errorMessage, byte[] receivedData);
-        private event ResponseReceivedHandler ResponseReceived = null!;
+        public delegate void FrameReceivedHandler(BLEService sender, bool success, string errorMessage, byte[] frameBytes);
+        private event FrameReceivedHandler FrameReceived = null!;
 
-        public void RegisterResponseReceivedHandler(ResponseReceivedHandler handler)
+        public void RegisterFrameReceivedHandler(FrameReceivedHandler handler)
         {
             // コールバックを設定
-            ResponseReceived += handler;
+            FrameReceived += handler;
         }
 
-        public void UnregisterResponseReceivedHandler(ResponseReceivedHandler handler)
+        public void UnregisterFrameReceivedHandler(FrameReceivedHandler handler)
         {
             // コールバック設定を解除
-            ResponseReceived -= handler;
+            FrameReceived -= handler;
         }
 
-        private void OnResponseReceived(bool success, string errorMessage, byte[] receivedData)
+        private void OnFrameReceived(bool success, string errorMessage, byte[] frameBytes)
         {
-            ResponseReceived?.Invoke(this, success, errorMessage, receivedData);
+            FrameReceived?.Invoke(this, success, errorMessage, frameBytes);
         }
 
         //
         // 送信処理
         // 
-        public async void SendFrame(byte[] requestData)
+        public async void SendFrame(byte[] frameBytes)
         {
             if (BLEservice == null) {
                 AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: service is null"));
-                OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+                OnFrameReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
             }
 
             try {
                 // リクエストデータを生成
                 DataWriter writer = new DataWriter();
-                for (int i = 0; i < requestData.Length; i++) {
-                    writer.WriteByte(requestData[i]);
+                for (int i = 0; i < frameBytes.Length; i++) {
+                    writer.WriteByte(frameBytes[i]);
                 }
 
                 // リクエストを実行（U2F Control Pointに書込）
                 if (U2FControlPointChar != null) {
                     GattCommunicationStatus result = await U2FControlPointChar.WriteValueAsync(writer.DetachBuffer(), GattWriteOption.WriteWithoutResponse);
                     if (result != GattCommunicationStatus.Success) {
-                        OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+                        OnFrameReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
 
                     } else {
                         // 応答タイムアウト監視開始
@@ -231,11 +231,11 @@ namespace DesktopTool
 
                 } else {
                     AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: U2F control point characteristic is null"));
-                    OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
+                    OnFrameReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
                 }
 
             } catch (Exception e) {
-                OnResponseReceived(false, string.Format(MSG_REQUEST_SEND_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
+                OnFrameReceived(false, string.Format(MSG_REQUEST_SEND_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
             }
         }
 
@@ -245,7 +245,7 @@ namespace DesktopTool
         private void OnResponseTimerElapsed(object sender, EventArgs e)
         {
             // 応答タイムアウトを通知
-            OnResponseReceived(false, MSG_REQUEST_SEND_TIMED_OUT, Array.Empty<byte>());
+            OnFrameReceived(false, MSG_REQUEST_SEND_TIMED_OUT, Array.Empty<byte>());
         }
 
         //
@@ -259,14 +259,14 @@ namespace DesktopTool
             try {
                 // レスポンスを受領（U2F Statusを読込）
                 uint len = eventArgs.CharacteristicValue.Length;
-                byte[] responseBytes = new byte[len];
-                DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(responseBytes);
+                byte[] frameBytes = new byte[len];
+                DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(frameBytes);
 
                 // レスポンスを転送
-                OnResponseReceived(true, string.Empty, responseBytes);
+                OnFrameReceived(true, string.Empty, frameBytes);
 
             } catch (Exception e) {
-                OnResponseReceived(false, string.Format(MSG_RESPONSE_RECEIVE_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
+                OnFrameReceived(false, string.Format(MSG_RESPONSE_RECEIVE_FAILED_WITH_EXCEPTION, e.Message), Array.Empty<byte>());
             }
         }
 
