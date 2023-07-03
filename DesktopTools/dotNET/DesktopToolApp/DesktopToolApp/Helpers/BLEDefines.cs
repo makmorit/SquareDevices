@@ -12,6 +12,9 @@
         public const int U2F_BLE_CONT_HEADER_LEN = 1;
         public const int U2F_BLE_FRAME_LEN = 64;
 
+        // 性能関連
+        public const int U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC = 3000;
+
         // 定数
         public const uint WINDOWS_ERROR_NO_MORE_FILES = 0x80650012;
     }

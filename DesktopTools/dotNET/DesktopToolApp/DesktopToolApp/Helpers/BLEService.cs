@@ -33,7 +33,7 @@ namespace DesktopTool
         public BLEService()
         {
             // 応答タイムアウト発生時のイベントを登録
-            ResponseTimer = new CommonTimer("BLEService", 3000);
+            ResponseTimer = new CommonTimer("BLEService", U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC);
             ResponseTimer.CommandTimeoutEvent += OnResponseTimerElapsed;
             FreeResources();
         }
