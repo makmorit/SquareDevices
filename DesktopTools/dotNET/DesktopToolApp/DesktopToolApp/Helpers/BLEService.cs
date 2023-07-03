@@ -184,24 +184,32 @@ namespace DesktopTool
         public delegate void ResponseReceivedHandler(BLEService sender, bool success, string errorMessage, byte[] receivedData);
         private event ResponseReceivedHandler ResponseReceived = null!;
 
+        public void RegisterResponseReceivedHandler(ResponseReceivedHandler handler)
+        {
+            // コールバックを設定
+            ResponseReceived += handler;
+        }
+
+        public void UnregisterResponseReceivedHandler(ResponseReceivedHandler handler)
+        {
+            // コールバック設定を解除
+            ResponseReceived -= handler;
+        }
+
         private void OnResponseReceived(bool success, string errorMessage, byte[] receivedData)
         {
             ResponseReceived?.Invoke(this, success, errorMessage, receivedData);
-            ResponseReceived = null!;
         }
 
         //
         // 送信処理
         // 
-        public async void Send(byte[] requestData, ResponseReceivedHandler handler)
+        public async void Send(byte[] requestData)
         {
             if (BLEservice == null) {
                 AppLogUtil.OutputLogDebug(string.Format("BLEService.Send: service is null"));
                 OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
             }
-
-            // コールバックを設定
-            ResponseReceived += handler;
 
             try {
                 // リクエストデータを生成
