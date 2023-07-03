@@ -204,10 +204,10 @@ namespace DesktopTool
         //
         // 送信処理
         // 
-        public async void Send(byte[] requestData)
+        public async void SendFrame(byte[] requestData)
         {
             if (BLEservice == null) {
-                AppLogUtil.OutputLogDebug(string.Format("BLEService.Send: service is null"));
+                AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: service is null"));
                 OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
             }
 
@@ -230,7 +230,7 @@ namespace DesktopTool
                     }
 
                 } else {
-                    AppLogUtil.OutputLogDebug(string.Format("BLEService.Send: U2F control point characteristic is null"));
+                    AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: U2F control point characteristic is null"));
                     OnResponseReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
                 }
 
