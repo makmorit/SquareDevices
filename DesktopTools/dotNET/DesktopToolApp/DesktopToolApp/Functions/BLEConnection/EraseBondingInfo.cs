@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
+using static DesktopTool.FunctionDefines;
 
 namespace DesktopTool
 {
@@ -78,7 +79,7 @@ namespace DesktopTool
         private void PerformInquiryCommand(BLETransport sender)
         {
             // ペアリング情報削除コマンド（１回目）を実行
-            sender.SendRequest(0x83, new byte[] { 0x4f });
+            sender.SendRequest(0x80 | U2F_COMMAND_MSG, new byte[] { VENDOR_COMMAND_ERASE_BONDING_DATA });
         }
 
         private void PerformExecuteCommand(BLETransport sender, byte[] responseBytes)
@@ -87,10 +88,10 @@ namespace DesktopTool
             byte[] PeerID = responseBytes.Skip(1).ToArray();
 
             // 送信フレームを生成
-            byte[] frame = new byte[] { 0x4f }.Concat(PeerID).ToArray();
+            byte[] frame = new byte[] { VENDOR_COMMAND_ERASE_BONDING_DATA }.Concat(PeerID).ToArray();
 
             // ペアリング情報削除コマンド（２回目）を実行
-            sender.SendRequest(0x83, frame);
+            sender.SendRequest(0x80 | U2F_COMMAND_MSG, frame);
         }
     }
 }
