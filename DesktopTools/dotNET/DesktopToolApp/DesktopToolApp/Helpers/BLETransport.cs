@@ -263,7 +263,7 @@ namespace DesktopTool
                 }
 
                 byte responseCMD = (byte)(ReceivedResponse[0] & 0x7f);
-                if (responseCMD != 0x02) {
+                if (FunctionUtil.CommandIsU2FKeepAlive(responseCMD) == false) {
                     // キープアライブ以外の場合はログを出力
                     string dump = AppLogUtil.DumpMessage(frameBytes, frameBytes.Length);
                     AppLogUtil.OutputLogDebug(string.Format(
@@ -292,7 +292,7 @@ namespace DesktopTool
             if (ReceivedSize == ReceivedResponseLen) {
                 // CMDを抽出
                 byte responseCMD = (byte)(ReceivedResponse[0] & 0x7f);
-                if (responseCMD == 0x02) {
+                if (FunctionUtil.CommandIsU2FKeepAlive(responseCMD)) {
                     // キープアライブの場合は引き続き次のレスポンスを待つ
                     return;
                 }
