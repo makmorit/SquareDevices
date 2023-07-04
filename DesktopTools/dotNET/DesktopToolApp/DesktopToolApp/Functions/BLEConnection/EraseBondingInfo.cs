@@ -41,7 +41,7 @@ namespace DesktopTool
             }
 
             byte status = responseBytes[0];
-            if (status != 0) {
+            if (status != CTAP1_ERR_SUCCESS) {
                 TerminateCommand(sender, false, string.Format(MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status));
                 return;
             }
