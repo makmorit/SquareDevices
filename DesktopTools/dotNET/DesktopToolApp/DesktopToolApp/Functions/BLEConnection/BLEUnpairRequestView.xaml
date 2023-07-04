@@ -11,5 +11,6 @@
     </UserControl.DataContext>
     <Grid>
         <Label x:Name="labelTitle" Content="{Binding Title}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="400" FontSize="15" FontWeight="Bold" Foreground="#FF525252"/>
+        <Button x:Name="buttonClose" Content="閉じる" Command="{Binding ButtonCloseClicked}" IsEnabled="true" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="269,50,0,0" Width="110" Height="24" FontSize="12"/>
     </Grid>
 </UserControl>

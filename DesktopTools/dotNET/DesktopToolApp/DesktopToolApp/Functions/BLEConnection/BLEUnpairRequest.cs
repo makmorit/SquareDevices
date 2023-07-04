@@ -29,6 +29,12 @@
             Instance.InitFunctionViewInner(model);
         }
 
+        public static void CloseFunctionView(BLEUnpairRequestViewModel model)
+        {
+            // メイン画面右側の領域からビューを消す
+            FunctionManager.HideFunctionView();
+        }
+
         //
         // 内部処理
         //
