@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
+using static DesktopTool.FunctionDefines;
 
 namespace DesktopTool
 {
@@ -45,6 +46,14 @@ namespace DesktopTool
             string message = string.Format(messageFormat, processName);
             AppLogUtil.OutputLogInfo(message);
             DisplayTextOnApp(message, AppendStatusText);
+        }
+
+        //
+        // ユーティリティー
+        //
+        public static bool CommandIsU2FKeepAlive(byte CMD)
+        {
+            return (CMD == U2F_COMMAND_KEEPALIVE);
         }
     }
 }
