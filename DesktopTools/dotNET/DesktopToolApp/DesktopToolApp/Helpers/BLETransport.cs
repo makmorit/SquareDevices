@@ -170,7 +170,7 @@ namespace DesktopTool
                 if (transferred == 0) {
                     // INITフレーム
                     // ヘッダーをコピー
-                    frameData[0] = requestCMD;
+                    frameData[0] = (byte)(0x80 | requestCMD);
                     frameData[1] = (byte)(transferBytesLen / 256);
                     frameData[2] = (byte)(transferBytesLen % 256);
 
@@ -262,7 +262,8 @@ namespace DesktopTool
                     ReceivedResponse[U2F_BLE_INIT_HEADER_LEN + ReceivedSize++] = frameBytes[U2F_BLE_INIT_HEADER_LEN + i];
                 }
 
-                if (ReceivedResponse[0] != 0x82) {
+                byte responseCMD = (byte)(ReceivedResponse[0] & 0x7f);
+                if (responseCMD != 0x02) {
                     // キープアライブ以外の場合はログを出力
                     string dump = AppLogUtil.DumpMessage(frameBytes, frameBytes.Length);
                     AppLogUtil.OutputLogDebug(string.Format(
@@ -290,8 +291,8 @@ namespace DesktopTool
             // 全フレームがそろった場合
             if (ReceivedSize == ReceivedResponseLen) {
                 // CMDを抽出
-                byte responseCMD = ReceivedResponse[0];
-                if (responseCMD == 0x82) {
+                byte responseCMD = (byte)(ReceivedResponse[0] & 0x7f);
+                if (responseCMD == 0x02) {
                     // キープアライブの場合は引き続き次のレスポンスを待つ
                     return;
                 }

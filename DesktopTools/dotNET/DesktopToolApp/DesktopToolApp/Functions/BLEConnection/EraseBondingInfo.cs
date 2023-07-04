@@ -79,7 +79,7 @@ namespace DesktopTool
         private void PerformInquiryCommand(BLETransport sender)
         {
             // ペアリング情報削除コマンド（１回目）を実行
-            sender.SendRequest(0x80 | U2F_COMMAND_MSG, new byte[] { VENDOR_COMMAND_ERASE_BONDING_DATA });
+            sender.SendRequest(U2F_COMMAND_MSG, new byte[] { VENDOR_COMMAND_ERASE_BONDING_DATA });
         }
 
         private void PerformExecuteCommand(BLETransport sender, byte[] responseBytes)
@@ -91,7 +91,7 @@ namespace DesktopTool
             byte[] frame = new byte[] { VENDOR_COMMAND_ERASE_BONDING_DATA }.Concat(PeerID).ToArray();
 
             // ペアリング情報削除コマンド（２回目）を実行
-            sender.SendRequest(0x80 | U2F_COMMAND_MSG, frame);
+            sender.SendRequest(U2F_COMMAND_MSG, frame);
         }
     }
 }
