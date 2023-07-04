@@ -7,6 +7,7 @@
         public const string MSG_FORMAT_SUCCESS_MESSAGE = "{0}が成功しました。";
         public const string MSG_FORMAT_FAILURE_MESSAGE = "{0}が失敗しました。";
         public const string MSG_FORMAT_PROCESSING_MESSAGE = "しばらくお待ちください...";
+        public const string MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST = "不明なエラーが発生しました（Status=0x{0:x2}）";
 
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";
         public const string MSG_MENU_ITEM_NAME_BLE_PAIRING = "ペアリング実行";

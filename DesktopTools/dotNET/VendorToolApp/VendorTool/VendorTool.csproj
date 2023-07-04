@@ -12,7 +12,7 @@
     <Company>makmorit</Company>
     <Product>VendorTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).003</FileVersion>
+    <FileVersion>$(Version).005</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
