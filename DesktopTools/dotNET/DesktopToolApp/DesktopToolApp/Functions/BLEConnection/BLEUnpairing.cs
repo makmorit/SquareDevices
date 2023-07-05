@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
 
@@ -41,19 +43,20 @@ namespace DesktopTool
 
         private void OnResponseExecuteCommand(BLETransport sender, byte[] responseBytes)
         {
-            // TODO: 仮の実装です。
-            PerformCancelCommand(sender);
+            // ペアリング解除待機画面を表示
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                ShowUnpairingRequestWindow(sender);
+            }));
         }
 
         private void OnResponseCancelCommand(BLETransport sender, byte[] responseBytes)
         {
-            // TODO: 仮の実装です。
+            // ペアリング解除要求キャンセルが完了
             TerminateCommand(sender, true, string.Empty);
         }
 
         private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
         {
-
             // 接続を終了
             sender.Disconnect();
 
@@ -119,6 +122,21 @@ namespace DesktopTool
 
             } else {
                 OnResponseCancelCommand(sender, responseBytes);
+            }
+        }
+
+        private void ShowUnpairingRequestWindow(BLETransport sender)
+        {
+            // ペアリング解除待機画面を表示
+            BLEUnpairRequestParam parameter = new BLEUnpairRequestParam(sender.ConnectedDeviceName());
+            BLEUnpairRequest unpairRequest = new BLEUnpairRequest(parameter);
+            if (unpairRequest.OpenForm() == false) {
+                // ペアリング解除要求をキャンセル
+                PerformCancelCommand(sender);
+
+            } else {
+                // ペアリング解除が完了
+                TerminateCommand(sender, true, string.Empty);
             }
         }
     }

@@ -12,6 +12,7 @@ namespace DesktopTool
         {
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
             Title = string.Empty;
+            try { BLEUnpairRequest.InitView(this); } catch { }
         }
 
         public ICommand ButtonCloseClicked
