@@ -59,7 +59,7 @@ namespace DesktopTool
                 new BLEPairing(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_UNPAIRING)) {
-                new BLEUnpairRequest(menuItemName);
+                new BLEUnpairing(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_ERASE_BOND)) {
                 new EraseBondingInfo(menuItemName);
