@@ -1,54 +1,47 @@
-﻿namespace DesktopTool
+﻿using System.Windows;
+using static DesktopTool.FunctionMessage;
+
+namespace DesktopTool
 {
     internal class BLEUnpairRequest
     {
         // このクラスのインスタンス
         public static BLEUnpairRequest Instance = null!;
-        public BLEUnpairRequestViewModel ViewModel = null!;
+        private BLEUnpairRequestWindow Window = null!;
 
-        // メニュー項目名称を保持
-        protected string MenuItemName;
-
-        public BLEUnpairRequest(string menuItemName)
+        public BLEUnpairRequest()
         {
-            // このクラスのインスタンスを保持
             Instance = this;
+        }
 
-            // メニュー項目名称を保持
-            MenuItemName = menuItemName;
+        public bool OpenForm()
+        {
+            // この画面を、オーナー画面の中央にモード付きで表示
+            Window = new BLEUnpairRequestWindow();
+            Window.Owner = Application.Current.MainWindow; ;
+            bool? b = Window.ShowDialog();
+            if (b == null) {
+                return false;
+            } else {
+                return (bool)b;
+            }
+        }
 
-            // 画面表示前の処理を実行
-            Instance.PreProcess();
+        private void NotifyTerminateInner(bool b)
+        {
+            // この画面を閉じる
+            Window.DialogResult = b;
+            Window.Close();
+            Window = null!;
         }
 
         //
         // コールバック関数
         //
-        public static void InitFunctionView(BLEUnpairRequestViewModel model)
+        public static void OnCancel(BLEUnpairRequestViewModel model)
         {
-            Instance.InitFunctionViewInner(model);
-        }
-
-        public static void CloseFunctionView(BLEUnpairRequestViewModel model)
-        {
-            // メイン画面右側の領域からビューを消す
-            FunctionManager.HideFunctionView();
-        }
-
-        //
-        // 内部処理
-        //
-        private void PreProcess()
-        {
-            // メイン画面右側の領域にビューを表示
-            FunctionView.SetViewContent(new BLEUnpairRequestView());
-            FunctionManager.ShowFunctionView();
-        }
-
-        private void InitFunctionViewInner(BLEUnpairRequestViewModel model)
-        {
-            // メニュー項目名を画面表示
-            model.ShowTitle(MenuItemName);
+            // 画面を閉じる
+            Instance.NotifyTerminateInner(false);
         }
     }
 }
