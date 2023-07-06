@@ -89,6 +89,12 @@ namespace DesktopTool
             }
         }
 
+        public string ConnectedDeviceName()
+        {
+            // 接続先のデバイス名称を取得
+            return BLEServiceRef.ConnectedDeviceName();
+        }
+
         //
         // 切断処理
         //
