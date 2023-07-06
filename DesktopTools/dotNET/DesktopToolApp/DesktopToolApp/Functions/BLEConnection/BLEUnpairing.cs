@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -157,8 +156,10 @@ namespace DesktopTool
                     return;
                 }
 
-                // TODO: 仮の実装です。
-                AppLogUtil.OutputLogError("BLEUnpairing.NotifyConnectionStatusHandler: BLE disconnected");
+                // ペアリング解除待機画面を閉じる
+                Application.Current.Dispatcher.Invoke(new Action(() => {
+                    UnpairRequest.CloseForm(true);
+                }));
             }
         }
 

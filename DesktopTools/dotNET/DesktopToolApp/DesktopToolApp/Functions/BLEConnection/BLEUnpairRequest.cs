@@ -39,6 +39,12 @@ namespace DesktopTool
             }
         }
 
+        public void CloseForm(bool dialogResult)
+        {
+            // 画面を閉じる
+            NotifyTerminateInner(dialogResult);
+        }
+
         private void NotifyTerminateInner(bool b)
         {
             // この画面を閉じる
