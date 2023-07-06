@@ -54,10 +54,28 @@ namespace DesktopTool
         private void OnResponseCancelCommand(BLETransport sender, byte[] responseBytes)
         {
             // ペアリング解除要求キャンセルが完了
-            TerminateCommand(sender, true, string.Empty);
+            CancelCommand(sender, true, string.Empty);
+        }
+
+        private void CancelCommand(BLETransport sender, bool success, string errorMessage)
+        {
+            // 終了処理を実行
+            Terminate(sender, success, errorMessage);
+
+            // 後続処理を実行
+            CancelProcess();
         }
 
         private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
+        {
+            // 終了処理を実行
+            Terminate(sender, success, errorMessage);
+
+            // 後続処理を実行
+            ResumeProcess(success);
+        }
+
+        private void Terminate(BLETransport sender, bool success, string errorMessage)
         {
             // コールバックを解除
             sender.UnregisterResponseReceivedHandler(ResponseReceivedHandler);
@@ -70,9 +88,6 @@ namespace DesktopTool
                 // 失敗時はログ出力
                 LogAndShowErrorMessage(errorMessage);
             }
-
-            // 後続処理を実行
-            ResumeProcess(success);
         }
 
         //
@@ -165,6 +180,9 @@ namespace DesktopTool
                 // ペアリング解除が完了
                 TerminateCommand(sender, true, string.Empty);
             }
+
+            // ペアリング解除待機処理クラスの参照をクリア
+            UnpairRequest = null!;
         }
     }
 }

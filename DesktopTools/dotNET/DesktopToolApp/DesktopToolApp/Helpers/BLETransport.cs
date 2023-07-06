@@ -1,6 +1,5 @@
 ﻿using AppCommon;
 using System;
-using System.Data;
 using System.Linq;
 using static DesktopTool.BLEDefines;
 using static DesktopTool.HelperMessage;
