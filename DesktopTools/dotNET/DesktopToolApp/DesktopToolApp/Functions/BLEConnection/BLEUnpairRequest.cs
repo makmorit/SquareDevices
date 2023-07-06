@@ -63,8 +63,11 @@ namespace DesktopTool
             model.ShowTitle(message);
 
             // TODO: 仮の実装です。
-            message = string.Format(MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, 30);
+            int level = 30;
+            message = string.Format(MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, level);
             model.ShowRemaining(message);
+            model.SetMaxLevel(level);
+            model.SetLevel(level);
         }
 
         public static void OnCancel(BLEUnpairRequestViewModel model)
