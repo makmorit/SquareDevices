@@ -7,11 +7,13 @@ namespace DesktopTool
     {
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
         private string title = null!;
+        private string remaining = null!;
 
         public BLEUnpairRequestViewModel()
         {
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
             Title = string.Empty;
+            Remaining = string.Empty;
             try { BLEUnpairRequest.InitView(this); } catch { }
         }
 
@@ -24,6 +26,12 @@ namespace DesktopTool
         {
             get { return title; }
             set { title = value; NotifyPropertyChanged(nameof(Title)); }
+        }
+
+        public string Remaining
+        {
+            get { return remaining; }
+            set { remaining = value; NotifyPropertyChanged(nameof(Remaining)); }
         }
 
         //
@@ -40,6 +48,11 @@ namespace DesktopTool
         public void ShowTitle(string text)
         {
             Title = text;
+        }
+
+        public void ShowRemaining(string text)
+        {
+            Remaining = text;
         }
     }
 }

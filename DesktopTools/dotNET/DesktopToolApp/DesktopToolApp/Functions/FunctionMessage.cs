@@ -36,6 +36,7 @@
         // ペアリング解除要求
         public const string MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC = "ペアリング解除要求中に、BLEデバイスからの切断が検知されました。";
         public const string MSG_BLE_UNPAIRING_WAIT_DISCONNECT = "Bluetooth環境設定から\nデバイス「{0}」が\n削除されるのを待機しています。";
+        public const string MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT = "あと {0} 秒";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";

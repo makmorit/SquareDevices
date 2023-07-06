@@ -61,6 +61,10 @@ namespace DesktopTool
             string deviceName = Instance.Parameter.ConnectedDeviceName;
             string message = string.Format(MSG_BLE_UNPAIRING_WAIT_DISCONNECT, deviceName);
             model.ShowTitle(message);
+
+            // TODO: 仮の実装です。
+            message = string.Format(MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, 30);
+            model.ShowRemaining(message);
         }
 
         public static void OnCancel(BLEUnpairRequestViewModel model)
