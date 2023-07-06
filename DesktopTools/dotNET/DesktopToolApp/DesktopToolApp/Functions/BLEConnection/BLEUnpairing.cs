@@ -109,11 +109,13 @@ namespace DesktopTool
 
         private void ResponseReceivedHandler(BLETransport sender, bool success, string errorMessage, byte responseCMD, byte[] responseBytes)
         {
+            // レスポンス受信失敗時はエラー扱い
             if (success == false) {
                 TerminateCommand(sender, false, errorMessage);
                 return;
             }
 
+            // レスポンスステータスをチェック
             byte status = responseBytes[0];
             if (status != CTAP1_ERR_SUCCESS) {
                 TerminateCommand(sender, false, string.Format(MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status));
@@ -150,8 +152,10 @@ namespace DesktopTool
 
         private void ShowUnpairingRequestWindow(BLETransport sender)
         {
-            // ペアリング解除待機画面を表示
+            // 現在接続中のデバイス名称をパラメーターに設定
             BLEUnpairRequestParam parameter = new BLEUnpairRequestParam(sender.ConnectedDeviceName());
+
+            // ペアリング解除待機画面を表示
             UnpairRequest = new BLEUnpairRequest(parameter);
             if (UnpairRequest.OpenForm() == false) {
                 // ペアリング解除要求をキャンセル
