@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCommon;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +31,7 @@ namespace DesktopTool
 
             // コールバックを登録
             sender.RegisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.RegisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
 
             // ペアリング解除要求コマンド（１回目）を実行
             PerformInquiryCommand(sender);
@@ -57,6 +59,10 @@ namespace DesktopTool
 
         private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
         {
+            // コールバックを解除
+            sender.UnregisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.UnregisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
+
             // 接続を終了
             sender.Disconnect();
 
@@ -122,6 +128,14 @@ namespace DesktopTool
 
             } else {
                 OnResponseCancelCommand(sender, responseBytes);
+            }
+        }
+
+        private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
+        {
+            if (connected == false) {
+                // TODO: 仮の実装です。
+                AppLogUtil.OutputLogError("BLEUnpairing.NotifyConnectionStatusHandler: BLE disconnected");
             }
         }
 
