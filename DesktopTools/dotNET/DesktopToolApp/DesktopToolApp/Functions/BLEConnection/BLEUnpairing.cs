@@ -134,17 +134,26 @@ namespace DesktopTool
         private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
         {
             if (connected == false) {
+                if (UnpairRequest == null) {
+                    // ペアリング解除待機前に接続断が検知された場合はエラー扱い
+                    TerminateCommand(sender, false, MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC);
+                    return;
+                }
+
                 // TODO: 仮の実装です。
                 AppLogUtil.OutputLogError("BLEUnpairing.NotifyConnectionStatusHandler: BLE disconnected");
             }
         }
 
+        // ペアリング解除待機処理クラスの参照を保持
+        BLEUnpairRequest UnpairRequest = null!;
+
         private void ShowUnpairingRequestWindow(BLETransport sender)
         {
             // ペアリング解除待機画面を表示
             BLEUnpairRequestParam parameter = new BLEUnpairRequestParam(sender.ConnectedDeviceName());
-            BLEUnpairRequest unpairRequest = new BLEUnpairRequest(parameter);
-            if (unpairRequest.OpenForm() == false) {
+            UnpairRequest = new BLEUnpairRequest(parameter);
+            if (UnpairRequest.OpenForm() == false) {
                 // ペアリング解除要求をキャンセル
                 PerformCancelCommand(sender);
 
