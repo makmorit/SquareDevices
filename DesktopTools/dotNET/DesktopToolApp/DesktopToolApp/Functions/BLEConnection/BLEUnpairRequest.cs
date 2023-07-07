@@ -15,6 +15,9 @@ namespace DesktopTool
 
     internal class BLEUnpairRequest
     {
+        // Bluetooth環境設定からデバイスが削除されるのを待機する時間（秒）
+        public const int UNPAIRING_REQUEST_WAITING_SEC = 30;
+
         // このクラスのインスタンス
         public static BLEUnpairRequest Instance = null!;
         private BLEUnpairRequestWindow Window = null!;
@@ -58,22 +61,34 @@ namespace DesktopTool
         //
         public static void InitView(BLEUnpairRequestViewModel model)
         {
+            // 接続中のデバイス名称を画面表示
             string deviceName = Instance.Parameter.ConnectedDeviceName;
             string message = string.Format(MSG_BLE_UNPAIRING_WAIT_DISCONNECT, deviceName);
             model.ShowTitle(message);
 
-            // TODO: 仮の実装です。
-            int level = 30;
-            message = string.Format(MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, level);
-            model.ShowRemaining(message);
+            // 最大待機秒数を設定
+            int level = UNPAIRING_REQUEST_WAITING_SEC;
             model.SetMaxLevel(level);
-            model.SetLevel(level);
+
+            // 残り秒数を画面表示
+            NotifyProgress(model, level);
         }
 
         public static void OnCancel(BLEUnpairRequestViewModel model)
         {
             // 画面を閉じる
             Instance.NotifyTerminateInner(false);
+        }
+
+        //
+        // 内部処理
+        //
+        private static void NotifyProgress(BLEUnpairRequestViewModel model, int remaining)
+        {
+            // 残り秒数をペアリング解除待機画面に表示
+            string message = string.Format(MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, remaining);
+            model.ShowRemaining(message);
+            model.SetLevel(remaining);
         }
     }
 }
