@@ -2,12 +2,27 @@
 using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FunctionDefines;
+using System.Windows;
 
 namespace DesktopTool
 {
     internal class EraseBondingInfo : ToolDoProcess
     {
         public EraseBondingInfo(string menuItemName) : base(menuItemName) { }
+
+        protected override void ShowPromptForStartProcess(ToolDoProcessViewModel model)
+        {
+            // 確認メッセージを表示し、Yesの場合だけ処理を続行する
+            Window parentWindow = Application.Current.MainWindow;
+            string message = string.Format("{0}\n\n{1}", MSG_BLE_ERASE_BONDS, MSG_PROMPT_BLE_ERASE_BONDS);
+            if (DialogUtil.DisplayPromptPopup(parentWindow, MenuItemName, message) == false) {
+                return;
+            }
+
+            // 後続処理を実行
+            base.ShowPromptForStartProcess(model);
+        }
+
 
         protected override void InvokeProcessOnSubThread()
         {
