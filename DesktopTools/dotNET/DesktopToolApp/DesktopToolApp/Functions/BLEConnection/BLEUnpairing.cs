@@ -174,6 +174,9 @@ namespace DesktopTool
             // ペアリング解除待機画面を表示
             UnpairRequest = new BLEUnpairRequest(parameter);
             if (UnpairRequest.OpenForm() == false) {
+                // キャンセル事由をログ出力
+                LogAndShowInfoMessage(parameter.ErrorMessage);
+
                 // ペアリング解除要求をキャンセル
                 PerformCancelCommand(sender);
 
