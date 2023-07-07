@@ -38,7 +38,7 @@
         public const string MSG_BLE_UNPAIRING_WAIT_DISCONNECT = "Bluetooth環境設定から\nデバイス「{0}」が\n削除されるのを待機しています。";
         public const string MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT = "あと {0} 秒";
         public const string MSG_BLE_UNPAIRING_WAIT_CANCELED = "ユーザーがペアリング解除を中止しました。";
-        public const string MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT = "Bluetooth環境設定からのデバイス削除が検知されませんでした。ペアリング解除要求を中止します。";
+        public const string MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT = "Bluetooth環境設定からのデバイス削除が検知されませんでした。";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
