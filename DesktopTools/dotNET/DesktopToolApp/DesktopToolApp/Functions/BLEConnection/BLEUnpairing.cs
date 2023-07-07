@@ -30,6 +30,7 @@ namespace DesktopTool
 
             // コールバックを登録
             sender.RegisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.RegisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
 
             // ペアリング解除要求コマンド（１回目）を実行
             PerformInquiryCommand(sender);
@@ -52,11 +53,33 @@ namespace DesktopTool
         private void OnResponseCancelCommand(BLETransport sender, byte[] responseBytes)
         {
             // ペアリング解除要求キャンセルが完了
-            TerminateCommand(sender, true, string.Empty);
+            CancelCommand(sender, true, string.Empty);
+        }
+
+        private void CancelCommand(BLETransport sender, bool success, string errorMessage)
+        {
+            // 終了処理を実行
+            Terminate(sender, success, errorMessage);
+
+            // 後続処理を実行
+            CancelProcess();
         }
 
         private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
         {
+            // 終了処理を実行
+            Terminate(sender, success, errorMessage);
+
+            // 後続処理を実行
+            ResumeProcess(success);
+        }
+
+        private void Terminate(BLETransport sender, bool success, string errorMessage)
+        {
+            // コールバックを解除
+            sender.UnregisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.UnregisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
+
             // 接続を終了
             sender.Disconnect();
 
@@ -64,9 +87,6 @@ namespace DesktopTool
                 // 失敗時はログ出力
                 LogAndShowErrorMessage(errorMessage);
             }
-
-            // 後続処理を実行
-            ResumeProcess(success);
         }
 
         //
@@ -103,11 +123,13 @@ namespace DesktopTool
 
         private void ResponseReceivedHandler(BLETransport sender, bool success, string errorMessage, byte responseCMD, byte[] responseBytes)
         {
+            // レスポンス受信失敗時はエラー扱い
             if (success == false) {
                 TerminateCommand(sender, false, errorMessage);
                 return;
             }
 
+            // レスポンスステータスをチェック
             byte status = responseBytes[0];
             if (status != CTAP1_ERR_SUCCESS) {
                 TerminateCommand(sender, false, string.Format(MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status));
@@ -125,12 +147,36 @@ namespace DesktopTool
             }
         }
 
+        private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
+        {
+            if (connected == false) {
+                if (UnpairRequest == null) {
+                    // ペアリング解除待機前に接続断が検知された場合はエラー扱い
+                    TerminateCommand(sender, false, MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC);
+                    return;
+                }
+
+                // ペアリング解除待機画面を閉じる
+                Application.Current.Dispatcher.Invoke(new Action(() => {
+                    UnpairRequest.CloseForm(true);
+                }));
+            }
+        }
+
+        // ペアリング解除待機処理クラスの参照を保持
+        BLEUnpairRequest UnpairRequest = null!;
+
         private void ShowUnpairingRequestWindow(BLETransport sender)
         {
-            // ペアリング解除待機画面を表示
+            // 現在接続中のデバイス名称をパラメーターに設定
             BLEUnpairRequestParam parameter = new BLEUnpairRequestParam(sender.ConnectedDeviceName());
-            BLEUnpairRequest unpairRequest = new BLEUnpairRequest(parameter);
-            if (unpairRequest.OpenForm() == false) {
+
+            // ペアリング解除待機画面を表示
+            UnpairRequest = new BLEUnpairRequest(parameter);
+            if (UnpairRequest.OpenForm() == false) {
+                // キャンセル事由をログ出力
+                LogAndShowInfoMessage(parameter.ErrorMessage);
+
                 // ペアリング解除要求をキャンセル
                 PerformCancelCommand(sender);
 
@@ -138,6 +184,9 @@ namespace DesktopTool
                 // ペアリング解除が完了
                 TerminateCommand(sender, true, string.Empty);
             }
+
+            // ペアリング解除待機処理クラスの参照をクリア
+            UnpairRequest = null!;
         }
     }
 }

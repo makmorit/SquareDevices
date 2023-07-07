@@ -35,7 +35,8 @@ namespace DesktopTool
 
         public static void StartProcess(ToolDoProcessViewModel model)
         {
-            Instance.StartProcessInner(model);
+            // 処理実行前に、必要に応じ確認ダイアログをポップアップ表示
+            Instance.ShowPromptForStartProcess(model);
         }
 
         public static void CloseFunctionView(ToolDoProcessViewModel model)
@@ -58,6 +59,11 @@ namespace DesktopTool
         {
             // メニュー項目名を画面表示
             model.ShowTitle(MenuItemName);
+        }
+
+        protected virtual void ShowPromptForStartProcess(ToolDoProcessViewModel model)
+        {
+            StartProcessInner(model);
         }
 
         private void StartProcessInner(ToolDoProcessViewModel model)

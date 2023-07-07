@@ -31,7 +31,7 @@ namespace DesktopTool
         {
             // ヘルパークラスの参照を保持
             BLEServiceRef = serviceRef;
-            
+
             // コールバックを実行
             NotifyConnection?.Invoke(this, true, string.Empty);
             NotifyConnection = null!;
@@ -87,6 +87,9 @@ namespace DesktopTool
                 sender.Disconnect();
                 AppLogUtil.OutputLogInfo(MSG_NOTIFY_DISCONNECT_BLE_DEVICE);
             }
+
+            // このクラスのコールバックを実行
+            NotifyConnectionStatus?.Invoke(this, connected);
         }
 
         public string ConnectedDeviceName()
@@ -104,6 +107,24 @@ namespace DesktopTool
                 BLEServiceRef.Disconnect();
                 AppLogUtil.OutputLogInfo(MSG_DISCONNECT_BLE_DEVICE);
             }
+        }
+
+        //
+        // 接続検知関連イベント
+        //
+        public delegate void NotifyConnectionStatusHandler(BLETransport sender, bool connected);
+        private event NotifyConnectionStatusHandler NotifyConnectionStatus = null!;
+
+        public void RegisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler handler)
+        {
+            // コールバックを設定
+            NotifyConnectionStatus += handler;
+        }
+
+        public void UnregisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler handler)
+        {
+            // コールバック設定を解除
+            NotifyConnectionStatus -= handler;
         }
 
         //

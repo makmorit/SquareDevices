@@ -34,7 +34,15 @@
         public const string MSG_PROMPT_INPUT_PAIRING_PASSCODE_NUM = "パスコードを数字で入力してください";
 
         // ペアリング解除要求
-        public const string MSG_BLE_UNPAIRING_WAIT_DISCONNECT = "Bluetooth環境設定から\nデバイス「{0}」が\n削除されるのを待機しています。";
+        public const string MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC = "ペアリング解除要求中に、BLEデバイスからの切断が検知されました。";
+        public const string MSG_BLE_UNPAIRING_WAIT_DISCONNECT = "Bluetooth環境設定から\nデバイス「{0}」を削除すると、\nデバイスとのペアリングが解除されます。";
+        public const string MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT = "あと {0} 秒";
+        public const string MSG_BLE_UNPAIRING_WAIT_CANCELED = "BLEデバイスのペアリング解除をユーザーが中止しました。";
+        public const string MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT = "Bluetooth環境設定からのデバイス削除が検知されませんでした。";
+
+        // ペアリング情報削除
+        public const string MSG_BLE_ERASE_BONDS = "BLEデバイスからペアリング情報をすべて削除します。";
+        public const string MSG_PROMPT_BLE_ERASE_BONDS = "削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
