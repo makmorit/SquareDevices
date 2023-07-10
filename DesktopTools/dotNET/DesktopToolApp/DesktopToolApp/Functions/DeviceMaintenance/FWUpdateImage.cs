@@ -71,9 +71,16 @@ namespace DesktopTool
                 return;
             }
 
+            // ファームウェア更新イメージファイルから、更新バージョンを取得
+            string UpdateVersion = GetUpdateVersionFromDFUImage(VersionData.HWRev, UpdateImageData);
+
+            // 更新イメージファイル名からバージョンが取得できていない場合は利用不可
+            if (UpdateVersion.Equals("")) {
+                Terminate(false, MSG_FW_UPDATE_FUNC_NOT_AVAILABLE, MSG_FW_UPDATE_VERSION_UNKNOWN);
+                return;
+            }
+
             // TODO: 仮の実装です。
-            string fname = UpdateImageData.DFUImageResourceName.Replace(FWUpdateImageData.ResourceName(), "");
-            AppLogUtil.OutputLogDebug(string.Format("Firmware update image for nRF53: {0}({1} bytes)", fname, UpdateImageData.NRF53AppBinSize));
             Terminate(true, string.Empty, string.Empty);
         }
 
@@ -203,6 +210,44 @@ namespace DesktopTool
             // SHA-256ハッシュが見つからなかった場合はエラー
             AppLogUtil.OutputLogError("FWUpdateImage.ExtractImageHashSha256: SHA-256 hash of image not found");
             return false;
+        }
+
+        private string GetUpdateVersionFromDFUImage(string boardname, FWUpdateImageData imageData)
+        {
+            // ファームウェア更新イメージ名称から、更新バージョンを取得
+            return ExtractUpdateVersion(imageData);
+        }
+
+        private string ExtractUpdateVersion(FWUpdateImageData imageData)
+        {
+            // バージョン文字列を初期化
+            string resName = imageData.DFUImageResourceName;
+            string UpdateVersion = "";
+            if (resName.Equals("")) {
+                return UpdateVersion;
+            }
+            if (resName.EndsWith(FWUpdateImageData.ResourceNameSuffix) == false) {
+                return UpdateVersion;
+            }
+
+            // リソース名称文字列から、バージョン文字列だけを抽出
+            string replaced = resName.Replace(FWUpdateImageData.ResourceName(), "").Replace(FWUpdateImageData.ResourceNamePrefix, "").Replace(FWUpdateImageData.ResourceNameSuffix, "");
+            string[] elem = replaced.Split('.');
+            if (elem.Length != 4) {
+                return UpdateVersion;
+            }
+
+            // 抽出後の文字列を、基板名とバージョン文字列に分ける
+            // 例：PCA10095.0.0.1 --> PCA10095, 0.0.1
+            string boardname = elem[0];
+            UpdateVersion = string.Format("{0}.{1}.{2}", elem[1], elem[2], elem[3]);
+
+            // ログ出力
+            string fname = resName.Replace(FWUpdateImageData.ResourceName(), "");
+            AppLogUtil.OutputLogDebug(string.Format("Firmware update image for nRF53: Firmware version {0}, board name {1}", UpdateVersion, boardname));
+            AppLogUtil.OutputLogDebug(string.Format("Firmware update image for nRF53: {0}({1} bytes)", fname, imageData.NRF53AppBinSize));
+
+            return UpdateVersion;
         }
     }
 }
