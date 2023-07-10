@@ -1,10 +1,34 @@
-﻿using static DesktopTool.FunctionDefines;
+﻿using AppCommon;
+using System.Text;
+using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
+    public class FWVersionData
+    {
+        public string FWRev { get; set; }
+        public string HWRev { get; set; }
+        public string FWBld { get; set; }
+
+        public FWVersionData(string fWRev, string hWRev, string fWBld)
+        {
+            FWRev = fWRev;
+            HWRev = hWRev;
+            FWBld = fWBld;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("HW={0} FW={1}({2})", HWRev, FWRev, FWBld);
+        }
+    }
+
     internal class FWVersion
     {
+        // バージョン情報を保持
+        public FWVersionData VersionData = null!;
+
         //
         // ファームウェアバージョン照会処理
         //
@@ -38,7 +62,10 @@ namespace DesktopTool
 
         private void OnResponseInquiryCommand(BLETransport sender, byte[] responseBytes)
         {
-            // TODO: 仮の実装です。
+            // バージョン情報をレスポンスから抽出
+            VersionData = ExtractVersionInquiry(responseBytes);
+
+            // 上位クラスに制御を戻す
             TerminateCommand(sender, true, string.Empty);
         }
 
@@ -88,6 +115,33 @@ namespace DesktopTool
             // バージョン照会コマンド（１回目）を実行
             sender.SendRequest(U2F_COMMAND_MSG, new byte[] { VENDOR_COMMAND_GET_APP_VERSION });
             CommandName = nameof(PerformInquiryCommand);
+        }
+
+        private FWVersionData ExtractVersionInquiry(byte[] responseBytes)
+        {
+            // レスポンスされたCBORを抽出
+            byte[] cborBytes = AppUtil.ExtractCBORBytesFromResponse(responseBytes);
+
+            // 取得情報CSVを抽出
+            string responseCSV = Encoding.ASCII.GetString(cborBytes);
+
+            // 情報取得CSVからバージョンに関する情報を抽出
+            string[] vars = responseCSV.Split(',');
+            string strFWRev = "";
+            string strHWRev = "";
+            string strFWbld = "";
+            foreach (string v in vars) {
+                if (v.StartsWith("FW_REV=")) {
+                    strFWRev = v.Split('=')[1].Replace("\"", "");
+                } else if (v.StartsWith("HW_REV=")) {
+                    strHWRev = v.Split('=')[1].Replace("\"", "");
+                } else if (v.StartsWith("FW_BUILD=")) {
+                    strFWbld = v.Split('=')[1].Replace("\"", "");
+                }
+            }
+
+            // 抽出されたバージョン情報を戻す
+            return new FWVersionData(strFWRev, strHWRev, strFWbld);
         }
     }
 }

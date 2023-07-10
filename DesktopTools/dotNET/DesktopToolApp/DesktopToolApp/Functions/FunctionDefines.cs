@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DesktopTool
+﻿namespace DesktopTool
 {
     internal class FunctionDefines
     {
