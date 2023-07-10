@@ -29,6 +29,13 @@ namespace DesktopTool
 
         private void UpdateImageRetrievedHandler(FWUpdateImage sender, bool success, string errorCaption, string errorMessage)
         {
+            if (success == false) {
+                // 失敗時はログ出力
+                LogAndShowErrorMessage(errorMessage);
+                CancelProcess();
+                return;
+            }
+
             // TODO: 仮の実装です。
             ResumeProcess(success);
         }
