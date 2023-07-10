@@ -80,7 +80,24 @@ namespace DesktopTool
                 return;
             }
 
-            // TODO: 仮の実装です。
+            // BLE経由で現在バージョンが取得できていない場合は利用不可
+            string CurrentVersion = VersionData.FWRev;
+            if (CurrentVersion.Equals("")) {
+                Terminate(false, MSG_FW_UPDATE_FUNC_NOT_AVAILABLE, MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN);
+                return;
+            }
+
+            // 現在バージョンが、更新イメージファイルのバージョンより新しい場合は利用不可
+            int currentVersionDec = AppUtil.CalculateDecimalVersion(CurrentVersion);
+            int updateVersionDec = AppUtil.CalculateDecimalVersion(UpdateVersion);
+            if (currentVersionDec > updateVersionDec) {
+                string informative = string.Format(MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW, CurrentVersion, UpdateVersion);
+                Terminate(false, MSG_FW_UPDATE_FUNC_NOT_AVAILABLE, informative);
+                return;
+            }
+
+            // 更新イメージのバージョン文字列を設定
+            UpdateImageData.UpdateVersion = UpdateVersion;
             Terminate(true, string.Empty, string.Empty);
         }
 

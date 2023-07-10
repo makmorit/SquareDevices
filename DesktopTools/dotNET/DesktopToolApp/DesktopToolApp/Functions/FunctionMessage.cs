@@ -48,6 +48,8 @@
         public const string MSG_FW_UPDATE_FUNC_NOT_AVAILABLE = "ファームウェア更新機能が利用できません。";
         public const string MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST = "ファームウェア更新イメージファイルが存在しません。";
         public const string MSG_FW_UPDATE_VERSION_UNKNOWN = "ファームウェア更新イメージファイルのバージョンが不明です。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN = "ファームウェアの現在バージョンが不明です。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW = "ファームウェア (現在のバージョン: {0}) を、バージョン{1}に更新することはできません。";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
