@@ -9,7 +9,7 @@ namespace DesktopTool
         protected override void InvokeProcessOnSubThread()
         {
             Task task = Task.Run(() => {
-                // BLEデバイスに接続
+                // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
                 new FWVersion().Inquiry(NotifyResponseQueryHandler);
             });
         }
@@ -23,6 +23,12 @@ namespace DesktopTool
                 return;
             }
 
+            // 更新ファームウェアのバージョンチェック／イメージ情報取得
+            new FWUpdateImage(sender.VersionData).RetrieveImage(UpdateImageRetrievedHandler);
+        }
+
+        private void UpdateImageRetrievedHandler(FWUpdateImage sender, bool success, string errorCaption, string errorMessage)
+        {
             // TODO: 仮の実装です。
             ResumeProcess(success);
         }
