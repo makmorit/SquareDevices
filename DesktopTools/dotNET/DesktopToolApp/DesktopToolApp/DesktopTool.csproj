@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\app_update.PCA10095_01.0.0.2.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Views\Images\action_log.png" />
     <Resource Include="Views\Images\check_box.png" />
     <Resource Include="Views\Images\connect.png" />
