@@ -19,7 +19,7 @@ namespace DesktopTool
         public byte[] SHA256Hash = new byte[32];
 
         // 更新イメージファイルのリソース名称
-        public string DFUImageResourceName;
+        public string UpdateImageResourceName;
 
         // 更新イメージファイルのバージョン文字列
         public string UpdateVersion;
@@ -30,7 +30,7 @@ namespace DesktopTool
 
         public FWUpdateImageData()
         {
-            DFUImageResourceName = string.Empty;
+            UpdateImageResourceName = string.Empty;
             UpdateVersion = string.Empty;
         }
 
@@ -66,13 +66,13 @@ namespace DesktopTool
             OnUpdateImageRetrieved += updateImageRetrievedHandler;
 
             // 基板名に対応するファームウェア更新イメージファイルから、バイナリーイメージを読込
-            if (ReadBLEDFUImageFile(VersionData.HWRev) == false) {
+            if (ReadFWUpdateImageFile(VersionData.HWRev) == false) {
                 Terminate(false, MSG_FW_UPDATE_FUNC_NOT_AVAILABLE, MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST);
                 return;
             }
 
             // ファームウェア更新イメージファイルから、更新バージョンを取得
-            string UpdateVersion = GetUpdateVersionFromDFUImage(VersionData.HWRev, UpdateImageData);
+            string UpdateVersion = GetUpdateVersionFromUpdateImage(VersionData.HWRev, UpdateImageData);
 
             // 更新イメージファイル名からバージョンが取得できていない場合は利用不可
             if (UpdateVersion.Equals("")) {
@@ -94,15 +94,15 @@ namespace DesktopTool
         //
         // 内部処理
         //
-        private bool ReadBLEDFUImageFile(string boardname)
+        private bool ReadFWUpdateImageFile(string boardname)
         {
             // ファームウェア更新イメージファイル名を取得
-            if (GetDFUImageFileResourceName(boardname, UpdateImageData) == false) {
+            if (GetUpdateImageFileResourceName(boardname, UpdateImageData) == false) {
                 return false;
             }
 
             // ファームウェア更新イメージ(.bin)を配列に読込
-            if (ReadDFUImage(UpdateImageData) == false) {
+            if (ReadUpdateImage(UpdateImageData) == false) {
                 return false;
             }
 
@@ -110,14 +110,14 @@ namespace DesktopTool
             return ExtractImageHashSha256(UpdateImageData);
         }
 
-        private bool ReadDFUImage(FWUpdateImageData imageData)
+        private bool ReadUpdateImage(FWUpdateImageData imageData)
         {
             // ファイルサイズをゼロクリア
             imageData.NRF53AppBinSize = 0;
 
             // リソースファイルを開く
             Assembly assembly = Assembly.GetExecutingAssembly();
-            Stream? stream = assembly.GetManifestResourceStream(imageData.DFUImageResourceName);
+            Stream? stream = assembly.GetManifestResourceStream(imageData.UpdateImageResourceName);
             if (stream == null) {
                 return false;
             }
@@ -132,22 +132,22 @@ namespace DesktopTool
 
                 // 読込長とバッファ長が異なる場合
                 if (imageData.NRF53AppBinSize != imageData.NRF53AppBin.Length) {
-                    AppLogUtil.OutputLogError(string.Format("FWUpdateImage.ReadDFUImage: Read size {0} bytes, but image buffer size {1} bytes",
+                    AppLogUtil.OutputLogError(string.Format("FWUpdateImage.ReadUpdateImage: Read size {0} bytes, but image buffer size {1} bytes",
                         imageData.NRF53AppBinSize, imageData.NRF53AppBin.Length));
                     return false;
                 }
                 return true;
 
             } catch (Exception e) {
-                AppLogUtil.OutputLogError(string.Format("FWUpdateImage.ReadDFUImage: {0}", e.Message));
+                AppLogUtil.OutputLogError(string.Format("FWUpdateImage.ReadUpdateImage: {0}", e.Message));
                 return false;
             }
         }
 
-        private bool GetDFUImageFileResourceName(string boardname, FWUpdateImageData imageData)
+        private bool GetUpdateImageFileResourceName(string boardname, FWUpdateImageData imageData)
         {
             // リソース名称を初期化
-            imageData.DFUImageResourceName = "";
+            imageData.UpdateImageResourceName = "";
 
             // このアプリケーションに同梱されているリソース名を取得
             Assembly myAssembly = Assembly.GetExecutingAssembly();
@@ -155,7 +155,7 @@ namespace DesktopTool
             foreach (string resName in resnames) {
                 // nRF53用のイメージかどうか判定
                 if (StartsWithResourceNameForNRF53(boardname, resName)) {
-                    imageData.DFUImageResourceName = resName;
+                    imageData.UpdateImageResourceName = resName;
                     return true;
                 }
             }
@@ -212,7 +212,7 @@ namespace DesktopTool
             return false;
         }
 
-        private string GetUpdateVersionFromDFUImage(string boardname, FWUpdateImageData imageData)
+        private string GetUpdateVersionFromUpdateImage(string boardname, FWUpdateImageData imageData)
         {
             // ファームウェア更新イメージ名称から、更新バージョンを取得
             return ExtractUpdateVersion(imageData);
@@ -221,7 +221,7 @@ namespace DesktopTool
         private string ExtractUpdateVersion(FWUpdateImageData imageData)
         {
             // バージョン文字列を初期化
-            string resName = imageData.DFUImageResourceName;
+            string resName = imageData.UpdateImageResourceName;
             string UpdateVersion = "";
             if (resName.Equals("")) {
                 return UpdateVersion;
