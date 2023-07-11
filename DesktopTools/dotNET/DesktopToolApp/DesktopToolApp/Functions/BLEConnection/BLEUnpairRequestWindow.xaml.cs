@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using DesktopTool.CommonWindow;
+using System;
+using System.Windows;
 
 namespace DesktopTool
 {
@@ -10,6 +12,15 @@ namespace DesktopTool
         public BLEUnpairRequestWindow()
         {
             InitializeComponent();
+        }
+
+        //
+        // 閉じるボタンの無効化
+        //
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            CommonWindowUtil.DisableCloseWindowButton(this);
         }
     }
 }
