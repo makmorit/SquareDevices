@@ -56,7 +56,8 @@ namespace DesktopTool
         public static void ShowProgress(FWUpdateProcessViewModel model, string caption, int progressing)
         {
             // メッセージを表示し、進捗度を画面に反映させる
-            NotifyProgress(model, progressing, caption);
+            model.SetLevel(progressing);
+            model.ShowRemaining(caption);
         }
 
         //
@@ -75,15 +76,6 @@ namespace DesktopTool
         {
             // TODO: 仮の実装です。
             Instance.NotifyTerminateInner(false, string.Empty);
-        }
-
-        //
-        // 内部処理
-        //
-        private static void NotifyProgress(FWUpdateProcessViewModel model, int remaining, string caption)
-        {
-            model.SetLevel(remaining);
-            model.ShowRemaining(caption);
         }
     }
 }
