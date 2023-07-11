@@ -78,13 +78,11 @@ namespace DesktopTool
 
         private void InitFWUpdateProcessWindow(FWUpdateProcess sender, FWUpdateProcessViewModel model)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                // 最大待機秒数を設定
-                FWUpdateProcess.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
+            // 最大待機秒数を設定
+            FWUpdateProcess.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
 
-                // メッセージを初期表示
-                FWUpdateProcess.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
-            }));
+            // メッセージを初期表示
+            FWUpdateProcess.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
         }
     }
 }
