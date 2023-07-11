@@ -1,15 +1,8 @@
 ﻿using System.Windows;
 using static DesktopTool.FunctionMessage;
-using static DesktopTool.FWUpdateProcessConst;
 
 namespace DesktopTool
 {
-    public class FWUpdateProcessConst
-    {
-        // イメージ反映所要時間（秒）
-        public const int DFU_WAITING_SEC_ESTIMATED = 33;
-    }
-
     internal class FWUpdateProcess
     {
         // このクラスのインスタンス
@@ -17,14 +10,21 @@ namespace DesktopTool
         private FWUpdateProcessWindow Window = null!;
         private FWUpdateImageData ImageData = null!;
 
+        // ファームウェア更新進捗画面表示時のコールバックを保持
+        public delegate void InitFWUpdateProcessWindowHandler(FWUpdateProcess sender, FWUpdateProcessViewModel model);
+        private InitFWUpdateProcessWindowHandler InitFWUpdateProcessWindow = null!;
+
         public FWUpdateProcess(FWUpdateImageData imageData)
         {
             Instance = this;
             Instance.ImageData = imageData;
         }
 
-        public bool OpenForm()
+        public bool OpenForm(InitFWUpdateProcessWindowHandler handler)
         {
+            // ファームウェア更新進捗画面表示時のコールバックを保持
+            InitFWUpdateProcessWindow = handler;
+
             // ファームウェア更新進捗画面を、ホーム画面の中央にモード付きで表示
             Window = new FWUpdateProcessWindow();
             Window.Owner = Application.Current.MainWindow; ;
@@ -45,6 +45,21 @@ namespace DesktopTool
         }
 
         //
+        // 外部公開用
+        //
+        public static void SetMaxProgress(FWUpdateProcessViewModel model, int maxProgress)
+        {
+            // 進捗度の最大値を画面に反映させる
+            model.SetMaxLevel(maxProgress);
+        }
+
+        public static void ShowProgress(FWUpdateProcessViewModel model, string caption, int progressing)
+        {
+            // メッセージを表示し、進捗度を画面に反映させる
+            NotifyProgress(model, progressing, caption);
+        }
+
+        //
         // コールバック関数
         //
         public static void InitView(FWUpdateProcessViewModel model)
@@ -52,12 +67,8 @@ namespace DesktopTool
             // タイトルを画面表示
             model.ShowTitle(MSG_FW_UPDATE_PROCESSING);
 
-            // 最大待機秒数を設定
-            int level = 100 + DFU_WAITING_SEC_ESTIMATED;
-            model.SetMaxLevel(level);
-
-            // メッセージを初期表示
-            NotifyProgress(model, 0, MSG_FW_UPDATE_PRE_PROCESS);
+            // 上位クラスの関数をコールバック
+            Instance.InitFWUpdateProcessWindow(Instance, model);
         }
 
         public static void OnCancel(FWUpdateProcessViewModel model)
