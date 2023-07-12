@@ -18,10 +18,13 @@ namespace DesktopTool
 
         protected override void InvokeProcessOnSubThread()
         {
-            Task task = Task.Run(() => {
-                // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
-                new FWVersion().Inquiry(NotifyResponseQueryHandler);
-            });
+            Task task = Task.Run(RetrieveCurrentFWVersion);
+        }
+
+        private void RetrieveCurrentFWVersion()
+        {
+            // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
+            new FWVersion().Inquiry(NotifyResponseQueryHandler);
         }
 
         private void NotifyResponseQueryHandler(FWVersion sender, bool success, string errorMessage)
@@ -48,15 +51,13 @@ namespace DesktopTool
             ProcessContext.Add(nameof(FWUpdateImage), sender);
 
             // ファームウェア更新進捗画面を表示
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                ShowFWUpdateProcessWindow(sender);
-            }));
+            Application.Current.Dispatcher.Invoke(ShowFWUpdateProcessWindow);
         }
 
         //
         // 内部処理
         //
-        private void ShowFWUpdateProcessWindow(FWUpdateImage sender)
+        private void ShowFWUpdateProcessWindow()
         {
             // 処理開始前に、確認ダイアログをポップアップ表示
             Window window = Application.Current.MainWindow;
@@ -72,7 +73,7 @@ namespace DesktopTool
 
             } else {
                 // 更新後ファームウェアのバージョンをチェック
-                CheckUpdatedFWVersion();
+                Task task = Task.Run(CheckUpdatedFWVersion);
             }
         }
 
@@ -87,10 +88,8 @@ namespace DesktopTool
 
         private void CheckUpdatedFWVersion()
         {
-            Task task = Task.Run(() => {
-                // BLEデバイスに接続し、更新後ファームウェアのバージョン情報を取得
-                new FWVersion().Inquiry(UpdatedFWVersionResponseHandler);
-            });
+            // BLEデバイスに接続し、更新後ファームウェアのバージョン情報を取得
+            new FWVersion().Inquiry(UpdatedFWVersionResponseHandler);
         }
 
         private void UpdatedFWVersionResponseHandler(FWVersion sender, bool success, string errorMessage)
