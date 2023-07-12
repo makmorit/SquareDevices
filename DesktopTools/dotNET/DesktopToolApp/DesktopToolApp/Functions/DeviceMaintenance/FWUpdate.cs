@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FWUpdateConst;
@@ -132,28 +131,39 @@ namespace DesktopTool
 
         private void TerminateCommand(bool success, string message)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                // 終了メッセージを画面表示／ログ出力
-                if (success) {
-                    LogAndShowInfoMessage(message);
-                } else {
-                    LogAndShowErrorMessage(message);
-                }
-                // 後続処理を実行
-                ResumeProcess(success);
-            }));
+            Application.Current.Dispatcher.Invoke(TerminateCommandInner, success, message);
         }
 
         private void CancelCommand(bool success, string message)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                // 中断メッセージを画面表示／ログ出力
-                if (success == false) {
-                    LogAndShowErrorMessage(message);
-                }
-                // 後続処理を実行
-                CancelProcess();
-            }));
+            Application.Current.Dispatcher.Invoke(CancelCommandInner, success, message);
+        }
+
+        //
+        // 終了処理
+        //
+        private void TerminateCommandInner(bool success, string message)
+        {
+            // 終了メッセージを画面表示／ログ出力
+            if (success) {
+                LogAndShowInfoMessage(message);
+            } else {
+                LogAndShowErrorMessage(message);
+            }
+
+            // 後続処理を実行
+            ResumeProcess(success);
+        }
+
+        private void CancelCommandInner(bool success, string message)
+        {
+            // 中断メッセージを画面表示／ログ出力
+            if (success == false) {
+                LogAndShowErrorMessage(message);
+            }
+
+            // 後続処理を実行
+            CancelProcess();
         }
     }
 }
