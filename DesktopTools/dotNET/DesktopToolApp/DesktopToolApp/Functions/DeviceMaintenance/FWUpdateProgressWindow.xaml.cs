@@ -7,9 +7,9 @@ namespace DesktopTool
     /// <summary>
     /// FWUpdateProcessWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class FWUpdateProcessWindow : Window
+    public partial class FWUpdateProgressWindow : Window
     {
-        public FWUpdateProcessWindow()
+        public FWUpdateProgressWindow()
         {
             InitializeComponent();
         }

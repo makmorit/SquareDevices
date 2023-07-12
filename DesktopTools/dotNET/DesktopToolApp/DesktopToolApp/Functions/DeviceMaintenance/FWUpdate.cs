@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
@@ -56,14 +55,14 @@ namespace DesktopTool
         //
         // 内部処理
         //
-        // ファームウェア更新処理クラスの参照を保持
-        FWUpdateProcess UpdateProcess = null!;
+        // ファームウェア更新進捗クラスの参照を保持
+        FWUpdateProgress UpdateProgress = null!;
 
         private void ShowFWUpdateProcessWindow(FWUpdateImage sender)
         {
             // ファームウェア更新進捗画面を表示
-            UpdateProcess = new FWUpdateProcess(sender.UpdateImageData);
-            if (UpdateProcess.OpenForm(InitFWUpdateProcessWindow) == false) {
+            UpdateProgress = new FWUpdateProgress(sender.UpdateImageData);
+            if (UpdateProgress.OpenForm(InitFWUpdateProgressWindow) == false) {
                 // TODO: 仮の実装です。
                 CancelProcess();
 
@@ -72,17 +71,17 @@ namespace DesktopTool
                 ResumeProcess(true);
             }
 
-            // ファームウェア更新処理クラスの参照をクリア
-            UpdateProcess = null!;
+            // ファームウェア更新進捗クラスの参照をクリア
+            UpdateProgress = null!;
         }
 
-        private void InitFWUpdateProcessWindow(FWUpdateProcess sender, FWUpdateProcessViewModel model)
+        private void InitFWUpdateProgressWindow(FWUpdateProgress sender, FWUpdateProgressViewModel model)
         {
             // 最大待機秒数を設定
-            FWUpdateProcess.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
+            FWUpdateProgress.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
 
             // メッセージを初期表示
-            FWUpdateProcess.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+            FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
         }
     }
 }

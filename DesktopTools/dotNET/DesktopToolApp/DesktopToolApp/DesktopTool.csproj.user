@@ -17,7 +17,7 @@
     <Compile Update="Functions\BLEConnection\BLEUnpairRequestWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Functions\DeviceMaintenance\FWUpdateProcessWindow.xaml.cs">
+    <Compile Update="Functions\DeviceMaintenance\FWUpdateProgressWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Functions\ToolCommon\ToolDoProcessView.xaml.cs">
@@ -46,7 +46,7 @@
     <Page Update="Functions\BLEConnection\BLEUnpairRequestWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Functions\DeviceMaintenance\FWUpdateProcessWindow.xaml">
+    <Page Update="Functions\DeviceMaintenance\FWUpdateProgressWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Functions\ToolCommon\ToolDoProcessView.xaml">

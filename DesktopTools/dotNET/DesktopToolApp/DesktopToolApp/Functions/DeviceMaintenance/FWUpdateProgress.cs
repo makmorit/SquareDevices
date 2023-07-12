@@ -3,30 +3,30 @@ using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
-    internal class FWUpdateProcess
+    internal class FWUpdateProgress
     {
         // このクラスのインスタンス
-        public static FWUpdateProcess Instance = null!;
-        private FWUpdateProcessWindow Window = null!;
+        public static FWUpdateProgress Instance = null!;
+        private FWUpdateProgressWindow Window = null!;
         private FWUpdateImageData ImageData = null!;
 
         // ファームウェア更新進捗画面表示時のコールバックを保持
-        public delegate void InitFWUpdateProcessWindowHandler(FWUpdateProcess sender, FWUpdateProcessViewModel model);
-        private InitFWUpdateProcessWindowHandler InitFWUpdateProcessWindow = null!;
+        public delegate void InitFWUpdateProgressWindowHandler(FWUpdateProgress sender, FWUpdateProgressViewModel model);
+        private InitFWUpdateProgressWindowHandler InitFWUpdateProgressWindow = null!;
 
-        public FWUpdateProcess(FWUpdateImageData imageData)
+        public FWUpdateProgress(FWUpdateImageData imageData)
         {
             Instance = this;
             Instance.ImageData = imageData;
         }
 
-        public bool OpenForm(InitFWUpdateProcessWindowHandler handler)
+        public bool OpenForm(InitFWUpdateProgressWindowHandler handler)
         {
             // ファームウェア更新進捗画面表示時のコールバックを保持
-            InitFWUpdateProcessWindow = handler;
+            InitFWUpdateProgressWindow = handler;
 
             // ファームウェア更新進捗画面を、ホーム画面の中央にモード付きで表示
-            Window = new FWUpdateProcessWindow();
+            Window = new FWUpdateProgressWindow();
             Window.Owner = Application.Current.MainWindow; ;
             bool? b = Window.ShowDialog();
             if (b == null) {
@@ -47,13 +47,13 @@ namespace DesktopTool
         //
         // 外部公開用
         //
-        public static void SetMaxProgress(FWUpdateProcessViewModel model, int maxProgress)
+        public static void SetMaxProgress(FWUpdateProgressViewModel model, int maxProgress)
         {
             // 進捗度の最大値を画面に反映させる
             model.SetMaxLevel(maxProgress);
         }
 
-        public static void ShowProgress(FWUpdateProcessViewModel model, string caption, int progressing)
+        public static void ShowProgress(FWUpdateProgressViewModel model, string caption, int progressing)
         {
             // メッセージを表示し、進捗度を画面に反映させる
             model.SetLevel(progressing);
@@ -63,16 +63,16 @@ namespace DesktopTool
         //
         // コールバック関数
         //
-        public static void InitView(FWUpdateProcessViewModel model)
+        public static void InitView(FWUpdateProgressViewModel model)
         {
             // タイトルを画面表示
             model.ShowTitle(MSG_FW_UPDATE_PROCESSING);
 
             // 上位クラスの関数をコールバック
-            Instance.InitFWUpdateProcessWindow(Instance, model);
+            Instance.InitFWUpdateProgressWindow(Instance, model);
         }
 
-        public static void OnCancel(FWUpdateProcessViewModel model)
+        public static void OnCancel(FWUpdateProgressViewModel model)
         {
             // TODO: 仮の実装です。
             Instance.NotifyTerminateInner(false, string.Empty);

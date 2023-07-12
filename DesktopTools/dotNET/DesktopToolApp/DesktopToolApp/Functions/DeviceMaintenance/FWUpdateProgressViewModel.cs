@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace DesktopTool
 {
-    internal class FWUpdateProcessViewModel : ViewModelBase
+    internal class FWUpdateProgressViewModel : ViewModelBase
     {
         private readonly RelayCommand ButtonCloseClickedRelayCommand;
         private string title = null!;
@@ -11,14 +11,14 @@ namespace DesktopTool
         private int level = 0;
         private int maxLevel = 0;
 
-        public FWUpdateProcessViewModel()
+        public FWUpdateProgressViewModel()
         {
             ButtonCloseClickedRelayCommand = new RelayCommand(OnButtonCloseClicked);
             Title = string.Empty;
             Remaining = string.Empty;
             Level = 0;
             MaxLevel = 100;
-            try { FWUpdateProcess.InitView(this); } catch { }
+            try { FWUpdateProgress.InitView(this); } catch { }
         }
 
         public ICommand ButtonCloseClicked
@@ -55,7 +55,7 @@ namespace DesktopTool
         //
         private void OnButtonCloseClicked()
         {
-            FWUpdateProcess.OnCancel(this);
+            FWUpdateProgress.OnCancel(this);
         }
 
         //
