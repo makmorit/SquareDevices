@@ -44,6 +44,9 @@ namespace DesktopTool
                 return;
             }
 
+            // ファームウェア更新イメージの参照を共有情報に保持
+            ProcessContext.Add(nameof(FWUpdateImage), sender);
+
             // ファームウェア更新進捗画面を表示
             Application.Current.Dispatcher.Invoke(new Action(() => {
                 ShowFWUpdateProcessWindow(sender);
