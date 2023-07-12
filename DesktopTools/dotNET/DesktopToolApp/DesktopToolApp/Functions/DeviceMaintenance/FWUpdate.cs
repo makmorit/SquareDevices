@@ -71,8 +71,8 @@ namespace DesktopTool
                 CancelProcess();
 
             } else {
-                // TODO: 仮の実装です。
-                ResumeProcess(true);
+                // 更新後ファームウェアのバージョンをチェック
+                CheckUpdatedFWVersion();
             }
         }
 
@@ -83,6 +83,66 @@ namespace DesktopTool
 
             // メッセージを初期表示
             FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+        }
+
+        private void CheckUpdatedFWVersion()
+        {
+            Task task = Task.Run(() => {
+                // BLEデバイスに接続し、更新後ファームウェアのバージョン情報を取得
+                new FWVersion().Inquiry(UpdatedFWVersionResponseHandler);
+            });
+        }
+
+        private void UpdatedFWVersionResponseHandler(FWVersion sender, bool success, string errorMessage)
+        {
+            if (success == false) {
+                TerminateCommand(success, errorMessage);
+                return;
+            }
+
+            // ファームウェア更新イメージのバージョン情報を取得
+            string UpdateVersion = GetUpdateImageVersion();
+            if (UpdateVersion == string.Empty) {
+                TerminateCommand(false, MSG_FW_UPDATE_GET_IMAGE_VERSION_FROM_CONTEXT_FAIL);
+                return;
+            }
+
+            // 更新ファームウェアのバージョン情報を比較
+            string CurrentVersion = sender.VersionData.FWRev;
+            if (CurrentVersion == UpdateVersion) {
+                TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_SUCCESS, UpdateVersion));
+            } else {
+                TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_FAIL, UpdateVersion));
+            }
+        }
+
+        private string GetUpdateImageVersion()
+        {
+            // ファームウェア更新イメージの参照の存在チェック
+            if (ProcessContext.ContainsKey(nameof(FWUpdateImage)) == false) {
+                return string.Empty;
+            }
+
+            // ファームウェア更新イメージの参照を共有情報から取得
+            FWUpdateImage updateImage = (FWUpdateImage)ProcessContext[nameof(FWUpdateImage)];
+
+            // ファームウェア更新イメージのバージョン情報を抽出
+            string updateVersion = updateImage.UpdateImageData.UpdateVersion;
+            return updateVersion;
+        }
+
+        private void TerminateCommand(bool success, string message)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                // 終了メッセージを画面表示／ログ出力
+                if (success) {
+                    LogAndShowInfoMessage(message);
+                } else {
+                    LogAndShowErrorMessage(message);
+                }
+                // 後続処理を実行
+                ResumeProcess(success);
+            }));
         }
 
         private void CancelCommand(bool success, string message)
