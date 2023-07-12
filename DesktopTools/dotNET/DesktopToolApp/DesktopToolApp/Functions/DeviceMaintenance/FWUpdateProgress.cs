@@ -8,16 +8,14 @@ namespace DesktopTool
         // このクラスのインスタンス
         public static FWUpdateProgress Instance = null!;
         private FWUpdateProgressWindow Window = null!;
-        private FWUpdateImageData ImageData = null!;
 
         // ファームウェア更新進捗画面表示時のコールバックを保持
         public delegate void InitFWUpdateProgressWindowHandler(FWUpdateProgress sender, FWUpdateProgressViewModel model);
         private InitFWUpdateProgressWindowHandler InitFWUpdateProgressWindow = null!;
 
-        public FWUpdateProgress(FWUpdateImageData imageData)
+        public FWUpdateProgress()
         {
             Instance = this;
-            Instance.ImageData = imageData;
         }
 
         public bool OpenForm(InitFWUpdateProgressWindowHandler handler)
