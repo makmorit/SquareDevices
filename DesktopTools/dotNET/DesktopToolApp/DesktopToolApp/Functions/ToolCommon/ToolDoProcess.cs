@@ -1,4 +1,5 @@
 ﻿using AppCommon;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using static DesktopTool.FunctionMessage;
 
@@ -12,6 +13,9 @@ namespace DesktopTool
 
         // メニュー項目名称を保持
         protected string MenuItemName;
+
+        // 共有情報を保持
+        protected Dictionary<string, object> ProcessContext = new Dictionary<string, object>();
 
         public ToolDoProcess(string menuItemName)
         {

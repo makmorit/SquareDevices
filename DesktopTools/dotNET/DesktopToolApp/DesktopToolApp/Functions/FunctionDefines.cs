@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DesktopTool
+﻿namespace DesktopTool
 {
     internal class FunctionDefines
     {
@@ -12,6 +10,7 @@ namespace DesktopTool
         public const byte U2F_COMMAND_MSG = 0x03;
 
         // ベンダー固有コマンド
+        public const byte VENDOR_COMMAND_GET_APP_VERSION = 0x43;
         public const byte VENDOR_COMMAND_UNPAIRING_REQUEST = 0x4d;
         public const byte VENDOR_COMMAND_UNPAIRING_CANCEL = 0x4e;
         public const byte VENDOR_COMMAND_ERASE_BONDING_DATA = 0x4f;

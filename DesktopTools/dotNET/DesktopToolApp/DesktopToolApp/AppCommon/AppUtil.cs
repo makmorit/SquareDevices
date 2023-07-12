@@ -19,6 +19,18 @@ namespace AppCommon
             return decimalVersion;
         }
 
+        public static byte[] ExtractCBORBytesFromResponse(byte[] message)
+        {
+            // レスポンスされたCBORを抽出
+            //   CBORバイト配列はレスポンスの２バイト目以降
+            int cborLength = message.Length - 1;
+            byte[] cborBytes = new byte[cborLength];
+            for (int i = 0; i < cborLength; i++) {
+                cborBytes[i] = message[1 + i];
+            }
+            return cborBytes;
+        }
+
         public static bool CompareBytes(byte[] src, byte[] dest, int size)
         {
             for (int i = 0; i < size; i++) {

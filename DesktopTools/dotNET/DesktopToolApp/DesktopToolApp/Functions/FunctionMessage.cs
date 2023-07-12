@@ -44,6 +44,19 @@
         public const string MSG_BLE_ERASE_BONDS = "BLEデバイスからペアリング情報をすべて削除します。";
         public const string MSG_PROMPT_BLE_ERASE_BONDS = "削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？";
 
+        // ファームウェア更新
+        public const string MSG_FW_UPDATE_FUNC_NOT_AVAILABLE = "ファームウェア更新機能が利用できません。";
+        public const string MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST = "ファームウェア更新イメージファイルが存在しません。";
+        public const string MSG_FW_UPDATE_VERSION_UNKNOWN = "ファームウェア更新イメージファイルのバージョンが不明です。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN = "ファームウェアの現在バージョンが不明です。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW = "ファームウェア (現在のバージョン: {0}) を、バージョン{1}に更新することはできません。";
+        public const string MSG_FW_UPDATE_PROMPT_START_PROCESS = "OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。";
+        public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
+        public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
+        public const string MSG_FW_UPDATE_VERSION_SUCCESS = "ファームウェアのバージョンが{0}に更新されました。";
+        public const string MSG_FW_UPDATE_VERSION_FAIL = "ファームウェアのバージョンを{0}に更新できませんでした。";
+        public const string MSG_FW_UPDATE_GET_IMAGE_VERSION_FROM_CONTEXT_FAIL = "ファームウェア更新イメージのバージョンを共有情報から取得できませんでした。";
+
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";
 

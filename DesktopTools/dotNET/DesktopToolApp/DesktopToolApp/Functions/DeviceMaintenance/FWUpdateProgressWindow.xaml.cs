@@ -5,11 +5,11 @@ using System.Windows;
 namespace DesktopTool
 {
     /// <summary>
-    /// BLEUnpairRequestWindow.xaml の相互作用ロジック
+    /// FWUpdateProcessWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class BLEUnpairRequestWindow : Window
+    public partial class FWUpdateProgressWindow : Window
     {
-        public BLEUnpairRequestWindow()
+        public FWUpdateProgressWindow()
         {
             InitializeComponent();
         }

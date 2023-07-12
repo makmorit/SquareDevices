@@ -12,11 +12,15 @@
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).007</FileVersion>
+    <FileVersion>$(Version).008</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\app_update.PCA10095_01.0.0.2.bin" />
   </ItemGroup>
 
   <ItemGroup>
