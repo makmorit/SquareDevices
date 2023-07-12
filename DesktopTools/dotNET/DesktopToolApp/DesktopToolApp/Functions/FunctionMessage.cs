@@ -50,6 +50,7 @@
         public const string MSG_FW_UPDATE_VERSION_UNKNOWN = "ファームウェア更新イメージファイルのバージョンが不明です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN = "ファームウェアの現在バージョンが不明です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW = "ファームウェア (現在のバージョン: {0}) を、バージョン{1}に更新することはできません。";
+        public const string MSG_FW_UPDATE_PROMPT_START_PROCESS = "OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。";
         public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
         public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
 

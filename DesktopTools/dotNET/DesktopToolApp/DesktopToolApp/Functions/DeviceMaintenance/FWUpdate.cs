@@ -57,6 +57,13 @@ namespace DesktopTool
         //
         private void ShowFWUpdateProcessWindow(FWUpdateImage sender)
         {
+            // 処理開始前に、確認ダイアログをポップアップ表示
+            Window window = Application.Current.MainWindow;
+            if (DialogUtil.DisplayPromptPopup(window, MenuItemName, MSG_FW_UPDATE_PROMPT_START_PROCESS) == false) {
+                CancelProcess();
+                return;
+            }
+
             // ファームウェア更新進捗画面を表示
             if (new FWUpdateProgress(sender.UpdateImageData).OpenForm(InitFWUpdateProgressWindow) == false) {
                 // TODO: 仮の実装です。
