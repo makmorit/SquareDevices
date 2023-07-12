@@ -55,14 +55,10 @@ namespace DesktopTool
         //
         // 内部処理
         //
-        // ファームウェア更新進捗クラスの参照を保持
-        FWUpdateProgress UpdateProgress = null!;
-
         private void ShowFWUpdateProcessWindow(FWUpdateImage sender)
         {
             // ファームウェア更新進捗画面を表示
-            UpdateProgress = new FWUpdateProgress(sender.UpdateImageData);
-            if (UpdateProgress.OpenForm(InitFWUpdateProgressWindow) == false) {
+            if (new FWUpdateProgress(sender.UpdateImageData).OpenForm(InitFWUpdateProgressWindow) == false) {
                 // TODO: 仮の実装です。
                 CancelProcess();
 
@@ -70,9 +66,6 @@ namespace DesktopTool
                 // TODO: 仮の実装です。
                 ResumeProcess(true);
             }
-
-            // ファームウェア更新進捗クラスの参照をクリア
-            UpdateProgress = null!;
         }
 
         private void InitFWUpdateProgressWindow(FWUpdateProgress sender, FWUpdateProgressViewModel model)
