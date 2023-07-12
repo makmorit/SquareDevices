@@ -28,8 +28,7 @@ namespace DesktopTool
         {
             if (success == false) {
                 // 失敗時はログ出力
-                LogAndShowErrorMessage(errorMessage);
-                CancelProcess();
+                CancelCommand(false, errorMessage);
                 return;
             }
 
@@ -41,8 +40,7 @@ namespace DesktopTool
         {
             if (success == false) {
                 // 失敗時はログ出力
-                LogAndShowErrorMessage(errorMessage);
-                CancelProcess();
+                CancelCommand(false, errorMessage);
                 return;
             }
 
@@ -82,6 +80,18 @@ namespace DesktopTool
 
             // メッセージを初期表示
             FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+        }
+
+        private void CancelCommand(bool success, string message)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() => {
+                // 中断メッセージを画面表示／ログ出力
+                if (success == false) {
+                    LogAndShowErrorMessage(message);
+                }
+                // 後続処理を実行
+                CancelProcess();
+            }));
         }
     }
 }
