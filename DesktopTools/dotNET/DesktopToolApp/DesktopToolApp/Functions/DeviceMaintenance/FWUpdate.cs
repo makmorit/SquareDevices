@@ -67,9 +67,16 @@ namespace DesktopTool
             }
 
             // ファームウェア更新進捗画面を表示
-            if (new FWUpdateProgress().OpenForm(FWUpdateProgressHandler) == false) {
-                // TODO: 仮の実装です。
-                CancelProcess();
+            FWUpdateProgress UpdateProgress = new FWUpdateProgress();
+            if (UpdateProgress.OpenForm(FWUpdateProgressHandler) == false) {
+                if (UpdateProgress.Status == ProgressStatusCancelClicked) {
+                    // ユーザーが中止ボタンをクリックした場合
+                    CancelProcess();
+
+                } else {
+                    // 転送処理時にエラーが発生した場合
+                    TerminateCommand(false, string.Empty);
+                }
 
             } else {
                 // 更新後ファームウェアのバージョンをチェック
