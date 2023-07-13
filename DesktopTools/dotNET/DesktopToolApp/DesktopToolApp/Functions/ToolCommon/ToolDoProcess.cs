@@ -114,14 +114,18 @@ namespace DesktopTool
 
         protected void LogAndShowInfoMessage(string infoMessage)
         {
-            AppLogUtil.OutputLogInfo(infoMessage);
-            FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+            if (infoMessage.Length > 0) {
+                AppLogUtil.OutputLogInfo(infoMessage);
+                FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+            }
         }
 
         protected void LogAndShowErrorMessage(string errorMessage)
         {
-            AppLogUtil.OutputLogError(errorMessage);
-            FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
+            if (errorMessage.Length > 0) {
+                AppLogUtil.OutputLogError(errorMessage);
+                FunctionUtil.DisplayTextOnApp(errorMessage, ViewModel.AppendStatusText);
+            }
         }
     }
 }

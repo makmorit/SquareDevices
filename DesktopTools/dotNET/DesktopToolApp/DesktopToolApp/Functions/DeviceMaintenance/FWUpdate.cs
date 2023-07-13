@@ -2,6 +2,8 @@
 using System.Windows;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FWUpdateConst;
+using static DesktopTool.FWUpdateProgress.ProgressStatus;
+
 
 namespace DesktopTool
 {
@@ -47,7 +49,7 @@ namespace DesktopTool
             }
 
             // ファームウェア更新イメージの参照を共有情報に保持
-            ProcessContext.Add(nameof(FWUpdateImage), sender);
+            ProcessContext[nameof(FWUpdateImage)] = sender;
 
             // ファームウェア更新進捗画面を表示
             Application.Current.Dispatcher.Invoke(ShowFWUpdateProcessWindow);
@@ -66,7 +68,7 @@ namespace DesktopTool
             }
 
             // ファームウェア更新進捗画面を表示
-            if (new FWUpdateProgress().OpenForm(InitFWUpdateProgressWindow) == false) {
+            if (new FWUpdateProgress().OpenForm(FWUpdateProgressHandler) == false) {
                 // TODO: 仮の実装です。
                 CancelProcess();
 
@@ -76,13 +78,25 @@ namespace DesktopTool
             }
         }
 
-        private void InitFWUpdateProgressWindow(FWUpdateProgress sender, FWUpdateProgressViewModel model)
+        private void FWUpdateProgressHandler(FWUpdateProgress sender)
         {
-            // 最大待機秒数を設定
-            FWUpdateProgress.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
+            // 初期表示時の処理
+            if (sender.Status == ProgressStatusInitView) {
+                // 最大待機秒数を設定
+                FWUpdateProgress.SetMaxProgress(sender.ViewModel, 100 + DFU_WAITING_SEC_ESTIMATED);
 
-            // メッセージを初期表示
-            FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+                // メッセージを初期表示
+                FWUpdateProgress.ShowProgress(sender.ViewModel, MSG_FW_UPDATE_PRE_PROCESS, 0);
+            }
+
+            // 中止ボタンクリック時の処理
+            if (sender.Status == ProgressStatusCancelClicked) {
+                // メッセージを画面表示／ログ出力
+                LogAndShowInfoMessage(sender.ErrorMessage);
+
+                // ファームウェア更新進捗画面を閉じる
+                FWUpdateProgress.CloseForm(false);
+            }
         }
 
         private void CheckUpdatedFWVersion()
