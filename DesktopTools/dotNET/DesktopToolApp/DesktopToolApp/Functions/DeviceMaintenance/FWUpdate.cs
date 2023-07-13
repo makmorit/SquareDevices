@@ -66,7 +66,7 @@ namespace DesktopTool
             }
 
             // ファームウェア更新進捗画面を表示
-            if (new FWUpdateProgress().OpenForm(InitFWUpdateProgressWindow) == false) {
+            if (new FWUpdateProgress().OpenForm(FWUpdateProgressHandler) == false) {
                 // TODO: 仮の実装です。
                 CancelProcess();
 
@@ -76,13 +76,13 @@ namespace DesktopTool
             }
         }
 
-        private void InitFWUpdateProgressWindow(FWUpdateProgress sender, FWUpdateProgressViewModel model)
+        private void FWUpdateProgressHandler(FWUpdateProgress sender)
         {
             // 最大待機秒数を設定
-            FWUpdateProgress.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
+            FWUpdateProgress.SetMaxProgress(sender.ViewModel, 100 + DFU_WAITING_SEC_ESTIMATED);
 
             // メッセージを初期表示
-            FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+            FWUpdateProgress.ShowProgress(sender.ViewModel, MSG_FW_UPDATE_PRE_PROCESS, 0);
         }
 
         private void CheckUpdatedFWVersion()
