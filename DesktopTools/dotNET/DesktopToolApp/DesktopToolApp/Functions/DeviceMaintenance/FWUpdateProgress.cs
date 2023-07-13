@@ -14,7 +14,7 @@ namespace DesktopTool
         };
 
         // このクラスのインスタンス
-        public static FWUpdateProgress Instance = null!;
+        private static FWUpdateProgress Instance = null!;
         private FWUpdateProgressWindow Window = null!;
 
         // プロパティー
