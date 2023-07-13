@@ -11,6 +11,7 @@ namespace DesktopTool
         {
             ProgressStatusNone = 0,
             ProgressStatusInitView,
+            ProgressStatusCancelClicked,
         };
 
         // このクラスのインスタンス
@@ -60,6 +61,12 @@ namespace DesktopTool
         //
         // 外部公開用
         //
+        public static void CloseForm(bool dialogResult)
+        {
+            // ファームウェア更新進捗画面を閉じる
+            Instance.NotifyTerminateInner(dialogResult);
+        }
+
         public static void SetMaxProgress(FWUpdateProgressViewModel model, int maxProgress)
         {
             // 進捗度の最大値を画面に反映させる
@@ -93,8 +100,8 @@ namespace DesktopTool
             // エラーメッセージを設定
             Instance.ErrorMessage = MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED;
 
-            // TODO: 仮の実装です。
-            Instance.NotifyTerminateInner(false);
+            // 中止ボタンがクリックされた旨を通知
+            Instance.HandleUpdateProgress(ProgressStatusCancelClicked);
         }
 
         private void HandleUpdateProgress(ProgressStatus status)

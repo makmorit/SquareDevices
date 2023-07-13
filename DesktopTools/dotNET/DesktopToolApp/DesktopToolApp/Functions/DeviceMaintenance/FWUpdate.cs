@@ -88,6 +88,15 @@ namespace DesktopTool
                 // メッセージを初期表示
                 FWUpdateProgress.ShowProgress(sender.ViewModel, MSG_FW_UPDATE_PRE_PROCESS, 0);
             }
+
+            // 中止ボタンクリック時の処理
+            if (sender.Status == ProgressStatusCancelClicked) {
+                // メッセージを画面表示／ログ出力
+                LogAndShowInfoMessage(sender.ErrorMessage);
+
+                // ファームウェア更新進捗画面を閉じる
+                FWUpdateProgress.CloseForm(false);
+            }
         }
 
         private void CheckUpdatedFWVersion()
