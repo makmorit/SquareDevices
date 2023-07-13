@@ -9,6 +9,9 @@ namespace DesktopTool
         public static FWUpdateProgress Instance = null!;
         private FWUpdateProgressWindow Window = null!;
 
+        // プロパティー
+        public string ErrorMessage { get; private set; }
+
         // ファームウェア更新進捗画面表示時のコールバックを保持
         public delegate void InitFWUpdateProgressWindowHandler(FWUpdateProgress sender, FWUpdateProgressViewModel model);
         private InitFWUpdateProgressWindowHandler InitFWUpdateProgressWindow = null!;
@@ -16,6 +19,7 @@ namespace DesktopTool
         public FWUpdateProgress()
         {
             Instance = this;
+            ErrorMessage = string.Empty;
         }
 
         public bool OpenForm(InitFWUpdateProgressWindowHandler handler)
@@ -34,7 +38,7 @@ namespace DesktopTool
             }
         }
 
-        private void NotifyTerminateInner(bool b, string errorMessage)
+        private void NotifyTerminateInner(bool b)
         {
             // ファームウェア更新進捗画面を閉じる
             Window.DialogResult = b;
@@ -72,8 +76,11 @@ namespace DesktopTool
 
         public static void OnCancel(FWUpdateProgressViewModel model)
         {
+            // エラーメッセージを設定
+            Instance.ErrorMessage = MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED;
+
             // TODO: 仮の実装です。
-            Instance.NotifyTerminateInner(false, string.Empty);
+            Instance.NotifyTerminateInner(false);
         }
     }
 }
