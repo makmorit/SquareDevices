@@ -1,15 +1,24 @@
 ﻿using System.Windows;
 using static DesktopTool.FunctionMessage;
+using static DesktopTool.FWUpdateProgress.ProgressStatus;
 
 namespace DesktopTool
 {
     internal class FWUpdateProgress
     {
+        // ステータス
+        public enum ProgressStatus
+        {
+            ProgressStatusNone = 0,
+            ProgressStatusInitView,
+        };
+
         // このクラスのインスタンス
         public static FWUpdateProgress Instance = null!;
         private FWUpdateProgressWindow Window = null!;
 
         // プロパティー
+        public ProgressStatus Status { get; private set; }
         public string ErrorMessage { get; private set; }
         public FWUpdateProgressViewModel ViewModel { get; private set; }
 
@@ -76,7 +85,7 @@ namespace DesktopTool
             model.ShowTitle(MSG_FW_UPDATE_PROCESSING);
 
             // 画面が表示された旨を通知
-            Instance.UpdateProgressHandler(Instance);
+            Instance.HandleUpdateProgress(ProgressStatusInitView);
         }
 
         public static void OnCancel(FWUpdateProgressViewModel model)
@@ -86,6 +95,12 @@ namespace DesktopTool
 
             // TODO: 仮の実装です。
             Instance.NotifyTerminateInner(false);
+        }
+
+        private void HandleUpdateProgress(ProgressStatus status)
+        {
+            Status = status;
+            UpdateProgressHandler(this);
         }
     }
 }

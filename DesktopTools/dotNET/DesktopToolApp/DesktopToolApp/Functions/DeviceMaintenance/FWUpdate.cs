@@ -2,6 +2,8 @@
 using System.Windows;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FWUpdateConst;
+using static DesktopTool.FWUpdateProgress.ProgressStatus;
+
 
 namespace DesktopTool
 {
@@ -78,11 +80,14 @@ namespace DesktopTool
 
         private void FWUpdateProgressHandler(FWUpdateProgress sender)
         {
-            // 最大待機秒数を設定
-            FWUpdateProgress.SetMaxProgress(sender.ViewModel, 100 + DFU_WAITING_SEC_ESTIMATED);
+            // 初期表示時の処理
+            if (sender.Status == ProgressStatusInitView) {
+                // 最大待機秒数を設定
+                FWUpdateProgress.SetMaxProgress(sender.ViewModel, 100 + DFU_WAITING_SEC_ESTIMATED);
 
-            // メッセージを初期表示
-            FWUpdateProgress.ShowProgress(sender.ViewModel, MSG_FW_UPDATE_PRE_PROCESS, 0);
+                // メッセージを初期表示
+                FWUpdateProgress.ShowProgress(sender.ViewModel, MSG_FW_UPDATE_PRE_PROCESS, 0);
+            }
         }
 
         private void CheckUpdatedFWVersion()
