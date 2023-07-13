@@ -17,11 +17,11 @@ namespace DesktopTool
         // このクラスのインスタンス
         private static FWUpdateProgress Instance = null!;
         private FWUpdateProgressWindow Window = null!;
+        private FWUpdateProgressViewModel ViewModel = null!;
 
         // プロパティー
         public ProgressStatus Status { get; private set; }
         public string ErrorMessage { get; private set; }
-        public FWUpdateProgressViewModel ViewModel { get; private set; }
 
         // ファームウェア更新進捗画面表示時のコールバックを保持
         public delegate void FWUpdateProgressHandler(FWUpdateProgress sender);
@@ -31,7 +31,6 @@ namespace DesktopTool
         {
             Instance = this;
             ErrorMessage = string.Empty;
-            ViewModel = null!;
         }
 
         public bool OpenForm(FWUpdateProgressHandler handler)
@@ -67,15 +66,17 @@ namespace DesktopTool
             Instance.NotifyTerminateInner(dialogResult);
         }
 
-        public static void SetMaxProgress(FWUpdateProgressViewModel model, int maxProgress)
+        public static void SetMaxProgress(int maxProgress)
         {
             // 進捗度の最大値を画面に反映させる
+            FWUpdateProgressViewModel model = Instance.ViewModel;
             model.SetMaxLevel(maxProgress);
         }
 
-        public static void ShowProgress(FWUpdateProgressViewModel model, string caption, int progressing)
+        public static void ShowProgress(string caption, int progressing)
         {
             // メッセージを表示し、進捗度を画面に反映させる
+            FWUpdateProgressViewModel model = Instance.ViewModel;
             model.SetLevel(progressing);
             model.ShowRemaining(caption);
         }
@@ -95,7 +96,7 @@ namespace DesktopTool
             Instance.HandleUpdateProgress(ProgressStatusInitView);
         }
 
-        public static void OnCancel(FWUpdateProgressViewModel model)
+        public static void OnCancel()
         {
             // エラーメッセージを設定
             Instance.ErrorMessage = MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED;

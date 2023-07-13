@@ -55,7 +55,7 @@ namespace DesktopTool
         //
         private void OnButtonCloseClicked()
         {
-            FWUpdateProgress.OnCancel(this);
+            FWUpdateProgress.OnCancel();
         }
 
         //
