@@ -3,6 +3,7 @@ using System.Windows;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FWUpdateConst;
 using static DesktopTool.FWUpdateProgress.ProgressStatus;
+using static DesktopTool.FWUpdateTransfer.TransferStatus;
 
 namespace DesktopTool
 {
@@ -93,6 +94,9 @@ namespace DesktopTool
 
                 // メッセージを初期表示
                 FWUpdateProgress.ShowProgress(MSG_FW_UPDATE_PRE_PROCESS, 0);
+
+                // ファームウェア更新イメージの転送処理を開始
+                Task task = Task.Run(TransferUpdateImage);
             }
 
             // 中止ボタンクリック時の処理
@@ -157,6 +161,32 @@ namespace DesktopTool
         private void CancelCommand(bool success, string message)
         {
             Application.Current.Dispatcher.Invoke(CancelCommandInner, success, message);
+        }
+
+        //
+        // 転送処理
+        //
+        private void TransferUpdateImage()
+        {
+            // ファームウェア更新イメージの参照を共有情報から取得
+            FWUpdateImage updateImage = (FWUpdateImage)ProcessContext[nameof(FWUpdateImage)];
+
+            // BLEデバイスに接続し、ファームウェア更新イメージを転送
+            new FWUpdateTransfer(updateImage).Start(UpdateImageTransferHandler);
+        }
+
+        private void UpdateImageTransferHandler(FWUpdateTransfer sender)
+        {
+            if (sender.Status == TransferStatusUpdateProgress) {
+                // ファームウェア更新進捗画面に進捗を表示
+                string message = string.Format(MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, sender.Progress);
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, message, sender.Progress);
+            }
+
+            if (sender.Status == TransferStatusCompleted) {
+                // TODO: 仮の実装です。
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
+            }
         }
 
         //
