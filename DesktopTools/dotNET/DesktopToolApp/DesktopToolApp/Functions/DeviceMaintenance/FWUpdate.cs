@@ -24,6 +24,9 @@ namespace DesktopTool
 
         private void RetrieveCurrentFWVersion()
         {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM);
+
             // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
             new FWVersion().Inquiry(NotifyResponseQueryHandler);
         }
@@ -47,6 +50,10 @@ namespace DesktopTool
                 CancelCommand(false, errorMessage);
                 return;
             }
+            
+            // ファームウェアの現在バージョン／更新バージョンを画面表示
+            string message = string.Format(MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, sender.VersionData.FWRev, sender.UpdateImageData.UpdateVersion);
+            LogAndShowInfoMessage(message);
 
             // ファームウェア更新イメージの参照を共有情報に保持
             ProcessContext[nameof(FWUpdateImage)] = sender;
