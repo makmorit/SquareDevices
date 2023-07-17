@@ -101,11 +101,8 @@ namespace DesktopTool
 
             // 中止ボタンクリック時の処理
             if (sender.Status == ProgressStatusCancelClicked) {
-                // メッセージを画面表示／ログ出力
-                LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED);
-
-                // ファームウェア更新進捗画面を閉じる
-                FWUpdateProgress.CloseForm(false);
+                // ファームウェア更新イメージ転送処理を中止
+                CancelUpdateImageTransfer();
             }
         }
 
@@ -188,10 +185,27 @@ namespace DesktopTool
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, message, sender.Progress);
             }
 
+            if (sender.Status == TransferStatusCanceled) {
+                // ファームウェア更新進捗画面を閉じる
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
+            }
+
             if (sender.Status == TransferStatusCompleted) {
                 // TODO: 仮の実装です。
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
             }
+        }
+
+        private void CancelUpdateImageTransfer()
+        {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED);
+
+            // ファームウェア更新イメージ転送クラスの参照を共有情報から取得
+            FWUpdateTransfer updateTransfer = (FWUpdateTransfer)ProcessContext[nameof(FWUpdateTransfer)];
+
+            // 転送処理中止を要求
+            updateTransfer.Cancel();
         }
 
         //

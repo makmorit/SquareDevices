@@ -10,6 +10,8 @@ namespace DesktopTool
             TransferStatusNone = 0,
             TransferStatusStarted,
             TransferStatusUpdateProgress,
+            TransferStatusCanceling,
+            TransferStatusCanceled,
             TransferStatusCompleted,
         };
 
@@ -44,10 +46,23 @@ namespace DesktopTool
                 Progress = i + 1;
                 HandleUpdateImageTransfer(TransferStatusUpdateProgress);
                 System.Threading.Thread.Sleep(100);
+
+                // TODO: 仮の実装です。
+                // 処理進捗画面でCancelボタンが押下された時
+                if (Status == TransferStatusCanceling) {
+                    HandleUpdateImageTransfer(TransferStatusCanceled);
+                    return;
+                }
             }
 
             // TODO: 仮の実装です。
             HandleUpdateImageTransfer(TransferStatusCompleted);
+        }
+
+        public void Cancel()
+        {
+            // ファームウェア更新イメージ転送処理を中止させる
+            Status = TransferStatusCanceling;
         }
 
         private void HandleUpdateImageTransfer(TransferStatus status)
