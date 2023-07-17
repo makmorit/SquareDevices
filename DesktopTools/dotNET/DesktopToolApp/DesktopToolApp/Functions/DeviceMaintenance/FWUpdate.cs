@@ -177,6 +177,11 @@ namespace DesktopTool
 
         private void UpdateImageTransferHandler(FWUpdateTransfer sender)
         {
+            if (sender.Status == TransferStatusStarted) {
+                // ファームウェア更新イメージ転送クラスの参照を共有情報に保持
+                ProcessContext[nameof(FWUpdateTransfer)] = sender;
+            }
+
             if (sender.Status == TransferStatusUpdateProgress) {
                 // ファームウェア更新進捗画面に進捗を表示
                 string message = string.Format(MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, sender.Progress);
