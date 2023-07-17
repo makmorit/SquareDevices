@@ -21,7 +21,6 @@ namespace DesktopTool
 
         // プロパティー
         public ProgressStatus Status { get; private set; }
-        public string ErrorMessage { get; private set; }
 
         // ファームウェア更新進捗画面表示時のコールバックを保持
         public delegate void FWUpdateProgressHandler(FWUpdateProgress sender);
@@ -30,7 +29,6 @@ namespace DesktopTool
         public FWUpdateProgress()
         {
             Instance = this;
-            ErrorMessage = string.Empty;
         }
 
         public bool OpenForm(FWUpdateProgressHandler handler)
@@ -98,9 +96,6 @@ namespace DesktopTool
 
         public static void OnCancel()
         {
-            // エラーメッセージを設定
-            Instance.ErrorMessage = MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED;
-
             // 中止ボタンがクリックされた旨を通知
             Instance.HandleUpdateProgress(ProgressStatusCancelClicked);
         }
