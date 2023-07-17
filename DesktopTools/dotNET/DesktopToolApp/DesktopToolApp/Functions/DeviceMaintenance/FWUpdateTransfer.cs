@@ -13,6 +13,8 @@ namespace DesktopTool
             TransferStatusUpdateProgress,
             TransferStatusCanceling,
             TransferStatusCanceled,
+            TransferStatusWaitingUpdate,
+            TransferStatusWaitingUpdateProgress,
             TransferStatusCompleted,
         };
 
@@ -62,6 +64,16 @@ namespace DesktopTool
                     HandleUpdateImageTransfer(TransferStatusCanceled);
                     return;
                 }
+            }
+
+            // 転送処理完了-->反映待機を通知
+            HandleUpdateImageTransfer(TransferStatusWaitingUpdate);
+
+            // TODO: 仮の実装です。
+            for (int i = 0; i < FWUpdateConst.DFU_WAITING_SEC_ESTIMATED; i++) {
+                Progress = 100 + i + 1;
+                HandleUpdateImageTransfer(TransferStatusWaitingUpdateProgress);
+                System.Threading.Thread.Sleep(100);
             }
 
             // TODO: 仮の実装です。

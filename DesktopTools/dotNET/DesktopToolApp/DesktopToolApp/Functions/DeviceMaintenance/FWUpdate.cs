@@ -198,6 +198,16 @@ namespace DesktopTool
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
             }
 
+            if (sender.Status == TransferStatusWaitingUpdate) {
+                // ファームウェア更新進捗画面の中止ボタンを使用不能とする
+                FWUpdateProgress.EnableButtonClose(false);
+            }
+
+            if (sender.Status == TransferStatusWaitingUpdateProgress) {
+                // ファームウェア更新進捗画面に進捗を表示
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, MSG_FW_UPDATE_PROCESS_WAITING_UPDATE, sender.Progress);
+            }
+
             if (sender.Status == TransferStatusCompleted) {
                 // TODO: 仮の実装です。
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
