@@ -8,6 +8,7 @@ namespace DesktopTool
         public enum TransferStatus
         {
             TransferStatusNone = 0,
+            TransferStatusStarting,
             TransferStatusStarted,
             TransferStatusUpdateProgress,
             TransferStatusCanceling,
@@ -37,6 +38,14 @@ namespace DesktopTool
         public void Start(FWUpdateImageTransferHandler updateImageTransferHandler)
         {
             UpdateImageTransferHandler = updateImageTransferHandler;
+
+            // 転送処理準備を通知
+            HandleUpdateImageTransfer(TransferStatusStarting);
+
+            // TODO: 仮の実装です。
+            for (int i = 0; i < 30; i++) {
+                System.Threading.Thread.Sleep(100);
+            }
 
             // 転送処理開始を通知
             HandleUpdateImageTransfer(TransferStatusStarted);

@@ -174,9 +174,14 @@ namespace DesktopTool
 
         private void UpdateImageTransferHandler(FWUpdateTransfer sender)
         {
-            if (sender.Status == TransferStatusStarted) {
+            if (sender.Status == TransferStatusStarting) {
                 // ファームウェア更新イメージ転送クラスの参照を共有情報に保持
                 ProcessContext[nameof(FWUpdateTransfer)] = sender;
+            }
+
+            if (sender.Status == TransferStatusStarted) {
+                // ファームウェア更新進捗画面の中止ボタンを使用可能とする
+                FWUpdateProgress.EnableButtonClose(true);
             }
 
             if (sender.Status == TransferStatusUpdateProgress) {
