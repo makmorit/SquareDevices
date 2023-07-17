@@ -12,6 +12,6 @@
     <Grid Height="150">
         <ProgressBar x:Name="levelIndicator" Value="{Binding Level}" Maximum="{Binding MaxLevel}" HorizontalAlignment="Center" Height="24" Margin="0,20,0,0" VerticalAlignment="Top" Width="350"/>
         <Label x:Name="labelRemaining" Content="{Binding Remaining}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,55,0,0" Width="350"/>
-        <Button x:Name="buttonClose" Content="中止" Command="{Binding ButtonCloseClicked}" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
+        <Button x:Name="buttonClose" Content="中止" Command="{Binding ButtonCloseClicked}" IsEnabled="{Binding ButtonCloseIsEnabled}" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
     </Grid>
 </Window>

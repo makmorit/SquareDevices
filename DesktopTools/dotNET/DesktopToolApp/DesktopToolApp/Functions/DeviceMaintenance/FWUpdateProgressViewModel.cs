@@ -10,6 +10,7 @@ namespace DesktopTool
         private string remaining = null!;
         private int level = 0;
         private int maxLevel = 0;
+        private bool buttonCloseIsEnabled;
 
         public FWUpdateProgressViewModel()
         {
@@ -18,6 +19,7 @@ namespace DesktopTool
             Remaining = string.Empty;
             Level = 0;
             MaxLevel = 100;
+            ButtonCloseIsEnabled = false;
             try { FWUpdateProgress.InitView(this); } catch { }
         }
 
@@ -50,6 +52,12 @@ namespace DesktopTool
             set { maxLevel = value; NotifyPropertyChanged(nameof(MaxLevel)); }
         }
 
+        public bool ButtonCloseIsEnabled
+        {
+            get { return buttonCloseIsEnabled; }
+            set { buttonCloseIsEnabled = value; NotifyPropertyChanged(nameof(ButtonCloseIsEnabled)); }
+        }
+
         //
         // 内部処理
         //
@@ -79,6 +87,11 @@ namespace DesktopTool
         public void SetMaxLevel(int value)
         {
             MaxLevel = value;
+        }
+
+        public void EnableButtonClose(bool b)
+        {
+            ButtonCloseIsEnabled = b;
         }
     }
 }

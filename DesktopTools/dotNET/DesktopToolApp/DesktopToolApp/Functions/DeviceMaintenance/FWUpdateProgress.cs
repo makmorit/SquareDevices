@@ -79,6 +79,12 @@ namespace DesktopTool
             model.ShowRemaining(caption);
         }
 
+        public static void EnableButtonClose(bool isEnabled)
+        {
+            // 閉じるボタンを使用可能／不可能に設定
+            FunctionUtil.EnableButtonClickOnApp(isEnabled, Instance.ViewModel.EnableButtonClose);
+        }
+
         //
         // コールバック関数
         //
