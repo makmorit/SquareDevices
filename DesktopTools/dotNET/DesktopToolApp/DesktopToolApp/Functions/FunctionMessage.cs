@@ -54,6 +54,7 @@
         public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
         public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT = "更新ファームウェアを転送中（{0}％）";
+        public const string MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION = "転送された更新ファームウェアのバージョンを確認中です。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED = "更新ファームウェアの転送をユーザーが中止しました。";
         public const string MSG_FW_UPDATE_VERSION_SUCCESS = "ファームウェアのバージョンが{0}に更新されました。";
         public const string MSG_FW_UPDATE_VERSION_FAIL = "ファームウェアのバージョンを{0}に更新できませんでした。";

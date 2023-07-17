@@ -108,6 +108,9 @@ namespace DesktopTool
 
         private void CheckUpdatedFWVersion()
         {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION);
+
             // BLEデバイスに接続し、更新後ファームウェアのバージョン情報を取得
             new FWVersion().Inquiry(UpdatedFWVersionResponseHandler);
         }
