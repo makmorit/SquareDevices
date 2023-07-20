@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using static DesktopTool.FunctionMessage;
-using static DesktopTool.FunctionDefines;
 using System.Windows;
+using static DesktopTool.BLEDefines;
+using static DesktopTool.FunctionDefines;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -28,7 +29,7 @@ namespace DesktopTool
         {
             Task task = Task.Run(() => {
                 // BLEデバイスに接続
-                new BLETransport().Connect(OnNotifyConnection);
+                new BLETransport().Connect(OnNotifyConnection, U2F_BLE_SERVICE_UUID_STR);
             });
         }
 

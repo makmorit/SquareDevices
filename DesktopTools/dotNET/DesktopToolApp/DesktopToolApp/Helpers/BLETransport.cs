@@ -17,13 +17,13 @@ namespace DesktopTool
         public delegate void NotifyConnectionHandler(BLETransport sender, bool success, string errorMessage);
         private event NotifyConnectionHandler NotifyConnection = null!;
 
-        public void Connect(NotifyConnectionHandler notifyConnectionHandler)
+        public void Connect(NotifyConnectionHandler notifyConnectionHandler, string serviceUUIDString)
         {
             // コールバックを設定
             NotifyConnection += notifyConnectionHandler;
 
             // BLEデバイスをスキャン
-            BLEPeripheralScannerParam parameter = new BLEPeripheralScannerParam(U2F_BLE_SERVICE_UUID_STR);
+            BLEPeripheralScannerParam parameter = new BLEPeripheralScannerParam(serviceUUIDString);
             new BLEPeripheralScanner().DoProcess(parameter, OnBLEPeripheralScanned);
         }
 
@@ -47,7 +47,7 @@ namespace DesktopTool
             NotifyConnection = null!;
         }
 
-        private async void OnBLEPeripheralScanned(bool success, string errorMessage, BLEPeripheralScannerParam parameter)
+        private void OnBLEPeripheralScanned(bool success, string errorMessage, BLEPeripheralScannerParam parameter)
         {
             if (success == false) {
                 // 失敗時はログ出力
@@ -64,9 +64,24 @@ namespace DesktopTool
             // 成功時はログ出力
             AppLogUtil.OutputLogInfo(MSG_SCAN_BLE_DEVICE_SUCCESS);
 
-            // サービスに接続
+            // 接続サービスを設定し、サービスに接続
+            SetupBLEService(parameter);
+        }
+
+        protected virtual void SetupBLEService(BLEPeripheralScannerParam parameter)
+        {
+            // 接続サービスを設定し、サービスに接続
+            // TODO: U2F固有の処理を別クラスに継承予定
             BLEServiceParam serviceParam = new BLEServiceParam(parameter, U2F_STATUS_CHAR_UUID_STR, U2F_CONTROL_POINT_CHAR_UUID_STR);
             BLEService service = new BLEService();
+
+            // サービスに接続
+            ConnectBLEService(service, serviceParam);
+        }
+
+        protected async void ConnectBLEService(BLEService service, BLEServiceParam serviceParam)
+        {
+            // サービスに接続
             await service.StartCommunicate(serviceParam, OnConnectionStatusChanged);
 
             if (service.IsConnected()) {
