@@ -44,8 +44,8 @@ namespace DesktopTool
         // サービスをディスカバーできたデバイスを保持
         private BluetoothLEDevice BluetoothLEDevice = null!;
         private GattDeviceService BLEservice = null!;
-        private GattCharacteristic U2FStatusChar = null!;
-        private GattCharacteristic U2FControlPointChar = null!;
+        private GattCharacteristic CharacteristicForNotify = null!;
+        private BLEServiceParam Parameter = null!;
 
         // ステータスを保持
         private GattCommunicationStatus CommunicationStatus;
@@ -69,6 +69,7 @@ namespace DesktopTool
         public async Task<bool> StartCommunicate(BLEServiceParam parameter, ConnectionStatusChangedHandler handler)
         {
             // Bluetoothアドレスが不正の場合は処理を実行しない
+            Parameter = parameter;
             if (parameter.BluetoothAddress == 0) {
                 FreeResources();
                 return false;
@@ -94,7 +95,8 @@ namespace DesktopTool
                     await Task.Run(() => System.Threading.Thread.Sleep(100));
                 }
 
-                if (await StartBLENotification(BLEservice, parameter)) {
+                CharacteristicForNotify = BLEservice.GetCharacteristics(parameter.CharactForWriteUUID)[0];
+                if (await StartBLENotification(CharacteristicForNotify)) {
                     AppLogUtil.OutputLogInfo(string.Format("{0}({1})", MSG_BLE_U2F_NOTIFICATION_START, BLEservice.Device.Name));
                     return true;
                 }
@@ -147,16 +149,13 @@ namespace DesktopTool
             }
         }
 
-        private async Task<bool> StartBLENotification(GattDeviceService service, BLEServiceParam parameter)
+        private async Task<bool> StartBLENotification(GattCharacteristic characteristicForNotify)
         {
             // ステータスを初期化（戻りの有無を上位関数で判別できるようにするため）
             CommunicationStatus = GattCommunicationStatus.Success;
 
             try {
-                U2FStatusChar = service.GetCharacteristics(parameter.CharactForWriteUUID)[0];
-                U2FControlPointChar = service.GetCharacteristics(parameter.CharactForReadUUID)[0];
-
-                CommunicationStatus = await U2FStatusChar.WriteClientCharacteristicConfigurationDescriptorAsync(
+                CommunicationStatus = await characteristicForNotify.WriteClientCharacteristicConfigurationDescriptorAsync(
                     GattClientCharacteristicConfigurationDescriptorValue.Notify);
                 if (CommunicationStatus != GattCommunicationStatus.Success) {
                     AppLogUtil.OutputLogDebug(string.Format("BLEService.StartBLENotification: GattCommunicationStatus={0}", CommunicationStatus));
@@ -164,10 +163,7 @@ namespace DesktopTool
                 }
 
                 // BLEデバイスからの送信データを受信できるよう設定
-                U2FStatusChar.ValueChanged += OnCharacteristicValueChanged;
-
-                // 監視開始したサービスを退避
-                BLEservice = service;
+                characteristicForNotify.ValueChanged += OnCharacteristicValueChanged;
                 return true;
 
             } catch (Exception e) {
@@ -204,7 +200,14 @@ namespace DesktopTool
         //
         // 送信処理
         // 
-        public async void SendFrame(byte[] frameBytes)
+        public virtual void SendFrame(byte[] frameBytes)
+        {
+            // TODO: U2F固有の処理を別クラスに継承予定
+            GattCharacteristic U2FControlPointChar = BLEservice.GetCharacteristics(Parameter.CharactForReadUUID)[0];
+            SendFrame(U2FControlPointChar, GattWriteOption.WriteWithoutResponse, frameBytes);
+        }
+
+        private async void SendFrame(GattCharacteristic characteristicForSend, GattWriteOption writeOption, byte[] frameBytes)
         {
             if (BLEservice == null) {
                 AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: service is null"));
@@ -218,9 +221,9 @@ namespace DesktopTool
                     writer.WriteByte(frameBytes[i]);
                 }
 
-                // リクエストを実行（U2F Control Pointに書込）
-                if (U2FControlPointChar != null) {
-                    GattCommunicationStatus result = await U2FControlPointChar.WriteValueAsync(writer.DetachBuffer(), GattWriteOption.WriteWithoutResponse);
+                // リクエストを実行（キャラクタリスティックに書込）
+                if (characteristicForSend != null) {
+                    GattCommunicationStatus result = await characteristicForSend.WriteValueAsync(writer.DetachBuffer(), writeOption);
                     if (result != GattCommunicationStatus.Success) {
                         OnFrameReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
 
@@ -257,7 +260,7 @@ namespace DesktopTool
             ResponseTimer.Stop();
 
             try {
-                // レスポンスを受領（U2F Statusを読込）
+                // レスポンスを受領（キャラクタリスティックから読込）
                 uint len = eventArgs.CharacteristicValue.Length;
                 byte[] frameBytes = new byte[len];
                 DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(frameBytes);
@@ -284,8 +287,8 @@ namespace DesktopTool
         private void StopCommunicate()
         {
             try {
-                if (U2FStatusChar != null) {
-                    U2FStatusChar.ValueChanged -= OnCharacteristicValueChanged;
+                if (CharacteristicForNotify != null) {
+                    CharacteristicForNotify.ValueChanged -= OnCharacteristicValueChanged;
                 }
                 if (BLEservice != null) {
                     BLEservice.Dispose();
@@ -324,8 +327,7 @@ namespace DesktopTool
             // オブジェクトへの参照を解除
             BluetoothLEDevice = null!;
             BLEservice = null!;
-            U2FStatusChar = null!;
-            U2FControlPointChar = null!;
+            CharacteristicForNotify = null!;
 
             // コールバック解除
             ConnectionStatusChanged = null!;
