@@ -12,15 +12,15 @@ namespace DesktopTool
     internal class BLEServiceParam
     {
         public Guid ServiceUUID { get; set; }
-        public Guid CharactForWriteUUID { get; set; }
-        public Guid CharactForReadUUID { get; set; }
+        public Guid CharacteristicForNotify { get; set; }
+        public Guid CharacteristicForSend { get; set; }
         public ulong BluetoothAddress { get; set; }
 
-        public BLEServiceParam(BLEPeripheralScannerParam param)
+        public BLEServiceParam(BLEPeripheralScannerParam param, string charForNotifyUUIDString, string charForSendUUIDString)
         {
             ServiceUUID = param.ServiceUUID;
-            CharactForWriteUUID = param.CharactForWriteUUID;
-            CharactForReadUUID = param.CharactForReadUUID;
+            CharacteristicForNotify = new Guid(charForNotifyUUIDString);
+            CharacteristicForSend = new Guid(charForSendUUIDString);
             BluetoothAddress = param.BluetoothAddress;
         }
     }
@@ -95,7 +95,7 @@ namespace DesktopTool
                     await Task.Run(() => System.Threading.Thread.Sleep(100));
                 }
 
-                CharacteristicForNotify = BLEservice.GetCharacteristics(parameter.CharactForWriteUUID)[0];
+                CharacteristicForNotify = BLEservice.GetCharacteristics(parameter.CharacteristicForNotify)[0];
                 if (await StartBLENotification(CharacteristicForNotify)) {
                     AppLogUtil.OutputLogInfo(string.Format("{0}({1})", MSG_BLE_U2F_NOTIFICATION_START, BLEservice.Device.Name));
                     return true;
@@ -202,9 +202,9 @@ namespace DesktopTool
         // 
         public virtual void SendFrame(byte[] frameBytes)
         {
-            // TODO: U2F固有の処理を別クラスに継承予定
-            GattCharacteristic U2FControlPointChar = BLEservice.GetCharacteristics(Parameter.CharactForReadUUID)[0];
-            SendFrame(U2FControlPointChar, GattWriteOption.WriteWithoutResponse, frameBytes);
+            // WriteWithoutResponse を既定オプションとして送信
+            GattCharacteristic characteristicForSend = BLEservice.GetCharacteristics(Parameter.CharacteristicForSend)[0];
+            SendFrame(characteristicForSend, GattWriteOption.WriteWithoutResponse, frameBytes);
         }
 
         private async void SendFrame(GattCharacteristic characteristicForSend, GattWriteOption writeOption, byte[] frameBytes)

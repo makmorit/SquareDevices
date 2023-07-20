@@ -23,7 +23,7 @@ namespace DesktopTool
             NotifyConnection += notifyConnectionHandler;
 
             // BLEデバイスをスキャン
-            BLEPeripheralScannerParam parameter = BLEPeripheralScannerParam.PrepareParameterForFIDO();
+            BLEPeripheralScannerParam parameter = new BLEPeripheralScannerParam(U2F_BLE_SERVICE_UUID_STR);
             new BLEPeripheralScanner().DoProcess(parameter, OnBLEPeripheralScanned);
         }
 
@@ -65,7 +65,7 @@ namespace DesktopTool
             AppLogUtil.OutputLogInfo(MSG_SCAN_BLE_DEVICE_SUCCESS);
 
             // サービスに接続
-            BLEServiceParam serviceParam = new BLEServiceParam(parameter);
+            BLEServiceParam serviceParam = new BLEServiceParam(parameter, U2F_STATUS_CHAR_UUID_STR, U2F_CONTROL_POINT_CHAR_UUID_STR);
             BLEService service = new BLEService();
             await service.StartCommunicate(serviceParam, OnConnectionStatusChanged);
 
