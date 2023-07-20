@@ -33,7 +33,7 @@ namespace DesktopTool
         public BLEService()
         {
             // 応答タイムアウト発生時のイベントを登録
-            ResponseTimer = new CommonTimer("BLEService", U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC);
+            ResponseTimer = new CommonTimer(GetType().Name, U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC);
             ResponseTimer.CommandTimeoutEvent += OnResponseTimerElapsed;
             FreeResources();
         }
@@ -128,7 +128,7 @@ namespace DesktopTool
                 foreach (var gattService in gattServices.Services) {
                     if (gattService.Uuid.Equals(parameter.ServiceUUID)) {
                         BLEservice = gattService;
-                        AppLogUtil.OutputLogDebug(string.Format("  FIDO BLE service found [{0}]", gattService.Device.Name));
+                        AppLogUtil.OutputLogDebug(string.Format("  BLE service found [{0}]", gattService.Device.Name));
                     }
                 }
 
@@ -233,7 +233,7 @@ namespace DesktopTool
                     }
 
                 } else {
-                    AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: U2F control point characteristic is null"));
+                    AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: characteristic for send is null"));
                     OnFrameReceived(false, MSG_REQUEST_SEND_FAILED, Array.Empty<byte>());
                 }
 
