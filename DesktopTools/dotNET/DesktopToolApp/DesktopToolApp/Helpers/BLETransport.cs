@@ -171,7 +171,7 @@ namespace DesktopTool
         //
         public virtual void SendRequest(byte requestCMD, byte[] requestBytes)
         {
-            ResponseReceived(this, true, string.Empty, requestCMD, requestBytes);
+            FrameReceivedHandler(BLEServiceRef, true, string.Empty, requestBytes);
         }
 
         //
