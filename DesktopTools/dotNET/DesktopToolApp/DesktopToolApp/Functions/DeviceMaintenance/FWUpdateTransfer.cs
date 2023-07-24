@@ -1,4 +1,5 @@
-﻿using static DesktopTool.FWUpdateTransfer.TransferStatus;
+﻿using static DesktopTool.BLEDefines;
+using static DesktopTool.FWUpdateTransfer.TransferStatus;
 
 namespace DesktopTool
 {
@@ -16,12 +17,14 @@ namespace DesktopTool
             TransferStatusWaitingUpdate,
             TransferStatusWaitingUpdateProgress,
             TransferStatusCompleted,
+            TransferStatusFailed,
         };
 
         // プロパティー
         public FWUpdateImage UpdateImage { get; private set; }
         public TransferStatus Status { get; private set; }
         public int Progress { get; private set; }
+        public string ErrorMessage { get; private set; }
 
         // ファームウェア更新イメージ転送時のコールバックを保持
         public delegate void FWUpdateImageTransferHandler(FWUpdateTransfer sender);
@@ -32,6 +35,7 @@ namespace DesktopTool
             UpdateImage = updateImage;
             Status = TransferStatusNone;
             Progress = 0;
+            ErrorMessage = string.Empty;
         }
 
         //
@@ -44,7 +48,14 @@ namespace DesktopTool
             // 転送処理準備を通知
             HandleUpdateImageTransfer(TransferStatusStarting);
 
+            // BLE SMPサービスに接続
+            ConnectBLESMPTransport();
+        }
+
+        private void OnConnectBLESMPTransport(BLESMPTransport sender)
+        {
             // TODO: 仮の実装です。
+            sender.Disconnect();
             for (int i = 0; i < 30; i++) {
                 System.Threading.Thread.Sleep(100);
             }
@@ -90,6 +101,28 @@ namespace DesktopTool
         {
             Status = status;
             UpdateImageTransferHandler(this);
+        }
+
+        //
+        // BLE SMPサービス接続
+        //
+        public void ConnectBLESMPTransport()
+        {
+            // BLEデバイスに接続
+            new BLESMPTransport().Connect(NotifyConnectionHandler, BLE_SMP_SERVICE_UUID_STR);
+        }
+
+        private void NotifyConnectionHandler(BLETransport sender, bool success, string errorMessage)
+        {
+            if (success == false) {
+                // 失敗時は上位クラスに制御を戻す
+                ErrorMessage = errorMessage;
+                HandleUpdateImageTransfer(TransferStatusFailed);
+                return;
+            }
+
+            // 後続処理を実行
+            OnConnectBLESMPTransport((BLESMPTransport)sender);
         }
     }
 }
