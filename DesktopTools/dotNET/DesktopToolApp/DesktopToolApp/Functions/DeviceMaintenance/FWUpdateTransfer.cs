@@ -55,7 +55,7 @@ namespace DesktopTool
         private void OnConnectBLESMPTransport(BLESMPTransport sender)
         {
             // TODO: 仮の実装です。
-            sender.Disconnect();
+            DisconnectBLESMPTransport(sender);
             for (int i = 0; i < 30; i++) {
                 System.Threading.Thread.Sleep(100);
             }
@@ -121,8 +121,33 @@ namespace DesktopTool
                 return;
             }
 
+            // コールバックを登録
+            sender.RegisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.RegisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
+
             // 後続処理を実行
             OnConnectBLESMPTransport((BLESMPTransport)sender);
+        }
+
+        private void DisconnectBLESMPTransport(BLETransport sender)
+        {
+            // コールバックを解除
+            sender.UnregisterResponseReceivedHandler(ResponseReceivedHandler);
+            sender.UnregisterNotifyConnectionStatusHandler(NotifyConnectionStatusHandler);
+
+            // 接続を終了
+            sender.Disconnect();
+        }
+
+        //
+        // BLE SMPサービスのコールバック関数
+        //
+        private void ResponseReceivedHandler(BLETransport sender, bool success, string errorMessage, byte responseCMD, byte[] responseBytes)
+        {
+        }
+
+        private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
+        {
         }
     }
 }
