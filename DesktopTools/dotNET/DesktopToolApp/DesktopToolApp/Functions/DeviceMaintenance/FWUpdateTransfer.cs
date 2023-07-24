@@ -139,11 +139,29 @@ namespace DesktopTool
             sender.Disconnect();
         }
 
+        private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
+        {
+            // 切断処理
+            DisconnectBLESMPTransport((BLESMPTransport)sender);
+
+            // 失敗時は上位クラスに制御を戻す
+            if (success == false) {
+                ErrorMessage = errorMessage;
+                HandleUpdateImageTransfer(TransferStatusFailed);
+                return;
+            }
+        }
+
         //
         // BLE SMPサービスのコールバック関数
         //
         private void ResponseReceivedHandler(BLETransport sender, bool success, string errorMessage, byte responseCMD, byte[] responseBytes)
         {
+            // レスポンス受信失敗時はエラー扱い
+            if (success == false) {
+                TerminateCommand(sender, false, errorMessage);
+                return;
+            }
         }
 
         private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
