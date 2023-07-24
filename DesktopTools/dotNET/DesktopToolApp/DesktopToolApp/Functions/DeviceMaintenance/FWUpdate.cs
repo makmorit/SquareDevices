@@ -50,7 +50,7 @@ namespace DesktopTool
                 CancelCommand(false, errorMessage);
                 return;
             }
-            
+
             // ファームウェアの現在バージョン／更新バージョンを画面表示
             string message = string.Format(MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, sender.VersionData.FWRev, sender.UpdateImageData.UpdateVersion);
             LogAndShowInfoMessage(message);
@@ -83,7 +83,7 @@ namespace DesktopTool
 
                 } else {
                     // 転送処理時にエラーが発生した場合
-                    TerminateCommand(false, string.Empty);
+                    OnUpdateImageTransferFailed();
                 }
 
             } else {
@@ -219,6 +219,11 @@ namespace DesktopTool
                 // TODO: 仮の実装です。
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
             }
+
+            if (sender.Status == TransferStatusFailed) {
+                // ファームウェア更新進捗画面を閉じる
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
+            }
         }
 
         private void CancelUpdateImageTransfer()
@@ -231,6 +236,15 @@ namespace DesktopTool
 
             // 転送処理中止を要求
             updateTransfer.Cancel();
+        }
+
+        private void OnUpdateImageTransferFailed()
+        {
+            // ファームウェア更新イメージ転送クラスの参照を共有情報から取得
+            FWUpdateTransfer updateTransfer = (FWUpdateTransfer)ProcessContext[nameof(FWUpdateTransfer)];
+
+            // 異常終了扱いとする
+            TerminateCommand(false, updateTransfer.ErrorMessage);
         }
 
         //
