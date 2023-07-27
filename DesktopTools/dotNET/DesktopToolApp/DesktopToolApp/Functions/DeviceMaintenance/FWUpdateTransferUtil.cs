@@ -35,5 +35,12 @@
             };
             return header;
         }
+
+        public static int GetSMPResponseBodySize(byte[] responseData)
+        {
+            // レスポンスヘッダーの３・４バイト目からデータ長を抽出
+            int totalSize = ((responseData[2] << 8) & 0xff00) + (responseData[3] & 0x00ff);
+            return totalSize;
+        }
     }
 }
