@@ -10,6 +10,7 @@ namespace DesktopTool
         {
             TransferStatusNone = 0,
             TransferStatusStarting,
+            TransferStatusPreprocess,
             TransferStatusStarted,
             TransferStatusUpdateProgress,
             TransferStatusCanceling,
@@ -45,7 +46,7 @@ namespace DesktopTool
         {
             UpdateImageTransferHandler = updateImageTransferHandler;
 
-            // 転送処理準備を通知
+            // 転送処理の前処理を通知
             HandleUpdateImageTransfer(TransferStatusStarting);
 
             // BLE SMPサービスに接続
@@ -54,6 +55,9 @@ namespace DesktopTool
 
         private void OnConnectBLESMPTransport(BLESMPTransport sender)
         {
+            // 転送処理準備を通知
+            HandleUpdateImageTransfer(TransferStatusPreprocess);
+
             // TODO: 仮の実装です。
             DisconnectBLESMPTransport(sender);
             for (int i = 0; i < 30; i++) {

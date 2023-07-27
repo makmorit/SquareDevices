@@ -55,6 +55,7 @@
         public const string MSG_FW_UPDATE_PROMPT_START_PROCESS = "OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。";
         public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
         public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE = "更新ファームウェアを転送中です。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT = "更新ファームウェアを転送中（{0}％）";
         public const string MSG_FW_UPDATE_PROCESS_WAITING_UPDATE = "転送された更新ファームウェアの反映を待機中です。";
         public const string MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION = "転送された更新ファームウェアのバージョンを確認中です。";

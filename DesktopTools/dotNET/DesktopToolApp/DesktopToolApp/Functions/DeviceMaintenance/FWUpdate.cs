@@ -189,6 +189,11 @@ namespace DesktopTool
                 ProcessContext[nameof(FWUpdateTransfer)] = sender;
             }
 
+            if (sender.Status == TransferStatusPreprocess) {
+                // ファームウェア更新進捗画面にメッセージを表示
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE, sender.Progress);
+            }
+
             if (sender.Status == TransferStatusStarted) {
                 // ファームウェア更新進捗画面の中止ボタンを使用可能とする
                 FWUpdateProgress.EnableButtonClose(true);
