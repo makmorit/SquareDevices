@@ -1,4 +1,6 @@
-﻿namespace DesktopTool
+﻿using static DesktopTool.FWUpdateTransferConst;
+
+namespace DesktopTool
 {
     internal class FWUpdateTransferConst
     {
@@ -39,6 +41,20 @@
             // レスポンスヘッダーの３・４バイト目からデータ長を抽出
             int totalSize = ((responseData[2] << 8) & 0xff00) + (responseData[3] & 0x00ff);
             return totalSize;
+        }
+
+        //
+        // スロット照会
+        //
+        public static void SendRequestGetSlotInfo(BLESMPTransport sender, string commandName)
+        {
+            // リクエストデータを生成
+            byte[] bodyBytes = new byte[] { 0xbf, 0xff };
+            ushort len = (ushort)bodyBytes.Length;
+            byte[] headerBytes = BuildSMPHeader(OP_READ_REQ, 0x00, len, GRP_IMG_MGMT, 0x00, CMD_IMG_MGMT_STATE);
+
+            // リクエストデータを送信
+            sender.SendSMPRequestData(commandName, bodyBytes, headerBytes);
         }
     }
 }
