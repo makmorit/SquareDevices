@@ -194,6 +194,13 @@ namespace DesktopTool
 
         private void DoResponseGetSlotInfo(BLESMPTransport sender, byte[] responseData)
         {
+            // スロット照会情報を参照し、チェックでNGの場合は以降の処理を行わない
+            string errorMessage;
+            if (FWUpdateTransferUtil.CheckSlotInfoResponse(responseData, UpdateImage.UpdateImageData.SHA256Hash, out errorMessage) == false) {
+                TerminateCommand(sender, false, errorMessage);
+                return;
+            }
+
             // TODO: 仮の実装です。
             OnResponseGetSlotInfo(sender);
         }

@@ -1,4 +1,5 @@
-﻿using static DesktopTool.FWUpdateTransferConst;
+﻿using static DesktopTool.FunctionMessage;
+using static DesktopTool.FWUpdateTransferConst;
 
 namespace DesktopTool
 {
@@ -55,6 +56,39 @@ namespace DesktopTool
 
             // リクエストデータを送信
             sender.SendSMPRequestData(commandName, bodyBytes, headerBytes);
+        }
+
+        public static bool CheckSlotInfoResponse(byte[] responseData, byte[] hashOfUpdateImageData, out string errorMessage)
+        {
+            // エラーメッセージを初期化
+            errorMessage = string.Empty;
+
+            // CBORをデコードしてスロット照会情報を抽出
+            FWUpdateCBORDecoder decoder = new FWUpdateCBORDecoder();
+            if (decoder.DecodeSlotInfo(responseData) == false) {
+                errorMessage = MSG_FW_UPDATE_SUB_PROCESS_FAILED;
+                return false;
+            }
+
+            // スロット照会情報から、スロット#0のハッシュを抽出
+            byte[] hashSlot = decoder.SlotInfos[0].Hash;
+
+            // スロット#0と転送対象イメージのSHA-256ハッシュを比較
+            bool hashIsEqual = true;
+            for (int i = 0; i < 32; i++) {
+                if (hashSlot[i] != hashOfUpdateImageData[i]) {
+                    hashIsEqual = false;
+                    break;
+                }
+            }
+
+            // 既に転送対象イメージが導入されている場合は、画面／ログにその旨を出力し、処理を中止
+            bool active = decoder.SlotInfos[0].Active;
+            if (active && hashIsEqual) {
+                errorMessage = MSG_FW_UPDATE_IMAGE_ALREADY_INSTALLED;
+                return false;
+            }
+            return true;
         }
     }
 }

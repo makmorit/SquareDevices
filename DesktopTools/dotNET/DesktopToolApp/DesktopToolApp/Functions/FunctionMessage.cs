@@ -47,6 +47,7 @@
         // ファームウェア更新
         public const string MSG_FW_UPDATE_FUNC_NOT_AVAILABLE = "ファームウェア更新機能が利用できません。";
         public const string MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST = "ファームウェア更新イメージファイルが存在しません。";
+        public const string MSG_FW_UPDATE_IMAGE_ALREADY_INSTALLED = "更新ファームウェアが既に導入済みなので、ファームウェア更新処理を続行できません。";
         public const string MSG_FW_UPDATE_VERSION_UNKNOWN = "ファームウェア更新イメージファイルのバージョンが不明です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM = "ファームウェアの現在バージョンを確認中です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN = "ファームウェアの現在バージョンが不明です。";
@@ -55,6 +56,7 @@
         public const string MSG_FW_UPDATE_PROMPT_START_PROCESS = "OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。";
         public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
         public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
+        public const string MSG_FW_UPDATE_SUB_PROCESS_FAILED = "ファームウェア更新機能の内部処理が失敗しました。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE = "更新ファームウェアを転送中です。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT = "更新ファームウェアを転送中（{0}％）";
         public const string MSG_FW_UPDATE_PROCESS_WAITING_UPDATE = "転送された更新ファームウェアの反映を待機中です。";
