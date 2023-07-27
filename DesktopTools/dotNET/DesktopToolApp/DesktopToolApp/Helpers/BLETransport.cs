@@ -9,6 +9,14 @@ namespace DesktopTool
         // ヘルパークラスの参照を保持
         protected BLEService BLEServiceRef = null!;
 
+        // プロパティー
+        public string CommandName { get; set; }
+
+        public BLETransport()
+        {
+            CommandName = string.Empty;
+        }
+
         //
         // 接続処理
         //
