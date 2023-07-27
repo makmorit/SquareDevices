@@ -36,6 +36,17 @@ namespace DesktopTool
             AppLogUtil.OutputLogDebug(string.Format("Transmit SMP request ({0} bytes)\r\n{1}", requestBytes.Length, dump));
         }
 
+        public void SendSMPRequestData(string commandName, byte[] requestBody, byte[] requestHeader)
+        {
+            // 実行コマンド名を保持
+            CommandName = commandName;
+
+            // ヘッダーと本体を連結
+            byte[] requestData = Enumerable.Concat(requestHeader, requestBody).ToArray();
+
+            // リクエストデータを送信
+            SendRequest(0x00, requestData);
+        }
 
         //
         // 受信処理（コールバック）
