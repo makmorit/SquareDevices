@@ -15,6 +15,8 @@
         public const int U2F_BLE_CONT_HEADER_LEN = 1;
         public const int U2F_BLE_FRAME_LEN = 64;
 
+        public const int SMP_HEADER_SIZE = 8;
+
         // 性能関連
         public const int U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC = 3000;
 

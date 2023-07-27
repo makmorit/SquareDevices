@@ -14,8 +14,6 @@
 
         public const int GRP_OS_MGMT = 0;
         public const int CMD_OS_MGMT_RESET = 5;
-
-        public const int SMP_HEADER_SIZE = 8;
     }
 
     internal class FWUpdateTransferUtil
