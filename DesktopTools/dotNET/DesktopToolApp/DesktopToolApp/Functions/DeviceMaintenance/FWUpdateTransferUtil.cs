@@ -1,5 +1,23 @@
 ﻿namespace DesktopTool
 {
+    internal class FWUpdateTransferConst
+    {
+        //
+        // SMPトランザクションで使用する定義
+        //
+        public const int OP_READ_REQ = 0;
+        public const int OP_WRITE_REQ = 2;
+
+        public const int GRP_IMG_MGMT = 1;
+        public const int CMD_IMG_MGMT_STATE = 0;
+        public const int CMD_IMG_MGMT_UPLOAD = 1;
+
+        public const int GRP_OS_MGMT = 0;
+        public const int CMD_OS_MGMT_RESET = 5;
+
+        public const int SMP_HEADER_SIZE = 8;
+    }
+
     internal class FWUpdateTransferUtil
     {
         //
