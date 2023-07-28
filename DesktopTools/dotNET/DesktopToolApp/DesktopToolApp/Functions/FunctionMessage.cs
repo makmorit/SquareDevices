@@ -59,6 +59,7 @@
         public const string MSG_FW_UPDATE_SUB_PROCESS_FAILED = "ファームウェア更新機能の内部処理が失敗しました。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE = "更新ファームウェアを転送中です。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT = "更新ファームウェアを転送中（{0}％）";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC = "更新ファームウェアの転送中に不明なエラー（rc={0}）が発生しました。";
         public const string MSG_FW_UPDATE_PROCESS_WAITING_UPDATE = "転送された更新ファームウェアの反映を待機中です。";
         public const string MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION = "転送された更新ファームウェアのバージョンを確認中です。";
         public const string MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED = "更新ファームウェアの転送をユーザーが中止しました。";

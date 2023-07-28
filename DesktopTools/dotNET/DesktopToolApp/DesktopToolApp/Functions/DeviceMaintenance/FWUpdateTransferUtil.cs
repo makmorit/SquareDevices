@@ -230,5 +230,32 @@ namespace DesktopTool
             // 転送イメージを連結して戻す
             return bodyBytes.Concat(sendData).ToArray();
         }
+
+        //
+        // イメージ転送（応答）
+        //
+        public static bool CheckUploadResultInfo(FWUpdateTransferParameter parameter, byte[] responseData, out string errorMessage)
+        {
+            // メッセージの初期化
+            errorMessage = string.Empty;
+
+            // CBORをデコードして転送結果情報を抽出
+            FWUpdateCBORDecoder decoder = new FWUpdateCBORDecoder();
+            if (decoder.DecodeUploadResultInfo(responseData) == false) {
+                errorMessage = MSG_FW_UPDATE_SUB_PROCESS_FAILED;
+                return false;
+            }
+
+            // 転送結果情報の rc が設定されている場合はエラー
+            byte rc = decoder.ResultInfo.Rc;
+            if (rc != 0) {
+                errorMessage = string.Format(MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC, rc);
+                return false;
+            }
+
+            // 転送結果情報の off 値を転送済みバイト数に設定
+            parameter.ImageBytesSent = (int)decoder.ResultInfo.Off;
+            return true;
+        }
     }
 }
