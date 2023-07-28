@@ -19,6 +19,21 @@ namespace DesktopTool
         public const int CMD_OS_MGMT_RESET = 5;
     }
 
+    internal class FWUpdateTransferParameter
+    {
+        // 転送済みバイト数を保持
+        public int ImageBytesSent { get; set; }
+
+        // 更新イメージを保持
+        public FWUpdateImageData UpdateImageData { get; set; }
+
+        public FWUpdateTransferParameter(FWUpdateImageData updateImageData) 
+        { 
+            ImageBytesSent = 0;
+            UpdateImageData = updateImageData;
+        }
+    }
+
     internal class FWUpdateTransferUtil
     {
         //
