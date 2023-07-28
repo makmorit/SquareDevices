@@ -64,6 +64,12 @@ namespace DesktopTool
 
         private void OnResponseGetSlotInfo(BLESMPTransport sender)
         {
+            // 転送処理に移行
+            DoRequestUploadImage(sender);
+        }
+
+        private void OnResponseUploadImage(BLESMPTransport sender)
+        {
             // TODO: 仮の実装です。
             DisconnectBLESMPTransport(sender);
             for (int i = 0; i < 30; i++) {
@@ -177,6 +183,9 @@ namespace DesktopTool
             if (sender.CommandName.Equals(nameof(DoRequestGetSlotInfo))) {
                 DoResponseGetSlotInfo((BLESMPTransport)sender, responseBytes);
             }
+            if (sender.CommandName.Equals(nameof(DoRequestUploadImage))) {
+                DoResponseUploadImage((BLESMPTransport)sender, responseBytes);
+            }
         }
 
         private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
@@ -201,8 +210,23 @@ namespace DesktopTool
                 return;
             }
 
-            // TODO: 仮の実装です。
+            // 後続処理に移行
             OnResponseGetSlotInfo(sender);
+        }
+        //
+        // イメージ転送
+        //
+        private void DoRequestUploadImage(BLESMPTransport sender)
+        {
+            // リクエストデータを送信
+            FWUpdateTransferParameter parameter = new FWUpdateTransferParameter(UpdateImage.UpdateImageData);
+            FWUpdateTransferUtil.SendRequestUploadImage(sender, nameof(DoRequestUploadImage), parameter);
+        }
+
+        private void DoResponseUploadImage(BLESMPTransport sender, byte[] responseData)
+        {
+            // 後続処理に移行
+            OnResponseUploadImage(sender);
         }
     }
 }
