@@ -26,6 +26,7 @@ namespace DesktopTool
         public TransferStatus Status { get; private set; }
         public int Progress { get; private set; }
         public string ErrorMessage { get; private set; }
+        public FWUpdateTransferParameter TransferParameter { get; private set; }
 
         // ファームウェア更新イメージ転送時のコールバックを保持
         public delegate void FWUpdateImageTransferHandler(FWUpdateTransfer sender);
@@ -37,6 +38,7 @@ namespace DesktopTool
             Status = TransferStatusNone;
             Progress = 0;
             ErrorMessage = string.Empty;
+            TransferParameter = new FWUpdateTransferParameter(updateImage.UpdateImageData);
         }
 
         //
@@ -64,6 +66,9 @@ namespace DesktopTool
 
         private void OnResponseGetSlotInfo(BLESMPTransport sender)
         {
+            // 転送済みバイト数を事前にクリア
+            TransferParameter.ImageBytesSent = 0;
+
             // 転送処理に移行
             DoRequestUploadImage(sender);
         }
@@ -219,8 +224,7 @@ namespace DesktopTool
         private void DoRequestUploadImage(BLESMPTransport sender)
         {
             // リクエストデータを送信
-            FWUpdateTransferParameter parameter = new FWUpdateTransferParameter(UpdateImage.UpdateImageData);
-            FWUpdateTransferUtil.SendRequestUploadImage(sender, nameof(DoRequestUploadImage), parameter);
+            FWUpdateTransferUtil.SendRequestUploadImage(sender, nameof(DoRequestUploadImage), TransferParameter);
         }
 
         private void DoResponseUploadImage(BLESMPTransport sender, byte[] responseData)
