@@ -187,9 +187,11 @@ namespace DesktopTool
             // 後続処理を判定
             if (sender.CommandName.Equals(nameof(DoRequestGetSlotInfo))) {
                 DoResponseGetSlotInfo((BLESMPTransport)sender, responseBytes);
+                return;
             }
             if (sender.CommandName.Equals(nameof(DoRequestUploadImage))) {
                 DoResponseUploadImage((BLESMPTransport)sender, responseBytes);
+                return;
             }
         }
 
