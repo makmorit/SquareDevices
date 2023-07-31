@@ -14,7 +14,7 @@ namespace DesktopTool
         {
             // 接続サービスを設定
             BLEServiceParam serviceParam = new BLEServiceParam(parameter, BLE_SMP_CHARACT_UUID_STR, BLE_SMP_CHARACT_UUID_STR);
-            BLEService service = new BLEService();
+            BLESMPService service = new BLESMPService();
 
             // サービスに接続
             ConnectBLEService(service, serviceParam);
