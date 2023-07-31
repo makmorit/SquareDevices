@@ -69,6 +69,9 @@ namespace DesktopTool
             // 転送済みバイト数を事前にクリア
             TransferParameter.ImageBytesSent = 0;
 
+            // 転送処理開始を通知
+            HandleUpdateImageTransfer(TransferStatusStarted);
+
             // 転送処理に移行
             DoRequestUploadImage(sender);
         }
@@ -77,26 +80,6 @@ namespace DesktopTool
         {
             // TODO: 仮の実装です。
             DisconnectBLESMPTransport(sender);
-            for (int i = 0; i < 30; i++) {
-                System.Threading.Thread.Sleep(100);
-            }
-
-            // 転送処理開始を通知
-            HandleUpdateImageTransfer(TransferStatusStarted);
-
-            // TODO: 仮の実装です。
-            for (int i = 0; i < 100; i++) {
-                Progress = i + 1;
-                HandleUpdateImageTransfer(TransferStatusUpdateProgress);
-                System.Threading.Thread.Sleep(100);
-
-                // TODO: 仮の実装です。
-                // 処理進捗画面でCancelボタンが押下された時
-                if (Status == TransferStatusCanceling) {
-                    HandleUpdateImageTransfer(TransferStatusCanceled);
-                    return;
-                }
-            }
 
             // 転送処理完了-->反映待機を通知
             HandleUpdateImageTransfer(TransferStatusWaitingUpdate);
@@ -165,6 +148,12 @@ namespace DesktopTool
             // 切断処理
             DisconnectBLESMPTransport((BLESMPTransport)sender);
 
+            // 処理進捗画面でCancelボタンが押下された時は、上位クラスに制御を戻す
+            if (Status == TransferStatusCanceling) {
+                HandleUpdateImageTransfer(TransferStatusCanceled);
+                return;
+            }
+
             // 失敗時は上位クラスに制御を戻す
             if (success == false) {
                 ErrorMessage = errorMessage;
@@ -231,8 +220,35 @@ namespace DesktopTool
 
         private void DoResponseUploadImage(BLESMPTransport sender, byte[] responseData)
         {
-            // 後続処理に移行
-            OnResponseUploadImage(sender);
+            // 処理進捗画面でCancelボタンが押下された時
+            if (Status == TransferStatusCanceling) {
+                TerminateCommand(sender, false, string.Empty);
+                return;
+            }
+
+            // 転送結果情報を参照し、チェックでNGの場合、BLE接続を切断
+            string errorMessage;
+            if (FWUpdateTransferUtil.CheckUploadResultInfo(TransferParameter, responseData, out errorMessage) == false) {
+                TerminateCommand(sender, false, errorMessage);
+                return;
+            }
+
+            // 転送比率を計算
+            int imageBytesTotal = TransferParameter.UpdateImageData.NRF53AppBinSize;
+            Progress = TransferParameter.ImageBytesSent * 100 / imageBytesTotal;
+
+            // イメージ全体が転送されたかどうかチェック
+            if (TransferParameter.ImageBytesSent < imageBytesTotal) {
+                // 転送中であることを通知
+                HandleUpdateImageTransfer(TransferStatusUpdateProgress);
+
+                // 後続処理に移行
+                DoRequestUploadImage(sender);
+
+            } else {
+                // 後続処理に移行
+                OnResponseUploadImage(sender);
+            }
         }
     }
 }
