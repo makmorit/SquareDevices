@@ -210,6 +210,11 @@ namespace DesktopTool
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
             }
 
+            if (sender.Status == TransferStatusUploadCompleted) {
+                // 転送成功を通知
+                LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS);
+            }
+
             if (sender.Status == TransferStatusWaitingUpdate) {
                 // ファームウェア更新進捗画面の中止ボタンを使用不能とする
                 FWUpdateProgress.EnableButtonClose(false);

@@ -1,4 +1,5 @@
-﻿using static DesktopTool.BLEDefines;
+﻿using AppCommon;
+using static DesktopTool.BLEDefines;
 using static DesktopTool.FWUpdateTransfer.TransferStatus;
 
 namespace DesktopTool
@@ -15,6 +16,7 @@ namespace DesktopTool
             TransferStatusUpdateProgress,
             TransferStatusCanceling,
             TransferStatusCanceled,
+            TransferStatusUploadCompleted,
             TransferStatusWaitingUpdate,
             TransferStatusWaitingUpdateProgress,
             TransferStatusCompleted,
@@ -277,6 +279,9 @@ namespace DesktopTool
                 TerminateCommand(sender, false, errorMessage);
                 return;
             }
+
+            // 更新イメージ転送成功を通知
+            HandleUpdateImageTransfer(TransferStatusUploadCompleted);
 
             // 後続処理に移行
             OnResponseChangeImageUpdateMode(sender);
