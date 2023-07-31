@@ -300,5 +300,29 @@ namespace DesktopTool
             byte[] terminator = { 0xff };
             return body.Concat(terminator).ToArray();
         }
+
+        //
+        // 反映要求（応答）
+        //
+        public static bool CheckUploadedSlotInfo(byte[] responseData, out string errorMessage)
+        {
+            // メッセージの初期化
+            errorMessage = string.Empty;
+
+            // CBORをデコードしてスロット照会情報を抽出
+            FWUpdateCBORDecoder decoder = new FWUpdateCBORDecoder();
+            if (decoder.DecodeSlotInfo(responseData) == false) {
+                errorMessage = MSG_FW_UPDATE_SUB_PROCESS_FAILED;
+                return false;
+            }
+
+            // スロット情報の代わりに rc が設定されている場合はエラー
+            byte rc = decoder.ResultInfo.Rc;
+            if (rc != 0) {
+                errorMessage = string.Format(MSG_FW_UPDATE_PROCESS_IMAGE_INSTALL_FAILED_WITH_RC, rc);
+                return false;
+            }
+            return true;
+        }
     }
 }

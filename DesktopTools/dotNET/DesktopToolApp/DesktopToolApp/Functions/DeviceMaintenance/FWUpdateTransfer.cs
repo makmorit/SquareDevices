@@ -271,7 +271,14 @@ namespace DesktopTool
 
         private void DoResponseChangeImageUpdateMode(BLESMPTransport sender, byte[] responseData)
         {
-            // TODO: 仮の実装です。
+            // スロット照会情報を参照し、チェックでNGの場合は以降の処理を行わない
+            string errorMessage;
+            if (FWUpdateTransferUtil.CheckUploadedSlotInfo(responseData, out errorMessage) == false) {
+                TerminateCommand(sender, false, errorMessage);
+                return;
+            }
+
+            // 後続処理に移行
             OnResponseChangeImageUpdateMode(sender);
         }
     }
