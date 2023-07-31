@@ -30,10 +30,16 @@ namespace DesktopTool
         // 応答タイムアウト監視用タイマー
         private readonly CommonTimer ResponseTimer = null!;
 
+        // 応答タイムアウトを設定
+        protected virtual int TimeoutMsecsOfResponseTimer()
+        {
+            return U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC;
+        }
+
         public BLEService()
         {
             // 応答タイムアウト発生時のイベントを登録
-            ResponseTimer = new CommonTimer(GetType().Name, U2F_BLE_SERVICE_RESP_TIMEOUT_MSEC);
+            ResponseTimer = new CommonTimer(GetType().Name, TimeoutMsecsOfResponseTimer());
             ResponseTimer.CommandTimeoutEvent += OnResponseTimerElapsed;
             FreeResources();
         }
@@ -43,9 +49,9 @@ namespace DesktopTool
         //
         // サービスをディスカバーできたデバイスを保持
         private BluetoothLEDevice BluetoothLEDevice = null!;
-        private GattDeviceService BLEservice = null!;
+        protected GattDeviceService BLEservice = null!;
         private GattCharacteristic CharacteristicForNotify = null!;
-        private BLEServiceParam Parameter = null!;
+        protected BLEServiceParam Parameter = null!;
 
         // ステータスを保持
         private GattCommunicationStatus CommunicationStatus;
@@ -207,7 +213,7 @@ namespace DesktopTool
             SendFrame(characteristicForSend, GattWriteOption.WriteWithoutResponse, frameBytes);
         }
 
-        private async void SendFrame(GattCharacteristic characteristicForSend, GattWriteOption writeOption, byte[] frameBytes)
+        protected async void SendFrame(GattCharacteristic characteristicForSend, GattWriteOption writeOption, byte[] frameBytes)
         {
             if (BLEservice == null) {
                 AppLogUtil.OutputLogDebug(string.Format("BLEService.SendFrame: service is null"));
