@@ -21,6 +21,9 @@ namespace DesktopTool
 
         public const int GRP_OS_MGMT = 0;
         public const int CMD_OS_MGMT_RESET = 5;
+
+        // イメージ反映モード　true＝テストモード[Swap type: test]、false＝通常モード[Swap type: perm]
+        public const bool IMAGE_UPDATE_TEST_MODE = true;
     }
 
     internal class FWUpdateTransferParameter
@@ -256,6 +259,46 @@ namespace DesktopTool
             // 転送結果情報の off 値を転送済みバイト数に設定
             parameter.ImageBytesSent = (int)decoder.ResultInfo.Off;
             return true;
+        }
+
+        //
+        // 反映要求
+        //
+        public static void SendRequestChangeImageUpdateMode(BLESMPTransport sender, string commandName, FWUpdateTransferParameter parameter)
+        {
+            // リクエストデータを生成
+            byte[] bodyBytes = GenerateBodyForRequestChangeImageUpdateMode(parameter, IMAGE_UPDATE_TEST_MODE);
+            ushort len = (ushort)bodyBytes.Length;
+            byte[] headerBytes = BuildSMPHeader(OP_WRITE_REQ, 0x00, len, GRP_IMG_MGMT, 0x00, CMD_IMG_MGMT_STATE);
+
+            // リクエストデータを送信
+            sender.SendSMPRequestData(commandName, bodyBytes, headerBytes);
+        }
+
+        private static byte[] GenerateBodyForRequestChangeImageUpdateMode(FWUpdateTransferParameter parameter, bool imageUpdateTestMode)
+        {
+            // リクエストデータ
+            byte[] body = {
+                0xbf, 0x67, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x00,
+                0x64, 0x68, 0x61, 0x73, 0x68, 0x58, 0x20
+            };
+
+            // イメージ反映モードを設定（confirm=false/true）
+            if (imageUpdateTestMode) {
+                body[9] = 0xf4;
+            } else {
+                body[9] = 0xf5;
+            }
+
+            // SHA-256ハッシュデータをイメージから抽出
+            byte[] hashUpdate = parameter.UpdateImageData.SHA256Hash;
+
+            // 本体にSHA-256ハッシュを連結
+            body = body.Concat(hashUpdate).ToArray();
+
+            // 終端文字を設定して戻す
+            byte[] terminator = { 0xff };
+            return body.Concat(terminator).ToArray();
         }
     }
 }

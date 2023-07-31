@@ -78,7 +78,13 @@ namespace DesktopTool
 
         private void OnResponseUploadImage(BLESMPTransport sender)
         {
-            // TODO: 仮の実装です。
+            // 反映要求処理に移行
+            DoRequestChangeImageUpdateMode(sender);
+        }
+        
+        private void OnResponseChangeImageUpdateMode(BLESMPTransport sender)
+        { 
+            // BLE接続を切断
             DisconnectBLESMPTransport(sender);
 
             // 転送処理完了-->反映待機を通知
@@ -182,6 +188,9 @@ namespace DesktopTool
                 DoResponseUploadImage((BLESMPTransport)sender, responseBytes);
                 return;
             }
+            if (sender.CommandName.Equals(nameof(DoRequestChangeImageUpdateMode))) {
+                DoResponseChangeImageUpdateMode((BLESMPTransport)sender, responseBytes);
+            }
         }
 
         private void NotifyConnectionStatusHandler(BLETransport sender, bool connected)
@@ -249,6 +258,21 @@ namespace DesktopTool
                 // 後続処理に移行
                 OnResponseUploadImage(sender);
             }
+        }
+
+        //
+        // 反映要求
+        //
+        private void DoRequestChangeImageUpdateMode(BLESMPTransport sender)
+        {
+            // リクエストデータを送信
+            FWUpdateTransferUtil.SendRequestChangeImageUpdateMode(sender, nameof(DoRequestChangeImageUpdateMode), TransferParameter);
+        }
+
+        private void DoResponseChangeImageUpdateMode(BLESMPTransport sender, byte[] responseData)
+        {
+            // TODO: 仮の実装です。
+            OnResponseChangeImageUpdateMode(sender);
         }
     }
 }
