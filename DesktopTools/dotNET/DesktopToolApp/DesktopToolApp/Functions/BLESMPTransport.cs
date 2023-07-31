@@ -32,8 +32,10 @@ namespace DesktopTool
             BLEServiceRef.SendFrame(requestBytes);
 
             // ログ出力
-            string dump = AppLogUtil.DumpMessage(requestBytes, requestBytes.Length);
-            AppLogUtil.OutputLogDebug(string.Format("Transmit SMP request ({0} bytes)\r\n{1}", requestBytes.Length, dump));
+            if (NoOutputLog == false) {
+                string dump = AppLogUtil.DumpMessage(requestBytes, requestBytes.Length);
+                AppLogUtil.OutputLogDebug(string.Format("Transmit SMP request ({0} bytes)\r\n{1}", requestBytes.Length, dump));
+            }
         }
 
         public void SendSMPRequestData(string commandName, byte[] requestBody, byte[] requestHeader)
@@ -63,8 +65,10 @@ namespace DesktopTool
             }
 
             // ログ出力
-            string dump = AppLogUtil.DumpMessage(frameBytes, frameBytes.Length);
-            AppLogUtil.OutputLogDebug(string.Format("Incoming SMP response ({0} bytes)\r\n{1}", frameBytes.Length, dump));
+            if (NoOutputLog == false) {
+                string dump = AppLogUtil.DumpMessage(frameBytes, frameBytes.Length);
+                AppLogUtil.OutputLogDebug(string.Format("Incoming SMP response ({0} bytes)\r\n{1}", frameBytes.Length, dump));
+            }
 
             // 受信したレスポンスデータを保持
             int frameSize = frameBytes.Length;

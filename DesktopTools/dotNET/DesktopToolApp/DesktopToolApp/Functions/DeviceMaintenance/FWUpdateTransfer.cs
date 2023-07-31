@@ -74,6 +74,9 @@ namespace DesktopTool
             // 転送処理開始を通知
             HandleUpdateImageTransfer(TransferStatusStarted);
 
+            // ログ出力を一時停止
+            sender.NoOutputLog = true;
+
             // 転送処理に移行
             DoRequestUploadImage(sender);
         }
@@ -153,6 +156,9 @@ namespace DesktopTool
 
         private void TerminateCommand(BLETransport sender, bool success, string errorMessage)
         {
+            // ログ出力を再開
+            sender.NoOutputLog = false;
+
             // 切断処理
             DisconnectBLESMPTransport((BLESMPTransport)sender);
 
@@ -257,6 +263,9 @@ namespace DesktopTool
                 DoRequestUploadImage(sender);
 
             } else {
+                // ログ出力を再開
+                sender.NoOutputLog = false;
+
                 // 後続処理に移行
                 OnResponseUploadImage(sender);
             }

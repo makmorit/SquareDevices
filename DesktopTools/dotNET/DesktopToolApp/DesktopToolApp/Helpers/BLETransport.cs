@@ -11,10 +11,12 @@ namespace DesktopTool
 
         // プロパティー
         public string CommandName { get; set; }
+        public bool NoOutputLog { get; set; }
 
         public BLETransport()
         {
             CommandName = string.Empty;
+            NoOutputLog = false;
         }
 
         //
