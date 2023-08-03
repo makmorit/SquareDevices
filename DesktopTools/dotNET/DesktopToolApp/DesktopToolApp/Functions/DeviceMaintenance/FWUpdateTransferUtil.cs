@@ -23,7 +23,7 @@ namespace DesktopTool
         public const int CMD_OS_MGMT_RESET = 5;
 
         // イメージ反映モード　true＝テストモード[Swap type: test]、false＝通常モード[Swap type: perm]
-        public const bool IMAGE_UPDATE_TEST_MODE = true;
+        public const bool IMAGE_UPDATE_TEST_MODE = false;
     }
 
     internal class FWUpdateTransferParameter

@@ -101,14 +101,14 @@ namespace DesktopTool
             // 転送処理完了-->反映待機を通知
             HandleUpdateImageTransfer(TransferStatusWaitingUpdate);
 
-            // TODO: 仮の実装です。
+            // 反映待ち（リセットによるファームウェア再始動完了まで待機）
             for (int i = 0; i < FWUpdateConst.DFU_WAITING_SEC_ESTIMATED; i++) {
                 Progress = 100 + i + 1;
                 HandleUpdateImageTransfer(TransferStatusWaitingUpdateProgress);
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(1000);
             }
 
-            // TODO: 仮の実装です。
+            // ファームウェア反映完了を通知
             HandleUpdateImageTransfer(TransferStatusCompleted);
         }
 
