@@ -324,5 +324,19 @@ namespace DesktopTool
             }
             return true;
         }
+
+        //
+        // リセット要求
+        //
+        public static void SendRequestResetApplication(BLESMPTransport sender, string commandName, FWUpdateTransferParameter parameter)
+        {
+            // リクエストデータを生成
+            byte[] bodyBytes = new byte[] { 0xbf, 0xff };
+            ushort len = (ushort)bodyBytes.Length;
+            byte[] headerBytes = BuildSMPHeader(OP_WRITE_REQ, 0x00, len, GRP_OS_MGMT, 0x00, CMD_OS_MGMT_RESET);
+
+            // リクエストデータを送信
+            sender.SendSMPRequestData(commandName, bodyBytes, headerBytes);
+        }
     }
 }
