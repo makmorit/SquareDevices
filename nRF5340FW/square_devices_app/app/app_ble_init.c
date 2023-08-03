@@ -25,9 +25,6 @@ LOG_MODULE_REGISTER(app_ble_init);
 #include "os_mgmt/os_mgmt.h"
 #include "img_mgmt/img_mgmt.h"
 
-// for NUS
-#include "app_ble_nus.h"
-
 //
 // パスキー関連
 //
@@ -79,9 +76,6 @@ static void bt_ready(int err)
     // BLEペアリング用のパスキーを設定
     set_passkey_for_pairing();
 #endif
-
-    // NUSの初期処理
-    app_ble_nus_init();
 
     // BLE使用可能イベントを業務処理スレッドに引き渡す
     app_event_notify(APEVT_BLE_AVAILABLE);

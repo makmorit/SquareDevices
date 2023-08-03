@@ -10,9 +10,6 @@
 #include <zephyr/bluetooth/gatt.h>
 #include <zephyr/settings/settings.h>
 
-// for Nordic UART Service
-#include <bluetooth/services/nus.h>
-
 #include "app_ble_fido_define.h"
 #include "app_ble_pairing.h"
 #include "app_event.h"
@@ -88,9 +85,6 @@ static struct bt_data ad_uuid_smp = BT_DATA_BYTES(BT_DATA_UUID128_ALL, 0x84, 0xa
 // Service data field for FIDO BLE service (0xfffd)
 static struct bt_data ad_svcdata = BT_DATA_BYTES(BT_DATA_SVC_DATA16, BT_UUID_16_ENCODE(BT_UUID_FIDO_VAL), 0x80);
 
-// UUID Nordic UART Service
-static struct bt_data ad_uuid_nus = BT_DATA_BYTES(BT_DATA_UUID128_ALL, BT_UUID_NUS_VAL);
-
 //
 // BLEアドバタイズ開始
 //
@@ -117,7 +111,6 @@ static void advertise_start(struct k_work *work)
             ad[ad_len] = ad_uuid_smp;
             ad_len++;
         }
-        (void)ad_uuid_nus;
     }
 
     // サービスデータフィールドを追加設定（ペアリングモード時のみ）
