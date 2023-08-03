@@ -297,12 +297,6 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
         case DATEVT_BLE_RESPONSE_SENT:
             wrapper_main_ble_response_sent();
             break;
-        case DATEVT_BLE_NUS_DATA_FRAME_RECEIVED:
-            wrapper_main_ble_data_frame_received(data, size);
-            break;
-        case DATEVT_BLE_NUS_RESPONSE_SENT:
-            wrapper_main_ble_response_sent();
-            break;
         default:
             break;
     }
