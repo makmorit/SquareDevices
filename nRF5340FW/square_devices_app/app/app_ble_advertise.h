@@ -21,7 +21,6 @@ bool        app_ble_advertise_is_stopped(void);
 void        app_ble_advertise_init(void);
 void        app_ble_advertise_start(void);
 void        app_ble_advertise_stop(void);
-void        app_ble_advertise_start_smp_service(void);
 
 #ifdef __cplusplus
 }
