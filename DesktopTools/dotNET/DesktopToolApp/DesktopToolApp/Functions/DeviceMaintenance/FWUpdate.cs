@@ -226,7 +226,7 @@ namespace DesktopTool
             }
 
             if (sender.Status == TransferStatusCompleted) {
-                // TODO: 仮の実装です。
+                // ファームウェア更新進捗画面を閉じる
                 Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
             }
 

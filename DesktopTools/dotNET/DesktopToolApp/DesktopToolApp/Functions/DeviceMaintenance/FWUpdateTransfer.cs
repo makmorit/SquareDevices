@@ -1,5 +1,4 @@
-﻿using AppCommon;
-using static DesktopTool.BLEDefines;
+﻿using static DesktopTool.BLEDefines;
 using static DesktopTool.FWUpdateTransfer.TransferStatus;
 
 namespace DesktopTool
