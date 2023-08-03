@@ -141,7 +141,7 @@ namespace DesktopTool
             if (CurrentVersion == UpdateVersion) {
                 TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_SUCCESS, UpdateVersion));
             } else {
-                TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_FAIL, UpdateVersion));
+                TerminateCommand(false, string.Format(MSG_FW_UPDATE_VERSION_FAIL, UpdateVersion));
             }
         }
 
