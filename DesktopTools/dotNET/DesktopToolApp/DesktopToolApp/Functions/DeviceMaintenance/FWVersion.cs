@@ -1,5 +1,6 @@
 ﻿using AppCommon;
 using System.Text;
+using static DesktopTool.BLEDefines;
 using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
 
@@ -41,7 +42,7 @@ namespace DesktopTool
             NotifyResponseQuery += notifyResponseQueryHandler;
 
             // BLEデバイスに接続
-            new BLETransport().Connect(OnNotifyConnection);
+            new BLEU2FTransport().Connect(OnNotifyConnection, U2F_BLE_SERVICE_UUID_STR);
         }
 
         private void OnNotifyConnection(BLETransport sender, bool success, string errorMessage)

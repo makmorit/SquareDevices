@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Windows.Devices.Bluetooth.Advertisement;
 using Windows.Devices.Radios;
 using Windows.Storage.Streams;
-using static DesktopTool.BLEDefines;
 using static DesktopTool.HelperMessage;
 
 namespace DesktopTool
@@ -13,29 +12,20 @@ namespace DesktopTool
     internal class BLEPeripheralScannerParam
     {
         public Guid ServiceUUID { get; set; }
-        public Guid CharactForWriteUUID { get; set; }
-        public Guid CharactForReadUUID { get; set; }
         public ulong BluetoothAddress { get; set; }
         public byte[] ServiceDataField { get; set; }
         public bool FIDOServiceDataFieldFound { get; set; }
         public bool BLEPeripheralFound { get; set; }
         public bool ConnectOnly { get; set; }
 
-        public BLEPeripheralScannerParam(string serviceUUIDString, string charactForWriteUUIDString, string charactForReadUUIDString)
+        public BLEPeripheralScannerParam(string serviceUUIDString)
         {
             ServiceUUID = new Guid(serviceUUIDString);
-            CharactForWriteUUID = new Guid(charactForWriteUUIDString);
-            CharactForReadUUID = new Guid(charactForReadUUIDString);
             BluetoothAddress = 0;
             ServiceDataField = Array.Empty<byte>();
             FIDOServiceDataFieldFound = false;
             BLEPeripheralFound = false;
             ConnectOnly = false;
-        }
-
-        public static BLEPeripheralScannerParam PrepareParameterForFIDO()
-        {
-            return new BLEPeripheralScannerParam(U2F_BLE_SERVICE_UUID_STR, U2F_STATUS_CHAR_UUID_STR, U2F_CONTROL_POINT_CHAR_UUID_STR);
         }
     }
 

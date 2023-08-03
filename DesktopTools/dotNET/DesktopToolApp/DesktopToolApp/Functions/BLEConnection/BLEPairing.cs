@@ -3,6 +3,7 @@ using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using static DesktopTool.FunctionMessage;
+using static DesktopTool.BLEDefines;
 
 namespace DesktopTool
 {
@@ -14,7 +15,7 @@ namespace DesktopTool
         {
             Task task = Task.Run(() => {
                 // BLEデバイスをスキャン
-                BLEPeripheralScannerParam parameter = BLEPeripheralScannerParam.PrepareParameterForFIDO();
+                BLEPeripheralScannerParam parameter = new BLEPeripheralScannerParam(U2F_BLE_SERVICE_UUID_STR);
                 new BLEPeripheralScanner().DoProcess(parameter, OnBLEPeripheralScanned);
             });
         }

@@ -2,6 +2,8 @@
 using System.Windows;
 using static DesktopTool.FunctionMessage;
 using static DesktopTool.FWUpdateConst;
+using static DesktopTool.FWUpdateProgress.ProgressStatus;
+using static DesktopTool.FWUpdateTransfer.TransferStatus;
 
 namespace DesktopTool
 {
@@ -22,6 +24,9 @@ namespace DesktopTool
 
         private void RetrieveCurrentFWVersion()
         {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM);
+
             // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
             new FWVersion().Inquiry(NotifyResponseQueryHandler);
         }
@@ -46,8 +51,12 @@ namespace DesktopTool
                 return;
             }
 
+            // ファームウェアの現在バージョン／更新バージョンを画面表示
+            string message = string.Format(MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, sender.VersionData.FWRev, sender.UpdateImageData.UpdateVersion);
+            LogAndShowInfoMessage(message);
+
             // ファームウェア更新イメージの参照を共有情報に保持
-            ProcessContext.Add(nameof(FWUpdateImage), sender);
+            ProcessContext[nameof(FWUpdateImage)] = sender;
 
             // ファームウェア更新進捗画面を表示
             Application.Current.Dispatcher.Invoke(ShowFWUpdateProcessWindow);
@@ -66,9 +75,16 @@ namespace DesktopTool
             }
 
             // ファームウェア更新進捗画面を表示
-            if (new FWUpdateProgress().OpenForm(InitFWUpdateProgressWindow) == false) {
-                // TODO: 仮の実装です。
-                CancelProcess();
+            FWUpdateProgress UpdateProgress = new FWUpdateProgress();
+            if (UpdateProgress.OpenForm(FWUpdateProgressHandler) == false) {
+                if (UpdateProgress.Status == ProgressStatusCancelClicked) {
+                    // ユーザーが中止ボタンをクリックした場合
+                    CancelProcess();
+
+                } else {
+                    // 転送処理時にエラーが発生した場合
+                    OnUpdateImageTransferFailed();
+                }
 
             } else {
                 // 更新後ファームウェアのバージョンをチェック
@@ -76,17 +92,32 @@ namespace DesktopTool
             }
         }
 
-        private void InitFWUpdateProgressWindow(FWUpdateProgress sender, FWUpdateProgressViewModel model)
+        private void FWUpdateProgressHandler(FWUpdateProgress sender)
         {
-            // 最大待機秒数を設定
-            FWUpdateProgress.SetMaxProgress(model, 100 + DFU_WAITING_SEC_ESTIMATED);
+            // 初期表示時の処理
+            if (sender.Status == ProgressStatusInitView) {
+                // 最大待機秒数を設定
+                FWUpdateProgress.SetMaxProgress(100 + DFU_WAITING_SEC_ESTIMATED);
 
-            // メッセージを初期表示
-            FWUpdateProgress.ShowProgress(model, MSG_FW_UPDATE_PRE_PROCESS, 0);
+                // メッセージを初期表示
+                FWUpdateProgress.ShowProgress(MSG_FW_UPDATE_PRE_PROCESS, 0);
+
+                // ファームウェア更新イメージの転送処理を開始
+                Task task = Task.Run(TransferUpdateImage);
+            }
+
+            // 中止ボタンクリック時の処理
+            if (sender.Status == ProgressStatusCancelClicked) {
+                // ファームウェア更新イメージ転送処理を中止
+                CancelUpdateImageTransfer();
+            }
         }
 
         private void CheckUpdatedFWVersion()
         {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION);
+
             // BLEデバイスに接続し、更新後ファームウェアのバージョン情報を取得
             new FWVersion().Inquiry(UpdatedFWVersionResponseHandler);
         }
@@ -110,7 +141,7 @@ namespace DesktopTool
             if (CurrentVersion == UpdateVersion) {
                 TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_SUCCESS, UpdateVersion));
             } else {
-                TerminateCommand(success, string.Format(MSG_FW_UPDATE_VERSION_FAIL, UpdateVersion));
+                TerminateCommand(false, string.Format(MSG_FW_UPDATE_VERSION_FAIL, UpdateVersion));
             }
         }
 
@@ -137,6 +168,93 @@ namespace DesktopTool
         private void CancelCommand(bool success, string message)
         {
             Application.Current.Dispatcher.Invoke(CancelCommandInner, success, message);
+        }
+
+        //
+        // 転送処理
+        //
+        private void TransferUpdateImage()
+        {
+            // ファームウェア更新イメージの参照を共有情報から取得
+            FWUpdateImage updateImage = (FWUpdateImage)ProcessContext[nameof(FWUpdateImage)];
+
+            // BLEデバイスに接続し、ファームウェア更新イメージを転送
+            new FWUpdateTransfer(updateImage).Start(UpdateImageTransferHandler);
+        }
+
+        private void UpdateImageTransferHandler(FWUpdateTransfer sender)
+        {
+            if (sender.Status == TransferStatusStarting) {
+                // ファームウェア更新イメージ転送クラスの参照を共有情報に保持
+                ProcessContext[nameof(FWUpdateTransfer)] = sender;
+            }
+
+            if (sender.Status == TransferStatusPreprocess) {
+                // ファームウェア更新進捗画面にメッセージを表示
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE, sender.Progress);
+            }
+
+            if (sender.Status == TransferStatusStarted) {
+                // ファームウェア更新進捗画面の中止ボタンを使用可能とする
+                FWUpdateProgress.EnableButtonClose(true);
+            }
+
+            if (sender.Status == TransferStatusUpdateProgress) {
+                // ファームウェア更新進捗画面に進捗を表示
+                string message = string.Format(MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, sender.Progress);
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, message, sender.Progress);
+            }
+
+            if (sender.Status == TransferStatusCanceled) {
+                // ファームウェア更新進捗画面を閉じる
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
+            }
+
+            if (sender.Status == TransferStatusUploadCompleted) {
+                // 転送成功を通知
+                LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS);
+            }
+
+            if (sender.Status == TransferStatusWaitingUpdate) {
+                // ファームウェア更新進捗画面の中止ボタンを使用不能とする
+                FWUpdateProgress.EnableButtonClose(false);
+            }
+
+            if (sender.Status == TransferStatusWaitingUpdateProgress) {
+                // ファームウェア更新進捗画面に進捗を表示
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.ShowProgress, MSG_FW_UPDATE_PROCESS_WAITING_UPDATE, sender.Progress);
+            }
+
+            if (sender.Status == TransferStatusCompleted) {
+                // ファームウェア更新進捗画面を閉じる
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, true);
+            }
+
+            if (sender.Status == TransferStatusFailed) {
+                // ファームウェア更新進捗画面を閉じる
+                Application.Current.Dispatcher.Invoke(FWUpdateProgress.CloseForm, false);
+            }
+        }
+
+        private void CancelUpdateImageTransfer()
+        {
+            // メッセージを画面表示／ログ出力
+            LogAndShowInfoMessage(MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED);
+
+            // ファームウェア更新イメージ転送クラスの参照を共有情報から取得
+            FWUpdateTransfer updateTransfer = (FWUpdateTransfer)ProcessContext[nameof(FWUpdateTransfer)];
+
+            // 転送処理中止を要求
+            updateTransfer.Cancel();
+        }
+
+        private void OnUpdateImageTransferFailed()
+        {
+            // ファームウェア更新イメージ転送クラスの参照を共有情報から取得
+            FWUpdateTransfer updateTransfer = (FWUpdateTransfer)ProcessContext[nameof(FWUpdateTransfer)];
+
+            // 異常終了扱いとする
+            TerminateCommand(false, updateTransfer.ErrorMessage);
         }
 
         //

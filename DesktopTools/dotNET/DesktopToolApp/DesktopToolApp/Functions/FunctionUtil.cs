@@ -1,8 +1,8 @@
 ﻿using AppCommon;
 using System;
 using System.Windows;
-using static DesktopTool.FunctionMessage;
 using static DesktopTool.FunctionDefines;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -16,9 +16,7 @@ namespace DesktopTool
             if (EnableButtonClick == null) {
                 return;
             }
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                EnableButtonClick(isEnabled);
-            }));
+            Application.Current.Dispatcher.Invoke(EnableButtonClick, isEnabled);
         }
 
         public static void DisplayTextOnApp(string text, Action<string> DisplayTextAction)
@@ -26,9 +24,7 @@ namespace DesktopTool
             if (DisplayTextAction == null) {
                 return;
             }
-            Application.Current.Dispatcher.Invoke(new Action(() => {
-                DisplayTextAction(text);
-            }));
+            Application.Current.Dispatcher.Invoke(DisplayTextAction, text);
         }
 
         //

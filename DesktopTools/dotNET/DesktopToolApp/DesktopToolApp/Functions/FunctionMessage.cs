@@ -47,12 +47,24 @@
         // ファームウェア更新
         public const string MSG_FW_UPDATE_FUNC_NOT_AVAILABLE = "ファームウェア更新機能が利用できません。";
         public const string MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST = "ファームウェア更新イメージファイルが存在しません。";
+        public const string MSG_FW_UPDATE_IMAGE_ALREADY_INSTALLED = "更新ファームウェアが既に導入済みなので、ファームウェア更新処理を続行できません。";
         public const string MSG_FW_UPDATE_VERSION_UNKNOWN = "ファームウェア更新イメージファイルのバージョンが不明です。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM = "ファームウェアの現在バージョンを確認中です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN = "ファームウェアの現在バージョンが不明です。";
         public const string MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW = "ファームウェア (現在のバージョン: {0}) を、バージョン{1}に更新することはできません。";
+        public const string MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION = "ファームウェア (現在のバージョン: {0}) を、バージョン{1}に更新します。";
         public const string MSG_FW_UPDATE_PROMPT_START_PROCESS = "OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。";
         public const string MSG_FW_UPDATE_PROCESSING = "ファームウェアを更新しています";
         public const string MSG_FW_UPDATE_PRE_PROCESS = "ファームウェア更新の前処理中です";
+        public const string MSG_FW_UPDATE_SUB_PROCESS_FAILED = "ファームウェア更新機能の内部処理が失敗しました。";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE = "更新ファームウェアを転送中です。";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT = "更新ファームウェアを転送中（{0}％）";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC = "更新ファームウェアの転送中に不明なエラー（rc={0}）が発生しました。";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS = "更新ファームウェアの転送が完了しました。";
+        public const string MSG_FW_UPDATE_PROCESS_IMAGE_INSTALL_FAILED_WITH_RC = "更新ファームウェアの転送後に不明なエラー（rc={0}）が発生しました。";
+        public const string MSG_FW_UPDATE_PROCESS_WAITING_UPDATE = "転送された更新ファームウェアの反映を待機中です。";
+        public const string MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION = "転送された更新ファームウェアのバージョンを確認中です。";
+        public const string MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED = "更新ファームウェアの転送をユーザーが中止しました。";
         public const string MSG_FW_UPDATE_VERSION_SUCCESS = "ファームウェアのバージョンが{0}に更新されました。";
         public const string MSG_FW_UPDATE_VERSION_FAIL = "ファームウェアのバージョンを{0}に更新できませんでした。";
         public const string MSG_FW_UPDATE_GET_IMAGE_VERSION_FROM_CONTEXT_FAIL = "ファームウェア更新イメージのバージョンを共有情報から取得できませんでした。";
