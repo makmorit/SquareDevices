@@ -128,21 +128,6 @@ void wrapper_main_ble_response_sent(void)
     }
 }
 
-void wrapper_main_ble_nus_data_frame_received(uint8_t *data, size_t size)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_ble_nus_request_received(void)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_ble_nus_response_sent(void)
-{
-    // TODO: 各種業務処理を実行
-}
-
 void wrapper_main_notify_ble_disconnected(void)
 {
     // 各種業務処理を実行
