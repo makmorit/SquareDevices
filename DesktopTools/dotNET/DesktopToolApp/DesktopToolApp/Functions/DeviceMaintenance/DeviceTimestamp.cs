@@ -1,24 +1,35 @@
 ﻿using AppCommon;
 using System;
 using System.Text;
-using System.Threading.Tasks;
 using static DesktopTool.BLEDefines;
 using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
-    internal class DeviceTimestamp : ToolDoProcess
+    internal class DeviceTimestamp
     {
-        public DeviceTimestamp(string menuItemName) : base(menuItemName) { }
+        // プロパティー
+        public string CurrentTimestampString { get; private set; }
+        public string CurrentTimestampLogString { get; private set; }
 
-        protected override void InvokeProcessOnSubThread()
+        public DeviceTimestamp()
         {
-            Task task = Task.Run(RetrieveCurrentTimestamp);
+            CurrentTimestampString = string.Empty;
+            CurrentTimestampLogString = string.Empty;
         }
 
-        private void RetrieveCurrentTimestamp()
+        //
+        // 現在時刻照会処理
+        //
+        public delegate void NotifyResponseQueryHandler(DeviceTimestamp sender, bool success, string errorMessage);
+        private event NotifyResponseQueryHandler NotifyResponseQuery = null!;
+
+        public void Inquiry(NotifyResponseQueryHandler notifyResponseQueryHandler)
         {
+            // コールバックを設定
+            NotifyResponseQuery += notifyResponseQueryHandler;
+
             // BLEデバイスに接続
             new BLEU2FTransport().Connect(OnNotifyConnection, U2F_BLE_SERVICE_UUID_STR);
         }
@@ -26,8 +37,9 @@ namespace DesktopTool
         private void OnNotifyConnection(BLETransport sender, bool success, string errorMessage)
         {
             if (success == false) {
-                // 失敗時
-                TerminateCommand(sender, false, errorMessage);
+                // 失敗時は上位クラスに制御を戻す
+                NotifyResponseQuery?.Invoke(this, false, errorMessage);
+                NotifyResponseQuery = null!;
                 return;
             }
 
@@ -50,14 +62,12 @@ namespace DesktopTool
             string deviceTimestamp = Encoding.UTF8.GetString(data);
 
             // 現在時刻文字列をログ出力
-            string infoLogMessage = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT, toolTimestamp, deviceTimestamp);
-            AppLogUtil.OutputLogInfo(infoLogMessage);
+            CurrentTimestampLogString = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT, toolTimestamp, deviceTimestamp);
 
             // 現在時刻文字列を画面表示
-            string infoMessage = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT, toolTimestamp, deviceTimestamp);
-            FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+            CurrentTimestampString = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT, toolTimestamp, deviceTimestamp);
 
-            // 画面に制御を戻す
+            // 上位クラスに制御を戻す
             TerminateCommand(sender, true, string.Empty);
         }
 
@@ -107,17 +117,9 @@ namespace DesktopTool
             // 切断処理
             sender.Disconnect();
 
-            // 終了メッセージを画面表示／ログ出力
-            if (message.Length > 0) {
-                if (success) {
-                    LogAndShowInfoMessage(message);
-                } else {
-                    LogAndShowErrorMessage(message);
-                }
-            }
-
-            // 画面に制御を戻す
-            PauseProcess(success);
+            // 上位クラスに制御を戻す
+            NotifyResponseQuery?.Invoke(this, success, message);
+            NotifyResponseQuery = null!;
         }
     }
 }
