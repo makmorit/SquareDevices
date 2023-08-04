@@ -22,20 +22,22 @@ namespace DesktopTool
         {
             if (success == false) {
                 // 失敗時
-                TerminateCommandInner(false, errorMessage);
+                TerminateCommand(sender, false, errorMessage);
                 return;
             }
 
             // TODO: 仮の実装です。
-            sender.Disconnect();
-            TerminateCommandInner(true, string.Empty);
+            TerminateCommand(sender, true, string.Empty);
         }
 
         //
         // 終了処理
         //
-        private void TerminateCommandInner(bool success, string message)
+        private void TerminateCommand(BLETransport sender, bool success, string message)
         {
+            // 切断処理
+            sender.Disconnect();
+
             // 終了メッセージを画面表示／ログ出力
             if (message.Length > 0) {
                 if (success) {
