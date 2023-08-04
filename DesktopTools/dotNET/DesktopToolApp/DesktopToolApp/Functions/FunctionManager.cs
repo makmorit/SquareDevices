@@ -71,6 +71,9 @@ namespace DesktopTool
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_FLASH_STAT)) {
                 new FWVersionInfo(menuItemName);
 
+            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_TIMESTAMP)) {
+                new DeviceTimestamp(menuItemName);
+
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
                 new ToolVersionInfo();
 
