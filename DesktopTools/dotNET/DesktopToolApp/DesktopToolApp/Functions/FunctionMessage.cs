@@ -19,6 +19,7 @@
         public const string MSG_MENU_ITEM_NAME_PING_TEST = "PINGテスト実行";
         public const string MSG_MENU_ITEM_NAME_GET_APP_VERSION = "バージョン参照";
         public const string MSG_MENU_ITEM_NAME_GET_FLASH_STAT = "Flash ROM情報参照";
+        public const string MSG_MENU_ITEM_NAME_GET_TIMESTAMP = "現在時刻参照";
 
         public const string MSG_MENU_ITEM_NAME_TOOL_INFOS = "ツール情報";
         public const string MSG_MENU_ITEM_NAME_TOOL_VERSION = "ツールのバージョン";

@@ -32,7 +32,8 @@ namespace DesktopTool
                         MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, "Images\\update.png",
                         MSG_MENU_ITEM_NAME_PING_TEST,       "Images\\check_box.png",
                         MSG_MENU_ITEM_NAME_GET_APP_VERSION, "Images\\processor.png",
-                        MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  "Images\\statistics.png"
+                        MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  "Images\\statistics.png",
+                        MSG_MENU_ITEM_NAME_GET_TIMESTAMP,   "Images\\clock.png",
                     },
                     new string[] {
                         MSG_MENU_ITEM_NAME_TOOL_INFOS,
