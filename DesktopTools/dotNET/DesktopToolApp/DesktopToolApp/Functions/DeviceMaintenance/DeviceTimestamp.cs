@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using AppCommon;
+using System;
+using System.Text;
+using System.Threading.Tasks;
 using static DesktopTool.BLEDefines;
 using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
@@ -37,7 +40,24 @@ namespace DesktopTool
 
         private void OnResponseInquiryCommand(BLETransport sender, byte[] responseBytes)
         {
-            // TODO: 仮の実装です。
+            // 管理ツールの現在時刻を取得
+            string toolTimestamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+
+            // 現在時刻文字列はレスポンスの２バイト目から19文字
+            byte[] data = AppUtil.ExtractCBORBytesFromResponse(responseBytes);
+
+            // デバイスの現在時刻文字列
+            string deviceTimestamp = Encoding.UTF8.GetString(data);
+
+            // 現在時刻文字列をログ出力
+            string infoLogMessage = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT, toolTimestamp, deviceTimestamp);
+            AppLogUtil.OutputLogInfo(infoLogMessage);
+
+            // 現在時刻文字列を画面表示
+            string infoMessage = string.Format(MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT, toolTimestamp, deviceTimestamp);
+            FunctionUtil.DisplayTextOnApp(infoMessage, ViewModel.AppendStatusText);
+
+            // 画面に制御を戻す
             TerminateCommand(sender, true, string.Empty);
         }
 
@@ -81,6 +101,9 @@ namespace DesktopTool
         //
         private void TerminateCommand(BLETransport sender, bool success, string message)
         {
+            // コールバックを解除
+            sender.UnregisterResponseReceivedHandler(ResponseReceivedHandler);
+
             // 切断処理
             sender.Disconnect();
 
