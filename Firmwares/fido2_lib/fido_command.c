@@ -159,12 +159,6 @@ void fido_command_on_ble_disconnected(void)
     vendor_command_on_ble_disconnected();
 }
 
-void fido_command_on_ble_advertise_started_smp_service(void)
-{
-    // ベンダー固有コマンドに伝搬
-    vendor_command_on_ble_advertise_started_smp_service();
-}
-
 bool fido_command_on_button_pressed_short(void)
 {
     // ベンダー固有コマンドに伝搬

@@ -168,16 +168,6 @@ static void command_get_app_version(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONS
     fido_command_ctap_status_and_data_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS, work_buf, buffer_size);
 }
 
-static void command_change_dfu_mode(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
-{
-    // BLE SMPのアドバタイズ開始を指示
-    fido_ble_advertise_start_smp_service();
-
-    // 成功レスポンスを設定（ただし、BLE SMPがアドバタイズ開始されるまで、レスポンスは抑止）
-    FIDO_COMMAND_T *p_command = &p_fido_request->command;
-    fido_command_ctap1_status_response(p_fido_response, p_command->CID, p_command->CMD, CTAP1_ERR_SUCCESS);
-}
-
 static void command_not_available(FIDO_REQUEST_T *p_fido_request, FIDO_RESPONSE_T *p_fido_response)
 {
     // リクエストの参照を取得
@@ -218,10 +208,6 @@ bool vendor_command_on_fido_msg(void *fido_request, void *fido_response)
         case VENDOR_COMMAND_GET_APP_VERSION:
             command_get_app_version(p_fido_request, p_fido_response);
             break;
-        case VENDOR_COMMAND_CHANGE_DFU_MODE:
-            // BLE SMP開始までレスポンス抑止
-            command_change_dfu_mode(p_fido_request, p_fido_response);
-            return false;
         default:
             command_not_available(p_fido_request, p_fido_response);
             break;
@@ -257,13 +243,6 @@ void vendor_command_on_ble_disconnected(void)
 
     // ペアリング解除の待機を終了（基板上のボタンを押下可能とする）
     waiting_for_unpair = false;
-}
-
-void vendor_command_on_ble_advertise_started_smp_service(void)
-{
-    // レスポンスを送信
-    fido_log_info("BLE SMP service is available");
-    fido_ble_response_send_resume();
 }
 
 bool vendor_command_on_button_pressed_short(void)
