@@ -245,13 +245,6 @@ void vendor_command_on_ble_disconnected(void)
     waiting_for_unpair = false;
 }
 
-void vendor_command_on_ble_advertise_started_smp_service(void)
-{
-    // レスポンスを送信
-    fido_log_info("BLE SMP service is available");
-    fido_ble_response_send_resume();
-}
-
 bool vendor_command_on_button_pressed_short(void)
 {
     // ペアリング処理中はボタン押下を抑止

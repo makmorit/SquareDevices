@@ -32,7 +32,6 @@ void        wrapper_main_ble_request_received(void);
 void        wrapper_main_ble_response_resume(void);
 void        wrapper_main_ble_response_sent(void);
 void        wrapper_main_notify_ble_disconnected(void);
-void        wrapper_main_notify_ble_advertise_started_smp_service(void);
 void        wrapper_main_app_settings_saved(void);
 void        wrapper_main_app_settings_deleted(void);
 bool        wrapper_main_button_pressed_short(void);
