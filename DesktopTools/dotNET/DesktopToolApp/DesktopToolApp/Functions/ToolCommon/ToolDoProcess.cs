@@ -93,6 +93,16 @@ namespace DesktopTool
             ResumeProcess(true);
         }
 
+        protected void PauseProcess(bool success)
+        {
+            // 処理完了メッセージを表示／ログ出力
+            FunctionUtil.ProcessTerminateLogWithName(success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE, MenuItemName, ViewModel.AppendStatusText);
+
+            // 実行ボタン、閉じるボタンを使用可能に設定
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonDoProcess);
+            FunctionUtil.EnableButtonClickOnApp(true, ViewModel.EnableButtonClose);
+        }
+
         protected void ResumeProcess(bool success)
         {
             // 処理完了メッセージを表示／ログ出力

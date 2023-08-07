@@ -11,6 +11,7 @@
 
         // ベンダー固有コマンド
         public const byte VENDOR_COMMAND_GET_APP_VERSION = 0x43;
+        public const byte VENDOR_COMMAND_GET_TIMESTAMP = 0x4a;
         public const byte VENDOR_COMMAND_UNPAIRING_REQUEST = 0x4d;
         public const byte VENDOR_COMMAND_UNPAIRING_CANCEL = 0x4e;
         public const byte VENDOR_COMMAND_ERASE_BONDING_DATA = 0x4f;
