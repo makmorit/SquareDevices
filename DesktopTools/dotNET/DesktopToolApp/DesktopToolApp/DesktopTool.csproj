@@ -12,7 +12,7 @@
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <FileVersion>$(Version).010</FileVersion>
+    <FileVersion>$(Version).011</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +27,7 @@
     <Resource Include="Views\Images\action_log.png" />
     <Resource Include="Views\Images\check_box.png" />
     <Resource Include="Views\Images\clock.png" />
+    <Resource Include="Views\Images\clock_edit.png" />
     <Resource Include="Views\Images\connect.png" />
     <Resource Include="Views\Images\delete.png" />
     <Resource Include="Views\Images\disconnect.png" />

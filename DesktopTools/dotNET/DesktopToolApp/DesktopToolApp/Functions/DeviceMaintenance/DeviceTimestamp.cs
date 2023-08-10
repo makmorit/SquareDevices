@@ -12,11 +12,13 @@ namespace DesktopTool
         // プロパティー
         public string CurrentTimestampString { get; private set; }
         public string CurrentTimestampLogString { get; private set; }
+        private string FunctionName { get; set; }
 
         public DeviceTimestamp()
         {
             CurrentTimestampString = string.Empty;
             CurrentTimestampLogString = string.Empty;
+            FunctionName = string.Empty;
         }
 
         //
@@ -29,6 +31,9 @@ namespace DesktopTool
         {
             // コールバックを設定
             NotifyResponseQuery += notifyResponseQueryHandler;
+
+            // 機能名を設定
+            FunctionName = nameof(Inquiry);
 
             // BLEデバイスに接続
             new BLEU2FTransport().Connect(OnNotifyConnection, U2F_BLE_SERVICE_UUID_STR);
@@ -46,13 +51,19 @@ namespace DesktopTool
             // コールバックを登録
             sender.RegisterResponseReceivedHandler(ResponseReceivedHandler);
 
-            // 現在時刻参照コマンドを実行
-            PerformInquiryCommand(sender);
+            if (FunctionName.Equals(nameof(Update))) {
+                // 現在時刻設定コマンドを実行
+                PerformUpdateCommand(sender);
+
+            } else {
+                // 現在時刻参照コマンドを実行
+                PerformInquiryCommand(sender);
+            }
         }
 
         private void OnResponseInquiryCommand(BLETransport sender, byte[] responseBytes)
         {
-            // 管理ツールの現在時刻を取得
+            // PCの現在時刻を取得
             string toolTimestamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
             // 現在時刻文字列はレスポンスの２バイト目から19文字
@@ -69,6 +80,21 @@ namespace DesktopTool
 
             // 上位クラスに制御を戻す
             TerminateCommand(sender, true, string.Empty);
+        }
+
+        //
+        // 現在時刻設定処理
+        //
+        public void Update(NotifyResponseQueryHandler notifyResponseQueryHandler)
+        {
+            // コールバックを設定
+            NotifyResponseQuery += notifyResponseQueryHandler;
+
+            // 機能名を設定
+            FunctionName = nameof(Update);
+
+            // BLEデバイスに接続
+            new BLEU2FTransport().Connect(OnNotifyConnection, U2F_BLE_SERVICE_UUID_STR);
         }
 
         //
@@ -89,21 +115,31 @@ namespace DesktopTool
                 return;
             }
 
-            if (CommandName.Equals(nameof(PerformInquiryCommand))) {
-                OnResponseInquiryCommand(sender, responseBytes);
-            }
+            // デバイスから取得した現在時刻を、上位クラスに通知
+            OnResponseInquiryCommand(sender, responseBytes);
         }
 
         //
         // 内部処理
         //
-        private string CommandName = string.Empty;
-
         private void PerformInquiryCommand(BLETransport sender)
         {
-            // バージョン照会コマンド（１回目）を実行
+            // 現在時刻参照コマンドを実行
             sender.SendRequest(U2F_COMMAND_MSG, new byte[] { VENDOR_COMMAND_GET_TIMESTAMP });
-            CommandName = nameof(PerformInquiryCommand);
+        }
+
+        private void PerformUpdateCommand(BLETransport sender)
+        {
+            // 現在のUNIX時刻を取得
+            TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            UInt32 nowEpochSeconds = (UInt32)t.TotalSeconds;
+
+            // 現在時刻設定用のリクエストデータを生成
+            byte[] data = new byte[] { VENDOR_COMMAND_SET_TIMESTAMP, 0x00, 0x00, 0x00, 0x00 };
+            AppUtil.ConvertUint32ToBEBytes(nowEpochSeconds, data, 1);
+
+            // 現在時刻設定コマンドを実行
+            sender.SendRequest(U2F_COMMAND_MSG, data);
         }
 
         //

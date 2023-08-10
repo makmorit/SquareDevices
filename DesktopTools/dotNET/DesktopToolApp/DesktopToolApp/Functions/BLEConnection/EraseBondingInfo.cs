@@ -14,7 +14,7 @@ namespace DesktopTool
         protected override void ShowPromptForStartProcess(ToolDoProcessViewModel model)
         {
             // 確認メッセージを表示し、Yesの場合だけ処理を続行する
-            Window parentWindow = Application.Current.MainWindow;
+            Window parentWindow = FunctionUtil.GetMainWindow();
             string message = string.Format("{0}\n\n{1}", MSG_BLE_ERASE_BONDS, MSG_PROMPT_BLE_ERASE_BONDS);
             if (DialogUtil.DisplayPromptPopup(parentWindow, MenuItemName, message) == false) {
                 return;

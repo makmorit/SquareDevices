@@ -34,6 +34,7 @@ namespace DesktopTool
                         MSG_MENU_ITEM_NAME_GET_APP_VERSION, "Images\\processor.png",
                         MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  "Images\\statistics.png",
                         MSG_MENU_ITEM_NAME_GET_TIMESTAMP,   "Images\\clock.png",
+                        MSG_MENU_ITEM_NAME_SET_TIMESTAMP,   "Images\\clock_edit.png",
                     },
                     new string[] {
                         MSG_MENU_ITEM_NAME_TOOL_INFOS,
@@ -74,13 +75,16 @@ namespace DesktopTool
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_TIMESTAMP)) {
                 new DeviceTimestampShow(menuItemName);
 
+            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_SET_TIMESTAMP)) {
+                new DeviceTimestampSet(menuItemName);
+
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
                 new ToolVersionInfo();
 
             } else {
                 // サポート外のメッセージを表示
                 string message = string.Format(MSG_FORMAT_ERROR_MENU_NOT_SUPPORTED, menuItemName);
-                Window mainWindow = Application.Current.MainWindow;
+                Window mainWindow = FunctionUtil.GetMainWindow();
                 DialogUtil.ShowWarningMessage(mainWindow, mainWindow.Title, message);
                 return;
             }

@@ -68,7 +68,7 @@ namespace DesktopTool
         private void ShowFWUpdateProcessWindow()
         {
             // 処理開始前に、確認ダイアログをポップアップ表示
-            Window window = Application.Current.MainWindow;
+            Window window = FunctionUtil.GetMainWindow();
             if (DialogUtil.DisplayPromptPopup(window, MenuItemName, MSG_FW_UPDATE_PROMPT_START_PROCESS) == false) {
                 CancelProcess();
                 return;

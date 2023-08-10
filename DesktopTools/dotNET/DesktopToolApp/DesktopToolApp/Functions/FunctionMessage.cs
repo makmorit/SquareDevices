@@ -20,6 +20,7 @@
         public const string MSG_MENU_ITEM_NAME_GET_APP_VERSION = "バージョン参照";
         public const string MSG_MENU_ITEM_NAME_GET_FLASH_STAT = "Flash ROM情報参照";
         public const string MSG_MENU_ITEM_NAME_GET_TIMESTAMP = "現在時刻参照";
+        public const string MSG_MENU_ITEM_NAME_SET_TIMESTAMP = "現在時刻設定";
 
         public const string MSG_MENU_ITEM_NAME_TOOL_INFOS = "ツール情報";
         public const string MSG_MENU_ITEM_NAME_TOOL_VERSION = "ツールのバージョン";
@@ -73,6 +74,8 @@
         // 現在時刻参照／設定
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT = "現在時刻：\n　ＰＣの時刻\t{0}\n　デバイスの時刻\t{1}";
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT = "現在時刻：ＰＣの時刻＝{0}、デバイスの時刻＝{1}";
+        public const string MSG_DEVICE_TIMESTAMP_SET_PROMPT = "PCの現在時刻をデバイスに設定します。";
+        public const string MSG_DEVICE_TIMESTAMP_SET_COMMENT = "処理を実行しますか？";
 
         // デバイス情報参照画面
         public const string MSG_DEVICE_FW_VERSION_INFO_SHOWING = "デバイスに導入されているファームウェア等に関する情報を表示しています。";

@@ -38,7 +38,7 @@ namespace DesktopTool
 
             // ファームウェア更新進捗画面を、ホーム画面の中央にモード付きで表示
             Window = new FWUpdateProgressWindow();
-            Window.Owner = Application.Current.MainWindow; ;
+            Window.Owner = FunctionUtil.GetMainWindow();
             bool? b = Window.ShowDialog();
             if (b == null) {
                 return false;
