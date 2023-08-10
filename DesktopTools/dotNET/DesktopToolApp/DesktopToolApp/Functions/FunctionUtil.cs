@@ -9,6 +9,14 @@ namespace DesktopTool
     internal class FunctionUtil
     {
         //
+        // 画面の参照を取得
+        //
+        public static Window GetMainWindow()
+        {
+            return Application.Current.MainWindow;
+        }
+
+        //
         // 画面操作関数を画面スレッドで実行
         //
         public static void EnableButtonClickOnApp(bool isEnabled, Action<bool> EnableButtonClick)
