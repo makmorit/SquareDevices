@@ -63,7 +63,7 @@ namespace DesktopTool
 
         private void OnResponseInquiryCommand(BLETransport sender, byte[] responseBytes)
         {
-            // 管理ツールの現在時刻を取得
+            // PCの現在時刻を取得
             string toolTimestamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
             // 現在時刻文字列はレスポンスの２バイト目から19文字
@@ -115,6 +115,7 @@ namespace DesktopTool
                 return;
             }
 
+            // デバイスから取得した現在時刻を、上位クラスに通知
             OnResponseInquiryCommand(sender, responseBytes);
         }
 
@@ -137,7 +138,7 @@ namespace DesktopTool
             byte[] data = new byte[] { VENDOR_COMMAND_SET_TIMESTAMP, 0x00, 0x00, 0x00, 0x00 };
             AppUtil.ConvertUint32ToBEBytes(nowEpochSeconds, data, 1);
 
-            // 現在時刻参照コマンドを実行
+            // 現在時刻設定コマンドを実行
             sender.SendRequest(U2F_COMMAND_MSG, data);
         }
 
