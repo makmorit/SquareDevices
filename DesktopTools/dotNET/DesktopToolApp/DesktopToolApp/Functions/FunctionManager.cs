@@ -84,7 +84,7 @@ namespace DesktopTool
             } else {
                 // サポート外のメッセージを表示
                 string message = string.Format(MSG_FORMAT_ERROR_MENU_NOT_SUPPORTED, menuItemName);
-                Window mainWindow = Application.Current.MainWindow;
+                Window mainWindow = FunctionUtil.GetMainWindow();
                 DialogUtil.ShowWarningMessage(mainWindow, mainWindow.Title, message);
                 return;
             }

@@ -27,7 +27,7 @@ namespace DesktopTool
         {
             // この画面を、オーナー画面の中央にモード付きで表示
             Window = new BLEPairingCodeWindow();
-            Window.Owner = Application.Current.MainWindow; ;
+            Window.Owner = FunctionUtil.GetMainWindow();
             bool? b = Window.ShowDialog();
             if (b == null) {
                 return false;
