@@ -75,6 +75,9 @@ namespace DesktopTool
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_TIMESTAMP)) {
                 new DeviceTimestampShow(menuItemName);
 
+            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_SET_TIMESTAMP)) {
+                new DeviceTimestampSet(menuItemName);
+
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_TOOL_VERSION)) {
                 new ToolVersionInfo();
 
