@@ -70,7 +70,7 @@ namespace DesktopTool
             StartProcessInner(model);
         }
 
-        private void StartProcessInner(ToolDoProcessViewModel model)
+        protected void StartProcessInner(ToolDoProcessViewModel model)
         {
             // 表示中の画面に対応するViewModel参照を保持
             ViewModel = model;
