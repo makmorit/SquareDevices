@@ -71,6 +71,9 @@
         public const string MSG_FW_UPDATE_VERSION_FAIL = "ファームウェアのバージョンを{0}に更新できませんでした。";
         public const string MSG_FW_UPDATE_GET_IMAGE_VERSION_FROM_CONTEXT_FAIL = "ファームウェア更新イメージのバージョンを共有情報から取得できませんでした。";
 
+        // PINGテスト
+        public const string MSG_PING_TEST_INVALID_RESPONSE = "PINGテストのレスポンスが不正です。";
+
         // 現在時刻参照／設定
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT = "現在時刻：\n　ＰＣの時刻\t{0}\n　デバイスの時刻\t{1}";
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT = "現在時刻：ＰＣの時刻＝{0}、デバイスの時刻＝{1}";
