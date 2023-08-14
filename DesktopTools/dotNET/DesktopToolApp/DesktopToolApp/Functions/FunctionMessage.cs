@@ -74,6 +74,10 @@
         // PINGテスト
         public const string MSG_PING_TEST_INVALID_RESPONSE = "PINGテストのレスポンスが不正です。";
 
+        // バージョン参照
+        public const string MSG_FW_VERSION_INFO_FORMAT = "バージョン情報：\n　デバイス名\t{0}\n　ハードウェア\t{1}\n　ファームウェア\t{2}（{3}）";
+        public const string MSG_FW_VERSION_INFO_LOG_FORMAT = "バージョン情報：デバイス名＝{0}、ハードウェア＝{1}、ファームウェア＝{2}（{3}）";
+
         // 現在時刻参照／設定
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT = "現在時刻：\n　ＰＣの時刻\t{0}\n　デバイスの時刻\t{1}";
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT = "現在時刻：ＰＣの時刻＝{0}、デバイスの時刻＝{1}";

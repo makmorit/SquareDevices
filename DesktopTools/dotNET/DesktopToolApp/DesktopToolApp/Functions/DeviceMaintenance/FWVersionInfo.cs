@@ -1,5 +1,6 @@
 ﻿using AppCommon;
 using System.Threading.Tasks;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -27,10 +28,13 @@ namespace DesktopTool
             }
 
             // 現在時刻文字列をログ出力
-            AppLogUtil.OutputLogInfo(sender.VersionData.ToString());
+            FWVersionData version = sender.VersionData;
+            string logText = string.Format(MSG_FW_VERSION_INFO_LOG_FORMAT, version.DeviceName, version.HWRev, version.FWRev, version.FWBld);
+            AppLogUtil.OutputLogInfo(logText);
 
             // 現在時刻文字列を画面表示
-            FunctionUtil.DisplayTextOnApp(sender.VersionData.ToString(), ViewModel.AppendStatusText);
+            string dispText = string.Format(MSG_FW_VERSION_INFO_FORMAT, version.DeviceName, version.HWRev, version.FWRev, version.FWBld);
+            FunctionUtil.DisplayTextOnApp(dispText, ViewModel.AppendStatusText);
 
             // 画面に制御を戻す
             TerminateCommand(true, string.Empty);
@@ -51,7 +55,7 @@ namespace DesktopTool
             }
 
             // 画面に制御を戻す
-            PauseProcess(success);
+            ResumeProcess(success);
         }
     }
 }
