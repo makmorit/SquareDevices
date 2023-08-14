@@ -69,6 +69,9 @@ namespace DesktopTool
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE)) {
                 new FWUpdate(menuItemName);
 
+            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_PING_TEST)) {
+                new PingTester(menuItemName);
+
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_GET_FLASH_STAT)) {
                 new FWVersionInfo(menuItemName);
 
