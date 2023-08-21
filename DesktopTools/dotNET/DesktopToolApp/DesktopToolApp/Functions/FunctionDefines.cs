@@ -11,6 +11,7 @@
         public const byte U2F_COMMAND_MSG = 0x03;
 
         // ベンダー固有コマンド
+        public const byte VENDOR_COMMAND_GET_FLASH_STAT = 0x42;
         public const byte VENDOR_COMMAND_GET_APP_VERSION = 0x43;
         public const byte VENDOR_COMMAND_GET_TIMESTAMP = 0x4a;
         public const byte VENDOR_COMMAND_SET_TIMESTAMP = 0x4b;
