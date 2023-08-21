@@ -1,11 +1,40 @@
-﻿using static DesktopTool.BLEDefines;
+﻿using AppCommon;
+using static DesktopTool.BLEDefines;
 using static DesktopTool.FunctionDefines;
 using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
+    public class FlashROMInfo
+    {
+        public string Used { get; set; }
+        public string Avail { get; set; }
+        public string Corrupt { get; set; }
+        public string DeviceName { get; set; }
+
+        public FlashROMInfo(string used, string avail, string corrupt)
+        {
+            Used = used;
+            Avail = avail;
+            Corrupt = corrupt;
+            DeviceName = string.Empty;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("FlashROMInfo: DeviceName={0} Used={1} Avail={2} Corrupt={3}", DeviceName, Used, Avail, Corrupt);
+        }
+    }
+
     internal class DeviceStorage
     {
+        public FlashROMInfo FlashROMInfo { get; private set; }
+
+        public DeviceStorage()
+        {
+            FlashROMInfo = null!;
+        }
+
         //
         // Flash ROM情報照会処理
         //
@@ -48,8 +77,40 @@ namespace DesktopTool
 
         private void OnResponseInquiryCommand(BLETransport sender, byte[] responseBytes)
         {
+            // Flash ROM情報をレスポンスから抽出
+            FlashROMInfo = ExtractFlashROMInfo(responseBytes);
+
+            // Flash ROM情報にBLEデバイス名を設定
+            FlashROMInfo.DeviceName = sender.ConnectedDeviceName();
+
             // 上位クラスに制御を戻す
             TerminateCommand(sender, true, string.Empty);
+        }
+
+        private FlashROMInfo ExtractFlashROMInfo(byte[] responseBytes)
+        {
+            // 戻りメッセージから、取得情報CSVを抽出
+            byte[] responseCSVBytes = AppUtil.ExtractCBORBytesFromResponse(responseBytes);
+            string responseCSV = System.Text.Encoding.ASCII.GetString(responseCSVBytes);
+            AppLogUtil.OutputLogDebug("Flash ROM statistics: " + responseCSV);
+
+            // 情報取得CSVから空き領域に関する情報を抽出
+            string[] vars = responseCSV.Split(',');
+            string strUsed = "";
+            string strAvail = "";
+            string strCorrupt = "";
+            foreach (string v in vars) {
+                if (v.StartsWith("words_used=")) {
+                    strUsed = v.Split('=')[1];
+                } else if (v.StartsWith("words_available=")) {
+                    strAvail = v.Split('=')[1];
+                } else if (v.StartsWith("corruption=")) {
+                    strCorrupt = v.Split('=')[1];
+                }
+            }
+
+            // 抽出されたFlash ROM情報を戻す
+            return new FlashROMInfo(strUsed, strAvail, strCorrupt);
         }
 
         //
