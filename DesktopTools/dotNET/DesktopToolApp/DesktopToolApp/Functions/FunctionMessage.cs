@@ -78,6 +78,14 @@
         public const string MSG_FW_VERSION_INFO_FORMAT = "バージョン情報：\n　デバイス名\t{0}\n　ハードウェア\t{1}\n　ファームウェア\t{2}（{3}）";
         public const string MSG_FW_VERSION_INFO_LOG_FORMAT = "バージョン情報：デバイス名＝{0}、ハードウェア＝{1}、ファームウェア＝{2}（{3}）";
 
+        // Flash ROM情報取得関連メッセージ
+        public const string MSG_DEVICE_STORAGE_INFO_FORMAT = "Flash ROM情報：\n　デバイス名＝{0}\n　{1}\n　{2}";
+        public const string MSG_DEVICE_STORAGE_INFO_LOG_FORMAT = "Flash ROM情報：デバイス名＝{0}　{1}{2}";
+        public const string MSG_FSTAT_REMAINING_RATE = "Flash ROMの空き容量は{0:0.0}％です。";
+        public const string MSG_FSTAT_NON_REMAINING_RATE = "Flash ROMの空き容量を取得できませんでした。";
+        public const string MSG_FSTAT_CORRUPTING_AREA_NOT_EXIST = "破損している領域は存在しません。";
+        public const string MSG_FSTAT_CORRUPTING_AREA_EXIST = "破損している領域が存在します。";
+
         // 現在時刻参照／設定
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT = "現在時刻：\n　ＰＣの時刻\t{0}\n　デバイスの時刻\t{1}";
         public const string MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT = "現在時刻：ＰＣの時刻＝{0}、デバイスの時刻＝{1}";

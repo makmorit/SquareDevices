@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using AppCommon;
+using System.Threading.Tasks;
+using static DesktopTool.FunctionMessage;
 
 namespace DesktopTool
 {
@@ -24,6 +26,26 @@ namespace DesktopTool
                 TerminateCommand(false, errorMessage);
                 return;
             }
+
+            // 空き容量テキストを編集
+            FlashROMInfo flashROMInfo = sender.FlashROMInfo;
+            string rateText;
+            if (flashROMInfo.Rate < 0.0f) {
+                rateText = MSG_FSTAT_NON_REMAINING_RATE;
+            } else {
+                rateText = string.Format(MSG_FSTAT_REMAINING_RATE, flashROMInfo.Rate);
+            }
+
+            // 破損状況テキストを編集
+            string corruptText = flashROMInfo.Corrupt ? MSG_FSTAT_CORRUPTING_AREA_EXIST : MSG_FSTAT_CORRUPTING_AREA_NOT_EXIST;
+
+            // Flash ROM情報文字列をログ出力
+            string logText = string.Format(MSG_DEVICE_STORAGE_INFO_LOG_FORMAT, flashROMInfo.DeviceName, rateText, corruptText);
+            AppLogUtil.OutputLogInfo(logText);
+
+            // Flash ROM情報文字列を画面表示
+            string dispText = string.Format(MSG_DEVICE_STORAGE_INFO_FORMAT, flashROMInfo.DeviceName, rateText, corruptText);
+            FunctionUtil.DisplayTextOnApp(dispText, ViewModel.AppendStatusText);
 
             // 画面に制御を戻す
             TerminateCommand(true, string.Empty);
