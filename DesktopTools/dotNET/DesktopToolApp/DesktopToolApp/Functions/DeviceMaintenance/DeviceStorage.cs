@@ -7,22 +7,20 @@ namespace DesktopTool
 {
     public class FlashROMInfo
     {
-        public string Used { get; set; }
-        public string Avail { get; set; }
-        public string Corrupt { get; set; }
+        public float Rate { get; set; }
+        public bool Corrupt { get; set; }
         public string DeviceName { get; set; }
 
-        public FlashROMInfo(string used, string avail, string corrupt)
+        public FlashROMInfo(float rate, bool corrupt)
         {
-            Used = used;
-            Avail = avail;
+            Rate = rate;
             Corrupt = corrupt;
             DeviceName = string.Empty;
         }
 
         public override string ToString()
         {
-            return string.Format("FlashROMInfo: DeviceName={0} Used={1} Avail={2} Corrupt={3}", DeviceName, Used, Avail, Corrupt);
+            return string.Format("FlashROMInfo: DeviceName={0} Remaining={1:0.0}% Corrupt={2}", DeviceName, Rate, Corrupt);
         }
     }
 
@@ -109,8 +107,21 @@ namespace DesktopTool
                 }
             }
 
+            // 空き容量、破損状況を取得
+            float rate = 0.0f;
+            if (strUsed.Length > 0 && strAvail.Length > 0) {
+                float used = float.Parse(strUsed);
+                float avail = float.Parse(strAvail);
+                float remaining = avail - used;
+                rate = remaining / avail * 100;
+            }
+            bool corrupt = false;
+            if (strCorrupt.Length > 0) {
+                corrupt = (strCorrupt.Equals("0") == false);
+            }
+
             // 抽出されたFlash ROM情報を戻す
-            return new FlashROMInfo(strUsed, strAvail, strCorrupt);
+            return new FlashROMInfo(rate, corrupt);
         }
 
         //
