@@ -108,7 +108,7 @@ namespace DesktopTool
             }
 
             // 空き容量、破損状況を取得
-            float rate = 0.0f;
+            float rate = -1.0f;
             if (strUsed.Length > 0 && strAvail.Length > 0) {
                 float used = float.Parse(strUsed);
                 float avail = float.Parse(strAvail);
