@@ -11,17 +11,19 @@ namespace DesktopTool
         public string FWRev { get; set; }
         public string HWRev { get; set; }
         public string FWBld { get; set; }
+        public string DeviceName { get; set; }
 
         public FWVersionData(string fWRev, string hWRev, string fWBld)
         {
             FWRev = fWRev;
             HWRev = hWRev;
             FWBld = fWBld;
+            DeviceName = string.Empty;
         }
 
         public override string ToString()
         {
-            return string.Format("HW={0} FW={1}({2})", HWRev, FWRev, FWBld);
+            return string.Format("DeviceName={0} HW={1} FW={2}({3})", DeviceName, HWRev, FWRev, FWBld);
         }
     }
 
@@ -65,6 +67,9 @@ namespace DesktopTool
         {
             // バージョン情報をレスポンスから抽出
             VersionData = ExtractVersionInquiry(responseBytes);
+
+            // バージョン情報にBLEデバイス名を設定
+            VersionData.DeviceName = sender.ConnectedDeviceName();
 
             // 上位クラスに制御を戻す
             TerminateCommand(sender, true, string.Empty);
