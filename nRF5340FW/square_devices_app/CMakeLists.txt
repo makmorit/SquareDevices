@@ -15,6 +15,7 @@ target_sources(app PRIVATE
     $ENV{FWLIB_PATH}/fido2_lib/fido_ble_send.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_command.c
     $ENV{FWLIB_PATH}/fw_common/fw_common.c
+    $ENV{FWLIB_PATH}/tiny_tft_lib/tiny_tft_const.c
     $ENV{FWLIB_PATH}/vendor_lib/vendor_command.c
 )
 target_include_directories(app PRIVATE 
@@ -23,6 +24,7 @@ target_include_directories(app PRIVATE
     app
     $ENV{FWLIB_PATH}/fido2_lib
     $ENV{FWLIB_PATH}/fw_common
+    $ENV{FWLIB_PATH}/tiny_tft_lib
     $ENV{FWLIB_PATH}/vendor_lib
     $ENV{FWLIB_PATH}/wrapper_header
 )
