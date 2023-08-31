@@ -258,6 +258,12 @@ void app_process_for_event(uint8_t event)
         case APEVT_APP_SETTINGS_DELETED:
             wrapper_main_app_settings_deleted();
             break;
+        case APEVT_BLE_PAIRING_PASSCODE_SHOW:
+            wrapper_main_ble_pairing_passcode_show();
+            break;
+        case APEVT_BLE_PAIRING_PASSCODE_HIDE:
+            wrapper_main_ble_pairing_passcode_hide();
+            break;
         default:
             break;
     }

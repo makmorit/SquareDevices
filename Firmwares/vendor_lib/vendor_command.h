@@ -20,6 +20,8 @@ bool        vendor_command_on_fido_msg(void *p_fido_request, void *p_fido_respon
 void        vendor_command_on_ble_disconnected(void);
 bool        vendor_command_on_button_pressed_short(void);
 bool        vendor_command_on_button_pressed_sub(void);
+void        vendor_command_on_ble_pairing_passcode_show(uint32_t passkey);
+void        vendor_command_on_ble_pairing_passcode_hide(void);
 
 #ifdef __cplusplus
 }

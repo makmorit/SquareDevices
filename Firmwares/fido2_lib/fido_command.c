@@ -170,3 +170,15 @@ bool fido_command_on_button_pressed_sub(void)
     // ベンダー固有コマンドに伝搬
     return vendor_command_on_button_pressed_sub();
 }
+
+void fido_command_on_ble_pairing_passcode_show(uint32_t passkey)
+{
+    // ベンダー固有コマンドに伝搬
+    vendor_command_on_ble_pairing_passcode_show(passkey);
+}
+
+void fido_command_on_ble_pairing_passcode_hide(void)
+{
+    // ベンダー固有コマンドに伝搬
+    vendor_command_on_ble_pairing_passcode_hide();
+}

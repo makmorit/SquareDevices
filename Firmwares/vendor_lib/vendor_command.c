@@ -4,6 +4,7 @@
  *
  * Created on 2023/05/15, 15:57
  */
+#include <stdio.h>
 #include <string.h>
 
 #include "fw_common.h"
@@ -255,4 +256,18 @@ bool vendor_command_on_button_pressed_sub(void)
 {
     // ペアリング処理中はボタン押下を抑止
     return waiting_for_unpair;
+}
+
+//
+// BLEペアリング時のパスコード表示処理
+//
+void vendor_command_on_ble_pairing_passcode_show(uint32_t passkey)
+{
+    // パスコードを一時領域にセット
+    memset(work_buf, 0, sizeof(work_buf));
+    sprintf(work_buf, " %06u\n", passkey);
+}
+
+void vendor_command_on_ble_pairing_passcode_hide(void)
+{
 }

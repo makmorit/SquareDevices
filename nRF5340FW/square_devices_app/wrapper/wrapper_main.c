@@ -161,3 +161,18 @@ bool wrapper_main_button_pressed_sub(void)
     // 各種業務処理を実行
     return fido_command_on_button_pressed_sub();
 }
+
+//
+// BLEペアリング時のパスコード表示処理
+//
+#include "app_ble_pairing.h"
+
+void wrapper_main_ble_pairing_passcode_show(void)
+{
+    fido_command_on_ble_pairing_passcode_show(app_ble_pairing_passkey());
+}
+
+void wrapper_main_ble_pairing_passcode_hide(void)
+{
+    fido_command_on_ble_pairing_passcode_hide();
+}
