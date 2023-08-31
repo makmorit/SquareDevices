@@ -229,8 +229,12 @@ static void perform_reset(void)
 
 void tiny_tft_init_display(void)
 {
+    // 初期化処理完了済みの場合は終了
+    if (initialized) {
+        return;
+    }
+
     // モジュールが利用できない場合
-    initialized = false;
     if (wrapper_tiny_tft_is_available() == false) {
         fido_log_error("TFT display is not available");
         return;
