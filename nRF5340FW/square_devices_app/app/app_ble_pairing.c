@@ -92,6 +92,7 @@ static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
 
     // BLEペアリング時のパスコードを保持
     m_passkey = (uint32_t)passkey;
+    app_event_notify(APEVT_BLE_PAIRING_PASSCODE_SHOW);
 }
 
 static void auth_cancel(struct bt_conn *conn)
@@ -110,6 +111,7 @@ static void auth_pairing_complete(struct bt_conn *conn, bool bonded)
 {
     (void)conn;
     LOG_INF("Pairing with authentication completed %s", bonded ? "(bonded)" : "(not bonded)");
+    app_event_notify(APEVT_BLE_PAIRING_PASSCODE_HIDE);
 }
 
 static void auth_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
@@ -117,6 +119,7 @@ static void auth_pairing_failed(struct bt_conn *conn, enum bt_security_err reaso
     (void)conn;
     if (m_pairing_mode) {
         LOG_ERR("Pairing with authentication failed (reason=%d)", reason);
+        app_event_notify(APEVT_BLE_PAIRING_PASSCODE_HIDE);
 
     } else {
         if (reason == BT_SECURITY_ERR_AUTH_REQUIREMENT) {
