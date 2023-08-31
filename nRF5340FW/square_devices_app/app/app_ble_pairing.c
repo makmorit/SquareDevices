@@ -74,11 +74,24 @@ static void bond_deleted(uint8_t id, const bt_addr_le_t *addr)
     LOG_INF("Bonding information deleted: address=%s", addr_str);
 }
 
+//
+// BLEペアリング時のパスコードを保持
+//
+static uint32_t m_passkey;
+
+uint32_t app_ble_pairing_passkey(void)
+{
+    return m_passkey;
+}
+
 static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
 {
     char addr[BT_ADDR_LE_STR_LEN];
     bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
     LOG_INF("Passkey for %s: %06u", addr, passkey);
+
+    // BLEペアリング時のパスコードを保持
+    m_passkey = (uint32_t)passkey;
 }
 
 static void auth_cancel(struct bt_conn *conn)
