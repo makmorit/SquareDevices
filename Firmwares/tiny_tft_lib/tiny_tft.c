@@ -4,6 +4,8 @@
  *
  * Created on 2023/08/28, 16:26
  */
+#include <string.h>
+
 #include "tiny_tft_const.h"
 #include "tiny_tft_define.h"
 
