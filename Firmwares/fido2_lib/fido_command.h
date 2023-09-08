@@ -22,6 +22,8 @@ void        fido_command_on_ble_response_sent(void *p_fido_request, void *p_fido
 void        fido_command_on_ble_disconnected(void);
 bool        fido_command_on_button_pressed_short(void);
 bool        fido_command_on_button_pressed_sub(void);
+void        fido_command_on_ble_pairing_passcode_show(unsigned int passkey);
+void        fido_command_on_ble_pairing_passcode_hide(void);
 
 #ifdef __cplusplus
 }

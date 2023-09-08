@@ -36,6 +36,8 @@ void        wrapper_main_app_settings_saved(void);
 void        wrapper_main_app_settings_deleted(void);
 bool        wrapper_main_button_pressed_short(void);
 bool        wrapper_main_button_pressed_sub(void);
+void        wrapper_main_ble_pairing_passcode_show(void);
+void        wrapper_main_ble_pairing_passcode_hide(void);
 
 #ifdef __cplusplus
 }
