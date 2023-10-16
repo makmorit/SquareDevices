@@ -44,6 +44,8 @@
 		7A62E6FC2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
 		7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
 		7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
+		7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
+		7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -136,6 +138,8 @@
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
 		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		7A62E6FA2ADCF97F007942AE /* clock_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_edit.png; sourceTree = "<group>"; };
+		7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralScanner.h; sourceTree = "<group>"; };
+		7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralScanner.m; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 		64ED9A6A1647439300F39EAE = {
 			isa = PBXGroup;
 			children = (
+				7A62E6FF2ADD14E5007942AE /* Helpers */,
 				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
 				7A98D7DE2A258EA7005A593E /* DesktopToolView */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
@@ -341,6 +346,15 @@
 				7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */,
 			);
 			path = ToolCommon;
+			sourceTree = "<group>";
+		};
+		7A62E6FF2ADD14E5007942AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
+				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7A8B3E26296E586F0005F7B1 /* VendorTool */ = {
@@ -531,6 +545,7 @@
 			files = (
 				7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
+				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7ADD42792A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
@@ -556,6 +571,7 @@
 			files = (
 				7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
+				7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7ADD427A2A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
