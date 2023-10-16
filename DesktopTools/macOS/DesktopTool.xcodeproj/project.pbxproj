@@ -40,6 +40,10 @@
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
+		7A62E6FB2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
+		7A62E6FC2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
+		7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
+		7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -130,6 +134,8 @@
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
+		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		7A62E6FA2ADCF97F007942AE /* clock_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_edit.png; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -299,6 +305,8 @@
 		7A36FB302A1B3461005C78D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A62E6FA2ADCF97F007942AE /* clock_edit.png */,
+				7A62E6F92ADCF97F007942AE /* clock.png */,
 				7A810FF62A1C8AE400C0BAED /* check_box.png */,
 				7A810FF52A1C8AE400C0BAED /* processor.png */,
 				7A810FF72A1C8AE400C0BAED /* update.png */,
@@ -466,6 +474,7 @@
 			files = (
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
+				7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7ADD42742A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
@@ -474,6 +483,7 @@
 				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFA2A1C8AE400C0BAED /* check_box.png in Resources */,
+				7A62E6FB2ADCF97F007942AE /* clock.png in Resources */,
 				7A3F4F262875633C003CFE67 /* icon.png in Resources */,
 				7A58D0632A1C4661002FF8B6 /* connect.png in Resources */,
 				7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */,
@@ -491,6 +501,7 @@
 			files = (
 				7A810FF92A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
+				7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7ADD42752A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
@@ -499,6 +510,7 @@
 				7A58D0662A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFB2A1C8AE400C0BAED /* check_box.png in Resources */,
+				7A62E6FC2ADCF97F007942AE /* clock.png in Resources */,
 				7A8B3DFE296E56640005F7B1 /* icon.png in Resources */,
 				7A58D0642A1C4661002FF8B6 /* connect.png in Resources */,
 				7A8B3E16296E56640005F7B1 /* Images.xcassets in Resources */,

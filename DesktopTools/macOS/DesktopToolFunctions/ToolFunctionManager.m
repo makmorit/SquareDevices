@@ -68,7 +68,9 @@
                 @[MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, @"update"],
                 @[MSG_MENU_ITEM_NAME_PING_TEST,       @"check_box"],
                 @[MSG_MENU_ITEM_NAME_GET_APP_VERSION, @"processor"],
-                @[MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  @"statistics"]
+                @[MSG_MENU_ITEM_NAME_GET_FLASH_STAT,  @"statistics"],
+                @[MSG_MENU_ITEM_NAME_GET_TIMESTAMP,   @"clock"],
+                @[MSG_MENU_ITEM_NAME_SET_TIMESTAMP,   @"clock_edit"]
             ]],
             @[MSG_MENU_ITEM_NAME_TOOL_INFOS, @[
                 @[MSG_MENU_ITEM_NAME_TOOL_VERSION,    @"information"],
