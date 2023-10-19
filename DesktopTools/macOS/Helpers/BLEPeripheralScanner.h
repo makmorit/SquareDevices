@@ -11,6 +11,9 @@
 
 @interface BLEPeripheralScannerParam : NSObject
 
+    - (instancetype)initWithServiceUUIDString:(NSString *)uuidString;
+    - (NSString *)serviceUUIDString;
+
 @end
 
 @protocol BLEPeripheralScannerDelegate;
