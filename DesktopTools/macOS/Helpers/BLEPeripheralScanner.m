@@ -32,12 +32,13 @@
 
 @end
 
-@interface BLEPeripheralScanner ()
+@interface BLEPeripheralScanner () <CBCentralManagerDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // パラメーター参照を保持
     @property (nonatomic) BLEPeripheralScannerParam     *parameter;
+    @property (nonatomic) CBCentralManager              *manager;
 
 @end
 
@@ -53,6 +54,9 @@
             [self setDelegate:delegate];
         }
         return self;
+    }
+
+    - (void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {
     }
 
 #pragma mark -
