@@ -11,9 +11,6 @@
 
 @interface BLEPeripheralScannerParam ()
 
-    // スキャン対象サービスUUIDの参照を保持
-    @property (nonatomic) CBUUID       *serviceUUID;
-
 @end
 
 @implementation BLEPeripheralScannerParam
