@@ -152,6 +152,7 @@
 		7A92D0E228754B140094D2DB /* AppCommonMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCommonMessage.h; sourceTree = "<group>"; };
 		7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCommonFunc.m; sourceTree = "<group>"; };
 		7A92D0E528754F3C0094D2DB /* ToolCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCommonFunc.h; sourceTree = "<group>"; };
+		7A9715212AE2576600350B98 /* HelperMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperMessage.h; sourceTree = "<group>"; };
 		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
 		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
 		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
@@ -353,6 +354,7 @@
 			children = (
 				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
 				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
+				7A9715212AE2576600350B98 /* HelperMessage.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
