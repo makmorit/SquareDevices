@@ -11,12 +11,11 @@
 
 @interface BLEPeripheralScannerParam : NSObject
     // スキャン対象サービスUUIDの参照を保持
-    @property (nonatomic) CBUUID               *serviceUUID;
+    @property (nonatomic) NSString             *serviceUUIDString;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
 
     - (instancetype)initWithServiceUUIDString:(NSString *)uuidString;
-    - (NSString *)serviceUUIDString;
 
 @end
 

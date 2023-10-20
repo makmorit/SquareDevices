@@ -18,13 +18,9 @@
     - (instancetype)initWithServiceUUIDString:(NSString *)uuidString {
         self = [super init];
         if (self) {
-            [self setServiceUUID:[CBUUID UUIDWithString:uuidString]];
+            [self setServiceUUIDString:uuidString];
         }
         return self;
-    }
-
-    - (NSString *)serviceUUIDString {
-        return [[self serviceUUID] UUIDString];
     }
 
 @end
