@@ -66,6 +66,14 @@
         for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
         }
+        [self scanDidTerminateWithParam:true withErrorMessage:nil];
+    }
+
+    - (void)scanDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // コマンド成否、メッセージを設定
+        [[self parameter] setSuccess:success];
+        [[self parameter] setErrorMessage:errorMessage];
+        // 上位クラスに制御を戻す
         [[self delegate] peripheralDidScanWithParam:[self parameter]];
     }
 
