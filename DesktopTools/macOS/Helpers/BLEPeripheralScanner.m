@@ -36,6 +36,8 @@
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
+    // パラメーター参照を保持
+    @property (nonatomic) BLEPeripheralScannerParam     *parameter;
 
 @end
 
@@ -56,12 +58,14 @@
 #pragma mark -
 
     - (void)peripheralWillScanWithParam:(BLEPeripheralScannerParam *)parameter {
+        // パラメーター参照を保持
+        [self setParameter:parameter];
         // TODO: 仮の実装です。
         [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralWillScanWithParam called: %@", [parameter serviceUUIDString]];
         for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
         }
-        [[self delegate] peripheralDidScanWithParam:nil];
+        [[self delegate] peripheralDidScanWithParam:[self parameter]];
     }
 
 @end
