@@ -45,6 +45,7 @@
         self = [super init];
         if (self) {
             [self setDelegate:delegate];
+            [self setManager:[[CBCentralManager alloc] initWithDelegate:self queue:nil]];
         }
         return self;
     }
