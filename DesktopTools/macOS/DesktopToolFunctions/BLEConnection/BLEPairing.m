@@ -5,12 +5,27 @@
 //  Created by Makoto Morita on 2023/06/05.
 //
 #import "BLEPairing.h"
+#import "BLEPeripheralScanner.h"
 
-@interface BLEPairing ()
+@interface BLEPairing () <BLEPeripheralScannerDelegate>
+    // 上位クラスの参照を保持
+    @property (nonatomic) id                             delegate;
+    @property (nonatomic) BLEPeripheralScanner          *scanner;
 
 @end
 
 @implementation BLEPairing
+
+    - (instancetype)initWithDelegate:(id)delegate {
+        self = [super initWithDelegate:delegate];
+        if (self) {
+            [self setScanner:[[BLEPeripheralScanner alloc] initWithDelegate:self]];
+        }
+        return self;
+    }
+
+    - (void)didUpdateScannerState:(bool)available {
+    }
 
 #pragma mark - Process management
 
@@ -21,6 +36,9 @@
             [self appendStatusText:[[NSString alloc] initWithFormat:@"%d 秒が経過しました。", i+1]];
         }
         [self resumeProcess];
+    }
+
+    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
     }
 
 @end
