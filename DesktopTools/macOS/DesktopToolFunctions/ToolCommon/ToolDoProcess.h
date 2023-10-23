@@ -17,7 +17,7 @@
     - (void)enableClickButtonDoProcess:(bool)isEnabled;
     - (void)appendStatusText:(NSString *)statusText;
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage;
-    - (void)resumeProcess;
+    - (void)resumeProcess:(bool)success;
     - (void)cancelProcess;
 
 @end

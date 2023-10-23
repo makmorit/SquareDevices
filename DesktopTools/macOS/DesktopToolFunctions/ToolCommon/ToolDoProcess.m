@@ -53,9 +53,10 @@
         });
     }
 
-    - (void)resumeProcess {
+    - (void)resumeProcess:(bool)success {
         // 処理完了メッセージを表示／ログ出力
-        [self processTerminateLogWithName:[self title] withFormat:MSG_FORMAT_END_MESSAGE];
+        NSString *messageFormat = success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE;
+        [self processTerminateLogWithName:[self title] withFormat:messageFormat];
         // 画面のボタンを使用可能に設定
         [self enableButtonClick:true];
     }
@@ -68,7 +69,7 @@
     }
 
     - (void)invokeProcessOnSubQueue {
-        [self resumeProcess];
+        [self resumeProcess:true];
     }
 
 #pragma mark - Operation on ToolDoProcessView

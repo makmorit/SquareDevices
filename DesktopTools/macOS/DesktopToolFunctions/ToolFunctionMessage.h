@@ -10,7 +10,8 @@
 
 #define MSG_FORMAT_START_MESSAGE                    @"%@を開始します。"
 #define MSG_FORMAT_CANCEL_MESSAGE                   @"%@が中断されました。"
-#define MSG_FORMAT_END_MESSAGE                      @"%@が終了しました。"
+#define MSG_FORMAT_SUCCESS_MESSAGE                  @"%@が成功しました。"
+#define MSG_FORMAT_FAILURE_MESSAGE                  @"%@が失敗しました。"
 #define MSG_FORMAT_PROCESSING_MESSAGE               @"しばらくお待ちください..."
 
 #define MSG_MENU_ITEM_NAME_BLE_SETTINGS             @"BLE設定"
