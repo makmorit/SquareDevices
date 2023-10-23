@@ -85,6 +85,11 @@
         });
     }
 
+    - (void)LogAndShowErrorMessage:(NSString *)errorMessage {
+        [[ToolLogFile defaultLogger] error:errorMessage];
+        [self appendStatusText:errorMessage];
+    }
+
 #pragma mark - Callback from ToolDoProcessView
 
     - (void)subViewNotifyEventWithName:(NSString *)eventName {
