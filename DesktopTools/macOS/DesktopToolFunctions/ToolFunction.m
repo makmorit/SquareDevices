@@ -25,6 +25,7 @@
         if (self != nil) {
             [self setDelegate:delegate];
             [self setSubView:nil];
+            [self didInitialize];
         }
         return self;
     }
@@ -32,6 +33,9 @@
     - (void)setSubViewRef:(ToolFunctionView *)subView {
         // 画面の参照を保持
         [self setSubView:subView];
+    }
+
+    - (void)didInitialize {
     }
 
 #pragma mark - Process management

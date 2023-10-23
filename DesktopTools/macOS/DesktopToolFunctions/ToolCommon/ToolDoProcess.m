@@ -20,6 +20,12 @@
 
 @implementation ToolDoProcess
 
+    - (void)didInitialize {
+        // スレッドにバインドされるキューを取得
+        [self setMainQueue:dispatch_get_main_queue()];
+        [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.doprocess", DISPATCH_QUEUE_SERIAL)];
+    }
+
 #pragma mark - Process management
 
     - (void)setupSubView {
@@ -29,9 +35,6 @@
     }
 
     - (void)willProcessWithTitle:(NSString *)title {
-        // スレッドにバインドされるキューを取得
-        [self setMainQueue:dispatch_get_main_queue()];
-        [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.doprocess", DISPATCH_QUEUE_SERIAL)];
         // タイトル設定
         [self setTitle:title];
         [self setStatusText:[[NSString alloc] init]];

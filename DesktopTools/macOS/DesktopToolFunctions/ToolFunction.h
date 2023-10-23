@@ -15,6 +15,7 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupSubView;
+    - (void)didInitialize;
     - (void)willProcessWithTitle:(NSString *)title;
 
     - (void)setSubViewRef:(ToolFunctionView *)subView;
