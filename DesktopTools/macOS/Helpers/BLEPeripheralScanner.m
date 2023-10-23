@@ -51,6 +51,8 @@
     }
 
     - (void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {
+        bool available = ([central state] == CBManagerStatePoweredOn);
+        [[self delegate] didUpdateScannerState:available];
     }
 
 #pragma mark -

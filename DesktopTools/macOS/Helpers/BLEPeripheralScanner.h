@@ -30,6 +30,7 @@
 
 @protocol BLEPeripheralScannerDelegate <NSObject>
 
+    - (void)didUpdateScannerState:(bool)available;
     - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter;
 
 @end
