@@ -55,7 +55,7 @@
 
     - (void)resumeProcess {
         // 処理完了メッセージを表示／ログ出力
-        [self processTerminateLogWithName:[self title]];
+        [self processTerminateLogWithName:[self title] withFormat:MSG_FORMAT_END_MESSAGE];
         // 画面のボタンを使用可能に設定
         [self enableButtonClick:true];
     }
@@ -85,6 +85,11 @@
         });
     }
 
+    - (void)LogAndShowInfoMessage:(NSString *)infoMessage {
+        [[ToolLogFile defaultLogger] info:infoMessage];
+        [self appendStatusText:infoMessage];
+    }
+
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage {
         [[ToolLogFile defaultLogger] error:errorMessage];
         [self appendStatusText:errorMessage];
@@ -105,9 +110,9 @@
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_START_MESSAGE, processName];
     }
 
-    - (void)processTerminateLogWithName:(NSString *)processName {
-        [self appendStatusText:[[NSString alloc] initWithFormat:MSG_FORMAT_END_MESSAGE, processName]];
-        [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_END_MESSAGE, processName];
+    - (void)processTerminateLogWithName:(NSString *)processName withFormat:(NSString *)messageFormat {
+        NSString *message = [[NSString alloc] initWithFormat:messageFormat, processName];
+        [self LogAndShowInfoMessage:message];
     }
 
 @end
