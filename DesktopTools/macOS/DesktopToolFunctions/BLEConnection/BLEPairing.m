@@ -19,12 +19,14 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self) {
+            [self enableClickButtonDoProcess:false];
             [self setScanner:[[BLEPeripheralScanner alloc] initWithDelegate:self]];
         }
         return self;
     }
 
     - (void)didUpdateScannerState:(bool)available {
+        [self enableClickButtonDoProcess:true];
     }
 
 #pragma mark - Process management
