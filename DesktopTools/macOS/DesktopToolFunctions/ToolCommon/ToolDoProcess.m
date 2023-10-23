@@ -60,6 +60,13 @@
         [self enableButtonClick:true];
     }
 
+    - (void)cancelProcess {
+        // 処理中止メッセージを表示／ログ出力
+        [self processTerminateLogWithName:[self title] withFormat:MSG_FORMAT_CANCEL_MESSAGE];
+        // 画面のボタンを使用可能に設定
+        [self enableButtonClick:true];
+    }
+
     - (void)invokeProcessOnSubQueue {
         [self resumeProcess];
     }

@@ -9,6 +9,7 @@
 
 
 #define MSG_FORMAT_START_MESSAGE                    @"%@を開始します。"
+#define MSG_FORMAT_CANCEL_MESSAGE                   @"%@が中断されました。"
 #define MSG_FORMAT_END_MESSAGE                      @"%@が終了しました。"
 #define MSG_FORMAT_PROCESSING_MESSAGE               @"しばらくお待ちください..."
 
