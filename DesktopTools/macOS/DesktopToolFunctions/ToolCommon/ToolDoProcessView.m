@@ -36,8 +36,13 @@
 
     - (void)enableButtonClick:(bool)isEnabled {
         // ボタンの使用可能／不能を制御
-        [[self buttonDoProcess] setEnabled:isEnabled];
+        [self enableClickButtonDoProcess:isEnabled];
         [[self buttonClose] setEnabled:isEnabled];
+    }
+
+    - (void)enableClickButtonDoProcess:(bool)isEnabled {
+        // ボタンの使用可能／不能を制御
+        [[self buttonDoProcess] setEnabled:isEnabled];
     }
 
     - (void)scrollToEndOfStatusText {
