@@ -7,6 +7,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #import "BLEPeripheralScanner.h"
+#import "HelperMessage.h"
 #import "ToolLogFile.h"
 
 @interface BLEPeripheralScannerParam ()
@@ -60,6 +61,11 @@
     - (void)peripheralWillScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // パラメーター参照を保持
         [self setParameter:parameter];
+        // BLEが無効化されている場合は通知
+        if ([[self manager] state] != CBManagerStatePoweredOn) {
+            [self scanDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_BT_OFF];
+            return;
+        }
         // TODO: 仮の実装です。
         [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralWillScanWithParam called: %@", [parameter serviceUUIDString]];
         for (int i = 0; i < 3; i++) {
