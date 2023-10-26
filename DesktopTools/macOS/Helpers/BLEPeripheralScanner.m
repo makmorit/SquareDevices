@@ -105,6 +105,23 @@
         [[ToolLogFile defaultLogger] debug:MSG_BLE_PERIPHERAL_SCAN_STOPPED];
     }
 
+    - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
+         advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
+        // スキャン対象サービスUUIDを走査
+        CBUUID *serviceUUIDForScan = [CBUUID UUIDWithString:[[self parameter] serviceUUIDString]];
+        NSArray *serviceUUIDs = [advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey];
+        for (CBUUID *foundServiceUUIDs in serviceUUIDs) {
+            // サービスUUIDが見つかった場合
+            if ([foundServiceUUIDs isEqual:serviceUUIDForScan]) {
+                // スキャンタイムアウト監視を停止
+                [self cancelScanningTimeoutMonitorFor:@selector(scanningDidTimeout)];
+                // スキャンを停止し、スキャン完了を通知
+                [self cancelScanForPeripherals];
+                [self scanDidTerminateWithParam:true withErrorMessage:nil];
+            }
+        }
+    }
+
 #pragma mark - Scanning Timeout Monitor
 
     - (void)startScanningTimeoutMonitorFor:(SEL)selector {
