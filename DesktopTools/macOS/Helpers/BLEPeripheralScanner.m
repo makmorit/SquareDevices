@@ -68,12 +68,8 @@
             [self scanDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_BT_OFF];
             return;
         }
-        // TODO: 仮の実装です。
-        [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralWillScanWithParam called: %@", [parameter serviceUUIDString]];
-        for (int i = 0; i < 3; i++) {
-            [NSThread sleepForTimeInterval:1.0];
-        }
-        [self scanDidTerminateWithParam:true withErrorMessage:nil];
+        // BLEペリフェラルのスキャン開始
+        [self ScanBLEPeripheral];
     }
 
     - (void)scanDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
@@ -82,6 +78,22 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         [[self delegate] peripheralDidScanWithParam:[self parameter]];
+    }
+
+#pragma mark - Scan for peripherals
+
+    - (void)ScanBLEPeripheral {
+        // スキャン設定
+        NSDictionary *scanningOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey: @NO};
+        // BLEペリフェラルをスキャン
+        [[self manager] scanForPeripheralsWithServices:nil options:scanningOptions];
+        [[ToolLogFile defaultLogger] debug:MSG_BLE_PERIPHERAL_SCAN_START];
+    }
+
+    - (void)cancelScanForPeripherals {
+        // スキャンを停止
+        [[self manager] stopScan];
+        [[ToolLogFile defaultLogger] debug:MSG_BLE_PERIPHERAL_SCAN_STOPPED];
     }
 
 @end
