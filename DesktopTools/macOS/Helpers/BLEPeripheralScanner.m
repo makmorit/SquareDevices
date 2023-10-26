@@ -27,12 +27,13 @@
 @end
 
 @interface BLEPeripheralScanner () <CBCentralManagerDelegate>
-
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // パラメーター参照を保持
     @property (nonatomic) BLEPeripheralScannerParam     *parameter;
     @property (nonatomic) CBCentralManager              *manager;
+    // 非同期処理用のキューを保持
+    @property (nonatomic) dispatch_queue_t               mainQueue;
 
 @end
 
@@ -47,6 +48,7 @@
         if (self) {
             [self setDelegate:delegate];
             [self setManager:[[CBCentralManager alloc] initWithDelegate:self queue:nil]];
+            [self setMainQueue:dispatch_get_main_queue()];
         }
         return self;
     }
