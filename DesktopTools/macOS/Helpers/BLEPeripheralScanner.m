@@ -88,12 +88,39 @@
         // BLEペリフェラルをスキャン
         [[self manager] scanForPeripheralsWithServices:nil options:scanningOptions];
         [[ToolLogFile defaultLogger] debug:MSG_BLE_PERIPHERAL_SCAN_START];
+        // スキャンタイムアウト監視を開始
+        [self startScanningTimeoutMonitorFor:@selector(scanningDidTimeout)];
+    }
+
+    - (void)scanningDidTimeout {
+        // スキャンを停止
+        [self cancelScanForPeripherals];
+        // スキャンタイムアウトの場合は通知
+        [self scanDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_TIMED_OUT];
     }
 
     - (void)cancelScanForPeripherals {
         // スキャンを停止
         [[self manager] stopScan];
         [[ToolLogFile defaultLogger] debug:MSG_BLE_PERIPHERAL_SCAN_STOPPED];
+    }
+
+#pragma mark - Scanning Timeout Monitor
+
+    - (void)startScanningTimeoutMonitorFor:(SEL)selector {
+        // スキャンタイムアウト監視を停止
+        [self cancelScanningTimeoutMonitorFor:selector];
+        // スキャンタイムアウト監視を開始（10秒後にタイムアウト）
+        dispatch_async([self mainQueue], ^{
+            [self performSelector:selector withObject:nil afterDelay:10.0];
+        });
+    }
+
+    - (void)cancelScanningTimeoutMonitorFor:(SEL)selector {
+        // スキャンタイムアウト監視を停止
+        dispatch_async([self mainQueue], ^{
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:selector object:nil];
+        });
     }
 
 @end

@@ -9,6 +9,7 @@
 
 #pragma mark - BLEペアリング
 #define MSG_BLE_PARING_ERR_BT_OFF                   @"Bluetoothがオフになっています。Bluetoothをオンにしてください。"
+#define MSG_BLE_PARING_ERR_TIMED_OUT                @"BLEデバイスが停止している可能性があります。BLEデバイスの電源を入れてください。"
 
 #pragma mark - BLEスキャン関連
 #define MSG_BLE_PERIPHERAL_SCAN_START               @"スキャンを開始します。"
