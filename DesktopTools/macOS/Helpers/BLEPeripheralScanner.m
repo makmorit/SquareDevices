@@ -35,6 +35,7 @@
     @property (nonatomic) CBPeripheral                  *discoveredPeripheral;
     // 非同期処理用のキューを保持
     @property (nonatomic) dispatch_queue_t               mainQueue;
+    @property (nonatomic) dispatch_queue_t               subQueue;
 
 @end
 
@@ -50,6 +51,7 @@
             [self setDelegate:delegate];
             [self setManager:[[CBCentralManager alloc] initWithDelegate:self queue:nil]];
             [self setMainQueue:dispatch_get_main_queue()];
+            [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.bleperipheralscanner", DISPATCH_QUEUE_SERIAL)];
         }
         return self;
     }
@@ -78,7 +80,9 @@
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
-        [[self delegate] peripheralDidScanWithParam:[self parameter]];
+        dispatch_async([self subQueue], ^{
+            [[self delegate] peripheralDidScanWithParam:[self parameter]];
+        });
     }
 
 #pragma mark - Scan for peripherals
