@@ -14,6 +14,7 @@
     @property (nonatomic) NSString             *serviceUUIDString;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
+    @property (nonatomic) NSData               *serviceDataField;
 
     - (instancetype)initWithServiceUUIDString:(NSString *)uuidString;
 

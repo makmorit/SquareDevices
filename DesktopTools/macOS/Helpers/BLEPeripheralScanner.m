@@ -114,6 +114,9 @@
         for (CBUUID *foundServiceUUIDs in serviceUUIDs) {
             // サービスUUIDが見つかった場合
             if ([foundServiceUUIDs isEqual:serviceUUIDForScan]) {
+                // サービスデータフィールドを取得
+                NSData *serviceDataField = [self retrieveServiceDataFieldFrom:advertisementData withUUID:foundServiceUUIDs];
+                [[self parameter] setServiceDataField:serviceDataField];
                 // ペリフェラルの参照を保持（`API MISUSE: Cancelling connection for unused peripheral`というエラー発生の回避措置）
                 [self setDiscoveredPeripheral:peripheral];
                 // スキャンタイムアウト監視を停止
@@ -123,6 +126,16 @@
                 [self scanDidTerminateWithParam:true withErrorMessage:nil];
             }
         }
+    }
+
+    - (NSData *)retrieveServiceDataFieldFrom:(NSDictionary *)advertisementData withUUID:(CBUUID *)uuid {
+        // アドバタイズデータから、所定のサービスUUIDに対応するサービスデータフィールドを抽出
+        NSData *serviceDataField = nil;
+        NSDictionary *serviceData = [advertisementData objectForKey:CBAdvertisementDataServiceDataKey];
+        if (serviceData != nil) {
+            serviceDataField = [serviceData objectForKey:uuid];
+        }
+        return serviceDataField;
     }
 
 #pragma mark - Scanning Timeout Monitor
