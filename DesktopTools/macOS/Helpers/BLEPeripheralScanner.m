@@ -116,7 +116,7 @@
             if ([foundServiceUUIDs isEqual:serviceUUIDForScan]) {
                 // サービスデータフィールドを取得
                 NSData *serviceDataField = [self retrieveServiceDataFieldFrom:advertisementData withUUID:foundServiceUUIDs];
-                [[self parameter] setServiceDataField:serviceDataField];
+                [[self parameter] setFidoServiceDataFieldFound:[self isFidoServiceDataFieldFound:serviceDataField]];
                 // ペリフェラルの参照を保持（`API MISUSE: Cancelling connection for unused peripheral`というエラー発生の回避措置）
                 [self setDiscoveredPeripheral:peripheral];
                 [[self parameter] setScannedCBPeripheralRef:peripheral];
@@ -137,6 +137,15 @@
             serviceDataField = [serviceData objectForKey:uuid];
         }
         return serviceDataField;
+    }
+
+    - (bool)isFidoServiceDataFieldFound:(NSData *)serviceDataField {
+        // サービスデータフィールドが`0x80`（Device is in pairing mode）になっているかどうか判定
+        if (serviceDataField == nil || [serviceDataField length] != 1) {
+            return false;
+        }
+        uint8_t *bytes = (uint8_t *)[serviceDataField bytes];
+        return ((bytes[0] & 0x80) == 0x80);
     }
 
 #pragma mark - Scanning Timeout Monitor

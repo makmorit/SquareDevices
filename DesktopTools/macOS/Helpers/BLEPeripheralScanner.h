@@ -12,9 +12,9 @@
 @interface BLEPeripheralScannerParam : NSObject
     // スキャン対象サービスUUIDの参照を保持
     @property (nonatomic) NSString             *serviceUUIDString;
+    @property (nonatomic) bool                  fidoServiceDataFieldFound;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
-    @property (nonatomic) NSData               *serviceDataField;
     // BLEペリフェラルの参照を保持
     @property (nonatomic) id                    scannedCBPeripheralRef;
 
