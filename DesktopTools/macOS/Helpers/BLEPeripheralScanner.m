@@ -32,6 +32,7 @@
     // パラメーター参照を保持
     @property (nonatomic) BLEPeripheralScannerParam     *parameter;
     @property (nonatomic) CBCentralManager              *manager;
+    @property (nonatomic) CBPeripheral                  *discoveredPeripheral;
     // 非同期処理用のキューを保持
     @property (nonatomic) dispatch_queue_t               mainQueue;
 
@@ -113,6 +114,8 @@
         for (CBUUID *foundServiceUUIDs in serviceUUIDs) {
             // サービスUUIDが見つかった場合
             if ([foundServiceUUIDs isEqual:serviceUUIDForScan]) {
+                // ペリフェラルの参照を保持（`API MISUSE: Cancelling connection for unused peripheral`というエラー発生の回避措置）
+                [self setDiscoveredPeripheral:peripheral];
                 // スキャンタイムアウト監視を停止
                 [self cancelScanningTimeoutMonitorFor:@selector(scanningDidTimeout)];
                 // スキャンを停止し、スキャン完了を通知
