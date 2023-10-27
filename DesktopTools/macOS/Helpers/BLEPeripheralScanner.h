@@ -15,6 +15,8 @@
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
     @property (nonatomic) NSData               *serviceDataField;
+    // BLEペリフェラルの参照を保持
+    @property (nonatomic) id                    scannedCBPeripheralRef;
 
     - (instancetype)initWithServiceUUIDString:(NSString *)uuidString;
 
