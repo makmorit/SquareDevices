@@ -35,6 +35,7 @@
 
 #pragma mark - BLEペアリング
 #define MSG_BLE_PARING_ERR_PAIR_MODE                @"ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。"
+#define MSG_BLE_PAIRING_SCAN_SUCCESS                @"ペアリング対象のBLEデバイスがスキャンされました。"
 
 #pragma mark - デバイス情報参照画面
 
