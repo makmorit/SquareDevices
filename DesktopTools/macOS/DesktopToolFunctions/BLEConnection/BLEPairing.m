@@ -4,6 +4,7 @@
 //
 //  Created by Makoto Morita on 2023/06/05.
 //
+#import "BLEDefines.h"
 #import "BLEPairing.h"
 #import "BLEPeripheralScanner.h"
 
@@ -32,15 +33,17 @@
 #pragma mark - Process management
 
     - (void)invokeProcessOnSubQueue {
+        BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+        [[self scanner] peripheralWillScanWithParam:parameter];
+    }
+
+    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // TODO: 仮の実装です。
         for (int i = 0; i < 7; i++) {
             [NSThread sleepForTimeInterval:1.0];
             [self appendStatusText:[[NSString alloc] initWithFormat:@"%d 秒が経過しました。", i+1]];
         }
-        [self resumeProcess];
-    }
-
-    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
+        [self resumeProcess:true];
     }
 
 @end

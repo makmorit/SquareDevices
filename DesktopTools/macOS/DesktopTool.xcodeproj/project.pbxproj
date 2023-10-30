@@ -134,6 +134,7 @@
 		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
+		7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
 		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
@@ -352,6 +353,7 @@
 		7A62E6FF2ADD14E5007942AE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */,
 				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
 				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
 				7A9715212AE2576600350B98 /* HelperMessage.h */,
