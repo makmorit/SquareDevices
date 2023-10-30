@@ -52,9 +52,9 @@
             return;
         }
         // TODO: 仮の実装です。
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
-            [self appendStatusText:[[NSString alloc] initWithFormat:@"%d 秒が経過しました。", i+1]];
+            [self LogAndShowInfoMessage:[[NSString alloc] initWithFormat:@"Elapsed %d seconds.", i+1]];
         }
         [self resumeProcess:true];
     }
