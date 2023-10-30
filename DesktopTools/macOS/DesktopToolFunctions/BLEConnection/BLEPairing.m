@@ -7,6 +7,7 @@
 #import "BLEDefines.h"
 #import "BLEPairing.h"
 #import "BLEPeripheralScanner.h"
+#import "ToolFunctionMessage.h"
 
 @interface BLEPairing () <BLEPeripheralScannerDelegate>
     // 上位クラスの参照を保持
@@ -38,6 +39,18 @@
     }
 
     - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
+        // 失敗時はログ出力
+        if ([parameter success] == false) {
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self cancelProcess];
+            return;
+        }
+        // サービスデータフィールドがない場合はエラー扱い
+        if ([parameter fidoServiceDataFieldFound] == false) {
+            [self LogAndShowErrorMessage:MSG_BLE_PARING_ERR_PAIR_MODE];
+            [self cancelProcess];
+            return;
+        }
         // TODO: 仮の実装です。
         for (int i = 0; i < 7; i++) {
             [NSThread sleepForTimeInterval:1.0];

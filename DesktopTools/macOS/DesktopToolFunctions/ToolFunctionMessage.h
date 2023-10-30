@@ -33,6 +33,9 @@
 
 #define MSG_ERROR_MENU_NOT_SUPPORTED                @"このメニューは実行できません。"
 
+#pragma mark - BLEペアリング
+#define MSG_BLE_PARING_ERR_PAIR_MODE                @"ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。"
+
 #pragma mark - デバイス情報参照画面
 
 #define MSG_DEVICE_FW_VERSION_INFO_SHOWING          @"デバイスに導入されているファームウェア等に関する情報を表示しています。"
