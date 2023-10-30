@@ -38,6 +38,8 @@
 		7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
+		7A5DEBEE2AEF8EA6002D87D8 /* BLEPeripheralConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DEBED2AEF8EA6002D87D8 /* BLEPeripheralConnector.m */; };
+		7A5DEBEF2AEF8EA6002D87D8 /* BLEPeripheralConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DEBED2AEF8EA6002D87D8 /* BLEPeripheralConnector.m */; };
 		7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A62E6FB2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
@@ -135,6 +137,8 @@
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
+		7A5DEBEC2AEF8DB0002D87D8 /* BLEPeripheralConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralConnector.h; sourceTree = "<group>"; };
+		7A5DEBED2AEF8EA6002D87D8 /* BLEPeripheralConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralConnector.m; sourceTree = "<group>"; };
 		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
 		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
@@ -354,6 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */,
+				7A5DEBEC2AEF8DB0002D87D8 /* BLEPeripheralConnector.h */,
+				7A5DEBED2AEF8EA6002D87D8 /* BLEPeripheralConnector.m */,
 				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
 				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
 				7A9715212AE2576600350B98 /* HelperMessage.h */,
@@ -560,6 +566,7 @@
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A5DEBEE2AEF8EA6002D87D8 /* BLEPeripheralConnector.m in Sources */,
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
@@ -586,6 +593,7 @@
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A5DEBEF2AEF8EA6002D87D8 /* BLEPeripheralConnector.m in Sources */,
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
