@@ -29,6 +29,7 @@
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)peripheralWillScanWithParam:(BLEPeripheralScannerParam *)parameter;
     - (void)peripheralWillConnectWithParam:(BLEPeripheralScannerParam *)parameter;
+    - (void)peripheralWillDisconnectWithParam:(BLEPeripheralScannerParam *)parameter;
 
 @end
 

@@ -202,4 +202,32 @@
         [self connectingDidTerminateWithParam:false withErrorMessage:MSG_CONNECT_BLE_DEVICE_FAILURE];
     }
 
+#pragma mark - Disconnect from peripheral
+
+    - (void)peripheralWillDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        CBPeripheral *peripheral = (CBPeripheral *)[parameter scannedCBPeripheralRef];
+        if (peripheral != nil) {
+            // ペリフェラル接続を切断
+            [[self manager] cancelPeripheralConnection:peripheral];
+        } else {
+            // 接続参照を解除
+            [self setDiscoveredPeripheral:nil];
+        }
+    }
+
+    - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
+        // 接続参照を解除
+        [self setDiscoveredPeripheral:nil];
+        if ([error code] == 0) {
+            // 切断が正常完了した場合
+            [[ToolLogFile defaultLogger] debug:@"BLE connection has terminated successfully."];
+        } else if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 6) {
+            // ペリフェラル側からの一方的な切断による接続タイムアウトの場合＝切断済み
+            [[ToolLogFile defaultLogger] error:@"BLE connection has terminated unexpectedly."];
+        } else {
+            // その他の場合は不明なエラーと扱い、内容詳細をログ出力
+            [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with message: %@", [error description]];
+        }
+    }
+
 @end
