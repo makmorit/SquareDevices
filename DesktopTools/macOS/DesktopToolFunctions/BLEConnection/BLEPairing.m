@@ -52,7 +52,7 @@
             return;
         }
         // 成功時はログ出力
-        [self LogAndShowErrorMessage:MSG_BLE_PAIRING_SCAN_SUCCESS];
+        [self LogAndShowInfoMessage:MSG_BLE_PAIRING_SCAN_SUCCESS];
         // TODO: 仮の実装です。
         for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
