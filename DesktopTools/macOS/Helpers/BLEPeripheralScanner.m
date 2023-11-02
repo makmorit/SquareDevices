@@ -61,7 +61,7 @@
         [[self delegate] didUpdateScannerState:available];
     }
 
-#pragma mark -
+#pragma mark - Scan for peripherals
 
     - (void)peripheralWillScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // パラメーター参照を保持
@@ -84,8 +84,6 @@
             [[self delegate] peripheralDidScanWithParam:[self parameter]];
         });
     }
-
-#pragma mark - Scan for peripherals
 
     - (void)ScanBLEPeripheral {
         // スキャン設定
