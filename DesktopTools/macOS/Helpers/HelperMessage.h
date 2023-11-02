@@ -14,5 +14,7 @@
 #pragma mark - BLEスキャン関連
 #define MSG_BLE_PERIPHERAL_SCAN_START               @"スキャンを開始します。"
 #define MSG_BLE_PERIPHERAL_SCAN_STOPPED             @"スキャンを停止しました。"
+// コマンド共通
+#define MSG_CONNECT_BLE_DEVICE_FAILURE              @"BLEデバイスの接続に失敗しました。"
 
 #endif /* HelperMessage_h */

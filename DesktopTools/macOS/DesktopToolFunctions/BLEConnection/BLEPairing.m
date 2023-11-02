@@ -53,6 +53,11 @@
         }
         // 成功時はログ出力
         [self LogAndShowInfoMessage:MSG_BLE_PAIRING_SCAN_SUCCESS];
+        // ペアリングのための接続処理を実行
+        [[self scanner] peripheralWillConnectWithParam:parameter];
+    }
+
+    - (void)peripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
         // TODO: 仮の実装です。
         for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
