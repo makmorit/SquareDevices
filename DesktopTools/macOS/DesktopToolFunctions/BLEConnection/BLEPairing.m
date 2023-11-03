@@ -63,7 +63,7 @@
             [NSThread sleepForTimeInterval:1.0];
             [self LogAndShowInfoMessage:[[NSString alloc] initWithFormat:@"Elapsed %d seconds.", i+1]];
         }
-        [[self scanner] peripheralWillDisconnectWithParam:parameter];
+        [[self scanner] connectedPeripheralWillDisconnect];
         [self resumeProcess:true];
     }
 

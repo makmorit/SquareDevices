@@ -204,8 +204,8 @@
 
 #pragma mark - Disconnect from peripheral
 
-    - (void)peripheralWillDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
-        CBPeripheral *peripheral = (CBPeripheral *)[parameter scannedCBPeripheralRef];
+    - (void)connectedPeripheralWillDisconnect {
+        CBPeripheral *peripheral = (CBPeripheral *)[[self parameter] scannedCBPeripheralRef];
         if (peripheral != nil) {
             // ペリフェラル接続を切断
             [[self manager] cancelPeripheralConnection:peripheral];
