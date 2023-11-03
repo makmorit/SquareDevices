@@ -95,6 +95,7 @@
         for (CBService *service in [peripheral services]) {
             if ([[service UUID] isEqualTo:serviceUUID]) {
                 connectedService = service;
+                [[ToolLogFile defaultLogger] debugWithFormat:@"Found service %@", [[service UUID] UUIDString]];
                 break;
             }
         }
@@ -103,7 +104,48 @@
             [self requestDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
-        // ディスカバー完了を通知
+        // キャラクタリスティックのディスカバーに移行
+        [self peripheralWillDiscoverCharacteristicsWithRef:connectedService];
+    }
+
+#pragma mark - Discover characteristics
+
+    - (void)peripheralWillDiscoverCharacteristicsWithRef:(id)serviceRef {
+        // ディスカバー対象のキャラクタリスティックUUIDを保持
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [array addObject:[CBUUID UUIDWithString:[[self parameter] charForSendUUIDString]]];
+        [array addObject:[CBUUID UUIDWithString:[[self parameter] charForNotifyUUIDString]]];
+        // サービス内のキャラクタリスティックをディスカバー
+        [[self discoveredPeripheral] discoverCharacteristics:array forService:(CBService *)serviceRef];
+    }
+
+    - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
+        // キャラクタリスティックのディスカバーに失敗の場合は通知
+        if (error) {
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            return;
+        }
+        // 所定属性のキャラクタリスティックがない場合は通知
+        bool readable = false;
+        bool writable = false;
+        for (CBCharacteristic *characteristic in [service characteristics]) {
+            if ([characteristic properties] & CBCharacteristicPropertyNotify) {
+                [[ToolLogFile defaultLogger] debugWithFormat:@"Found characteristic %@ as Notify", [[characteristic UUID] UUIDString]];
+                readable = true;
+            }
+            if ([characteristic properties] & CBCharacteristicPropertyWrite) {
+                [[ToolLogFile defaultLogger] debugWithFormat:@"Found characteristic %@ as Write", [[characteristic UUID] UUIDString]];
+                writable = true;
+            }
+            if ([characteristic properties] & CBCharacteristicPropertyWriteWithoutResponse) {
+                [[ToolLogFile defaultLogger] debugWithFormat:@"Found characteristic %@ as WriteWithoutResponse", [[characteristic UUID] UUIDString]];
+                writable = true;
+            }
+        }
+        if (readable == false || writable == false) {
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            return;
+        }
         // TODO: 仮の実装です。
         [self requestDidTerminateWithParam:true withErrorMessage:nil];
     }

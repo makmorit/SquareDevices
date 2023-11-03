@@ -14,6 +14,9 @@
     @property (nonatomic) id                    connectedPeripheralRef;
     // スキャン対象サービスUUIDの参照を保持
     @property (nonatomic) NSString             *serviceUUIDString;
+    // キャラクタリスティックUUIDの参照を保持
+    @property (nonatomic) NSString             *charForSendUUIDString;
+    @property (nonatomic) NSString             *charForNotifyUUIDString;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
 
