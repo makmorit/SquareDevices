@@ -170,14 +170,14 @@
 
 #pragma mark - Connect peripheral
 
-    - (void)peripheralWillConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)scannedPeripheralWillConnect {
         // BLEが無効化されている場合は通知
         if ([[self manager] state] != CBManagerStatePoweredOn) {
             [self connectingDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_BT_OFF];
             return;
         }
         // ペリフェラルに接続
-        CBPeripheral *peripheral = (CBPeripheral *)[parameter scannedCBPeripheralRef];
+        CBPeripheral *peripheral = (CBPeripheral *)[[self parameter] scannedCBPeripheralRef];
         [[self manager] connectPeripheral:peripheral options:nil];
     }
 
@@ -187,7 +187,7 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidConnectWithParam:[self parameter]];
+            [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
         });
     }
 
