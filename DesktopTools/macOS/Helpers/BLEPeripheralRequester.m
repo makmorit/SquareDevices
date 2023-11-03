@@ -146,8 +146,37 @@
             [self requestDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
-        // TODO: 仮の実装です。
-        [self requestDidTerminateWithParam:true withErrorMessage:nil];
+        // キャラクタリスティックの監視開始に移行
+        [self peripheralWillSubscribeCharacteristicWithRef:service];
+    }
+
+#pragma mark - Subscribe characteristic
+
+    - (void)peripheralWillSubscribeCharacteristicWithRef:(id)serviceRef {
+        // Notifyキャラクタリスティックに対する監視を開始
+        CBService *connectedService = (CBService *)serviceRef;
+        for (CBCharacteristic *characteristic in [connectedService characteristics]) {
+            if ([characteristic properties] & CBCharacteristicPropertyNotify) {
+                [[self discoveredPeripheral] setNotifyValue:YES forCharacteristic:characteristic];
+            }
+        }
+    }
+
+    - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+        // 監視開始エラー発生の場合は通知
+        if (error) {
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            return;
+        }
+        if ([characteristic isNotifying]) {
+            // 監視開始を通知
+            [[ToolLogFile defaultLogger] debug:@"Characteristic notify started"];
+            [self requestDidTerminateWithParam:true withErrorMessage:nil];
+        } else {
+            // 監視が停止している場合は通知
+            [[ToolLogFile defaultLogger] debug:@"Characteristic notify start fail"];
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+        }
     }
 
 @end
