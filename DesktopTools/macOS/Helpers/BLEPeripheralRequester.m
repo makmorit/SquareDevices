@@ -30,6 +30,7 @@
     @property (nonatomic) id                             delegate;
     // パラメーター参照を保持
     @property (nonatomic) BLEPeripheralRequesterParam   *parameter;
+    @property (nonatomic) CBService                     *connectedService;
     @property (nonatomic) CBPeripheral                  *discoveredPeripheral;
     @property (nonatomic) NSString                      *serviceUUID;
     // 非同期処理用のキューを保持
@@ -163,6 +164,8 @@
             [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
+        // サービスを保持
+        [self setConnectedService:service];
         // キャラクタリスティックの監視開始に移行
         [self peripheralWillSubscribeCharacteristicWithRef:service];
     }
