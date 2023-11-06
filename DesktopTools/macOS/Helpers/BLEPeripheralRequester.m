@@ -54,22 +54,22 @@
         return self;
     }
 
-#pragma mark - Public function
+#pragma mark - Public function (discover & subscribe characteristics)
 
-    - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)peripheralWillPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         // パラメーター参照を保持
         [self setParameter:parameter];
         // サービスをディスカバー
         [self peripheralWillDiscoverServiceWithRef:[parameter connectedPeripheralRef]];
     }
 
-    - (void)requestDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)prepareDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
         // コマンド成否、メッセージを設定
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidResponseWithParam:[self parameter]];
+            [[self delegate] peripheralDidPrepareWithParam:[self parameter]];
         });
     }
 
@@ -85,7 +85,7 @@
     - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
         // BLEサービスディスカバーに失敗の場合は通知
         if (error) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
         // ディスカバー対象サービスUUID
@@ -101,7 +101,7 @@
         }
         // サービスがない場合は通知
         if (connectedService == nil) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
         // キャラクタリスティックのディスカバーに移行
@@ -122,7 +122,7 @@
     - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
         // キャラクタリスティックのディスカバーに失敗の場合は通知
         if (error) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
         // 所定属性のキャラクタリスティックがない場合は通知
@@ -143,7 +143,7 @@
             }
         }
         if (readable == false || writable == false) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
         // キャラクタリスティックの監視開始に移行
@@ -165,17 +165,17 @@
     - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
         // 監視開始エラー発生の場合は通知
         if (error) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
         if ([characteristic isNotifying]) {
             // 監視開始を通知
             [[ToolLogFile defaultLogger] debug:@"Characteristic notify started"];
-            [self requestDidTerminateWithParam:true withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:true withErrorMessage:nil];
         } else {
             // 監視が停止している場合は通知
             [[ToolLogFile defaultLogger] debug:@"Characteristic notify start fail"];
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
         }
     }
 

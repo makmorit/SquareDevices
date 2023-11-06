@@ -29,13 +29,13 @@
 @interface BLEPeripheralRequester : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)peripheralWillPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end
 
 @protocol BLEPeripheralRequesterDelegate <NSObject>
 
-    - (void)peripheralDidResponseWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end
 
