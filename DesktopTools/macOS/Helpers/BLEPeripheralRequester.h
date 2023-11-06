@@ -17,6 +17,8 @@
     // キャラクタリスティックUUIDの参照を保持
     @property (nonatomic) NSString             *charForSendUUIDString;
     @property (nonatomic) NSString             *charForNotifyUUIDString;
+    // リクエストデータを保持
+    @property (nonatomic) NSData               *requestData;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
 

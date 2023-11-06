@@ -78,7 +78,7 @@
 
     - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter {
         // TODO: 仮の実装です。
-        [self requestDidTerminateWithParam:true withErrorMessage:nil];
+        [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
     }
 
     - (void)requestDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
@@ -197,6 +197,44 @@
             [[ToolLogFile defaultLogger] debug:@"Characteristic notify start fail"];
             [self prepareDidTerminateWithParam:false withErrorMessage:nil];
         }
+    }
+
+#pragma mark - Write value for characteristics
+
+    - (void)peripheralWillWriteForCharacteristicsWithRequestData:(NSData *)requestData {
+        // Writeキャラクタリスティックへの書き込みを開始
+        CBCharacteristic *characteristicForWrite = nil;
+        for (CBCharacteristic *characteristic in [[self connectedService] characteristics]) {
+            if ([characteristic properties] & CBCharacteristicPropertyWrite) {
+                characteristicForWrite = characteristic;
+            }
+        }
+        if (characteristicForWrite) {
+            [[self discoveredPeripheral] writeValue:requestData forCharacteristic:characteristicForWrite type:CBCharacteristicWriteWithResponse];
+        }
+    }
+
+    - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+        // Writeキャラクタリスティック書込エラー発生の場合は通知
+        if (error) {
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            return;
+        }
+        // TODO: 仮の実装です。
+        [[ToolLogFile defaultLogger] debugWithFormat:@"Write for characteristic: %@", [[self parameter] requestData]];
+    }
+
+#pragma mark - Read value for characteristics
+
+    - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+        // Notifyキャラクタリスティックからデータ取得時にエラー発生の場合通知
+        if (error) {
+            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            return;
+        }
+        // TODO: 仮の実装です。
+        [[ToolLogFile defaultLogger] debugWithFormat:@"Update value for characteristic: %@", [characteristic value]];
+        [self requestDidTerminateWithParam:true withErrorMessage:nil];
     }
 
 @end
