@@ -185,6 +185,12 @@
     - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
         // 監視開始エラー発生の場合は通知
         if (error) {
+            NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            if ([[error domain] isEqualTo:CBATTErrorDomain] && [error code] == 15) {
+                [[ToolLogFile defaultLogger] errorWithFormat:@"Characteristic notify for pairing fail: %@", description];
+            } else {
+                [[ToolLogFile defaultLogger] errorWithFormat:@"Characteristic notify start fail: @%", description];
+            }
             [self prepareDidTerminateWithParam:false withErrorMessage:nil];
             return;
         }
