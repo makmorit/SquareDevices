@@ -104,7 +104,7 @@
     - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
         // BLEサービスディスカバーに失敗の場合は通知
         if (error) {
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:MSG_BLE_U2F_DEVICE_NOT_FOUND];
             return;
         }
         // ディスカバー対象サービスUUID
@@ -120,10 +120,11 @@
         }
         // サービスがない場合は通知
         if (connectedService == nil) {
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:MSG_BLE_U2F_SERVICE_NOT_FOUND];
             return;
         }
         // キャラクタリスティックのディスカバーに移行
+        [[ToolLogFile defaultLogger] info:MSG_BLE_U2F_SERVICE_FOUND];
         [self peripheralWillDiscoverCharacteristicsWithRef:connectedService];
     }
 
@@ -141,7 +142,7 @@
     - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
         // キャラクタリスティックのディスカバーに失敗の場合は通知
         if (error) {
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:MSG_BLE_U2F_CHARACTERISTIC_DISC_FAIL];
             return;
         }
         // 所定属性のキャラクタリスティックがない場合は通知
@@ -162,7 +163,7 @@
             }
         }
         if (readable == false || writable == false) {
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:MSG_BLE_U2F_CHARACTERISTIC_NOT_FOUND];
             return;
         }
         // サービスを保持
