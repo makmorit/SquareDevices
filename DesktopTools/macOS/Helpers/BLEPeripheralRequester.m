@@ -7,6 +7,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #import "BLEPeripheralRequester.h"
+#import "HelperMessage.h"
 #import "ToolLogFile.h"
 
 @interface BLEPeripheralRequesterParam ()
@@ -184,24 +185,26 @@
 
     - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
         // 監視開始エラー発生の場合は通知
+        NSString *errorMessage = nil;
         if (error) {
             NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
             if ([[error domain] isEqualTo:CBATTErrorDomain] && [error code] == 15) {
                 [[ToolLogFile defaultLogger] errorWithFormat:@"Characteristic notify for pairing fail: %@", description];
+                errorMessage = MSG_BLE_PARING_ERR_PROCESS;
             } else {
                 [[ToolLogFile defaultLogger] errorWithFormat:@"Characteristic notify start fail: @%", description];
+                errorMessage = MSG_BLE_U2F_NOTIFICATION_FAILED;
             }
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:errorMessage];
             return;
         }
         if ([characteristic isNotifying]) {
             // 監視開始を通知
-            [[ToolLogFile defaultLogger] debug:@"Characteristic notify started"];
+            [[ToolLogFile defaultLogger] info:MSG_BLE_U2F_NOTIFICATION_START];
             [self prepareDidTerminateWithParam:true withErrorMessage:nil];
         } else {
             // 監視が停止している場合は通知
-            [[ToolLogFile defaultLogger] debug:@"Characteristic notify start fail"];
-            [self prepareDidTerminateWithParam:false withErrorMessage:nil];
+            [self prepareDidTerminateWithParam:false withErrorMessage:MSG_BLE_U2F_NOTIFICATION_NOT_START];
         }
     }
 
