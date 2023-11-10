@@ -6,13 +6,15 @@
 //
 #import "BLEDefines.h"
 #import "BLEPairing.h"
+#import "BLEPeripheralRequester.h"
 #import "BLEPeripheralScanner.h"
 #import "ToolFunctionMessage.h"
 
-@interface BLEPairing () <BLEPeripheralScannerDelegate>
+@interface BLEPairing () <BLEPeripheralScannerDelegate, BLEPeripheralRequesterDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     @property (nonatomic) BLEPeripheralScanner          *scanner;
+    @property (nonatomic) BLEPeripheralRequester        *requester;
 
 @end
 
@@ -23,6 +25,7 @@
         if (self) {
             [self enableClickButtonDoProcess:false];
             [self setScanner:[[BLEPeripheralScanner alloc] initWithDelegate:self]];
+            [self setRequester:[[BLEPeripheralRequester alloc] initWithDelegate:self]];
         }
         return self;
     }
