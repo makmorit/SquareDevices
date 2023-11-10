@@ -86,6 +86,12 @@
         });
     }
 
+    - (void)enableClickButtonClose:(bool)isEnabled {
+        dispatch_async([self mainQueue], ^{
+            [[self toolDoProcessView] enableClickButtonClose:isEnabled];
+        });
+    }
+
     - (void)appendStatusText:(NSString *)statusText {
         dispatch_async([self mainQueue], ^{
             [self setStatusText:[[self statusText] stringByAppendingFormat:@"%@\n", statusText]];

@@ -13,6 +13,7 @@
     // 画面を操作するためのメソッド
     - (void)enableButtonClick:(bool)isEnabled;
     - (void)enableClickButtonDoProcess:(bool)isEnabled;
+    - (void)enableClickButtonClose:(bool)isEnabled;
     - (void)scrollToEndOfStatusText;
 
 @end
