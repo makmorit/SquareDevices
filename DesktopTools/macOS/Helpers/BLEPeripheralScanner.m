@@ -220,10 +220,10 @@
         [self setDiscoveredPeripheral:nil];
         if ([error code] == 0) {
             // 切断が正常完了した場合
-            [[ToolLogFile defaultLogger] debug:@"BLE connection has terminated successfully."];
+            [[ToolLogFile defaultLogger] info:MSG_DISCONNECT_BLE_DEVICE];
         } else if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 6) {
             // ペリフェラル側からの一方的な切断による接続タイムアウトの場合＝切断済み
-            [[ToolLogFile defaultLogger] error:@"BLE connection has terminated unexpectedly."];
+            [[ToolLogFile defaultLogger] info:MSG_NOTIFY_DISCONNECT_BLE_DEVICE];
         } else {
             // その他の場合は不明なエラーと扱い、内容詳細をログ出力
             [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with message: %@", [error description]];
