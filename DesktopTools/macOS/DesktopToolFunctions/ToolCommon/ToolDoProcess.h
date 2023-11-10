@@ -18,6 +18,7 @@
     - (void)appendStatusText:(NSString *)statusText;
     - (void)LogAndShowInfoMessage:(NSString *)infoMessage;
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage;
+    - (void)pauseProcess:(bool)success;
     - (void)resumeProcess:(bool)success;
     - (void)cancelProcess;
 

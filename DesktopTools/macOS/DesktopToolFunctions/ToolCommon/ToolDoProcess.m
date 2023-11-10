@@ -53,12 +53,20 @@
         });
     }
 
-    - (void)resumeProcess:(bool)success {
+    - (void)pauseProcess:(bool)success {
         // 処理完了メッセージを表示／ログ出力
         NSString *messageFormat = success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE;
         [self processTerminateLogWithName:[self title] withFormat:messageFormat];
         // 画面のボタンを使用可能に設定
         [self enableButtonClick:true];
+    }
+
+    - (void)resumeProcess:(bool)success {
+        // 処理完了メッセージを表示／ログ出力
+        NSString *messageFormat = success ? MSG_FORMAT_SUCCESS_MESSAGE : MSG_FORMAT_FAILURE_MESSAGE;
+        [self processTerminateLogWithName:[self title] withFormat:messageFormat];
+        // 画面の閉じるボタンのみを使用可能に設定
+        [self enableClickButtonClose:true];
     }
 
     - (void)cancelProcess {
