@@ -61,13 +61,25 @@
     }
 
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
-        // TODO: 仮の実装です。
-        for (int i = 0; i < 3; i++) {
-            [NSThread sleepForTimeInterval:1.0];
-            [self LogAndShowInfoMessage:[[NSString alloc] initWithFormat:@"Elapsed %d seconds.", i+1]];
-        }
+        // ペアリングを成立させるため、U2F BLEサービスに接続
+        BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
+        [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+        [reqParam setCharForSendUUIDString:U2F_CONTROL_POINT_CHAR_UUID_STR];
+        [reqParam setCharForNotifyUUIDString:U2F_STATUS_CHAR_UUID_STR];
+        [[self requester] peripheralWillPrepareWithParam:reqParam];
+    }
+
+    - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
+        // BLE接続を切断
         [[self scanner] connectedPeripheralWillDisconnect];
-        [self resumeProcess:true];
+        if ([parameter success]) {
+            // ペアリング成功時
+            [self resumeProcess:true];
+        } else {
+            // ペアリング失敗時はログ出力・実行ボタンは再押下可能とする
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self pauseProcess:false];
+        }
     }
 
 @end
