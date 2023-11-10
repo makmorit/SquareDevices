@@ -16,6 +16,7 @@
 #define MSG_BLE_U2F_NOTIFICATION_START              @"受信データの監視を開始します。"
 #define MSG_BLE_U2F_NOTIFICATION_NOT_START          @"受信データの監視を開始できません。"
 #define MSG_BLE_U2F_NOTIFICATION_FAILED             @"BLEサービスからデータを受信できません。"
+#define MSG_BLE_U2F_SERVICE_FINDING                 @"BLEサービス(%@)を検索します。"
 #define MSG_BLE_U2F_DEVICE_NOT_FOUND                @"BLEサービスが動作するデバイスが見つかりません。"
 #define MSG_BLE_U2F_SERVICE_NOT_FOUND               @"BLEサービスが見つかりません。"
 #define MSG_BLE_U2F_SERVICE_FOUND                   @"BLEサービスが見つかりました。"

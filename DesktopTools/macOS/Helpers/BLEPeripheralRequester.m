@@ -95,6 +95,9 @@
 #pragma mark - Discover service
 
     - (void)peripheralWillDiscoverServiceWithRef:(id)peripheralRef {
+        // 事前メッセージを出力
+        NSString *serviceUUIDString = [[self parameter] serviceUUIDString];
+        [[ToolLogFile defaultLogger] infoWithFormat:MSG_BLE_U2F_SERVICE_FINDING, serviceUUIDString];
         // サービスのディスカバーを開始
         [self setDiscoveredPeripheral:(CBPeripheral *)peripheralRef];
         [[self discoveredPeripheral] setDelegate:self];
