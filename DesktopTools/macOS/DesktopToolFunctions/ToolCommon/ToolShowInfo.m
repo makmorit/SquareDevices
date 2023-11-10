@@ -98,7 +98,7 @@
     }
 
     - (void)processTerminateLogWithName:(NSString *)processName {
-        [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_END_MESSAGE, processName];
+        [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_SUCCESS_MESSAGE, processName];
     }
 
 @end

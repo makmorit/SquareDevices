@@ -14,8 +14,13 @@
     @property (nonatomic) NSString  *title;
     @property (nonatomic) NSString  *statusText;
 
+    - (void)enableClickButtonDoProcess:(bool)isEnabled;
     - (void)appendStatusText:(NSString *)statusText;
-    - (void)resumeProcess;
+    - (void)LogAndShowInfoMessage:(NSString *)infoMessage;
+    - (void)LogAndShowErrorMessage:(NSString *)errorMessage;
+    - (void)pauseProcess:(bool)success;
+    - (void)resumeProcess:(bool)success;
+    - (void)cancelProcess;
 
 @end
 

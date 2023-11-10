@@ -23,6 +23,8 @@
 		7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* ToolFunctionView.m */; };
 		7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* ToolFunctionManager.m */; };
 		7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* ToolFunctionManager.m */; };
+		7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
+		7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
@@ -40,6 +42,12 @@
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
+		7A62E6FB2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
+		7A62E6FC2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
+		7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
+		7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
+		7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
+		7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -118,6 +126,8 @@
 		7A2712742A247B1F00FA9030 /* ToolFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolFunctionView.m; sourceTree = "<group>"; };
 		7A2712772A24984F00FA9030 /* ToolFunctionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolFunctionManager.h; sourceTree = "<group>"; };
 		7A2712782A24987100FA9030 /* ToolFunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolFunctionManager.m; sourceTree = "<group>"; };
+		7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralRequester.m; sourceTree = "<group>"; };
+		7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralRequester.h; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -128,8 +138,13 @@
 		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
+		7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
 		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
+		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		7A62E6FA2ADCF97F007942AE /* clock_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_edit.png; sourceTree = "<group>"; };
+		7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralScanner.h; sourceTree = "<group>"; };
+		7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralScanner.m; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -142,6 +157,7 @@
 		7A92D0E228754B140094D2DB /* AppCommonMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCommonMessage.h; sourceTree = "<group>"; };
 		7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCommonFunc.m; sourceTree = "<group>"; };
 		7A92D0E528754F3C0094D2DB /* ToolCommonFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCommonFunc.h; sourceTree = "<group>"; };
+		7A9715212AE2576600350B98 /* HelperMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperMessage.h; sourceTree = "<group>"; };
 		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
 		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
 		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
@@ -206,6 +222,7 @@
 		64ED9A6A1647439300F39EAE = {
 			isa = PBXGroup;
 			children = (
+				7A62E6FF2ADD14E5007942AE /* Helpers */,
 				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
 				7A98D7DE2A258EA7005A593E /* DesktopToolView */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
@@ -299,6 +316,8 @@
 		7A36FB302A1B3461005C78D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A62E6FA2ADCF97F007942AE /* clock_edit.png */,
+				7A62E6F92ADCF97F007942AE /* clock.png */,
 				7A810FF62A1C8AE400C0BAED /* check_box.png */,
 				7A810FF52A1C8AE400C0BAED /* processor.png */,
 				7A810FF72A1C8AE400C0BAED /* update.png */,
@@ -333,6 +352,19 @@
 				7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */,
 			);
 			path = ToolCommon;
+			sourceTree = "<group>";
+		};
+		7A62E6FF2ADD14E5007942AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */,
+				7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */,
+				7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */,
+				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
+				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
+				7A9715212AE2576600350B98 /* HelperMessage.h */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7A8B3E26296E586F0005F7B1 /* VendorTool */ = {
@@ -466,6 +498,7 @@
 			files = (
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
+				7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7ADD42742A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
@@ -474,6 +507,7 @@
 				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFA2A1C8AE400C0BAED /* check_box.png in Resources */,
+				7A62E6FB2ADCF97F007942AE /* clock.png in Resources */,
 				7A3F4F262875633C003CFE67 /* icon.png in Resources */,
 				7A58D0632A1C4661002FF8B6 /* connect.png in Resources */,
 				7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */,
@@ -491,6 +525,7 @@
 			files = (
 				7A810FF92A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
+				7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7ADD42752A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
@@ -499,6 +534,7 @@
 				7A58D0662A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFB2A1C8AE400C0BAED /* check_box.png in Resources */,
+				7A62E6FC2ADCF97F007942AE /* clock.png in Resources */,
 				7A8B3DFE296E56640005F7B1 /* icon.png in Resources */,
 				7A58D0642A1C4661002FF8B6 /* connect.png in Resources */,
 				7A8B3E16296E56640005F7B1 /* Images.xcassets in Resources */,
@@ -519,6 +555,7 @@
 			files = (
 				7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
+				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7ADD42792A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
@@ -534,6 +571,7 @@
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
+				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +582,7 @@
 			files = (
 				7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */,
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
+				7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7ADD427A2A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
@@ -559,6 +598,7 @@
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
+				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7A8B3DEE296E56640005F7B1 /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +727,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -720,7 +760,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
