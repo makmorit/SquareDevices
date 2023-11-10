@@ -8,6 +8,7 @@
 #define HelperMessage_h
 
 #pragma mark - BLEペアリング
+#define MSG_BLE_PARING_ERR_BT_STATUS_CANNOT_GET     @"Bluetooth状態を確認できません。"
 #define MSG_BLE_PARING_ERR_BT_OFF                   @"Bluetoothがオフになっています。Bluetoothをオンにしてください。"
 #define MSG_BLE_PARING_ERR_TIMED_OUT                @"BLEデバイスが停止している可能性があります。BLEデバイスの電源を入れてください。"
 #define MSG_BLE_PARING_ERR_PROCESS                  @"BLEデバイスとのペアリング時にエラーが発生しました。"

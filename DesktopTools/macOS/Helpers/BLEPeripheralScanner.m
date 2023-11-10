@@ -67,6 +67,10 @@
         // パラメーター参照を保持
         [self setParameter:parameter];
         // BLEが無効化されている場合は通知
+        if ([[self manager] state] == CBManagerStateUnknown) {
+            [self scanDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_BT_STATUS_CANNOT_GET];
+            return;
+        }
         if ([[self manager] state] != CBManagerStatePoweredOn) {
             [self scanDidTerminateWithParam:false withErrorMessage:MSG_BLE_PARING_ERR_BT_OFF];
             return;
