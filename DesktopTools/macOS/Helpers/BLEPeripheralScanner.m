@@ -193,6 +193,7 @@
 
     - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
         // 接続完了を通知
+        [[ToolLogFile defaultLogger] info:MSG_CONNECT_BLE_DEVICE_SUCCESS];
         [self connectingDidTerminateWithParam:true withErrorMessage:nil];
     }
 

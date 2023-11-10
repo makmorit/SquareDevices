@@ -28,6 +28,7 @@
 
 #pragma mark - コマンド共通
 #define MSG_CONNECT_BLE_DEVICE_FAILURE              @"BLEデバイスの接続に失敗しました。"
+#define MSG_CONNECT_BLE_DEVICE_SUCCESS              @"BLEデバイスに接続しました。"
 #define MSG_NOTIFY_DISCONNECT_BLE_DEVICE            @"BLEデバイスからの切断を検知しました。接続を終了します。"
 #define MSG_DISCONNECT_BLE_DEVICE                   @"BLEデバイスから切断しました。"
 
