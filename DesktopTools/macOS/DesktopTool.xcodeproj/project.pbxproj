@@ -86,6 +86,8 @@
 		7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
 		7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
+		7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
+		7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42742A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADD42732A2D9DE50086CF47 /* ToolShowInfoView.xib */; };
@@ -169,6 +171,8 @@
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraseBondingInfo.h; sourceTree = "<group>"; };
+		7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EraseBondingInfo.m; sourceTree = "<group>"; };
 		7ADD426E2A2D713D0086CF47 /* BLEPairing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPairing.h; sourceTree = "<group>"; };
 		7ADD426F2A2D71B70086CF47 /* BLEPairing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPairing.m; sourceTree = "<group>"; };
 		7ADD42722A2D7F1C0086CF47 /* ToolFunctionMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolFunctionMessage.h; sourceTree = "<group>"; };
@@ -413,6 +417,8 @@
 			children = (
 				7ADD426E2A2D713D0086CF47 /* BLEPairing.h */,
 				7ADD426F2A2D71B70086CF47 /* BLEPairing.m */,
+				7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */,
+				7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */,
 			);
 			path = BLEConnection;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7ADD427D2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */,
+				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
@@ -590,6 +597,7 @@
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
 				7ADD427E2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */,
+				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
