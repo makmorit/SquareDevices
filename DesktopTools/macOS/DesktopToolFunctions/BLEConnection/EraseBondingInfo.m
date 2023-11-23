@@ -51,11 +51,21 @@
         }
         // 成功時はログ出力
         [self LogAndShowInfoMessage:MSG_SCAN_BLE_DEVICE_SUCCESS];
-        // TODO: 仮の実装です。
-        [self resumeProcess:true];
+        // ペアリングのための接続処理を実行
+        [[self scanner] scannedPeripheralWillConnect];
     }
 
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        // 失敗時はログ出力
+        if ([parameter success] == false) {
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self cancelProcess];
+            return;
+        }
+        // BLE接続を切断
+        [[self scanner] connectedPeripheralWillDisconnect];
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
     }
 
 @end
