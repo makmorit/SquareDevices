@@ -19,4 +19,11 @@
         return self;
     }
 
+#pragma mark - Process management
+
+    - (void)invokeProcessOnSubQueue {
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
+    }
+
 @end
