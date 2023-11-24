@@ -33,6 +33,7 @@
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)peripheralWillPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
     - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end
 
@@ -41,6 +42,8 @@
 
     - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
     - (void)peripheralDidResponseWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end
 

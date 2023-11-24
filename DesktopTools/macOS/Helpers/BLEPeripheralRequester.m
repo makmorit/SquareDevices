@@ -92,6 +92,31 @@
         });
     }
 
+    - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+        // BLEデバイスにデータを送信
+        [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
+    }
+
+    - (void)requesterDidSendWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // コマンド成否、メッセージを設定
+        [[self parameter] setSuccess:success];
+        [[self parameter] setErrorMessage:errorMessage];
+        // 上位クラスに制御を戻す
+        dispatch_async([self subQueue], ^{
+            [[self delegate] peripheralDidSendWithParam:[self parameter]];
+        });
+    }
+
+    - (void)requesterDidReceiveWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // コマンド成否、メッセージを設定
+        [[self parameter] setSuccess:success];
+        [[self parameter] setErrorMessage:errorMessage];
+        // 上位クラスに制御を戻す
+        dispatch_async([self subQueue], ^{
+            [[self delegate] peripheralDidReceiveWithParam:[self parameter]];
+        });
+    }
+
 #pragma mark - Discover service
 
     - (void)peripheralWillDiscoverServiceWithRef:(id)peripheralRef {
@@ -230,11 +255,13 @@
     - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
         // Writeキャラクタリスティック書込エラー発生の場合は通知
         if (error) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            [[ToolLogFile defaultLogger] errorWithFormat:@"Write value to characteristic fail: @%", description];
+            [self requesterDidSendWithParam:false withErrorMessage:nil];
             return;
         }
-        // TODO: 仮の実装です。
-        [[ToolLogFile defaultLogger] debugWithFormat:@"Write for characteristic: %@", [[self parameter] requestData]];
+        // 制御を上位クラスに戻す
+        [self requesterDidSendWithParam:true withErrorMessage:nil];
     }
 
 #pragma mark - Read value for characteristics
@@ -242,12 +269,13 @@
     - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
         // Notifyキャラクタリスティックからデータ取得時にエラー発生の場合通知
         if (error) {
-            [self requestDidTerminateWithParam:false withErrorMessage:nil];
+            NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            [[ToolLogFile defaultLogger] errorWithFormat:@"Update value from characteristic fail: @%", description];
+            [self requesterDidReceiveWithParam:false withErrorMessage:nil];
             return;
         }
-        // TODO: 仮の実装です。
-        [[ToolLogFile defaultLogger] debugWithFormat:@"Update value for characteristic: %@", [characteristic value]];
-        [self requestDidTerminateWithParam:true withErrorMessage:nil];
+        // 制御を上位クラスに戻す
+        [self requesterDidReceiveWithParam:true withErrorMessage:nil];
     }
 
 @end
