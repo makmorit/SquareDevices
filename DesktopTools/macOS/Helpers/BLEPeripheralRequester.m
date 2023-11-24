@@ -275,6 +275,7 @@
             return;
         }
         // 制御を上位クラスに戻す
+        [[self parameter] setResponseData:[characteristic value]];
         [self requesterDidReceiveWithParam:true withErrorMessage:nil];
     }
 

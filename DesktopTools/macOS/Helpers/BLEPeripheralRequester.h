@@ -19,6 +19,7 @@
     @property (nonatomic) NSString             *charForNotifyUUIDString;
     // リクエストデータを保持
     @property (nonatomic) NSData               *requestData;
+    @property (nonatomic) NSData               *responseData;
     @property (nonatomic) bool                  success;
     @property (nonatomic) NSString             *errorMessage;
 
