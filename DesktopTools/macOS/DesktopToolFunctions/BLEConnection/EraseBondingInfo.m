@@ -71,7 +71,7 @@
             return;
         }
         // 成功時はログ出力
-        [self LogAndShowInfoMessage:MSG_SCAN_BLE_DEVICE_SUCCESS];
+        [[ToolLogFile defaultLogger] info:MSG_SCAN_BLE_DEVICE_SUCCESS];
         // ペアリングのための接続処理を実行
         [[self scanner] scannedPeripheralWillConnect];
     }
