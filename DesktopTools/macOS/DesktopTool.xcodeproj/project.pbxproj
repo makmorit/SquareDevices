@@ -132,6 +132,7 @@
 		7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralRequester.h; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
+		7A3E90992B146BD00089436E /* FunctionDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionDefine.h; sourceTree = "<group>"; };
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolSideMenuView.xib; sourceTree = "<group>"; };
 		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
@@ -292,6 +293,7 @@
 		7A2712692A24714300FA9030 /* DesktopToolFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				7A3E90992B146BD00089436E /* FunctionDefine.h */,
 				7A2712772A24984F00FA9030 /* ToolFunctionManager.h */,
 				7A2712782A24987100FA9030 /* ToolFunctionManager.m */,
 				7ADD42722A2D7F1C0086CF47 /* ToolFunctionMessage.h */,

@@ -8,9 +8,11 @@
 #import "BLEPeripheralRequester.h"
 #import "BLEPeripheralScanner.h"
 #import "EraseBondingInfo.h"
+#import "FunctionDefine.h"
 #import "HelperMessage.h"
 #import "PopupWindow.h"
 #import "ToolFunctionMessage.h"
+#import "ToolLogFile.h"
 
 @interface EraseBondingInfo () <BLEPeripheralScannerDelegate, BLEPeripheralRequesterDelegate>
     // 上位クラスの参照を保持
@@ -90,16 +92,50 @@
     }
 
     - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
-        // BLE接続を切断
-        [[self scanner] connectedPeripheralWillDisconnect];
         if ([parameter success] == false) {
             // 失敗時はログ出力・実行ボタンは再押下可能とする
             [self LogAndShowErrorMessage:[parameter errorMessage]];
             [self pauseProcess:false];
             return;
         }
+        // ペアリング情報削除コマンド（１回目）を実行
+        [self performInquiryCommandWithParam:parameter];
+    }
+
+    - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+        if ([parameter success] == false) {
+            // 失敗時はログ出力
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self resumeProcess:false];
+            return;
+        }
         // TODO: 仮の実装です。
+        [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralDidSendWithParam done: %@", [parameter requestData]];
+    }
+
+    - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+        if ([parameter success] == false) {
+            // 失敗時はログ出力
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self resumeProcess:false];
+            return;
+        }
+        // TODO: 仮の実装です。
+        [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralDidReceiveWithParam done: %@", [parameter responseData]];
+        // BLE接続を切断
+        [[self scanner] connectedPeripheralWillDisconnect];
         [self resumeProcess:true];
+    }
+
+#pragma mark - Perform command
+
+    - (void)performInquiryCommandWithParam:(BLEPeripheralRequesterParam *)parameter {
+        // ペアリング情報削除コマンド（１回目）を実行
+        uint8_t CMD = 0x80 | U2F_COMMAND_MSG;
+        unsigned char initHeader[] = {CMD, 0x00, 0x01, VENDOR_COMMAND_ERASE_BONDING_DATA};
+        NSData *dataHeader = [[NSData alloc] initWithBytes:initHeader length:sizeof(initHeader)];
+        [parameter setRequestData:dataHeader];
+        [[self requester] peripheralWillSendWithParam:parameter];
     }
 
 @end
