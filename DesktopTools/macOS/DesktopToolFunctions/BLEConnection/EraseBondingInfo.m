@@ -91,11 +91,18 @@
         [[self requester] peripheralWillPrepareWithParam:reqParam];
     }
 
+    - (void)disconnectAndResumeProcess:(bool)success {
+        // BLE接続を切断
+        [[self scanner] connectedPeripheralWillDisconnect];
+        // 画面に制御を戻す
+        [self resumeProcess:success];
+    }
+
     - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
-            // 失敗時はログ出力・実行ボタンは再押下可能とする
+            // U2F BLEサービスに接続失敗時はログ出力
             [self LogAndShowErrorMessage:[parameter errorMessage]];
-            [self pauseProcess:false];
+            [self disconnectAndResumeProcess:false];
             return;
         }
         // ペアリング情報削除コマンド（１回目）を実行
@@ -104,9 +111,9 @@
 
     - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
-            // 失敗時はログ出力
+            // コマンド送信失敗時はログ出力
             [self LogAndShowErrorMessage:[parameter errorMessage]];
-            [self resumeProcess:false];
+            [self disconnectAndResumeProcess:false];
             return;
         }
         // TODO: 仮の実装です。
@@ -115,16 +122,15 @@
 
     - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
-            // 失敗時はログ出力
+            // コマンド受信失敗時はログ出力
             [self LogAndShowErrorMessage:[parameter errorMessage]];
-            [self resumeProcess:false];
+            [self disconnectAndResumeProcess:false];
             return;
         }
         // TODO: 仮の実装です。
         [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralDidReceiveWithParam done: %@", [parameter responseData]];
-        // BLE接続を切断
-        [[self scanner] connectedPeripheralWillDisconnect];
-        [self resumeProcess:true];
+        // 画面に制御を戻す
+        [self disconnectAndResumeProcess:true];
     }
 
 #pragma mark - Perform command
