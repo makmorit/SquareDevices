@@ -13,6 +13,7 @@
 #define MSG_FORMAT_SUCCESS_MESSAGE                  @"%@が成功しました。"
 #define MSG_FORMAT_FAILURE_MESSAGE                  @"%@が失敗しました。"
 #define MSG_FORMAT_PROCESSING_MESSAGE               @"しばらくお待ちください..."
+#define MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST           @"不明なエラーが発生しました（Status=0x%02x）"
 
 #define MSG_MENU_ITEM_NAME_BLE_SETTINGS             @"BLE設定"
 #define MSG_MENU_ITEM_NAME_BLE_PAIRING              @"ペアリング実行"

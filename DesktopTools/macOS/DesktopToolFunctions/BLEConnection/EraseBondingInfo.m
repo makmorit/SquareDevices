@@ -129,6 +129,16 @@
         }
         // TODO: 仮の実装です。
         [[ToolLogFile defaultLogger] debugWithFormat:@"peripheralDidReceiveWithParam done: %@", [parameter responseData]];
+        // レスポンスデータを抽出
+        uint8_t *responseBytes = (uint8_t *)[[parameter responseData] bytes];
+        uint8_t *responseData = responseBytes + 3;
+        // ステータスをチェック
+        uint8_t status = responseData[0];
+        if (status != CTAP1_ERR_SUCCESS) {
+            NSString *errorMessage = [NSString stringWithFormat:MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status];
+            [self LogAndShowErrorMessage:errorMessage];
+            [self disconnectAndResumeProcess:false];
+        }
         // 画面に制御を戻す
         [self disconnectAndResumeProcess:true];
     }
