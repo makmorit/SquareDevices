@@ -14,6 +14,8 @@
     + (PopupWindow *)defaultWindow;
     - (bool)isButtonNoClicked;
 
+    - (void)promptCritical:(NSString *)prompt withInformative:(NSString *)informative forObject:(id)object forSelector:(SEL)selector;
+
     - (void)message:(NSString *)message withStyle:(NSAlertStyle)style withInformative:(NSString *)informative
           forObject:(id)object forSelector:(SEL)selector parentWindow:(NSWindow *)parentWindow;
     - (void)prompt:(NSString *)prompt withStyle:(NSAlertStyle)style withInformative:(NSString *)informative

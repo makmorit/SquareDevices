@@ -54,6 +54,11 @@ static PopupWindow *sharedInstance;
         return [self modalResponse] == NSAlertFirstButtonReturn;
     }
 
+    - (void)promptCritical:(NSString *)prompt withInformative:(NSString *)informative forObject:(id)object forSelector:(SEL)selector {
+        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
+        [self prompt:prompt withStyle:NSAlertStyleCritical withInformative:informative forObject:object forSelector:selector parentWindow:mainWindow];
+    }
+
     - (void)message:(NSString *)message withStyle:(NSAlertStyle)style withInformative:(NSString *)informative
           forObject:(id)object forSelector:(SEL)selector parentWindow:(NSWindow *)parentWindow {
         [self message:message withPrompt:false withStyle:style withInformative:informative forObject:object forSelector:selector parentWindow:parentWindow];
