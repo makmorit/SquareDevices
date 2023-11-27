@@ -38,8 +38,8 @@
 
     - (void)showPromptForStartProcess {
         // 処理続行確認ダイアログを開く
-        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
-        [[PopupWindow defaultWindow] prompt:MSG_BLE_ERASE_BONDS withStyle:NSAlertStyleCritical withInformative:MSG_PROMPT_BLE_ERASE_BONDS forObject:self forSelector:@selector(unpairingCommandPromptDone) parentWindow:mainWindow];
+        [[PopupWindow defaultWindow] promptCritical:MSG_BLE_ERASE_BONDS withInformative:MSG_PROMPT_BLE_ERASE_BONDS
+                                          forObject:self forSelector:@selector(unpairingCommandPromptDone)];
     }
 
     - (void)unpairingCommandPromptDone {
