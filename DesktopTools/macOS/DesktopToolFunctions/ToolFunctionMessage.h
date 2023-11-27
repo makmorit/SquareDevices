@@ -13,6 +13,7 @@
 #define MSG_FORMAT_SUCCESS_MESSAGE                  @"%@が成功しました。"
 #define MSG_FORMAT_FAILURE_MESSAGE                  @"%@が失敗しました。"
 #define MSG_FORMAT_PROCESSING_MESSAGE               @"しばらくお待ちください..."
+#define MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST           @"不明なエラーが発生しました（Status=0x%02x）"
 
 #define MSG_MENU_ITEM_NAME_BLE_SETTINGS             @"BLE設定"
 #define MSG_MENU_ITEM_NAME_BLE_PAIRING              @"ペアリング実行"
@@ -36,6 +37,10 @@
 #pragma mark - BLEペアリング
 #define MSG_BLE_PARING_ERR_PAIR_MODE                @"ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。"
 #define MSG_BLE_PAIRING_SCAN_SUCCESS                @"ペアリング対象のBLEデバイスがスキャンされました。"
+
+#pragma mark - ペアリング情報削除
+#define MSG_BLE_ERASE_BONDS                         @"BLEデバイスからペアリング情報をすべて削除します。"
+#define MSG_PROMPT_BLE_ERASE_BONDS                  @"削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？"
 
 #pragma mark - デバイス情報参照画面
 

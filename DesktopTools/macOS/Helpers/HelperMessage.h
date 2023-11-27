@@ -29,6 +29,9 @@
 #define MSG_BLE_PERIPHERAL_SCAN_STOPPED             @"スキャンを停止しました。"
 
 #pragma mark - コマンド共通
+// コマンド共通
+#define MSG_ERROR_FUNCTION_IN_PAIRING_MODE          @"ペアリングモードでは、ペアリング実行以外の機能は使用できません。ペアリングモードを解除してから、機能を再度実行してください。"
+#define MSG_SCAN_BLE_DEVICE_SUCCESS                 @"対象のBLEデバイスがスキャンされました。"
 #define MSG_CONNECT_BLE_DEVICE_FAILURE              @"BLEデバイスの接続に失敗しました。"
 #define MSG_CONNECT_BLE_DEVICE_SUCCESS              @"BLEデバイスに接続しました。"
 #define MSG_NOTIFY_DISCONNECT_BLE_DEVICE            @"BLEデバイスからの切断を検知しました。接続を終了します。"

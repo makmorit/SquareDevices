@@ -43,6 +43,15 @@
     }
 
     - (void)startProcess {
+        // 処理実行前に、必要に応じ確認ダイアログをポップアップ表示
+        [self showPromptForStartProcess];
+    }
+
+    - (void)showPromptForStartProcess {
+        [self startProcessInner];
+    }
+
+    - (void)startProcessInner {
         // 画面のボタンを使用不可に設定
         [self enableButtonClick:false];
         dispatch_async([self subQueue], ^{
