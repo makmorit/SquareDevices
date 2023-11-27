@@ -37,6 +37,10 @@
 #define MSG_BLE_PARING_ERR_PAIR_MODE                @"ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。"
 #define MSG_BLE_PAIRING_SCAN_SUCCESS                @"ペアリング対象のBLEデバイスがスキャンされました。"
 
+#pragma mark - ペアリング情報削除
+#define MSG_BLE_ERASE_BONDS                         @"BLEデバイスからペアリング情報をすべて削除します。"
+#define MSG_PROMPT_BLE_ERASE_BONDS                  @"削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？"
+
 #pragma mark - デバイス情報参照画面
 
 #define MSG_DEVICE_FW_VERSION_INFO_SHOWING          @"デバイスに導入されているファームウェア等に関する情報を表示しています。"

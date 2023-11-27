@@ -9,6 +9,8 @@
 #import "BLEPeripheralScanner.h"
 #import "EraseBondingInfo.h"
 #import "HelperMessage.h"
+#import "PopupWindow.h"
+#import "ToolFunctionMessage.h"
 
 @interface EraseBondingInfo () <BLEPeripheralScannerDelegate, BLEPeripheralRequesterDelegate>
     // 上位クラスの参照を保持
@@ -33,6 +35,20 @@
     }
 
 #pragma mark - Process management
+
+    - (void)showPromptForStartProcess {
+        // 処理続行確認ダイアログを開く
+        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
+        [[PopupWindow defaultWindow] prompt:MSG_BLE_ERASE_BONDS withStyle:NSAlertStyleCritical withInformative:MSG_PROMPT_BLE_ERASE_BONDS forObject:self forSelector:@selector(unpairingCommandPromptDone) parentWindow:mainWindow];
+    }
+
+    - (void)unpairingCommandPromptDone {
+        // ポップアップでデフォルトのNoボタンがクリックされた場合は、以降の処理を行わない
+        if ([[PopupWindow defaultWindow] isButtonNoClicked]) {
+            return;
+        }
+        [super showPromptForStartProcess];
+    }
 
     - (void)invokeProcessOnSubQueue {
         BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
