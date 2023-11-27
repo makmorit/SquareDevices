@@ -139,6 +139,13 @@
             [self LogAndShowErrorMessage:errorMessage];
             [self disconnectAndResumeProcess:false];
         }
+        // レスポンスデータをチェック
+        size_t responseSize = [[parameter responseData] length] - 3;
+        if (responseSize == 3) {
+            // ペアリング情報削除コマンド（２回目）を実行
+            [self performExecuteCommandWithParam:parameter];
+            return;
+        }
         // 画面に制御を戻す
         [self disconnectAndResumeProcess:true];
     }
@@ -149,6 +156,20 @@
         // ペアリング情報削除コマンド（１回目）を実行
         uint8_t CMD = 0x80 | U2F_COMMAND_MSG;
         unsigned char initHeader[] = {CMD, 0x00, 0x01, VENDOR_COMMAND_ERASE_BONDING_DATA};
+        NSData *dataHeader = [[NSData alloc] initWithBytes:initHeader length:sizeof(initHeader)];
+        [parameter setRequestData:dataHeader];
+        [[self requester] peripheralWillSendWithParam:parameter];
+    }
+
+    - (void)performExecuteCommandWithParam:(BLEPeripheralRequesterParam *)parameter {
+        // レスポンスデータを抽出
+        uint8_t *responseBytes = (uint8_t *)[[parameter responseData] bytes];
+        uint8_t *responseData = responseBytes + 3;
+        // コマンド引数となるPeer IDを抽出
+        uint8_t *peerIdBytes = responseData + 1;
+        // ペアリング情報削除コマンド（２回目）を実行
+        uint8_t CMD = 0x80 | U2F_COMMAND_MSG;
+        unsigned char initHeader[] = {CMD, 0x00, 0x03, VENDOR_COMMAND_ERASE_BONDING_DATA, peerIdBytes[0], peerIdBytes[1]};
         NSData *dataHeader = [[NSData alloc] initWithBytes:initHeader length:sizeof(initHeader)];
         [parameter setRequestData:dataHeader];
         [[self requester] peripheralWillSendWithParam:parameter];
