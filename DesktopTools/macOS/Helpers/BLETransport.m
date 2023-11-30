@@ -43,7 +43,7 @@
     }
 
     - (void)peripheralDidConnectWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
-        [[self delegate] peripheralDidConnect:success withErrorMessage:errorMessage];
+        [[self delegate] transportDidConnect:success withErrorMessage:errorMessage];
     }
 
     - (void)transportWillDisconnect {

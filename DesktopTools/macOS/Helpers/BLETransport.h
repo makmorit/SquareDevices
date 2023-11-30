@@ -21,7 +21,7 @@
 
 @protocol BLETransportDelegate <NSObject>
 
-    - (void)peripheralDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 
