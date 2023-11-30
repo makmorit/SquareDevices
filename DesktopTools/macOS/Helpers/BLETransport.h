@@ -14,8 +14,8 @@
 @interface BLETransport : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)peripheralWillConnect;
-    - (void)peripheralWillDisconnect;
+    - (void)transportWillConnect;
+    - (void)transportWillDisconnect;
 
 @end
 

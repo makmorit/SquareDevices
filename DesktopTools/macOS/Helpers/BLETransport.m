@@ -36,7 +36,7 @@
 
 #pragma mark - Public functions
 
-    - (void)peripheralWillConnect {
+    - (void)transportWillConnect {
         // BLEサービスに接続
         BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
         [[self scanner] peripheralWillScanWithParam:parameter];
@@ -46,7 +46,7 @@
         [[self delegate] peripheralDidConnect:success withErrorMessage:errorMessage];
     }
 
-    - (void)peripheralWillDisconnect {
+    - (void)transportWillDisconnect {
         // BLE接続を切断
         [[self scanner] connectedPeripheralWillDisconnect];
     }
