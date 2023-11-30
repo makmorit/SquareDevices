@@ -16,12 +16,14 @@
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)transportWillConnect;
     - (void)transportWillDisconnect;
+    - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData;
 
 @end
 
 @protocol BLETransportDelegate <NSObject>
 
     - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData;
 
 @end
 

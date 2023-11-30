@@ -51,6 +51,11 @@
         [[self scanner] connectedPeripheralWillDisconnect];
     }
 
+    - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
+        // TODO: 仮の実装です。
+        [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:requestCMD withData:requestData];
+    }
+
 #pragma mark - Private functions
 
     - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
