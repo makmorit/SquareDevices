@@ -31,6 +31,7 @@
         return self;
     }
 
+    // Callback from BLEPeripheralScanner
     - (void)didUpdateScannerState:(bool)available {
     }
 
@@ -61,6 +62,7 @@
 
 #pragma mark - Private functions
 
+    // Callback from BLEPeripheralScanner
     - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時
         if ([parameter success] == false) {
@@ -78,6 +80,7 @@
         [[self scanner] scannedPeripheralWillConnect];
     }
 
+    // Callback from BLEPeripheralScanner
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時はログ出力
         if ([parameter success] == false) {
@@ -104,6 +107,7 @@
         [self peripheralDidConnectWithParam:success withErrorMessage:errorMessage];
     }
 
+    // Callback from BLEPeripheralRequester
     - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
             // BLEサービスに接続失敗時
@@ -112,6 +116,14 @@
         }
         // BLEサービスに接続成功時は、接続をキープし上位クラスに通知
         [self peripheralDidConnectWithParam:true withErrorMessage:nil];
+    }
+
+    // Callback from BLEPeripheralRequester
+    - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+    }
+
+    // Callback from BLEPeripheralRequester
+    - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
 @end
