@@ -16,6 +16,8 @@
     @property (nonatomic) id                             delegate;
     @property (nonatomic) BLEPeripheralScanner          *scanner;
     @property (nonatomic) BLEPeripheralRequester        *requester;
+    // このクラス内部で使用するパラメーターを保持
+    @property (nonatomic) BLEPeripheralRequesterParam   *requesterParam;
 
 @end
 
@@ -58,6 +60,14 @@
 
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
         [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
+    }
+
+#pragma mark - Public functions for sub classes
+
+    - (void)transportWillSendRequestFrame:(NSData *)requestFrame {
+        // データフレームを１件送信
+        [[self requesterParam] setRequestData:requestFrame];
+        [[self requester] peripheralWillSendWithParam:[self requesterParam]];
     }
 
 #pragma mark - Private functions
@@ -114,6 +124,8 @@
             [self disconnectAndResumeProcess:false withErrorMessage:[parameter errorMessage]];
             return;
         }
+        // パラメーターを保持
+        [self setRequesterParam:parameter];
         // BLEサービスに接続成功時は、接続をキープし上位クラスに通知
         [self peripheralDidConnectWithParam:true withErrorMessage:nil];
     }

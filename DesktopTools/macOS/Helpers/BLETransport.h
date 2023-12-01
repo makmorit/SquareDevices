@@ -18,6 +18,9 @@
     - (void)transportWillDisconnect;
     - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData;
 
+    // Public functions for sub classes
+    - (void)transportWillSendRequestFrame:(NSData *)requestFrame;
+
 @end
 
 @protocol BLETransportDelegate <NSObject>
