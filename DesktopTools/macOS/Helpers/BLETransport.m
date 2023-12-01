@@ -52,8 +52,11 @@
     }
 
     - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
-        // TODO: 仮の実装です。
-        [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:requestCMD withData:requestData];
+        [self transportDidReceiveResponse:true withErrorMessage:nil withCMD:requestCMD withData:requestData];
+    }
+
+    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
+        [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
     }
 
 #pragma mark - Private functions
