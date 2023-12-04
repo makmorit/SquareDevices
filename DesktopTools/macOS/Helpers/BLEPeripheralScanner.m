@@ -204,7 +204,13 @@
     - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
         // 接続失敗を通知
         [[ToolLogFile defaultLogger] errorWithFormat:@"Connect peripheral failed: %@", error];
-        [self connectingDidTerminateWithParam:false withErrorMessage:MSG_CONNECT_BLE_DEVICE_FAILURE];
+        if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 14) {
+            // ペアリング情報消失によるエラーの場合
+            NSString *errorMessage = [NSString stringWithFormat:MSG_BLE_PARING_ERR_PAIRINF_REMOVED_BY_PEER, [peripheral name]];
+            [self connectingDidTerminateWithParam:false withErrorMessage:errorMessage];
+        } else {
+            [self connectingDidTerminateWithParam:false withErrorMessage:MSG_CONNECT_BLE_DEVICE_FAILURE];
+        }
     }
 
 #pragma mark - Disconnect from peripheral
