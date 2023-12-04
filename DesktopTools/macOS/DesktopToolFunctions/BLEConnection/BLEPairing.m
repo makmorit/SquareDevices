@@ -61,6 +61,12 @@
     }
 
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        // 失敗時はログ出力
+        if ([parameter success] == false) {
+            [self LogAndShowErrorMessage:[parameter errorMessage]];
+            [self cancelProcess];
+            return;
+        }
         // ペアリングを成立させるため、U2F BLEサービスに接続
         BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
         [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
