@@ -12,6 +12,7 @@
 #define MSG_BLE_PARING_ERR_BT_OFF                   @"Bluetoothがオフになっています。Bluetoothをオンにしてください。"
 #define MSG_BLE_PARING_ERR_TIMED_OUT                @"BLEデバイスが停止している可能性があります。BLEデバイスの電源を入れてください。"
 #define MSG_BLE_PARING_ERR_PROCESS                  @"BLEデバイスとのペアリング時にエラーが発生しました。"
+#define MSG_BLE_PARING_ERR_PAIRINF_REMOVED_BY_PEER  @"BLEデバイス側でペアリング情報が削除されました。macOSのBluetooth環境設定画面からデバイス(%@)を削除し、再度ペアリングを実行して下さい。"
 
 #pragma mark - BLEサービス
 #define MSG_BLE_U2F_NOTIFICATION_START              @"受信データの監視を開始します。"
@@ -29,7 +30,6 @@
 #define MSG_BLE_PERIPHERAL_SCAN_STOPPED             @"スキャンを停止しました。"
 
 #pragma mark - コマンド共通
-// コマンド共通
 #define MSG_ERROR_FUNCTION_IN_PAIRING_MODE          @"ペアリングモードでは、ペアリング実行以外の機能は使用できません。ペアリングモードを解除してから、機能を再度実行してください。"
 #define MSG_SCAN_BLE_DEVICE_SUCCESS                 @"対象のBLEデバイスがスキャンされました。"
 #define MSG_CONNECT_BLE_DEVICE_FAILURE              @"BLEデバイスの接続に失敗しました。"
