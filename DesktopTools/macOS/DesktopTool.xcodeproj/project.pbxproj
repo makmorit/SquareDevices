@@ -40,6 +40,10 @@
 		7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A58D06C2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
+		7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */; };
+		7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */; };
+		7A5DED5F2B1876B700EC670A /* BLETransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DED5E2B1876B700EC670A /* BLETransport.m */; };
+		7A5DED602B1876B700EC670A /* BLETransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DED5E2B1876B700EC670A /* BLETransport.m */; };
 		7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A60EA022A27091E006B25BA /* ToolVersionInfo.m */; };
 		7A62E6FB2ADCF97F007942AE /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6F92ADCF97F007942AE /* clock.png */; };
@@ -142,6 +146,10 @@
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
+		7A5DED592B185FC900EC670A /* BLEU2FTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEU2FTransport.h; sourceTree = "<group>"; };
+		7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEU2FTransport.m; sourceTree = "<group>"; };
+		7A5DED5D2B18763500EC670A /* BLETransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLETransport.h; sourceTree = "<group>"; };
+		7A5DED5E2B1876B700EC670A /* BLETransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLETransport.m; sourceTree = "<group>"; };
 		7A60EA012A2708FC006B25BA /* ToolVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfo.h; sourceTree = "<group>"; };
 		7A60EA022A27091E006B25BA /* ToolVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfo.m; sourceTree = "<group>"; };
 		7A62E6F92ADCF97F007942AE /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
@@ -293,6 +301,8 @@
 		7A2712692A24714300FA9030 /* DesktopToolFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
+				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
 				7A3E90992B146BD00089436E /* FunctionDefine.h */,
 				7A2712772A24984F00FA9030 /* ToolFunctionManager.h */,
 				7A2712782A24987100FA9030 /* ToolFunctionManager.m */,
@@ -368,6 +378,8 @@
 				7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */,
 				7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */,
 				7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */,
+				7A5DED5D2B18763500EC670A /* BLETransport.h */,
+				7A5DED5E2B1876B700EC670A /* BLETransport.m */,
 				7A9715212AE2576600350B98 /* HelperMessage.h */,
 			);
 			path = Helpers;
@@ -576,11 +588,13 @@
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
+				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
+				7A5DED5F2B1876B700EC670A /* BLETransport.m in Sources */,
 				7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,11 +618,13 @@
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
+				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
+				7A5DED602B1876B700EC670A /* BLETransport.m in Sources */,
 				7A8B3DEE296E56640005F7B1 /* ToolCommonFunc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,7 +753,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -770,7 +786,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -805,7 +821,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -838,7 +854,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";

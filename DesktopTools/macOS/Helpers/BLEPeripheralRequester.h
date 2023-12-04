@@ -42,7 +42,6 @@
 @optional
 
     - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
-    - (void)peripheralDidResponseWithParam:(BLEPeripheralRequesterParam *)parameter;
     - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter;
     - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter;
 

@@ -82,16 +82,6 @@
         [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
     }
 
-    - (void)requestDidTerminateWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
-        // コマンド成否、メッセージを設定
-        [[self parameter] setSuccess:success];
-        [[self parameter] setErrorMessage:errorMessage];
-        // 上位クラスに制御を戻す
-        dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidResponseWithParam:[self parameter]];
-        });
-    }
-
     - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         // BLEデバイスにデータを送信
         [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
