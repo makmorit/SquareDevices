@@ -103,6 +103,8 @@
 		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
+		7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */; };
+		7AF454FE2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */; };
 		89C2DF652A073232004C282B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF642A0731F8004C282B /* libcrypto.a */; };
 		89C2DF672A073264004C282B /* libtinycbor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF662A07324D004C282B /* libtinycbor.a */; };
 		89C2DF682A073294004C282B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2DF642A0731F8004C282B /* libcrypto.a */; };
@@ -194,6 +196,8 @@
 		7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWVersionInfo.m; sourceTree = "<group>"; };
 		7AE6031B2875218100DA5BF3 /* ToolLogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolLogFile.m; sourceTree = "<group>"; };
 		7AE6031D287521A800DA5BF3 /* ToolLogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolLogFile.h; sourceTree = "<group>"; };
+		7AF454FB2B1DAA0D00BC8474 /* BLEUnpairing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEUnpairing.h; sourceTree = "<group>"; };
+		7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairing.m; sourceTree = "<group>"; };
 		899EA1D929A746A10077BABD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		89C2DF642A0731F8004C282B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../../opt/openssl-3.0.8/lib/libcrypto.a"; sourceTree = "<group>"; };
 		89C2DF662A07324D004C282B /* libtinycbor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtinycbor.a; path = ../../../../opt/tinycbor/lib/libtinycbor.a; sourceTree = "<group>"; };
@@ -431,6 +435,8 @@
 			children = (
 				7ADD426E2A2D713D0086CF47 /* BLEPairing.h */,
 				7ADD426F2A2D71B70086CF47 /* BLEPairing.m */,
+				7AF454FB2B1DAA0D00BC8474 /* BLEUnpairing.h */,
+				7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */,
 				7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */,
 				7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */,
 			);
@@ -590,6 +596,7 @@
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
+				7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
 				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
@@ -620,6 +627,7 @@
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
+				7AF454FE2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
 				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,

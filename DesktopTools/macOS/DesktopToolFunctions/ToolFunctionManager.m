@@ -12,6 +12,7 @@
 
 // for functions
 #import "BLEPairing.h"
+#import "BLEUnpairing.h"
 #import "EraseBondingInfo.h"
 #import "FWVersionInfo.h"
 #import "ToolVersionInfo.h"
@@ -34,6 +35,8 @@
             return;
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_PAIRING]) {
             [self setCurrentFunction:[[BLEPairing alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_UNPAIRING]) {
+            [self setCurrentFunction:[[BLEUnpairing alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_ERASE_BOND]) {
             [self setCurrentFunction:[[EraseBondingInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_APP_VERSION]) {
