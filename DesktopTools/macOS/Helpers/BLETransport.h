@@ -20,6 +20,7 @@
 
     // Public functions for sub classes
     - (void)transportWillSendRequestFrame:(NSData *)requestFrame;
+    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData;
 
 @end
 
