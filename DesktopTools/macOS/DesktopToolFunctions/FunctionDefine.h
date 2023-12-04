@@ -11,7 +11,10 @@
 #define CTAP1_ERR_SUCCESS                   0x00
 
 // U2Fコマンド
+#define U2F_COMMAND_PING                    0x01
+#define U2F_COMMAND_KEEPALIVE               0x02
 #define U2F_COMMAND_MSG                     0x03
+#define U2F_COMMAND_UNKNOWN_ERROR           0x3f
 
 // ベンダー固有コマンド
 #define VENDOR_COMMAND_ERASE_BONDING_DATA   0x4f
