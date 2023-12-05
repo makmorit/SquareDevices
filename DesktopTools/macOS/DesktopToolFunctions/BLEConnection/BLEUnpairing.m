@@ -61,8 +61,14 @@
             [self disconnectAndResumeProcess:false];
             return;
         }
-        // TODO: 仮の実装です。
-        [self disconnectAndResumeProcess:true];
+        // コマンド名により処理分岐
+        if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
+            // ペアリング解除要求コマンド（２回目）を実行
+            [self performExecuteCommandWithResponse:responseData];
+        } else {
+            // TODO: 仮の実装です。
+            [self disconnectAndResumeProcess:true];
+        }
     }
 
     - (void)disconnectAndResumeProcess:(bool)success {
@@ -78,6 +84,19 @@
         [self setCommandName:NSStringFromSelector(_cmd)];
         // ペアリング解除要求コマンド（１回目）を実行
         uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST};
+        NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
+        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+    }
+
+    - (void)performExecuteCommandWithResponse:(NSData *)responseData {
+        // コマンド名を退避
+        [self setCommandName:NSStringFromSelector(_cmd)];
+        // レスポンスデータを抽出
+        uint8_t *responseBytes = (uint8_t *)[responseData bytes];
+        // コマンド引数となるPeer IDを抽出
+        uint8_t *peerIdBytes = responseBytes + 1;
+        // ペアリング解除要求コマンド（２回目）を実行
+        unsigned char requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST, peerIdBytes[0], peerIdBytes[1]};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
