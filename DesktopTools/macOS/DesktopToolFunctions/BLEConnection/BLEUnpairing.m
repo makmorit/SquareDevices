@@ -65,9 +65,18 @@
         if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
             // ペアリング解除要求コマンド（２回目）を実行
             [self performExecuteCommandWithResponse:responseData];
-        } else {
+            
+        } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:"]) {
             // TODO: 仮の実装です。
-            [self disconnectAndResumeProcess:true];
+            for (int i = 0; i < 5; i++) {
+                [NSThread sleepForTimeInterval:0.2];
+            }
+            [self performCancelCommand];
+            
+        } else if ([[self commandName] isEqualToString:@"performCancelCommand"]) {
+            // BLE接続を切断し、制御を戻す
+            [[self transport] transportWillDisconnect];
+            [self cancelProcess];
         }
     }
 
@@ -97,6 +106,15 @@
         uint8_t *peerIdBytes = responseBytes + 1;
         // ペアリング解除要求コマンド（２回目）を実行
         unsigned char requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST, peerIdBytes[0], peerIdBytes[1]};
+        NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
+        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+    }
+
+    - (void)performCancelCommand {
+        // コマンド名を退避
+        [self setCommandName:NSStringFromSelector(_cmd)];
+        // ペアリング解除要求キャンセルコマンドを実行
+        uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_CANCEL};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }

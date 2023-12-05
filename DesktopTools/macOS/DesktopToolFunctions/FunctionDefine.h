@@ -18,6 +18,7 @@
 
 // ベンダー固有コマンド
 #define VENDOR_COMMAND_UNPAIRING_REQUEST    0x4d
+#define VENDOR_COMMAND_UNPAIRING_CANCEL     0x4e
 #define VENDOR_COMMAND_ERASE_BONDING_DATA   0x4f
 
 #endif /* FunctionDefine_h */
