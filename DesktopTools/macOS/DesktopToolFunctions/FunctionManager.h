@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ToolFunctionManager : NSObject
+@interface FunctionManager : NSObject
 
     - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title;
     + (NSArray *)createMenuItemsArray;

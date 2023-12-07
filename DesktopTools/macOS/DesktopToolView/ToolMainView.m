@@ -16,7 +16,7 @@
     // サイドメニュー領域の参照を保持
     @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
-    @property (nonatomic) ToolFunctionManager   *functionManager;
+    @property (nonatomic) FunctionManager   *functionManager;
 
 @end
 
@@ -26,7 +26,7 @@
         self = [super initWithNibName:@"ToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
-            [self setFunctionManager:[[ToolFunctionManager alloc] init]];
+            [self setFunctionManager:[[FunctionManager alloc] init]];
             // スタックビューを表示
             [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];
             [[self view] setWantsLayer:YES];
@@ -37,7 +37,7 @@
     - (void)viewDidLoad {
         // サイドメニュー領域のインスタンスを生成
         [super viewDidLoad];
-        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[ToolFunctionManager createMenuItemsArray]]];
+        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray]]];
         [[self stackView] addSubview:[[self toolSideMenuView] view]];
     }
 
