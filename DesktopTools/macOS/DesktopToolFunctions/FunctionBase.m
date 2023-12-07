@@ -1,24 +1,23 @@
 //
-//  ToolFunction.m
+//  FunctionBase.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#import "ToolFunctionView.h"
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 
-@interface ToolFunction () <ToolFunctionViewDelegate>
+@interface FunctionBase () <FunctionViewDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
-    @property (nonatomic) ToolFunctionView              *subView;
+    @property (nonatomic) FunctionView              *subView;
     // メニュータイトル
     @property (nonatomic) NSString                      *menuTitle;
 
 @end
 
-@implementation ToolFunction
+@implementation FunctionBase
 
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super init];
@@ -30,7 +29,7 @@
         return self;
     }
 
-    - (void)setSubViewRef:(ToolFunctionView *)subView {
+    - (void)setSubViewRef:(FunctionView *)subView {
         // 画面の参照を保持
         [self setSubView:subView];
     }

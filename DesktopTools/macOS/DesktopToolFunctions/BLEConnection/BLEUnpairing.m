@@ -1,23 +1,24 @@
 //
-//  EraseBondingInfo.m
+//  BLEUnpairing.m
 //  DesktopTool
 //
-//  Created by Makoto Morita on 2023/11/23.
+//  Created by Makoto Morita on 2023/12/04.
 //
 #import "BLEU2FTransport.h"
-#import "EraseBondingInfo.h"
+#import "BLEUnpairing.h"
 #import "FunctionDefine.h"
-#import "PopupWindow.h"
 #import "FunctionMessage.h"
 
-@interface EraseBondingInfo () <BLETransportDelegate>
+@interface BLEUnpairing () <BLETransportDelegate>
     // 上位クラスの参照を保持
-    @property (nonatomic) id                             delegate;
-    @property (nonatomic) BLEU2FTransport               *transport;
+    @property (nonatomic) id                            delegate;
+    @property (nonatomic) BLEU2FTransport              *transport;
+    // 実行コマンドを保持
+    @property (nonatomic) NSString                     *commandName;
 
 @end
 
-@implementation EraseBondingInfo
+@implementation BLEUnpairing
 
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
@@ -25,22 +26,6 @@
             [self setTransport:[[BLEU2FTransport alloc] initWithDelegate:self]];
         }
         return self;
-    }
-
-#pragma mark - Process management
-
-    - (void)showPromptForStartProcess {
-        // 処理続行確認ダイアログを開く
-        [[PopupWindow defaultWindow] promptCritical:MSG_BLE_ERASE_BONDS withInformative:MSG_PROMPT_BLE_ERASE_BONDS
-                                          forObject:self forSelector:@selector(unpairingCommandPromptDone)];
-    }
-
-    - (void)unpairingCommandPromptDone {
-        // ポップアップでデフォルトのNoボタンがクリックされた場合は、以降の処理を行わない
-        if ([[PopupWindow defaultWindow] isButtonNoClicked]) {
-            return;
-        }
-        [super showPromptForStartProcess];
     }
 
     - (void)invokeProcessOnSubQueue {
@@ -55,7 +40,7 @@
             [self disconnectAndResumeProcess:false];
             return;
         }
-        // ペアリング情報削除コマンド（１回目）を実行
+        // ペアリング解除要求コマンド（１回目）を実行
         [self performInquiryCommand];
     }
 
@@ -76,14 +61,23 @@
             [self disconnectAndResumeProcess:false];
             return;
         }
-        // レスポンスデータをチェック
-        if ([responseData length] == 3) {
-            // ペアリング情報削除コマンド（２回目）を実行
+        // コマンド名により処理分岐
+        if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
+            // ペアリング解除要求コマンド（２回目）を実行
             [self performExecuteCommandWithResponse:responseData];
-            return;
+            
+        } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:"]) {
+            // TODO: 仮の実装です。
+            for (int i = 0; i < 5; i++) {
+                [NSThread sleepForTimeInterval:0.2];
+            }
+            [self performCancelCommand];
+            
+        } else if ([[self commandName] isEqualToString:@"performCancelCommand"]) {
+            // BLE接続を切断し、制御を戻す
+            [[self transport] transportWillDisconnect];
+            [self cancelProcess];
         }
-        // BLE接続を切断し、制御を戻す
-        [self disconnectAndResumeProcess:true];
     }
 
     - (void)disconnectAndResumeProcess:(bool)success {
@@ -95,19 +89,32 @@
 #pragma mark - Perform command
 
     - (void)performInquiryCommand {
-        // ペアリング情報削除コマンド（１回目）を実行
-        unsigned char requestBytes[] = {VENDOR_COMMAND_ERASE_BONDING_DATA};
+        // コマンド名を退避
+        [self setCommandName:NSStringFromSelector(_cmd)];
+        // ペアリング解除要求コマンド（１回目）を実行
+        uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
     - (void)performExecuteCommandWithResponse:(NSData *)responseData {
+        // コマンド名を退避
+        [self setCommandName:NSStringFromSelector(_cmd)];
         // レスポンスデータを抽出
         uint8_t *responseBytes = (uint8_t *)[responseData bytes];
         // コマンド引数となるPeer IDを抽出
         uint8_t *peerIdBytes = responseBytes + 1;
-        // ペアリング情報削除コマンド（２回目）を実行
-        unsigned char requestBytes[] = {VENDOR_COMMAND_ERASE_BONDING_DATA, peerIdBytes[0], peerIdBytes[1]};
+        // ペアリング解除要求コマンド（２回目）を実行
+        unsigned char requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST, peerIdBytes[0], peerIdBytes[1]};
+        NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
+        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+    }
+
+    - (void)performCancelCommand {
+        // コマンド名を退避
+        [self setCommandName:NSStringFromSelector(_cmd)];
+        // ペアリング解除要求キャンセルコマンドを実行
+        uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_CANCEL};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }

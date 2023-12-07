@@ -6,7 +6,7 @@
 //
 #import "ToolDoProcess.h"
 #import "ToolDoProcessView.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 #import "ToolLogFile.h"
 
 @interface ToolDoProcess ()

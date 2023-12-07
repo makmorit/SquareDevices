@@ -7,9 +7,9 @@
 #ifndef ToolVersionInfo_h
 #define ToolVersionInfo_h
 
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 
-@interface ToolVersionInfo : ToolFunction
+@interface ToolVersionInfo : FunctionBase
     // 画面に表示させるためのバージョン情報を保持
     @property (nonatomic) NSString                     *toolName;
     @property (nonatomic) NSString                     *version;

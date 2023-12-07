@@ -1,19 +1,19 @@
 //
-//  ToolFunctionManager.h
+//  FunctionManager.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
-#ifndef ToolFunctionManager_h
-#define ToolFunctionManager_h
+#ifndef FunctionManager_h
+#define FunctionManager_h
 
 #import <Foundation/Foundation.h>
 
-@interface ToolFunctionManager : NSObject
+@interface FunctionManager : NSObject
 
     - (void)willProcessWithDelegate:(id)delegate withTitle:(NSString *)title;
     + (NSArray *)createMenuItemsArray;
 
 @end
 
-#endif /* ToolFunctionManager_h */
+#endif /* FunctionManager_h */

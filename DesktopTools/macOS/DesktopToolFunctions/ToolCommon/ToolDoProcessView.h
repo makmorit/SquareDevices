@@ -7,9 +7,9 @@
 #ifndef ToolDoProcessView_h
 #define ToolDoProcessView_h
 
-#import "ToolFunctionView.h"
+#import "FunctionView.h"
 
-@interface ToolDoProcessView : ToolFunctionView
+@interface ToolDoProcessView : FunctionView
     // 画面を操作するためのメソッド
     - (void)enableButtonClick:(bool)isEnabled;
     - (void)enableClickButtonDoProcess:(bool)isEnabled;

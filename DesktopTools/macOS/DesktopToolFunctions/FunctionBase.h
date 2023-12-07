@@ -1,32 +1,32 @@
 //
-//  ToolFunction.h
+//  FunctionBase.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#ifndef ToolFunction_h
-#define ToolFunction_h
+#ifndef FunctionBase_h
+#define FunctionBase_h
 
-#import "ToolFunctionView.h"
+#import "FunctionView.h"
 
-@protocol ToolFunctionDelegate;
+@protocol FunctionBaseDelegate;
 
-@interface ToolFunction : NSObject
+@interface FunctionBase : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupSubView;
     - (void)didInitialize;
     - (void)willProcessWithTitle:(NSString *)title;
 
-    - (void)setSubViewRef:(ToolFunctionView *)subView;
+    - (void)setSubViewRef:(FunctionView *)subView;
 
 @end
 
-@protocol ToolFunctionDelegate <NSObject>
+@protocol FunctionBaseDelegate <NSObject>
 
     - (void)notifyFunctionShowSubView:(NSView *)subView;
     - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled;
 
 @end
 
-#endif /* ToolFunction_h */
+#endif /* FunctionBase_h */

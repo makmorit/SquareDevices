@@ -5,7 +5,7 @@
 //  Created by Makoto Morita on 2023/06/05.
 //
 #import "FWVersionInfo.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 
 @interface FWVersionInfo ()
 
@@ -20,8 +20,8 @@
         for (int i = 0; i < 3; i++) {
             [NSThread sleepForTimeInterval:1.0];
         }
-        [self showCaption:MSG_DEVICE_FW_VERSION_INFO_SHOWING];
-        [self resumeProcess];
+        [self LogAndShowInfoMessage:MSG_DEVICE_FW_VERSION_INFO_SHOWING];
+        [self resumeProcess:true];
     }
 
 @end

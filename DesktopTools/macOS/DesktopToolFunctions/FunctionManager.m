@@ -1,29 +1,30 @@
 //
-//  ToolFunctionManager.m
+//  FunctionManager.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "PopupWindow.h"
-#import "ToolFunction.h"
-#import "ToolFunctionManager.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionBase.h"
+#import "FunctionManager.h"
+#import "FunctionMessage.h"
 #import "ToolLogFile.h"
 
 // for functions
 #import "BLEPairing.h"
+#import "BLEUnpairing.h"
 #import "EraseBondingInfo.h"
 #import "FWVersionInfo.h"
 #import "ToolVersionInfo.h"
 
-@interface ToolFunctionManager ()
+@interface FunctionManager ()
 
     // 現在実行中の機能クラスの参照を保持
-    @property (nonatomic) ToolFunction                  *currentFunction;
+    @property (nonatomic) FunctionBase                  *currentFunction;
 
 @end
 
-@implementation ToolFunctionManager
+@implementation FunctionManager
 
 #pragma mark - Process management
 
@@ -34,6 +35,8 @@
             return;
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_PAIRING]) {
             [self setCurrentFunction:[[BLEPairing alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_UNPAIRING]) {
+            [self setCurrentFunction:[[BLEUnpairing alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_ERASE_BOND]) {
             [self setCurrentFunction:[[EraseBondingInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_APP_VERSION]) {

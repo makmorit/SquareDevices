@@ -8,7 +8,7 @@
 #import "BLEPairing.h"
 #import "BLEPeripheralRequester.h"
 #import "BLEPeripheralScanner.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 
 @interface BLEPairing () <BLEPeripheralScannerDelegate, BLEPeripheralRequesterDelegate>
     // 上位クラスの参照を保持

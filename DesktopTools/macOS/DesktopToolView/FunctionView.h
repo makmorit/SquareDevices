@@ -1,17 +1,17 @@
 //
-//  ToolFunctionView.h
+//  FunctionView.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
-#ifndef ToolFunctionView_h
-#define ToolFunctionView_h
+#ifndef FunctionView_h
+#define FunctionView_h
 
 #import <Foundation/Foundation.h>
 
-@protocol ToolFunctionViewDelegate;
+@protocol FunctionViewDelegate;
 
-@interface ToolFunctionView : NSViewController
+@interface FunctionView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupAttributes;
@@ -22,11 +22,11 @@
 
 @end
 
-@protocol ToolFunctionViewDelegate <NSObject>
+@protocol FunctionViewDelegate <NSObject>
 
     - (void)subViewNotifyEventWithName:(NSString *)eventName;
     - (void)subViewDidRemove;
 
 @end
 
-#endif /* ToolFunctionView_h */
+#endif /* FunctionView_h */

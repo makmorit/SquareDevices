@@ -7,9 +7,9 @@
 #ifndef FWVersionInfo_h
 #define FWVersionInfo_h
 
-#import "ToolShowInfo.h"
+#import "ToolDoProcess.h"
 
-@interface FWVersionInfo : ToolShowInfo
+@interface FWVersionInfo : ToolDoProcess
 
 @end
 
