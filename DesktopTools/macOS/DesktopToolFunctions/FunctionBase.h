@@ -9,9 +9,9 @@
 
 #import "ToolFunctionView.h"
 
-@protocol ToolFunctionDelegate;
+@protocol FunctionBaseDelegate;
 
-@interface ToolFunction : NSObject
+@interface FunctionBase : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupSubView;
@@ -22,7 +22,7 @@
 
 @end
 
-@protocol ToolFunctionDelegate <NSObject>
+@protocol FunctionBaseDelegate <NSObject>
 
     - (void)notifyFunctionShowSubView:(NSView *)subView;
     - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled;

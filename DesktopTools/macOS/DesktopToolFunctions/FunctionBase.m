@@ -7,7 +7,7 @@
 #import "ToolFunctionView.h"
 #import "FunctionBase.h"
 
-@interface ToolFunction () <ToolFunctionViewDelegate>
+@interface FunctionBase () <ToolFunctionViewDelegate>
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ToolFunction
+@implementation FunctionBase
 
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super init];

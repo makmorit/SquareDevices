@@ -9,7 +9,7 @@
 
 #import "FunctionBase.h"
 
-@interface ToolDoProcess : ToolFunction
+@interface ToolDoProcess : FunctionBase
     // 画面に表示させるための情報を保持
     @property (nonatomic) NSString  *title;
     @property (nonatomic) NSString  *statusText;

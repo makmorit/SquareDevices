@@ -20,7 +20,7 @@
 @interface ToolFunctionManager ()
 
     // 現在実行中の機能クラスの参照を保持
-    @property (nonatomic) ToolFunction                  *currentFunction;
+    @property (nonatomic) FunctionBase                  *currentFunction;
 
 @end
 
