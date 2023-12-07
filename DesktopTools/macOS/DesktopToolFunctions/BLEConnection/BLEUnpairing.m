@@ -7,7 +7,7 @@
 #import "BLEU2FTransport.h"
 #import "BLEUnpairing.h"
 #import "FunctionDefine.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 
 @interface BLEUnpairing () <BLETransportDelegate>
     // 上位クラスの参照を保持

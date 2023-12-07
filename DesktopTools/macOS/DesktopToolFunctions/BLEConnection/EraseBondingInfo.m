@@ -8,7 +8,7 @@
 #import "EraseBondingInfo.h"
 #import "FunctionDefine.h"
 #import "PopupWindow.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 
 @interface EraseBondingInfo () <BLETransportDelegate>
     // 上位クラスの参照を保持

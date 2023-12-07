@@ -5,7 +5,7 @@
 //  Created by Makoto Morita on 2023/06/05.
 //
 #import "FWVersionInfo.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionMessage.h"
 
 @interface FWVersionInfo ()
 

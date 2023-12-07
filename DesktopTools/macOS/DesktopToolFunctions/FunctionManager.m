@@ -1,13 +1,13 @@
 //
-//  ToolFunctionManager.m
+//  FunctionManager.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "PopupWindow.h"
 #import "FunctionBase.h"
-#import "ToolFunctionManager.h"
-#import "ToolFunctionMessage.h"
+#import "FunctionManager.h"
+#import "FunctionMessage.h"
 #import "ToolLogFile.h"
 
 // for functions

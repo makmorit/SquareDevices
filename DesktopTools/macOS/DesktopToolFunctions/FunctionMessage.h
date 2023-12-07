@@ -1,11 +1,11 @@
 //
-//  ToolFunctionMessage.h
+//  FunctionMessage.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/06/05.
 //
-#ifndef ToolFunctionMessage_h
-#define ToolFunctionMessage_h
+#ifndef FunctionMessage_h
+#define FunctionMessage_h
 
 
 #define MSG_FORMAT_START_MESSAGE                    @"%@を開始します。"
@@ -53,4 +53,4 @@
 #define MSG_FORMAT_TOOL_VERSION                     @"Version %@ (%@)"
 #define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023 makmorit"
 
-#endif /* ToolFunctionMessage_h */
+#endif /* FunctionMessage_h */
