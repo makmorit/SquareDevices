@@ -94,12 +94,6 @@
 		7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
-		7ADD42742A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADD42732A2D9DE50086CF47 /* ToolShowInfoView.xib */; };
-		7ADD42752A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADD42732A2D9DE50086CF47 /* ToolShowInfoView.xib */; };
-		7ADD42792A2DA0360086CF47 /* ToolShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42772A2DA0360086CF47 /* ToolShowInfoView.m */; };
-		7ADD427A2A2DA0360086CF47 /* ToolShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42772A2DA0360086CF47 /* ToolShowInfoView.m */; };
-		7ADD427D2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */; };
-		7ADD427E2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */; };
 		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
@@ -187,11 +181,6 @@
 		7ADD426E2A2D713D0086CF47 /* BLEPairing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPairing.h; sourceTree = "<group>"; };
 		7ADD426F2A2D71B70086CF47 /* BLEPairing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPairing.m; sourceTree = "<group>"; };
 		7ADD42722A2D7F1C0086CF47 /* ToolFunctionMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolFunctionMessage.h; sourceTree = "<group>"; };
-		7ADD42732A2D9DE50086CF47 /* ToolShowInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolShowInfoView.xib; sourceTree = "<group>"; };
-		7ADD42772A2DA0360086CF47 /* ToolShowInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolShowInfoView.m; sourceTree = "<group>"; };
-		7ADD42782A2DA0360086CF47 /* ToolShowInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShowInfoView.h; sourceTree = "<group>"; };
-		7ADD427B2A2DA1E00086CF47 /* ToolShowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShowInfo.h; sourceTree = "<group>"; };
-		7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolShowInfo.m; sourceTree = "<group>"; };
 		7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWVersionInfo.h; sourceTree = "<group>"; };
 		7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWVersionInfo.m; sourceTree = "<group>"; };
 		7AE6031B2875218100DA5BF3 /* ToolLogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolLogFile.m; sourceTree = "<group>"; };
@@ -421,11 +410,6 @@
 				7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */,
 				7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */,
 				7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */,
-				7ADD427B2A2DA1E00086CF47 /* ToolShowInfo.h */,
-				7ADD427C2A2DA1E00086CF47 /* ToolShowInfo.m */,
-				7ADD42782A2DA0360086CF47 /* ToolShowInfoView.h */,
-				7ADD42772A2DA0360086CF47 /* ToolShowInfoView.m */,
-				7ADD42732A2D9DE50086CF47 /* ToolShowInfoView.xib */,
 			);
 			path = ToolCommon;
 			sourceTree = "<group>";
@@ -526,7 +510,6 @@
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
 				7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
-				7ADD42742A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -553,7 +536,6 @@
 				7A810FF02A1C845900C0BAED /* action_log.png in Resources */,
 				7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */,
 				7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */,
-				7ADD42752A2D9DE50086CF47 /* ToolShowInfoView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
 				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
@@ -583,12 +565,10 @@
 				7A2712792A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
-				7ADD42792A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
-				7ADD427D2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */,
 				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
@@ -614,12 +594,10 @@
 				7A27127A2A24987100FA9030 /* ToolFunctionManager.m in Sources */,
 				7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
-				7ADD427A2A2DA0360086CF47 /* ToolShowInfoView.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
-				7ADD427E2A2DA1E00086CF47 /* ToolShowInfo.m in Sources */,
 				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
