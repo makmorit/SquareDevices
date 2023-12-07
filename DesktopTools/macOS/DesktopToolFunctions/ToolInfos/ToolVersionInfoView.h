@@ -7,7 +7,7 @@
 #ifndef ToolVersionInfoView_h
 #define ToolVersionInfoView_h
 
-#import "ToolFunctionView.h"
+#import "FunctionView.h"
 
 @interface ToolVersionInfoView : ToolFunctionView
 

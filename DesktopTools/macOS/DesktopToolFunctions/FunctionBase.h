@@ -7,7 +7,7 @@
 #ifndef FunctionBase_h
 #define FunctionBase_h
 
-#import "ToolFunctionView.h"
+#import "FunctionView.h"
 
 @protocol FunctionBaseDelegate;
 

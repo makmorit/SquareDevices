@@ -7,7 +7,7 @@
 #ifndef ToolDoProcessView_h
 #define ToolDoProcessView_h
 
-#import "ToolFunctionView.h"
+#import "FunctionView.h"
 
 @interface ToolDoProcessView : ToolFunctionView
     // 画面を操作するためのメソッド

@@ -4,7 +4,6 @@
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#import "ToolFunctionView.h"
 #import "FunctionBase.h"
 
 @interface FunctionBase () <ToolFunctionViewDelegate>

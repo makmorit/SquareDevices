@@ -19,8 +19,8 @@
 		7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
 		7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
-		7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* ToolFunctionView.m */; };
-		7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* ToolFunctionView.m */; };
+		7A2712752A247B2000FA9030 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* FunctionView.m */; };
+		7A2712762A247B2000FA9030 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* FunctionView.m */; };
 		7A2712792A24987100FA9030 /* FunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* FunctionManager.m */; };
 		7A27127A2A24987100FA9030 /* FunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* FunctionManager.m */; };
 		7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
@@ -124,8 +124,8 @@
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
 		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
 		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
-		7A2712732A247B1F00FA9030 /* ToolFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolFunctionView.h; sourceTree = "<group>"; };
-		7A2712742A247B1F00FA9030 /* ToolFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolFunctionView.m; sourceTree = "<group>"; };
+		7A2712732A247B1F00FA9030 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
+		7A2712742A247B1F00FA9030 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		7A2712772A24984F00FA9030 /* FunctionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionManager.h; sourceTree = "<group>"; };
 		7A2712782A24987100FA9030 /* FunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionManager.m; sourceTree = "<group>"; };
 		7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralRequester.m; sourceTree = "<group>"; };
@@ -390,14 +390,14 @@
 		7A98D7DE2A258EA7005A593E /* DesktopToolView */ = {
 			isa = PBXGroup;
 			children = (
+				7A2712732A247B1F00FA9030 /* FunctionView.h */,
+				7A2712742A247B1F00FA9030 /* FunctionView.m */,
 				7A98D7E22A259221005A593E /* ToolMainView.h */,
 				7A98D7E32A259221005A593E /* ToolMainView.m */,
 				7A98D7DF2A258EE7005A593E /* ToolMainView.xib */,
 				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
-				7A2712732A247B1F00FA9030 /* ToolFunctionView.h */,
-				7A2712742A247B1F00FA9030 /* ToolFunctionView.m */,
 			);
 			path = DesktopToolView;
 			sourceTree = "<group>";
@@ -577,7 +577,7 @@
 				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
-				7A2712752A247B2000FA9030 /* ToolFunctionView.m in Sources */,
+				7A2712752A247B2000FA9030 /* FunctionView.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
@@ -606,7 +606,7 @@
 				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7AF454FE2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
-				7A2712762A247B2000FA9030 /* ToolFunctionView.m in Sources */,
+				7A2712762A247B2000FA9030 /* FunctionView.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
