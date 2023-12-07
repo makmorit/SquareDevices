@@ -5,7 +5,7 @@
 //  Created by Makoto Morita on 2023/05/29.
 //
 #import "PopupWindow.h"
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 #import "ToolFunctionManager.h"
 #import "ToolFunctionMessage.h"
 #import "ToolLogFile.h"

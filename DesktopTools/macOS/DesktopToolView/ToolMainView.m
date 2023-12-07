@@ -6,7 +6,7 @@
 //
 #import "ToolMainView.h"
 #import "ToolSideMenuView.h"
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 #import "ToolFunctionManager.h"
 
 @interface ToolMainView () <ToolSideMenuViewDelegate, ToolFunctionDelegate>

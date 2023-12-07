@@ -7,7 +7,7 @@
 #ifndef ToolDoProcess_h
 #define ToolDoProcess_h
 
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 
 @interface ToolDoProcess : ToolFunction
     // 画面に表示させるための情報を保持

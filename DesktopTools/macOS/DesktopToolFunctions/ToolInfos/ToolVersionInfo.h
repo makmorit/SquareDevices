@@ -7,7 +7,7 @@
 #ifndef ToolVersionInfo_h
 #define ToolVersionInfo_h
 
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 
 @interface ToolVersionInfo : ToolFunction
     // 画面に表示させるためのバージョン情報を保持

@@ -1,11 +1,11 @@
 //
-//  ToolFunction.m
+//  FunctionBase.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
 #import "ToolFunctionView.h"
-#import "ToolFunction.h"
+#import "FunctionBase.h"
 
 @interface ToolFunction () <ToolFunctionViewDelegate>
 

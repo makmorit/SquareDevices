@@ -1,11 +1,11 @@
 //
-//  ToolFunction.h
+//  FunctionBase.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/31.
 //
-#ifndef ToolFunction_h
-#define ToolFunction_h
+#ifndef FunctionBase_h
+#define FunctionBase_h
 
 #import "ToolFunctionView.h"
 
@@ -29,4 +29,4 @@
 
 @end
 
-#endif /* ToolFunction_h */
+#endif /* FunctionBase_h */

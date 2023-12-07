@@ -63,8 +63,8 @@
 		7A810FFB2A1C8AE400C0BAED /* check_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FF62A1C8AE400C0BAED /* check_box.png */; };
 		7A810FFC2A1C8AE400C0BAED /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FF72A1C8AE400C0BAED /* update.png */; };
 		7A810FFD2A1C8AE400C0BAED /* update.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FF72A1C8AE400C0BAED /* update.png */; };
-		7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* ToolFunction.m */; };
-		7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* ToolFunction.m */; };
+		7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* FunctionBase.m */; };
+		7A8913692A26ECAD00FC3C45 /* FunctionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* FunctionBase.m */; };
 		7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
 		7A8B3DBD296E56640005F7B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED9A851647439300F39EAE /* main.m */; };
 		7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ED9A8C1647439300F39EAE /* AppDelegate.m */; };
@@ -158,8 +158,8 @@
 		7A810FF52A1C8AE400C0BAED /* processor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = processor.png; sourceTree = "<group>"; };
 		7A810FF62A1C8AE400C0BAED /* check_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_box.png; sourceTree = "<group>"; };
 		7A810FF72A1C8AE400C0BAED /* update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update.png; sourceTree = "<group>"; };
-		7A8913662A26EC8D00FC3C45 /* ToolFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolFunction.h; sourceTree = "<group>"; };
-		7A8913672A26ECAD00FC3C45 /* ToolFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolFunction.m; sourceTree = "<group>"; };
+		7A8913662A26EC8D00FC3C45 /* FunctionBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionBase.h; sourceTree = "<group>"; };
+		7A8913672A26ECAD00FC3C45 /* FunctionBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionBase.m; sourceTree = "<group>"; };
 		7A8B3E27296E59990005F7B1 /* VendorTool-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VendorTool-Info.plist"; sourceTree = "<group>"; };
 		7A92D0E228754B140094D2DB /* AppCommonMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCommonMessage.h; sourceTree = "<group>"; };
 		7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCommonFunc.m; sourceTree = "<group>"; };
@@ -296,12 +296,12 @@
 			children = (
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
 				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
+				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
+				7A8913672A26ECAD00FC3C45 /* FunctionBase.m */,
 				7A3E90992B146BD00089436E /* FunctionDefine.h */,
 				7A2712772A24984F00FA9030 /* ToolFunctionManager.h */,
 				7A2712782A24987100FA9030 /* ToolFunctionManager.m */,
 				7ADD42722A2D7F1C0086CF47 /* ToolFunctionMessage.h */,
-				7A8913662A26EC8D00FC3C45 /* ToolFunction.h */,
-				7A8913672A26ECAD00FC3C45 /* ToolFunction.m */,
 				7ADD426D2A2D71190086CF47 /* BLEConnection */,
 				7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */,
 				7AA301A82A286FB10039E7E0 /* ToolCommon */,
@@ -568,7 +568,7 @@
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
-				7A8913682A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
+				7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
@@ -597,7 +597,7 @@
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
-				7A8913692A26ECAD00FC3C45 /* ToolFunction.m in Sources */,
+				7A8913692A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
