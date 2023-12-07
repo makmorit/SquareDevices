@@ -18,7 +18,7 @@
     - (void)didInitialize;
     - (void)willProcessWithTitle:(NSString *)title;
 
-    - (void)setSubViewRef:(ToolFunctionView *)subView;
+    - (void)setSubViewRef:(FunctionView *)subView;
 
 @end
 

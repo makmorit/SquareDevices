@@ -6,14 +6,14 @@
 //
 #import "FunctionView.h"
 
-@interface ToolFunctionView ()
+@interface FunctionView ()
 
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
 
 @end
 
-@implementation ToolFunctionView
+@implementation FunctionView
 
     - (instancetype)initWithDelegate:(id)delegate {
         return [self initWithDelegate:delegate withViewName:nil];

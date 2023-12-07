@@ -9,9 +9,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ToolFunctionViewDelegate;
+@protocol FunctionViewDelegate;
 
-@interface ToolFunctionView : NSViewController
+@interface FunctionView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)setupAttributes;
@@ -22,7 +22,7 @@
 
 @end
 
-@protocol ToolFunctionViewDelegate <NSObject>
+@protocol FunctionViewDelegate <NSObject>
 
     - (void)subViewNotifyEventWithName:(NSString *)eventName;
     - (void)subViewDidRemove;

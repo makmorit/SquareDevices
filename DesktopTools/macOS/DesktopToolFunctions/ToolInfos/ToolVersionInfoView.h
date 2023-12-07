@@ -9,7 +9,7 @@
 
 #import "FunctionView.h"
 
-@interface ToolVersionInfoView : ToolFunctionView
+@interface ToolVersionInfoView : FunctionView
 
 @end
 
