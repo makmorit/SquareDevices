@@ -51,6 +51,9 @@
     }
 
     - (void)unpairRequestWindowWillOpen {
+        // ペアリング解除要求待機画面の項目を初期化
+        [[self unpairRequestWindow] setPeripheralName:[self peripheralName]];
+        [[self unpairRequestWindow] setProgressMaxValue:UNPAIRING_REQUEST_WAITING_SEC];
         // 親画面の参照を取得
         NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
         // ペアリング解除要求待機画面（ダイアログ）をモーダルで表示
@@ -60,8 +63,6 @@
             // ダイアログが閉じられた時の処理
             [weakSelf unpairRequestWindowDidClose:self modalResponse:response];
         }];
-        // 残り秒数をペアリング解除要求待機画面に通知
-        [[self unpairRequestWindow] commandDidNotifyStartWithDeviceName:[self peripheralName] withProgressMax:UNPAIRING_REQUEST_WAITING_SEC];
     }
 
     - (void)unpairRequestWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {

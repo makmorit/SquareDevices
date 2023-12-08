@@ -8,7 +8,6 @@
 #import "BLEUnpairRequestWindow.h"
 
 @interface BLEUnpairRequestWindow ()
-
     // 画面項目の参照を保持
     @property (assign) IBOutlet NSTextField         *labelTitle;
     @property (assign) IBOutlet NSTextField         *labelProgress;
@@ -25,9 +24,13 @@
     }
 
     - (void)initFieldValue {
-        [[self labelTitle] setStringValue:@""];
-        [[self labelProgress] setStringValue:@""];
-        [[self levelIndicator] setIntValue:0];
+        // プログレスバーの最大値を設定
+        [[self levelIndicator] setMaxValue:[self progressMaxValue]];
+        // 残り秒数表示ラベル、プログレスバーを初期設定
+        [self setToLabelProgress:[self progressMaxValue]];
+        // 待機メッセージを表示
+        NSString *message = [NSString stringWithFormat:MSG_BLE_UNPAIRING_WAIT_DISCONNECT, [self peripheralName]];
+        [[self labelTitle] setStringValue:message];
     }
 
     - (IBAction)buttonCancelDidPress:(id)sender {
@@ -40,19 +43,11 @@
         NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
         // この画面を閉じる
         [mainWindow endSheet:[self window] returnCode:response];
+        // 画面項目を初期化
+        [self initFieldValue];
     }
 
 #pragma mark - Interfaces for command
-
-    - (void)commandDidNotifyStartWithDeviceName:(NSString *)deviceName withProgressMax:(int)progressMax {
-        // 画面項目を初期化
-        [[self levelIndicator] setMaxValue:progressMax];
-        // メッセージを表示
-        NSString *message = [NSString stringWithFormat:MSG_BLE_UNPAIRING_WAIT_DISCONNECT, deviceName];
-        [[self labelTitle] setStringValue:message];
-        // 残り秒数表示ラベル、プログレスバーを更新
-        [self setToLabelProgress:progressMax];
-    }
 
     - (void)commandDidNotifyProgress:(int)progress {
         // 残り秒数表示ラベル、プログレスバーを更新

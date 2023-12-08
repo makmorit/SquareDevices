@@ -10,8 +10,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface BLEUnpairRequestWindow : NSWindowController
+    // 画面表示用データを保持
+    @property (nonatomic) NSString *peripheralName;
+    @property (nonatomic) int       progressMaxValue;
 
-    - (void)commandDidNotifyStartWithDeviceName:(NSString *)deviceName withProgressMax:(int)progressMax;
     - (void)commandDidNotifyProgress:(int)progress;
     - (void)commandDidNotifyTerminate:(bool)success;
 
