@@ -12,6 +12,8 @@
 @protocol BLETransportDelegate;
 
 @interface BLETransport : NSObject
+    // スキャンされたBLEペリフェラルの名称を保持
+    @property (nonatomic) NSString *scannedPeripheralName;
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)transportWillConnect;
