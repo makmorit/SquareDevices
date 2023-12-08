@@ -17,6 +17,7 @@
     @property (nonatomic) NSString             *errorMessage;
     // BLEペリフェラルの参照を保持
     @property (nonatomic) id                    scannedCBPeripheralRef;
+    @property (nonatomic) NSString             *peripheralName;
 
     - (instancetype)initWithServiceUUIDString:(NSString *)uuidString;
 

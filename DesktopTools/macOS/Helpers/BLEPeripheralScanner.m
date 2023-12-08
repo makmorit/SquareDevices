@@ -126,6 +126,7 @@
                 // ペリフェラルの参照を保持（`API MISUSE: Cancelling connection for unused peripheral`というエラー発生の回避措置）
                 [self setDiscoveredPeripheral:peripheral];
                 [[self parameter] setScannedCBPeripheralRef:peripheral];
+                [[self parameter] setPeripheralName:[peripheral name]];
                 // スキャンタイムアウト監視を停止
                 [self cancelScanningTimeoutMonitorFor:@selector(scanningDidTimeout)];
                 // スキャンを停止し、スキャン完了を通知
