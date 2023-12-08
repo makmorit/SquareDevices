@@ -15,7 +15,7 @@
     @property (nonatomic) id                            delegate;
     // 画面の参照を保持
     @property (nonatomic) BLEUnpairRequestWindow       *unpairRequestWindow;
-    // 非同期処理用のキュー
+    // 非同期処理用のキュー（画面用／待機処理用）
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
     // タイムアウト監視フラグ
@@ -42,6 +42,11 @@
         // ペアリング解除要求待機画面（ダイアログ）をモーダルで表示
         dispatch_async([self mainQueue], ^{
             [self unpairRequestWindowWillOpen];
+        });
+        // タイムアウト監視に移行
+        dispatch_async([self subQueue], ^{
+            [self setWaitingForUnpairTimeout:true];
+            [self startWaitingForUnpairTimeoutMonitor];
         });
     }
 
@@ -78,6 +83,8 @@
     }
 
     - (void)unpairRequestNotifyCancel {
+        // タイムアウト監視を停止
+        [self cancelWaitingForUnpairTimeoutMonitor];
         // 上位クラスに制御を戻す
         [[self delegate] modalWindowDidNotifyCancel];
     }
@@ -89,6 +96,37 @@
 
     - (void)closeModalWindow {
         // TODO: ペアリング解除要求待機中に切断を検知したときの処理
+    }
+
+#pragma mark - Waiting for unpair Timeout Monitor
+
+    - (void)startWaitingForUnpairTimeoutMonitor {
+        // タイムアウト監視（最大30秒）
+        for (int i = 0; i < UNPAIRING_REQUEST_WAITING_SEC; i++) {
+            // 残り秒数をペアリング解除要求待機画面に通知
+            int sec = UNPAIRING_REQUEST_WAITING_SEC - i;
+            [self notifyProgressValue:sec];
+            for (int j = 0; j < 5; j++) {
+                if ([self WaitingForUnpairTimeout] == false) {
+                    return;
+                }
+                [NSThread sleepForTimeInterval:0.2];
+            }
+        }
+        // 残り秒数をペアリング解除要求待機画面に通知
+        [self notifyProgressValue:0];
+    }
+
+    - (void)notifyProgressValue:(int)remaining {
+        dispatch_async([self mainQueue], ^{
+            // 残り秒数をペアリング解除要求待機画面に通知
+            [[self unpairRequestWindow] commandDidNotifyProgress:remaining];
+        });
+    }
+
+    - (void)cancelWaitingForUnpairTimeoutMonitor {
+        // タイムアウト監視を停止
+        [self setWaitingForUnpairTimeout:false];
     }
 
 @end
