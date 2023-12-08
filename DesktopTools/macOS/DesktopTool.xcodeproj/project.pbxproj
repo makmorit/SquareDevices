@@ -25,6 +25,12 @@
 		7A27127A2A24987100FA9030 /* FunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* FunctionManager.m */; };
 		7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
 		7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
+		7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
+		7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
+		7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */; };
+		7A2CCB942B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */; };
+		7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2CCB912B21A97500605CAA /* BLEUnpairRequestWindow.xib */; };
+		7A2CCB962B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2CCB912B21A97500605CAA /* BLEUnpairRequestWindow.xib */; };
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
@@ -130,6 +136,11 @@
 		7A2712782A24987100FA9030 /* FunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionManager.m; sourceTree = "<group>"; };
 		7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralRequester.m; sourceTree = "<group>"; };
 		7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralRequester.h; sourceTree = "<group>"; };
+		7A2CCB8C2B21A23E00605CAA /* BLEUnpairRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEUnpairRequest.h; sourceTree = "<group>"; };
+		7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequest.m; sourceTree = "<group>"; };
+		7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequestWindow.m; sourceTree = "<group>"; };
+		7A2CCB912B21A97500605CAA /* BLEUnpairRequestWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLEUnpairRequestWindow.xib; sourceTree = "<group>"; };
+		7A2CCB922B21A97500605CAA /* BLEUnpairRequestWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEUnpairRequestWindow.h; sourceTree = "<group>"; };
 		7A36FB412A1B3A66005C78D6 /* PopupWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupWindow.h; sourceTree = "<group>"; };
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A3E90992B146BD00089436E /* FunctionDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionDefine.h; sourceTree = "<group>"; };
@@ -421,6 +432,11 @@
 				7ADD426F2A2D71B70086CF47 /* BLEPairing.m */,
 				7AF454FB2B1DAA0D00BC8474 /* BLEUnpairing.h */,
 				7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */,
+				7A2CCB8C2B21A23E00605CAA /* BLEUnpairRequest.h */,
+				7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */,
+				7A2CCB922B21A97500605CAA /* BLEUnpairRequestWindow.h */,
+				7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */,
+				7A2CCB912B21A97500605CAA /* BLEUnpairRequestWindow.xib */,
 				7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */,
 				7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */,
 			);
@@ -512,6 +528,7 @@
 				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
+				7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
@@ -538,6 +555,7 @@
 				7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */,
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
+				7A2CCB962B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
 				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0662A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */,
@@ -567,7 +585,9 @@
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
+				7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
+				7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
@@ -596,7 +616,9 @@
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
+				7A2CCB942B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
+				7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
