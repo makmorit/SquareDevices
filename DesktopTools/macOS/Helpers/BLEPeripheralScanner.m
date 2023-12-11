@@ -206,7 +206,8 @@
 
     - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
         // 接続失敗を通知
-        [[ToolLogFile defaultLogger] errorWithFormat:@"Connect peripheral failed: %@", error];
+        NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+        [[ToolLogFile defaultLogger] errorWithFormat:@"Connect peripheral failed with error (code=%d): %@", [error code], description];
         if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 14) {
             // ペアリング情報消失によるエラーの場合
             NSString *errorMessage = [NSString stringWithFormat:MSG_BLE_PARING_ERR_PAIRINF_REMOVED_BY_PEER, [peripheral name]];
