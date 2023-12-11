@@ -125,11 +125,13 @@
 
     - (void)modalWindowDidNotifyCancel {
         // ペアリング解除要求待機画面でキャンセルボタン押下時
+        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_CANCELED];
         [self performCancelCommand];
     }
 
     - (void)modalWindowDidNotifyTimeout {
         // ペアリング解除要求待機がタイムアウト時
+        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT];
         [self performCancelCommand];
     }
 
