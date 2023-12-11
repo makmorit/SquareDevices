@@ -38,6 +38,8 @@
 
     - (void)didUpdateScannerState:(bool)available;
     - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter;
+
+@optional
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter;
 
 @end

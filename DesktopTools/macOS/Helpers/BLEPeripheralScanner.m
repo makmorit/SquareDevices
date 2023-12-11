@@ -191,9 +191,11 @@
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
-        dispatch_async([self subQueue], ^{
-            [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
-        });
+        if ([[self delegate] respondsToSelector:@selector(scannedPeripheralDidConnectWithParam:)]) {
+            dispatch_async([self subQueue], ^{
+                [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
+            });
+        }
     }
 
     - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
