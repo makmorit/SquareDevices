@@ -100,7 +100,12 @@
     }
 
     - (void)closeModalWindow {
-        // TODO: ペアリング解除要求待機中に切断を検知したときの処理
+        // タイムアウト監視を停止
+        [self cancelWaitingForUnpairTimeoutMonitor];
+        dispatch_async([self mainQueue], ^{
+            // ペアリング解除要求待機画面を閉じる旨通知
+            [[self unpairRequestWindow] commandDidNotifyTerminate];
+        });
     }
 
 #pragma mark - Waiting for unpair Timeout Monitor
