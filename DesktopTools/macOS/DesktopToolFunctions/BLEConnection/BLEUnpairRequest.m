@@ -19,7 +19,7 @@
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
     // タイムアウト監視フラグ
-    @property (nonatomic) bool                          WaitingForUnpairTimeout;
+    @property (nonatomic) bool                          waitingForUnpairTimeout;
 
 @end
 
@@ -108,7 +108,7 @@
             int sec = UNPAIRING_REQUEST_WAITING_SEC - i;
             [self notifyProgressValue:sec];
             for (int j = 0; j < 5; j++) {
-                if ([self WaitingForUnpairTimeout] == false) {
+                if ([self waitingForUnpairTimeout] == false) {
                     return;
                 }
                 [NSThread sleepForTimeInterval:0.2];
