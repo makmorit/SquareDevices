@@ -140,4 +140,11 @@
     - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
+    // Callback from BLEPeripheralScanner
+    - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        if ([[self delegate] respondsToSelector:@selector(transportDidDisconnect:withErrorMessage:)]) {
+            [[self delegate] transportDidDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
+        }
+    }
+
 @end
