@@ -235,12 +235,25 @@
         if ([error code] == 0) {
             // 切断が正常完了した場合
             [[ToolLogFile defaultLogger] info:MSG_DISCONNECT_BLE_DEVICE];
-        } else if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 6) {
-            // ペリフェラル側からの一方的な切断による接続タイムアウトの場合＝切断済み
-            [[ToolLogFile defaultLogger] info:MSG_NOTIFY_DISCONNECT_BLE_DEVICE];
+            [self connectedPeripheralDidDisconnectWithParam:true withErrorMessage:nil];
+            
         } else {
             // その他の場合は不明なエラーと扱い、内容詳細をログ出力
-            [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with message: %@", [error description]];
+            NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with error (code=%d): %@", [error code], description];
+            [self connectedPeripheralDidDisconnectWithParam:false withErrorMessage:MSG_NOTIFY_DISCONNECT_BLE_DEVICE];
+        }
+    }
+
+    - (void)connectedPeripheralDidDisconnectWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // コマンド成否、メッセージを設定
+        [[self parameter] setSuccess:success];
+        [[self parameter] setErrorMessage:errorMessage];
+        // 上位クラスに通知
+        if ([[self delegate] respondsToSelector:@selector(connectedPeripheralDidDisconnectWithParam:)]) {
+            dispatch_async([self subQueue], ^{
+                [[self delegate] connectedPeripheralDidDisconnectWithParam:[self parameter]];
+            });
         }
     }
 

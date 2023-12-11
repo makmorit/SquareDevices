@@ -41,6 +41,7 @@
 
 @optional
     - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter;
+    - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter;
 
 @end
 
