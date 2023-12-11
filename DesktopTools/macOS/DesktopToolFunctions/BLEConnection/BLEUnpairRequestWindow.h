@@ -15,7 +15,7 @@
     @property (nonatomic) int       progressMaxValue;
 
     - (void)commandDidNotifyProgress:(int)progress;
-    - (void)commandDidNotifyTerminate:(bool)success;
+    - (void)commandDidNotifyTerminate;
 
 @end
 

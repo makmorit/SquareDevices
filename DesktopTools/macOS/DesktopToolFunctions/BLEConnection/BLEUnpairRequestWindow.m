@@ -58,13 +58,9 @@
         }
     }
 
-    - (void)commandDidNotifyTerminate:(bool)success {
-        // 処理が正常終了した場合はOK、異常終了した場合はAbortを戻す
-        if (success) {
-            [self terminateWindow:NSModalResponseOK];
-        } else {
-            [self terminateWindow:NSModalResponseAbort];
-        }
+    - (void)commandDidNotifyTerminate {
+        // 画面を閉じる
+        [self terminateWindow:NSModalResponseOK];
     }
 
     - (void)setToLabelProgress:(int)progress {
