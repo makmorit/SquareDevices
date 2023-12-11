@@ -123,6 +123,8 @@
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
+        // タイムアウト監視が終了
+        [self setWaitingForUnpairTimeout:false];
         // 残り秒数をペアリング解除要求待機画面に通知
         [self notifyProgressValue:0];
     }
