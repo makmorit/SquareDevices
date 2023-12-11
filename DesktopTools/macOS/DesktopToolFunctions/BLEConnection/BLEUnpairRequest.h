@@ -18,6 +18,7 @@
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)openModalWindow;
     - (void)closeModalWindow;
+    - (bool)isWaitingForUnpairTimeout;
 
 @end
 

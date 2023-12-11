@@ -50,6 +50,10 @@
         });
     }
 
+    - (bool)isWaitingForUnpairTimeout {
+        return [self waitingForUnpairTimeout];
+    }
+
     - (void)unpairRequestWindowWillOpen {
         // ペアリング解除要求待機画面の項目を初期化
         [[self unpairRequestWindow] setPeripheralName:[self peripheralName]];
