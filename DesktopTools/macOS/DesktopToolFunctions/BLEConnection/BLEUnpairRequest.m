@@ -70,13 +70,9 @@
     }
 
     - (void)unpairRequestWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {
-        // 上位クラスに制御を戻す
-        switch (modalResponse) {
-            case NSModalResponseCancel:
-                [self unpairRequestNotifyCancel];
-                break;
-            default:
-                break;
+        if (modalResponse == NSModalResponseCancel) {
+            // キャンセルボタンがクリックされたときの処理
+            [self unpairRequestNotifyCancel];
         }
     }
 
