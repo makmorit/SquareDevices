@@ -39,6 +39,7 @@
 #define MSG_BLE_PAIRING_SCAN_SUCCESS                @"ペアリング対象のBLEデバイスがスキャンされました。"
 
 #pragma mark - ペアリング解除要求
+#define MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC       @"ペアリング解除要求中に、BLEデバイスからの切断が検知されました。"
 #define MSG_BLE_UNPAIRING_WAIT_DISCONNECT           @"Bluetooth環境設定から\nデバイス「%@」を削除すると、\nデバイスとのペアリングが解除されます。"
 #define MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT           @"あと %d 秒"
 #define MSG_BLE_UNPAIRING_WAIT_CANCELED             @"BLEデバイスのペアリング解除をユーザーが中止しました。"

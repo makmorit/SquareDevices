@@ -82,6 +82,19 @@
         }
     }
 
+    - (void)transportDidDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // ペアリング解除要求待機中に切断検知された場合
+        if ([[self unpairRequest] isWaitingForUnpairTimeout]) {
+            if (success == false) {
+                // 異常検知の場合は、エラーが発生したと判断
+                [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC];
+            }
+            // 待機画面を閉じる
+            [[self unpairRequest] closeModalWindow];
+            [self disconnectAndResumeProcess:success];
+        }
+    }
+
     - (void)disconnectAndResumeProcess:(bool)success {
         // BLE接続を切断し、制御を戻す
         [[self transport] transportWillDisconnect];
