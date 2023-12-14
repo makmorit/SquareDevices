@@ -43,10 +43,10 @@
         NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
         // モーダル終了を親画面に通知
         [mainWindow endSheet:[self window] returnCode:response];
-        // 画面項目を初期化
-        [self initFieldValue];
         // 画面を閉じる
         [self close];
+        // 画面項目を初期化
+        [self initFieldValue];
     }
 
 #pragma mark - Interfaces for command
