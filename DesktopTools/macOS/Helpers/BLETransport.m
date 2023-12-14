@@ -84,6 +84,8 @@
             [self peripheralDidConnectWithParam:false withErrorMessage:MSG_ERROR_FUNCTION_IN_PAIRING_MODE];
             return;
         }
+        // スキャンされたペリフェラルの名称を保持
+        [self setScannedPeripheralName:[parameter peripheralName]];
         // 成功時はログ出力
         [[ToolLogFile defaultLogger] info:MSG_SCAN_BLE_DEVICE_SUCCESS];
         // 接続処理を実行
@@ -136,6 +138,13 @@
 
     // Callback from BLEPeripheralRequester
     - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+    }
+
+    // Callback from BLEPeripheralScanner
+    - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        if ([[self delegate] respondsToSelector:@selector(transportDidDisconnect:withErrorMessage:)]) {
+            [[self delegate] transportDidDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
+        }
     }
 
 @end

@@ -6,13 +6,15 @@
 //
 #import "BLEU2FTransport.h"
 #import "BLEUnpairing.h"
+#import "BLEUnpairRequest.h"
 #import "FunctionDefine.h"
 #import "FunctionMessage.h"
 
-@interface BLEUnpairing () <BLETransportDelegate>
+@interface BLEUnpairing () <BLETransportDelegate, BLEUnpairRequestDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) BLEU2FTransport              *transport;
+    @property (nonatomic) BLEUnpairRequest             *unpairRequest;
     // 実行コマンドを保持
     @property (nonatomic) NSString                     *commandName;
 
@@ -24,6 +26,7 @@
         self = [super initWithDelegate:delegate];
         if (self) {
             [self setTransport:[[BLEU2FTransport alloc] initWithDelegate:self]];
+            [self setUnpairRequest:[[BLEUnpairRequest alloc] initWithDelegate:self]];
         }
         return self;
     }
@@ -40,6 +43,8 @@
             [self disconnectAndResumeProcess:false];
             return;
         }
+        // 画面に接続ペリフェラル名称を設定
+        [[self unpairRequest] setPeripheralName:[[self transport] scannedPeripheralName]];
         // ペアリング解除要求コマンド（１回目）を実行
         [self performInquiryCommand];
     }
@@ -67,16 +72,26 @@
             [self performExecuteCommandWithResponse:responseData];
             
         } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:"]) {
-            // TODO: 仮の実装です。
-            for (int i = 0; i < 5; i++) {
-                [NSThread sleepForTimeInterval:0.2];
-            }
-            [self performCancelCommand];
+            // ペアリング解除要求待機画面をモーダル表示
+            [[self unpairRequest] openModalWindow];
             
         } else if ([[self commandName] isEqualToString:@"performCancelCommand"]) {
             // BLE接続を切断し、制御を戻す
             [[self transport] transportWillDisconnect];
             [self cancelProcess];
+        }
+    }
+
+    - (void)transportDidDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // ペアリング解除要求待機中に切断検知された場合
+        if ([[self unpairRequest] isWaitingForUnpairTimeout]) {
+            if (success == false) {
+                // 異常検知の場合は、エラーが発生したと判断
+                [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC];
+            }
+            // 待機画面を閉じる
+            [[self unpairRequest] closeModalWindow];
+            [self disconnectAndResumeProcess:success];
         }
     }
 
@@ -117,6 +132,20 @@
         uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_CANCEL};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+    }
+
+#pragma mark - Callback from BLEUnpairRequest
+
+    - (void)modalWindowDidNotifyCancel {
+        // ペアリング解除要求待機画面でキャンセルボタン押下時
+        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_CANCELED];
+        [self performCancelCommand];
+    }
+
+    - (void)modalWindowDidNotifyTimeout {
+        // ペアリング解除要求待機がタイムアウト時
+        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT];
+        [self performCancelCommand];
     }
 
 @end

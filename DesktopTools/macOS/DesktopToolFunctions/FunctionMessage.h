@@ -38,6 +38,13 @@
 #define MSG_BLE_PARING_ERR_PAIR_MODE                @"ペアリング対象のBLEデバイスが、ペアリングモードでない可能性があります。BLEデバイスをペアリングモードに遷移させてください。"
 #define MSG_BLE_PAIRING_SCAN_SUCCESS                @"ペアリング対象のBLEデバイスがスキャンされました。"
 
+#pragma mark - ペアリング解除要求
+#define MSG_BLE_UNPAIRING_DISCONN_BEFORE_PROC       @"ペアリング解除要求中に、BLEデバイスからの切断が検知されました。"
+#define MSG_BLE_UNPAIRING_WAIT_DISCONNECT           @"Bluetooth環境設定から\nデバイス「%@」を削除すると、\nデバイスとのペアリングが解除されます。"
+#define MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT           @"あと %d 秒"
+#define MSG_BLE_UNPAIRING_WAIT_CANCELED             @"BLEデバイスのペアリング解除をユーザーが中止しました。"
+#define MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT         @"Bluetooth環境設定からのデバイス削除が検知されませんでした。"
+
 #pragma mark - ペアリング情報削除
 #define MSG_BLE_ERASE_BONDS                         @"BLEデバイスからペアリング情報をすべて削除します。"
 #define MSG_PROMPT_BLE_ERASE_BONDS                  @"削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？"

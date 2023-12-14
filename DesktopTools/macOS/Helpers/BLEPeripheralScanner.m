@@ -126,6 +126,7 @@
                 // ペリフェラルの参照を保持（`API MISUSE: Cancelling connection for unused peripheral`というエラー発生の回避措置）
                 [self setDiscoveredPeripheral:peripheral];
                 [[self parameter] setScannedCBPeripheralRef:peripheral];
+                [[self parameter] setPeripheralName:[peripheral name]];
                 // スキャンタイムアウト監視を停止
                 [self cancelScanningTimeoutMonitorFor:@selector(scanningDidTimeout)];
                 // スキャンを停止し、スキャン完了を通知
@@ -190,9 +191,11 @@
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
-        dispatch_async([self subQueue], ^{
-            [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
-        });
+        if ([[self delegate] respondsToSelector:@selector(scannedPeripheralDidConnectWithParam:)]) {
+            dispatch_async([self subQueue], ^{
+                [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
+            });
+        }
     }
 
     - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
@@ -203,7 +206,8 @@
 
     - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
         // 接続失敗を通知
-        [[ToolLogFile defaultLogger] errorWithFormat:@"Connect peripheral failed: %@", error];
+        NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+        [[ToolLogFile defaultLogger] errorWithFormat:@"Connect peripheral failed with error (code=%d): %@", [error code], description];
         if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 14) {
             // ペアリング情報消失によるエラーの場合
             NSString *errorMessage = [NSString stringWithFormat:MSG_BLE_PARING_ERR_PAIRINF_REMOVED_BY_PEER, [peripheral name]];
@@ -232,12 +236,25 @@
         if ([error code] == 0) {
             // 切断が正常完了した場合
             [[ToolLogFile defaultLogger] info:MSG_DISCONNECT_BLE_DEVICE];
-        } else if ([[error domain] isEqualTo:CBErrorDomain] && [error code] == 6) {
-            // ペリフェラル側からの一方的な切断による接続タイムアウトの場合＝切断済み
-            [[ToolLogFile defaultLogger] info:MSG_NOTIFY_DISCONNECT_BLE_DEVICE];
+            [self connectedPeripheralDidDisconnectWithParam:true withErrorMessage:nil];
+            
         } else {
             // その他の場合は不明なエラーと扱い、内容詳細をログ出力
-            [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with message: %@", [error description]];
+            NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            [[ToolLogFile defaultLogger] errorWithFormat:@"BLE disconnected with error (code=%d): %@", [error code], description];
+            [self connectedPeripheralDidDisconnectWithParam:false withErrorMessage:MSG_NOTIFY_DISCONNECT_BLE_DEVICE];
+        }
+    }
+
+    - (void)connectedPeripheralDidDisconnectWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // コマンド成否、メッセージを設定
+        [[self parameter] setSuccess:success];
+        [[self parameter] setErrorMessage:errorMessage];
+        // 上位クラスに通知
+        if ([[self delegate] respondsToSelector:@selector(connectedPeripheralDidDisconnectWithParam:)]) {
+            dispatch_async([self subQueue], ^{
+                [[self delegate] connectedPeripheralDidDisconnectWithParam:[self parameter]];
+            });
         }
     }
 
