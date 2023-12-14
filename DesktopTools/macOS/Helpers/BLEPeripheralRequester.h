@@ -33,7 +33,6 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)peripheralWillPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
-    - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter;
     - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end

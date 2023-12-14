@@ -92,6 +92,13 @@
             // 待機画面を閉じる
             [[self unpairRequest] closeModalWindow];
             [self disconnectAndResumeProcess:success];
+            
+        } else if (success == false) {
+            // エラー発生の旨を通知
+            [self LogAndShowErrorMessage:errorMessage];
+            // BLE接続を切断し、制御を戻す
+            [[self transport] transportWillDisconnect];
+            [self cancelProcess];
         }
     }
 

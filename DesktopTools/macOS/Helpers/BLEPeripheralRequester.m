@@ -77,11 +77,6 @@
 
 #pragma mark - Public function (request & response)
 
-    - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter {
-        // TODO: 仮の実装です。
-        [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
-    }
-
     - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         // BLEデバイスにデータを送信
         [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
@@ -247,7 +242,7 @@
         if (error) {
             NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
             [[ToolLogFile defaultLogger] errorWithFormat:@"Write value to characteristic fail: @%", description];
-            [self requesterDidSendWithParam:false withErrorMessage:nil];
+            [self requesterDidSendWithParam:false withErrorMessage:MSG_BLE_U2F_CHARACTERISTIC_WRITE_FAIL];
             return;
         }
         // 制御を上位クラスに戻す
@@ -261,7 +256,7 @@
         if (error) {
             NSString *description = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
             [[ToolLogFile defaultLogger] errorWithFormat:@"Update value from characteristic fail: @%", description];
-            [self requesterDidReceiveWithParam:false withErrorMessage:nil];
+            [self requesterDidReceiveWithParam:false withErrorMessage:MSG_BLE_U2F_CHARACTERISTIC_READ_FAIL];
             return;
         }
         // 制御を上位クラスに戻す
