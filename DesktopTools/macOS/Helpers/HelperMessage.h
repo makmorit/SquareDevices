@@ -24,6 +24,8 @@
 #define MSG_BLE_U2F_SERVICE_FOUND                   @"BLEサービスが見つかりました。"
 #define MSG_BLE_U2F_CHARACTERISTIC_DISC_FAIL        @"BLEサービスによるデータ送受信ができません。"
 #define MSG_BLE_U2F_CHARACTERISTIC_NOT_FOUND        @"BLEサービスによるデータ受信またはデータ送信ができません。"
+#define MSG_BLE_U2F_CHARACTERISTIC_WRITE_FAIL       @"BLEサービスによるデータ送信時に、不明なエラーが発生しました。"
+#define MSG_BLE_U2F_CHARACTERISTIC_READ_FAIL        @"BLEサービスによるデータ受信時に、不明なエラーが発生しました。"
 
 #pragma mark - BLEスキャン関連
 #define MSG_BLE_PERIPHERAL_SCAN_START               @"スキャンを開始します。"
