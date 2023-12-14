@@ -77,11 +77,6 @@
 
 #pragma mark - Public function (request & response)
 
-    - (void)peripheralWillRequestWithParam:(BLEPeripheralRequesterParam *)parameter {
-        // TODO: 仮の実装です。
-        [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
-    }
-
     - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         // BLEデバイスにデータを送信
         [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
