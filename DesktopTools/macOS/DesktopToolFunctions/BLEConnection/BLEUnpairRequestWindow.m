@@ -41,10 +41,12 @@
     - (void)terminateWindow:(NSModalResponse)response {
         // 親画面の参照を取得
         NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
-        // この画面を閉じる
+        // モーダル終了を親画面に通知
         [mainWindow endSheet:[self window] returnCode:response];
         // 画面項目を初期化
         [self initFieldValue];
+        // 画面を閉じる
+        [self close];
     }
 
 #pragma mark - Interfaces for command

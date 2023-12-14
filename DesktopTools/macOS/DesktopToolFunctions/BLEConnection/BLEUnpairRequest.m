@@ -70,10 +70,6 @@
     }
 
     - (void)unpairRequestWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {
-        dispatch_async([self mainQueue], ^{
-            // ペアリング解除要求待機画面を閉じる
-            [[self unpairRequestWindow] close];
-        });
         // 上位クラスに制御を戻す
         switch (modalResponse) {
             case NSModalResponseCancel:
