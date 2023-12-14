@@ -75,9 +75,6 @@
             case NSModalResponseCancel:
                 [self unpairRequestNotifyCancel];
                 break;
-            case NSModalResponseAbort:
-                [self unpairRequestNotifyTimeout];
-                break;
             default:
                 break;
         }
@@ -123,6 +120,8 @@
         [self setWaitingForUnpairTimeout:false];
         // 残り秒数をペアリング解除要求待機画面に通知
         [self notifyProgressValue:0];
+        // タイムアウトを上位クラスに通知
+        [self unpairRequestNotifyTimeout];
     }
 
     - (void)notifyProgressValue:(int)remaining {
