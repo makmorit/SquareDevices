@@ -9,7 +9,18 @@
 #import "FunctionDefine.h"
 #import "FunctionMessage.h"
 #import "FWVersion.h"
-#import "ToolLogFile.h"
+
+@interface FWVersionData ()
+
+@end
+
+@implementation FWVersionData
+
+    - (NSString *)description {
+        return [[NSString alloc] initWithFormat:@"DeviceName=%@ HW=%@ FW=%@(%@)", [self deviceName], [self hwRev], [self fwRev], [self fwBld]];
+    }
+
+@end
 
 @interface FWVersion () <BLETransportDelegate>
     // 上位クラスの参照を保持
@@ -65,7 +76,7 @@
         if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
             // バージョン情報をレスポンスから抽出
             [self extractVersionInquiry:responseData];
-            // TODO: 仮の実装です。
+            // 上位クラスに制御を戻す
             [self disconnectAndTerminateCommand:true withErrorMessage:nil];
         }
     }
