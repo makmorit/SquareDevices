@@ -110,10 +110,14 @@
         NSData *responseBytes = [AppUtil extractCBORBytesFromResponse:responseData];
         NSString *responseCSV = [[NSString alloc] initWithData:responseBytes encoding:NSASCIIStringEncoding];
         // 情報取得CSVからバージョン情報を抽出
-        NSArray<NSString *> *array = [self extractValuesFromVersionInfo:responseCSV];
+        FWVersionData *version = [self extractValuesFromVersionInfo:responseCSV];
+        // バージョン情報にBLEデバイス名を設定
+        [version setDeviceName:[[self transport] scannedPeripheralName]];
+        // バージョン情報を保持
+        [self setVersionData:version];
     }
 
-    - (NSArray<NSString *> *)extractValuesFromVersionInfo:(NSString *)versionInfoCSV {
+    - (FWVersionData *)extractValuesFromVersionInfo:(NSString *)versionInfoCSV {
         // 情報取得CSVからバージョン情報を抽出
         NSString *strDeviceName = @"";
         NSString *strFWRev = @"";
@@ -133,7 +137,11 @@
                 strFWBuild = [self extractCSVItem:val];
             }
         }
-        return @[strDeviceName, strFWRev, strHWRev, strFWBuild];
+        FWVersionData *version = [[FWVersionData alloc] init];
+        [version setFwRev:strFWRev];
+        [version setHwRev:strHWRev];
+        [version setFwBld:strFWBuild];
+        return version;
     }
 
     - (NSString *)extractCSVItem:(NSString *)val {
