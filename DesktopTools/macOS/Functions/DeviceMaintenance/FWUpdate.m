@@ -35,8 +35,32 @@
 
     // Callback from FWVersion
     - (void)commandDidNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self cancelCommand:success withErrorMessage:errorMessage];
+            return;
+        }
         // TODO: 仮の実装です。
+        [self terminateCommand:success withMessage:nil];
+    }
+
+#pragma mark - 終了処理
+
+    - (void)terminateCommand:(bool)success withMessage:(NSString *)message {
+        // 終了メッセージを画面表示／ログ出力
+        if (success) {
+            [self LogAndShowInfoMessage:message];
+        } else {
+            [self LogAndShowErrorMessage:message];
+        }
         [self resumeProcess:success];
+    }
+
+    - (void)cancelCommand:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 中断メッセージを画面表示／ログ出力
+        if (success == false) {
+            [self LogAndShowErrorMessage:errorMessage];
+        }
+        [self cancelProcess];
     }
 
 @end
