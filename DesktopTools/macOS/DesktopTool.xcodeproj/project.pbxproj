@@ -123,8 +123,8 @@
 		64ED9A8B1647439300F39EAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		64ED9A8C1647439300F39EAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		64ED9A9C164752C800F39EAE /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
-		7A0587752A1DF5DC00BA3652 /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A0587762A1DF5DC00BA3652 /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0587752A1DF5DC00BA3652 /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = DesktopTool.app; path = /Users/makmorit/GitHub/SquareDevices/DesktopTools/macOS/build/Debug/DesktopTool.app; sourceTree = "<absolute>"; };
+		7A0587762A1DF5DC00BA3652 /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VendorTool.app; path = /Users/makmorit/GitHub/SquareDevices/DesktopTools/macOS/build/Debug/VendorTool.app; sourceTree = "<absolute>"; };
 		7A0D20BE22408E920022EA8E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		7A0EB184258066AA004ED59C /* PCSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PCSC.framework; path = System/Library/Frameworks/PCSC.framework; sourceTree = SDKROOT; };
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
@@ -239,17 +239,15 @@
 		64ED9A6A1647439300F39EAE = {
 			isa = PBXGroup;
 			children = (
+				7A4C217C287520DA005CC8D0 /* AppCommon */,
+				7A2712692A24714300FA9030 /* Functions */,
 				7A62E6FF2ADD14E5007942AE /* Helpers */,
-				7A2712692A24714300FA9030 /* DesktopToolFunctions */,
-				7A98D7DE2A258EA7005A593E /* DesktopToolView */,
 				7A36FB302A1B3461005C78D6 /* Resources */,
+				7A98D7DE2A258EA7005A593E /* Views */,
 				64ED9A7F1647439300F39EAE /* DesktopTool */,
 				7A3F4F1628755CB5003CFE67 /* DesktopToolApp */,
-				7A4C217C287520DA005CC8D0 /* ToolCommon */,
 				7A8B3E26296E586F0005F7B1 /* VendorTool */,
 				64ED9A781647439300F39EAE /* Frameworks */,
-				7A0587752A1DF5DC00BA3652 /* DesktopTool.app */,
-				7A0587762A1DF5DC00BA3652 /* VendorTool.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,7 +300,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7A2712692A24714300FA9030 /* DesktopToolFunctions */ = {
+		7A2712692A24714300FA9030 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
@@ -318,7 +316,7 @@
 				7AA301A82A286FB10039E7E0 /* ToolCommon */,
 				7A27126A2A24716900FA9030 /* ToolInfos */,
 			);
-			path = DesktopToolFunctions;
+			path = Functions;
 			sourceTree = "<group>";
 		};
 		7A27126A2A24716900FA9030 /* ToolInfos */ = {
@@ -361,7 +359,7 @@
 			path = DesktopToolApp;
 			sourceTree = "<group>";
 		};
-		7A4C217C287520DA005CC8D0 /* ToolCommon */ = {
+		7A4C217C287520DA005CC8D0 /* AppCommon */ = {
 			isa = PBXGroup;
 			children = (
 				7A92D0E528754F3C0094D2DB /* ToolCommonFunc.h */,
@@ -371,7 +369,7 @@
 				7A36FB412A1B3A66005C78D6 /* PopupWindow.h */,
 				7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */,
 			);
-			path = ToolCommon;
+			path = AppCommon;
 			sourceTree = "<group>";
 		};
 		7A62E6FF2ADD14E5007942AE /* Helpers */ = {
@@ -398,7 +396,7 @@
 			path = VendorTool;
 			sourceTree = "<group>";
 		};
-		7A98D7DE2A258EA7005A593E /* DesktopToolView */ = {
+		7A98D7DE2A258EA7005A593E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				7A2712732A247B1F00FA9030 /* FunctionView.h */,
@@ -410,7 +408,7 @@
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
 			);
-			path = DesktopToolView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7AA301A82A286FB10039E7E0 /* ToolCommon */ = {
