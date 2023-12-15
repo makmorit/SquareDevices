@@ -6,12 +6,14 @@
 //
 #import "FunctionMessage.h"
 #import "FWUpdate.h"
+#import "FWUpdateImage.h"
 #import "FWVersion.h"
 
-@interface FWUpdate () <FWVersionDelegate>
+@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
+    @property (nonatomic) FWUpdateImage                *fwUpdateImage;
 
 @end
 
@@ -39,6 +41,13 @@
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
         }
+        // 更新ファームウェアのバージョンチェック／イメージ情報取得
+        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[self fwVersion]]];
+        [[self fwUpdateImage] commandWillRetrieveImage];
+    }
+
+    // Callback from FWUpdateImage
+    - (void)commandDidRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
         // TODO: 仮の実装です。
         [self terminateCommand:success withMessage:nil];
     }

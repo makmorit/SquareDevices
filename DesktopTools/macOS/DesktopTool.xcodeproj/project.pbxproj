@@ -101,6 +101,8 @@
 		7AB1C8212B2BF60100830345 /* FWVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C81F2B2BF60100830345 /* FWVersion.m */; };
 		7AB1C8252B2C047700830345 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C8242B2C047700830345 /* AppUtil.m */; };
 		7AB1C8262B2C047700830345 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C8242B2C047700830345 /* AppUtil.m */; };
+		7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C8282B2C330000830345 /* FWUpdateImage.m */; };
+		7AB1C82A2B2C330000830345 /* FWUpdateImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C8282B2C330000830345 /* FWUpdateImage.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
 		7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
@@ -196,6 +198,8 @@
 		7AB1C81F2B2BF60100830345 /* FWVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWVersion.m; sourceTree = "<group>"; };
 		7AB1C8232B2C03CF00830345 /* AppUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUtil.h; sourceTree = "<group>"; };
 		7AB1C8242B2C047700830345 /* AppUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppUtil.m; sourceTree = "<group>"; };
+		7AB1C8272B2C313300830345 /* FWUpdateImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateImage.h; sourceTree = "<group>"; };
+		7AB1C8282B2C330000830345 /* FWUpdateImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateImage.m; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -460,10 +464,12 @@
 			children = (
 				7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */,
 				7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */,
+				7AB1C8272B2C313300830345 /* FWUpdateImage.h */,
 				7AB1C81E2B2BF5E900830345 /* FWVersion.h */,
 				7AB1C81F2B2BF60100830345 /* FWVersion.m */,
 				7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */,
 				7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */,
+				7AB1C8282B2C330000830345 /* FWUpdateImage.m */,
 			);
 			path = DeviceMaintenance;
 			sourceTree = "<group>";
@@ -600,6 +606,7 @@
 				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
+				7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
@@ -634,6 +641,7 @@
 				7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
+				7AB1C82A2B2C330000830345 /* FWUpdateImage.m in Sources */,
 				7A8B3DBD296E56640005F7B1 /* main.m in Sources */,
 				7A2CCB942B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
