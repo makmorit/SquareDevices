@@ -95,6 +95,8 @@
 		7AA301AF2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */; };
 		7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
 		7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301B02A2874040039E7E0 /* ToolDoProcess.m */; };
+		7AB1C81C2B2BEB7D00830345 /* FWUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */; };
+		7AB1C81D2B2BEB7D00830345 /* FWUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
 		7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
@@ -184,6 +186,8 @@
 		7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcessView.h; sourceTree = "<group>"; };
 		7AA301B02A2874040039E7E0 /* ToolDoProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDoProcess.m; sourceTree = "<group>"; };
 		7AA301B12A2874040039E7E0 /* ToolDoProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcess.h; sourceTree = "<group>"; };
+		7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdate.h; sourceTree = "<group>"; };
+		7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdate.m; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -303,6 +307,10 @@
 		7A2712692A24714300FA9030 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				7ADD426D2A2D71190086CF47 /* BLEConnection */,
+				7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */,
+				7AA301A82A286FB10039E7E0 /* ToolCommon */,
+				7A27126A2A24716900FA9030 /* ToolInfos */,
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
 				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
 				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
@@ -311,10 +319,6 @@
 				7A2712772A24984F00FA9030 /* FunctionManager.h */,
 				7A2712782A24987100FA9030 /* FunctionManager.m */,
 				7ADD42722A2D7F1C0086CF47 /* FunctionMessage.h */,
-				7ADD426D2A2D71190086CF47 /* BLEConnection */,
-				7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */,
-				7AA301A82A286FB10039E7E0 /* ToolCommon */,
-				7A27126A2A24716900FA9030 /* ToolInfos */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -444,6 +448,8 @@
 		7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */ = {
 			isa = PBXGroup;
 			children = (
+				7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */,
+				7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */,
 				7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */,
 				7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */,
 			);
@@ -588,6 +594,7 @@
 				7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
+				7AB1C81C2B2BEB7D00830345 /* FWUpdate.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
@@ -619,6 +626,7 @@
 				7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7A8913692A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
 				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
+				7AB1C81D2B2BEB7D00830345 /* FWUpdate.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,

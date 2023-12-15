@@ -14,6 +14,7 @@
 #import "BLEPairing.h"
 #import "BLEUnpairing.h"
 #import "EraseBondingInfo.h"
+#import "FWUpdate.h"
 #import "FWVersionInfo.h"
 #import "ToolVersionInfo.h"
 
@@ -39,6 +40,8 @@
             [self setCurrentFunction:[[BLEUnpairing alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_ERASE_BOND]) {
             [self setCurrentFunction:[[EraseBondingInfo alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE]) {
+            [self setCurrentFunction:[[FWUpdate alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_APP_VERSION]) {
             [self setCurrentFunction:[[FWVersionInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {
