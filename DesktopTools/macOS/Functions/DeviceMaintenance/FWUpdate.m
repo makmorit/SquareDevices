@@ -42,12 +42,16 @@
             return;
         }
         // 更新ファームウェアのバージョンチェック／イメージ情報取得
-        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[self fwVersion]]];
+        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[[self fwVersion] versionData]]];
         [[self fwUpdateImage] commandWillRetrieveImage];
     }
 
     // Callback from FWUpdateImage
     - (void)commandDidRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self cancelCommand:success withErrorMessage:errorMessage];
+            return;
+        }
         // TODO: 仮の実装です。
         [self terminateCommand:success withMessage:nil];
     }
