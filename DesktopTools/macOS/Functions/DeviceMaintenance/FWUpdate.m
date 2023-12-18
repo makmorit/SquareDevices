@@ -52,6 +52,11 @@
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
         }
+        // ファームウェアの現在バージョン／更新バージョンを画面表示
+        NSString *fwRev = [[[self fwVersion] versionData] fwRev];
+        NSString *updateVersion = [[[self fwUpdateImage] updateImageData] updateVersion];
+        NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
+        [self LogAndShowInfoMessage:message];
         // TODO: 仮の実装です。
         [self terminateCommand:success withMessage:nil];
     }
