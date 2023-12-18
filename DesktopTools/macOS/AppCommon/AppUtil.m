@@ -19,4 +19,13 @@
         return cborData;
     }
 
+    + (int)calculateDecimalVersion:(NSString *)versionString {
+        // バージョン文字列 "1.2.11" -> "010211" 形式に変換
+        int decimalVersion = 0;
+        for (NSString *element in [versionString componentsSeparatedByString:@"."]) {
+            decimalVersion = decimalVersion * 100 + [element intValue];
+        }
+        return decimalVersion;
+    }
+
 @end

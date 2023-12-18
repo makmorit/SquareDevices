@@ -12,6 +12,7 @@
 @interface AppUtil : NSObject
 
     + (NSData *)extractCBORBytesFromResponse:(NSData *)responseData;
+    + (int)calculateDecimalVersion:(NSString *)versionString;
 
 @end
 
