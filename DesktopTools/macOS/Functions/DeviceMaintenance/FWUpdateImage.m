@@ -38,7 +38,7 @@
         return self;
     }
 
-    - (void)commandWillRetrieveImage {
+    - (void)retrieveImage {
         // 基板名に対応するファームウェア更新イメージファイルから、バイナリーイメージを読込
         if ([self readFWUpdateImageFile:[[self versionData] hwRev]] == false) {
             [self terminate:false withErrorMessage:MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST];
@@ -97,7 +97,7 @@
     }
 
     - (void)terminate:(bool)success withErrorMessage:(NSString *)errorMessage {
-        [[self delegate] commandDidRetrieveImage:success withErrorMessage:errorMessage];
+        [[self delegate] FWUpdateImage:self didRetrieveImage:success withErrorMessage:errorMessage];
     }
 
 @end

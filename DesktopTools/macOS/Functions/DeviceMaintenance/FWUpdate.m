@@ -13,7 +13,6 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
-    @property (nonatomic) FWUpdateImage                *fwUpdateImage;
 
 @end
 
@@ -41,12 +40,10 @@
             return;
         }
         // 更新ファームウェアのバージョンチェック／イメージ情報取得
-        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]]];
-        [[self fwUpdateImage] commandWillRetrieveImage];
+        [[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]] retrieveImage];
     }
 
-    // Callback from FWUpdateImage
-    - (void)commandDidRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)FWUpdateImage:(FWUpdateImage *)fwUpdateImage didRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
@@ -54,7 +51,7 @@
         // ファームウェアの現在バージョン／更新バージョンを画面表示
         // NSString *fwRev = [[[self fwVersion] versionData] fwRev];
         NSString *fwRev = @""; // 移行措置
-        NSString *updateVersion = [[[self fwUpdateImage] updateImageData] updateVersion];
+        NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
         // TODO: 仮の実装です。
