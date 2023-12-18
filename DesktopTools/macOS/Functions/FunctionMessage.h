@@ -49,6 +49,16 @@
 #define MSG_BLE_ERASE_BONDS                         @"BLEデバイスからペアリング情報をすべて削除します。"
 #define MSG_PROMPT_BLE_ERASE_BONDS                  @"削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？"
 
+#pragma mark - ファームウェア更新
+#define MSG_FW_UPDATE_FUNC_NOT_AVAILABLE            @"ファームウェア更新機能が利用できません。"
+#define MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST          @"ファームウェア更新イメージファイルが存在しません。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
+#define MSG_FW_UPDATE_VERSION_UNKNOWN               @"ファームウェア更新イメージファイルのバージョンが不明です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN       @"ファームウェアの現在バージョンが不明です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新することはできません。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新します。"
+
 #pragma mark - デバイス情報参照画面
 
 #define MSG_DEVICE_FW_VERSION_INFO_SHOWING          @"デバイスに導入されているファームウェア等に関する情報を表示しています。"
