@@ -23,6 +23,7 @@
 
     - (instancetype)initWithDelegate:(id)delegate withVersionData:(id)versionDataRef;
     - (void)retrieveImage;
+    - (NSString *)currentVersion;
 
 @end
 

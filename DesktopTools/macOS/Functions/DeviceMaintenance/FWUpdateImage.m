@@ -38,6 +38,11 @@
         return self;
     }
 
+    - (NSString *)currentVersion {
+        // BLE経由で取得した現在バージョンを戻す
+        return [[self versionData] fwRev];
+    }
+
     - (void)retrieveImage {
         // 基板名に対応するファームウェア更新イメージファイルから、バイナリーイメージを読込
         if ([self readFWUpdateImageFile:[[self versionData] hwRev]] == false) {
