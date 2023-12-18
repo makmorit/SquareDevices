@@ -32,17 +32,16 @@
         [self LogAndShowInfoMessage:MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM];
 
         // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
-        [[self fwVersion] commandWillInquiry];
+        [[self fwVersion] inquiry];
     }
 
-    // Callback from FWVersion
-    - (void)commandDidNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
         }
         // 更新ファームウェアのバージョンチェック／イメージ情報取得
-        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[[self fwVersion] versionData]]];
+        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]]];
         [[self fwUpdateImage] commandWillRetrieveImage];
     }
 
@@ -53,7 +52,8 @@
             return;
         }
         // ファームウェアの現在バージョン／更新バージョンを画面表示
-        NSString *fwRev = [[[self fwVersion] versionData] fwRev];
+        // NSString *fwRev = [[[self fwVersion] versionData] fwRev];
+        NSString *fwRev = @""; // 移行措置
         NSString *updateVersion = [[[self fwUpdateImage] updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];

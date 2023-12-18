@@ -25,13 +25,13 @@
     @property (nonatomic) FWVersionData        *versionData;
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)commandWillInquiry;
+    - (void)inquiry;
 
 @end
 
 @protocol FWVersionDelegate <NSObject>
 
-    - (void)commandDidNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

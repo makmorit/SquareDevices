@@ -42,7 +42,7 @@
         return self;
     }
 
-    - (void)commandWillInquiry {
+    - (void)inquiry {
         // U2F BLEサービスに接続
         [[self transport] transportWillConnect];
     }
@@ -50,7 +50,7 @@
     - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             // U2F BLEサービスに接続失敗時
-            [[self delegate] commandDidNotifyResponseQuery:false withErrorMessage:errorMessage];
+            [[self delegate] FWVersion:self didNotifyResponseQuery:false withErrorMessage:errorMessage];
             return;
         }
         // バージョン照会コマンドを実行
@@ -91,7 +91,7 @@
     - (void)disconnectAndTerminateCommand:(bool)success withErrorMessage:(NSString *)errorMessage {
         // BLE接続を切断し、制御を戻す
         [[self transport] transportWillDisconnect];
-        [[self delegate] commandDidNotifyResponseQuery:success withErrorMessage:errorMessage];
+        [[self delegate] FWVersion:self didNotifyResponseQuery:success withErrorMessage:errorMessage];
     }
 
 #pragma mark - Perform command
