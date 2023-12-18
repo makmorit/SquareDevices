@@ -54,7 +54,7 @@
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
         // TODO: 仮の実装です。
-        [self terminateCommand:success withMessage:nil];
+        [self terminateCommand:success withMessage:@"to be continued..."];
     }
 
 #pragma mark - 終了処理
