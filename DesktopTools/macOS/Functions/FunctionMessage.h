@@ -53,6 +53,11 @@
 #define MSG_FW_UPDATE_FUNC_NOT_AVAILABLE            @"ファームウェア更新機能が利用できません。"
 #define MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST          @"ファームウェア更新イメージファイルが存在しません。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
+#define MSG_FW_UPDATE_VERSION_UNKNOWN               @"ファームウェア更新イメージファイルのバージョンが不明です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN       @"ファームウェアの現在バージョンが不明です。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新することはできません。"
+#define MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新します。"
 
 #pragma mark - デバイス情報参照画面
 

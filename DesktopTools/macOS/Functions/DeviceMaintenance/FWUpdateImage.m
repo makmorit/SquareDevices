@@ -5,6 +5,7 @@
 //  Created by Makoto Morita on 2023/12/15.
 //
 #import "mcumgr_app_image.h"
+#import "AppUtil.h"
 #import "FunctionMessage.h"
 #import "FWUpdateImage.h"
 #import "FWVersion.h"
@@ -43,7 +44,31 @@
             [self terminate:false withErrorMessage:MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST];
             return;
         }
-        // TODO: 仮の実装です。
+        // ファームウェア更新イメージファイルから、更新バージョンを取得
+        NSString *updateVersion = [[NSString alloc] initWithUTF8String:mcumgr_app_image_bin_version()];
+        // 更新イメージファイル名からバージョンが取得できていない場合は利用不可
+        if ([updateVersion length] == 0) {
+            [self terminate:false withErrorMessage:MSG_FW_UPDATE_VERSION_UNKNOWN];
+            return;
+        }
+        // BLE経由で現在バージョンが取得できていない場合は利用不可
+        NSString *currentVersion = [[self versionData] fwRev];
+        if ([currentVersion length] == 0) {
+            [self terminate:false withErrorMessage:MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN];
+            return;
+        }
+        // 現在バージョンが、更新イメージファイルのバージョンより新しい場合は利用不可
+        int currentVersionDec = [AppUtil calculateDecimalVersion:currentVersion];
+        int updateVersionDec = [AppUtil calculateDecimalVersion:updateVersion];
+        if (currentVersionDec > updateVersionDec) {
+            NSString *informative = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW, currentVersion, updateVersion];
+            [self terminate:false withErrorMessage:informative];
+            return;
+        }
+        // 更新イメージのバージョン文字列を設定
+        [self setUpdateImageData:[[FWUpdateImageData alloc] init]];
+        [[self updateImageData] setUpdateVersion:updateVersion];
+        // 上位クラスに制御を戻す
         [self terminate:true withErrorMessage:nil];
     }
 

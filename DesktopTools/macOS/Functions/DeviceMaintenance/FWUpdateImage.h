@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 
 @interface FWUpdateImageData : NSObject
+    // 更新イメージファイルのバージョン文字列
+    @property (nonatomic) NSString             *updateVersion;
 
 @end
 
