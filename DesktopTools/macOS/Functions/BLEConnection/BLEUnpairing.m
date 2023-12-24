@@ -78,7 +78,7 @@
             // ペアリング解除要求コマンド（２回目）を実行
             [self performExecuteCommand:bleTransport withResponse:responseData];
             
-        } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:withResponse:"]) {
+        } else if ([[self commandName] isEqualToString:@"performExecuteCommand:withResponse:"]) {
             // ペアリング解除要求待機画面をモーダル表示
             [[self unpairRequest] openModalWindow];
             
