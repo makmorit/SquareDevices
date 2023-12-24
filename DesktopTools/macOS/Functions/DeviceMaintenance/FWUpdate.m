@@ -21,9 +21,16 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self) {
+            [self enableClickButtonDoProcess:false];
             [self setFwVersion:[[FWVersion alloc] initWithDelegate:self]];
         }
         return self;
+    }
+
+    - (void)FWVersion:(FWVersion *)fwVersion didUpdateState:(bool)available {
+        if (available) {
+            [self enableClickButtonDoProcess:true];
+        }
     }
 
     - (void)invokeProcessOnSubQueue {
