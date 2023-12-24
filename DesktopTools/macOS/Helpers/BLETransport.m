@@ -47,7 +47,7 @@
     }
 
     - (void)peripheralDidConnectWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
-        [[self delegate] transportDidConnect:success withErrorMessage:errorMessage];
+        [[self delegate] BLETransport:self didConnect:success withErrorMessage:errorMessage];
     }
 
     - (void)transportWillDisconnect {
@@ -60,7 +60,7 @@
     }
 
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
-        [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
+        [[self delegate] BLETransport:self didReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
     }
 
 #pragma mark - Public functions for sub classes
@@ -143,8 +143,8 @@
 
     // Callback from BLEPeripheralScanner
     - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
-        if ([[self delegate] respondsToSelector:@selector(transportDidDisconnect:withErrorMessage:)]) {
-            [[self delegate] transportDidDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
+        if ([[self delegate] respondsToSelector:@selector(BLETransport:didDisconnect:withErrorMessage:)]) {
+            [[self delegate] BLETransport:self didDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
         }
     }
 
