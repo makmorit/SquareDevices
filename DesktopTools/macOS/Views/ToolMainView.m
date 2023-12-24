@@ -16,7 +16,7 @@
     // サイドメニュー領域の参照を保持
     @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
-    @property (nonatomic) FunctionManager   *functionManager;
+    @property (nonatomic) FunctionManager       *functionManager;
 
 @end
 
@@ -48,14 +48,14 @@
         [[self functionManager] willProcessWithDelegate:self withTitle:title];
     }
 
-#pragma mark - Callback from ToolFunctionManager
+#pragma mark - Callback from FunctionBase
 
-    - (void)notifyFunctionShowSubView:(NSView *)subView {
+    - (void)FunctionBase:(FunctionBase *)functionBase notifyShowSubView:(NSView *)subView {
         // 画面右側の領域に業務処理画面を表示
         [[self stackView] addSubview:subView];
     }
 
-    - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled {
+    - (void)FunctionBase:(FunctionBase *)functionBase notifyEnableMenuSelection:(bool)isEnabled {
         // サイドメニュー領域を使用可能／不能にする
         [[self toolSideMenuView] willEnableToSelect:isEnabled];
     }
