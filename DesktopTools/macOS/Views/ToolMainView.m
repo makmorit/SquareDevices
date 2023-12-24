@@ -43,7 +43,7 @@
 
 #pragma mark - Callback from SideMenuView
 
-    - (void)menuItemDidClickWithTitle:(nonnull NSString *)title {
+    - (void)ToolSideMenuView:(ToolSideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title {
         // 業務クラスに制御を移す
         [[self functionManager] willProcessWithDelegate:self withTitle:title];
     }
