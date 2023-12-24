@@ -7,11 +7,10 @@
 #import "FunctionBase.h"
 
 @interface FunctionBase () <FunctionViewDelegate>
-
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // 現在表示中のサブ画面（メイン画面の右側領域）の参照を保持
-    @property (nonatomic) FunctionView              *subView;
+    @property (nonatomic) FunctionView                  *subView;
     // メニュータイトル
     @property (nonatomic) NSString                      *menuTitle;
 

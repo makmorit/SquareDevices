@@ -19,7 +19,6 @@
 #import "ToolVersionInfo.h"
 
 @interface FunctionManager ()
-
     // 現在実行中の機能クラスの参照を保持
     @property (nonatomic) FunctionBase                  *currentFunction;
 
