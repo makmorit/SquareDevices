@@ -9,6 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, BLEUnpairRequestResultType) {
+    BLEUnpairRequestResultCancel = 0,
+    BLEUnpairRequestResultTimeout,
+};
+
 @protocol BLEUnpairRequestDelegate;
 
 @interface BLEUnpairRequest : NSObject
@@ -24,8 +29,7 @@
 
 @protocol BLEUnpairRequestDelegate <NSObject>
 
-    - (void)modalWindowDidNotifyCancel;
-    - (void)modalWindowDidNotifyTimeout;
+    - (void)BLEUnpairRequest:(BLEUnpairRequest *)bleUnpairRequest didNotify:(BLEUnpairRequestResultType)type;
 
 @end
 

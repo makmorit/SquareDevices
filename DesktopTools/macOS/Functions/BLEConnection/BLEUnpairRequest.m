@@ -80,12 +80,12 @@
         // タイムアウト監視を停止
         [self cancelWaitingForUnpairTimeoutMonitor];
         // 上位クラスに制御を戻す
-        [[self delegate] modalWindowDidNotifyCancel];
+        [[self delegate] BLEUnpairRequest:self didNotify:BLEUnpairRequestResultCancel];
     }
 
     - (void)unpairRequestNotifyTimeout {
         // 上位クラスに制御を戻す
-        [[self delegate] modalWindowDidNotifyTimeout];
+        [[self delegate] BLEUnpairRequest:self didNotify:BLEUnpairRequestResultTimeout];
     }
 
     - (void)closeModalWindow {
