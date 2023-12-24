@@ -22,9 +22,16 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self) {
+            [self enableClickButtonDoProcess:false];
             [self setTransport:[[BLEU2FTransport alloc] initWithDelegate:self]];
         }
         return self;
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available {
+        if (available) {
+            [self enableClickButtonDoProcess:true];
+        }
     }
 
 #pragma mark - Process management

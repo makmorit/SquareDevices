@@ -28,6 +28,7 @@
 
 @protocol BLETransportDelegate <NSObject>
 
+    - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available;
     - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage;
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData;
 

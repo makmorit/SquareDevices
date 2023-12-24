@@ -22,13 +22,14 @@
     @property (nonatomic) FWUpdateImageData    *updateImageData;
 
     - (instancetype)initWithDelegate:(id)delegate withVersionData:(id)versionDataRef;
-    - (void)commandWillRetrieveImage;
+    - (void)retrieveImage;
+    - (NSString *)currentVersion;
 
 @end
 
 @protocol FWUpdateImageDelegate <NSObject>
 
-    - (void)commandDidRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)FWUpdateImage:(FWUpdateImage *)fwUpdateImage didRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

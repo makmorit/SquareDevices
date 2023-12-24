@@ -13,7 +13,6 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
-    @property (nonatomic) FWUpdateImage                *fwUpdateImage;
 
 @end
 
@@ -22,9 +21,16 @@
     - (instancetype)initWithDelegate:(id)delegate {
         self = [super initWithDelegate:delegate];
         if (self) {
+            [self enableClickButtonDoProcess:false];
             [self setFwVersion:[[FWVersion alloc] initWithDelegate:self]];
         }
         return self;
+    }
+
+    - (void)FWVersion:(FWVersion *)fwVersion didUpdateState:(bool)available {
+        if (available) {
+            [self enableClickButtonDoProcess:true];
+        }
     }
 
     - (void)invokeProcessOnSubQueue {
@@ -32,33 +38,30 @@
         [self LogAndShowInfoMessage:MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM];
 
         // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
-        [[self fwVersion] commandWillInquiry];
+        [[self fwVersion] inquiry];
     }
 
-    // Callback from FWVersion
-    - (void)commandDidNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
         }
         // 更新ファームウェアのバージョンチェック／イメージ情報取得
-        [self setFwUpdateImage:[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[[self fwVersion] versionData]]];
-        [[self fwUpdateImage] commandWillRetrieveImage];
+        [[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]] retrieveImage];
     }
 
-    // Callback from FWUpdateImage
-    - (void)commandDidRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)FWUpdateImage:(FWUpdateImage *)fwUpdateImage didRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             [self cancelCommand:success withErrorMessage:errorMessage];
             return;
         }
         // ファームウェアの現在バージョン／更新バージョンを画面表示
-        NSString *fwRev = [[[self fwVersion] versionData] fwRev];
-        NSString *updateVersion = [[[self fwUpdateImage] updateImageData] updateVersion];
+        NSString *fwRev = [fwUpdateImage currentVersion];
+        NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
         // TODO: 仮の実装です。
-        [self terminateCommand:success withMessage:nil];
+        [self terminateCommand:success withMessage:@"to be continued..."];
     }
 
 #pragma mark - 終了処理
