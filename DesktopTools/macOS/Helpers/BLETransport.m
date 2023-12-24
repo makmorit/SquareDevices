@@ -35,6 +35,7 @@
 
     // Callback from BLEPeripheralScanner
     - (void)didUpdateScannerState:(bool)available {
+        [[self delegate] BLETransport:self didUpdateState:available];
     }
 
 #pragma mark - Public functions
