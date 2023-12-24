@@ -42,6 +42,10 @@
         return self;
     }
 
+    - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available {
+        [[self delegate] FWVersion:self didUpdateState:available];
+    }
+
     - (void)inquiry {
         // U2F BLEサービスに接続
         [[self transport] transportWillConnect];

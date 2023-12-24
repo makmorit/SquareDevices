@@ -31,6 +31,7 @@
 
 @protocol FWVersionDelegate <NSObject>
 
+    - (void)FWVersion:(FWVersion *)fwVersion didUpdateState:(bool)available;
     - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
