@@ -43,24 +43,24 @@
         [[self transport] transportWillConnect];
     }
 
-    - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             // U2F BLEサービスに接続失敗時はログ出力
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // 画面に接続ペリフェラル名称を設定
         [[self unpairRequest] setPeripheralName:[[self transport] scannedPeripheralName]];
         // ペアリング解除要求コマンド（１回目）を実行
-        [self performInquiryCommand];
+        [self performInquiryCommand:bleTransport];
     }
 
-    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
+    - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
         if (success == false) {
             // コマンド受信失敗時はログ出力
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // レスポンスデータを抽出
@@ -70,26 +70,26 @@
         if (status != CTAP1_ERR_SUCCESS) {
             NSString *errorMessage = [NSString stringWithFormat:MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status];
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // コマンド名により処理分岐
-        if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
+        if ([[self commandName] isEqualToString:@"performInquiryCommand:"]) {
             // ペアリング解除要求コマンド（２回目）を実行
-            [self performExecuteCommandWithResponse:responseData];
+            [self performExecuteCommand:bleTransport withResponse:responseData];
             
-        } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:"]) {
+        } else if ([[self commandName] isEqualToString:@"performExecuteCommandWithResponse:withResponse:"]) {
             // ペアリング解除要求待機画面をモーダル表示
             [[self unpairRequest] openModalWindow];
             
-        } else if ([[self commandName] isEqualToString:@"performCancelCommand"]) {
+        } else if ([[self commandName] isEqualToString:@"performCancelCommand:"]) {
             // BLE接続を切断し、制御を戻す
-            [[self transport] transportWillDisconnect];
+            [bleTransport transportWillDisconnect];
             [self cancelProcess];
         }
     }
 
-    - (void)transportDidDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)BLETransport:(BLETransport *)bleTransport didDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         // ペアリング解除要求待機中に切断検知された場合
         if ([[self unpairRequest] isWaitingForUnpairTimeout]) {
             if (success == false) {
@@ -98,35 +98,35 @@
             }
             // 待機画面を閉じる
             [[self unpairRequest] closeModalWindow];
-            [self disconnectAndResumeProcess:success];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:success];
             
         } else if (success == false) {
             // エラー発生の旨を通知
             [self LogAndShowErrorMessage:errorMessage];
             // BLE接続を切断し、制御を戻す
-            [[self transport] transportWillDisconnect];
+            [bleTransport transportWillDisconnect];
             [self cancelProcess];
         }
     }
 
-    - (void)disconnectAndResumeProcess:(bool)success {
+    - (void)disconnectAndResumeProcess:(BLETransport *)bleTransport withSuccess:(bool)success {
         // BLE接続を切断し、制御を戻す
-        [[self transport] transportWillDisconnect];
+        [bleTransport transportWillDisconnect];
         [self resumeProcess:success];
     }
 
 #pragma mark - Perform command
 
-    - (void)performInquiryCommand {
+    - (void)performInquiryCommand:(BLETransport *)bleTransport {
         // コマンド名を退避
         [self setCommandName:NSStringFromSelector(_cmd)];
         // ペアリング解除要求コマンド（１回目）を実行
         uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
-    - (void)performExecuteCommandWithResponse:(NSData *)responseData {
+    - (void)performExecuteCommand:(BLETransport *)bleTransport withResponse:(NSData *)responseData {
         // コマンド名を退避
         [self setCommandName:NSStringFromSelector(_cmd)];
         // レスポンスデータを抽出
@@ -136,16 +136,16 @@
         // ペアリング解除要求コマンド（２回目）を実行
         unsigned char requestBytes[] = {VENDOR_COMMAND_UNPAIRING_REQUEST, peerIdBytes[0], peerIdBytes[1]};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
-    - (void)performCancelCommand {
+    - (void)performCancelCommand:(BLETransport *)bleTransport {
         // コマンド名を退避
         [self setCommandName:NSStringFromSelector(_cmd)];
         // ペアリング解除要求キャンセルコマンドを実行
         uint8_t requestBytes[] = {VENDOR_COMMAND_UNPAIRING_CANCEL};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
 #pragma mark - Callback from BLEUnpairRequest
@@ -153,13 +153,13 @@
     - (void)modalWindowDidNotifyCancel {
         // ペアリング解除要求待機画面でキャンセルボタン押下時
         [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_CANCELED];
-        [self performCancelCommand];
+        [self performCancelCommand:[self transport]];
     }
 
     - (void)modalWindowDidNotifyTimeout {
         // ペアリング解除要求待機がタイムアウト時
         [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT];
-        [self performCancelCommand];
+        [self performCancelCommand:[self transport]];
     }
 
 @end
