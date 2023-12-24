@@ -55,22 +55,22 @@
         [[self transport] transportWillConnect];
     }
 
-    - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             // U2F BLEサービスに接続失敗時はログ出力
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // ペアリング情報削除コマンド（１回目）を実行
-        [self performInquiryCommand];
+        [self performInquiryCommand:bleTransport];
     }
 
-    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
+    - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
         if (success == false) {
             // コマンド受信失敗時はログ出力
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // レスポンスデータを抽出
@@ -80,35 +80,35 @@
         if (status != CTAP1_ERR_SUCCESS) {
             NSString *errorMessage = [NSString stringWithFormat:MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status];
             [self LogAndShowErrorMessage:errorMessage];
-            [self disconnectAndResumeProcess:false];
+            [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
         // レスポンスデータをチェック
         if ([responseData length] == 3) {
             // ペアリング情報削除コマンド（２回目）を実行
-            [self performExecuteCommandWithResponse:responseData];
+            [self performExecuteCommand:bleTransport withResponse:responseData];
             return;
         }
         // BLE接続を切断し、制御を戻す
-        [self disconnectAndResumeProcess:true];
+        [self disconnectAndResumeProcess:bleTransport withSuccess:true];
     }
 
-    - (void)disconnectAndResumeProcess:(bool)success {
+    - (void)disconnectAndResumeProcess:(BLETransport *)bleTransport withSuccess:(bool)success {
         // BLE接続を切断し、制御を戻す
-        [[self transport] transportWillDisconnect];
+        [bleTransport transportWillDisconnect];
         [self resumeProcess:success];
     }
 
 #pragma mark - Perform command
 
-    - (void)performInquiryCommand {
+    - (void)performInquiryCommand:(BLETransport *)bleTransport {
         // ペアリング情報削除コマンド（１回目）を実行
         unsigned char requestBytes[] = {VENDOR_COMMAND_ERASE_BONDING_DATA};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
-    - (void)performExecuteCommandWithResponse:(NSData *)responseData {
+    - (void)performExecuteCommand:(BLETransport *)bleTransport withResponse:(NSData *)responseData {
         // レスポンスデータを抽出
         uint8_t *responseBytes = (uint8_t *)[responseData bytes];
         // コマンド引数となるPeer IDを抽出
@@ -116,7 +116,7 @@
         // ペアリング情報削除コマンド（２回目）を実行
         unsigned char requestBytes[] = {VENDOR_COMMAND_ERASE_BONDING_DATA, peerIdBytes[0], peerIdBytes[1]};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
 @end
