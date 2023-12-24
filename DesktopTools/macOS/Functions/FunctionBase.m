@@ -52,9 +52,9 @@
             // 画面の描画領域を設定
             [[self subView] setupAttributes];
             // 上位クラスに通知（サイドメニュー領域を使用不能にする）
-            [[self delegate] notifyFunctionEnableMenuSelection:false];
+            [[self delegate] FunctionBase:self notifyEnableMenuSelection:false];
             // メニュー項目に対応する画面を、サブ画面に表示
-            [[self delegate] notifyFunctionShowSubView:[[self subView] view]];
+            [[self delegate] FunctionBase:self notifyShowSubView:[[self subView] view]];
         }
     }
 
@@ -65,7 +65,7 @@
 
     - (void)subViewDidRemove {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
-        [[self delegate] notifyFunctionEnableMenuSelection:true];
+        [[self delegate] FunctionBase:self notifyEnableMenuSelection:true];
         // サブ画面の参照をクリア
         [self setSubView:nil];
     }
