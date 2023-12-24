@@ -27,7 +27,6 @@
         if (self) {
             [self enableClickButtonDoProcess:false];
             [self setTransport:[[BLEU2FTransport alloc] initWithDelegate:self]];
-            [self setUnpairRequest:[[BLEUnpairRequest alloc] initWithDelegate:self]];
         }
         return self;
     }
@@ -50,8 +49,6 @@
             [self disconnectAndResumeProcess:bleTransport withSuccess:false];
             return;
         }
-        // 画面に接続ペリフェラル名称を設定
-        [[self unpairRequest] setPeripheralName:[[self transport] scannedPeripheralName]];
         // ペアリング解除要求コマンド（１回目）を実行
         [self performInquiryCommand:bleTransport];
     }
@@ -79,6 +76,9 @@
             [self performExecuteCommand:bleTransport withResponse:responseData];
             
         } else if ([[self commandName] isEqualToString:@"performExecuteCommand:withResponse:"]) {
+            // 画面に接続ペリフェラル名称を設定
+            [self setUnpairRequest:[[BLEUnpairRequest alloc] initWithDelegate:self]];
+            [[self unpairRequest] setPeripheralName:[bleTransport scannedPeripheralName]];
             // ペアリング解除要求待機画面をモーダル表示
             [[self unpairRequest] openModalWindow];
             
@@ -150,16 +150,17 @@
 
 #pragma mark - Callback from BLEUnpairRequest
 
-    - (void)modalWindowDidNotifyCancel {
-        // ペアリング解除要求待機画面でキャンセルボタン押下時
-        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_CANCELED];
-        [self performCancelCommand:[self transport]];
-    }
-
-    - (void)modalWindowDidNotifyTimeout {
-        // ペアリング解除要求待機がタイムアウト時
-        [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT];
-        [self performCancelCommand:[self transport]];
+    - (void)BLEUnpairRequest:(BLEUnpairRequest *)bleUnpairRequest didNotify:(BLEUnpairRequestResultType)type {
+        if (type == BLEUnpairRequestResultCancel) {
+            // ペアリング解除要求待機画面でキャンセルボタン押下時
+            [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_CANCELED];
+            [self performCancelCommand:[self transport]];
+        }
+        if (type == BLEUnpairRequestResultTimeout) {
+            // ペアリング解除要求待機がタイムアウト時
+            [self LogAndShowErrorMessage:MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT];
+            [self performCancelCommand:[self transport]];
+        }
     }
 
 @end
