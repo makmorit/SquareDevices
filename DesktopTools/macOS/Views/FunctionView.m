@@ -38,12 +38,12 @@
         // サブ画面を領域から消す
         [[self view] removeFromSuperview];
         // 上位クラスに通知
-        [[self delegate] subViewDidRemove];
+        [[self delegate] FunctionView:self didRemove:[self view]];
     }
 
     - (void)subViewWillNotifyEventWithName:(NSString *)eventName {
         // 機能クラスに通知
-        [[self delegate] subViewNotifyEventWithName:eventName];
+        [[self delegate] FunctionView:self didNotifyEventWithName:eventName];
     }
 
 @end
