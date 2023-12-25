@@ -30,7 +30,7 @@
         return self;
     }
 
-    - (void)didUpdateScannerState:(bool)available {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didUpdateState:(bool)available {
         [self enableClickButtonDoProcess:true];
     }
 
@@ -41,7 +41,7 @@
         [[self scanner] peripheralWillScanWithParam:parameter];
     }
 
-    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時はログ出力
         if ([parameter success] == false) {
             [self LogAndShowErrorMessage:[parameter errorMessage]];
@@ -60,7 +60,7 @@
         [[self scanner] scannedPeripheralWillConnect];
     }
 
-    - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didConnectWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時はログ出力
         if ([parameter success] == false) {
             [self LogAndShowErrorMessage:[parameter errorMessage]];
