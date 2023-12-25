@@ -33,8 +33,7 @@
         return self;
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)didUpdateScannerState:(bool)available {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didUpdateState:(bool)available {
         [[self delegate] BLETransport:self didUpdateState:available];
     }
 
@@ -73,8 +72,7 @@
 
 #pragma mark - Private functions
 
-    // Callback from BLEPeripheralScanner
-    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時
         if ([parameter success] == false) {
             [self peripheralDidConnectWithParam:false withErrorMessage:[parameter errorMessage]];
@@ -93,8 +91,7 @@
         [[self scanner] scannedPeripheralWillConnect];
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didConnectWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時はログ出力
         if ([parameter success] == false) {
             [self peripheralDidConnectWithParam:false withErrorMessage:[parameter errorMessage]];
@@ -141,8 +138,7 @@
     - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
         if ([[self delegate] respondsToSelector:@selector(BLETransport:didDisconnect:withErrorMessage:)]) {
             [[self delegate] BLETransport:self didDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
         }
