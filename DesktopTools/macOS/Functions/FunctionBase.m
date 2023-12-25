@@ -60,10 +60,10 @@
 
 #pragma mark - Callback from SubViewController
 
-    - (void)subViewNotifyEventWithName:(NSString *)eventName {
+    - (void)FunctionView:(FunctionView *)functionView didNotifyEventWithName:(NSString *)eventName {
     }
 
-    - (void)subViewDidRemove {
+    - (void)FunctionView:(FunctionView *)functionView didRemove:(NSView *)view {
         // 上位クラスに通知（サイドメニュー領域を使用可能にする）
         [[self delegate] FunctionBase:self notifyEnableMenuSelection:true];
         // サブ画面の参照をクリア
