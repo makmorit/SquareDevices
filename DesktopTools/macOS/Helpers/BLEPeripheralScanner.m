@@ -58,7 +58,7 @@
 
     - (void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {
         bool available = ([central state] == CBManagerStatePoweredOn);
-        [[self delegate] didUpdateScannerState:available];
+        [[self delegate] BLEPeripheralScanner:self didUpdateState:available];
     }
 
 #pragma mark - Scan for peripherals
@@ -85,7 +85,7 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidScanWithParam:[self parameter]];
+            [[self delegate] BLEPeripheralScanner:self didScanWithParam:[self parameter]];
         });
     }
 
@@ -191,9 +191,9 @@
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
-        if ([[self delegate] respondsToSelector:@selector(scannedPeripheralDidConnectWithParam:)]) {
+        if ([[self delegate] respondsToSelector:@selector(BLEPeripheralScanner:didConnectWithParam:)]) {
             dispatch_async([self subQueue], ^{
-                [[self delegate] scannedPeripheralDidConnectWithParam:[self parameter]];
+                [[self delegate] BLEPeripheralScanner:self didConnectWithParam:[self parameter]];
             });
         }
     }
@@ -251,9 +251,9 @@
         [[self parameter] setSuccess:success];
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに通知
-        if ([[self delegate] respondsToSelector:@selector(connectedPeripheralDidDisconnectWithParam:)]) {
+        if ([[self delegate] respondsToSelector:@selector(BLEPeripheralScanner:didDisconnectWithParam:)]) {
             dispatch_async([self subQueue], ^{
-                [[self delegate] connectedPeripheralDidDisconnectWithParam:[self parameter]];
+                [[self delegate] BLEPeripheralScanner:self didDisconnectWithParam:[self parameter]];
             });
         }
     }
