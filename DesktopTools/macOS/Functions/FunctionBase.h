@@ -24,8 +24,8 @@
 
 @protocol FunctionBaseDelegate <NSObject>
 
-    - (void)notifyFunctionShowSubView:(NSView *)subView;
-    - (void)notifyFunctionEnableMenuSelection:(bool)isEnabled;
+    - (void)FunctionBase:(FunctionBase *)functionBase notifyShowSubView:(NSView *)subView;
+    - (void)FunctionBase:(FunctionBase *)functionBase notifyEnableMenuSelection:(bool)isEnabled;
 
 @end
 

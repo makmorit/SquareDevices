@@ -126,9 +126,9 @@
         [self appendStatusText:errorMessage];
     }
 
-#pragma mark - Callback from ToolDoProcessView
+#pragma mark - Callback from FunctionView
 
-    - (void)subViewNotifyEventWithName:(NSString *)eventName {
+    - (void)FunctionView:(FunctionView *)functionView didNotifyEventWithName:(NSString *)eventName {
         if ([eventName isEqualToString:@"buttonDoProcessDidPress"]) {
             [self startProcess];
         }

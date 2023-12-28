@@ -20,7 +20,7 @@
 
 @protocol ToolSideMenuViewDelegate <NSObject>
 
-    - (void)menuItemDidClickWithTitle:(NSString *)title;
+    - (void)ToolSideMenuView:(ToolSideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title;
 
 @end
 

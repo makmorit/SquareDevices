@@ -51,20 +51,20 @@
         [[self transport] transportWillConnect];
     }
 
-    - (void)transportDidConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             // U2F BLEサービスに接続失敗時
             [[self delegate] FWVersion:self didNotifyResponseQuery:false withErrorMessage:errorMessage];
             return;
         }
         // バージョン照会コマンドを実行
-        [self performInquiryCommand];
+        [self performInquiryCommand:bleTransport];
     }
 
-    - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
+    - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
         if (success == false) {
             // コマンド受信失敗時はログ出力
-            [self disconnectAndTerminateCommand:false withErrorMessage:errorMessage];
+            [self disconnectAndTerminateCommand:bleTransport withSuccess:false withErrorMessage:errorMessage];
             return;
         }
         // レスポンスデータを抽出
@@ -73,50 +73,50 @@
         uint8_t status = responseBytes[0];
         if (status != CTAP1_ERR_SUCCESS) {
             NSString *statusErrorMessage = [NSString stringWithFormat:MSG_FORMAT_OCCUR_UNKNOWN_ERROR_ST, status];
-            [self disconnectAndTerminateCommand:false withErrorMessage:statusErrorMessage];
+            [self disconnectAndTerminateCommand:bleTransport withSuccess:false withErrorMessage:statusErrorMessage];
             return;
         }
         // コマンド名により処理分岐
-        if ([[self commandName] isEqualToString:@"performInquiryCommand"]) {
+        if ([[self commandName] isEqualToString:@"performInquiryCommand:"]) {
             // バージョン情報をレスポンスから抽出
-            [self extractVersionInquiry:responseData];
+            [self extractVersionInquiry:bleTransport withResponse:responseData];
             // 上位クラスに制御を戻す
-            [self disconnectAndTerminateCommand:true withErrorMessage:nil];
+            [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
         }
     }
 
-    - (void)transportDidDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)BLETransport:(BLETransport *)bleTransport didDisconnect:(bool)success withErrorMessage:(NSString *)errorMessage {
         if (success == false) {
             // BLE接続を切断し、制御を戻す
-            [self disconnectAndTerminateCommand:false withErrorMessage:errorMessage];
+            [self disconnectAndTerminateCommand:bleTransport withSuccess:false withErrorMessage:errorMessage];
         }
     }
 
-    - (void)disconnectAndTerminateCommand:(bool)success withErrorMessage:(NSString *)errorMessage {
+    - (void)disconnectAndTerminateCommand:(BLETransport *)bleTransport withSuccess:(bool)success withErrorMessage:(NSString *)errorMessage {
         // BLE接続を切断し、制御を戻す
-        [[self transport] transportWillDisconnect];
+        [bleTransport transportWillDisconnect];
         [[self delegate] FWVersion:self didNotifyResponseQuery:success withErrorMessage:errorMessage];
     }
 
 #pragma mark - Perform command
 
-    - (void)performInquiryCommand {
+    - (void)performInquiryCommand:(BLETransport *)bleTransport {
         // コマンド名を退避
         [self setCommandName:NSStringFromSelector(_cmd)];
         // バージョン照会コマンドを実行
         uint8_t requestBytes[] = {VENDOR_COMMAND_GET_APP_VERSION};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
-        [[self transport] transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
-    - (void)extractVersionInquiry:(NSData *)responseData {
+    - (void)extractVersionInquiry:(BLETransport *)bleTransport withResponse:(NSData *)responseData {
         // 戻りメッセージから、取得情報CSVを抽出
         NSData *responseBytes = [AppUtil extractCBORBytesFromResponse:responseData];
         NSString *responseCSV = [[NSString alloc] initWithData:responseBytes encoding:NSASCIIStringEncoding];
         // 情報取得CSVからバージョン情報を抽出
         FWVersionData *version = [self extractValuesFromVersionInfo:responseCSV];
         // バージョン情報にBLEデバイス名を設定
-        [version setDeviceName:[[self transport] scannedPeripheralName]];
+        [version setDeviceName:[bleTransport scannedPeripheralName]];
         // バージョン情報を保持
         [self setVersionData:version];
     }

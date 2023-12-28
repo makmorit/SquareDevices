@@ -105,7 +105,7 @@
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
         // クリックされたメニュー項目の情報を通知
-        [[self delegate] menuItemDidClickWithTitle:selectedItemTitle];
+        [[self delegate] ToolSideMenuView:self didSelectItemWithTitle:selectedItemTitle];
     }
 
     - (void)sideMenuItemDidTerminateProcess {

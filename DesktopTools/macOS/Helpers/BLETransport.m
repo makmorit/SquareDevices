@@ -33,8 +33,7 @@
         return self;
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)didUpdateScannerState:(bool)available {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didUpdateState:(bool)available {
         [[self delegate] BLETransport:self didUpdateState:available];
     }
 
@@ -47,7 +46,7 @@
     }
 
     - (void)peripheralDidConnectWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
-        [[self delegate] transportDidConnect:success withErrorMessage:errorMessage];
+        [[self delegate] BLETransport:self didConnect:success withErrorMessage:errorMessage];
     }
 
     - (void)transportWillDisconnect {
@@ -60,7 +59,7 @@
     }
 
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
-        [[self delegate] transportDidReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
+        [[self delegate] BLETransport:self didReceiveResponse:true withErrorMessage:nil withCMD:responseCMD withData:responseData];
     }
 
 #pragma mark - Public functions for sub classes
@@ -73,8 +72,7 @@
 
 #pragma mark - Private functions
 
-    // Callback from BLEPeripheralScanner
-    - (void)peripheralDidScanWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didScanWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時
         if ([parameter success] == false) {
             [self peripheralDidConnectWithParam:false withErrorMessage:[parameter errorMessage]];
@@ -93,8 +91,7 @@
         [[self scanner] scannedPeripheralWillConnect];
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)scannedPeripheralDidConnectWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didConnectWithParam:(BLEPeripheralScannerParam *)parameter {
         // 失敗時はログ出力
         if ([parameter success] == false) {
             [self peripheralDidConnectWithParam:false withErrorMessage:[parameter errorMessage]];
@@ -120,8 +117,7 @@
         [self peripheralDidConnectWithParam:success withErrorMessage:errorMessage];
     }
 
-    // Callback from BLEPeripheralRequester
-    - (void)peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
             // BLEサービスに接続失敗時
             [self disconnectAndResumeProcess:false withErrorMessage:[parameter errorMessage]];
@@ -133,18 +129,15 @@
         [self peripheralDidConnectWithParam:true withErrorMessage:nil];
     }
 
-    // Callback from BLEPeripheralRequester
-    - (void)peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didSendWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
-    // Callback from BLEPeripheralRequester
-    - (void)peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
-    // Callback from BLEPeripheralScanner
-    - (void)connectedPeripheralDidDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
-        if ([[self delegate] respondsToSelector:@selector(transportDidDisconnect:withErrorMessage:)]) {
-            [[self delegate] transportDidDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        if ([[self delegate] respondsToSelector:@selector(BLETransport:didDisconnect:withErrorMessage:)]) {
+            [[self delegate] BLETransport:self didDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
         }
     }
 

@@ -24,8 +24,8 @@
 
 @protocol FunctionViewDelegate <NSObject>
 
-    - (void)subViewNotifyEventWithName:(NSString *)eventName;
-    - (void)subViewDidRemove;
+    - (void)FunctionView:(FunctionView *)functionView didNotifyEventWithName:(NSString *)eventName;
+    - (void)FunctionView:(FunctionView *)functionView didRemove:(NSView *)view;
 
 @end
 

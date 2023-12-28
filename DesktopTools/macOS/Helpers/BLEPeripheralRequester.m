@@ -71,7 +71,7 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidPrepareWithParam:[self parameter]];
+            [[self delegate] BLEPeripheralRequester:self didPrepareWithParam:[self parameter]];
         });
     }
 
@@ -88,7 +88,7 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidSendWithParam:[self parameter]];
+            [[self delegate] BLEPeripheralRequester:self didSendWithParam:[self parameter]];
         });
     }
 
@@ -98,7 +98,7 @@
         [[self parameter] setErrorMessage:errorMessage];
         // 上位クラスに制御を戻す
         dispatch_async([self subQueue], ^{
-            [[self delegate] peripheralDidReceiveWithParam:[self parameter]];
+            [[self delegate] BLEPeripheralRequester:self didReceiveWithParam:[self parameter]];
         });
     }
 
