@@ -40,9 +40,9 @@
 @protocol BLEPeripheralRequesterDelegate <NSObject>
 @optional
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter;
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didPrepareWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didSendWithParam:(BLEPeripheralRequesterParam *)parameter;
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didReceiveWithParam:(BLEPeripheralRequesterParam *)parameter;
 
 @end
 

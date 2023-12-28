@@ -117,7 +117,7 @@
         [self peripheralDidConnectWithParam:success withErrorMessage:errorMessage];
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
             // BLEサービスに接続失敗時
             [self disconnectAndResumeProcess:false withErrorMessage:[parameter errorMessage]];
@@ -129,10 +129,10 @@
         [self peripheralDidConnectWithParam:true withErrorMessage:nil];
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didSendWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
     }
 
     - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {

@@ -75,7 +75,7 @@
         [[self requester] peripheralWillPrepareWithParam:reqParam];
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didPrepareWithParam:(BLEPeripheralRequesterParam *)parameter {
         // BLE接続を切断
         [[self scanner] connectedPeripheralWillDisconnect];
         if ([parameter success]) {
