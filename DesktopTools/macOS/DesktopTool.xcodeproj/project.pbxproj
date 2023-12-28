@@ -89,6 +89,12 @@
 		7A98D7E12A258EE7005A593E /* ToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* ToolMainView.xib */; };
 		7A98D7E42A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
 		7A98D7E52A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
+		7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */; };
+		7A9A259A2B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */; };
+		7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */; };
+		7A9A259C2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */; };
+		7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */; };
+		7A9A25A02B3D647500EA4B34 /* FWUpdateProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */; };
 		7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
 		7AA301AB2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */; };
 		7AA301AE2A2872B80039E7E0 /* ToolDoProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */; };
@@ -189,6 +195,11 @@
 		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
 		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
 		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
+		7A9A25962B3D61F700EA4B34 /* FWUpdateProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUpdateProgressWindow.h; sourceTree = "<group>"; };
+		7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUpdateProgressWindow.m; sourceTree = "<group>"; };
+		7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWUpdateProgressWindow.xib; sourceTree = "<group>"; };
+		7A9A259D2B3D63A400EA4B34 /* FWUpdateProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateProgress.h; sourceTree = "<group>"; };
+		7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateProgress.m; sourceTree = "<group>"; };
 		7AA301A92A286FD90039E7E0 /* ToolDoProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolDoProcessView.xib; sourceTree = "<group>"; };
 		7AA301AC2A2872B80039E7E0 /* ToolDoProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDoProcessView.m; sourceTree = "<group>"; };
 		7AA301AD2A2872B80039E7E0 /* ToolDoProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDoProcessView.h; sourceTree = "<group>"; };
@@ -482,6 +493,11 @@
 				7AB1C81F2B2BF60100830345 /* FWVersion.m */,
 				7ADD42802A2DC0700086CF47 /* FWVersionInfo.h */,
 				7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */,
+				7A9A259D2B3D63A400EA4B34 /* FWUpdateProgress.h */,
+				7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */,
+				7A9A25962B3D61F700EA4B34 /* FWUpdateProgressWindow.h */,
+				7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */,
+				7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */,
 			);
 			path = DeviceMaintenance;
 			sourceTree = "<group>";
@@ -570,6 +586,7 @@
 				7A810FFA2A1C8AE400C0BAED /* check_box.png in Resources */,
 				7A62E6FB2ADCF97F007942AE /* clock.png in Resources */,
 				7A3F4F262875633C003CFE67 /* icon.png in Resources */,
+				7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */,
 				7A58D0632A1C4661002FF8B6 /* connect.png in Resources */,
 				7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */,
 				64ED9A841647439300F39EAE /* InfoPlist.strings in Resources */,
@@ -598,6 +615,7 @@
 				7A810FFB2A1C8AE400C0BAED /* check_box.png in Resources */,
 				7A62E6FC2ADCF97F007942AE /* clock.png in Resources */,
 				7A8B3DFE296E56640005F7B1 /* icon.png in Resources */,
+				7A9A259C2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */,
 				7A58D0642A1C4661002FF8B6 /* connect.png in Resources */,
 				7A8B3E16296E56640005F7B1 /* Images.xcassets in Resources */,
 				7A8B3E1A296E56640005F7B1 /* InfoPlist.strings in Resources */,
@@ -632,6 +650,7 @@
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
@@ -639,6 +658,7 @@
 				7A2712752A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82D2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
+				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7AB1C8202B2BF60100830345 /* FWVersion.m in Sources */,
@@ -668,6 +688,7 @@
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
+				7A9A25A02B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
@@ -675,6 +696,7 @@
 				7A2712762A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
+				7A9A259A2B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7AB1C8212B2BF60100830345 /* FWVersion.m in Sources */,
