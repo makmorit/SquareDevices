@@ -76,6 +76,7 @@
     - (void)fwUpdatePromptDone {
         // ポップアップでデフォルトのNoボタンがクリックされた場合は、以降の処理を行わない
         if ([[PopupWindow defaultWindow] isButtonNoClicked]) {
+            [self cancelProcess];
             return;
         }
         // TODO: 仮の実装です。
