@@ -70,7 +70,7 @@
 
     - (void)updateProgressNotifyCancel {
         // 上位クラスに制御を戻す
-        [[self delegate] FWUpdateProgress:self didNotify:FWUpdateProgressResultCancel];
+        [[self delegate] FWUpdateProgress:self didNotify:FWUpdateProgressStatusCancelClicked];
     }
 
 @end

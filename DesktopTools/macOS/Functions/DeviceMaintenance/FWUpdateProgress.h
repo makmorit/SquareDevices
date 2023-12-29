@@ -9,8 +9,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, FWUpdateProgressResultType) {
-    FWUpdateProgressResultCancel = 0,
+typedef NS_ENUM(NSInteger, FWUpdateProgressStatus) {
+    FWUpdateProgressStatusCancelClicked = 0,
     FWUpdateProgressStatusInitView,
 };
 
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, FWUpdateProgressResultType) {
 
 @protocol FWUpdateProgressDelegate <NSObject>
 
-    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressResultType)type;
+    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressStatus)status;
 
 @end
 
