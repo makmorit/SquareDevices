@@ -11,6 +11,7 @@
 
 typedef NS_ENUM(NSInteger, FWUpdateProgressResultType) {
     FWUpdateProgressResultCancel = 0,
+    FWUpdateProgressStatusInitView,
 };
 
 @protocol FWUpdateProgressDelegate;

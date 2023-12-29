@@ -57,6 +57,8 @@
             // ダイアログが閉じられた時の処理
             [weakSelf updateProgressWindowDidClose:self modalResponse:response];
         }];
+        // 画面表示完了を通知
+        [[self delegate] FWUpdateProgress:self didNotify:FWUpdateProgressStatusInitView];
     }
 
     - (void)updateProgressWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {
