@@ -16,6 +16,7 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
+    @property (nonatomic) FWUpdateProgress             *fwUpdateProgress;
 
 @end
 
@@ -82,7 +83,8 @@
             return;
         }
         // ファームウェア更新進捗画面をモーダル表示
-        [[[FWUpdateProgress alloc] initWithDelegate:self] openModalWindowWithMaxProgress:(100 + DFU_WAITING_SEC_ESTIMATED)];
+        [self setFwUpdateProgress:[[FWUpdateProgress alloc] initWithDelegate:self]];
+        [[self fwUpdateProgress] openModalWindowWithMaxProgress:(100 + DFU_WAITING_SEC_ESTIMATED)];
     }
 
     - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressStatus)status {
