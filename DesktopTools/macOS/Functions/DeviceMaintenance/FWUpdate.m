@@ -17,6 +17,7 @@
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
     @property (nonatomic) FWUpdateProgress             *fwUpdateProgress;
+    @property (nonatomic) FWUpdateTransfer             *fwUpdateTransfer;
 
 @end
 
@@ -103,10 +104,11 @@
 #pragma mark - 転送処理
 
     - (void)transferUpdateImage {
-        [[[FWUpdateTransfer alloc] initWithDelegate:self] start];
+        [self setFwUpdateTransfer:[[FWUpdateTransfer alloc] initWithDelegate:self]];
+        [[self fwUpdateTransfer] start];
     }
 
-    - (void)FWUpdateTransfer:(FWUpdateTransfer *)bleUnpairRequest didNotify:(FWUpdateTransferStatusType)type {
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatusType)type {
         if (type == TransferStatusCompleted) {
             // TODO: 仮の実装です。
             [[self fwUpdateProgress] closeModalWindow];
