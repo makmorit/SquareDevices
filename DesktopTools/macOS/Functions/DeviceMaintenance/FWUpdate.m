@@ -7,10 +7,12 @@
 #import "FunctionMessage.h"
 #import "FWUpdate.h"
 #import "FWUpdateImage.h"
+#import "FWUpdateProgress.h"
+#import "FWUpdateTransfer.h"
 #import "FWVersion.h"
 #import "PopupWindow.h"
 
-@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate>
+@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate, FWUpdateProgressDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
@@ -79,8 +81,13 @@
             [self cancelProcess];
             return;
         }
+        // ファームウェア更新進捗画面をモーダル表示
+        [[[FWUpdateProgress alloc] initWithDelegate:self] openModalWindowWithMaxProgress:(100 + DFU_WAITING_SEC_ESTIMATED)];
+    }
+
+    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressResultType)type {
         // TODO: 仮の実装です。
-        [self terminateCommand:true withMessage:@"to be continued..."];
+        [self terminateCommand:true withMessage:nil];
     }
 
 #pragma mark - 終了処理
