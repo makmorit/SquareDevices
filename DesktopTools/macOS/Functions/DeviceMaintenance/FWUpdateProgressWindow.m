@@ -24,6 +24,8 @@
     }
 
     - (void)initFieldValue {
+        // ボタンを使用不可に設定
+        [self enableButtonClose:false];
         // タイトル／初期キャプションを表示
         [[self labelTitle] setStringValue:[self title]];
         [[self labelProgress] setStringValue:[self progress]];
@@ -53,6 +55,11 @@
     - (void)notifyTerminate {
         // 画面を閉じる
         [self terminateWindow:NSModalResponseOK];
+    }
+
+    - (void)enableButtonClose:(bool)enabled {
+        // ボタンを使用可能／不可能に設定
+        [[self buttonCancel] setEnabled:enabled];
     }
 
 @end

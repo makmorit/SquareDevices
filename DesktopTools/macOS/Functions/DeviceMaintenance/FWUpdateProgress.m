@@ -80,4 +80,11 @@
         });
     }
 
+    - (void)enableButtonClose:(bool)enabled {
+        dispatch_async([self mainQueue], ^{
+            // 閉じるボタンを使用可能／不可能に設定
+            [[self updateProgressWindow] enableButtonClose:enabled];
+        });
+    }
+
 @end

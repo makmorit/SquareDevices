@@ -17,6 +17,7 @@
     @property (nonatomic) int       progressValue;
 
     - (void)notifyTerminate;
+    - (void)enableButtonClose:(bool)enabled;
 
 @end
 
