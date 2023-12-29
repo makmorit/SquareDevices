@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, FWUpdateTransferStatusType) {
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)start;
+    - (void)cancel;
 
 @end
 
