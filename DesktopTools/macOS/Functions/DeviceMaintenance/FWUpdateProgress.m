@@ -35,7 +35,12 @@
         return self;
     }
 
-    - (void)openModalWindow {
+    - (void)openModalWindowWithMaxProgress:(int)maxProgress {
+        // 画面項目を初期化
+        [[self updateProgressWindow] setProgressMaxValue:maxProgress];
+        [[self updateProgressWindow] setProgressValue:0];
+        [[self updateProgressWindow] setTitle:MSG_FW_UPDATE_PROCESSING];
+        [[self updateProgressWindow] setProgress:MSG_FW_UPDATE_PRE_PROCESS];
         // ファームウェア更新進捗画面（ダイアログ）をモーダルで表示
         dispatch_async([self mainQueue], ^{
             [self updateProgressWindowWillOpen];

@@ -59,7 +59,8 @@
 #define MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新することはできません。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新します。"
 #define MSG_FW_UPDATE_PROMPT_START_PROCESS          @"OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。"
-
+#define MSG_FW_UPDATE_PROCESSING                    @"ファームウェアを更新しています"
+#define MSG_FW_UPDATE_PRE_PROCESS                   @"ファームウェア更新の前処理中です"
 
 #pragma mark - デバイス情報参照画面
 
