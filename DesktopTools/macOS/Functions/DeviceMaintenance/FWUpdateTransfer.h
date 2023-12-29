@@ -12,19 +12,19 @@
 // イメージ反映所要時間（秒）
 #define DFU_WAITING_SEC_ESTIMATED   33
 
-typedef NS_ENUM(NSInteger, FWUpdateTransferStatusType) {
-    TransferStatusNone = 0,
-    TransferStatusStarting,
-    TransferStatusPreprocess,
-    TransferStatusStarted,
-    TransferStatusUpdateProgress,
-    TransferStatusCanceling,
-    TransferStatusCanceled,
-    TransferStatusUploadCompleted,
-    TransferStatusWaitingUpdate,
-    TransferStatusWaitingUpdateProgress,
-    TransferStatusCompleted,
-    TransferStatusFailed,
+typedef NS_ENUM(NSInteger, FWUpdateTransferStatus) {
+    FWUpdateTransferStatusNone = 0,
+    FWUpdateTransferStatusStarting,
+    FWUpdateTransferStatusPreprocess,
+    FWUpdateTransferStatusStarted,
+    FWUpdateTransferStatusUpdateProgress,
+    FWUpdateTransferStatusCanceling,
+    FWUpdateTransferStatusCanceled,
+    FWUpdateTransferStatusUploadCompleted,
+    FWUpdateTransferStatusWaitingUpdate,
+    FWUpdateTransferStatusWaitingUpdateProgress,
+    FWUpdateTransferStatusCompleted,
+    FWUpdateTransferStatusFailed,
 };
 
 @protocol FWUpdateTransferDelegate;
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, FWUpdateTransferStatusType) {
 
 @protocol FWUpdateTransferDelegate <NSObject>
 
-    - (void)FWUpdateTransfer:(FWUpdateTransfer *)bleUnpairRequest didNotify:(FWUpdateTransferStatusType)type;
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status;
 
 @end
 

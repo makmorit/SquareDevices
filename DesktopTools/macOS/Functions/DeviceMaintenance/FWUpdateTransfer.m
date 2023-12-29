@@ -13,7 +13,7 @@
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
     // ステータスを保持
-    @property (nonatomic) FWUpdateTransferStatusType    status;
+    @property (nonatomic) FWUpdateTransferStatus        status;
 
 @end
 
@@ -32,7 +32,7 @@
 
     - (void)start {
         // 転送処理の前処理を通知
-        [[self delegate] FWUpdateTransfer:self didNotify:TransferStatusStarting];
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarting];
         // 転送処理に移行
         dispatch_async([self subQueue], ^{
             [self startUpdateTransfer];
@@ -41,21 +41,21 @@
 
     - (void)cancel {
         // ファームウェア更新イメージ転送処理を中止させる
-        [self setStatus:TransferStatusCanceling];
+        [self setStatus:FWUpdateTransferStatusCanceling];
     }
 
     - (void)startUpdateTransfer {
         // TODO: 仮の実装です。
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 5; j++) {
-                if ([self status] == TransferStatusCanceling) {
-                    [[self delegate] FWUpdateTransfer:self didNotify:TransferStatusCanceled];
+                if ([self status] == FWUpdateTransferStatusCanceling) {
+                    [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
                     return;
                 }
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
-        [[self delegate] FWUpdateTransfer:self didNotify:TransferStatusCompleted];
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
     }
 
 @end

@@ -108,14 +108,14 @@
         [[self fwUpdateTransfer] start];
     }
 
-    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatusType)type {
-        if (type == TransferStatusCanceled) {
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status {
+        if (status == FWUpdateTransferStatusCanceled) {
             // ファームウェア更新進捗画面を閉じる
             [[self fwUpdateProgress] closeModalWindow];
             // 処理を中止
             [self cancelProcess];
         }
-        if (type == TransferStatusCompleted) {
+        if (status == FWUpdateTransferStatusCompleted) {
             // TODO: 仮の実装です。
             [[self fwUpdateProgress] closeModalWindow];
             [self terminateCommand:true withMessage:nil];
