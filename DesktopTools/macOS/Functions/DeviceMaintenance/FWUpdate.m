@@ -12,7 +12,7 @@
 #import "FWVersion.h"
 #import "PopupWindow.h"
 
-@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate, FWUpdateProgressDelegate>
+@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate, FWUpdateProgressDelegate, FWUpdateTransferDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
@@ -103,6 +103,15 @@
 #pragma mark - 転送処理
 
     - (void)transferUpdateImage {
+        [[[FWUpdateTransfer alloc] initWithDelegate:self] start];
+    }
+
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)bleUnpairRequest didNotify:(FWUpdateTransferStatusType)type {
+        if (type == TransferStatusCompleted) {
+            // TODO: 仮の実装です。
+            [[self fwUpdateProgress] closeModalWindow];
+            [self terminateCommand:true withMessage:nil];
+        }
     }
 
 #pragma mark - 終了処理
