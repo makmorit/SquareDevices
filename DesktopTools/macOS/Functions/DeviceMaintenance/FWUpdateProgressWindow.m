@@ -24,6 +24,12 @@
     }
 
     - (void)initFieldValue {
+        // タイトル／初期キャプションを表示
+        [[self labelTitle] setStringValue:[self title]];
+        [[self labelProgress] setStringValue:[self progress]];
+        // プログレスバーを設定
+        [[self levelIndicator] setMaxValue:[self progressMaxValue]];
+        [[self levelIndicator] setIntValue:[self progressValue]];
     }
 
     - (IBAction)buttonCancelDidPress:(id)sender {

@@ -10,6 +10,11 @@
 #import <Cocoa/Cocoa.h>
 
 @interface FWUpdateProgressWindow : NSWindowController
+    // 画面表示用データを保持
+    @property (nonatomic) NSString *title;
+    @property (nonatomic) NSString *progress;
+    @property (nonatomic) int       progressMaxValue;
+    @property (nonatomic) int       progressValue;
 
 @end
 
