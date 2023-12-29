@@ -96,8 +96,8 @@
         }
         // 中止ボタンクリック時の処理
         if (status == FWUpdateProgressStatusCancelClicked) {
-            // TODO: 仮の実装です。
-            [self cancelProcess];
+            // ファームウェア更新イメージ転送処理を中止
+            [self cancelUpdateImageTransfer];
         }
     }
 
@@ -109,11 +109,24 @@
     }
 
     - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatusType)type {
+        if (type == TransferStatusCanceled) {
+            // ファームウェア更新進捗画面を閉じる
+            [[self fwUpdateProgress] closeModalWindow];
+            // 処理を中止
+            [self cancelProcess];
+        }
         if (type == TransferStatusCompleted) {
             // TODO: 仮の実装です。
             [[self fwUpdateProgress] closeModalWindow];
             [self terminateCommand:true withMessage:nil];
         }
+    }
+
+    - (void)cancelUpdateImageTransfer {
+        // メッセージを画面表示／ログ出力
+        [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED];
+        // 転送処理中止を要求
+        [[self fwUpdateTransfer] cancel];
     }
 
 #pragma mark - 終了処理
