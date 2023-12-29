@@ -109,6 +109,10 @@
     }
 
     - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status {
+        if (status == FWUpdateTransferStatusStarted) {
+            // ファームウェア更新進捗画面の中止ボタンを使用可能とする
+            [[self fwUpdateProgress] enableButtonClose:true];
+        }
         if (status == FWUpdateTransferStatusCanceled) {
             // ファームウェア更新進捗画面を閉じる
             [[self fwUpdateProgress] closeModalWindow];
