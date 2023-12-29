@@ -8,6 +8,7 @@
 #import "FWUpdate.h"
 #import "FWUpdateImage.h"
 #import "FWVersion.h"
+#import "PopupWindow.h"
 
 @interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate>
     // 上位クラスの参照を保持
@@ -60,8 +61,25 @@
         NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
+        // 処理開始前に、確認ダイアログをポップアップ表示
+        [self fwUpdatePrompt];
+    }
+
+    - (void)fwUpdatePrompt {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 処理続行確認ダイアログを開く
+            [[PopupWindow defaultWindow] promptCritical:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE withInformative:MSG_FW_UPDATE_PROMPT_START_PROCESS
+                                              forObject:self forSelector:@selector(fwUpdatePromptDone)];
+        });
+    }
+
+    - (void)fwUpdatePromptDone {
+        // ポップアップでデフォルトのNoボタンがクリックされた場合は、以降の処理を行わない
+        if ([[PopupWindow defaultWindow] isButtonNoClicked]) {
+            return;
+        }
         // TODO: 仮の実装です。
-        [self terminateCommand:success withMessage:@"to be continued..."];
+        [self terminateCommand:true withMessage:@"to be continued..."];
     }
 
 #pragma mark - 終了処理
