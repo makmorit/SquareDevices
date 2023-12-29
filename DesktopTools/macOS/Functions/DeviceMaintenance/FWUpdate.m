@@ -85,9 +85,22 @@
         [[[FWUpdateProgress alloc] initWithDelegate:self] openModalWindowWithMaxProgress:(100 + DFU_WAITING_SEC_ESTIMATED)];
     }
 
-    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressResultType)type {
-        // TODO: 仮の実装です。
-        [self terminateCommand:true withMessage:nil];
+    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressStatus)status {
+        // ファームウェア更新進捗画面の初期表示時の処理
+        if (status == FWUpdateProgressStatusInitView) {
+            // ファームウェア更新イメージの転送処理を開始
+            [self transferUpdateImage];
+        }
+        // 中止ボタンクリック時の処理
+        if (status == FWUpdateProgressStatusCancelClicked) {
+            // TODO: 仮の実装です。
+            [self cancelProcess];
+        }
+    }
+
+#pragma mark - 転送処理
+
+    - (void)transferUpdateImage {
     }
 
 #pragma mark - 終了処理
