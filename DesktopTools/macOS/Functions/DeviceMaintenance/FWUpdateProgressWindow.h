@@ -16,6 +16,8 @@
     @property (nonatomic) int       progressMaxValue;
     @property (nonatomic) int       progressValue;
 
+    - (void)notifyTerminate;
+
 @end
 
 #endif /* FWUpdateProgressWindow_h */

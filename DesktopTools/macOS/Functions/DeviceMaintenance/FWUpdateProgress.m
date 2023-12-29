@@ -73,4 +73,11 @@
         [[self delegate] FWUpdateProgress:self didNotify:FWUpdateProgressStatusCancelClicked];
     }
 
+    - (void)closeModalWindow {
+        dispatch_async([self mainQueue], ^{
+            // ファームウェア更新進捗画面を閉じる旨通知
+            [[self updateProgressWindow] notifyTerminate];
+        });
+    }
+
 @end

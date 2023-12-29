@@ -48,4 +48,11 @@
         [self initFieldValue];
     }
 
+#pragma mark - Interfaces for command
+
+    - (void)notifyTerminate {
+        // 画面を閉じる
+        [self terminateWindow:NSModalResponseOK];
+    }
+
 @end

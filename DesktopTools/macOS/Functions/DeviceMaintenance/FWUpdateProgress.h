@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, FWUpdateProgressStatus) {
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)openModalWindowWithMaxProgress:(int)maxProgress;
+    - (void)closeModalWindow;
 
 @end
 
