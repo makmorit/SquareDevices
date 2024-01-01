@@ -17,6 +17,12 @@ typedef NS_ENUM(NSInteger, FWUpdateProgressStatus) {
 @protocol FWUpdateProgressDelegate;
 
 @interface FWUpdateProgress : NSObject
+    // 画面表示用データを保持
+    @property (nonatomic) NSString *title;
+    @property (nonatomic) NSString *progress;
+    @property (nonatomic) int       progressMaxValue;
+    @property (nonatomic) int       progressValue;
+    @property (nonatomic) bool      buttonCancelEnabled;
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)openModalWindowWithMaxProgress:(int)maxProgress;

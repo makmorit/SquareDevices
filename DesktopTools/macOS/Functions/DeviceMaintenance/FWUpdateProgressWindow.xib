@@ -36,10 +36,17 @@
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="DzP-NB-vtK" name="value" keyPath="selection.title" id="yFT-Qb-gzO"/>
+                        </connections>
                     </textField>
                     <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Trg-eO-TjT" userLabel="LevelIndicator">
                         <rect key="frame" x="17" y="105" width="338" height="18"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="23" levelIndicatorStyle="continuousCapacity" id="sYE-cE-mWL"/>
+                        <connections>
+                            <binding destination="DzP-NB-vtK" name="maxValue" keyPath="selection.progressMaxValue" id="4Wc-TG-So1"/>
+                            <binding destination="DzP-NB-vtK" name="value" keyPath="selection.progressValue" previousBinding="4Wc-TG-So1" id="ucv-2e-AMb"/>
+                        </connections>
                     </levelIndicator>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xO2-hg-Sis" userLabel="ButtonCancel">
                         <rect key="frame" x="148" y="13" width="82" height="32"/>
@@ -53,6 +60,7 @@ Gw
                         </buttonCell>
                         <connections>
                             <action selector="buttonCancelDidPress:" target="-2" id="b5a-cz-8DA"/>
+                            <binding destination="DzP-NB-vtK" name="enabled" keyPath="selection.buttonCancelEnabled" id="KBy-CU-JUN"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-yN-nDr" userLabel="LabelProgress">
@@ -65,6 +73,9 @@ Gw
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="DzP-NB-vtK" name="value" keyPath="selection.progress" id="Ksn-hT-01Z"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
@@ -84,5 +95,10 @@ Gw
             </connections>
             <point key="canvasLocation" x="122" y="409"/>
         </window>
+        <objectController id="DzP-NB-vtK">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="parameterObject" id="aIK-Ha-OJB"/>
+            </connections>
+        </objectController>
     </objects>
 </document>
