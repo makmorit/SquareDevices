@@ -27,7 +27,7 @@
         if (self) {
             [self setDelegate:delegate];
             // 画面のインスタンスを生成
-            [self setUpdateProgressWindow:[[FWUpdateProgressWindow alloc] initWithWindowNibName:@"FWUpdateProgressWindow"]];
+            [self setUpdateProgressWindow:[[FWUpdateProgressWindow alloc] initWithDelegate:self]];
             // メインスレッド／サブスレッドにバインドされるデフォルトキューを取得
             [self setMainQueue:dispatch_get_main_queue()];
             [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.fwupdateprogress", DISPATCH_QUEUE_SERIAL)];

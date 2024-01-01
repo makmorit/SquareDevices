@@ -16,6 +16,7 @@
     @property (nonatomic) int       progressMaxValue;
     @property (nonatomic) int       progressValue;
 
+    - (instancetype)initWithDelegate:(id)delegate;
     - (void)notifyTerminate;
     - (void)enableButtonClose:(bool)enabled;
 

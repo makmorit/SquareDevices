@@ -4,10 +4,13 @@
 //
 //  Created by Makoto Morita on 2023/12/28.
 //
+#import "FWUpdateProgress.h"
 #import "FWUpdateProgressWindow.h"
 
 @interface FWUpdateProgressWindow ()
-
+    // 画面表示データの参照を保持
+    @property (weak) FWUpdateProgress               *parameterObject;
+    // 画面項目の参照を保持
     @property (assign) IBOutlet NSTextField         *labelTitle;
     @property (assign) IBOutlet NSTextField         *labelProgress;
     @property (assign) IBOutlet NSLevelIndicator    *levelIndicator;
@@ -16,6 +19,12 @@
 @end
 
 @implementation FWUpdateProgressWindow
+
+    - (instancetype)initWithDelegate:(id)delegate {
+        // 画面表示データの参照を保持
+        [self setParameterObject:(FWUpdateProgress *)delegate];
+        return [super initWithWindowNibName:@"FWUpdateProgressWindow"];
+    }
 
     - (void)windowDidLoad {
         // 画面項目を初期化
