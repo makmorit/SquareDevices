@@ -115,7 +115,9 @@
         }
         if (status == FWUpdateTransferStatusUpdateProgress) {
             // ファームウェア更新進捗画面に進捗を表示
-            [[self fwUpdateProgress] showProgress:[fwUpdateTransfer progress]];
+            int progressing = [fwUpdateTransfer progress];
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, progressing];
+            [[self fwUpdateProgress] showProgress:progressing withMessage:message];
         }
         if (status == FWUpdateTransferStatusCanceled) {
             // ファームウェア更新進捗画面を閉じる
