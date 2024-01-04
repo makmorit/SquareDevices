@@ -46,11 +46,13 @@
 
     - (void)startUpdateTransfer {
         // TODO: 仮の実装です。
+        [self setProgress:0];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 5; j++) {
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {

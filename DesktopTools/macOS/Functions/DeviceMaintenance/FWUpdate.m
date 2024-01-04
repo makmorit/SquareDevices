@@ -109,6 +109,10 @@
     }
 
     - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status {
+        if (status == FWUpdateTransferStatusPreprocess) {
+            // ファームウェア更新進捗画面にメッセージを表示
+            [[self fwUpdateProgress] showProgress:[fwUpdateTransfer progress] withMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE];
+        }
         if (status == FWUpdateTransferStatusStarted) {
             // ファームウェア更新進捗画面の中止ボタンを使用可能とする
             [[self fwUpdateProgress] enableButtonClose:true];
