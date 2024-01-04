@@ -53,15 +53,18 @@
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
         for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 10; j++) {
                 if ([self status] == FWUpdateTransferStatusCanceling) {
                     [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
                     return;
                 }
-                [NSThread sleepForTimeInterval:0.2];
+                [NSThread sleepForTimeInterval:0.1];
+                int progress = i * 10 + j;
+                [self setProgress:progress];
                 [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUpdateProgress];
             }
         }
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUploadCompleted];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
     }
 

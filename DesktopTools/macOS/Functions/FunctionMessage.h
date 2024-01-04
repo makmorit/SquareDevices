@@ -62,6 +62,7 @@
 #define MSG_FW_UPDATE_PROCESSING                    @"ファームウェアを更新しています"
 #define MSG_FW_UPDATE_PRE_PROCESS                   @"ファームウェア更新の前処理中です"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT @"更新ファームウェアを転送中（%d％）"
+#define MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS      @"更新ファームウェアの転送が完了しました。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED     @"更新ファームウェアの転送をユーザーが中止しました。"
 
 #pragma mark - デバイス情報参照画面

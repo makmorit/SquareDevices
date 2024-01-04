@@ -113,11 +113,19 @@
             // ファームウェア更新進捗画面の中止ボタンを使用可能とする
             [[self fwUpdateProgress] enableButtonClose:true];
         }
+        if (status == FWUpdateTransferStatusUpdateProgress) {
+            // ファームウェア更新進捗画面に進捗を表示
+            [[self fwUpdateProgress] showProgress:[fwUpdateTransfer progress]];
+        }
         if (status == FWUpdateTransferStatusCanceled) {
             // ファームウェア更新進捗画面を閉じる
             [[self fwUpdateProgress] closeModalWindow];
             // 処理を中止
             [self cancelProcess];
+        }
+        if (status == FWUpdateTransferStatusUploadCompleted) {
+            // 転送成功を通知
+            [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS];
         }
         if (status == FWUpdateTransferStatusCompleted) {
             // TODO: 仮の実装です。
