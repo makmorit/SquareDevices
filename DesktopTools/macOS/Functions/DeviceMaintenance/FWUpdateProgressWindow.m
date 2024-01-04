@@ -23,7 +23,7 @@
     - (instancetype)initWithDelegate:(id)delegate {
         // 画面表示データの参照を保持
         [self setParameterObject:(FWUpdateProgress *)delegate];
-        return [super initWithWindowNibName:@"FWUpdateProgressWindow"];
+        return [super initWithDelegate:delegate withWindowNibName:@"FWUpdateProgressWindow"];
     }
 
     - (void)windowDidLoad {
@@ -33,7 +33,7 @@
 
     - (IBAction)buttonCancelDidPress:(id)sender {
         // 処理がキャンセルされた場合はCancelを戻す
-        [self terminateWindow:NSModalResponseCancel];
+        [self closeModalWithResponse:NSModalResponseCancel];
     }
 
     - (void)terminateWindow:(NSModalResponse)response {
@@ -49,7 +49,7 @@
 
     - (void)notifyTerminate {
         // 画面を閉じる
-        [self terminateWindow:NSModalResponseOK];
+        [self closeModalWithResponse:NSModalResponseOK];
     }
 
 @end

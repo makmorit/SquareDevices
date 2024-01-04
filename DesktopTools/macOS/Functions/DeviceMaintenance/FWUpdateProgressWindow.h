@@ -7,9 +7,9 @@
 #ifndef FWUpdateProgressWindow_h
 #define FWUpdateProgressWindow_h
 
-#import <Cocoa/Cocoa.h>
+#import "CommandWindow.h"
 
-@interface FWUpdateProgressWindow : NSWindowController
+@interface FWUpdateProgressWindow : CommandWindow
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)notifyTerminate;
