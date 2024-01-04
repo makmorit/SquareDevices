@@ -11,7 +11,6 @@
 
 @interface FWUpdateProgressWindow : CommandWindow
 
-    - (instancetype)initWithDelegate:(id)delegate;
     - (void)notifyTerminate;
 
 @end

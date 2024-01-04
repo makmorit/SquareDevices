@@ -26,23 +26,9 @@
         return [super initWithDelegate:delegate withWindowNibName:@"FWUpdateProgressWindow"];
     }
 
-    - (void)windowDidLoad {
-        // 画面項目を初期化
-        [super windowDidLoad];
-    }
-
     - (IBAction)buttonCancelDidPress:(id)sender {
         // 処理がキャンセルされた場合はCancelを戻す
         [self closeModalWithResponse:NSModalResponseCancel];
-    }
-
-    - (void)terminateWindow:(NSModalResponse)response {
-        // 親画面の参照を取得
-        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
-        // モーダル終了を親画面に通知
-        [mainWindow endSheet:[self window] returnCode:response];
-        // 画面を閉じる
-        [self close];
     }
 
 #pragma mark - Interfaces for command
