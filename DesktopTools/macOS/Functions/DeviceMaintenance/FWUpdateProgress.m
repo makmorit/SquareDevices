@@ -4,12 +4,13 @@
 //
 //  Created by Makoto Morita on 2023/12/28.
 //
+#import "CommandWindow.h"
 #import "FWUpdateProgress.h"
 #import "FWUpdateProgressWindow.h"
 #import "FunctionDefine.h"
 #import "FunctionMessage.h"
 
-@interface FWUpdateProgress ()
+@interface FWUpdateProgress () <CommandWindowDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     // 画面の参照を保持
@@ -49,20 +50,13 @@
     }
 
     - (void)updateProgressWindowWillOpen {
-        // 親画面の参照を取得
-        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
         // ファームウェア更新進捗画面（ダイアログ）をモーダルで表示
-        NSWindow *dialog = [[self updateProgressWindow] window];
-        FWUpdateProgress * __weak weakSelf = self;
-        [mainWindow beginSheet:dialog completionHandler:^(NSModalResponse response) {
-            // ダイアログが閉じられた時の処理
-            [weakSelf updateProgressWindowDidClose:self modalResponse:response];
-        }];
+        [[self updateProgressWindow] openModal];
         // 画面表示完了を通知
         [[self delegate] FWUpdateProgress:self didNotify:FWUpdateProgressStatusInitView];
     }
 
-    - (void)updateProgressWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {
+    - (void)CommandWindow:(CommandWindow *)commandWindow didCloseWithResponse:(NSInteger)modalResponse {
         if (modalResponse == NSModalResponseCancel) {
             // キャンセルボタンがクリックされたときの処理
             [self updateProgressNotifyCancel];
