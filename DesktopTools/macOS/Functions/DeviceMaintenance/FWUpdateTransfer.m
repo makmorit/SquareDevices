@@ -59,12 +59,21 @@
                     return;
                 }
                 [NSThread sleepForTimeInterval:0.1];
-                int progress = i * 10 + j;
+                int progress = i * 10 + j + 1;
                 [self setProgress:progress];
                 [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUpdateProgress];
             }
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUploadCompleted];
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdate];
+        for (int i = 0; i < DFU_WAITING_SEC_ESTIMATED; i++) {
+            for (int j = 0; j < 5; j++) {
+                [NSThread sleepForTimeInterval:0.2];
+                int progress = 100 + i;
+                [self setProgress:progress];
+                [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdateProgress];
+            }
+        }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
     }
 
