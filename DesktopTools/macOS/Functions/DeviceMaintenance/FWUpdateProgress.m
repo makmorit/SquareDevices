@@ -82,4 +82,13 @@
         });
     }
 
+    - (void)showProgress:(int)progressing {
+        dispatch_async([self mainQueue], ^{
+            // メッセージを表示し、進捗度を画面に反映させる
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, progressing];
+            [self setProgress:message];
+            [self setProgressValue:progressing];
+        });
+    }
+
 @end

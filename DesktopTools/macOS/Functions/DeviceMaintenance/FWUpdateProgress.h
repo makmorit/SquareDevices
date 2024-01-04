@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, FWUpdateProgressStatus) {
     - (void)openModalWindowWithMaxProgress:(int)maxProgress;
     - (void)closeModalWindow;
     - (void)enableButtonClose:(bool)enabled;
+    - (void)showProgress:(int)progressing;
 
 @end
 
