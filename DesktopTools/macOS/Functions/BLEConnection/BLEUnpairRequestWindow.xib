@@ -8,9 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BLEUnpairRequestWindow">
             <connections>
-                <outlet property="labelProgress" destination="fcq-yN-nDr" id="pUx-a3-Yt9"/>
-                <outlet property="labelTitle" destination="CC3-FK-I4B" id="4VM-Yt-iTm"/>
-                <outlet property="levelIndicator" destination="Trg-eO-TjT" id="dEs-PS-GZw"/>
                 <outlet property="window" destination="JpZ-aP-hsO" id="zzh-6J-3OX"/>
             </connections>
         </customObject>
@@ -28,6 +25,10 @@
                     <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Trg-eO-TjT" userLabel="LevelIndicator">
                         <rect key="frame" x="20" y="87" width="358" height="18"/>
                         <levelIndicatorCell key="cell" alignment="left" doubleValue="30" maxValue="30" levelIndicatorStyle="continuousCapacity" id="sYE-cE-mWL"/>
+                        <connections>
+                            <binding destination="yCy-wf-NmI" name="maxValue" keyPath="selection.progressMaxValue" id="sSn-G6-IXk"/>
+                            <binding destination="yCy-wf-NmI" name="value" keyPath="selection.progressValue" previousBinding="sSn-G6-IXk" id="jcS-1f-v2A"/>
+                        </connections>
                     </levelIndicator>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xO2-hg-Sis" userLabel="ButtonCancel">
                         <rect key="frame" x="158" y="13" width="82" height="32"/>
@@ -41,6 +42,7 @@ Gw
                         </buttonCell>
                         <connections>
                             <action selector="buttonCancelDidPress:" target="-2" id="b5a-cz-8DA"/>
+                            <binding destination="yCy-wf-NmI" name="enabled" keyPath="selection.buttonCancelEnabled" id="EM1-AA-KqQ"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fcq-yN-nDr" userLabel="LabelProgress">
@@ -53,6 +55,9 @@ Gw
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="yCy-wf-NmI" name="value" keyPath="selection.progress" id="N6e-ue-KPl"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-FK-I4B" userLabel="LabelTitle">
                         <rect key="frame" x="18" y="112" width="362" height="57"/>
@@ -64,6 +69,9 @@ Gw
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="yCy-wf-NmI" name="value" keyPath="selection.title" id="XOj-c5-oa7"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
@@ -83,5 +91,10 @@ Gw
             </connections>
             <point key="canvasLocation" x="122" y="409"/>
         </window>
+        <objectController id="yCy-wf-NmI">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="parameterObject" id="cSQ-Qh-zle"/>
+            </connections>
+        </objectController>
     </objects>
 </document>
