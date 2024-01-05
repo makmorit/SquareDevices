@@ -58,6 +58,14 @@
 #define MSG_FW_UPDATE_CURRENT_VERSION_UNKNOWN       @"ファームウェアの現在バージョンが不明です。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_ALREADY_NEW   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新することはできません。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION   @"ファームウェア (現在のバージョン: %@) を、バージョン%@に更新します。"
+#define MSG_FW_UPDATE_PROMPT_START_PROCESS          @"OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。"
+#define MSG_FW_UPDATE_PROCESSING                    @"ファームウェアを更新しています"
+#define MSG_FW_UPDATE_PRE_PROCESS                   @"ファームウェア更新の前処理中です"
+#define MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE        @"更新ファームウェアを転送中です。"
+#define MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT @"更新ファームウェアを転送中（%d％）"
+#define MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS      @"更新ファームウェアの転送が完了しました。"
+#define MSG_FW_UPDATE_PROCESS_WAITING_UPDATE        @"転送された更新ファームウェアの反映を待機中です。"
+#define MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED     @"更新ファームウェアの転送をユーザーが中止しました。"
 
 #pragma mark - デバイス情報参照画面
 

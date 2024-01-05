@@ -117,13 +117,17 @@
     }
 
     - (void)LogAndShowInfoMessage:(NSString *)infoMessage {
-        [[ToolLogFile defaultLogger] info:infoMessage];
-        [self appendStatusText:infoMessage];
+        if (infoMessage) {
+            [[ToolLogFile defaultLogger] info:infoMessage];
+            [self appendStatusText:infoMessage];
+        }
     }
 
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage {
-        [[ToolLogFile defaultLogger] error:errorMessage];
-        [self appendStatusText:errorMessage];
+        if (errorMessage) {
+            [[ToolLogFile defaultLogger] error:errorMessage];
+            [self appendStatusText:errorMessage];
+        }
     }
 
 #pragma mark - Callback from FunctionView

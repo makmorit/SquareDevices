@@ -7,12 +7,17 @@
 #import "FunctionMessage.h"
 #import "FWUpdate.h"
 #import "FWUpdateImage.h"
+#import "FWUpdateProgress.h"
+#import "FWUpdateTransfer.h"
 #import "FWVersion.h"
+#import "PopupWindow.h"
 
-@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate>
+@interface FWUpdate () <FWVersionDelegate, FWUpdateImageDelegate, FWUpdateProgressDelegate, FWUpdateTransferDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) FWVersion                    *fwVersion;
+    @property (nonatomic) FWUpdateProgress             *fwUpdateProgress;
+    @property (nonatomic) FWUpdateTransfer             *fwUpdateTransfer;
 
 @end
 
@@ -60,8 +65,94 @@
         NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
-        // TODO: 仮の実装です。
-        [self terminateCommand:success withMessage:@"to be continued..."];
+        // 処理開始前に、確認ダイアログをポップアップ表示
+        [self fwUpdatePrompt];
+    }
+
+    - (void)fwUpdatePrompt {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 処理続行確認ダイアログを開く
+            [[PopupWindow defaultWindow] promptCritical:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE withInformative:MSG_FW_UPDATE_PROMPT_START_PROCESS
+                                              forObject:self forSelector:@selector(fwUpdatePromptDone)];
+        });
+    }
+
+    - (void)fwUpdatePromptDone {
+        // ポップアップでデフォルトのNoボタンがクリックされた場合は、以降の処理を行わない
+        if ([[PopupWindow defaultWindow] isButtonNoClicked]) {
+            [self cancelProcess];
+            return;
+        }
+        // ファームウェア更新進捗画面をモーダル表示
+        [self setFwUpdateProgress:[[FWUpdateProgress alloc] initWithDelegate:self]];
+        [[self fwUpdateProgress] openModalWindowWithMaxProgress:(100 + DFU_WAITING_SEC_ESTIMATED)];
+    }
+
+    - (void)FWUpdateProgress:(FWUpdateProgress *)fwUpdateProgress didNotify:(FWUpdateProgressStatus)status {
+        // ファームウェア更新進捗画面の初期表示時の処理
+        if (status == FWUpdateProgressStatusInitView) {
+            // ファームウェア更新イメージの転送処理を開始
+            [self transferUpdateImage];
+        }
+        // 中止ボタンクリック時の処理
+        if (status == FWUpdateProgressStatusCancelClicked) {
+            // ファームウェア更新イメージ転送処理を中止
+            [self cancelUpdateImageTransfer];
+        }
+    }
+
+#pragma mark - 転送処理
+
+    - (void)transferUpdateImage {
+        [self setFwUpdateTransfer:[[FWUpdateTransfer alloc] initWithDelegate:self]];
+        [[self fwUpdateTransfer] start];
+    }
+
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status {
+        if (status == FWUpdateTransferStatusPreprocess) {
+            // ファームウェア更新進捗画面にメッセージを表示
+            [[self fwUpdateProgress] showProgress:[fwUpdateTransfer progress] withMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE];
+        }
+        if (status == FWUpdateTransferStatusStarted) {
+            // ファームウェア更新進捗画面の中止ボタンを使用可能とする
+            [[self fwUpdateProgress] enableButtonClose:true];
+        }
+        if (status == FWUpdateTransferStatusUpdateProgress) {
+            // ファームウェア更新進捗画面に進捗を表示
+            int progressing = [fwUpdateTransfer progress];
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT, progressing];
+            [[self fwUpdateProgress] showProgress:progressing withMessage:message];
+        }
+        if (status == FWUpdateTransferStatusCanceled) {
+            // ファームウェア更新進捗画面を閉じる
+            [[self fwUpdateProgress] closeModalWindow];
+            // 処理を中止
+            [self cancelProcess];
+        }
+        if (status == FWUpdateTransferStatusUploadCompleted) {
+            // 転送成功を通知
+            [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS];
+        }
+        if (status == FWUpdateTransferStatusWaitingUpdate) {
+            // ファームウェア更新進捗画面の中止ボタンを使用不能とする
+            [[self fwUpdateProgress] enableButtonClose:false];
+        }
+        if (status == FWUpdateTransferStatusWaitingUpdateProgress) {
+            // ファームウェア更新進捗画面に進捗を表示
+            [[self fwUpdateProgress] showProgress:[fwUpdateTransfer progress] withMessage:MSG_FW_UPDATE_PROCESS_WAITING_UPDATE];
+        }
+        if (status == FWUpdateTransferStatusCompleted) {
+            // ファームウェア更新進捗画面を閉じる
+            [[self fwUpdateProgress] closeModalWindow];
+            [self terminateCommand:true withMessage:nil];
+        }
+    }
+
+    - (void)cancelUpdateImageTransfer {
+        // メッセージを画面表示／ログ出力
+        [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED];
+        // 転送処理中止を要求
+        [[self fwUpdateTransfer] cancel];
     }
 
 #pragma mark - 終了処理

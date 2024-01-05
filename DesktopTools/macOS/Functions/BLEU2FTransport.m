@@ -30,7 +30,7 @@
         [self transportWillSendRequestFrame:[[self requestDataArray] objectAtIndex:[self bleRequestFrameNumber]]];
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidSendWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
             // コマンド送信失敗時
             [self transportDidReceiveResponse:false withErrorMessage:[parameter errorMessage] withCMD:0x00 withData:nil];
@@ -44,7 +44,7 @@
         }
     }
 
-    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester peripheralDidReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+    - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
         if ([parameter success] == false) {
             // コマンド受信失敗時
             [self transportDidReceiveResponse:false withErrorMessage:[parameter errorMessage] withCMD:0x00 withData:nil];
