@@ -7,6 +7,7 @@
 #import "BLEUnpairRequest.h"
 #import "BLEUnpairRequestWindow.h"
 #import "CommandWindow.h"
+#import "FunctionMessage.h"
 
 // Bluetooth環境設定からデバイスが削除されるのを待機する時間（秒）
 #define UNPAIRING_REQUEST_WAITING_SEC   30
@@ -56,9 +57,14 @@
     }
 
     - (void)unpairRequestWindowWillOpen {
+        // 待機メッセージを表示
+        NSString *message = [NSString stringWithFormat:MSG_BLE_UNPAIRING_WAIT_DISCONNECT, [self peripheralName]];
+        [self setTitle:message];
         // ペアリング解除要求待機画面の項目を初期化
-        [[self unpairRequestWindow] setPeripheralName:[self peripheralName]];
-        [[self unpairRequestWindow] setProgressMaxValue:UNPAIRING_REQUEST_WAITING_SEC];
+        [self setProgressMaxValue:UNPAIRING_REQUEST_WAITING_SEC];
+        [self setProgressValue:UNPAIRING_REQUEST_WAITING_SEC];
+        [self setProgress:@""];
+        [self setButtonCancelEnabled:true];
         // ペアリング解除要求待機画面（ダイアログ）をモーダルで表示
         [[self unpairRequestWindow] openModal];
     }
