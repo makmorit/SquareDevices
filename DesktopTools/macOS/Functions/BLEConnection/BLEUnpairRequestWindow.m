@@ -60,7 +60,7 @@
         }
     }
 
-    - (void)commandDidNotifyTerminate {
+    - (void)notifyTerminate {
         // 画面を閉じる
         [self terminateWindow:NSModalResponseOK];
     }
