@@ -114,10 +114,10 @@
         }
         // タイムアウト監視が終了
         [self setWaitingForUnpairTimeout:false];
-        // 残り秒数をペアリング解除要求待機画面に通知
-        [self notifyProgressValue:0];
         // タイムアウトを上位クラスに通知
         [self unpairRequestNotifyTimeout];
+        // ペアリング解除要求待機画面を閉じる
+        [self closeModalWindow];
     }
 
     - (void)notifyProgressValue:(int)remaining {
