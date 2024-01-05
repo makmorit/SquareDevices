@@ -122,8 +122,10 @@
 
     - (void)notifyProgressValue:(int)remaining {
         dispatch_async([self mainQueue], ^{
-            // 残り秒数をペアリング解除要求待機画面に通知
-            [[self unpairRequestWindow] commandDidNotifyProgress:remaining];
+            // メッセージを表示し、進捗度を画面に反映させる
+            NSString *message = [NSString stringWithFormat:MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT, remaining];
+            [self setProgress:message];
+            [self setProgressValue:remaining];
         });
     }
 
