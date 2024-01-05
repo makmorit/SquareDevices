@@ -5,9 +5,12 @@
 //  Created by Makoto Morita on 2023/12/07.
 //
 #import "FunctionMessage.h"
+#import "BLEUnpairRequest.h"
 #import "BLEUnpairRequestWindow.h"
 
 @interface BLEUnpairRequestWindow ()
+    // 画面表示データの参照を保持
+    @property (weak) BLEUnpairRequest               *parameterObject;
     // 画面項目の参照を保持
     @property (assign) IBOutlet NSTextField         *labelTitle;
     @property (assign) IBOutlet NSTextField         *labelProgress;
@@ -16,6 +19,12 @@
 @end
 
 @implementation BLEUnpairRequestWindow
+
+    - (instancetype)initWithDelegate:(id)delegate {
+        // 画面表示データの参照を保持
+        [self setParameterObject:(BLEUnpairRequest *)delegate];
+        return [super initWithDelegate:delegate withWindowNibName:@"BLEUnpairRequestWindow"];
+    }
 
     - (void)windowDidLoad {
         // 画面項目を初期化
@@ -35,7 +44,7 @@
 
     - (IBAction)buttonCancelDidPress:(id)sender {
         // 処理がキャンセルされた場合はCancelを戻す
-        [self terminateWindow:NSModalResponseCancel];
+        [self closeModalWithResponse:NSModalResponseCancel];
     }
 
     - (void)terminateWindow:(NSModalResponse)response {
@@ -62,7 +71,7 @@
 
     - (void)notifyTerminate {
         // 画面を閉じる
-        [self terminateWindow:NSModalResponseOK];
+        [self closeModalWithResponse:NSModalResponseOK];
     }
 
     - (void)setToLabelProgress:(int)progress {
