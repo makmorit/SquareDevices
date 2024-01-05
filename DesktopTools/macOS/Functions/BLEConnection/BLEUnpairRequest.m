@@ -6,11 +6,12 @@
 //
 #import "BLEUnpairRequest.h"
 #import "BLEUnpairRequestWindow.h"
+#import "CommandWindow.h"
 
 // Bluetooth環境設定からデバイスが削除されるのを待機する時間（秒）
 #define UNPAIRING_REQUEST_WAITING_SEC   30
 
-@interface BLEUnpairRequest ()
+@interface BLEUnpairRequest () <CommandWindowDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     // 画面の参照を保持
@@ -30,7 +31,7 @@
         if (self) {
             [self setDelegate:delegate];
             // 画面のインスタンスを生成
-            [self setUnpairRequestWindow:[[BLEUnpairRequestWindow alloc] initWithWindowNibName:@"BLEUnpairRequestWindow"]];
+            [self setUnpairRequestWindow:[[BLEUnpairRequestWindow alloc] initWithDelegate:self]];
             // メインスレッド／サブスレッドにバインドされるデフォルトキューを取得
             [self setMainQueue:dispatch_get_main_queue()];
             [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.bleunpairrequest", DISPATCH_QUEUE_SERIAL)];
@@ -58,18 +59,11 @@
         // ペアリング解除要求待機画面の項目を初期化
         [[self unpairRequestWindow] setPeripheralName:[self peripheralName]];
         [[self unpairRequestWindow] setProgressMaxValue:UNPAIRING_REQUEST_WAITING_SEC];
-        // 親画面の参照を取得
-        NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
         // ペアリング解除要求待機画面（ダイアログ）をモーダルで表示
-        NSWindow *dialog = [[self unpairRequestWindow] window];
-        BLEUnpairRequest * __weak weakSelf = self;
-        [mainWindow beginSheet:dialog completionHandler:^(NSModalResponse response) {
-            // ダイアログが閉じられた時の処理
-            [weakSelf unpairRequestWindowDidClose:self modalResponse:response];
-        }];
+        [[self unpairRequestWindow] openModal];
     }
 
-    - (void)unpairRequestWindowDidClose:(id)sender modalResponse:(NSInteger)modalResponse {
+    - (void)CommandWindow:(CommandWindow *)commandWindow didCloseWithResponse:(NSInteger)modalResponse {
         if (modalResponse == NSModalResponseCancel) {
             // キャンセルボタンがクリックされたときの処理
             [self unpairRequestNotifyCancel];
@@ -93,7 +87,7 @@
         [self cancelWaitingForUnpairTimeoutMonitor];
         dispatch_async([self mainQueue], ^{
             // ペアリング解除要求待機画面を閉じる旨通知
-            [[self unpairRequestWindow] commandDidNotifyTerminate];
+            [[self unpairRequestWindow] notifyTerminate];
         });
     }
 
