@@ -10,11 +10,7 @@
 #import "CommandWindow.h"
 
 @interface BLEUnpairRequestWindow : CommandWindow
-    // 画面表示用データを保持
-    @property (nonatomic) NSString *peripheralName;
-    @property (nonatomic) int       progressMaxValue;
 
-    - (void)commandDidNotifyProgress:(int)progress;
     - (void)notifyTerminate;
 
 @end
