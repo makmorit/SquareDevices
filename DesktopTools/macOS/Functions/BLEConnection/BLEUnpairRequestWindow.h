@@ -7,15 +7,11 @@
 #ifndef BLEUnpairRequestWindow_h
 #define BLEUnpairRequestWindow_h
 
-#import <Cocoa/Cocoa.h>
+#import "CommandWindow.h"
 
-@interface BLEUnpairRequestWindow : NSWindowController
-    // 画面表示用データを保持
-    @property (nonatomic) NSString *peripheralName;
-    @property (nonatomic) int       progressMaxValue;
+@interface BLEUnpairRequestWindow : CommandWindow
 
-    - (void)commandDidNotifyProgress:(int)progress;
-    - (void)commandDidNotifyTerminate;
+    - (void)notifyTerminate;
 
 @end
 

@@ -10,11 +10,6 @@
 @interface FWUpdateProgressWindow ()
     // 画面表示データの参照を保持
     @property (weak) FWUpdateProgress               *parameterObject;
-    // 画面項目の参照を保持
-    @property (assign) IBOutlet NSTextField         *labelTitle;
-    @property (assign) IBOutlet NSTextField         *labelProgress;
-    @property (assign) IBOutlet NSLevelIndicator    *levelIndicator;
-    @property (assign) IBOutlet NSButton            *buttonCancel;
 
 @end
 
