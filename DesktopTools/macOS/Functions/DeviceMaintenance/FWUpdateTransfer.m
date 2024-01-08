@@ -4,11 +4,14 @@
 //
 //  Created by Makoto Morita on 2023/12/29.
 //
+#import "BLESMPTransport.h"
 #import "FWUpdateTransfer.h"
 
-@interface FWUpdateTransfer ()
+@interface FWUpdateTransfer () <BLETransportDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
+    // ヘルパークラスの参照を保持
+    @property (nonatomic) BLESMPTransport              *transport;
     // 非同期処理用のキュー（画面用／待機処理用）
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
@@ -23,11 +26,15 @@
         self = [super init];
         if (self) {
             [self setDelegate:delegate];
+            [self setTransport:[[BLESMPTransport alloc] initWithDelegate:self]];
             // メインスレッド／サブスレッドにバインドされるデフォルトキューを取得
             [self setMainQueue:dispatch_get_main_queue()];
             [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.fwupdatetransfer", DISPATCH_QUEUE_SERIAL)];
         }
         return self;
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available {
     }
 
     - (void)start {
@@ -77,6 +84,12 @@
             }
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
     }
 
 @end
