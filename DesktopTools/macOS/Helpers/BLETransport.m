@@ -103,17 +103,17 @@
             return;
         }
         // 接続サービスを設定し、サービスに接続
-        [self setupBLEServiceWithParam:parameter];
+        BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
+        [self setupBLEServiceWithParam:reqParam];
+        [[self requester] peripheralWillPrepareWithParam:reqParam];
     }
 
-    - (void)setupBLEServiceWithParam:(BLEPeripheralScannerParam *)parameter {
+    - (void)setupBLEServiceWithParam:(id)requesterParamRef {
         // U2Fサービスをデフォルトとして設定
-        BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
+        BLEPeripheralRequesterParam *reqParam = (BLEPeripheralRequesterParam *)requesterParamRef;
         [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
         [reqParam setCharForSendUUIDString:U2F_CONTROL_POINT_CHAR_UUID_STR];
         [reqParam setCharForNotifyUUIDString:U2F_STATUS_CHAR_UUID_STR];
-        // U2F BLEサービスに接続
-        [[self requester] peripheralWillPrepareWithParam:reqParam];
     }
 
     - (void)disconnectAndResumeProcess:(bool)success withErrorMessage:(NSString *)errorMessage {
