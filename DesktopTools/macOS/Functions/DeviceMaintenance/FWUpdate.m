@@ -146,6 +146,11 @@
             [[self fwUpdateProgress] closeModalWindow];
             [self terminateCommand:true withMessage:nil];
         }
+        if (status == FWUpdateTransferStatusFailed) {
+            // ファームウェア更新進捗画面を閉じる
+            [[self fwUpdateProgress] closeModalWindow];
+            [self terminateCommand:false withMessage:[fwUpdateTransfer errorMessage]];
+        }
     }
 
     - (void)cancelUpdateImageTransfer {

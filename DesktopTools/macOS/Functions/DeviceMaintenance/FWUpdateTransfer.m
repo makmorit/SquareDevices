@@ -49,6 +49,12 @@
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            // BLE SMPサービスに接続失敗時
+            [self setErrorMessage:errorMessage];
+            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
+            return;
+        }
         // 接続完了を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
         // 転送処理に移行
