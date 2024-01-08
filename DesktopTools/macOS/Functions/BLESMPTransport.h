@@ -11,6 +11,8 @@
 
 @interface BLESMPTransport : BLETransport
 
+    - (void)transportWillConnect;
+
 @end
 
 #endif /* BLESMPTransport_h */
