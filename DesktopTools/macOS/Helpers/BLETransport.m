@@ -107,11 +107,6 @@
     }
 
     - (void)setupBLEServiceWithParam:(id)requesterParamRef {
-        // U2Fサービスをデフォルトとして設定
-        BLEPeripheralRequesterParam *reqParam = (BLEPeripheralRequesterParam *)requesterParamRef;
-        [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
-        [reqParam setCharForSendUUIDString:U2F_CONTROL_POINT_CHAR_UUID_STR];
-        [reqParam setCharForNotifyUUIDString:U2F_STATUS_CHAR_UUID_STR];
     }
 
     - (void)disconnectAndResumeProcess:(bool)success withErrorMessage:(NSString *)errorMessage {

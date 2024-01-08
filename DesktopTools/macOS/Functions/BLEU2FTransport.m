@@ -26,6 +26,14 @@
         [self transportWillConnectWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
     }
 
+    - (void)setupBLEServiceWithParam:(id)requesterParamRef {
+        // BLE U2Fサービスに関する設定
+        BLEPeripheralRequesterParam *reqParam = (BLEPeripheralRequesterParam *)requesterParamRef;
+        [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+        [reqParam setCharForSendUUIDString:U2F_CONTROL_POINT_CHAR_UUID_STR];
+        [reqParam setCharForNotifyUUIDString:U2F_STATUS_CHAR_UUID_STR];
+    }
+
     - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
         // リクエストデータをフレームに分割
         [self setRequestDataArray:[self generateRequestDataArrayWithCMD:requestCMD withData:requestData]];
