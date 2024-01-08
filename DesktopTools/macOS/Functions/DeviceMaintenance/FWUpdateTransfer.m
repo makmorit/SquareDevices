@@ -16,7 +16,7 @@
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
     // ステータスを保持
-    @property (nonatomic) FWUpdateTransferStatus        status;
+    @property (nonatomic) bool                          isCanceling;
 
 @end
 
@@ -39,7 +39,6 @@
 
     - (void)start {
         // 転送処理の前処理を通知
-        [self setStatus:FWUpdateTransferStatusStarting];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarting];
         // 進捗をゼロクリア
         [self setProgress:0];
@@ -66,7 +65,7 @@
 
     - (void)cancel {
         // ファームウェア更新イメージ転送処理を中止させる
-        [self setStatus:FWUpdateTransferStatusCanceling];
+        [self setIsCanceling:true];
     }
 
     - (void)startUpdateTransfer {
@@ -80,9 +79,10 @@
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
+        [self setIsCanceling:false];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if ([self status] == FWUpdateTransferStatusCanceling) {
+                if ([self isCanceling]) {
                     [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
                     return;
                 }
