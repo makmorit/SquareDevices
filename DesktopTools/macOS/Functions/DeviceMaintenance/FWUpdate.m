@@ -28,6 +28,7 @@
         if (self) {
             [self enableClickButtonDoProcess:false];
             [self setFwVersion:[[FWVersion alloc] initWithDelegate:self]];
+            [self setFwUpdateTransfer:[[FWUpdateTransfer alloc] initWithDelegate:self]];
         }
         return self;
     }
@@ -104,7 +105,6 @@
 #pragma mark - 転送処理
 
     - (void)transferUpdateImage {
-        [self setFwUpdateTransfer:[[FWUpdateTransfer alloc] initWithDelegate:self]];
         [[self fwUpdateTransfer] start];
     }
 
