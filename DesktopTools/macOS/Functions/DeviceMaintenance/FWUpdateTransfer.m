@@ -39,6 +39,7 @@
 
     - (void)start {
         // 転送処理の前処理を通知
+        [self setStatus:FWUpdateTransferStatusStarting];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarting];
         // 進捗をゼロクリア
         [self setProgress:0];
@@ -70,6 +71,7 @@
 
     - (void)startUpdateTransfer {
         // TODO: 仮の実装です。
+        [[self transport] transportWillDisconnect];
         [self setProgress:0];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 5; j++) {
