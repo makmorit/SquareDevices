@@ -41,7 +41,12 @@
 
     - (void)transportWillConnect {
         // BLEサービスに接続
-        BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+        [self transportWillConnectWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+    }
+
+    - (void)transportWillConnectWithServiceUUIDString:(NSString *)uuidString {
+        // 指定したサービスに接続
+        BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:uuidString];
         [[self scanner] peripheralWillScanWithParam:parameter];
     }
 
