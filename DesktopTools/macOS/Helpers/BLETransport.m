@@ -40,8 +40,6 @@
 #pragma mark - Public functions
 
     - (void)transportWillConnect {
-        // BLEサービスに接続
-        [self transportWillConnectWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
     }
 
     - (void)transportWillConnectWithServiceUUIDString:(NSString *)uuidString {

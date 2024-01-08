@@ -11,6 +11,8 @@
 
 @interface BLEU2FTransport : BLETransport
 
+    - (void)transportWillConnect;
+
 @end
 
 #endif /* BLEU2FTransport_h */

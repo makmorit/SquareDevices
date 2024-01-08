@@ -21,6 +21,11 @@
 
 @implementation BLEU2FTransport
 
+    - (void)transportWillConnect {
+        // BLE U2Fサービスに接続
+        [self transportWillConnectWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+    }
+
     - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
         // リクエストデータをフレームに分割
         [self setRequestDataArray:[self generateRequestDataArrayWithCMD:requestCMD withData:requestData]];
