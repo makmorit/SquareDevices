@@ -40,6 +40,17 @@
     - (void)start {
         // 転送処理の前処理を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarting];
+        // 進捗をゼロクリア
+        [self setProgress:0];
+        // BLE SMPサービスに接続
+        dispatch_async([self subQueue], ^{
+            [[self transport] transportWillConnect];
+        });
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 接続完了を通知
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
         // 転送処理に移行
         dispatch_async([self subQueue], ^{
             [self startUpdateTransfer];
@@ -84,9 +95,6 @@
             }
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
-    }
-
-    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
