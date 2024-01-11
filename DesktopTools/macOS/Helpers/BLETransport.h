@@ -23,7 +23,7 @@
     // Public functions for sub classes
     - (void)setupBLEServiceWithParam:(id)requesterParamRef;
     - (void)transportWillConnectWithServiceUUIDString:(NSString *)uuidString;
-    - (void)transportWillSendRequestFrame:(NSData *)requestFrame;
+    - (void)transportWillSendRequestFrame:(NSData *)requestFrame writeWithoutResponse:(bool)charPropertyWriteWithoutResponse;
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData;
 
 @end

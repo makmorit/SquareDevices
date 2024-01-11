@@ -40,7 +40,7 @@
         // 送信済フレーム数をクリア
         [self setBleRequestFrameNumber:0];
         // 最初のフレームを送信
-        [self transportWillSendRequestFrame:[[self requestDataArray] objectAtIndex:[self bleRequestFrameNumber]]];
+        [self transportWillSendRequestFrame:[[self requestDataArray] objectAtIndex:[self bleRequestFrameNumber]] writeWithoutResponse:false];
     }
 
     - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didSendWithParam:(BLEPeripheralRequesterParam *)parameter {
@@ -53,7 +53,7 @@
         [self setBleRequestFrameNumber:([self bleRequestFrameNumber] + 1)];
         if ([self bleRequestFrameNumber] < [[self requestDataArray] count]) {
             // 後続フレームを送信
-            [self transportWillSendRequestFrame:[[self requestDataArray] objectAtIndex:[self bleRequestFrameNumber]]];
+            [self transportWillSendRequestFrame:[[self requestDataArray] objectAtIndex:[self bleRequestFrameNumber]] writeWithoutResponse:false];
         }
     }
 

@@ -67,9 +67,10 @@
 
 #pragma mark - Public functions for sub classes
 
-    - (void)transportWillSendRequestFrame:(NSData *)requestFrame {
+    - (void)transportWillSendRequestFrame:(NSData *)requestFrame writeWithoutResponse:(bool)charPropertyWriteWithoutResponse {
         // データフレームを１件送信
         [[self requesterParam] setRequestData:requestFrame];
+        [[self requesterParam] setCharPropertyWriteWithoutResponse:charPropertyWriteWithoutResponse];
         [[self requester] peripheralWillSendWithParam:[self requesterParam]];
     }
 
