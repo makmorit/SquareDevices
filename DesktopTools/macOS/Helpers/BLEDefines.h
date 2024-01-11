@@ -15,4 +15,7 @@
 #define BLE_SMP_SERVICE_UUID_STR                    @"8D53DC1D-1DB7-4CD3-868B-8A527460AA84"
 #define BLE_SMP_CHARACT_UUID_STR                    @"DA2E7828-FBCE-4E01-AE9E-261174997C48"
 
+#pragma mark - BLEフレームに関する定数
+#define SMP_HEADER_SIZE                             8
+
 #endif /* BLEDefines_h */
