@@ -7,6 +7,7 @@
 #import "BLEDefines.h"
 #import "BLEPeripheralRequester.h"
 #import "BLESMPTransport.h"
+#import "ToolLogFile.h"
 
 @interface BLESMPTransport ()
 
@@ -25,6 +26,14 @@
         [reqParam setServiceUUIDString:BLE_SMP_SERVICE_UUID_STR];
         [reqParam setCharForSendUUIDString:BLE_SMP_CHARACT_UUID_STR];
         [reqParam setCharForNotifyUUIDString:BLE_SMP_CHARACT_UUID_STR];
+    }
+
+    - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
+        // ログ出力
+        [[ToolLogFile defaultLogger] debugWithFormat:@"Transmit SMP request (%d bytes)", [requestData length]];
+        [[ToolLogFile defaultLogger] hexdump:requestData];
+        // リクエストデータを送信
+        [self transportWillSendRequestFrame:requestData writeWithoutResponse:true];
     }
 
 @end
