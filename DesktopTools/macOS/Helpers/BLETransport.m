@@ -40,8 +40,11 @@
 #pragma mark - Public functions
 
     - (void)transportWillConnect {
-        // BLEサービスに接続
-        BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
+    }
+
+    - (void)transportWillConnectWithServiceUUIDString:(NSString *)uuidString {
+        // 指定したサービスに接続
+        BLEPeripheralScannerParam *parameter = [[BLEPeripheralScannerParam alloc] initWithServiceUUIDString:uuidString];
         [[self scanner] peripheralWillScanWithParam:parameter];
     }
 
@@ -64,9 +67,10 @@
 
 #pragma mark - Public functions for sub classes
 
-    - (void)transportWillSendRequestFrame:(NSData *)requestFrame {
+    - (void)transportWillSendRequestFrame:(NSData *)requestFrame writeWithoutResponse:(bool)charPropertyWriteWithoutResponse {
         // データフレームを１件送信
         [[self requesterParam] setRequestData:requestFrame];
+        [[self requesterParam] setCharPropertyWriteWithoutResponse:charPropertyWriteWithoutResponse];
         [[self requester] peripheralWillSendWithParam:[self requesterParam]];
     }
 
@@ -98,17 +102,12 @@
             return;
         }
         // 接続サービスを設定し、サービスに接続
-        [self setupBLEServiceWithParam:parameter];
+        BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
+        [self setupBLEServiceWithParam:reqParam];
+        [[self requester] peripheralWillPrepareWithParam:reqParam];
     }
 
-    - (void)setupBLEServiceWithParam:(BLEPeripheralScannerParam *)parameter {
-        // U2Fサービスをデフォルトとして設定
-        BLEPeripheralRequesterParam *reqParam = [[BLEPeripheralRequesterParam alloc] initWithConnectedPeripheralRef:[parameter scannedCBPeripheralRef]];
-        [reqParam setServiceUUIDString:U2F_BLE_SERVICE_UUID_STR];
-        [reqParam setCharForSendUUIDString:U2F_CONTROL_POINT_CHAR_UUID_STR];
-        [reqParam setCharForNotifyUUIDString:U2F_STATUS_CHAR_UUID_STR];
-        // U2F BLEサービスに接続
-        [[self requester] peripheralWillPrepareWithParam:reqParam];
+    - (void)setupBLEServiceWithParam:(id)requesterParamRef {
     }
 
     - (void)disconnectAndResumeProcess:(bool)success withErrorMessage:(NSString *)errorMessage {

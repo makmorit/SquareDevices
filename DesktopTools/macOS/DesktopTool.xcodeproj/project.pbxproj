@@ -36,6 +36,8 @@
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
+		7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */; };
+		7A4FA3D62B4BBA5D00291A69 /* BLESMPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */; };
 		7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
 		7A53E2272A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
 		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
@@ -167,6 +169,8 @@
 		7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupWindow.m; sourceTree = "<group>"; };
 		7A3E90992B146BD00089436E /* FunctionDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionDefine.h; sourceTree = "<group>"; };
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		7A4FA3D32B4BBA1900291A69 /* BLESMPTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLESMPTransport.h; sourceTree = "<group>"; };
+		7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLESMPTransport.m; sourceTree = "<group>"; };
 		7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolSideMenuView.xib; sourceTree = "<group>"; };
 		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
 		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 		7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.3.bin; sourceTree = "<group>"; };
 		7ABD1FC42B2FEC840056E14A /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABD1FC52B2FEC840056E14A /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransferDefine.h; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -351,6 +356,8 @@
 				7ADD427F2A2DBFCF0086CF47 /* DeviceMaintenance */,
 				7AA301A82A286FB10039E7E0 /* ToolCommon */,
 				7A27126A2A24716900FA9030 /* ToolInfos */,
+				7A4FA3D32B4BBA1900291A69 /* BLESMPTransport.h */,
+				7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */,
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
 				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
 				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
@@ -510,6 +517,7 @@
 				7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */,
 				7A9597F32B3E66D400AE1FED /* FWUpdateTransfer.h */,
 				7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */,
+				7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */,
 			);
 			path = DeviceMaintenance;
 			sourceTree = "<group>";
@@ -661,6 +669,7 @@
 				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7AB1C81C2B2BEB7D00830345 /* FWUpdate.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */,
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
@@ -701,6 +710,7 @@
 				7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7AB1C81D2B2BEB7D00830345 /* FWUpdate.m in Sources */,
 				7A36FB442A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
+				7A4FA3D62B4BBA5D00291A69 /* BLESMPTransport.m in Sources */,
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A9A25A02B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
@@ -845,7 +855,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -878,7 +888,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -913,7 +923,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -946,7 +956,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";

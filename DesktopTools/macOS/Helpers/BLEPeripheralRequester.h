@@ -17,6 +17,8 @@
     // キャラクタリスティックUUIDの参照を保持
     @property (nonatomic) NSString             *charForSendUUIDString;
     @property (nonatomic) NSString             *charForNotifyUUIDString;
+    // キャラクタリスティックの書き込みモードを保持
+    @property (nonatomic) bool                  charPropertyWriteWithoutResponse;
     // リクエストデータを保持
     @property (nonatomic) NSData               *requestData;
     @property (nonatomic) NSData               *responseData;
