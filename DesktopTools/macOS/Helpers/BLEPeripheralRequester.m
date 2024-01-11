@@ -79,7 +79,11 @@
 
     - (void)peripheralWillSendWithParam:(BLEPeripheralRequesterParam *)parameter {
         // BLEデバイスにデータを送信
-        [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
+        if ([parameter charPropertyWriteWithoutResponse]) {
+            [self peripheralWillWriteWithNoRespForCharacteristicsWithRequestData:[parameter requestData]];
+        } else {
+            [self peripheralWillWriteForCharacteristicsWithRequestData:[parameter requestData]];
+        }
     }
 
     - (void)requesterDidSendWithParam:(bool)success withErrorMessage:(NSString *)errorMessage {
@@ -234,6 +238,19 @@
         }
         if (characteristicForWrite) {
             [[self discoveredPeripheral] writeValue:requestData forCharacteristic:characteristicForWrite type:CBCharacteristicWriteWithResponse];
+        }
+    }
+
+    - (void)peripheralWillWriteWithNoRespForCharacteristicsWithRequestData:(NSData *)requestData {
+        // Writeキャラクタリスティックへの書き込みを開始
+        CBCharacteristic *characteristicForWrite = nil;
+        for (CBCharacteristic *characteristic in [[self connectedService] characteristics]) {
+            if ([characteristic properties] & CBCharacteristicPropertyWriteWithoutResponse) {
+                characteristicForWrite = characteristic;
+            }
+        }
+        if (characteristicForWrite) {
+            [[self discoveredPeripheral] writeValue:requestData forCharacteristic:characteristicForWrite type:CBCharacteristicWriteWithoutResponse];
         }
     }
 
