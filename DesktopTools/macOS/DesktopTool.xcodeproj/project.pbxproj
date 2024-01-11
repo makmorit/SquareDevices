@@ -230,6 +230,7 @@
 		7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.3.bin; sourceTree = "<group>"; };
 		7ABD1FC42B2FEC840056E14A /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABD1FC52B2FEC840056E14A /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransferDefine.h; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -516,6 +517,7 @@
 				7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */,
 				7A9597F32B3E66D400AE1FED /* FWUpdateTransfer.h */,
 				7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */,
+				7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */,
 			);
 			path = DeviceMaintenance;
 			sourceTree = "<group>";
