@@ -24,6 +24,8 @@
         // スレッドにバインドされるキューを取得
         [self setMainQueue:dispatch_get_main_queue()];
         [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.doprocess", DISPATCH_QUEUE_SERIAL)];
+        // 閉じるボタンを使用可能に設定
+        [self enableClickButtonClose:true];
     }
 
 #pragma mark - Process management
