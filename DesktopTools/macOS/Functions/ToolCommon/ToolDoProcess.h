@@ -17,6 +17,7 @@
     @property (nonatomic) bool       buttonCloseEnabled;
 
     - (void)enableClickButtonDoProcess:(bool)isEnabled;
+    - (void)enableClickButtonClose:(bool)isEnabled;
     - (void)appendStatusText:(NSString *)statusText;
     - (void)LogAndShowInfoMessage:(NSString *)infoMessage;
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage;
