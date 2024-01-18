@@ -93,19 +93,20 @@
 
     - (void)enableButtonClick:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableButtonClick:isEnabled];
+            [self setButtonDoProcessEnabled:isEnabled];
+            [self setButtonCloseEnabled:isEnabled];
         });
     }
 
     - (void)enableClickButtonDoProcess:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableClickButtonDoProcess:isEnabled];
+            [self setButtonDoProcessEnabled:isEnabled];
         });
     }
 
     - (void)enableClickButtonClose:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableClickButtonClose:isEnabled];
+            [self setButtonCloseEnabled:isEnabled];
         });
     }
 
