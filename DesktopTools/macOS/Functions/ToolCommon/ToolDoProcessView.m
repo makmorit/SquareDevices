@@ -12,8 +12,6 @@
     @property (weak) ToolDoProcess          *parameterObject;
     // 画面項目の参照を保持
     @property (weak) IBOutlet NSTextView    *textStatus;
-    @property (weak) IBOutlet NSButton      *buttonDoProcess;
-    @property (weak) IBOutlet NSButton      *buttonClose;
 
 @end
 
@@ -32,22 +30,6 @@
     - (IBAction)buttonCloseDidPress:(id)sender {
         // この画面を閉じる
         [self subViewWillRemove];
-    }
-
-    - (void)enableButtonClick:(bool)isEnabled {
-        // ボタンの使用可能／不能を制御
-        [self enableClickButtonDoProcess:isEnabled];
-        [self enableClickButtonClose:isEnabled];
-    }
-
-    - (void)enableClickButtonDoProcess:(bool)isEnabled {
-        // ボタンの使用可能／不能を制御
-        [[self buttonDoProcess] setEnabled:isEnabled];
-    }
-
-    - (void)enableClickButtonClose:(bool)isEnabled {
-        // ボタンの使用可能／不能を制御
-        [[self buttonClose] setEnabled:isEnabled];
     }
 
     - (void)scrollToEndOfStatusText {

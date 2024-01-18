@@ -13,8 +13,11 @@
     // 画面に表示させるための情報を保持
     @property (nonatomic) NSString  *title;
     @property (nonatomic) NSString  *statusText;
+    @property (nonatomic) bool       buttonDoProcessEnabled;
+    @property (nonatomic) bool       buttonCloseEnabled;
 
     - (void)enableClickButtonDoProcess:(bool)isEnabled;
+    - (void)enableClickButtonClose:(bool)isEnabled;
     - (void)appendStatusText:(NSString *)statusText;
     - (void)LogAndShowInfoMessage:(NSString *)infoMessage;
     - (void)LogAndShowErrorMessage:(NSString *)errorMessage;

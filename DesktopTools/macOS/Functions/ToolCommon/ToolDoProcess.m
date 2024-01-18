@@ -24,6 +24,8 @@
         // スレッドにバインドされるキューを取得
         [self setMainQueue:dispatch_get_main_queue()];
         [self setSubQueue:dispatch_queue_create("jp.makmorit.tools.desktoptool.doprocess", DISPATCH_QUEUE_SERIAL)];
+        // 閉じるボタンを使用可能に設定
+        [self enableClickButtonClose:true];
     }
 
 #pragma mark - Process management
@@ -93,19 +95,20 @@
 
     - (void)enableButtonClick:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableButtonClick:isEnabled];
+            [self setButtonDoProcessEnabled:isEnabled];
+            [self setButtonCloseEnabled:isEnabled];
         });
     }
 
     - (void)enableClickButtonDoProcess:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableClickButtonDoProcess:isEnabled];
+            [self setButtonDoProcessEnabled:isEnabled];
         });
     }
 
     - (void)enableClickButtonClose:(bool)isEnabled {
         dispatch_async([self mainQueue], ^{
-            [[self toolDoProcessView] enableClickButtonClose:isEnabled];
+            [self setButtonCloseEnabled:isEnabled];
         });
     }
 

@@ -13,6 +13,14 @@
 
 @implementation FWVersionInfo
 
+    - (instancetype)initWithDelegate:(id)delegate {
+        self = [super initWithDelegate:delegate];
+        if (self) {
+            [self enableClickButtonDoProcess:true];
+        }
+        return self;
+    }
+
 #pragma mark - Process management
 
     - (void)invokeProcessOnSubQueue {
