@@ -39,6 +39,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="buttonDoProcessDidPress:" target="-2" id="wwu-zF-DqR"/>
+                        <binding destination="0wM-lp-rh3" name="enabled" keyPath="selection.buttonDoProcessEnabled" id="jev-Q9-fXF"/>
                     </connections>
                 </button>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="yvj-pB-e1N">
@@ -80,6 +81,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="buttonCloseDidPress:" target="-2" id="pAt-ic-NP1"/>
+                        <binding destination="0wM-lp-rh3" name="enabled" keyPath="selection.buttonCloseEnabled" id="vx8-h9-HIh"/>
                     </connections>
                 </button>
             </subviews>
