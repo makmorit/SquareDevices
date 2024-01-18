@@ -12,8 +12,6 @@
     @property (weak) ToolDoProcess          *parameterObject;
     // 画面項目の参照を保持
     @property (weak) IBOutlet NSTextView    *textStatus;
-    @property (weak) IBOutlet NSButton      *buttonDoProcess;
-    @property (weak) IBOutlet NSButton      *buttonClose;
 
 @end
 
