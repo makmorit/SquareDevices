@@ -5,8 +5,15 @@
 //  Created by Makoto Morita on 2024/01/19.
 //
 #import "BLESMPTransport.h"
+#import "FunctionMessage.h"
 #import "FWUpdateSMPTransfer.h"
 #import "FWUpdateTransferDefine.h"
+
+// for DFU image file
+#import "mcumgr_app_image.h"
+
+// for CBOR decode
+#include "mcumgr_cbor_decode.h"
 
 @interface FWUpdateSMPTransfer () <BLETransportDelegate>
     // 上位クラスの参照を保持
@@ -70,8 +77,35 @@
             [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:false withErrorMessage:errorMessage];
             return;
         }
-        // TODO: 仮の実装です。
+        // スロット照会情報を参照し、チェックでNGの場合は以降の処理を行わない
+        NSMutableString *checkError = [[NSMutableString alloc] init];
+        if ([self CheckSlotInfoResponse:responseData withErrorMessage:checkError] == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:false withErrorMessage:checkError];
+            return;
+        }
+        // スロット照会完了を通知
         [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:true withErrorMessage:nil];
+    }
+
+    - (bool)CheckSlotInfoResponse:(NSData *)responseData withErrorMessage:(NSMutableString *)message {
+        // レスポンス（CBOR）を解析し、スロット照会情報を取得
+        uint8_t *bytes = (uint8_t *)[responseData bytes];
+        size_t size = [responseData length];
+        if (mcumgr_cbor_decode_slot_info(bytes, size) == false) {
+            [message appendString:MSG_FW_UPDATE_SUB_PROCESS_FAILED];
+            return false;
+        }
+        // SHA-256ハッシュデータをイメージから抽出
+        NSData *imageHash = [[NSData alloc] initWithBytes:mcumgr_app_image_bin_hash_sha256() length:32];
+        // スロット照会情報から、スロット#0のハッシュを抽出
+        uint8_t *hash0 = mcumgr_cbor_decode_slot_info_hash(0);
+        NSData *hashData0 = [[NSData alloc] initWithBytes:hash0 length:32];
+        // 既に転送対象イメージが導入されている場合は true
+        if (mcumgr_cbor_decode_slot_info_active(0) && [hashData0 isEqualToData:imageHash]) {
+            [message appendString:MSG_FW_UPDATE_IMAGE_ALREADY_INSTALLED];
+            return false;
+        }
+        return true;
     }
 
 #pragma mark - Utilities

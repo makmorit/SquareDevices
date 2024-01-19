@@ -52,6 +52,7 @@
 #pragma mark - ファームウェア更新
 #define MSG_FW_UPDATE_FUNC_NOT_AVAILABLE            @"ファームウェア更新機能が利用できません。"
 #define MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST          @"ファームウェア更新イメージファイルが存在しません。"
+#define MSG_FW_UPDATE_IMAGE_ALREADY_INSTALLED       @"更新ファームウェアが既に導入済みなので、ファームウェア更新処理を続行できません。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
 #define MSG_FW_UPDATE_VERSION_UNKNOWN               @"ファームウェア更新イメージファイルのバージョンが不明です。"
 #define MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM       @"ファームウェアの現在バージョンを確認中です。"
@@ -61,6 +62,7 @@
 #define MSG_FW_UPDATE_PROMPT_START_PROCESS          @"OKボタンをクリックすると、\nファームウェア更新処理が開始されます。\n\n処理が完了するまでは、BLEデバイスの\n電源をOnにしたままにして下さい。"
 #define MSG_FW_UPDATE_PROCESSING                    @"ファームウェアを更新しています"
 #define MSG_FW_UPDATE_PRE_PROCESS                   @"ファームウェア更新の前処理中です"
+#define MSG_FW_UPDATE_SUB_PROCESS_FAILED            @"ファームウェア更新機能の内部処理が失敗しました。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE        @"更新ファームウェアを転送中です。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_IMAGE_FORMAT @"更新ファームウェアを転送中（%d％）"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS      @"更新ファームウェアの転送が完了しました。"
