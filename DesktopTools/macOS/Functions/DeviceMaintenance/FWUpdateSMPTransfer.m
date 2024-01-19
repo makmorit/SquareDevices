@@ -108,6 +108,13 @@
         return true;
     }
 
+#pragma mark - イメージ転送
+
+    - (void)doRequestUploadImage {
+        // TODO: 仮の実装です。
+        [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:true withErrorMessage:nil];
+    }
+
 #pragma mark - Utilities
 
     - (NSData *)buildSMPHeaderWithOp:(uint8_t)op flags:(uint8_t)flags len:(NSUInteger)len group:(uint16_t)group seq:(uint8_t)seq idint:(uint8_t)id_int {

@@ -70,7 +70,34 @@
             [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
             return;
         }
+        // 転送処理開始を通知
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
+        // 変数内容をクリア
+        [self setIsCanceling:false];
         // 転送処理に移行
+        dispatch_async([self subQueue], ^{
+            [self doRequestUploadImage:smpTransfer];
+        });
+    }
+
+#pragma mark - イメージ転送
+
+    - (void)doRequestUploadImage:(FWUpdateSMPTransfer *)smpTransfer {
+        [smpTransfer doRequestUploadImage];
+    }
+
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self setErrorMessage:errorMessage];
+            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
+            return;
+        }
+        // 処理進捗画面でCancelボタンが押下された時
+        if ([self isCanceling]) {
+            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
+            return;
+        }
+        // TODO: 仮の実装です。
         dispatch_async([self subQueue], ^{
             [self dummyProcess];
         });
@@ -90,7 +117,6 @@
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
-        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
         [self setIsCanceling:false];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
