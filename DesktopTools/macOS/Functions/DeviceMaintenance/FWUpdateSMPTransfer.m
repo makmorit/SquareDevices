@@ -137,6 +137,8 @@
             NSData *hash = [AppUtil generateSHA256HashDataOf:[self imageToUpload]];
             [bodyData appendData:[self generateShaBytes:hash]];
         }
+        // 転送済みバイト数を設定
+        [bodyData appendData:[self generateOffBytes:[self imageBytesSent]]];
         // 終端文字を設定
         uint8_t bodyEndBytes[] = { 0xff };
         [bodyData appendBytes:bodyEndBytes length:sizeof(bodyEndBytes)];
@@ -164,6 +166,28 @@
         memcpy(shaBytes + 5, bytes, 3);
         NSData *shaData = [[NSData alloc] initWithBytes:shaBytes length:sizeof(shaBytes)];
         return shaData;
+    }
+
+    - (NSData *)generateOffBytes:(size_t)bytesSent {
+        // 転送済みバイト数を設定
+        uint8_t offBytes[] = { 0x63, 0x6f, 0x66, 0x66, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        NSUInteger len = sizeof(offBytes);
+        if (bytesSent == 0) {
+            len = 5;
+        } else if (bytesSent < 0x100) {
+            offBytes[4] = 0x18;
+            offBytes[5] = (uint8_t)bytesSent;
+            len = 6;
+        } else if (bytesSent < 0x10000) {
+            offBytes[4] = 0x19;
+            [AppUtil convertUint16:(uint16_t)bytesSent toBEBytes:(offBytes + 5)];
+            len = 7;
+        } else {
+            offBytes[4] = 0x1a;
+            [AppUtil convertUint32:(uint32_t)bytesSent toBEBytes:(offBytes + 5)];
+        }
+        NSData *offData = [[NSData alloc] initWithBytes:offBytes length:len];
+        return offData;
     }
 
 #pragma mark - Utilities
