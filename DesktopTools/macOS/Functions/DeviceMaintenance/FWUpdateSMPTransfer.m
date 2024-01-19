@@ -118,6 +118,15 @@
 #pragma mark - イメージ転送
 
     - (void)doRequestUploadImage {
+        // コマンドを実行
+        [self sendRequestData:[self requestDataForUploadImage] withCommandName:NSStringFromSelector(_cmd)];
+    }
+
+    - (void)doResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage withResponse:(NSData *)responseData {
+        if (success == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:false withErrorMessage:errorMessage];
+            return;
+        }
         // TODO: 仮の実装です。
         [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:true withErrorMessage:nil];
     }
@@ -248,6 +257,8 @@
         // コマンド名により処理分岐
         if ([[self commandName] isEqualToString:@"doRequestGetSlotInfo"]) {
             [self doResponseGetSlotInfo:success withErrorMessage:errorMessage withResponse:responseData];
+        } else if ([[self commandName] isEqualToString:@"doRequestUploadImage"]) {
+            [self doResponseUploadImage:success withErrorMessage:errorMessage withResponse:responseData];
         }
     }
 
