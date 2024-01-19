@@ -4,6 +4,7 @@
 //
 //  Created by Makoto Morita on 2024/01/19.
 //
+#import "AppUtil.h"
 #import "BLESMPTransport.h"
 #import "FunctionMessage.h"
 #import "FWUpdateSMPTransfer.h"
@@ -24,6 +25,8 @@
     @property (nonatomic) dispatch_queue_t              subQueue;
     // 実行コマンドを保持
     @property (nonatomic) NSString                     *commandName;
+    // 転送済みバイト数を保持
+    @property (nonatomic) size_t                        imageBytesSent;
 
 @end
 
@@ -83,6 +86,8 @@
             [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:false withErrorMessage:checkError];
             return;
         }
+        // 転送済みバイト数をクリアしておく
+        [self setImageBytesSent:0];
         // スロット照会完了を通知
         [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:true withErrorMessage:nil];
     }
@@ -113,6 +118,35 @@
     - (void)doRequestUploadImage {
         // TODO: 仮の実装です。
         [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:true withErrorMessage:nil];
+    }
+
+    - (NSData *)requestDataForUploadImage {
+        // リクエストデータを生成
+        uint8_t bodyStartBytes[] = { 0xbf };
+        NSMutableData *bodyData = [[NSMutableData alloc] initWithBytes:bodyStartBytes length:sizeof(bodyStartBytes)];
+        // 転送元データ長
+        size_t bytesTotal = mcumgr_app_image_bin_size();
+        if ([self imageBytesSent] == 0) {
+            // 初回呼び出しの場合、イメージ長を設定
+            [bodyData appendData:[self generateLenBytes:bytesTotal]];
+        }
+        // 終端文字を設定
+        uint8_t bodyEndBytes[] = { 0xff };
+        [bodyData appendBytes:bodyEndBytes length:sizeof(bodyEndBytes)];
+        // ヘッダーデータを生成
+        NSData *headerData = [self buildSMPHeaderWithOp:OP_WRITE_REQ flags:0x00 len:[bodyData length] group:GRP_IMG_MGMT seq:0x00 idint:CMD_IMG_MGMT_UPLOAD];
+        // ヘッダーとデータを連結
+        NSMutableData *requestData = [[NSMutableData alloc] initWithData:headerData];
+        [requestData appendData:bodyData];
+        return requestData;
+    }
+
+    - (NSData *)generateLenBytes:(size_t)bytesTotal {
+        // イメージ長を設定
+        uint8_t lenBytes[] = { 0x63, 0x6c, 0x65, 0x6e, 0x1a, 0x00, 0x00, 0x00, 0x00 };
+        [AppUtil convertUint32:(uint32_t)bytesTotal toBEBytes:(lenBytes + 5)];
+        NSData *lenData = [[NSData alloc] initWithBytes:lenBytes length:sizeof(lenBytes)];
+        return lenData;
     }
 
 #pragma mark - Utilities
