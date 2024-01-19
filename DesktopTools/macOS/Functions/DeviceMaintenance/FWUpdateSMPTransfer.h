@@ -16,12 +16,14 @@
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)prepareTransfer;
     - (void)terminateTransfer;
+    - (void)doRequestGetSlotInfo;
 
 @end
 
 @protocol FWUpdateSMPTransferDelegate <NSObject>
 
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didPrepare:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseGetSlotInfo:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 
