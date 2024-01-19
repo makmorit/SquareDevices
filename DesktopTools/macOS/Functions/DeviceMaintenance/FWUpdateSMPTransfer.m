@@ -139,6 +139,9 @@
         }
         // 転送済みバイト数を設定
         [bodyData appendData:[self generateOffBytes:[self imageBytesSent]]];
+        // 転送イメージを連結（データ本体が240バイトに収まるよう、上限サイズを事前計算）
+        size_t remainingSize = 240 - [bodyData length] - 1;
+        [bodyData appendData:[self generateDataBytes:[self imageToUpload] bytesSent:[self imageBytesSent] remainingSize:remainingSize]];
         // 終端文字を設定
         uint8_t bodyEndBytes[] = { 0xff };
         [bodyData appendBytes:bodyEndBytes length:sizeof(bodyEndBytes)];
@@ -188,6 +191,23 @@
         }
         NSData *offData = [[NSData alloc] initWithBytes:offBytes length:len];
         return offData;
+    }
+
+    - (NSData *)generateDataBytes:(NSData *)imageData bytesSent:(size_t)bytesSent remainingSize:(size_t)remaining {
+        // 転送バイト数を設定
+        uint8_t bodyBytes[] = { 0x64, 0x64, 0x61, 0x74, 0x61, 0x58, 0x00 };
+        // 転送バイト数
+        size_t bytesToSend = remaining - sizeof(bodyBytes);
+        if (bytesToSend > [imageData length] - bytesSent) {
+            bytesToSend = [imageData length] - bytesSent;
+        }
+        bodyBytes[6] = (uint8_t)bytesToSend;
+        // 転送イメージを抽出
+        NSData *sendData = [imageData subdataWithRange:NSMakeRange(bytesSent, bytesToSend)];
+        // 転送イメージを連結
+        NSMutableData *body = [[NSMutableData alloc] initWithBytes:bodyBytes length:sizeof(bodyBytes)];
+        [body appendData:sendData];
+        return body;
     }
 
 #pragma mark - Utilities
