@@ -27,6 +27,8 @@
     @property (nonatomic) NSString                     *commandName;
     // 転送済みバイト数を保持
     @property (nonatomic) size_t                        imageBytesSent;
+    // 転送するイメージデータを保持
+    @property (nonatomic) NSData                       *imageToUpload;
 
 @end
 
@@ -129,6 +131,11 @@
         if ([self imageBytesSent] == 0) {
             // 初回呼び出しの場合、イメージ長を設定
             [bodyData appendData:[self generateLenBytes:bytesTotal]];
+            // 転送イメージ全体を保持
+            [self setImageToUpload:[[NSData alloc] initWithBytes:mcumgr_app_image_bin() length:mcumgr_app_image_bin_size()]];
+            // イメージのハッシュ値を設定
+            NSData *hash = [AppUtil generateSHA256HashDataOf:[self imageToUpload]];
+            [bodyData appendData:[self generateShaBytes:hash]];
         }
         // 終端文字を設定
         uint8_t bodyEndBytes[] = { 0xff };
@@ -147,6 +154,16 @@
         [AppUtil convertUint32:(uint32_t)bytesTotal toBEBytes:(lenBytes + 5)];
         NSData *lenData = [[NSData alloc] initWithBytes:lenBytes length:sizeof(lenBytes)];
         return lenData;
+    }
+
+    - (NSData *)generateShaBytes:(NSData *)hashBytes {
+        // イメージのハッシュ値を設定
+        uint8_t shaBytes[] = { 0x63, 0x73, 0x68, 0x61, 0x43, 0x00, 0x00, 0x00 };
+        // 指定領域から３バイト分の領域に、SHA-256ハッシュの先頭３バイト分を設定
+        uint8_t *bytes = (uint8_t *)[hashBytes bytes];
+        memcpy(shaBytes + 5, bytes, 3);
+        NSData *shaData = [[NSData alloc] initWithBytes:shaBytes length:sizeof(shaBytes)];
+        return shaData;
     }
 
 #pragma mark - Utilities
