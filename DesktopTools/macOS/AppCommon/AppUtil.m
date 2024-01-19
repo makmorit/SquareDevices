@@ -40,6 +40,12 @@
         return hashData;
     }
 
+    + (void)convertUint16:(uint16_t)n toBEBytes:(uint8_t *)p {
+        // 指定領域から２バイト分の領域に、数値データをビッグエンディアン形式で設定
+        p[0] = n >> 8 & 0xff;
+        p[1] = n >> 0 & 0xff;
+    }
+
     + (void)convertUint32:(uint32_t)n toBEBytes:(uint8_t *)p {
         // 指定領域から４バイト分の領域に、数値データをビッグエンディアン形式で設定
         p[0] = n >> 24 & 0xff;
