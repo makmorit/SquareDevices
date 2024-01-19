@@ -52,6 +52,24 @@
         }
         // 接続完了を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
+        // スロット照会に移行
+        dispatch_async([self subQueue], ^{
+            [self doRequestGetSlotInfo:[self smpTransfer]];
+        });
+    }
+
+#pragma mark - スロット照会
+
+    - (void)doRequestGetSlotInfo:(FWUpdateSMPTransfer *)smpTransfer {
+        [smpTransfer doRequestGetSlotInfo];
+    }
+
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseGetSlotInfo:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self setErrorMessage:errorMessage];
+            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
+            return;
+        }
         // 転送処理に移行
         dispatch_async([self subQueue], ^{
             [self startUpdateTransfer];
