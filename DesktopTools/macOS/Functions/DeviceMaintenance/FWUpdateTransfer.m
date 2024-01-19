@@ -72,7 +72,7 @@
         }
         // 転送処理に移行
         dispatch_async([self subQueue], ^{
-            [self startUpdateTransfer];
+            [self dummyProcess];
         });
     }
 
@@ -81,7 +81,7 @@
         [self setIsCanceling:true];
     }
 
-    - (void)startUpdateTransfer {
+    - (void)dummyProcess {
         // TODO: 仮の実装です。
         [[self smpTransfer] terminateTransfer];
         [self setProgress:0];
@@ -90,7 +90,6 @@
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
-        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusPreprocess];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
         [self setIsCanceling:false];
         for (int i = 0; i < 10; i++) {
