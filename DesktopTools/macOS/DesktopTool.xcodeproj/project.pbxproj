@@ -64,6 +64,8 @@
 		7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
 		7A7C96A12B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */; };
 		7A7C96A22B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */; };
+		7A7C96A62B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */; };
+		7A7C96A72B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -193,6 +195,8 @@
 		7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralScanner.m; sourceTree = "<group>"; };
 		7A7C969F2B5A228B0096699E /* FWUpdateSMPTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateSMPTransfer.h; sourceTree = "<group>"; };
 		7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateSMPTransfer.m; sourceTree = "<group>"; };
+		7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcumgr_cbor_decode.h; sourceTree = "<group>"; };
+		7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcumgr_cbor_decode.c; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -506,6 +510,8 @@
 			children = (
 				7AB1C82B2B2C3C9100830345 /* mcumgr_app_image.h */,
 				7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */,
+				7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */,
+				7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */,
 				7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */,
 				7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */,
 				7AB1C8272B2C313300830345 /* FWUpdateImage.h */,
@@ -679,6 +685,7 @@
 				7AA301B22A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
+				7A7C96A62B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */,
 				7A9597F52B3E674500AE1FED /* FWUpdateTransfer.m in Sources */,
 				7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
@@ -721,6 +728,7 @@
 				7AA301B32A2874040039E7E0 /* ToolDoProcess.m in Sources */,
 				7A2712712A2471B200FA9030 /* ToolVersionInfoView.m in Sources */,
 				7A9A25A02B3D647500EA4B34 /* FWUpdateProgress.m in Sources */,
+				7A7C96A72B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */,
 				7A9597F62B3E674500AE1FED /* FWUpdateTransfer.m in Sources */,
 				7ADD42712A2D71B70086CF47 /* BLEPairing.m in Sources */,
 				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
