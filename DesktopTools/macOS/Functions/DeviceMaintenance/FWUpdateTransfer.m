@@ -63,9 +63,9 @@
     }
 
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseGetSlotInfo:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 処理失敗時は、BLE接続を切断し、エラーメッセージを上位クラスに通知
         if (success == false) {
-            [self setErrorMessage:errorMessage];
-            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
+            [self terminateTransferWithErrorMessage:errorMessage];
             return;
         }
         // 転送処理開始を通知
@@ -83,9 +83,9 @@
     }
 
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 処理失敗時は、BLE接続を切断し、エラーメッセージを上位クラスに通知
         if (success == false) {
-            [self setErrorMessage:errorMessage];
-            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
+            [self terminateTransferWithErrorMessage:errorMessage];
             return;
         }
         // TODO: 仮の実装です。
@@ -122,6 +122,16 @@
             }
         }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
+    }
+
+#pragma mark - Utilities
+
+    - (void)terminateTransferWithErrorMessage:(NSString *)errorMessage {
+        // BLE接続を切断
+        [[self smpTransfer] terminateTransfer];
+        // エラーメッセージを上位クラスに通知
+        [self setErrorMessage:errorMessage];
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
     }
 
 @end
