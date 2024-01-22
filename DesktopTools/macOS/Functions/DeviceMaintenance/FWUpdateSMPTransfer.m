@@ -271,6 +271,49 @@
         return true;
     }
 
+#pragma mark - 反映要求
+
+    - (void)doRequestChangeImageUpdateMode {
+        // コマンドを実行
+        [self sendRequestData:[self requestDataForChangeImageUpdateMode] withCommandName:NSStringFromSelector(_cmd)];
+    }
+
+    - (NSData *)requestDataForChangeImageUpdateMode {
+        // リクエストデータを生成
+        uint8_t bodyBytes[] =  {
+            0xbf, 0x67, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x00,
+            0x64, 0x68, 0x61, 0x73, 0x68, 0x58, 0x20
+        };
+        // イメージ反映モードを設定（confirm=false/true）
+        if (IMAGE_UPDATE_TEST_MODE) {
+            bodyBytes[9] = 0xf4;
+        } else {
+            bodyBytes[9] = 0xf5;
+        }
+        // SHA-256ハッシュデータをイメージから抽出
+        NSData *hash = [[NSData alloc] initWithBytes:mcumgr_app_image_bin_hash_sha256() length:32];
+        // 本体にSHA-256ハッシュを連結
+        NSMutableData *bodyData = [[NSMutableData alloc] initWithBytes:bodyBytes length:sizeof(bodyBytes)];
+        [bodyData appendData:hash];
+        // 終端文字を設定
+        uint8_t bodyEndBytes[] = { 0xff };
+        [bodyData appendBytes:bodyEndBytes length:sizeof(bodyEndBytes)];
+        // ヘッダーデータを生成
+        NSData *headerData = [self buildSMPHeaderWithOp:OP_WRITE_REQ flags:0x00 len:[bodyData length] group:GRP_IMG_MGMT seq:0x00 idint:CMD_IMG_MGMT_STATE];
+        // ヘッダーとデータを連結
+        NSMutableData *requestData = [[NSMutableData alloc] initWithData:headerData];
+        [requestData appendData:bodyData];
+        return requestData;
+    }
+
+    - (void)doResponseChangeImageUpdateMode:(bool)success withErrorMessage:(NSString *)errorMessage withResponse:(NSData *)responseData {
+        if (success == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseChangeImageUpdateMode:false withErrorMessage:errorMessage];
+            return;
+        }
+        [[self delegate] FWUpdateSMPTransfer:self didResponseChangeImageUpdateMode:true withErrorMessage:nil];
+    }
+
 #pragma mark - Utilities
 
     - (NSData *)buildSMPHeaderWithOp:(uint8_t)op flags:(uint8_t)flags len:(NSUInteger)len group:(uint16_t)group seq:(uint8_t)seq idint:(uint8_t)id_int {
@@ -307,6 +350,8 @@
             [self doResponseGetSlotInfo:success withErrorMessage:errorMessage withResponse:responseData];
         } else if ([[self commandName] isEqualToString:@"doRequestUploadImage"]) {
             [self doResponseUploadImage:success withErrorMessage:errorMessage withResponse:responseData];
+        } else if ([[self commandName] isEqualToString:@"doRequestChangeImageUpdateMode"]) {
+            [self doResponseChangeImageUpdateMode:success withErrorMessage:errorMessage withResponse:responseData];
         }
     }
 

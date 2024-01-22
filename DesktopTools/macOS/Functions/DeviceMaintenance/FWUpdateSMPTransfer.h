@@ -19,6 +19,7 @@
     - (void)doRequestGetSlotInfo;
     - (void)doRequestUploadImage;
     - (void)doCancelUploadImage;
+    - (void)doRequestChangeImageUpdateMode;
 
 @end
 
@@ -28,6 +29,7 @@
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseGetSlotInfo:(bool)success withErrorMessage:(NSString *)errorMessage;
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage;
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer notifyProgress:(int)progress;
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseChangeImageUpdateMode:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

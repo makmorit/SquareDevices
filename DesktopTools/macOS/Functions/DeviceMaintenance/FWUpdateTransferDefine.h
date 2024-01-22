@@ -18,4 +18,6 @@
 #define GRP_OS_MGMT             0
 #define CMD_OS_MGMT_RESET       5
 
+#define IMAGE_UPDATE_TEST_MODE  true
+
 #endif /* FWUpdateTransferDefine_h */
