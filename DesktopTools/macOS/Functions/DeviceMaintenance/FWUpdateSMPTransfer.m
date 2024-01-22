@@ -289,10 +289,6 @@
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
-        if (success == false) {
-            // BLE接続を切断
-            [bleTransport transportWillDisconnect];
-        }
         // コマンド名により処理分岐
         if ([[self commandName] isEqualToString:@"doRequestGetSlotInfo"]) {
             [self doResponseGetSlotInfo:success withErrorMessage:errorMessage withResponse:responseData];
