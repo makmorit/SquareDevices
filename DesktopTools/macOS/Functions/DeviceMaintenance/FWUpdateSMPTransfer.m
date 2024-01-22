@@ -135,8 +135,21 @@
             [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:false withErrorMessage:[self errorMessage]];
             return;
         }
-        // TODO: 仮の実装です。
-        [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:true withErrorMessage:nil];
+        // 転送結果情報の off 値を転送済みバイト数に設定
+        size_t imageBytesSent = mcumgr_cbor_decode_result_info_off();
+        [self setImageBytesSent:imageBytesSent];
+        // 転送比率を計算し、上位クラスに通知
+        size_t imageBytesTotal = [[self imageToUpload] length];
+        int percentage = (int)imageBytesSent * 100 / (int)imageBytesTotal;
+        [[self delegate] FWUpdateSMPTransfer:self notifyProgress:percentage];
+        // イメージ全体が転送されたかどうかチェック
+        if (imageBytesSent < imageBytesTotal) {
+            // 転送処理を続行
+            [self doRequestUploadImage];
+        } else {
+            // 反映要求に移行
+            [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:true withErrorMessage:nil];
+        }
     }
 
     - (NSData *)requestDataForUploadImage {
