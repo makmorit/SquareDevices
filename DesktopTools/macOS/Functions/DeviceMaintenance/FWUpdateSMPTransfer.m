@@ -32,6 +32,8 @@
     @property (nonatomic) NSData                       *imageToUpload;
     // エラーメッセージを保持
     @property (nonatomic) NSString                     *errorMessage;
+    // 転送キャンセル判定フラグ
+    @property (nonatomic) bool                          isCanceling;
 
 @end
 
@@ -93,6 +95,8 @@
         }
         // 転送済みバイト数をクリアしておく
         [self setImageBytesSent:0];
+        // 転送キャンセル判定フラグをクリア
+        [self setIsCanceling:false];
         // スロット照会完了を通知
         [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:true withErrorMessage:nil];
     }
@@ -125,9 +129,18 @@
         [self sendRequestData:[self requestDataForUploadImage] withCommandName:NSStringFromSelector(_cmd)];
     }
 
+    - (void)doCancelUploadImage {
+        // 転送キャンセル判定フラグを設定
+        [self setIsCanceling:true];
+    }
+
     - (void)doResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage withResponse:(NSData *)responseData {
         if (success == false) {
             [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:false withErrorMessage:errorMessage];
+            return;
+        }
+        // 転送キャンセルが要求された場合
+        if ([self isCanceling]) {
             return;
         }
         // 転送結果情報を参照し、チェックでNGの場合

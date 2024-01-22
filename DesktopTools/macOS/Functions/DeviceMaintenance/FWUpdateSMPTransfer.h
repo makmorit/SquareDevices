@@ -18,6 +18,7 @@
     - (void)terminateTransfer;
     - (void)doRequestGetSlotInfo;
     - (void)doRequestUploadImage;
+    - (void)doCancelUploadImage;
 
 @end
 
