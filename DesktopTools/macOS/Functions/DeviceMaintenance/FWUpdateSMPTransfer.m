@@ -311,7 +311,30 @@
             [[self delegate] FWUpdateSMPTransfer:self didResponseChangeImageUpdateMode:false withErrorMessage:errorMessage];
             return;
         }
+        // スロット照会情報を参照し、チェックでNGの場合
+        NSMutableString *checkError = [[NSMutableString alloc] init];
+        if ([self checkUploadedSlotInfo:responseData withErrorMessage:checkError] == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseChangeImageUpdateMode:false withErrorMessage:checkError];
+            return;
+        }
         [[self delegate] FWUpdateSMPTransfer:self didResponseChangeImageUpdateMode:true withErrorMessage:nil];
+    }
+
+    - (bool)checkUploadedSlotInfo:(NSData *)responseData withErrorMessage:(NSMutableString *)message {
+        // レスポンス（CBOR）を解析し、スロット照会情報を取得
+        uint8_t *bytes = (uint8_t *)[responseData bytes];
+        size_t size = [responseData length];
+        if (mcumgr_cbor_decode_slot_info(bytes, size) == false) {
+            [message appendString:MSG_FW_UPDATE_SUB_PROCESS_FAILED];
+            return false;
+        }
+        // スロット情報の代わりに rc が設定されている場合はエラー
+        uint8_t rc = mcumgr_cbor_decode_result_info_rc();
+        if (rc != 0) {
+            [message appendString:[NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC, rc]];
+            return false;
+        }
+        return true;
     }
 
 #pragma mark - Utilities
