@@ -15,8 +15,6 @@
     // 非同期処理用のキュー（画面用／待機処理用）
     @property (nonatomic) dispatch_queue_t              mainQueue;
     @property (nonatomic) dispatch_queue_t              subQueue;
-    // ステータスを保持
-    @property (nonatomic) bool                          isCanceling;
 
 @end
 
@@ -72,8 +70,6 @@
         }
         // 転送処理開始を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusStarted];
-        // 変数内容をクリア
-        [self setIsCanceling:false];
         // 転送処理に移行
         dispatch_async([self subQueue], ^{
             [self doRequestUploadImage:smpTransfer];
@@ -92,11 +88,6 @@
             [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusFailed];
             return;
         }
-        // 処理進捗画面でCancelボタンが押下された時
-        if ([self isCanceling]) {
-            [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
-            return;
-        }
         // TODO: 仮の実装です。
         dispatch_async([self subQueue], ^{
             [self dummyProcess];
@@ -105,7 +96,11 @@
 
     - (void)cancel {
         // ファームウェア更新イメージ転送処理を中止させる
-        [self setIsCanceling:true];
+        [[self smpTransfer] doCancelUploadImage];
+        // 接続を切断
+        [[self smpTransfer] terminateTransfer];
+        // 転送キャンセルを通知
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
     }
 
     - (void)dummyProcess {
@@ -117,13 +112,8 @@
                 [NSThread sleepForTimeInterval:0.2];
             }
         }
-        [self setIsCanceling:false];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if ([self isCanceling]) {
-                    [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
-                    return;
-                }
                 [NSThread sleepForTimeInterval:0.1];
                 int progress = i * 10 + j + 1;
                 [self setProgress:progress];
