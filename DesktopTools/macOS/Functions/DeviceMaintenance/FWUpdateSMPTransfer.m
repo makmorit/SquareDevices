@@ -89,7 +89,7 @@
         }
         // スロット照会情報を参照し、チェックでNGの場合は以降の処理を行わない
         NSMutableString *checkError = [[NSMutableString alloc] init];
-        if ([self CheckSlotInfoResponse:responseData withErrorMessage:checkError] == false) {
+        if ([self checkSlotInfoResponse:responseData withErrorMessage:checkError] == false) {
             [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:false withErrorMessage:checkError];
             return;
         }
@@ -101,7 +101,7 @@
         [[self delegate] FWUpdateSMPTransfer:self didResponseGetSlotInfo:true withErrorMessage:nil];
     }
 
-    - (bool)CheckSlotInfoResponse:(NSData *)responseData withErrorMessage:(NSMutableString *)message {
+    - (bool)checkSlotInfoResponse:(NSData *)responseData withErrorMessage:(NSMutableString *)message {
         // レスポンス（CBOR）を解析し、スロット照会情報を取得
         uint8_t *bytes = (uint8_t *)[responseData bytes];
         size_t size = [responseData length];
