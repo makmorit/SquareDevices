@@ -94,6 +94,11 @@
         });
     }
 
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer notifyProgress:(int)progress {
+        [self setProgress:progress];
+        [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUpdateProgress];
+    }
+
     - (void)cancel {
         // ファームウェア更新イメージ転送処理を中止させる
         [[self smpTransfer] doCancelUploadImage];
@@ -106,20 +111,6 @@
     - (void)dummyProcess {
         // TODO: 仮の実装です。
         [[self smpTransfer] terminateTransfer];
-        [self setProgress:0];
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 5; j++) {
-                [NSThread sleepForTimeInterval:0.2];
-            }
-        }
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                [NSThread sleepForTimeInterval:0.1];
-                int progress = i * 10 + j + 1;
-                [self setProgress:progress];
-                [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUpdateProgress];
-            }
-        }
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUploadCompleted];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdate];
         for (int i = 0; i < DFU_WAITING_SEC_ESTIMATED; i++) {
