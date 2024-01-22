@@ -9,7 +9,6 @@
 #import "FunctionMessage.h"
 #import "FWUpdateSMPTransfer.h"
 #import "FWUpdateTransferDefine.h"
-#import "ToolLogFile.h"
 
 // for DFU image file
 #import "mcumgr_app_image.h"
@@ -30,8 +29,6 @@
     @property (nonatomic) size_t                        imageBytesSent;
     // 転送するイメージデータを保持
     @property (nonatomic) NSData                       *imageToUpload;
-    // エラーメッセージを保持
-    @property (nonatomic) NSString                     *errorMessage;
     // 転送キャンセル判定フラグ
     @property (nonatomic) bool                          isCanceling;
 
@@ -144,8 +141,9 @@
             return;
         }
         // 転送結果情報を参照し、チェックでNGの場合
-        if ([self checkUploadResultInfo:responseData] == false) {
-            [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:false withErrorMessage:[self errorMessage]];
+        NSMutableString *checkError = [[NSMutableString alloc] init];
+        if ([self checkUploadResultInfo:responseData withErrorMessage:checkError] == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseUploadImage:false withErrorMessage:checkError];
             return;
         }
         // 転送結果情報の off 値を転送済みバイト数に設定
@@ -253,19 +251,18 @@
         return body;
     }
 
-    - (bool)checkUploadResultInfo:(NSData *)responseData {
+    - (bool)checkUploadResultInfo:(NSData *)responseData withErrorMessage:(NSMutableString *)message {
         // レスポンス（CBOR）を解析し、転送結果情報を取得
         uint8_t *bytes = (uint8_t *)[responseData bytes];
         size_t size = [responseData length];
         if (mcumgr_cbor_decode_result_info(bytes, size) == false) {
-            [self setErrorMessage:MSG_FW_UPDATE_SUB_PROCESS_FAILED];
+            [message appendString:MSG_FW_UPDATE_SUB_PROCESS_FAILED];
             return false;
         }
         // 転送結果情報の rc が設定されている場合はエラー
         uint8_t rc = mcumgr_cbor_decode_result_info_rc();
         if (rc != 0) {
-            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC, rc];
-            [self setErrorMessage:message];
+            [message appendString:[NSString stringWithFormat:MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC, rc]];
             return false;
         }
         return true;
