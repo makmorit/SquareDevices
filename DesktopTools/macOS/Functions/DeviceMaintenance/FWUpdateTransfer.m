@@ -88,9 +88,9 @@
             [self terminateTransferWithErrorMessage:errorMessage];
             return;
         }
-        // TODO: 仮の実装です。
+        // 反映要求処理に移行
         dispatch_async([self subQueue], ^{
-            [self dummyProcess];
+            [self doRequestChangeImageUpdateMode:smpTransfer];
         });
     }
 
@@ -108,10 +108,30 @@
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCanceled];
     }
 
-    - (void)dummyProcess {
-        // TODO: 仮の実装です。
-        [[self smpTransfer] terminateTransfer];
+#pragma mark - 反映要求
+
+    - (void)doRequestChangeImageUpdateMode:(FWUpdateSMPTransfer *)smpTransfer {
+        [smpTransfer doRequestChangeImageUpdateMode];
+    }
+
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseChangeImageUpdateMode:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 処理失敗時は、BLE接続を切断し、エラーメッセージを上位クラスに通知
+        if (success == false) {
+            [self terminateTransferWithErrorMessage:errorMessage];
+            return;
+        }
+        // 更新イメージ転送成功を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUploadCompleted];
+        // TODO: 仮の実装です。
+        dispatch_async([self subQueue], ^{
+            [self dummyProcess];
+        });
+    }
+
+#pragma mark - TODO: 仮の実装です。
+
+    - (void)dummyProcess {
+        [[self smpTransfer] terminateTransfer];
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdate];
         for (int i = 0; i < DFU_WAITING_SEC_ESTIMATED; i++) {
             for (int j = 0; j < 5; j++) {
