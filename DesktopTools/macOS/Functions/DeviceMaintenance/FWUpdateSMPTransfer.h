@@ -20,6 +20,7 @@
     - (void)doRequestUploadImage;
     - (void)doCancelUploadImage;
     - (void)doRequestChangeImageUpdateMode;
+    - (void)doRequestResetApplication;
 
 @end
 
@@ -30,6 +31,7 @@
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseUploadImage:(bool)success withErrorMessage:(NSString *)errorMessage;
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer notifyProgress:(int)progress;
     - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseChangeImageUpdateMode:(bool)success withErrorMessage:(NSString *)errorMessage;
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseResetApplication:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

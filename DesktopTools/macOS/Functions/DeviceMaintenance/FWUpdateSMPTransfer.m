@@ -334,6 +334,20 @@
         return true;
     }
 
+#pragma mark - リセット要求
+
+    - (void)doRequestResetApplication {
+    }
+
+    - (void)doResponseResetApplication:(bool)success withErrorMessage:(NSString *)errorMessage withResponse:(NSData *)responseData {
+        if (success == false) {
+            [[self delegate] FWUpdateSMPTransfer:self didResponseResetApplication:false withErrorMessage:errorMessage];
+            return;
+        }
+        [[self delegate] FWUpdateSMPTransfer:self didResponseResetApplication:true withErrorMessage:nil];
+    }
+
+
 #pragma mark - Utilities
 
     - (NSData *)buildSMPHeaderWithOp:(uint8_t)op flags:(uint8_t)flags len:(NSUInteger)len group:(uint16_t)group seq:(uint8_t)seq idint:(uint8_t)id_int {
@@ -372,6 +386,8 @@
             [self doResponseUploadImage:success withErrorMessage:errorMessage withResponse:responseData];
         } else if ([[self commandName] isEqualToString:@"doRequestChangeImageUpdateMode"]) {
             [self doResponseChangeImageUpdateMode:success withErrorMessage:errorMessage withResponse:responseData];
+        } else if ([[self commandName] isEqualToString:@"doRequestResetApplication"]) {
+            [self doResponseResetApplication:success withErrorMessage:errorMessage withResponse:responseData];
         }
     }
 
