@@ -122,17 +122,38 @@
         }
         // 更新イメージ転送成功を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusUploadCompleted];
-        // TODO: 仮の実装です。
+        // リセット要求処理に移行
         dispatch_async([self subQueue], ^{
-            [self dummyProcess];
+            [self doRequestResetApplication:smpTransfer];
         });
     }
 
-#pragma mark - TODO: 仮の実装です。
+#pragma mark - リセット要求
 
-    - (void)dummyProcess {
+    - (void)doRequestResetApplication:(FWUpdateSMPTransfer *)smpTransfer {
+        [smpTransfer doRequestResetApplication];
+    }
+
+    - (void)FWUpdateSMPTransfer:(FWUpdateSMPTransfer *)smpTransfer didResponseResetApplication:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // 処理失敗時は、BLE接続を切断し、エラーメッセージを上位クラスに通知
+        if (success == false) {
+            [self terminateTransferWithErrorMessage:errorMessage];
+            return;
+        }
+        // BLE接続を切断
         [[self smpTransfer] terminateTransfer];
+        // 転送処理完了-->反映待機を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdate];
+        // 反映待ちに移行
+        dispatch_async([self subQueue], ^{
+            [self waitingUpdateProgress];
+        });
+    }
+
+#pragma mark - 反映待ち
+
+    - (void)waitingUpdateProgress {
+        // 反映待ち（リセットによるファームウェア再始動完了まで待機）
         for (int i = 0; i < DFU_WAITING_SEC_ESTIMATED; i++) {
             for (int j = 0; j < 5; j++) {
                 [NSThread sleepForTimeInterval:0.2];
@@ -141,6 +162,7 @@
                 [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusWaitingUpdateProgress];
             }
         }
+        // ファームウェア反映完了を通知
         [[self delegate] FWUpdateTransfer:self didNotify:FWUpdateTransferStatusCompleted];
     }
 
