@@ -75,7 +75,7 @@
                 [self terminateCommand:false withMessage:errorMessage];
             } else {
                 // 更新ファームウェアのバージョン情報を比較
-                [self CheckUpdatedFWVersion];
+                [self CheckUpdatedFWVersion:fwVersion withUpdateVersion:[self updateVersion]];
             }
         }
     }
@@ -189,9 +189,17 @@
 
 #pragma mark - バージョンチェック
 
-    - (void)CheckUpdatedFWVersion {
-        // TODO: 仮の実装です。
-        [self terminateCommand:true withMessage:nil];
+    - (void)CheckUpdatedFWVersion:(FWVersion *)fwVersion withUpdateVersion:(NSString *)updateVersion {
+        // BLEデバイスに照会したバージョン情報を取得
+        NSString *currentVersion = [[fwVersion versionData] fwRev];
+        // ファームウェア更新イメージのバージョン情報と比較
+        if ([currentVersion isEqualToString:updateVersion]) {
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_VERSION_SUCCESS, updateVersion];
+            [self terminateCommand:true withMessage:message];
+        } else {
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_VERSION_FAIL, updateVersion];
+            [self terminateCommand:false withMessage:message];
+        }
     }
 
 #pragma mark - 終了処理

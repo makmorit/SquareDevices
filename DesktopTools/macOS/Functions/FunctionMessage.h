@@ -70,6 +70,8 @@
 #define MSG_FW_UPDATE_PROCESS_WAITING_UPDATE        @"転送された更新ファームウェアの反映を待機中です。"
 #define MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION       @"転送された更新ファームウェアのバージョンを確認中です。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED     @"更新ファームウェアの転送をユーザーが中止しました。"
+#define MSG_FW_UPDATE_VERSION_SUCCESS               @"ファームウェアのバージョンが%@に更新されました。"
+#define MSG_FW_UPDATE_VERSION_FAIL                  @"ファームウェアのバージョンを%@に更新できませんでした。"
 
 #pragma mark - デバイス情報参照画面
 
