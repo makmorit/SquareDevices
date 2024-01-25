@@ -376,7 +376,13 @@
     }
 
     - (void)sendRequestData:(NSData *)requestData withCommandName:(NSString *)commandName {
+        // イメージ転送処理時は、ログ出力が行われないよう設定
         [self setCommandName:commandName];
+        if ([[self commandName] isEqualToString:@"doRequestUploadImage"]) {
+            [[self transport] setNeedOutputLog:false];
+        } else {
+            [[self transport] setNeedOutputLog:true];
+        }
         [[self transport] transportWillSendRequest:0x00 withData:requestData];
     }
 
