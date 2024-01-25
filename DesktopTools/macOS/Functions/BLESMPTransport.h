@@ -10,6 +10,8 @@
 #import "BLETransport.h"
 
 @interface BLESMPTransport : BLETransport
+    // ログ出力フラグ
+    @property (nonatomic) bool  needOutputLog;
 
     - (void)transportWillConnect;
 

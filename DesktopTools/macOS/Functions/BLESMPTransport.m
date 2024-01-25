@@ -30,8 +30,10 @@
 
     - (void)transportWillSendRequest:(uint8_t)requestCMD withData:(NSData *)requestData {
         // ログ出力
-        [[ToolLogFile defaultLogger] debugWithFormat:@"Transmit SMP request (%d bytes)", [requestData length]];
-        [[ToolLogFile defaultLogger] hexdump:requestData];
+        if ([self needOutputLog]) {
+            [[ToolLogFile defaultLogger] debugWithFormat:@"Transmit SMP request (%d bytes)", [requestData length]];
+            [[ToolLogFile defaultLogger] hexdump:requestData];
+        }
         // リクエストデータを送信
         [self transportWillSendRequestFrame:requestData writeWithoutResponse:true];
     }
@@ -43,9 +45,11 @@
             return;
         }
         // ログ出力
-        NSData *responseDataRef = [parameter responseData];
-        [[ToolLogFile defaultLogger] debugWithFormat:@"Incoming SMP response (%d bytes)", [responseDataRef length]];
-        [[ToolLogFile defaultLogger] hexdump:responseDataRef];
+        if ([self needOutputLog]) {
+            NSData *responseDataRef = [parameter responseData];
+            [[ToolLogFile defaultLogger] debugWithFormat:@"Incoming SMP response (%d bytes)", [responseDataRef length]];
+            [[ToolLogFile defaultLogger] hexdump:responseDataRef];
+        }
         // 受信フレームをバッファにコピー
         [self frameReceivedHandler:[parameter responseData]];
     }
