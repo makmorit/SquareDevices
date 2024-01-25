@@ -7,6 +7,9 @@
 #ifndef FWUpdateTransferDefine_h
 #define FWUpdateTransferDefine_h
 
+#pragma mark - イメージ反映所要時間（秒）
+#define DFU_WAITING_SEC_ESTIMATED   33
+
 #pragma mark - SMPトランザクションで使用する定義
 #define OP_READ_REQ             0
 #define OP_WRITE_REQ            2

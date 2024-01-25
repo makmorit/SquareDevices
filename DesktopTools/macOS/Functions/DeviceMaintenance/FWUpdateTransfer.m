@@ -6,6 +6,7 @@
 //
 #import "FWUpdateSMPTransfer.h"
 #import "FWUpdateTransfer.h"
+#import "FWUpdateTransferDefine.h"
 
 @interface FWUpdateTransfer () <FWUpdateSMPTransferDelegate>
     // 上位クラスの参照を保持

@@ -9,6 +9,7 @@
 #import "FWUpdateImage.h"
 #import "FWUpdateProgress.h"
 #import "FWUpdateTransfer.h"
+#import "FWUpdateTransferDefine.h"
 #import "FWVersion.h"
 #import "PopupWindow.h"
 
