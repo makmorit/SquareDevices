@@ -337,6 +337,19 @@
 #pragma mark - リセット要求
 
     - (void)doRequestResetApplication {
+        // コマンドを実行
+        [self sendRequestData:[self requestDataForResetApplication] withCommandName:NSStringFromSelector(_cmd)];
+    }
+
+    - (NSData *)requestDataForResetApplication {
+        // リクエストデータを生成
+        uint8_t bodyBytes[] =  { 0xbf, 0xff };
+        NSData *bodyData = [[NSData alloc] initWithBytes:bodyBytes length:sizeof(bodyBytes)];
+        NSData *headerData = [self buildSMPHeaderWithOp:OP_WRITE_REQ flags:0x00 len:[bodyData length] group:GRP_OS_MGMT seq:0x00 idint:CMD_OS_MGMT_RESET];
+        // ヘッダーとデータを連結
+        NSMutableData *requestData = [[NSMutableData alloc] initWithData:headerData];
+        [requestData appendData:bodyData];
+        return requestData;
     }
 
     - (void)doResponseResetApplication:(bool)success withErrorMessage:(NSString *)errorMessage withResponse:(NSData *)responseData {
@@ -346,7 +359,6 @@
         }
         [[self delegate] FWUpdateSMPTransfer:self didResponseResetApplication:true withErrorMessage:nil];
     }
-
 
 #pragma mark - Utilities
 
