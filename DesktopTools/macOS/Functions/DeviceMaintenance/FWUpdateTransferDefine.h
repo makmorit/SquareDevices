@@ -18,6 +18,7 @@
 #define GRP_OS_MGMT             0
 #define CMD_OS_MGMT_RESET       5
 
-#define IMAGE_UPDATE_TEST_MODE  true
+#pragma mark - イメージ反映モード　true＝テストモード[Swap type: test]、false＝通常モード[Swap type: perm]
+#define IMAGE_UPDATE_TEST_MODE  false
 
 #endif /* FWUpdateTransferDefine_h */
