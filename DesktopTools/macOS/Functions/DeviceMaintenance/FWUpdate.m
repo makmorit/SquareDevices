@@ -20,6 +20,8 @@
     @property (nonatomic) FWUpdateTransfer             *fwUpdateTransfer;
     // 実行コマンドを保持
     @property (nonatomic) NSString                     *commandName;
+    // ファームウェア更新イメージのバージョン情報を保持
+    @property (nonatomic) NSString                     *updateVersion;
 
 @end
 
@@ -88,6 +90,8 @@
         NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
+        // ファームウェア更新イメージのバージョン情報を保持
+        [self setUpdateVersion:updateVersion];
         // 処理開始前に、確認ダイアログをポップアップ表示
         [self fwUpdatePrompt];
     }
