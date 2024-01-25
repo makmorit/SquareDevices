@@ -9,9 +9,6 @@
 
 #import <Foundation/Foundation.h>
 
-// イメージ反映所要時間（秒）
-#define DFU_WAITING_SEC_ESTIMATED   33
-
 typedef NS_ENUM(NSInteger, FWUpdateTransferStatus) {
     FWUpdateTransferStatusNone = 0,
     FWUpdateTransferStatusStarting,

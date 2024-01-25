@@ -13,6 +13,9 @@
 
     + (NSData *)extractCBORBytesFromResponse:(NSData *)responseData;
     + (int)calculateDecimalVersion:(NSString *)versionString;
+    + (NSData *)generateSHA256HashDataOf:(NSData *)data;
+    + (void)convertUint16:(uint16_t)n toBEBytes:(uint8_t *)p;
+    + (void)convertUint32:(uint32_t)n toBEBytes:(uint8_t *)p;
 
 @end
 

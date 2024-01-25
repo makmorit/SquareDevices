@@ -9,6 +9,7 @@
 #import "FWUpdateImage.h"
 #import "FWUpdateProgress.h"
 #import "FWUpdateTransfer.h"
+#import "FWUpdateTransferDefine.h"
 #import "FWVersion.h"
 #import "PopupWindow.h"
 
@@ -18,6 +19,10 @@
     @property (nonatomic) FWVersion                    *fwVersion;
     @property (nonatomic) FWUpdateProgress             *fwUpdateProgress;
     @property (nonatomic) FWUpdateTransfer             *fwUpdateTransfer;
+    // 実行コマンドを保持
+    @property (nonatomic) NSString                     *commandName;
+    // ファームウェア更新イメージのバージョン情報を保持
+    @property (nonatomic) NSString                     *updateVersion;
 
 @end
 
@@ -44,16 +49,36 @@
         [self LogAndShowInfoMessage:MSG_FW_UPDATE_CURRENT_VERSION_CONFIRM];
 
         // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
+        [self setCommandName:NSStringFromSelector(_cmd)];
+        [[self fwVersion] inquiry];
+    }
+
+    - (void)inquiryUpdatedFWVersion {
+        // メッセージを画面表示／ログ出力
+        [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION];
+
+        // BLEデバイスに接続し、ファームウェアのバージョン情報を取得
+        [self setCommandName:NSStringFromSelector(_cmd)];
         [[self fwVersion] inquiry];
     }
 
     - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
-        if (success == false) {
-            [self cancelCommand:success withErrorMessage:errorMessage];
-            return;
+        if ([[self commandName] isEqualToString:@"invokeProcessOnSubQueue"]) {
+            if (success == false) {
+                [self cancelCommand:success withErrorMessage:errorMessage];
+            } else {
+                // 更新ファームウェアのバージョンチェック／イメージ情報取得
+                [[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]] retrieveImage];
+            }
         }
-        // 更新ファームウェアのバージョンチェック／イメージ情報取得
-        [[[FWUpdateImage alloc] initWithDelegate:self withVersionData:[fwVersion versionData]] retrieveImage];
+        if ([[self commandName] isEqualToString:@"inquiryUpdatedFWVersion"]) {
+            if (success == false) {
+                [self terminateCommand:false withMessage:errorMessage];
+            } else {
+                // 更新ファームウェアのバージョン情報を比較
+                [self CheckUpdatedFWVersion:fwVersion withUpdateVersion:[self updateVersion]];
+            }
+        }
     }
 
     - (void)FWUpdateImage:(FWUpdateImage *)fwUpdateImage didRetrieveImage:(bool)success withErrorMessage:(NSString *)errorMessage {
@@ -66,6 +91,8 @@
         NSString *updateVersion = [[fwUpdateImage updateImageData] updateVersion];
         NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_CURRENT_VERSION_DESCRIPTION, fwRev, updateVersion];
         [self LogAndShowInfoMessage:message];
+        // ファームウェア更新イメージのバージョン情報を保持
+        [self setUpdateVersion:updateVersion];
         // 処理開始前に、確認ダイアログをポップアップ表示
         [self fwUpdatePrompt];
     }
@@ -144,7 +171,8 @@
         if (status == FWUpdateTransferStatusCompleted) {
             // ファームウェア更新進捗画面を閉じる
             [[self fwUpdateProgress] closeModalWindow];
-            [self terminateCommand:true withMessage:nil];
+            // バージョンチェック処理に移行
+            [self inquiryUpdatedFWVersion];
         }
         if (status == FWUpdateTransferStatusFailed) {
             // ファームウェア更新進捗画面を閉じる
@@ -158,6 +186,21 @@
         [self LogAndShowInfoMessage:MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED];
         // 転送処理中止を要求
         [[self fwUpdateTransfer] cancel];
+    }
+
+#pragma mark - バージョンチェック
+
+    - (void)CheckUpdatedFWVersion:(FWVersion *)fwVersion withUpdateVersion:(NSString *)updateVersion {
+        // BLEデバイスに照会したバージョン情報を取得
+        NSString *currentVersion = [[fwVersion versionData] fwRev];
+        // ファームウェア更新イメージのバージョン情報と比較
+        if ([currentVersion isEqualToString:updateVersion]) {
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_VERSION_SUCCESS, updateVersion];
+            [self terminateCommand:true withMessage:message];
+        } else {
+            NSString *message = [NSString stringWithFormat:MSG_FW_UPDATE_VERSION_FAIL, updateVersion];
+            [self terminateCommand:false withMessage:message];
+        }
     }
 
 #pragma mark - 終了処理
