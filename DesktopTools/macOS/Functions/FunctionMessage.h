@@ -68,6 +68,7 @@
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_FAILED_WITH_RC @"更新ファームウェアの転送中に不明なエラー（rc=%d）が発生しました。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_SUCCESS      @"更新ファームウェアの転送が完了しました。"
 #define MSG_FW_UPDATE_PROCESS_WAITING_UPDATE        @"転送された更新ファームウェアの反映を待機中です。"
+#define MSG_FW_UPDATE_PROCESS_CONFIRM_VERSION       @"転送された更新ファームウェアのバージョンを確認中です。"
 #define MSG_FW_UPDATE_PROCESS_TRANSFER_CANCELED     @"更新ファームウェアの転送をユーザーが中止しました。"
 
 #pragma mark - デバイス情報参照画面
