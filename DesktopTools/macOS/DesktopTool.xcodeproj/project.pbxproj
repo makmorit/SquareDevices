@@ -123,6 +123,8 @@
 		7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */; };
 		7AB1C8332B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
 		7AB1C8342B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
+		7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
+		7AD2DD502B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
 		7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADC374D2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
@@ -241,6 +243,8 @@
 		7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransferDefine.h; sourceTree = "<group>"; };
 		7ACBD8C925663EFA00722984 /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		7ACD730929D41BF50016BF1B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7AD2DD4D2B634EC000E4BE93 /* DeviceTimestampShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceTimestampShow.h; sourceTree = "<group>"; };
+		7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceTimestampShow.m; sourceTree = "<group>"; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraseBondingInfo.h; sourceTree = "<group>"; };
 		7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EraseBondingInfo.m; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 				7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */,
 				7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */,
 				7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */,
+				7AD2DD4D2B634EC000E4BE93 /* DeviceTimestampShow.h */,
+				7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */,
 				7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */,
 				7AB1C81B2B2BEB7D00830345 /* FWUpdate.m */,
 				7AB1C8272B2C313300830345 /* FWUpdateImage.h */,
@@ -693,6 +699,7 @@
 				7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
 				7A2712752A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82D2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
+				7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
@@ -736,6 +743,7 @@
 				7AF454FE2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
 				7A2712762A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
+				7AD2DD502B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
 				7A9A259A2B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
