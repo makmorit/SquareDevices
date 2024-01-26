@@ -14,12 +14,14 @@
 @interface DeviceTimestamp : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
+    - (void)inquiry;
 
 @end
 
 @protocol DeviceTimestampDelegate <NSObject>
 
     - (void)DeviceTimestamp:(DeviceTimestamp *)deviceTimestamp didUpdateState:(bool)available;
+    - (void)DeviceTimestamp:(DeviceTimestamp *)deviceTimestamp didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 
