@@ -6,6 +6,7 @@
 //
 #import "DeviceTimestamp.h"
 #import "DeviceTimestampShow.h"
+#import "ToolLogFile.h"
 
 @interface DeviceTimestampShow () <DeviceTimestampDelegate>
     // 上位クラスの参照を保持
@@ -29,6 +30,36 @@
         if (available) {
             [self enableClickButtonDoProcess:true];
         }
+    }
+
+    - (void)invokeProcessOnSubQueue {
+        // 現在時刻照会処理を実行
+        [[self deviceTimestamp] inquiry];
+    }
+
+    - (void)DeviceTimestamp:(DeviceTimestamp *)deviceTimestamp didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self terminateCommand:false withMessage:errorMessage];
+            return;
+        }
+        // 現在時刻文字列をログ出力
+        [[ToolLogFile defaultLogger] info:[deviceTimestamp currentTimestampLogString]];
+        // 現在時刻文字列を画面表示
+        [self appendStatusText:[deviceTimestamp currentTimestampString]];
+        // 画面に制御を戻す
+        [self terminateCommand:true withMessage:nil];
+    }
+
+#pragma mark - 終了処理
+
+    - (void)terminateCommand:(bool)success withMessage:(NSString *)message {
+        // 終了メッセージを画面表示／ログ出力
+        if (success) {
+            [self LogAndShowInfoMessage:message];
+        } else {
+            [self LogAndShowErrorMessage:message];
+        }
+        [self pauseProcess:success];
     }
 
 @end
