@@ -15,6 +15,8 @@
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)inquiry;
+    - (NSString *)currentTimestampLogString;
+    - (NSString *)currentTimestampString;
 
 @end
 

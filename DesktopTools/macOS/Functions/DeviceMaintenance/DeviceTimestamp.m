@@ -101,4 +101,16 @@
         [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
     }
 
+    - (NSString *)currentTimestampLogString {
+        // ログ出力用の現在時刻文字列を生成
+        NSString *str = [NSString stringWithFormat:MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT, [self toolTimestamp], [self deviceTimestamp]];
+        return str;
+    }
+
+    - (NSString *)currentTimestampString {
+        // 画面表示用の現在時刻文字列を生成
+        NSString *str = [NSString stringWithFormat:MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT, [self toolTimestamp], [self deviceTimestamp]];
+        return str;
+    }
+
 @end
