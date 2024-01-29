@@ -13,6 +13,10 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) BLEU2FTransport              *transport;
+    // PCの現在時刻を保持
+    @property (nonatomic) NSString                     *toolTimestamp;
+    // デバイスの現在時刻文字列を保持
+    @property (nonatomic) NSString                     *deviceTimestamp;
 
 @end
 
@@ -61,8 +65,8 @@
             [self disconnectAndTerminateCommand:bleTransport withSuccess:false withErrorMessage:statusErrorMessage];
             return;
         }
-        // TODO: 仮の実装です。
-        [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
+        // レスポンスデータから現在時刻を抽出
+        [self BLETransport:bleTransport didResponseInquiryCommand:responseData];
     }
 
     - (void)disconnectAndTerminateCommand:(BLETransport *)bleTransport withSuccess:(bool)success withErrorMessage:(NSString *)errorMessage {
@@ -78,6 +82,23 @@
         uint8_t requestBytes[] = {VENDOR_COMMAND_GET_TIMESTAMP};
         NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
         [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didResponseInquiryCommand:(NSData *)responseData {
+        // PCの現在時刻を取得
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+        [df setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        [self setToolTimestamp:[df stringFromDate:[NSDate date]]];
+        // 現在時刻文字列はレスポンスの２バイト目から19文字
+        char timestampString[20];
+        size_t lastPos = sizeof(timestampString) - 1;
+        memcpy(timestampString, [responseData bytes] + 1, lastPos);
+        timestampString[lastPos] = 0;
+        // デバイスの現在時刻文字列
+        [self setDeviceTimestamp:[[NSString alloc] initWithUTF8String:timestampString]];
+        // 上位クラスに制御を戻す
+        [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
     }
 
 @end
