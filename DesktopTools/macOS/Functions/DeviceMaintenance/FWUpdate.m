@@ -174,10 +174,13 @@
             // バージョンチェック処理に移行
             [self inquiryUpdatedFWVersion];
         }
+    }
+
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status withErrorMessage:(NSString *)errorMessage {
         if (status == FWUpdateTransferStatusFailed) {
             // ファームウェア更新進捗画面を閉じる
             [[self fwUpdateProgress] closeModalWindow];
-            [self terminateCommand:false withMessage:[fwUpdateTransfer errorMessage]];
+            [self terminateCommand:false withMessage:errorMessage];
         }
     }
 

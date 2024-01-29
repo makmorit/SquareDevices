@@ -17,7 +17,7 @@
     - (void)setupSubView;
     - (void)didInitialize;
     - (void)willProcessWithTitle:(NSString *)title;
-
+    - (void)setFunctionViewFrameRect:(NSRect)rect;
     - (void)setSubViewRef:(FunctionView *)subView;
 
 @end

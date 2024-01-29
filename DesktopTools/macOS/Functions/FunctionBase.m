@@ -49,8 +49,6 @@
         // 画面のインスタンスを生成-->参照を内部保持
         [self setupSubView];
         if ([self subView]) {
-            // 画面の描画領域を設定
-            [[self subView] setupAttributes];
             // 上位クラスに通知（サイドメニュー領域を使用不能にする）
             [[self delegate] FunctionBase:self notifyEnableMenuSelection:false];
             // メニュー項目に対応する画面を、サブ画面に表示
@@ -68,6 +66,13 @@
         [[self delegate] FunctionBase:self notifyEnableMenuSelection:true];
         // サブ画面の参照をクリア
         [self setSubView:nil];
+    }
+
+#pragma mark - Callback from ToolMainView
+
+    - (void)setFunctionViewFrameRect:(NSRect)rect {
+        // 画面の描画領域を設定
+        [[self subView] setFunctionViewFrameRect:rect];
     }
 
 @end

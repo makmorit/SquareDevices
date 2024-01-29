@@ -22,7 +22,7 @@
 
 @implementation ToolSideMenuView
 
-    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
+    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray withFrameRect:(NSRect)frameRect {
         self = [super initWithNibName:@"ToolSideMenuView" bundle:nil];
         if (self != nil) {
             // 上位クラスの参照を保持
@@ -30,7 +30,7 @@
             // サイドメニュー項目のインスタンスを保持
             [self setSideMenuItemsArray:[self createMenuItemsArrayFrom:itemsArray]];
             // サイドバーを表示
-            [[self view] setFrame:NSMakeRect(0, 0, 200, 360)];
+            [[self view] setFrame:frameRect];
             [[self view] setWantsLayer:YES];
         }
         return self;
