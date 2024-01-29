@@ -73,6 +73,10 @@
 #define MSG_FW_UPDATE_VERSION_SUCCESS               @"ファームウェアのバージョンが%@に更新されました。"
 #define MSG_FW_UPDATE_VERSION_FAIL                  @"ファームウェアのバージョンを%@に更新できませんでした。"
 
+#pragma mark - 現在時刻参照／設定
+#define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT        @"現在時刻：\n　ＰＣの時刻\t\t%@\n　デバイスの時刻\t%@"
+#define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT    @"現在時刻：ＰＣの時刻＝%@、デバイスの時刻＝%@"
+
 #pragma mark - デバイス情報参照画面
 
 #define MSG_DEVICE_FW_VERSION_INFO_SHOWING          @"デバイスに導入されているファームウェア等に関する情報を表示しています。"
