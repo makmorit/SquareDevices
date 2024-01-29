@@ -14,7 +14,7 @@
 @interface FunctionView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate;
-    - (void)setupAttributes;
+    - (void)setFunctionViewFrameRect:(NSRect)rect;
     - (void)subViewWillNotifyEventWithName:(NSString *)eventName;
     - (void)subViewWillRemove;
 

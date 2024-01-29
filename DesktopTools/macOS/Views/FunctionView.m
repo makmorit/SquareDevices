@@ -28,9 +28,9 @@
        return self;
     }
 
-    - (void)setupAttributes {
+    - (void)setFunctionViewFrameRect:(NSRect)rect {
         // 描画領域を設定
-        [[self view] setFrame:NSMakeRect(204, 0, 360, 360)];
+        [[self view] setFrame:rect];
         [[self view] setWantsLayer:YES];
     }
 
