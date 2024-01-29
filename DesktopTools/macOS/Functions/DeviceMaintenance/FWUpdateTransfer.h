@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger, FWUpdateTransferStatus) {
 @interface FWUpdateTransfer : NSObject
     // 画面表示用データを保持
     @property (nonatomic) int       progress;
-    @property (nonatomic) NSString *errorMessage;
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)start;
@@ -40,6 +39,7 @@ typedef NS_ENUM(NSInteger, FWUpdateTransferStatus) {
 @protocol FWUpdateTransferDelegate <NSObject>
 
     - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status;
+    - (void)FWUpdateTransfer:(FWUpdateTransfer *)fwUpdateTransfer didNotify:(FWUpdateTransferStatus)status withErrorMessage:(NSString *)errorMessage;
 
 @end
 
