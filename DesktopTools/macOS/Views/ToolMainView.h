@@ -11,6 +11,8 @@
 
 @interface ToolMainView : NSViewController
 
+    - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect;
+
 @end
 
 #endif /* ToolMainView_h */

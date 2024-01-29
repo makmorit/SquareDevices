@@ -31,7 +31,7 @@
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         // スタックビューをウィンドウに表示
-        [self setToolMainView:[[ToolMainView alloc] init]];
+        [self setToolMainView:[[ToolMainView alloc] initWithContentLayoutRect:[[self window] contentLayoutRect]]];
         [[self mainView] addSubview:[[self toolMainView] view]];
     }
 

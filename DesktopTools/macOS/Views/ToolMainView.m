@@ -22,13 +22,13 @@
 
 @implementation ToolMainView
 
-    - (instancetype)init {
+    - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect {
         self = [super initWithNibName:@"ToolMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
             [self setFunctionManager:[[FunctionManager alloc] init]];
             // スタックビューを表示
-            [[self view] setFrame:NSMakeRect(0, 0, 564, 360)];
+            [[self view] setFrame:contentLayoutRect];
             [[self view] setWantsLayer:YES];
         }
         return self;
