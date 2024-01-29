@@ -13,6 +13,7 @@
 
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
+    @property (assign) IBOutlet NSView          *viewForSideMenu;
     // サイドメニュー領域の参照を保持
     @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
@@ -37,7 +38,7 @@
     - (void)viewDidLoad {
         // サイドメニュー領域のインスタンスを生成
         [super viewDidLoad];
-        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray]]];
+        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray] withFrameRect:[[self viewForSideMenu] visibleRect]]];
         [[self stackView] addSubview:[[self toolSideMenuView] view]];
     }
 
