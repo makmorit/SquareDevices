@@ -14,6 +14,7 @@
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
     @property (assign) IBOutlet NSView          *viewForSideMenu;
+    @property (assign) IBOutlet NSView          *viewForFunction;
     // サイドメニュー領域の参照を保持
     @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
     // 業務処理クラスの参照を保持
@@ -52,6 +53,11 @@
 #pragma mark - Callback from FunctionBase
 
     - (void)FunctionBase:(FunctionBase *)functionBase notifyShowSubView:(NSView *)subView {
+        // 画面の描画位置・領域を設定
+        NSRect rect = [[self viewForFunction] visibleRect];
+        NSRect frame = [[self viewForFunction] frame];
+        NSRect frameRect = NSMakeRect(frame.origin.x, frame.origin.y, rect.size.width, rect.size.height);
+        [functionBase setFunctionViewFrameRect:frameRect];
         // 画面右側の領域に業務処理画面を表示
         [[self stackView] addSubview:subView];
     }
