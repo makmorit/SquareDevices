@@ -4,6 +4,7 @@
 //
 //  Created by Makoto Morita on 2024/01/26.
 //
+#import "AppUtil.h"
 #import "BLEU2FTransport.h"
 #import "DeviceTimestamp.h"
 #import "FunctionDefine.h"
@@ -13,6 +14,8 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) BLEU2FTransport              *transport;
+    // 実行機能を保持
+    @property (nonatomic) NSString                     *functionName;
     // PCの現在時刻を保持
     @property (nonatomic) NSString                     *toolTimestamp;
     // デバイスの現在時刻文字列を保持
@@ -37,6 +40,13 @@
 
     - (void)inquiry {
         // U2F BLEサービスに接続
+        [self setFunctionName:NSStringFromSelector(_cmd)];
+        [[self transport] transportWillConnect];
+    }
+
+    - (void)update {
+        // U2F BLEサービスに接続
+        [self setFunctionName:NSStringFromSelector(_cmd)];
         [[self transport] transportWillConnect];
     }
 
@@ -46,8 +56,13 @@
             [[self delegate] DeviceTimestamp:self didNotifyResponseQuery:false withErrorMessage:errorMessage];
             return;
         }
-        // 現在時刻参照コマンドを実行
-        [self performInquiryCommand:bleTransport];
+        if ([[self functionName] isEqualToString:@"update"]) {
+            // 現在時刻設定コマンドを実行
+            [self performUpdateCommand:bleTransport];
+        } else {
+            // 現在時刻参照コマンドを実行
+            [self performInquiryCommand:bleTransport];
+        }
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
@@ -111,6 +126,20 @@
         // 画面表示用の現在時刻文字列を生成
         NSString *str = [NSString stringWithFormat:MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT, [self toolTimestamp], [self deviceTimestamp]];
         return str;
+    }
+
+#pragma mark - 現在時刻設定
+
+    - (void)performUpdateCommand:(BLETransport *)bleTransport {
+        // 現在のUNIX時刻を取得
+        NSDate *now = [NSDate date];
+        NSTimeInterval nowEpochSeconds = [now timeIntervalSince1970];
+        // 現在時刻設定用のリクエストデータを生成
+        uint8_t requestBytes[] = {VENDOR_COMMAND_SET_TIMESTAMP, 0x00, 0x00, 0x00, 0x00};
+        [AppUtil convertUint32:(uint32_t)nowEpochSeconds toBEBytes:(requestBytes + 1)];
+        NSData *requestData = [[NSData alloc] initWithBytes:requestBytes length:sizeof(requestBytes)];
+        // 現在時刻設定コマンドを実行
+        [bleTransport transportWillSendRequest:U2F_COMMAND_MSG withData:requestData];
     }
 
 @end

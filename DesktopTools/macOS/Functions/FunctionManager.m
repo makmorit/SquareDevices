@@ -13,6 +13,7 @@
 // for functions
 #import "BLEPairing.h"
 #import "BLEUnpairing.h"
+#import "DeviceTimestampSet.h"
 #import "DeviceTimestampShow.h"
 #import "EraseBondingInfo.h"
 #import "FWUpdate.h"
@@ -44,6 +45,8 @@
             [self setCurrentFunction:[[FWUpdate alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_TIMESTAMP]) {
             [self setCurrentFunction:[[DeviceTimestampShow alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_SET_TIMESTAMP]) {
+            [self setCurrentFunction:[[DeviceTimestampSet alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_APP_VERSION]) {
             [self setCurrentFunction:[[FWVersionInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_TOOL_VERSION]) {

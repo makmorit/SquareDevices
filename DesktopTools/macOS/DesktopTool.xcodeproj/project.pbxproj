@@ -66,6 +66,8 @@
 		7A7C96A22B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */; };
 		7A7C96A62B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */; };
 		7A7C96A72B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */; };
+		7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CEE202B6B275900BA9F41 /* DeviceTimestampSet.m */; };
+		7A7CEE222B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7CEE202B6B275900BA9F41 /* DeviceTimestampSet.m */; };
 		7A80509C2819066A000BF498 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A80509B2819066A000BF498 /* CoreImage.framework */; };
 		7A810FEF2A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
 		7A810FF02A1C845900C0BAED /* action_log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A810FEC2A1C845800C0BAED /* action_log.png */; };
@@ -201,6 +203,8 @@
 		7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateSMPTransfer.m; sourceTree = "<group>"; };
 		7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcumgr_cbor_decode.h; sourceTree = "<group>"; };
 		7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcumgr_cbor_decode.c; sourceTree = "<group>"; };
+		7A7CEE1F2B6B273100BA9F41 /* DeviceTimestampSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceTimestampSet.h; sourceTree = "<group>"; };
+		7A7CEE202B6B275900BA9F41 /* DeviceTimestampSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceTimestampSet.m; sourceTree = "<group>"; };
 		7A80509B2819066A000BF498 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7A810FEC2A1C845800C0BAED /* action_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_log.png; sourceTree = "<group>"; };
 		7A810FEE2A1C845900C0BAED /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -522,6 +526,8 @@
 				7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */,
 				7AD2DD512B6352B500E4BE93 /* DeviceTimestamp.h */,
 				7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */,
+				7A7CEE1F2B6B273100BA9F41 /* DeviceTimestampSet.h */,
+				7A7CEE202B6B275900BA9F41 /* DeviceTimestampSet.m */,
 				7AD2DD4D2B634EC000E4BE93 /* DeviceTimestampShow.h */,
 				7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */,
 				7AB1C81A2B2BEB6B00830345 /* FWUpdate.h */,
@@ -681,6 +687,7 @@
 				7A0DF8AB2B464CD500FAE3FF /* CommandWindow.m in Sources */,
 				7A2712792A24987100FA9030 /* FunctionManager.m in Sources */,
 				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
+				7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */,
@@ -726,6 +733,7 @@
 				7A0DF8AC2B464CD500FAE3FF /* CommandWindow.m in Sources */,
 				7A27127A2A24987100FA9030 /* FunctionManager.m in Sources */,
 				7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
+				7A7CEE222B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
 				7A8B3DB7296E56640005F7B1 /* ToolLogFile.m in Sources */,
 				7A98D7E52A259221005A593E /* ToolMainView.m in Sources */,
 				7AB1C82A2B2C330000830345 /* FWUpdateImage.m in Sources */,
@@ -887,7 +895,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -920,7 +928,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -955,7 +963,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -988,7 +996,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";

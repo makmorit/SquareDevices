@@ -46,7 +46,8 @@
                                 <size key="maxSize" width="460" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <connections>
-                                    <binding destination="0wM-lp-rh3" name="value" keyPath="selection.statusText" id="g0G-Jb-RzR"/>
+                                    <binding destination="0wM-lp-rh3" name="editable" keyPath="selection.statusTextEnabled" id="pio-US-5iM"/>
+                                    <binding destination="0wM-lp-rh3" name="value" keyPath="selection.statusText" id="2xT-ww-a9A"/>
                                 </connections>
                             </textView>
                         </subviews>

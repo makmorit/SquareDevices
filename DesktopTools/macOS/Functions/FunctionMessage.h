@@ -76,6 +76,8 @@
 #pragma mark - 現在時刻参照／設定
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT        @"現在時刻：\n　ＰＣの時刻\t\t%@\n　デバイスの時刻\t%@"
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT    @"現在時刻：ＰＣの時刻＝%@、デバイスの時刻＝%@"
+#define MSG_DEVICE_TIMESTAMP_SET_PROMPT                     @"PCの現在時刻をデバイスに設定します。"
+#define MSG_DEVICE_TIMESTAMP_SET_COMMENT                    @"処理を実行しますか？"
 
 #pragma mark - デバイス情報参照画面
 
