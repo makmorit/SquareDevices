@@ -40,6 +40,7 @@
         // タイトル設定
         [self setTitle:title];
         [self setStatusText:[[NSString alloc] init]];
+        [self setStatusTextEnabled:false];
         // メニュー項目に対応する画面を、サブ画面に表示
         [super willProcessWithTitle:title];
     }
