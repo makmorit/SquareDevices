@@ -38,8 +38,8 @@
         uint8_t pingBytes[100];
         [self generateRandom:pingBytes length:sizeof(pingBytes)];
         [self setPingRequestData:[[NSData alloc] initWithBytes:pingBytes length:sizeof(pingBytes)]];
-        // TODO: 仮の実装です。
-        [self resumeProcess:true];
+        // PINGテスト処理を実行
+        [[self pingTestQuery] inquiryWithData:[self pingRequestData]];
     }
 
     - (void)generateRandom:(uint8_t *)randomBytes length:(NSUInteger)length {
@@ -47,6 +47,11 @@
             // from 0 to 255
             randomBytes[i] = (unsigned char)arc4random_uniform(256);
         }
+    }
+
+    - (void)PingTestQuery:(PingTestQuery *)pingTestQuery didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
     }
 
 @end
