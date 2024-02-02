@@ -14,12 +14,14 @@
 @interface PingTestQuery : NSObject
 
     - (instancetype)initWithDelegate:(id)delegate;
+    - (void)inquiryWithData:(NSData *)data;
 
 @end
 
 @protocol PingTestQueryDelegate <NSObject>
 
     - (void)PingTestQuery:(PingTestQuery *)pingTestQuery didUpdateState:(bool)available;
+    - (void)PingTestQuery:(PingTestQuery *)pingTestQuery didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

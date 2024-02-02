@@ -11,6 +11,8 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) BLEU2FTransport              *transport;
+    // PINGデータを保持
+    @property (nonatomic) NSData                       *pingRequestData;
 
 @end
 
@@ -27,6 +29,13 @@
 
     - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available {
         [[self delegate] PingTestQuery:self didUpdateState:available];
+    }
+
+    - (void)inquiryWithData:(NSData *)data {
+        // PINGリクエストデータを保持
+        [self setPingRequestData:data];
+        // TODO: 仮の実装です。
+        [[self delegate] PingTestQuery:self didNotifyResponseQuery:true withErrorMessage:nil];
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
