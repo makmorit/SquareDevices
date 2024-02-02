@@ -11,6 +11,8 @@
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
     @property (nonatomic) PingTestQuery                *pingTestQuery;
+    // PINGデータを保持
+    @property (nonatomic) NSData                       *pingRequestData;
 
 @end
 
@@ -35,7 +37,7 @@
         // 100バイトのランダムデータを生成
         uint8_t pingBytes[100];
         [self generateRandom:pingBytes length:sizeof(pingBytes)];
-        NSData *pingData = [[NSData alloc] initWithBytes:pingBytes length:sizeof(pingBytes)];
+        [self setPingRequestData:[[NSData alloc] initWithBytes:pingBytes length:sizeof(pingBytes)]];
         // TODO: 仮の実装です。
         [self resumeProcess:true];
     }
