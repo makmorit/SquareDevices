@@ -4,6 +4,7 @@
 //
 //  Created by Makoto Morita on 2024/02/01.
 //
+#import "FunctionMessage.h"
 #import "PingTester.h"
 #import "PingTestQuery.h"
 
@@ -50,8 +51,24 @@
     }
 
     - (void)PingTestQuery:(PingTestQuery *)pingTestQuery didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
-        // TODO: 仮の実装です。
-        [self resumeProcess:true];
+        if (success == false) {
+            [self terminateCommand:false withMessage:errorMessage];
+            return;
+        }
+        // 画面に制御を戻す
+        [self terminateCommand:true withMessage:nil];
+    }
+
+#pragma mark - 終了処理
+
+    - (void)terminateCommand:(bool)success withMessage:(NSString *)message {
+        // 終了メッセージを画面表示／ログ出力
+        if (success) {
+            [self LogAndShowInfoMessage:message];
+        } else {
+            [self LogAndShowErrorMessage:message];
+        }
+        [self pauseProcess:success];
     }
 
 @end
