@@ -18,6 +18,7 @@
 #import "EraseBondingInfo.h"
 #import "FWUpdate.h"
 #import "FWVersionInfo.h"
+#import "PingTester.h"
 #import "ToolVersionInfo.h"
 
 @interface FunctionManager ()
@@ -43,6 +44,8 @@
             [self setCurrentFunction:[[EraseBondingInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE]) {
             [self setCurrentFunction:[[FWUpdate alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_PING_TEST]) {
+            [self setCurrentFunction:[[PingTester alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_TIMESTAMP]) {
             [self setCurrentFunction:[[DeviceTimestampShow alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_SET_TIMESTAMP]) {
