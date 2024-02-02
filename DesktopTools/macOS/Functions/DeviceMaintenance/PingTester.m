@@ -31,4 +31,20 @@
         }
     }
 
+    - (void)invokeProcessOnSubQueue {
+        // 100バイトのランダムデータを生成
+        uint8_t pingBytes[100];
+        [self generateRandom:pingBytes length:sizeof(pingBytes)];
+        NSData *pingData = [[NSData alloc] initWithBytes:pingBytes length:sizeof(pingBytes)];
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
+    }
+
+    - (void)generateRandom:(uint8_t *)randomBytes length:(NSUInteger)length {
+        for (int i = 0; i < length; i++) {
+            // from 0 to 255
+            randomBytes[i] = (unsigned char)arc4random_uniform(256);
+        }
+    }
+
 @end
