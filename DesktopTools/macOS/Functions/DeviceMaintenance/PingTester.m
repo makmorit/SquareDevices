@@ -55,6 +55,11 @@
             [self terminateCommand:false withMessage:errorMessage];
             return;
         }
+        // PINGバイトの一致チェック
+        if ([[self pingRequestData] isEqualToData:[pingTestQuery pingResponseData]] == false) {
+            [self terminateCommand:false withMessage:MSG_PING_TEST_INVALID_RESPONSE];
+            return;
+        }
         // 画面に制御を戻す
         [self terminateCommand:true withMessage:nil];
     }

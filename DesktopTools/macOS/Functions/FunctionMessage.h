@@ -73,6 +73,9 @@
 #define MSG_FW_UPDATE_VERSION_SUCCESS               @"ファームウェアのバージョンが%@に更新されました。"
 #define MSG_FW_UPDATE_VERSION_FAIL                  @"ファームウェアのバージョンを%@に更新できませんでした。"
 
+#pragma mark - PINGテスト
+#define MSG_PING_TEST_INVALID_RESPONSE              @"PINGテストのレスポンスが不正です。"
+
 #pragma mark - 現在時刻参照／設定
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT        @"現在時刻：\n　ＰＣの時刻\t\t%@\n　デバイスの時刻\t%@"
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT    @"現在時刻：ＰＣの時刻＝%@、デバイスの時刻＝%@"
