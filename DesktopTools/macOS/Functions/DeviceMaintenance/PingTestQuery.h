@@ -12,6 +12,8 @@
 @protocol PingTestQueryDelegate;
 
 @interface PingTestQuery : NSObject
+    // PINGデータを保持
+    @property (nonatomic) NSData   *pingResponseData;
 
     - (instancetype)initWithDelegate:(id)delegate;
     - (void)inquiryWithData:(NSData *)data;
