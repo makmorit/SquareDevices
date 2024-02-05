@@ -68,6 +68,8 @@
         }
         // Flash ROM情報照会結果を、上位クラスに通知
         [self setFlashROMInfo:[self extractFlashROMInfo:responseData]];
+        // バージョン情報にBLEデバイス名を設定
+        [[self flashROMInfo] setDeviceName:[bleTransport scannedPeripheralName]];
         // 上位クラスに制御を戻す
         [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
     }
@@ -88,13 +90,38 @@
     }
 
     - (FlashROMInfo *)extractFlashROMInfo:(NSData *)responseData {
-        // 領域初期化
-        FlashROMInfo *flashRomInfo = [[FlashROMInfo alloc] init];
         // 戻りメッセージから、取得情報CSVを抽出
         NSData *responseBytes = [AppUtil extractCBORBytesFromResponse:responseData];
         NSString *responseCSV = [[NSString alloc] initWithData:responseBytes encoding:NSASCIIStringEncoding];
         [[ToolLogFile defaultLogger] debugWithFormat:@"Flash ROM statistics: %@", responseCSV];
+        // 情報取得CSVから空き領域に関する情報を抽出
+        NSString *strUsed = @"";
+        NSString *strAvail = @"";
+        NSString *strCorrupt = @"";
+        for (NSString *element in [responseCSV componentsSeparatedByString:@","]) {
+            NSArray *items = [element componentsSeparatedByString:@"="];
+            NSString *key = [items objectAtIndex:0];
+            NSString *val = [items objectAtIndex:1];
+            if ([key isEqualToString:@"words_used"]) {
+                strUsed = val;
+            } else if ([key isEqualToString:@"words_available"]) {
+                strAvail = val;
+            } else if ([key isEqualToString:@"corruption"]) {
+                strCorrupt = val;
+            }
+        }
+        // 空き容量、破損状況を取得
+        float rate = -1.0f;
+        if ([strUsed length] > 0 && [strAvail length] > 0) {
+            float avail = [strAvail floatValue];
+            float remaining = avail - [strUsed floatValue];
+            rate = remaining / avail * 100.0;
+        }
+        bool corrupt = [strCorrupt isEqualToString:@"0"] ? false : true;
         // 抽出されたFlash ROM情報を戻す
+        FlashROMInfo *flashRomInfo = [[FlashROMInfo alloc] init];
+        [flashRomInfo setRate:rate];
+        [flashRomInfo setCorrupt:corrupt];
         return flashRomInfo;
     }
 
