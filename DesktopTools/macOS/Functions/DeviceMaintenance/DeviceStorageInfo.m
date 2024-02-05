@@ -39,10 +39,14 @@
     }
 
     - (void)DeviceStorage:(DeviceStorage *)deviceStorage didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            [self terminateCommand:false withMessage:errorMessage];
+            return;
+        }
         // Flash ROM情報照会結果をログ出力／画面表示
         [self logAndShowFlashROMInfo:[deviceStorage flashROMInfo]];
-        // TODO: 仮の実装です。
-        [self resumeProcess:true];
+        // 画面に制御を戻す
+        [self terminateCommand:true withMessage:nil];
     }
 
     - (void)logAndShowFlashROMInfo:(FlashROMInfo *)flashRomInfo {
@@ -61,6 +65,18 @@
         // Flash ROM情報照会結果を画面表示
         NSString *dispText = [NSString stringWithFormat:MSG_DEVICE_STORAGE_INFO_FORMAT, [flashRomInfo deviceName], rateText, corruptText];
         [self appendStatusText:dispText];
+    }
+
+#pragma mark - 終了処理
+
+    - (void)terminateCommand:(bool)success withMessage:(NSString *)message {
+        // 終了メッセージを画面表示／ログ出力
+        if (success) {
+            [self LogAndShowInfoMessage:message];
+        } else {
+            [self LogAndShowErrorMessage:message];
+        }
+        [self pauseProcess:success];
     }
 
 @end
