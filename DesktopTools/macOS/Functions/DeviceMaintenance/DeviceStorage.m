@@ -43,6 +43,8 @@
     }
 
     - (void)inquiry {
+        // TODO: 仮の実装です。
+        [[self delegate] DeviceStorage:self didNotifyResponseQuery:true withErrorMessage:nil];
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {

@@ -31,6 +31,7 @@
 @protocol DeviceStorageDelegate <NSObject>
 
     - (void)DeviceStorage:(DeviceStorage *)deviceStorage didUpdateState:(bool)available;
+    - (void)DeviceStorage:(DeviceStorage *)deviceStorage didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage;
 
 @end
 

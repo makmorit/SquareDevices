@@ -31,4 +31,14 @@
         }
     }
 
+    - (void)invokeProcessOnSubQueue {
+        // Flash ROM情報照会処理を実行
+        [[self deviceStorage] inquiry];
+    }
+
+    - (void)DeviceStorage:(DeviceStorage *)deviceStorage didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
+    }
+
 @end
