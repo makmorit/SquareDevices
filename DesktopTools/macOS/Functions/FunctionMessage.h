@@ -76,7 +76,11 @@
 #pragma mark - PINGテスト
 #define MSG_PING_TEST_INVALID_RESPONSE              @"PINGテストのレスポンスが不正です。"
 
-// Flash ROM情報取得関連メッセージ
+#pragma mark - バージョン参照
+#define MSG_FW_VERSION_INFO_FORMAT                  @"バージョン情報：\n　デバイス名\t\t%@\n　ハードウェア\t\t%@\n　ファームウェア\t%@（%@）"
+#define MSG_FW_VERSION_INFO_LOG_FORMAT              @"バージョン情報：デバイス名＝%@、ハードウェア＝%@、ファームウェア＝%@（%@）"
+
+#pragma mark - Flash ROM情報取得関連メッセージ
 #define MSG_DEVICE_STORAGE_INFO_FORMAT              @"Flash ROM情報：\n　デバイス名＝%@\n　%@\n　%@"
 #define MSG_DEVICE_STORAGE_INFO_LOG_FORMAT          @"Flash ROM情報：デバイス名＝%@　%@%@"
 #define MSG_FSTAT_REMAINING_RATE                    @"Flash ROMの空き容量は%.1f％です。"
