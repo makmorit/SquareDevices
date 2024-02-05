@@ -31,7 +31,14 @@
         }
     }
 
+    - (void)invokeProcessOnSubQueue {
+        // バージョン参照処理を実行
+        [[self fwVersion] inquiry];
+    }
+
     - (void)FWVersion:(FWVersion *)fwVersion didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // TODO: 仮の実装です。
+        [self resumeProcess:true];
     }
 
 @end
