@@ -30,6 +30,8 @@
 
 @protocol DeviceStorageDelegate <NSObject>
 
+    - (void)DeviceStorage:(DeviceStorage *)deviceStorage didUpdateState:(bool)available;
+
 @end
 
 #endif /* DeviceStorage_h */

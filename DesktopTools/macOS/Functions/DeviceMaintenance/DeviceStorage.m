@@ -4,6 +4,7 @@
 //
 //  Created by Makoto Morita on 2024/02/05.
 //
+#import "BLEU2FTransport.h"
 #import "DeviceStorage.h"
 
 @interface FlashROMInfo ()
@@ -19,9 +20,10 @@
 
 @end
 
-@interface DeviceStorage ()
+@interface DeviceStorage () <BLETransportDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                            delegate;
+    @property (nonatomic) BLEU2FTransport              *transport;
 
 @end
 
@@ -31,11 +33,22 @@
         self = [super init];
         if (self) {
             [self setDelegate:delegate];
+            [self setTransport:[[BLEU2FTransport alloc] initWithDelegate:self]];
         }
         return self;
     }
 
+    - (void)BLETransport:(BLETransport *)bleTransport didUpdateState:(bool)available {
+        [[self delegate] DeviceStorage:self didUpdateState:available];
+    }
+
     - (void)inquiry {
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+    }
+
+    - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
     }
 
 @end
