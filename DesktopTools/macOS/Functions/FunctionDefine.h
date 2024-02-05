@@ -17,6 +17,7 @@
 #define U2F_COMMAND_UNKNOWN_ERROR           0x3f
 
 #pragma mark - ベンダー固有コマンド
+#define VENDOR_COMMAND_GET_FLASH_STAT       0x42
 #define VENDOR_COMMAND_GET_APP_VERSION      0x43
 #define VENDOR_COMMAND_GET_TIMESTAMP        0x4a
 #define VENDOR_COMMAND_SET_TIMESTAMP        0x4b
