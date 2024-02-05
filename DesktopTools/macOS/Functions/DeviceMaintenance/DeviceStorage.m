@@ -68,7 +68,7 @@
         }
         // Flash ROM情報照会結果を、上位クラスに通知
         [self setFlashROMInfo:[self extractFlashROMInfo:responseData]];
-        // バージョン情報にBLEデバイス名を設定
+        // Flash ROM情報にBLEデバイス名を設定
         [[self flashROMInfo] setDeviceName:[bleTransport scannedPeripheralName]];
         // 上位クラスに制御を戻す
         [self disconnectAndTerminateCommand:bleTransport withSuccess:true withErrorMessage:nil];
