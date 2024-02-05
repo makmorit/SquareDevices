@@ -43,14 +43,27 @@
     }
 
     - (void)inquiry {
-        // TODO: 仮の実装です。
-        [[self delegate] DeviceStorage:self didNotifyResponseQuery:true withErrorMessage:nil];
+        // U2F BLEサービスに接続
+        [[self transport] transportWillConnect];
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didConnect:(bool)success withErrorMessage:(NSString *)errorMessage {
+        if (success == false) {
+            // U2F BLEサービスに接続失敗時
+            [[self delegate] DeviceStorage:self didNotifyResponseQuery:success withErrorMessage:errorMessage];
+            return;
+        }
+        // TODO: 仮の実装です。
+        [self disconnectAndTerminateCommand:[self transport] withSuccess:true withErrorMessage:nil];
     }
 
     - (void)BLETransport:(BLETransport *)bleTransport didReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData {
+    }
+
+    - (void)disconnectAndTerminateCommand:(BLETransport *)bleTransport withSuccess:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // BLE接続を切断し、制御を戻す
+        [bleTransport transportWillDisconnect];
+        [[self delegate] DeviceStorage:self didNotifyResponseQuery:success withErrorMessage:errorMessage];
     }
 
 @end
