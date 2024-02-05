@@ -76,6 +76,14 @@
 #pragma mark - PINGテスト
 #define MSG_PING_TEST_INVALID_RESPONSE              @"PINGテストのレスポンスが不正です。"
 
+// Flash ROM情報取得関連メッセージ
+#define MSG_DEVICE_STORAGE_INFO_FORMAT              @"Flash ROM情報：\n　デバイス名＝%@\n　%@\n　%@"
+#define MSG_DEVICE_STORAGE_INFO_LOG_FORMAT          @"Flash ROM情報：デバイス名＝%@　%@%@"
+#define MSG_FSTAT_REMAINING_RATE                    @"Flash ROMの空き容量は%.1f％です。"
+#define MSG_FSTAT_NON_REMAINING_RATE                @"Flash ROMの空き容量を取得できませんでした。"
+#define MSG_FSTAT_CORRUPTING_AREA_NOT_EXIST         @"破損している領域は存在しません。"
+#define MSG_FSTAT_CORRUPTING_AREA_EXIST             @"破損している領域が存在します。"
+
 #pragma mark - 現在時刻参照／設定
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT        @"現在時刻：\n　ＰＣの時刻\t\t%@\n　デバイスの時刻\t%@"
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT    @"現在時刻：ＰＣの時刻＝%@、デバイスの時刻＝%@"

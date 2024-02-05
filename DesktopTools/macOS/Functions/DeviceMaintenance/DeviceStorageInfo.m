@@ -6,6 +6,8 @@
 //
 #import "DeviceStorage.h"
 #import "DeviceStorageInfo.h"
+#import "FunctionMessage.h"
+#import "ToolLogFile.h"
 
 @interface DeviceStorageInfo () <DeviceStorageDelegate>
     // 上位クラスの参照を保持
@@ -37,8 +39,28 @@
     }
 
     - (void)DeviceStorage:(DeviceStorage *)deviceStorage didNotifyResponseQuery:(bool)success withErrorMessage:(NSString *)errorMessage {
+        // Flash ROM情報照会結果をログ出力／画面表示
+        [self logAndShowFlashROMInfo:[deviceStorage flashROMInfo]];
         // TODO: 仮の実装です。
         [self resumeProcess:true];
+    }
+
+    - (void)logAndShowFlashROMInfo:(FlashROMInfo *)flashRomInfo {
+        // 空き容量テキストを編集
+        NSString *rateText = nil;
+        if ([flashRomInfo rate] < 0.0f) {
+            rateText = MSG_FSTAT_NON_REMAINING_RATE;
+        } else {
+            rateText = [NSString stringWithFormat:MSG_FSTAT_REMAINING_RATE, [flashRomInfo rate]];
+        }
+        // 破損状況テキストを編集
+        NSString *corruptText = [flashRomInfo corrupt] ? MSG_FSTAT_CORRUPTING_AREA_EXIST : MSG_FSTAT_CORRUPTING_AREA_NOT_EXIST;
+        // Flash ROM情報照会結果をログ出力
+        NSString *logText = [NSString stringWithFormat:MSG_DEVICE_STORAGE_INFO_LOG_FORMAT, [flashRomInfo deviceName], rateText, corruptText];
+        [[ToolLogFile defaultLogger] info:logText];
+        // Flash ROM情報照会結果を画面表示
+        NSString *dispText = [NSString stringWithFormat:MSG_DEVICE_STORAGE_INFO_FORMAT, [flashRomInfo deviceName], rateText, corruptText];
+        [self appendStatusText:dispText];
     }
 
 @end
