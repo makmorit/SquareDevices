@@ -103,6 +103,6 @@
 #define MSG_TOOL_TITLE_FULL                         @"Square device desktop tool"
 #define MSG_VENDOR_TOOL_TITLE_FULL                  @"Square device vendor tool"
 #define MSG_FORMAT_TOOL_VERSION                     @"Version %@ (%@)"
-#define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023 makmorit"
+#define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023-2024 makmorit"
 
 #endif /* FunctionMessage_h */
