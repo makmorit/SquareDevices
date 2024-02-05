@@ -27,6 +27,8 @@
 		7A27127A2A24987100FA9030 /* FunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* FunctionManager.m */; };
 		7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
 		7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
+		7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */; };
+		7A2AF4E02B7077E9004C5CC4 /* DeviceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */; };
 		7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
 		7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
 		7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */; };
@@ -62,6 +64,8 @@
 		7A62E6FE2ADCF97F007942AE /* clock_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A62E6FA2ADCF97F007942AE /* clock_edit.png */; };
 		7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
 		7A62E7032ADD1873007942AE /* BLEPeripheralScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */; };
+		7A6C11172B6CD87C00D9CF96 /* DeviceStorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */; };
+		7A6C11182B6CD87C00D9CF96 /* DeviceStorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */; };
 		7A7C96A12B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */; };
 		7A7C96A22B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */; };
 		7A7C96A62B5A43D70096699E /* mcumgr_cbor_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */; };
@@ -174,6 +178,8 @@
 		7A2712782A24987100FA9030 /* FunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionManager.m; sourceTree = "<group>"; };
 		7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralRequester.m; sourceTree = "<group>"; };
 		7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralRequester.h; sourceTree = "<group>"; };
+		7A2AF4DD2B707649004C5CC4 /* DeviceStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceStorage.h; sourceTree = "<group>"; };
+		7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceStorage.m; sourceTree = "<group>"; };
 		7A2CCB8C2B21A23E00605CAA /* BLEUnpairRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEUnpairRequest.h; sourceTree = "<group>"; };
 		7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequest.m; sourceTree = "<group>"; };
 		7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequestWindow.m; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 		7A62E6FA2ADCF97F007942AE /* clock_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_edit.png; sourceTree = "<group>"; };
 		7A62E7002ADD1527007942AE /* BLEPeripheralScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralScanner.h; sourceTree = "<group>"; };
 		7A62E7012ADD1873007942AE /* BLEPeripheralScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralScanner.m; sourceTree = "<group>"; };
+		7A6C11152B6CD84C00D9CF96 /* DeviceStorageInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceStorageInfo.h; sourceTree = "<group>"; };
+		7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceStorageInfo.m; sourceTree = "<group>"; };
 		7A7C969F2B5A228B0096699E /* FWUpdateSMPTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateSMPTransfer.h; sourceTree = "<group>"; };
 		7A7C96A02B5A22A20096699E /* FWUpdateSMPTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateSMPTransfer.m; sourceTree = "<group>"; };
 		7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcumgr_cbor_decode.h; sourceTree = "<group>"; };
@@ -532,6 +540,10 @@
 				7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */,
 				7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */,
 				7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */,
+				7A2AF4DD2B707649004C5CC4 /* DeviceStorage.h */,
+				7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */,
+				7A6C11152B6CD84C00D9CF96 /* DeviceStorageInfo.h */,
+				7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */,
 				7AD2DD512B6352B500E4BE93 /* DeviceTimestamp.h */,
 				7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */,
 				7A7CEE1F2B6B273100BA9F41 /* DeviceTimestampSet.h */,
@@ -724,10 +736,12 @@
 				7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
+				7A6C11172B6CD87C00D9CF96 /* DeviceStorageInfo.m in Sources */,
 				7A2712752A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82D2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
+				7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
@@ -772,10 +786,12 @@
 				7A5DED5C2B1860BE00EC670A /* BLEU2FTransport.m in Sources */,
 				7ADD42832A2DC0700086CF47 /* FWVersionInfo.m in Sources */,
 				7AF454FE2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */,
+				7A6C11182B6CD87C00D9CF96 /* DeviceStorageInfo.m in Sources */,
 				7A2712762A247B2000FA9030 /* FunctionView.m in Sources */,
 				7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				7AD2DD502B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
+				7A2AF4E02B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A259A2B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
@@ -911,7 +927,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -944,7 +960,7 @@
 				CODE_SIGN_ENTITLEMENTS = DesktopTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -979,7 +995,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1012,7 +1028,7 @@
 				CODE_SIGN_ENTITLEMENTS = VendorTool/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";

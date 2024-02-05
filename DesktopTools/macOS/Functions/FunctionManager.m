@@ -13,6 +13,7 @@
 // for functions
 #import "BLEPairing.h"
 #import "BLEUnpairing.h"
+#import "DeviceStorageInfo.h"
 #import "DeviceTimestampSet.h"
 #import "DeviceTimestampShow.h"
 #import "EraseBondingInfo.h"
@@ -46,6 +47,8 @@
             [self setCurrentFunction:[[FWUpdate alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_PING_TEST]) {
             [self setCurrentFunction:[[PingTester alloc] initWithDelegate:delegate]];
+        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_FLASH_STAT]) {
+            [self setCurrentFunction:[[DeviceStorageInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_GET_TIMESTAMP]) {
             [self setCurrentFunction:[[DeviceTimestampShow alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_SET_TIMESTAMP]) {

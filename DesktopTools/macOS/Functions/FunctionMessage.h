@@ -76,6 +76,18 @@
 #pragma mark - PINGテスト
 #define MSG_PING_TEST_INVALID_RESPONSE              @"PINGテストのレスポンスが不正です。"
 
+#pragma mark - バージョン参照
+#define MSG_FW_VERSION_INFO_FORMAT                  @"バージョン情報：\n　デバイス名\t\t%@\n　ハードウェア\t\t%@\n　ファームウェア\t%@（%@）"
+#define MSG_FW_VERSION_INFO_LOG_FORMAT              @"バージョン情報：デバイス名＝%@、ハードウェア＝%@、ファームウェア＝%@（%@）"
+
+#pragma mark - Flash ROM情報取得関連メッセージ
+#define MSG_DEVICE_STORAGE_INFO_FORMAT              @"Flash ROM情報：\n　デバイス名＝%@\n　%@\n　%@"
+#define MSG_DEVICE_STORAGE_INFO_LOG_FORMAT          @"Flash ROM情報：デバイス名＝%@　%@%@"
+#define MSG_FSTAT_REMAINING_RATE                    @"Flash ROMの空き容量は%.1f％です。"
+#define MSG_FSTAT_NON_REMAINING_RATE                @"Flash ROMの空き容量を取得できませんでした。"
+#define MSG_FSTAT_CORRUPTING_AREA_NOT_EXIST         @"破損している領域は存在しません。"
+#define MSG_FSTAT_CORRUPTING_AREA_EXIST             @"破損している領域が存在します。"
+
 #pragma mark - 現在時刻参照／設定
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_FORMAT        @"現在時刻：\n　ＰＣの時刻\t\t%@\n　デバイスの時刻\t%@"
 #define MSG_DEVICE_TIMESTAMP_CURRENT_DATETIME_LOG_FORMAT    @"現在時刻：ＰＣの時刻＝%@、デバイスの時刻＝%@"
@@ -91,6 +103,6 @@
 #define MSG_TOOL_TITLE_FULL                         @"Square device desktop tool"
 #define MSG_VENDOR_TOOL_TITLE_FULL                  @"Square device vendor tool"
 #define MSG_FORMAT_TOOL_VERSION                     @"Version %@ (%@)"
-#define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023 makmorit"
+#define MSG_APP_COPYRIGHT                           @"Copyright (c) 2023-2024 makmorit"
 
 #endif /* FunctionMessage_h */
