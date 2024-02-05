@@ -27,6 +27,8 @@
 		7A27127A2A24987100FA9030 /* FunctionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712782A24987100FA9030 /* FunctionManager.m */; };
 		7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
 		7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */; };
+		7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */; };
+		7A2AF4E02B7077E9004C5CC4 /* DeviceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */; };
 		7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
 		7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */; };
 		7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */; };
@@ -176,6 +178,8 @@
 		7A2712782A24987100FA9030 /* FunctionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionManager.m; sourceTree = "<group>"; };
 		7A2A037D2AF497BF00951196 /* BLEPeripheralRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEPeripheralRequester.m; sourceTree = "<group>"; };
 		7A2A037E2AF497BF00951196 /* BLEPeripheralRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEPeripheralRequester.h; sourceTree = "<group>"; };
+		7A2AF4DD2B707649004C5CC4 /* DeviceStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceStorage.h; sourceTree = "<group>"; };
+		7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceStorage.m; sourceTree = "<group>"; };
 		7A2CCB8C2B21A23E00605CAA /* BLEUnpairRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEUnpairRequest.h; sourceTree = "<group>"; };
 		7A2CCB8D2B21A28E00605CAA /* BLEUnpairRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequest.m; sourceTree = "<group>"; };
 		7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEUnpairRequestWindow.m; sourceTree = "<group>"; };
@@ -536,6 +540,10 @@
 				7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */,
 				7A7C96A42B5A43D70096699E /* mcumgr_cbor_decode.h */,
 				7A7C96A52B5A43D70096699E /* mcumgr_cbor_decode.c */,
+				7A2AF4DD2B707649004C5CC4 /* DeviceStorage.h */,
+				7A2AF4DE2B7077E9004C5CC4 /* DeviceStorage.m */,
+				7A6C11152B6CD84C00D9CF96 /* DeviceStorageInfo.h */,
+				7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */,
 				7AD2DD512B6352B500E4BE93 /* DeviceTimestamp.h */,
 				7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */,
 				7A7CEE1F2B6B273100BA9F41 /* DeviceTimestampSet.h */,
@@ -564,8 +572,6 @@
 				7AEC09202B6B41EB006D2B76 /* PingTester.m */,
 				7AEC09232B6B440C006D2B76 /* PingTestQuery.h */,
 				7AEC09242B6B449E006D2B76 /* PingTestQuery.m */,
-				7A6C11152B6CD84C00D9CF96 /* DeviceStorageInfo.h */,
-				7A6C11162B6CD87C00D9CF96 /* DeviceStorageInfo.m */,
 			);
 			path = DeviceMaintenance;
 			sourceTree = "<group>";
@@ -735,6 +741,7 @@
 				7AB1C82D2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
+				7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
@@ -784,6 +791,7 @@
 				7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */,
 				7AD2DD502B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */,
 				7A8B3DD1296E56640005F7B1 /* AppDelegate.m in Sources */,
+				7A2AF4E02B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A259A2B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
 				7A53E22E2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
 				7A2A03802AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
