@@ -16,6 +16,8 @@
     @property (nonatomic) NSArray<NSData *>            *requestDataArray;
     // 送信フレーム数を保持
     @property (nonatomic) NSUInteger                    bleRequestFrameNumber;
+    // 送信済みフラグ
+    @property (nonatomic) bool                          requestSent;
 
 @end
 
@@ -49,6 +51,8 @@
             [self transportDidReceiveResponse:false withErrorMessage:[parameter errorMessage] withCMD:0x00 withData:nil];
             return;
         }
+        // 送信済みフラグを設定
+        [self setRequestSent:true];
         // 送信済みフレーム数を設定
         [self setBleRequestFrameNumber:([self bleRequestFrameNumber] + 1)];
         if ([self bleRequestFrameNumber] < [[self requestDataArray] count]) {
@@ -58,6 +62,8 @@
     }
 
     - (void)BLEPeripheralRequester:(BLEPeripheralRequester *)blePeripheralRequester didReceiveWithParam:(BLEPeripheralRequesterParam *)parameter {
+        // 送信済みフラグをクリア
+        [self setRequestSent:false];
         if ([parameter success] == false) {
             // コマンド受信失敗時
             [self transportDidReceiveResponse:false withErrorMessage:[parameter errorMessage] withCMD:0x00 withData:nil];
@@ -65,6 +71,16 @@
         }
         // 受信フレームをバッファにコピー
         [self frameReceivedHandler:[parameter responseData]];
+    }
+
+    - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
+        // 送信済みフラグが設定されている場合はタイムアウトエラーとして上位クラスに通知
+        if ([self requestSent]) {
+            [self setRequestSent:false];
+            [self transportDidReceiveResponse:false withErrorMessage:[parameter errorMessage] withCMD:0x00 withData:nil];
+            return;
+        }
+        [self transportDidDisconnectWithScannerParamRef:parameter];
     }
 
 #pragma mark - Private functions
