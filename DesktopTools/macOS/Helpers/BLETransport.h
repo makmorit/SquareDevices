@@ -25,6 +25,7 @@
     - (void)transportWillConnectWithServiceUUIDString:(NSString *)uuidString;
     - (void)transportWillSendRequestFrame:(NSData *)requestFrame writeWithoutResponse:(bool)charPropertyWriteWithoutResponse;
     - (void)transportDidReceiveResponse:(bool)success withErrorMessage:(NSString *)errorMessage withCMD:(uint8_t)responseCMD withData:(NSData *)responseData;
+    - (void)transportDidDisconnectWithScannerParamRef:(id)scannerParamRef;
 
 @end
 

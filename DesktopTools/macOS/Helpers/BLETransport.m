@@ -74,6 +74,13 @@
         [[self requester] peripheralWillSendWithParam:[self requesterParam]];
     }
 
+    - (void)transportDidDisconnectWithScannerParamRef:(id)scannerParamRef {
+        BLEPeripheralScannerParam *parameter = (BLEPeripheralScannerParam *)scannerParamRef;
+        if ([[self delegate] respondsToSelector:@selector(BLETransport:didDisconnect:withErrorMessage:)]) {
+            [[self delegate] BLETransport:self didDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
+        }
+    }
+
 #pragma mark - Private functions
 
     - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didScanWithParam:(BLEPeripheralScannerParam *)parameter {
@@ -135,9 +142,7 @@
     }
 
     - (void)BLEPeripheralScanner:(BLEPeripheralScanner *)blePeripheralScanner didDisconnectWithParam:(BLEPeripheralScannerParam *)parameter {
-        if ([[self delegate] respondsToSelector:@selector(BLETransport:didDisconnect:withErrorMessage:)]) {
-            [[self delegate] BLETransport:self didDisconnect:[parameter success] withErrorMessage:[parameter errorMessage]];
-        }
+        [self transportDidDisconnectWithScannerParamRef:parameter];
     }
 
 @end
