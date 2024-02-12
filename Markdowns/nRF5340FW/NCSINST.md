@@ -9,13 +9,6 @@
 PC: iMac (Retina 5K, 27-inch, 2019)<br>
 OS: macOS 12.7.2
 
-## 前提条件
-
-まずは下記手順書により、各種ソフトウェアがインストールされていることを前提とします。<br>
-
-- <b>[ARM GCCインストール手順](../../Markdowns/nRF5340FW/ARMGCCINST.md)</b><br>
-コンパイル、リンク等を実行するためのコマンドラインツール群がインストールされます。
-
 ## macOS環境の準備
 
 下記リンク先の記述を参考に、各種コマンドをmacOS環境に導入します。<br>
@@ -110,6 +103,42 @@ nRF Connect SDKの依存ライブラリーを、前述の仮想環境にイン�
 pip install -r zephyr/scripts/requirements.txt
 pip install -r nrf/scripts/requirements.txt
 pip install -r bootloader/mcuboot/scripts/requirements.txt
+```
+
+## Zephyr SDKのインストール
+
+下記リンク先の記述を参考に、コンパイル、リンク等を実行するための各種コマンドをmacOS環境に導入します。<br>
+https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.5.2/nrf/installation/installing.html#install-the-zephyr-sdk
+
+#### SDKのダウンロード
+
+Zephyr SDKのバンドルをダウンロードします。
+以下のコマンドを実行します。（実行例は<b>[こちら](logs/zephyr_sdk_dl.log)</b>）
+
+```
+cd ${HOME}/Downloads/
+wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
+wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
+```
+
+#### SDKの導入
+
+ダウンロードしたZephyr SDKのバンドルを解凍して導入します。
+以下のコマンドを実行します。（実行例は<b>[こちら](logs/zephyr_sdk_inst.log)</b>）
+
+```
+cd ${HOME}/opt
+tar xvf ${HOME}/Downloads/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
+```
+
+#### SDKの設定
+
+導入したZephyr SDKを利用できるようにするための設定スクリプトを実行します。
+以下のコマンドを実行します。（実行例は<b>[こちら](logs/zephyr_sdk_setup.log)</b>）
+
+```
+cd ${HOME}/opt/zephyr-sdk-0.16.1
+./setup.sh
 ```
 
 以上で、nRF Connect SDKのインストールは完了です。
