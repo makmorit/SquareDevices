@@ -82,3 +82,21 @@ bash-3.2$
 ```
 pip3 install west
 ```
+
+## nRF Connect SDKのインストール
+
+前述のwestツールを使用し、nRF Connect SDKのインストールを行います。<br>
+こちらも、あらかじめ仮想環境に入った上で実施してください。
+
+参考：https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.5.2/nrf/installation/installing.html#get-the-ncs-code
+
+#### リポジトリーのチェックアウト
+
+GitHubリポジトリーから「nRF Connect SDK v2.5.2」の全ファイルイメージをチェックアウトします。<br>
+ターミナルから以下のコマンドを実行します。（実行例は<b>[こちら](logs/west.log)</b>）
+
+```
+west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5.2
+west update
+west zephyr-export
+```
