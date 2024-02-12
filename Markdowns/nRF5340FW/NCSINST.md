@@ -100,3 +100,16 @@ west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5.2
 west update
 west zephyr-export
 ```
+
+#### 依存ライブラリーの導入
+
+nRF Connect SDKの依存ライブラリーを、前述の仮想環境にインストールします。<br>
+以下のコマンドを実行します。（実行例は<b>[こちら](logs/pip3.log)</b>）
+
+```
+pip install -r zephyr/scripts/requirements.txt
+pip install -r nrf/scripts/requirements.txt
+pip install -r bootloader/mcuboot/scripts/requirements.txt
+```
+
+以上で、nRF Connect SDKのインストールは完了です。
