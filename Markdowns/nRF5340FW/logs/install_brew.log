@@ -1,0 +1,927 @@
+bash-3.2$ brew install cmake ninja gperf python3 ccache qemu dtc wget libmagic
+Running `brew update --auto-update`...
+==> Downloading https://ghcr.io/v2/homebrew/portable-ruby/portable-ruby/blobs/sha256:02180ca8b8295422ae84921bcf034b7ee8ce5575488bd5e6a37a192e53cd5d34
+################################################################################################################# 100.0%
+==> Pouring portable-ruby-3.1.4.el_capitan.bottle.tar.gz
+==> Homebrew collects anonymous analytics.
+Read the analytics documentation (and how to opt-out) here:
+  https://docs.brew.sh/Analytics
+No analytics have been recorded yet (nor will be during this `brew` run).
+
+==> homebrew/core is old and unneeded, untapping to save space...
+Untapping homebrew/core...
+Untapped 3 commands and 6554 formulae (6,928 files, 606.9MB).
+==> Downloading https://formulae.brew.sh/api/formula_tap_migrations.jws.json
+################################################################################################################# 100.0%
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+aarch64-elf-gdb                         hoverfly                                python-jmespath
+abi3audit                               hq                                      python-json5
+access                                  hyfetch                                 python-kiwisolver
+action-validator                        hz                                      python-lxml
+ada-url                                 icloudpd                                python-magic
+adb-enhanced                            ignite                                  python-mako
+adr-viewer                              imessage-exporter                       python-markdown-it-py
+aerleon                                 img2pdf                                 python-markupsafe
+aftman                                  imgdiet                                 python-matplotlib
+aichat                                  imgdiff                                 python-mdurl
+aicommits                               immer                                   python-mpmath
+ain                                     incus                                   python-msgpack
+alass                                   instaloader                             python-mutagen
+ali                                     intercept                               python-networkx
+aliyunpan                               invoice                                 python-oauthlib
+amass                                   iocextract                              python-openapi3
+amber                                   ittapi                                  python-packaging
+ansible@7                               jet                                     python-pathspec
+ansible@8                               johnnydep                               python-pbr
+apify-cli                               joshuto                                 python-platformdirs
+apkleaks                                jot                                     python-pluggy
+apko                                    jprq                                    python-ply
+apprise                                 jr                                      python-prompt-toolkit
+appstream                               jsign                                   python-psutil
+ares                                    jsmn                                    python-pycurl
+argc                                    json2ts                                 python-pyparsing
+argparse                                judy                                    python-pyproject-hooks
+arjun                                   jupyter-r                               python-pytz
+arm-none-eabi-binutils                  k8sgpt                                  python-regex
+arm-none-eabi-gcc                       karmadactl                              python-requests
+arm-none-eabi-gdb                       katana                                  python-requests-oauthlib
+arttime                                 kew                                     python-rich
+asitop                                  keyring                                 python-s3transfer
+asmfmt                                  killport                                python-setuptools
+asn                                     kin                                     python-setuptools-scm
+asnmap                                  kiota                                   python-sympy
+ast-grep                                kitex                                   python-termcolor
+ata                                     kor                                     python-tk@3.12
+auditwheel                              kosli-cli                               python-toml
+authz0                                  ksops                                   python-trove-classifiers
+autobrr                                 kubetui                                 python-urllib3
+aws-amplify                             lacework-cli                            python-wcwidth
+awscli-local                            lager                                   python-websocket-client
+bacon                                   ldeep                                   python-xlsxwriter
+badkeys                                 ldid-procursus                          python@3.12
+bandicoot                               legitify                                qalculate-qt
+bao                                     libabigail                              qbittorrent-cli
+base16384                               libansilove                             quantum++
+bashate                                 libclc                                  quictls
+bashunit                                libconfini                              rapidfuzz-cpp
+bazel-diff                              libcyaml                                rathole
+bazel-remote                            libdicom                                rattler-build
+bbot                                    libdivsufsort                           raven
+benerator                               libdpp                                  rdap
+bfs                                     libdvbcsa                               recoverpy
+bilix                                   libecpint                               redress
+biodiff                                 libfastjson                             redwax-tool
+biome                                   libgedit-gtksourceview                  reflex
+bkcrack                                 libgit2@1.5                             regclient
+blades                                  libgit2@1.6                             rekor-cli
+blake3                                  libimobiledevice-glue                   renovate
+blink                                   libint                                  resvg
+blocky                                  libjcat                                 retire
+bob                                     libjuice                                retry
+bomber                                  liblxi                                  richgo
+boolector                               libmapper                               rio
+botan@2                                 libmediainfo                            riscv64-elf-binutils
+bounceback                              libnghttp3                              riscv64-elf-gcc
+bozohttpd                               libnsbmp                                riscv64-elf-gdb
+build2                                  libnsgif                                risor
+c3c                                     libomemo-c                              roadrunner
+caracal                                 libpaho-mqtt                            roblox-ts
+cargo-all-features                      libpanel                                rojo
+cargo-auditable                         libpaper                                rpmspectool
+cargo-binstall                          libsail                                 rsyncy
+cargo-binutils                          libshumate                              ruby@3.2
+cargo-deps                              libspelling                             ruff-lsp
+cargo-docset                            libversion                              ruler
+cargo-generate                          libvisual                               runme
+cargo-llvm-cov                          libvisual-plugins                       rye
+cargo-sweep                             libvisual-projectm                      s3scanner
+cariddi                                 libwapcaplet                            sad
+cbonsai                                 libwpe                                  saf-cli
+cdi                                     libxmlb                                 safeint
+cdxgen                                  libzen                                  sbom-tool
+cekit                                   limesuite                               scarb
+certgraph                               llm                                     scikit-image
+certsync                                llvm@15                                 scilla
+cf2tf                                   llvm@16                                 scip
+cfripper                                lowdown                                 scnlib
+chainloop-cli                           lpeg                                    scoutsuite
+chainsaw                                lr                                      scrapy
+changie                                 ls-lint                                 senpai
+chaoskube                               lune                                    service-weaver
+charls                                  lxi-tools                               sh4d0wup
+chatblade                               magic-wormhole.rs                       shell2http
+checkdmarc                              mailpit                                 shellspec
+cherrybomb                              mariadb@10.11                           shodan
+chisel-tunnel                           mariadb@11.0                            shub
+cidr                                    mariadb@11.1                            shuffledns
+cliam                                   massdriver                              shush
+clive                                   mdt                                     sickchill
+cloud-sql-proxy                         mediamtx                                sigma-cli
+cloudfox                                medusa                                  signmykey
+cloudlist                               melange                                 sigstore
+cloudpan189-go                          memray                                  sing-box
+cloudsplaining                          mentat                                  skate
+codelimit                               meson-python                            sloth
+coder                                   meta-package-manager                    slsa-verifier
+colmap                                  mfem                                    smartdns
+conan@1                                 mgis                                    smlfmt
+conda-lock                              millet                                  snakeviz
+conduit                                 minder                                  snyk-cli
+convco                                  minigraph                               solo2-cli
+core-lightning                          mjml                                    solr@8.11
+couchbase-shell                         mods                                    spacer
+counts                                  modsecurity                             spglib
+cppinsights                             modsurfer                               spicetify-cli
+crabz                                   mtbl                                    spidermonkey@91
+crunchy-cli                             mtm                                     spotify_player
+cryptopp                                musikcube                               sql-migrate
+crystalline                             mvfst                                   sqlfmt
+csprecon                                mvt                                     sqlpage
+csvlens                                 mysql-client@8.0                        sqlsmith
+ctpv                                    mysql@8.0                               squealer
+cyclonedx-gomod                         ncmdump                                 squiid
+cyclonedx-python                        neonctl                                 ssh-mitm
+cycode                                  nerdfix                                 sshportal
+czkawka                                 netlistsvg                              ssocr
+daktilo                                 netsurf-buildsystem                     staq
+dalfox                                  nexttrace                               steamguard-cli
+dcp                                     node@20                                 streamvbyte
+ddns-go                                 noir                                    strip-nondeterminism
+deadfinder                              notation                                sugarjar
+debugbreak                              notify                                  sui
+define                                  nowplaying-cli                          surelog
+der-ascii                               ntbtls                                  svlint
+devcontainer                            ntfy                                    svls
+dexter                                  numbat                                  swift-outdated
+dezoomify-rs                            nvimpager                               tailspin
+dicebear                                ocaml@4                                 tailwindcss
+diffoci                                 okta-aws-cli                            tailwindcss-language-server
+direwolf                                ol                                      talhelper
+dnsrobocert                             ollama                                  teip
+dockerfile-language-server              onionprobe                              telegram-downloader
+dockly                                  opal                                    tern
+dolphie                                 open-simh                               terraform-graph-beautifier
+doltgres                                openfga                                 terraform-local
+doppler                                 openjph                                 terragrunt-atlantis-config
+dotter                                  opensca-cli                             terrapin-scanner
+dovi_tool                               openssl@3.0                             texi2mdoc
+driftwood                               opentofu                                texttest
+drogon                                  orbiton                                 tf-profile
+dtools                                  orbuculum                               tfautomv
+dutree                                  orcania                                 three-body
+dysk                                    ord                                     thriftgo
+dzr                                     orogene                                 tkey-ssh-agent
+eatmemory                               osctrl-cli                              tlrc
+ebook2cw                                oslo                                    tomlplusplus
+elfx86exts                              pan                                     toxiproxy
+enchive                                 patat                                   tpm
+erg                                     patch-package                           trafilatura
+erlang@25                               pciutils                                trippy
+espflash                                pdfalyzer                               trufflehog
+eza                                     pdfrip                                  trurl
+faircamp                                perl-xml-parser                         trzsz-ssh
+falco                                   pfetch-rs                               tt
+falcoctl                                pgrok                                   typical
+fastgron                                pgvector                                typst
+favirecon                               phoneinfoga                             tzdiff
+feishu2md                               php@8.2                                 udp2raw-multiplatform
+ffmpeg@5                                phylum-cli                              uffizzi
+flavours                                picotool                                uhdm
+flowpipe                                pivit                                   uncover
+flyscrape                               pixi                                    urlfinder
+forgit                                  plog                                    urlscan
+form                                    pmix                                    uvicorn
+frozen                                  pocketbase                              veilid
+fuc                                     poke                                    vet
+fw                                      pop                                     victoriametrics
+fwupd                                   portal                                  virtctl
+g-ls                                    postgresql@16                           virtualfish
+garble                                  powerlevel10k                           votca
+gat                                     presenterm                              vulkan-extensionlayer
+gcc@12                                  prettierd                               vulkan-tools
+gdrive@2                                procps@3                                vulkan-utility-libraries
+geoip2fast                              protobuf@21                             vulkan-validationlayers
+getmail6                                proxify                                 vulkan-volk
+gffread                                 proxygen                                vulsio-gost
+gfold                                   pter                                    vunnel
+ggshield                                purr                                    vvdec
+ghc@9.4                                 pwned                                   vvenc
+ghc@9.6                                 pylyzer                                 wally
+gickup                                  pypy3.10                                wasmedge
+gismo                                   pypy3.9                                 wazero
+git-big-picture                         pyspelling                              web-ext
+git-credential-oauth                    pystring                                webpod
+git-grab                                python-abseil                           wget2
+git-mediate                             python-anytree                          whisper-cpp
+git-tools                               python-argcomplete                      witness
+gitea                                   python-asn1crypto                       woodpecker-cli
+gitoxide                                python-attrs                            woof-doom
+gitsign                                 python-boto3                            wormhole-william
+gittuf                                  python-botocore                         wpebackend-fdo
+glbinding@2                             python-brotli                           wpscan
+go-feature-flag-relay-proxy             python-cachetools                       wtfis
+go@1.20                                 python-certifi                          wxlua
+golines                                 python-chardet                          wzprof
+goread                                  python-charset-normalizer               xbyak
+goresym                                 python-cli-helpers                      xe
+gossip                                  python-click                            xeol
+gotestsum                               python-colorama                         xlsxio
+gotestwaf                               python-configargparse                   xnvme
+gotpm                                   python-configobj                        xurls
+govulncheck                             python-cryptography                     yamlfmt
+gptline                                 python-cycler                           yatas
+graphqlviz                              python-dateutil                         yazi
+grpc@1.54                               python-dicttoxml                        yder
+grype                                   python-distlib                          yyjson
+haiti                                   python-distro                           zchunk
+halp                                    python-docopt                           zigmod
+hck                                     python-filelock                         zipkin
+helidon                                 python-flit-core                        zix
+helm-docs                               python-gdbm@3.12                        zlint
+helm-ls                                 python-hatch-fancy-pypi-readme          zpaqfranz
+hex                                     python-hatch-vcs                        zrok
+hexer                                   python-hatchling                        zug
+hivex                                   python-idna
+hopscotch-map                           python-jinja
+==> New Casks
+1kc-razer                                                    logi-options-plus
+4k-video-downloaderplus                                      logitech-camera-settings
+active-trader-pro                                            logitech-g-hub
+affine                                                       logitech-options
+aifun                                                        logitune
+akuity                                                       loupedeck
+alex313031-thorium                                           low-profile
+alipay-key-tool                                              lunarbar
+amie                                                         luniistore
+anka-build-cloud-controller                                  lw-scanner
+anka-build-cloud-registry                                    lyricsfinder
+apidog                                                       maa
+apple-hewlett-packard-printer-drivers                        macwhisper
+applite                                                      markedit
+aqua                                                         mdb-accdb-viewer
+archaeology                                                  mediamate
+asix-ax88179                                                 meld-studio
+audiocupcake                                                 metamer
+ava                                                          mindmac
+batchoutput-pdf                                              minisim
+batteryboi                                                   mitmproxy
+bazecor                                                      modrinth
+beardie                                                      moneymanager
+bepo                                                         monotype
+bezel                                                        motu-m-series
+bitbox                                                       mullvad-browser
+blockstream-green                                            mumu-x
+bloop                                                        mumuplayer
+bluos-controller                                             music-decoy
+bookletcreator                                               music-miniplayer
+bose-updater                                                 music-remote
+brickstore                                                   music-widget
+brightintosh                                                 mutedeck
+browser-deputy                                               muyu
+btp                                                          mycard
+bugdom2                                                      navigraph-charts
+caldigit-docking-utility                                     navigraph-simlink
+caldigit-thunderbolt-charging                                nightshade
+cameracontroller                                             nordic-nrf-command-line-tools
+canon-eos-utility                                            notes-better
+capacities                                                   nozbe
+carbide-create                                               nrfutil
+cardo-update                                                 nvs
+chainner                                                     nx-studio
+chatall                                                      october
+chatbox                                                      ok-json
+cilicon                                                      ollama
+cleanclip                                                    openbb-terminal
+cleanupbuddy                                                 opencat
+clibor                                                       openrocket
+clickhouse                                                   openthesaurus-deutsch
+clop                                                         orbstack
+cloudnet                                                     orcaslicer
+codewhisperer                                                orka3
+command-x                                                    ovito
+commandpost                                                  ovito-pro
+concept2-utility                                             pallotron-yubiswitch
+copilot                                                      paulxstretch
+craft                                                        philips-hue-sync
+creality-print                                               piclist
+creative                                                     picoscope
+crystalfetch                                                 pieces
+cursor                                                       pieces-os
+dadroit-json-viewer                                          pile
+ddpm                                                         piphero
+dehelper                                                     playdate-mirror
+deskpad                                                      poe
+deveco-studio                                                pololu-avr-programmer-v2
+devpod                                                       prettyclean
+devtunnel                                                    prism
+dintch                                                       processmonitor
+displaylink                                                  prolific-pl2303
+dockx                                                        proton-drive
+domzilla-caffeine                                            proxy-audio-device
+doppler                                                      qflipper
+douyin-chat                                                  qmk-toolbox
+drata-agent                                                  reader
+draw-things                                                  recipeui
+droidcam-obs                                                 red-canary-mac-monitor
+dropbox-dash                                                 reminders-menubar
+dropshelf                                                    replay
+dymo-label                                                   reqable
+easydevo                                                     rewind
+ecodms-client                                                ricoh-theta
+edrawmind                                                    rio
+effect-house                                                 rippling
+egovframedev                                                 ripx
+elecom-mouse-util                                            roam
+elektron-overbridge                                          rode-central
+elektron-transfer                                            rode-connect
+elgato-camera-hub                                            routine
+elgato-control-center                                        rsyncui
+elgato-game-capture-hd                                       rustrover
+elgato-stream-deck                                           sakura
+elgato-video-capture                                         saleae-logic
+elgato-wave-link                                             salt
+emby                                                         samsung-portable-ssd-t7
+energiza                                                     score
+engine-dj                                                    screen-studio
+ente                                                         screens-assist
+entry                                                        segger-jlink
+eobcanka                                                     senabluetoothdevicemanager
+eset-cyber-security                                          sf
+eu                                                           sfm
+eusamanager                                                  shadow-bot
+expo-orbit                                                   shattered-pixel-dungeon
+fedistar                                                     showmeyourhotkeys
+fightcade                                                    shureplus-motiv
+filemonitor                                                  silicon-labs-vcp-driver
+finbar                                                       simple-web-server
+firefly-shimmer                                              simplex
+flexoptix                                                    skiff
+floorp                                                       smooze-pro
+focusrite-control                                            songkong
+focusrite-control-2                                          sonos
+focusrite-saffire-mixcontrol                                 sony-ps-remote-play
+font-finagler                                                space-capsule
+fossa                                                        spacedrive
+fractal-bot                                                  sparkplate
+frappe-books                                                 spundle
+free-podcast-transcription                                   stack
+freeshow                                                     stash
+ftdi-vcp-driver                                              steelseries-engine
+fujitsu-scansnap-home                                        steelseries-gg
+garmin-basecamp                                              streammusic
+garmin-express                                               submariner
+geekbench-ml                                                 synology-cloud-station-backup
+genesys-cloud                                                synology-drive
+git-credential-manager                                       synology-photo-station-uploader
+gitkraken-cli                                                synology-surveillance-station-client
+glaze                                                        synologyassistant
+graalvm-jdk                                                  taccy
+greenery                                                     tachidesk-sorayomi
+grs-bluewallet                                               telegram-a
+gstreamer-development                                        theiaide
+gstreamer-runtime                                            ths
+gutenprint                                                   timemachinestatus
+hancom-docs                                                  tiptoi-manager
+hapigo                                                       to-audio-converter
+hdhomerun                                                    toshiba-color-mfp
+herd                                                         truhu
+heynote                                                      ttu-base-suite
+hhkb                                                         tuist
+hides                                                        tunetag
+hoppscotch                                                   twelite-stage
+hovrly                                                       ubiquiti-unifi-controller
+hp-easy-admin                                                uhk-agent
+hp-easy-start                                                updf
+hummingbird                                                  upscayl
+hypercal                                                     usmart-trade
+ia-presenter                                                 vbrokers
+iem-plugin-suite                                             vimcal
+imazing-converter                                            viso
+imazing-profile-editor                                       voicepeak
+insomnium                                                    volta
+insta360-studio                                              wacom-tablet
+irpf2023                                                     wakatime
+jabra-direct                                                 wave
+jazz2-resurrection                                           wch-ch34x-usb-serial-driver
+json-viewer                                                  wetype
+jukebox                                                      whisky
+jyutping                                                     wiso-steuer-2022
+karafun                                                      wiso-steuer-2023
+keyboard-cowboy                                              wiso-steuer-2024
+keyclu                                                       writerside
+keymapp                                                      xact
+kiibohd-configurator                                         xiaomi-cloud
+konica-minolta-bizhub-c750i-driver                           xliff-editor
+konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver       xsplit-vcam
+kreya                                                        xtool-creative-space
+kuaitie                                                      yealink-meeting
+lasso                                                        yubico-authenticator
+lg-onscreen-control                                          yubico-yubikey-manager
+libndi                                                       zed
+lightburn                                                    znote
+linn-konfig                                                  zsa-wally
+llamachat                                                    zspace
+lm-studio                                                    zui
+lo-rain
+
+You have 31 outdated formulae installed.
+==> Downloading https://formulae.brew.sh/api/cask_tap_migrations.jws.json
+################################################################################################################# 100.0%
+
+Warning: Treating cmake as a formula. For the cask, use homebrew/cask/cmake
+cmake 3.25.2 is already installed but outdated (so it will be upgraded).
+Warning: ninja 1.11.1 is already installed and up-to-date.
+To reinstall 1.11.1, run:
+  brew reinstall ninja
+Warning: gperf 3.1 is already installed and up-to-date.
+To reinstall 3.1, run:
+  brew reinstall gperf
+ccache 4.7.4 is already installed but outdated (so it will be upgraded).
+qemu 7.2.0 is already installed but outdated (so it will be upgraded).
+dtc 1.6.1 is already installed but outdated (so it will be upgraded).
+wget 1.21.3_1 is already installed but outdated (so it will be upgraded).
+libmagic 5.44 is already installed but outdated (so it will be upgraded).
+==> Downloading https://ghcr.io/v2/homebrew/core/cmake/manifests/3.28.3
+################################################################################################################# 100.0%
+==> Fetching cmake
+==> Downloading https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:d3219efe5909c5ee3cd3827b719bf7f1dbc22a5ca0ab4ed65d5f
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/manifests/3.11.7_1
+################################################################################################################# 100.0%
+==> Fetching dependencies for python@3.11: mpdecimal, ca-certificates, openssl@3, readline, sqlite and xz
+==> Downloading https://ghcr.io/v2/homebrew/core/mpdecimal/manifests/4.0.0-1
+################################################################################################################# 100.0%
+==> Fetching mpdecimal
+==> Downloading https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:266a3f517227bb9f3806b18313c3b8a33688f9659e500175
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/manifests/2023-12-12
+################################################################################################################# 100.0%
+==> Fetching ca-certificates
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/blobs/sha256:5c99ffd0861f01adc19cab495027024f7d890e42a9
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/3/manifests/3.2.1
+################################################################################################################# 100.0%
+==> Fetching openssl@3
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:f2f4d0a1ce994696e8dbca6bca86518aff563fd8747060e7
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7
+################################################################################################################# 100.0%
+==> Fetching readline
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:f87042db256d98a53353dad8e81d567a94f74d766ab2cfc3d
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.45.1
+################################################################################################################# 100.0%
+==> Fetching sqlite
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:383384b8a1d8858b42bd56f71305e457ab96f0e5420784c7a4c
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5
+################################################################################################################# 100.0%
+==> Fetching xz
+==> Downloading https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:5deb5724177bbe7c4824e0281fd1713ae0eb32abaede2ee29b35be4
+################################################################################################################# 100.0%
+==> Fetching python@3.11
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:2f423003d778d46f0a733c565d93a086a5c186af63871e
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ccache/manifests/4.9.1
+################################################################################################################# 100.0%
+==> Fetching dependencies for ccache: hiredis and zstd
+==> Downloading https://ghcr.io/v2/homebrew/core/hiredis/manifests/1.2.0-1
+################################################################################################################# 100.0%
+==> Fetching hiredis
+==> Downloading https://ghcr.io/v2/homebrew/core/hiredis/blobs/sha256:33a1ced3df2be2279bb716e924f948d1be77f3dc3f83188090
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1
+################################################################################################################# 100.0%
+==> Fetching zstd
+==> Downloading https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:0d57c7e4a47355acffa02ed92ee98e5df7dd3dca0147b96976613
+################################################################################################################# 100.0%
+==> Fetching ccache
+==> Downloading https://ghcr.io/v2/homebrew/core/ccache/blobs/sha256:f517de050ecca8e7f8cf3eba39f82b4bcda1bb4dbb2420ef798
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/qemu/manifests/8.2.1
+################################################################################################################# 100.0%
+==> Fetching dependencies for qemu: capstone, dtc, gettext, glib, gmp, libidn2, nettle, p11-kit, libevent, libnghttp2, unbound, gnutls, jpeg-turbo, libpng, libssh and snappy
+==> Downloading https://ghcr.io/v2/homebrew/core/capstone/manifests/5.0.1
+################################################################################################################# 100.0%
+==> Fetching capstone
+==> Downloading https://ghcr.io/v2/homebrew/core/capstone/blobs/sha256:7469382171ed7d25d2e8206c7dc358cd054ea30f2d4f0bcc3
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/dtc/manifests/1.7.0
+################################################################################################################# 100.0%
+==> Fetching dtc
+==> Downloading https://ghcr.io/v2/homebrew/core/dtc/blobs/sha256:a319159e5002540c731072ab606432bfb116e2dc6606a3086be1b7
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4
+################################################################################################################# 100.0%
+==> Fetching gettext
+==> Downloading https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:f484781a99d2299b08d46c58f6c296ea9d9dd84b47ccdfbb25
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.4
+################################################################################################################# 100.0%
+==> Fetching glib
+==> Downloading https://ghcr.io/v2/homebrew/core/glib/blobs/sha256:1200202d25114587c55e7571146e7e2ed02ba4762462873ed518f
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/gmp/manifests/6.3.0
+################################################################################################################# 100.0%
+==> Fetching gmp
+==> Downloading https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:b04023f65b8c79c45798a4bfd97fdbeb10f1bf9e8416e22e8eeedb
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.7
+################################################################################################################# 100.0%
+==> Fetching libidn2
+==> Downloading https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:a1b41989b1decc3a33e8a64a914680c881f9931e2bd2bdac47
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/nettle/manifests/3.9.1
+################################################################################################################# 100.0%
+==> Fetching nettle
+==> Downloading https://ghcr.io/v2/homebrew/core/nettle/blobs/sha256:8125044368a0ca002deed4578d868d9a90dd8532403eaad9237
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/p11-kit/manifests/0.25.3
+################################################################################################################# 100.0%
+==> Fetching p11-kit
+==> Downloading https://ghcr.io/v2/homebrew/core/p11-kit/blobs/sha256:37d1d22a9b656be0423b9a410701dcc2d5ab12ec4b33bc0806
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libevent/manifests/2.1.12_1
+################################################################################################################# 100.0%
+==> Fetching libevent
+==> Downloading https://ghcr.io/v2/homebrew/core/libevent/blobs/sha256:d0557018f19021fb4675a20d9cefda5e13646558c276ab7b4
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libnghttp2/manifests/1.59.0
+################################################################################################################# 100.0%
+==> Fetching libnghttp2
+==> Downloading https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:de902e0e390ed7cc63c01501da55217ffa7370e4dae813d
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/unbound/manifests/1.19.0
+################################################################################################################# 100.0%
+==> Fetching unbound
+==> Downloading https://ghcr.io/v2/homebrew/core/unbound/blobs/sha256:4411b98e53ec536c2de56faa343cbec303082ccecd385ce085
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/gnutls/manifests/3.8.3
+################################################################################################################# 100.0%
+==> Fetching gnutls
+==> Downloading https://ghcr.io/v2/homebrew/core/gnutls/blobs/sha256:64fa0e2d07ea245b18f1e9179ca6213afe7495f3f715abe34de
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1
+################################################################################################################# 100.0%
+==> Fetching jpeg-turbo
+==> Downloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/blobs/sha256:acef2e25ab9ab0d53599d43b9f9043006fc0d071c24f3e7
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.42
+################################################################################################################# 100.0%
+==> Fetching libpng
+==> Downloading https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:d77d3a452d4399b24d83d03c7f20a1d2cc7b01858b80b05791b
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libssh/manifests/0.10.6
+################################################################################################################# 100.0%
+==> Fetching libssh
+==> Downloading https://ghcr.io/v2/homebrew/core/libssh/blobs/sha256:aee1684ae587d1f87fa05b1193b0d80c63e0e43b6b531441bdb
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/snappy/manifests/1.1.10
+################################################################################################################# 100.0%
+==> Fetching snappy
+==> Downloading https://ghcr.io/v2/homebrew/core/snappy/blobs/sha256:6c0e72f9f601374a7bfe92a9083e382715dc885015c36fc9081
+################################################################################################################# 100.0%
+==> Fetching qemu
+==> Downloading https://ghcr.io/v2/homebrew/core/qemu/blobs/sha256:41c77f6bac3e8c1664c665fbe2b19b19ee9da57f8e1ad66973482
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/dtc/manifests/1.7.0
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/00668efdbca5875f420621ff3011ae53448a6324636c2a27fe2323933c1ef3fa--dtc-1.7.0.bottle_manifest.json
+==> Downloading https://ghcr.io/v2/homebrew/core/wget/manifests/1.21.4
+################################################################################################################# 100.0%
+==> Fetching wget
+==> Downloading https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:cf388783b9a7c9f017b3d7f176e8dbf6963f4a96d321a171a14e4
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libmagic/manifests/5.45
+################################################################################################################# 100.0%
+==> Fetching libmagic
+==> Downloading https://ghcr.io/v2/homebrew/core/libmagic/blobs/sha256:7d6b7e742b260e15df798b70e56f96a978aca56fe16777416
+################################################################################################################# 100.0%
+==> Upgrading cmake
+  3.25.2 -> 3.28.3 
+
+==> Pouring cmake--3.28.3.monterey.bottle.tar.gz
+==> Caveats
+To install the CMake documentation, run:
+  brew install cmake-docs
+
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+
+Emacs Lisp files have been installed to:
+  /usr/local/share/emacs/site-lisp/cmake
+==> Summary
+🍺  /usr/local/Cellar/cmake/3.28.3: 3,329 files, 60.4MB
+==> Running `brew cleanup cmake`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+Removing: /usr/local/Cellar/cmake/3.25.2... (3,167 files, 49.1MB)
+==> Installing dependencies for python@3.11: mpdecimal, ca-certificates, openssl@3, readline, sqlite and xz
+==> Installing python@3.11 dependency: mpdecimal
+==> Downloading https://ghcr.io/v2/homebrew/core/mpdecimal/manifests/4.0.0-1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/7b63c3b34bee402290af49fac829a6682ab45ea5c9258b6fe03b590a03a4c4a9--mpdecimal-4.0.0-1.bottle_manifest.json
+==> Pouring mpdecimal--4.0.0.monterey.bottle.1.tar.gz
+🍺  /usr/local/Cellar/mpdecimal/4.0.0: 21 files, 600.8KB
+==> Installing python@3.11 dependency: ca-certificates
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/manifests/2023-12-12
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/13aa86e429e05d02a76005d1881eaf625091a5ac4dc7d7674c706d12ba48796a--ca-certificates-2023-12-12.bottle_manifest.json
+==> Pouring ca-certificates--2023-12-12.all.bottle.tar.gz
+==> Regenerating CA certificate bundle from keychain, this may take a while...
+🍺  /usr/local/Cellar/ca-certificates/2023-12-12: 3 files, 226.7KB
+==> Installing python@3.11 dependency: openssl@3
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/3/manifests/3.2.1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/9028c46ef691f524b97a457b84f78327e64ebeda3bfd5a68c8f00bfa995664de--openssl@3-3.2.1.bottle_manifest.json
+==> Pouring openssl@3--3.2.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/openssl@3/3.2.1: 6,874 files, 32.5MB
+==> Installing python@3.11 dependency: readline
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json
+==> Pouring readline--8.2.7.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/readline/8.2.7: 50 files, 1.7MB
+==> Installing python@3.11 dependency: sqlite
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.45.1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/71097ce212759125014f67983b78169c6f0e4db27076f1fd794028b9700e6d0c--sqlite-3.45.1.bottle_manifest.json
+==> Pouring sqlite--3.45.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/sqlite/3.45.1: 11 files, 4.8MB
+==> Installing python@3.11 dependency: xz
+==> Downloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/4e81fda476fb634a7e1ac650019bfe768a65d6c387015992df4cd75adf9b3fce--xz-5.4.5.bottle_manifest.json
+==> Pouring xz--5.4.5.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/xz/5.4.5: 163 files, 2.6MB
+==> Installing python@3.11
+==> Pouring python@3.11--3.11.7_1.monterey.bottle.tar.gz
+==> /usr/local/Cellar/python@3.11/3.11.7_1/bin/python3.11 -Im ensurepip
+==> /usr/local/Cellar/python@3.11/3.11.7_1/bin/python3.11 -Im pip install -v --no-index --upgrade --isolated --target=/u
+==> Caveats
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python@3.11/libexec/bin
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.11/site-packages
+
+tkinter is no longer included with this formula, but it is available separately:
+  brew install python-tk@3.11
+
+gdbm (`dbm.gnu`) is no longer included in this formula, but it is available separately:
+  brew install python-gdbm@3.11
+`dbm.ndbm` changed database backends in Homebrew Python 3.11.
+If you need to read a database from a previous Homebrew Python created via `dbm.ndbm`,
+you'll need to read your database using the older version of Homebrew Python and convert to another format.
+`dbm` still defaults to `dbm.gnu` when it is installed.
+
+For more information about Homebrew and Python, see: https://docs.brew.sh/Homebrew-and-Python
+==> Summary
+🍺  /usr/local/Cellar/python@3.11/3.11.7_1: 3,302 files, 62.0MB
+==> Running `brew cleanup python@3.11`...
+==> Upgrading ccache
+  4.7.4 -> 4.9.1 
+
+==> Installing dependencies for ccache: hiredis and zstd
+==> Installing ccache dependency: hiredis
+==> Downloading https://ghcr.io/v2/homebrew/core/hiredis/manifests/1.2.0-1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/127a05c6ea8bbe081851bc3c059b6aa5fce19f2b7e9e467d50b914487eda7a4e--hiredis-1.2.0-1.bottle_manifest.json
+==> Pouring hiredis--1.2.0.monterey.bottle.1.tar.gz
+🍺  /usr/local/Cellar/hiredis/1.2.0: 52 files, 451.2KB
+==> Installing ccache dependency: zstd
+==> Downloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/fc13698599720a53800064b40cddd854399651cf8760d9b0e46092f2e8da701a--zstd-1.5.5-1.bottle_manifest.json
+==> Pouring zstd--1.5.5.monterey.bottle.1.tar.gz
+🍺  /usr/local/Cellar/zstd/1.5.5: 31 files, 2.5MB
+==> Installing ccache
+==> Pouring ccache--4.9.1.monterey.bottle.tar.gz
+==> Caveats
+To install symlinks for compilers that will automatically use
+ccache, prepend this directory to your PATH:
+  /usr/local/opt/ccache/libexec
+
+If this is an upgrade and you have previously added the symlinks to
+your PATH, you may need to modify it to the path specified above so
+it points to the current version.
+
+NOTE: ccache can prevent some software from compiling.
+ALSO NOTE: The brew command, by design, will never use ccache.
+==> Summary
+🍺  /usr/local/Cellar/ccache/4.9.1: 78 files, 1.5MB
+==> Running `brew cleanup ccache`...
+Removing: /usr/local/Cellar/ccache/4.7.4... (75 files, 1.4MB)
+==> Upgrading qemu
+  7.2.0 -> 8.2.1 
+
+==> Installing dependencies for qemu: capstone, dtc, gettext, glib, gmp, libidn2, nettle, p11-kit, libevent, libnghttp2, unbound, gnutls, jpeg-turbo, libpng, libssh and snappy
+==> Installing qemu dependency: capstone
+==> Downloading https://ghcr.io/v2/homebrew/core/capstone/manifests/5.0.1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/eb17389103bcda1a9712be38238eb72e8056accea2c41fe32618aada1d7e1d79--capstone-5.0.1.bottle_manifest.json
+==> Pouring capstone--5.0.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/capstone/5.0.1: 30 files, 22.0MB
+==> Installing qemu dependency: dtc
+==> Downloading https://ghcr.io/v2/homebrew/core/dtc/manifests/1.7.0
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/00668efdbca5875f420621ff3011ae53448a6324636c2a27fe2323933c1ef3fa--dtc-1.7.0.bottle_manifest.json
+==> Pouring dtc--1.7.0.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/dtc/1.7.0: 18 files, 610.2KB
+==> Installing qemu dependency: gettext
+==> Downloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/3ceb9457127eaa7378dd80ed256098ffb391e2350069becb25cfe2a14f0b7d6d--gettext-0.22.4.bottle_manifest.json
+==> Pouring gettext--0.22.4.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/gettext/0.22.4: 2,042 files, 23.9MB
+==> Installing qemu dependency: glib
+==> Downloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.4
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/aef5bf088596f6a37eb7ae224416357a2769019fea7a8a82896a6065e374f754--glib-2.78.4.bottle_manifest.json
+==> Pouring glib--2.78.4.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/glib/2.78.4: 456 files, 21.4MB
+==> Installing qemu dependency: gmp
+==> Downloading https://ghcr.io/v2/homebrew/core/gmp/manifests/6.3.0
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/70a72a71216843d66a953c06ff6337445ce9bc94fae9f0e301e2f59005274a8e--gmp-6.3.0.bottle_manifest.json
+==> Pouring gmp--6.3.0.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/gmp/6.3.0: 21 files, 3.3MB
+==> Installing qemu dependency: libidn2
+==> Downloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.7
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/45d1d4d2930c4782bf53e761a1c0166cd8a40f4193ac8c44e86f0b6708e80354--libidn2-2.3.7.bottle_manifest.json
+==> Pouring libidn2--2.3.7.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libidn2/2.3.7: 80 files, 1MB
+==> Installing qemu dependency: nettle
+==> Downloading https://ghcr.io/v2/homebrew/core/nettle/manifests/3.9.1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/a02ae3a1ecc6cff56e632f6452fd57f3fa72be16cde0b69e5b47747283fd3f6b--nettle-3.9.1.bottle_manifest.json
+==> Pouring nettle--3.9.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/nettle/3.9.1: 95 files, 2.9MB
+==> Installing qemu dependency: p11-kit
+==> Downloading https://ghcr.io/v2/homebrew/core/p11-kit/manifests/0.25.3
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/cc547bf2f72da03680090015f5b720aff280ce33de9c33783a69c24fe97a4246--p11-kit-0.25.3.bottle_manifest.json
+==> Pouring p11-kit--0.25.3.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/p11-kit/0.25.3: 28 files, 3.7MB
+==> Installing qemu dependency: libevent
+==> Downloading https://ghcr.io/v2/homebrew/core/libevent/manifests/2.1.12_1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/68b113f9ab63db45f4e1860de522ce2ca4fa081eb3c0d5c7d6005a35c3cf8d06--libevent-2.1.12_1.bottle_manifest.json
+==> Pouring libevent--2.1.12_1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libevent/2.1.12_1: 57 files, 2MB
+==> Installing qemu dependency: libnghttp2
+==> Downloading https://ghcr.io/v2/homebrew/core/libnghttp2/manifests/1.59.0
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/000fc33917deb23823dafe707ff27fc4698c9d0a10f26abbd121c5e3d9cd867a--libnghttp2-1.59.0.bottle_manifest.json
+==> Pouring libnghttp2--1.59.0.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libnghttp2/1.59.0: 13 files, 744.1KB
+==> Installing qemu dependency: unbound
+==> Downloading https://ghcr.io/v2/homebrew/core/unbound/manifests/1.19.0
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/5ef4c435591de61234a87b911b8f2793a67aea99fa163a6c156bb9303f7fac11--unbound-1.19.0.bottle_manifest.json
+==> Pouring unbound--1.19.0.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/unbound/1.19.0: 58 files, 5.8MB
+==> Installing qemu dependency: gnutls
+==> Downloading https://ghcr.io/v2/homebrew/core/gnutls/manifests/3.8.3
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/dd4b6cc2f99f160dcf7eb0a4efaf06ed24f83dd3da9e37e906f57c4e8b0da2af--gnutls-3.8.3.bottle_manifest.json
+==> Pouring gnutls--3.8.3.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/gnutls/3.8.3: 1,290 files, 10.7MB
+==> Installing qemu dependency: jpeg-turbo
+==> Downloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/abe7baf77a474e831f940214d72e8d72182373e6ea726884670f2d90f47525a7--jpeg-turbo-3.0.1.bottle_manifest.json
+==> Pouring jpeg-turbo--3.0.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/jpeg-turbo/3.0.1: 44 files, 4.9MB
+==> Installing qemu dependency: libpng
+==> Downloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.42
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/25adb40509f2e0ba6f2c24e82e11e489f9ff8c96d072c1d6975c86d244d4e524--libpng-1.6.42.bottle_manifest.json
+==> Pouring libpng--1.6.42.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libpng/1.6.42: 27 files, 1.3MB
+==> Installing qemu dependency: libssh
+==> Downloading https://ghcr.io/v2/homebrew/core/libssh/manifests/0.10.6
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/a4ff6d890d834da2f865bf30651aa0ed1423be8e2684d4586895f1d9c887449b--libssh-0.10.6.bottle_manifest.json
+==> Pouring libssh--0.10.6.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libssh/0.10.6: 23 files, 1.2MB
+==> Installing qemu dependency: snappy
+==> Downloading https://ghcr.io/v2/homebrew/core/snappy/manifests/1.1.10
+Already downloaded: /Users/makmorit/Library/Caches/Homebrew/downloads/66500196008160ff18d67179e002e417a71c59707d74a6706c2e89a8aa2411b8--snappy-1.1.10.bottle_manifest.json
+==> Pouring snappy--1.1.10.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/snappy/1.1.10: 18 files, 153.8KB
+==> Installing qemu
+==> Pouring qemu--8.2.1.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/qemu/8.2.1: 162 files, 556.1MB
+==> Running `brew cleanup qemu`...
+Removing: /usr/local/Cellar/qemu/7.2.0... (163 files, 506.5MB)
+==> Running `brew cleanup dtc`...
+Removing: /usr/local/Cellar/dtc/1.6.1... (18 files, 608.6KB)
+==> Upgrading wget
+  1.21.3_1 -> 1.21.4 
+
+==> Pouring wget--1.21.4.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/wget/1.21.4: 91 files, 4.4MB
+==> Running `brew cleanup wget`...
+Removing: /usr/local/Cellar/wget/1.21.3_1... (89 files, 4.2MB)
+==> Upgrading libmagic
+  5.44 -> 5.45 
+
+==> Pouring libmagic--5.45.monterey.bottle.tar.gz
+🍺  /usr/local/Cellar/libmagic/5.45: 356 files, 10.2MB
+==> Running `brew cleanup libmagic`...
+Removing: /usr/local/Cellar/libmagic/5.44... (354 files, 9.8MB)
+==> Upgrading 2 dependents of upgraded formulae:
+Disable this behaviour by setting HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+openssl@1.1 1.1.1t -> 1.1.1w, pyenv 2.3.12 -> 2.3.35
+Warning: openssl@1.1 has been deprecated because it is not supported upstream!
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/1.1/manifests/1.1.1w
+################################################################################################################# 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/pyenv/manifests/2.3.35
+################################################################################################################# 100.0%
+==> Checking for dependents of upgraded formulae...
+==> Reinstalling 1 dependent with broken linkage from source:
+qemu
+==> Caveats
+==> cmake
+To install the CMake documentation, run:
+  brew install cmake-docs
+
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+
+Emacs Lisp files have been installed to:
+  /usr/local/share/emacs/site-lisp/cmake
+==> python@3.11
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python@3.11/libexec/bin
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.11/site-packages
+
+tkinter is no longer included with this formula, but it is available separately:
+  brew install python-tk@3.11
+
+gdbm (`dbm.gnu`) is no longer included in this formula, but it is available separately:
+  brew install python-gdbm@3.11
+`dbm.ndbm` changed database backends in Homebrew Python 3.11.
+If you need to read a database from a previous Homebrew Python created via `dbm.ndbm`,
+you'll need to read your database using the older version of Homebrew Python and convert to another format.
+`dbm` still defaults to `dbm.gnu` when it is installed.
+
+For more information about Homebrew and Python, see: https://docs.brew.sh/Homebrew-and-Python
+==> ccache
+To install symlinks for compilers that will automatically use
+ccache, prepend this directory to your PATH:
+  /usr/local/opt/ccache/libexec
+
+If this is an upgrade and you have previously added the symlinks to
+your PATH, you may need to modify it to the path specified above so
+it points to the current version.
+
+NOTE: ccache can prevent some software from compiling.
+ALSO NOTE: The brew command, by design, will never use ccache.
+bash-3.2$ echo $?
+0
+bash-3.2$ 
+bash-3.2$ brew list --versions
+autoconf 2.71
+ca-certificates 2023-12-12 2023-01-10
+capstone 5.0.1 4.0.2
+ccache 4.9.1
+cmake 3.28.3
+dtc 1.7.0
+gettext 0.22.4 0.21.1
+glib 2.74.5 2.78.4
+gmp 6.3.0 6.2.1_1
+gnutls 3.8.3 3.8.0
+gperf 3.1
+hiredis 1.1.0 1.2.0
+jpeg-turbo 2.1.5.1 3.0.1
+libevent 2.1.12_1 2.1.12
+libidn2 2.3.7 2.3.4_1
+libmagic 5.45
+libnghttp2 1.51.0 1.59.0
+libpng 1.6.39 1.6.42
+libslirp 4.7.0
+libssh 0.10.4 0.10.6
+libtasn1 4.19.0
+libunistring 1.1
+libusb 1.0.26
+lz4 1.9.4
+lzo 2.10
+m4 1.4.19
+mpdecimal 4.0.0
+ncurses 6.4
+nettle 3.9.1 3.8.1
+ninja 1.11.1
+openssl@1.1 1.1.1t
+openssl@3 3.0.8 3.2.1
+p11-kit 0.25.3 0.24.1_1
+pcre2 10.42
+pixman 0.42.2
+pkg-config 0.29.2_3
+pyenv 2.3.12
+python@3.11 3.11.7_1
+qemu 8.2.1.reinstall
+readline 8.2.7 8.2.1
+snappy 1.1.10 1.1.9
+sqlite 3.45.1
+unbound 1.17.1 1.19.0
+vde 2.3.3
+wget 1.21.4
+xz 5.4.1 5.4.5
+zstd 1.5.5 1.5.4
+bash-3.2$ 

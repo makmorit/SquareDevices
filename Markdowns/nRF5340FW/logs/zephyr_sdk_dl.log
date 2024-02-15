@@ -1,0 +1,39 @@
+bash-3.2$ cd /Users/makmorit/Downloads
+bash-3.2$
+bash-3.2$ wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
+--2024-02-12 17:05:43--  https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
+github.com (github.com) をDNSに問いあわせています... 20.27.177.113
+github.com (github.com)|20.27.177.113|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 302 Found
+場所: https://objects.githubusercontent.com/github-production-release-asset-2e65be/92793986/adc47d0b-48c0-4815-a571-e872c7d1f273?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240212T080544Z&X-Amz-Expires=300&X-Amz-Signature=5b7153df892d779d4ec7a519c58f0a085e15248dcb7ca30004051cf85a695ed6&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=92793986&response-content-disposition=attachment%3B%20filename%3Dzephyr-sdk-0.16.1_macos-x86_64.tar.xz&response-content-type=application%2Foctet-stream [続く]
+--2024-02-12 17:05:44--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/92793986/adc47d0b-48c0-4815-a571-e872c7d1f273?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240212T080544Z&X-Amz-Expires=300&X-Amz-Signature=5b7153df892d779d4ec7a519c58f0a085e15248dcb7ca30004051cf85a695ed6&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=92793986&response-content-disposition=attachment%3B%20filename%3Dzephyr-sdk-0.16.1_macos-x86_64.tar.xz&response-content-type=application%2Foctet-stream
+objects.githubusercontent.com (objects.githubusercontent.com) をDNSに問いあわせています... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 200 OK
+長さ: 1107984864 (1.0G) [application/octet-stream]
+`zephyr-sdk-0.16.1_macos-x86_64.tar.xz' に保存中
+
+zephyr-sdk-0.16.1_macos-x86_6 100%[=================================================>]   1.03G  5.56MB/s 時間 4m 0s
+
+2024-02-12 17:09:44 (4.41 MB/s) - `zephyr-sdk-0.16.1_macos-x86_64.tar.xz' へ保存完了 [1107984864/1107984864]
+
+bash-3.2$
+bash-3.2$ wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
+--2024-02-12 17:15:34--  https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum
+github.com (github.com) をDNSに問いあわせています... 20.27.177.113
+github.com (github.com)|20.27.177.113|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 302 Found
+場所: https://objects.githubusercontent.com/github-production-release-asset-2e65be/92793986/9c9da48b-79a8-4e1a-908a-f8112e2e8b00?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240212T081535Z&X-Amz-Expires=300&X-Amz-Signature=cb1cac57b9b1cc5dc77a34bd80b87c0d24e06e95d1a3383fe308cd444231f617&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=92793986&response-content-disposition=attachment%3B%20filename%3Dsha256.sum&response-content-type=application%2Foctet-stream [続く]
+--2024-02-12 17:15:35--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/92793986/9c9da48b-79a8-4e1a-908a-f8112e2e8b00?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240212T081535Z&X-Amz-Expires=300&X-Amz-Signature=cb1cac57b9b1cc5dc77a34bd80b87c0d24e06e95d1a3383fe308cd444231f617&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=92793986&response-content-disposition=attachment%3B%20filename%3Dsha256.sum&response-content-type=application%2Foctet-stream
+objects.githubusercontent.com (objects.githubusercontent.com) をDNSに問いあわせています... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 200 OK
+長さ: 12173 (12K) [application/octet-stream]
+`STDOUT' に保存中
+
+-                             100%[=================================================>]  11.89K  --.-KB/s 時間 0.02s
+
+2024-02-12 17:15:36 (704 KB/s) - stdout へ出力完了 [12173/12173]
+
+zephyr-sdk-0.16.1_macos-x86_64.tar.xz: OK
+bash-3.2$

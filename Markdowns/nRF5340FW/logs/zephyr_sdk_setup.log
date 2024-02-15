@@ -1,0 +1,27 @@
+bash-3.2$ cd ${HOME}/opt/zephyr-sdk-0.16.1
+bash-3.2$
+bash-3.2$ ./setup.sh
+Zephyr SDK 0.16.1 Setup
+
+** NOTE **
+You only need to run this script once after extracting the Zephyr SDK
+distribution bundle archive.
+
+Install host tools [y/n]? y
+Register Zephyr SDK CMake package [y/n]? y
+
+Installing host tools ...
+SKIPPED: macOS host tools are not available yet.
+
+Registering Zephyr SDK CMake package ...
+Zephyr-sdk (/Users/makmorit/opt/zephyr-sdk-0.16.1/cmake)
+has been added to the user package registry in:
+~/.cmake/packages/Zephyr-sdk
+
+
+All done.
+Press any key to exit ...
+bash-3.2$
+bash-3.2$ echo $?
+0
+bash-3.2$

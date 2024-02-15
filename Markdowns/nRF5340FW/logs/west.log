@@ -1,0 +1,2546 @@
+(ncs_2.5.2) bash-3.2$ west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5.2
+=== Initializing in /Users/makmorit/opt/ncs_2.5.2
+--- Cloning manifest repository from https://github.com/nrfconnect/sdk-nrf, rev. v2.5.2
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/.west/manifest-tmp'...
+remote: Enumerating objects: 207434, done.
+remote: Counting objects: 100% (1221/1221), done.
+remote: Compressing objects: 100% (888/888), done.
+remote: Total 207434 (delta 622), reused 644 (delta 319), pack-reused 206213
+Receiving objects: 100% (207434/207434), 136.89 MiB | 3.60 MiB/s, done.
+Resolving deltas: 100% (155016/155016), done.
+Note: switching to '750a0eab914e23669ffa93982578afbaff2af254'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files: 100% (8087/8087), done.
+--- setting manifest.path to nrf
+=== Initialized. Now run "west update" inside /Users/makmorit/opt/ncs_2.5.2.
+(ncs_2.5.2) bash-3.2$
+(ncs_2.5.2) bash-3.2$ west update
+=== updating zephyr (zephyr):
+--- zephyr: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/zephyr/.git/
+--- zephyr: fetching, need revision v3.4.99-ncs1-2
+remote: Enumerating objects: 927561, done.
+remote: Counting objects: 100% (48874/48874), done.
+remote: Compressing objects: 100% (3329/3329), done.
+remote: Total 927561 (delta 46171), reused 45547 (delta 45545), pack-reused 878687
+Receiving objects: 100% (927561/927561), 545.87 MiB | 2.70 MiB/s, done.
+Resolving deltas: 100% (711809/711809), done.
+From https://github.com/nrfconnect/sdk-zephyr
+ * tag                     v3.4.99-ncs1-2            -> FETCH_HEAD
+ * [new tag]               v1.13.99-ncs1             -> v1.13.99-ncs1
+ * [new tag]               v1.13.99-ncs1-rc1         -> v1.13.99-ncs1-rc1
+ * [new tag]               v1.13.99-ncs2             -> v1.13.99-ncs2
+ * [new tag]               v1.13.99-ncs2-rc1         -> v1.13.99-ncs2-rc1
+ * [new tag]               v1.13.99-ncs2-rc2         -> v1.13.99-ncs2-rc2
+ * [new tag]               v1.14.99-ncs1             -> v1.14.99-ncs1
+ * [new tag]               v1.14.99-ncs1-rc1         -> v1.14.99-ncs1-rc1
+ * [new tag]               v1.14.99-ncs1-rc2         -> v1.14.99-ncs1-rc2
+ * [new tag]               v1.14.99-ncs2             -> v1.14.99-ncs2
+ * [new tag]               v1.14.99-ncs2-rc1         -> v1.14.99-ncs2-rc1
+ * [new tag]               v1.14.99-ncs2-rc2         -> v1.14.99-ncs2-rc2
+ * [new tag]               v1.14.99-ncs2-rc3         -> v1.14.99-ncs2-rc3
+ * [new tag]               v1.14.99-ncs2-rc4         -> v1.14.99-ncs2-rc4
+ * [new tag]               v1.14.99-ncs3-snapshot1   -> v1.14.99-ncs3-snapshot1
+ * [new tag]               v1.14.99-ncs3-snapshot2   -> v1.14.99-ncs3-snapshot2
+ * [new tag]               v2.0.99-ncs1              -> v2.0.99-ncs1
+ * [new tag]               v2.0.99-ncs1-rc1          -> v2.0.99-ncs1-rc1
+ * [new tag]               v2.0.99-ncs1-rc2          -> v2.0.99-ncs1-rc2
+ * [new tag]               v2.0.99-ncs1-rc3          -> v2.0.99-ncs1-rc3
+ * [new tag]               v2.0.99-ncs1-snapshot1    -> v2.0.99-ncs1-snapshot1
+ * [new tag]               v2.1.0-ncs1-snapshot1     -> v2.1.0-ncs1-snapshot1
+ * [new tag]               v2.1.99-ncs1              -> v2.1.99-ncs1
+ * [new tag]               v2.1.99-ncs1-rc1          -> v2.1.99-ncs1-rc1
+ * [new tag]               v2.1.99-ncs1-rc2          -> v2.1.99-ncs1-rc2
+ * [new tag]               v2.1.99-ncs1-snapshot1    -> v2.1.99-ncs1-snapshot1
+ * [new tag]               v2.3.0-rc1-ncs1           -> v2.3.0-rc1-ncs1
+ * [new tag]               v2.3.0-rc1-ncs1-rc1       -> v2.3.0-rc1-ncs1-rc1
+ * [new tag]               v2.3.0-rc1-ncs1-rc2       -> v2.3.0-rc1-ncs1-rc2
+ * [new tag]               v2.3.0-rc1-ncs1-rc3       -> v2.3.0-rc1-ncs1-rc3
+ * [new tag]               v2.3.0-rc1-ncs1-snapshot1 -> v2.3.0-rc1-ncs1-snapshot1
+ * [new tag]               v2.3.0-rc1-ncs2           -> v2.3.0-rc1-ncs2
+ * [new tag]               v2.3.0-rc1-ncs3           -> v2.3.0-rc1-ncs3
+ * [new tag]               v2.4.0-ncs1               -> v2.4.0-ncs1
+ * [new tag]               v2.4.0-ncs1-rc1           -> v2.4.0-ncs1-rc1
+ * [new tag]               v2.4.0-ncs1-rc2           -> v2.4.0-ncs1-rc2
+ * [new tag]               v2.4.0-ncs1-snapshot1     -> v2.4.0-ncs1-snapshot1
+ * [new tag]               v2.4.0-ncs2               -> v2.4.0-ncs2
+ * [new tag]               v2.4.0-ncs2-rc1           -> v2.4.0-ncs2-rc1
+ * [new tag]               v2.4.99-ncs1              -> v2.4.99-ncs1
+ * [new tag]               v2.4.99-ncs1-rc1          -> v2.4.99-ncs1-rc1
+ * [new tag]               v2.4.99-ncs1-snapshot1    -> v2.4.99-ncs1-snapshot1
+ * [new tag]               v2.4.99-ncs2              -> v2.4.99-ncs2
+ * [new tag]               v2.4.99-ncs2-1            -> v2.4.99-ncs2-1
+ * [new tag]               v2.4.99-ncs2-rc1          -> v2.4.99-ncs2-rc1
+ * [new tag]               v2.6.0-ncs1-rc3           -> v2.6.0-ncs1-rc3
+ * [new tag]               v2.6.0-rc1-ncs1           -> v2.6.0-rc1-ncs1
+ * [new tag]               v2.6.0-rc1-ncs1-rc1       -> v2.6.0-rc1-ncs1-rc1
+ * [new tag]               v2.6.0-rc1-ncs1-snapshot1 -> v2.6.0-rc1-ncs1-snapshot1
+ * [new tag]               v2.6.99-ncs1              -> v2.6.99-ncs1
+ * [new tag]               v2.6.99-ncs1-1            -> v2.6.99-ncs1-1
+ * [new tag]               v2.6.99-ncs1-rc1          -> v2.6.99-ncs1-rc1
+ * [new tag]               v2.6.99-ncs1-rc2          -> v2.6.99-ncs1-rc2
+ * [new tag]               v2.6.99-ncs1-snapshot1    -> v2.6.99-ncs1-snapshot1
+ * [new tag]               v2.7.0-ncs1               -> v2.7.0-ncs1
+ * [new tag]               v2.7.0-ncs1-rc1           -> v2.7.0-ncs1-rc1
+ * [new tag]               v2.7.0-ncs1-rc2           -> v2.7.0-ncs1-rc2
+ * [new tag]               v2.7.0-ncs1-snapshot1     -> v2.7.0-ncs1-snapshot1
+ * [new tag]               v2.7.0-ncs1-snapshot2     -> v2.7.0-ncs1-snapshot2
+ * [new tag]               v2.7.99-ncs1              -> v2.7.99-ncs1
+ * [new tag]               v2.7.99-ncs1-1            -> v2.7.99-ncs1-1
+ * [new tag]               v2.7.99-ncs1-rc1          -> v2.7.99-ncs1-rc1
+ * [new tag]               v2.7.99-ncs1-rc2          -> v2.7.99-ncs1-rc2
+ * [new tag]               v3.0.99-ncs1              -> v3.0.99-ncs1
+ * [new tag]               v3.0.99-ncs1-1            -> v3.0.99-ncs1-1
+ * [new tag]               v3.0.99-ncs1-rc1          -> v3.0.99-ncs1-rc1
+ * [new tag]               v3.0.99-ncs1-rc2          -> v3.0.99-ncs1-rc2
+ * [new tag]               v3.0.99-ncs1-snapshot1    -> v3.0.99-ncs1-snapshot1
+ * [new tag]               v3.1.99-ncs1              -> v3.1.99-ncs1
+ * [new tag]               v3.1.99-ncs1-1            -> v3.1.99-ncs1-1
+ * [new tag]               v3.1.99-ncs1-2            -> v3.1.99-ncs1-2
+ * [new tag]               v3.1.99-ncs1-3            -> v3.1.99-ncs1-3
+ * [new tag]               v3.1.99-ncs1-rc1          -> v3.1.99-ncs1-rc1
+ * [new tag]               v3.1.99-ncs1-rc2          -> v3.1.99-ncs1-rc2
+ * [new tag]               v3.1.99-ncs1-snapshot1    -> v3.1.99-ncs1-snapshot1
+ * [new tag]               v3.2.99-ncs1              -> v3.2.99-ncs1
+ * [new tag]               v3.2.99-ncs1-rc1          -> v3.2.99-ncs1-rc1
+ * [new tag]               v3.2.99-ncs1-rc2          -> v3.2.99-ncs1-rc2
+ * [new tag]               v3.2.99-ncs1-snapshot1    -> v3.2.99-ncs1-snapshot1
+ * [new tag]               v3.2.99-ncs2              -> v3.2.99-ncs2
+ * [new tag]               v3.2.99-ncs2-rc1          -> v3.2.99-ncs2-rc1
+ * [new tag]               v3.2.99-ncs2-rc2          -> v3.2.99-ncs2-rc2
+ * [new tag]               v3.2.99-ncs2-snapshot1    -> v3.2.99-ncs2-snapshot1
+ * [new tag]               v3.3.99-ncs1              -> v3.3.99-ncs1
+ * [new tag]               v3.3.99-ncs1-1            -> v3.3.99-ncs1-1
+ * [new tag]               v3.3.99-ncs1-2            -> v3.3.99-ncs1-2
+ * [new tag]               v3.3.99-ncs1-rc1          -> v3.3.99-ncs1-rc1
+ * [new tag]               v3.3.99-ncs1-rc2          -> v3.3.99-ncs1-rc2
+ * [new tag]               v3.3.99-ncs1-snapshot1    -> v3.3.99-ncs1-snapshot1
+ * [new tag]               v3.4.99-ncs1              -> v3.4.99-ncs1
+ * [new tag]               v3.4.99-ncs1-1            -> v3.4.99-ncs1-1
+ * [new tag]               v3.4.99-ncs1-1-rc1        -> v3.4.99-ncs1-1-rc1
+ * [new tag]               v3.4.99-ncs1-2            -> v3.4.99-ncs1-2
+ * [new tag]               v3.4.99-ncs1-rc1          -> v3.4.99-ncs1-rc1
+ * [new tag]               v3.4.99-ncs1-rc2          -> v3.4.99-ncs1-rc2
+ * [new tag]               v3.4.99-ncs1-snapshot1    -> v3.4.99-ncs1-snapshot1
+Updating files: 100% (28989/28989), done.
+HEAD is now at 4b5ef27041 [nrf fromtree] wifi: shell: Fix default band value
+HEAD is now at 4b5ef27041 [nrf fromtree] wifi: shell: Fix default band value
+=== updating bsim (tools/bsim):
+--- bsim: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/bsim/.git/
+--- bsim: fetching, need revision 384a091445c57b44ac8cbd18ebd245b47c71db94
+remote: Enumerating objects: 38, done.
+remote: Counting objects: 100% (38/38), done.
+remote: Compressing objects: 100% (25/25), done.
+remote: Total 38 (delta 25), reused 24 (delta 11), pack-reused 0
+Unpacking objects: 100% (38/38), 6.81 KiB | 303.00 KiB/s, done.
+From https://github.com/BabbleSim/bsim_west
+ * [new branch]      main       -> refs/west/main
+ * [new branch]      v2.1       -> refs/west/v2.1
+ * [new branch]      v2.1.1     -> refs/west/v2.1.1
+HEAD is now at 384a091 west.yaml Update to 2.1.1
+HEAD is now at 384a091 west.yaml Update to 2.1.1
+=== updating hostap (modules/lib/hostap):
+--- hostap: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/hostap/.git/
+--- hostap: fetching, need revision eb6119524273f65f64a7710fbd876c829094a216
+remote: Enumerating objects: 113616, done.
+remote: Counting objects: 100% (2621/2621), done.
+remote: Compressing objects: 100% (267/267), done.
+remote: Total 113616 (delta 2396), reused 2437 (delta 2343), pack-reused 110995
+Receiving objects: 100% (113616/113616), 22.93 MiB | 3.09 MiB/s, done.
+Resolving deltas: 100% (93216/93216), done.
+From https://github.com/nrfconnect/sdk-hostap
+ * [new branch]          hcs                           -> refs/west/hcs
+ * [new branch]          hostap_2_11_devel-ncs1-branch -> refs/west/hostap_2_11_devel-ncs1-branch
+ * [new branch]          main                          -> refs/west/main
+ * [new branch]          nrf700x-dev                   -> refs/west/nrf700x-dev
+ * [new branch]          nrf700x-test                  -> refs/west/nrf700x-test
+ * [new tag]             fix_sauce_tag_snapshot        -> fix_sauce_tag_snapshot
+ * [new tag]             hostap_2_11_devel-ncs1        -> hostap_2_11_devel-ncs1
+ * [new tag]             prepare_upmerge_snapshot      -> prepare_upmerge_snapshot
+HEAD is now at eb6119524 [nrf fromlist] zephyr: Fix MBO build with GAS dependency
+HEAD is now at eb6119524 [nrf fromlist] zephyr: Fix MBO build with GAS dependency
+=== updating wfa-qt-control-app (modules/lib/wfa-qt-control-app):
+--- wfa-qt-control-app: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/wfa-qt-control-app/.git/
+--- wfa-qt-control-app: fetching, need revision 0e213ab6a421298484a81a9d18f5c31c4b8084a8
+remote: Enumerating objects: 2679, done.
+remote: Counting objects: 100% (1009/1009), done.
+remote: Compressing objects: 100% (108/108), done.
+remote: Total 2679 (delta 934), reused 958 (delta 900), pack-reused 1670
+Receiving objects: 100% (2679/2679), 754.17 KiB | 1.55 MiB/s, done.
+Resolving deltas: 100% (1913/1913), done.
+From https://github.com/nrfconnect/sdk-wi-fiquicktrack-controlappc
+ * [new branch]      main                           -> refs/west/main
+ * [new tag]         R2.1-snapshot1                 -> R2.1-snapshot1
+ * [new tag]         pre_zephyr_separation_snapshot -> pre_zephyr_separation_snapshot
+HEAD is now at 0e213ab [nrf noup]: zephyr: qt: Disconnect STA before reset
+HEAD is now at 0e213ab [nrf noup]: zephyr: qt: Disconnect STA before reset
+=== updating mcuboot (bootloader/mcuboot):
+--- mcuboot: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/bootloader/mcuboot/.git/
+--- mcuboot: fetching, need revision v1.10.99-ncs1-2
+remote: Enumerating objects: 21265, done.
+remote: Counting objects: 100% (7291/7291), done.
+remote: Compressing objects: 100% (994/994), done.
+remote: Total 21265 (delta 6566), reused 6297 (delta 6297), pack-reused 13974
+Receiving objects: 100% (21265/21265), 5.46 MiB | 3.56 MiB/s, done.
+Resolving deltas: 100% (14873/14873), done.
+From https://github.com/nrfconnect/sdk-mcuboot
+ * tag                 v1.10.99-ncs1-2         -> FETCH_HEAD
+ * [new tag]           v1.10.0-ncs1            -> v1.10.0-ncs1
+ * [new tag]           v1.10.0-ncs1-1          -> v1.10.0-ncs1-1
+ * [new tag]           v1.10.0-ncs1-rc1        -> v1.10.0-ncs1-rc1
+ * [new tag]           v1.10.0-ncs1-rc2        -> v1.10.0-ncs1-rc2
+ * [new tag]           v1.10.0-ncs1-snapshot1  -> v1.10.0-ncs1-snapshot1
+ * [new tag]           v1.10.99-ncs1           -> v1.10.99-ncs1
+ * [new tag]           v1.10.99-ncs1-1         -> v1.10.99-ncs1-1
+ * [new tag]           v1.10.99-ncs1-1-rc1     -> v1.10.99-ncs1-1-rc1
+ * [new tag]           v1.10.99-ncs1-2         -> v1.10.99-ncs1-2
+ * [new tag]           v1.10.99-ncs1-rc1       -> v1.10.99-ncs1-rc1
+ * [new tag]           v1.10.99-ncs1-rc2       -> v1.10.99-ncs1-rc2
+ * [new tag]           v1.10.99-ncs1-snapshot1 -> v1.10.99-ncs1-snapshot1
+ * [new tag]           v1.2.99-ncs1            -> v1.2.99-ncs1
+ * [new tag]           v1.2.99-ncs1-rc1        -> v1.2.99-ncs1-rc1
+ * [new tag]           v1.2.99-ncs2            -> v1.2.99-ncs2
+ * [new tag]           v1.2.99-ncs2-rc1        -> v1.2.99-ncs2-rc1
+ * [new tag]           v1.2.99-ncs2-rc2        -> v1.2.99-ncs2-rc2
+ * [new tag]           v1.3.99-ncs1            -> v1.3.99-ncs1
+ * [new tag]           v1.3.99-ncs1-rc1        -> v1.3.99-ncs1-rc1
+ * [new tag]           v1.3.99-ncs1-rc2        -> v1.3.99-ncs1-rc2
+ * [new tag]           v1.3.99-ncs2            -> v1.3.99-ncs2
+ * [new tag]           v1.3.99-ncs2-rc1        -> v1.3.99-ncs2-rc1
+ * [new tag]           v1.3.99-ncs2-rc2        -> v1.3.99-ncs2-rc2
+ * [new tag]           v1.3.99-ncs2-rc3        -> v1.3.99-ncs2-rc3
+ * [new tag]           v1.3.99-ncs2-rc4        -> v1.3.99-ncs2-rc4
+ * [new tag]           v1.3.99-ncs3-snapshot1  -> v1.3.99-ncs3-snapshot1
+ * [new tag]           v1.3.99-ncs3-snapshot2  -> v1.3.99-ncs3-snapshot2
+ * [new tag]           v1.4.99-ncs1            -> v1.4.99-ncs1
+ * [new tag]           v1.4.99-ncs1-rc1        -> v1.4.99-ncs1-rc1
+ * [new tag]           v1.4.99-ncs1-rc2        -> v1.4.99-ncs1-rc2
+ * [new tag]           v1.4.99-ncs1-rc3        -> v1.4.99-ncs1-rc3
+ * [new tag]           v1.4.99-ncs1-snapshot1  -> v1.4.99-ncs1-snapshot1
+ * [new tag]           v1.4.99-ncs2            -> v1.4.99-ncs2
+ * [new tag]           v1.4.99-ncs2-rc1        -> v1.4.99-ncs2-rc1
+ * [new tag]           v1.4.99-ncs2-rc2        -> v1.4.99-ncs2-rc2
+ * [new tag]           v1.4.99-ncs2-snapshot1  -> v1.4.99-ncs2-snapshot1
+ * [new tag]           v1.5.99-ncs1-rc1        -> v1.5.99-ncs1-rc1
+ * [new tag]           v1.5.99-ncs1-rc2        -> v1.5.99-ncs1-rc2
+ * [new tag]           v1.5.99-ncs1-rc3        -> v1.5.99-ncs1-rc3
+ * [new tag]           v1.5.99-ncs1-snapshot1  -> v1.5.99-ncs1-snapshot1
+ * [new tag]           v1.6.0-rc2-ncs1         -> v1.6.0-rc2-ncs1
+ * [new tag]           v1.6.99-ncs1            -> v1.6.99-ncs1
+ * [new tag]           v1.6.99-ncs1-rc1        -> v1.6.99-ncs1-rc1
+ * [new tag]           v1.6.99-ncs1-rc2        -> v1.6.99-ncs1-rc2
+ * [new tag]           v1.6.99-ncs1-snapshot1  -> v1.6.99-ncs1-snapshot1
+ * [new tag]           v1.7.0-ncs1-rc1         -> v1.7.0-ncs1-rc1
+ * [new tag]           v1.7.0-ncs1-rc3         -> v1.7.0-ncs1-rc3
+ * [new tag]           v1.7.0-ncs1-snapshot1   -> v1.7.0-ncs1-snapshot1
+ * [new tag]           v1.7.2                  -> v1.7.2
+ * [new tag]           v1.7.2-ncs1             -> v1.7.2-ncs1
+ * [new tag]           v1.7.2-ncs1-rc2         -> v1.7.2-ncs1-rc2
+ * [new tag]           v1.7.2-ncs2             -> v1.7.2-ncs2
+ * [new tag]           v1.7.2-ncs2-rc1         -> v1.7.2-ncs2-rc1
+ * [new tag]           v1.7.2-ncs2-rc2         -> v1.7.2-ncs2-rc2
+ * [new tag]           v1.7.2-ncs3             -> v1.7.2-ncs3
+ * [new tag]           v1.7.2-ncs3-rc1         -> v1.7.2-ncs3-rc1
+ * [new tag]           v1.7.2-ncs3-rc2         -> v1.7.2-ncs3-rc2
+ * [new tag]           v1.7.99-ncs1            -> v1.7.99-ncs1
+ * [new tag]           v1.7.99-ncs1-1          -> v1.7.99-ncs1-1
+ * [new tag]           v1.7.99-ncs1-rc1        -> v1.7.99-ncs1-rc1
+ * [new tag]           v1.7.99-ncs2            -> v1.7.99-ncs2
+ * [new tag]           v1.7.99-ncs2-snapshot1  -> v1.7.99-ncs2-snapshot1
+ * [new tag]           v1.7.99-ncs3            -> v1.7.99-ncs3
+ * [new tag]           v1.7.99-ncs3-1          -> v1.7.99-ncs3-1
+ * [new tag]           v1.7.99-ncs3-rc1        -> v1.7.99-ncs3-rc1
+ * [new tag]           v1.7.99-ncs3-rc2        -> v1.7.99-ncs3-rc2
+ * [new tag]           v1.7.99-ncs4            -> v1.7.99-ncs4
+ * [new tag]           v1.7.99-ncs4-rc1        -> v1.7.99-ncs4-rc1
+ * [new tag]           v1.7.99-ncs4-rc2        -> v1.7.99-ncs4-rc2
+ * [new tag]           v1.8.99-ncs1            -> v1.8.99-ncs1
+ * [new tag]           v1.8.99-ncs1-rc1        -> v1.8.99-ncs1-rc1
+ * [new tag]           v1.8.99-ncs1-rc2        -> v1.8.99-ncs1-rc2
+ * [new tag]           v1.9.99-ncs1            -> v1.9.99-ncs1
+ * [new tag]           v1.9.99-ncs1-rc1        -> v1.9.99-ncs1-rc1
+ * [new tag]           v1.9.99-ncs1-rc2        -> v1.9.99-ncs1-rc2
+ * [new tag]           v1.9.99-ncs1-snapshot1  -> v1.9.99-ncs1-snapshot1
+ * [new tag]           v1.9.99-ncs2            -> v1.9.99-ncs2
+ * [new tag]           v1.9.99-ncs2-rc1        -> v1.9.99-ncs2-rc1
+ * [new tag]           v1.9.99-ncs2-rc2        -> v1.9.99-ncs2-rc2
+ * [new tag]           v1.9.99-ncs2-snapshot1  -> v1.9.99-ncs2-snapshot1
+ * [new tag]           v1.9.99-ncs3            -> v1.9.99-ncs3
+ * [new tag]           v1.9.99-ncs3-rc1        -> v1.9.99-ncs3-rc1
+ * [new tag]           v1.9.99-ncs3-rc2        -> v1.9.99-ncs3-rc2
+ * [new tag]           v1.9.99-ncs4            -> v1.9.99-ncs4
+ * [new tag]           v1.9.99-ncs4-rc1        -> v1.9.99-ncs4-rc1
+ * [new tag]           v1.9.99-ncs4-rc2        -> v1.9.99-ncs4-rc2
+ * [new tag]           v1.9.99-ncs4-snapshot1  -> v1.9.99-ncs4-snapshot1
+ * [new tag]           v1.9.99-ncs4-snapshot2  -> v1.9.99-ncs4-snapshot2
+HEAD is now at edfe1e14 [nrf noup] boards: thingy53: disable GPIO ISR support
+HEAD is now at edfe1e14 [nrf noup] boards: thingy53: disable GPIO ISR support
+=== updating qcbor (modules/tee/tf-m/qcbor):
+--- qcbor: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/qcbor/.git/
+--- qcbor: fetching, need revision 751d36583a9ce1a640900c57e13c9b6b8f3a2ba2
+remote: Enumerating objects: 4130, done.
+remote: Counting objects: 100% (1265/1265), done.
+remote: Compressing objects: 100% (315/315), done.
+remote: Total 4130 (delta 1148), reused 998 (delta 948), pack-reused 2865
+Receiving objects: 100% (4130/4130), 2.16 MiB | 1.96 MiB/s, done.
+Resolving deltas: 100% (2970/2970), done.
+From https://github.com/laurencelundblade/QCBOR
+ * [new branch]      BeforeSpiffyDecode -> refs/west/BeforeSpiffyDecode
+ * [new branch]      CDE                -> refs/west/CDE
+ * [new branch]      NaN                -> refs/west/NaN
+ * [new branch]      arrays             -> refs/west/arrays
+ * [new branch]      const              -> refs/west/const
+ * [new branch]      dev                -> refs/west/dev
+ * [new branch]      disable            -> refs/west/disable
+ * [new branch]      enter-array        -> refs/west/enter-array
+ * [new branch]      makewarn           -> refs/west/makewarn
+ * [new branch]      mappie             -> refs/west/mappie
+ * [new branch]      master             -> refs/west/master
+ * [new branch]      newtag             -> refs/west/newtag
+ * [new branch]      return_arrays      -> refs/west/return_arrays
+ * [new branch]      ub-example         -> refs/west/ub-example
+ * [new branch]      versioning         -> refs/west/versioning
+ * [new branch]      warn_in_tests      -> refs/west/warn_in_tests
+ * [new tag]         v1.0               -> v1.0
+ * [new tag]         v1.1               -> v1.1
+ * [new tag]         v1.2               -> v1.2
+HEAD is now at 751d365 restore inc/qcbor.h for backwards compatibility (#181)
+HEAD is now at 751d365 restore inc/qcbor.h for backwards compatibility (#181)
+=== updating mbedtls (modules/crypto/mbedtls):
+--- mbedtls: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/crypto/mbedtls/.git/
+--- mbedtls: fetching, need revision v3.3.0-ncs2-2
+remote: Enumerating objects: 141339, done.
+remote: Counting objects: 100% (46/46), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 141339 (delta 9), reused 34 (delta 7), pack-reused 141293
+Receiving objects: 100% (141339/141339), 61.67 MiB | 3.18 MiB/s, done.
+Resolving deltas: 100% (109777/109777), done.
+From https://github.com/nrfconnect/sdk-mbedtls
+ * tag                   v3.3.0-ncs2-2         -> FETCH_HEAD
+ * [new tag]             mbedtls-2.26.0        -> mbedtls-2.26.0
+ * [new tag]             v3.0.0-ncs1           -> v3.0.0-ncs1
+ * [new tag]             v3.0.0-ncs1-rc2       -> v3.0.0-ncs1-rc2
+ * [new tag]             v3.0.0-ncs2           -> v3.0.0-ncs2
+ * [new tag]             v3.0.0-ncs2-rc1       -> v3.0.0-ncs2-rc1
+ * [new tag]             v3.1.0-ncs1           -> v3.1.0-ncs1
+ * [new tag]             v3.1.0-ncs1-rc1       -> v3.1.0-ncs1-rc1
+ * [new tag]             v3.1.0-ncs1-rc2       -> v3.1.0-ncs1-rc2
+ * [new tag]             v3.1.0-ncs2           -> v3.1.0-ncs2
+ * [new tag]             v3.1.0-ncs2-rc1       -> v3.1.0-ncs2-rc1
+ * [new tag]             v3.1.0-ncs2-rc2       -> v3.1.0-ncs2-rc2
+ * [new tag]             v3.1.0-ncs3           -> v3.1.0-ncs3
+ * [new tag]             v3.1.0-ncs3-rc1       -> v3.1.0-ncs3-rc1
+ * [new tag]             v3.1.0-ncs3-rc2       -> v3.1.0-ncs3-rc2
+ * [new tag]             v3.3.0-ncs1           -> v3.3.0-ncs1
+ * [new tag]             v3.3.0-ncs1-1         -> v3.3.0-ncs1-1
+ * [new tag]             v3.3.0-ncs1-rc1       -> v3.3.0-ncs1-rc1
+ * [new tag]             v3.3.0-ncs1-rc2       -> v3.3.0-ncs1-rc2
+ * [new tag]             v3.3.0-ncs1-snapshot1 -> v3.3.0-ncs1-snapshot1
+ * [new tag]             v3.3.0-ncs2           -> v3.3.0-ncs2
+ * [new tag]             v3.3.0-ncs2-1         -> v3.3.0-ncs2-1
+ * [new tag]             v3.3.0-ncs2-1-rc1     -> v3.3.0-ncs2-1-rc1
+ * [new tag]             v3.3.0-ncs2-2         -> v3.3.0-ncs2-2
+ * [new tag]             v3.3.0-ncs2-rc1       -> v3.3.0-ncs2-rc1
+ * [new tag]             v3.3.0-ncs2-rc2       -> v3.3.0-ncs2-rc2
+HEAD is now at acea48fc8 [nrf noup]  Fix buffer overread with stream cipher
+HEAD is now at acea48fc8 [nrf noup]  Fix buffer overread with stream cipher
+=== updating nrfxlib (nrfxlib):
+--- nrfxlib: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/nrfxlib/.git/
+--- nrfxlib: fetching, need revision v2.5.2
+remote: Enumerating objects: 26951, done.
+remote: Counting objects: 100% (2431/2431), done.
+remote: Compressing objects: 100% (621/621), done.
+remote: Total 26951 (delta 2011), reused 1883 (delta 1800), pack-reused 24520
+Receiving objects: 100% (26951/26951), 317.49 MiB | 2.91 MiB/s, done.
+Resolving deltas: 100% (16712/16712), done.
+From https://github.com/nrfconnect/sdk-nrfxlib
+ * tag                 v2.5.2       -> FETCH_HEAD
+ * [new tag]           v0.1.0       -> v0.1.0
+ * [new tag]           v0.1.0-rc1   -> v0.1.0-rc1
+ * [new tag]           v0.3.0       -> v0.3.0
+ * [new tag]           v0.3.0-rc1   -> v0.3.0-rc1
+ * [new tag]           v0.3.0-rc2   -> v0.3.0-rc2
+ * [new tag]           v0.4.0       -> v0.4.0
+ * [new tag]           v0.4.0-rc1   -> v0.4.0-rc1
+ * [new tag]           v0.4.0-rc2   -> v0.4.0-rc2
+ * [new tag]           v1.0.0       -> v1.0.0
+ * [new tag]           v1.0.0-rc1   -> v1.0.0-rc1
+ * [new tag]           v1.0.0-rc2   -> v1.0.0-rc2
+ * [new tag]           v1.0.0-rc3   -> v1.0.0-rc3
+ * [new tag]           v1.0.0-rc4   -> v1.0.0-rc4
+ * [new tag]           v1.1.0       -> v1.1.0
+ * [new tag]           v1.1.0-rc1   -> v1.1.0-rc1
+ * [new tag]           v1.1.0-rc2   -> v1.1.0-rc2
+ * [new tag]           v1.1.0-rc3   -> v1.1.0-rc3
+ * [new tag]           v1.2.0       -> v1.2.0
+ * [new tag]           v1.2.0-rc1   -> v1.2.0-rc1
+ * [new tag]           v1.2.0-rc2   -> v1.2.0-rc2
+ * [new tag]           v1.2.1       -> v1.2.1
+ * [new tag]           v1.3.0       -> v1.3.0
+ * [new tag]           v1.3.0-rc1   -> v1.3.0-rc1
+ * [new tag]           v1.3.0-rc2   -> v1.3.0-rc2
+ * [new tag]           v1.3.0-rc3   -> v1.3.0-rc3
+ * [new tag]           v1.3.1       -> v1.3.1
+ * [new tag]           v1.4.0       -> v1.4.0
+ * [new tag]           v1.4.0-rc1   -> v1.4.0-rc1
+ * [new tag]           v1.4.1       -> v1.4.1
+ * [new tag]           v1.4.2       -> v1.4.2
+ * [new tag]           v1.5.0       -> v1.5.0
+ * [new tag]           v1.5.0-rc1   -> v1.5.0-rc1
+ * [new tag]           v1.5.1       -> v1.5.1
+ * [new tag]           v1.5.1-rc1   -> v1.5.1-rc1
+ * [new tag]           v1.5.2       -> v1.5.2
+ * [new tag]           v1.6.0       -> v1.6.0
+ * [new tag]           v1.6.0-rc3   -> v1.6.0-rc3
+ * [new tag]           v1.6.1       -> v1.6.1
+ * [new tag]           v1.7.0       -> v1.7.0
+ * [new tag]           v1.7.0-rc1   -> v1.7.0-rc1
+ * [new tag]           v1.7.0-rc2   -> v1.7.0-rc2
+ * [new tag]           v1.7.1       -> v1.7.1
+ * [new tag]           v1.8.0       -> v1.8.0
+ * [new tag]           v1.8.0-rc1   -> v1.8.0-rc1
+ * [new tag]           v1.8.0-rc2   -> v1.8.0-rc2
+ * [new tag]           v1.9.0       -> v1.9.0
+ * [new tag]           v1.9.0-rc1   -> v1.9.0-rc1
+ * [new tag]           v1.9.0-rc2   -> v1.9.0-rc2
+ * [new tag]           v1.9.1       -> v1.9.1
+ * [new tag]           v1.9.2       -> v1.9.2
+ * [new tag]           v1.9.2-dev1  -> v1.9.2-dev1
+ * [new tag]           v2.0.0       -> v2.0.0
+ * [new tag]           v2.0.0-rc1   -> v2.0.0-rc1
+ * [new tag]           v2.0.0-rc2   -> v2.0.0-rc2
+ * [new tag]           v2.0.0-rc2-1 -> v2.0.0-rc2-1
+ * [new tag]           v2.0.1       -> v2.0.1
+ * [new tag]           v2.0.2       -> v2.0.2
+ * [new tag]           v2.1.0       -> v2.1.0
+ * [new tag]           v2.1.0-rc1   -> v2.1.0-rc1
+ * [new tag]           v2.1.0-rc2   -> v2.1.0-rc2
+ * [new tag]           v2.1.1       -> v2.1.1
+ * [new tag]           v2.1.2       -> v2.1.2
+ * [new tag]           v2.1.3       -> v2.1.3
+ * [new tag]           v2.1.4       -> v2.1.4
+ * [new tag]           v2.2.0       -> v2.2.0
+ * [new tag]           v2.2.0-rc1   -> v2.2.0-rc1
+ * [new tag]           v2.2.0-rc2   -> v2.2.0-rc2
+ * [new tag]           v2.3.0       -> v2.3.0
+ * [new tag]           v2.3.0-rc1   -> v2.3.0-rc1
+ * [new tag]           v2.3.0-rc2   -> v2.3.0-rc2
+ * [new tag]           v2.4.0       -> v2.4.0
+ * [new tag]           v2.4.0-rc1   -> v2.4.0-rc1
+ * [new tag]           v2.4.0-rc2   -> v2.4.0-rc2
+ * [new tag]           v2.4.1       -> v2.4.1
+ * [new tag]           v2.4.2       -> v2.4.2
+ * [new tag]           v2.4.3       -> v2.4.3
+ * [new tag]           v2.5.0       -> v2.5.0
+ * [new tag]           v2.5.0-rc1   -> v2.5.0-rc1
+ * [new tag]           v2.5.0-rc2   -> v2.5.0-rc2
+ * [new tag]           v2.5.1       -> v2.5.1
+ * [new tag]           v2.5.1-rc1   -> v2.5.1-rc1
+ * [new tag]           v2.5.2       -> v2.5.2
+HEAD is now at a7ef13f9 softdevice_controller: update CHANGELOG.rst
+HEAD is now at a7ef13f9 softdevice_controller: update CHANGELOG.rst
+=== updating trusted-firmware-m (modules/tee/tf-m/trusted-firmware-m):
+--- trusted-firmware-m: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/trusted-firmware-m/.git/
+--- trusted-firmware-m: fetching, need revision v1.8.0-ncs1-2
+remote: Enumerating objects: 76393, done.
+remote: Counting objects: 100% (76385/76385), done.
+remote: Compressing objects: 100% (21791/21791), done.
+remote: Total 76393 (delta 52771), reused 75895 (delta 52673), pack-reused 8
+Receiving objects: 100% (76393/76393), 45.31 MiB | 2.40 MiB/s, done.
+Resolving deltas: 100% (52771/52771), done.
+From https://github.com/nrfconnect/sdk-trusted-firmware-m
+ * tag                   v1.8.0-ncs1-2          -> FETCH_HEAD
+ * [new tag]             v1.2.99-ncs1           -> v1.2.99-ncs1
+ * [new tag]             v1.2.99-ncs1-1         -> v1.2.99-ncs1-1
+ * [new tag]             v1.2.99-ncs1-rc1       -> v1.2.99-ncs1-rc1
+ * [new tag]             v1.3.99-ncs1           -> v1.3.99-ncs1
+ * [new tag]             v1.3.99-ncs1-rc1       -> v1.3.99-ncs1-rc1
+ * [new tag]             v1.3.99-ncs1-rc3       -> v1.3.99-ncs1-rc3
+ * [new tag]             v1.3.99-ncs1-snapshot1 -> v1.3.99-ncs1-snapshot1
+ * [new tag]             v1.3.99-ncs1-snapshot2 -> v1.3.99-ncs1-snapshot2
+ * [new tag]             v1.3.99-ncs2           -> v1.3.99-ncs2
+ * [new tag]             v1.3.99-ncs2-1         -> v1.3.99-ncs2-1
+ * [new tag]             v1.3.99-ncs2-rc1       -> v1.3.99-ncs2-rc1
+ * [new tag]             v1.3.99-ncs2-rc2       -> v1.3.99-ncs2-rc2
+ * [new tag]             v1.3.99-ncs3           -> v1.3.99-ncs3
+ * [new tag]             v1.3.99-ncs3-rc1       -> v1.3.99-ncs3-rc1
+ * [new tag]             v1.3.99-ncs3-rc2       -> v1.3.99-ncs3-rc2
+ * [new tag]             v1.5.0-ncs1            -> v1.5.0-ncs1
+ * [new tag]             v1.5.0-ncs1-1          -> v1.5.0-ncs1-1
+ * [new tag]             v1.5.0-ncs1-rc1        -> v1.5.0-ncs1-rc1
+ * [new tag]             v1.5.0-ncs1-rc2        -> v1.5.0-ncs1-rc2
+ * [new tag]             v1.5.0-ncs2            -> v1.5.0-ncs2
+ * [new tag]             v1.5.0-ncs2-rc1        -> v1.5.0-ncs2-rc1
+ * [new tag]             v1.5.0-ncs2-rc2        -> v1.5.0-ncs2-rc2
+ * [new tag]             v1.5.0-ncs2-snapshot1  -> v1.5.0-ncs2-snapshot1
+ * [new tag]             v1.6.0-ncs1            -> v1.6.0-ncs1
+ * [new tag]             v1.6.0-ncs1-rc1        -> v1.6.0-ncs1-rc1
+ * [new tag]             v1.6.0-ncs1-rc2        -> v1.6.0-ncs1-rc2
+ * [new tag]             v1.6.0-ncs1-snapshot1  -> v1.6.0-ncs1-snapshot1
+ * [new tag]             v1.6.0-ncs2            -> v1.6.0-ncs2
+ * [new tag]             v1.6.0-ncs2-rc1        -> v1.6.0-ncs2-rc1
+ * [new tag]             v1.6.0-ncs2-rc2        -> v1.6.0-ncs2-rc2
+ * [new tag]             v1.6.0-ncs3            -> v1.6.0-ncs3
+ * [new tag]             v1.6.0-ncs3-rc1        -> v1.6.0-ncs3-rc1
+ * [new tag]             v1.6.0-ncs3-rc2        -> v1.6.0-ncs3-rc2
+ * [new tag]             v1.7.0-ncs1            -> v1.7.0-ncs1
+ * [new tag]             v1.7.0-ncs1-1          -> v1.7.0-ncs1-1
+ * [new tag]             v1.7.0-ncs1-rc1        -> v1.7.0-ncs1-rc1
+ * [new tag]             v1.7.0-ncs1-rc2        -> v1.7.0-ncs1-rc2
+ * [new tag]             v1.7.0-ncs1-snapshot1  -> v1.7.0-ncs1-snapshot1
+ * [new tag]             v1.8.0-ncs1            -> v1.8.0-ncs1
+ * [new tag]             v1.8.0-ncs1-1          -> v1.8.0-ncs1-1
+ * [new tag]             v1.8.0-ncs1-1-rc1      -> v1.8.0-ncs1-1-rc1
+ * [new tag]             v1.8.0-ncs1-2          -> v1.8.0-ncs1-2
+ * [new tag]             v1.8.0-ncs1-rc1        -> v1.8.0-ncs1-rc1
+ * [new tag]             v1.8.0-ncs1-rc2        -> v1.8.0-ncs1-rc2
+ * [new tag]             v1.8.0-ncs1-snapshot1  -> v1.8.0-ncs1-snapshot1
+HEAD is now at 1ceee7647 [nrf fromtree] platform: nordic_nrf: Fix nrf9160 non-secure peripheral regression
+HEAD is now at 1ceee7647 [nrf fromtree] platform: nordic_nrf: Fix nrf9160 non-secure peripheral regression
+=== updating matter (modules/lib/matter):
+--- matter: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/.git/
+--- matter: fetching, need revision v2.5.2
+remote: Enumerating objects: 315502, done.
+remote: Counting objects: 100% (35/35), done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 315502 (delta 11), reused 24 (delta 11), pack-reused 315467
+Receiving objects: 100% (315502/315502), 251.21 MiB | 3.23 MiB/s, done.
+Resolving deltas: 100% (237750/237750), done.
+From https://github.com/nrfconnect/sdk-connectedhomeip
+ * tag                     v2.5.2              -> FETCH_HEAD
+ * [new tag]               v1.5.0              -> v1.5.0
+ * [new tag]               v1.5.0-rc1          -> v1.5.0-rc1
+ * [new tag]               v1.5.1              -> v1.5.1
+ * [new tag]               v1.5.1-rc1          -> v1.5.1-rc1
+ * [new tag]               v1.5.2              -> v1.5.2
+ * [new tag]               v1.6.0              -> v1.6.0
+ * [new tag]               v1.6.0-rc3          -> v1.6.0-rc3
+ * [new tag]               v1.6.99-20210901    -> v1.6.99-20210901
+ * [new tag]               v1.6.99-snapshot1   -> v1.6.99-snapshot1
+ * [new tag]               v1.7.0              -> v1.7.0
+ * [new tag]               v1.7.0-rc1          -> v1.7.0-rc1
+ * [new tag]               v1.7.0-rc2          -> v1.7.0-rc2
+ * [new tag]               v1.7.1              -> v1.7.1
+ * [new tag]               v1.7.99-20211125    -> v1.7.99-20211125
+ * [new tag]               v1.8.0              -> v1.8.0
+ * [new tag]               v1.8.0-rc1          -> v1.8.0-rc1
+ * [new tag]               v1.8.0-rc2          -> v1.8.0-rc2
+ * [new tag]               v1.9.0              -> v1.9.0
+ * [new tag]               v1.9.0-rc1          -> v1.9.0-rc1
+ * [new tag]               v1.9.0-rc2          -> v1.9.0-rc2
+ * [new tag]               v1.9.1              -> v1.9.1
+ * [new tag]               v1.9.2              -> v1.9.2
+ * [new tag]               v1.9.99-matter-dev1 -> v1.9.99-matter-dev1
+ * [new tag]               v2.0.0              -> v2.0.0
+ * [new tag]               v2.0.0-rc1          -> v2.0.0-rc1
+ * [new tag]               v2.0.0-rc2          -> v2.0.0-rc2
+ * [new tag]               v2.0.1              -> v2.0.1
+ * [new tag]               v2.0.2              -> v2.0.2
+ * [new tag]               v2.0.99-matter-dev1 -> v2.0.99-matter-dev1
+ * [new tag]               v2.0.99-matter-dev2 -> v2.0.99-matter-dev2
+ * [new tag]               v2.1.0              -> v2.1.0
+ * [new tag]               v2.1.0-rc1          -> v2.1.0-rc1
+ * [new tag]               v2.1.0-rc2          -> v2.1.0-rc2
+ * [new tag]               v2.1.0-snapshot1    -> v2.1.0-snapshot1
+ * [new tag]               v2.1.1              -> v2.1.1
+ * [new tag]               v2.1.2              -> v2.1.2
+ * [new tag]               v2.1.3              -> v2.1.3
+ * [new tag]               v2.1.4              -> v2.1.4
+ * [new tag]               v2.2.0              -> v2.2.0
+ * [new tag]               v2.2.0-rc1          -> v2.2.0-rc1
+ * [new tag]               v2.2.0-rc2          -> v2.2.0-rc2
+ * [new tag]               v2.2.0-snapshot1    -> v2.2.0-snapshot1
+ * [new tag]               v2.3.0              -> v2.3.0
+ * [new tag]               v2.3.0-rc1          -> v2.3.0-rc1
+ * [new tag]               v2.3.0-rc2          -> v2.3.0-rc2
+ * [new tag]               v2.3.0-snapshot1    -> v2.3.0-snapshot1
+ * [new tag]               v2.4.0              -> v2.4.0
+ * [new tag]               v2.4.0-rc1          -> v2.4.0-rc1
+ * [new tag]               v2.4.0-rc2          -> v2.4.0-rc2
+ * [new tag]               v2.4.1              -> v2.4.1
+ * [new tag]               v2.4.2              -> v2.4.2
+ * [new tag]               v2.4.3              -> v2.4.3
+ * [new tag]               v2.4.99-snapshot1   -> v2.4.99-snapshot1
+ * [new tag]               v2.5.0              -> v2.5.0
+ * [new tag]               v2.5.0-rc1          -> v2.5.0-rc1
+ * [new tag]               v2.5.0-rc2          -> v2.5.0-rc2
+ * [new tag]               v2.5.1              -> v2.5.1
+ * [new tag]               v2.5.1-rc1          -> v2.5.1-rc1
+ * [new tag]               v2.5.2              -> v2.5.2
+ * [new tag]               v2.5.99-dev1        -> v2.5.99-dev1
+Updating files: 100% (11827/11827), done.
+HEAD is now at ed68b724d6 [nrf noup] wifi: Fix 5GHz association
+HEAD is now at ed68b724d6 [nrf noup] wifi: Fix 5GHz association
+Submodule 'nlio' (https://github.com/nestlabs/nlio.git) registered for path 'third_party/nlio/repo'
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlio/repo'...
+Submodule path 'third_party/nlio/repo': checked out '0e725502c2b17bb0a0c22ddd4bcaee9090c8fb5c'
+Submodule 'nlassert' (https://github.com/nestlabs/nlassert.git) registered for path 'third_party/nlassert/repo'
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlassert/repo'...
+Submodule path 'third_party/nlassert/repo': checked out 'c5892c5ae43830f939ed660ff8ac5f1b91d336d3'
+Submodule 'nlunit-test' (https://github.com/nestlabs/nlunit-test.git) registered for path 'third_party/nlunit-test/repo'
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlunit-test/repo'...
+Submodule path 'third_party/nlunit-test/repo': checked out '0c8c9073af9c07aa089861295b7d7ced56ad174d'
+Submodule 'pigweed' (https://github.com/google/pigweed.git) registered for path 'third_party/pigweed/repo'
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/pigweed/repo'...
+Submodule path 'third_party/pigweed/repo': checked out '5c4ea8e31764a8ab1c55b7df4086fe610c4bf4af'
+=== updating cjson (modules/lib/cjson):
+--- cjson: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/cjson/.git/
+--- cjson: fetching, need revision c6af068b7f05207b28d68880740e4b9ec1e4b50a
+remote: Enumerating objects: 3965, done.
+remote: Counting objects: 100% (3965/3965), done.
+remote: Compressing objects: 100% (1371/1371), done.
+remote: Total 3965 (delta 2580), reused 3955 (delta 2571), pack-reused 0
+Receiving objects: 100% (3965/3965), 2.30 MiB | 2.99 MiB/s, done.
+Resolving deltas: 100% (2580/2580), done.
+From https://github.com/nrfconnect/sdk-cjson
+ * [new branch]      main       -> refs/west/main
+ * [new tag]         v1.7.14    -> v1.7.14
+HEAD is now at c6af068 [nrf fromtree] fix: potential memory leak in merge_patch() (#611)
+HEAD is now at c6af068 [nrf fromtree] fix: potential memory leak in merge_patch() (#611)
+=== updating azure-sdk-for-c (modules/lib/azure-sdk-for-c):
+--- azure-sdk-for-c: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/azure-sdk-for-c/.git/
+--- azure-sdk-for-c: fetching, need revision 308c171cb4b5eed266649012a68406487ec81fb2
+remote: Enumerating objects: 17161, done.
+remote: Counting objects: 100% (17161/17161), done.
+remote: Compressing objects: 100% (5200/5200), done.
+remote: Total 17161 (delta 10650), reused 17159 (delta 10648), pack-reused 0
+Receiving objects: 100% (17161/17161), 8.84 MiB | 2.63 MiB/s, done.
+Resolving deltas: 100% (10650/10650), done.
+From https://github.com/nrfconnect/azure-sdk-for-c
+ * [new branch]        main       -> refs/west/main
+HEAD is now at 308c171c [nrf fromlist] Make repository a Zephyr module
+HEAD is now at 308c171c [nrf fromlist] Make repository a Zephyr module
+=== updating cirrus (modules/hal/cirrus-logic):
+--- cirrus: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/cirrus-logic/.git/
+--- cirrus: fetching, need revision 9f6b3812237fbb0d4157ba3584c13f1644fcbe3a
+remote: Enumerating objects: 2150, done.
+remote: Counting objects: 100% (2150/2150), done.
+remote: Compressing objects: 100% (741/741), done.
+remote: Total 2150 (delta 1357), reused 2139 (delta 1349), pack-reused 0
+Receiving objects: 100% (2150/2150), 23.82 MiB | 3.09 MiB/s, done.
+Resolving deltas: 100% (1357/1357), done.
+From https://github.com/nrfconnect/sdk-mcu-drivers
+ * [new branch]      master     -> refs/west/master
+HEAD is now at 9f6b381 sdk-mcu-drivers: Added build system configs and generated files
+HEAD is now at 9f6b381 sdk-mcu-drivers: Added build system configs and generated files
+=== updating openthread (modules/lib/openthread):
+--- openthread: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/openthread/.git/
+--- openthread: fetching, need revision 57ef721eeed2550835c528ab7b8e77671f7039d6
+remote: Enumerating objects: 107044, done.
+remote: Counting objects: 100% (7482/7482), done.
+remote: Compressing objects: 100% (2262/2262), done.
+remote: Total 107044 (delta 5261), reused 6796 (delta 5137), pack-reused 99562
+Receiving objects: 100% (107044/107044), 87.72 MiB | 3.58 MiB/s, done.
+Resolving deltas: 100% (86332/86332), done.
+From https://github.com/nrfconnect/sdk-openthread
+ * [new branch]          for-testing                        -> refs/west/for-testing
+ * [new branch]          main                               -> refs/west/main
+ * [new branch]          master                             -> refs/west/master
+ * [new branch]          v1.7-branch                        -> refs/west/v1.7-branch
+ * [new branch]          v1.9-branch                        -> refs/west/v1.9-branch
+ * [new branch]          v2.0-branch                        -> refs/west/v2.0-branch
+ * [new branch]          v2.4-branch                        -> refs/west/v2.4-branch
+ * [new branch]          zephyr                             -> refs/west/zephyr
+ * [new tag]             thread-reference-20200818-ncs1-rc1 -> thread-reference-20200818-ncs1-rc1
+ * [new tag]             thread-reference-20200818-ncs1-rc3 -> thread-reference-20200818-ncs1-rc3
+ * [new tag]             v1.7.0                             -> v1.7.0
+ * [new tag]             v1.8.99-snapshot1                  -> v1.8.99-snapshot1
+ * [new tag]             v1.9.99-snapshot1                  -> v1.9.99-snapshot1
+ * [new tag]             v2.0.1                             -> v2.0.1
+HEAD is now at 57ef721ee [ip6] fix constant name style and simplify filtering of ICMP types (#9512)
+HEAD is now at 57ef721ee [ip6] fix constant name style and simplify filtering of ICMP types (#9512)
+=== updating cmock (test/cmock):
+--- cmock: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/test/cmock/.git/
+--- cmock: fetching, need revision f65066f15d8248e6dcb778efb8739904a4512087
+remote: Enumerating objects: 6030, done.
+remote: Counting objects: 100% (419/419), done.
+remote: Compressing objects: 100% (195/195), done.
+remote: Total 6030 (delta 225), reused 340 (delta 191), pack-reused 5611
+Receiving objects: 100% (6030/6030), 3.67 MiB | 2.50 MiB/s, done.
+Resolving deltas: 100% (4054/4054), done.
+From https://github.com/ThrowTheSwitch/cmock
+ * [new branch]      branch_2_5_1                  -> refs/west/branch_2_5_1
+ * [new branch]      cmock_2_6_rc                  -> refs/west/cmock_2_6_rc
+ * [new branch]      feature/only_config_is_shared -> refs/west/feature/only_config_is_shared
+ * [new branch]      master                        -> refs/west/master
+ * [new branch]      reapply_329                   -> refs/west/reapply_329
+ * [new branch]      revert-329-master             -> refs/west/revert-329-master
+ * [new branch]      test/switch_to_actions        -> refs/west/test/switch_to_actions
+ * [new tag]         v2.4.3                        -> v2.4.3
+ * [new tag]         v2.4.4                        -> v2.4.4
+ * [new tag]         v2.4.5                        -> v2.4.5
+ * [new tag]         v2.4.6                        -> v2.4.6
+ * [new tag]         v2.5.0                        -> v2.5.0
+ * [new tag]         v2.5.1                        -> v2.5.1
+ * [new tag]         v2.5.2                        -> v2.5.2
+ * [new tag]         v2.5.3                        -> v2.5.3
+HEAD is now at f65066f Merge pull request #404 from tz18/patch-1
+HEAD is now at f65066f Merge pull request #404 from tz18/patch-1
+Submodule 'vendor/c_exception' (https://github.com/throwtheswitch/cexception.git) registered for path 'vendor/c_exception'
+Submodule 'vendor/unity' (https://github.com/throwtheswitch/unity.git) registered for path 'vendor/unity'
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/test/cmock/vendor/c_exception'...
+Cloning into '/Users/makmorit/opt/ncs_2.5.2/test/cmock/vendor/unity'...
+Submodule path 'vendor/c_exception': checked out '71b47be7c950f1bf5f7e5303779fa99a16224bb6'
+Submodule path 'vendor/unity': checked out '4389bab82ee8a4b4631a03be2e07dd5c67dab2d4'
+=== updating memfault-firmware-sdk (modules/lib/memfault-firmware-sdk):
+--- memfault-firmware-sdk: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/memfault-firmware-sdk/.git/
+--- memfault-firmware-sdk: fetching, need revision 1.3.3
+remote: Enumerating objects: 8561, done.
+remote: Counting objects: 100% (3908/3908), done.
+remote: Compressing objects: 100% (1433/1433), done.
+remote: Total 8561 (delta 2189), reused 3644 (delta 2121), pack-reused 4653
+Receiving objects: 100% (8561/8561), 3.13 MiB | 1.88 MiB/s, done.
+Resolving deltas: 100% (4577/4577), done.
+From https://github.com/memfault/memfault-firmware-sdk
+ * tag               1.3.3      -> FETCH_HEAD
+ * [new tag]         0.0.10     -> 0.0.10
+ * [new tag]         0.0.11     -> 0.0.11
+ * [new tag]         0.0.12     -> 0.0.12
+ * [new tag]         0.0.13     -> 0.0.13
+ * [new tag]         0.0.14     -> 0.0.14
+ * [new tag]         0.0.15     -> 0.0.15
+ * [new tag]         0.0.16     -> 0.0.16
+ * [new tag]         0.0.17     -> 0.0.17
+ * [new tag]         0.0.18     -> 0.0.18
+ * [new tag]         0.0.2      -> 0.0.2
+ * [new tag]         0.0.3      -> 0.0.3
+ * [new tag]         0.0.4      -> 0.0.4
+ * [new tag]         0.0.5      -> 0.0.5
+ * [new tag]         0.0.6      -> 0.0.6
+ * [new tag]         0.0.7      -> 0.0.7
+ * [new tag]         0.0.8      -> 0.0.8
+ * [new tag]         0.0.9      -> 0.0.9
+ * [new tag]         0.1.0      -> 0.1.0
+ * [new tag]         0.10.0     -> 0.10.0
+ * [new tag]         0.10.1     -> 0.10.1
+ * [new tag]         0.11.0     -> 0.11.0
+ * [new tag]         0.11.1     -> 0.11.1
+ * [new tag]         0.11.2     -> 0.11.2
+ * [new tag]         0.11.3     -> 0.11.3
+ * [new tag]         0.11.4     -> 0.11.4
+ * [new tag]         0.12.0     -> 0.12.0
+ * [new tag]         0.13.0     -> 0.13.0
+ * [new tag]         0.13.1     -> 0.13.1
+ * [new tag]         0.14.0     -> 0.14.0
+ * [new tag]         0.15.0     -> 0.15.0
+ * [new tag]         0.16.0     -> 0.16.0
+ * [new tag]         0.16.1     -> 0.16.1
+ * [new tag]         0.17.0     -> 0.17.0
+ * [new tag]         0.17.1     -> 0.17.1
+ * [new tag]         0.18.0     -> 0.18.0
+ * [new tag]         0.19.0     -> 0.19.0
+ * [new tag]         0.2.0      -> 0.2.0
+ * [new tag]         0.2.1      -> 0.2.1
+ * [new tag]         0.2.2      -> 0.2.2
+ * [new tag]         0.2.3      -> 0.2.3
+ * [new tag]         0.2.4      -> 0.2.4
+ * [new tag]         0.2.5      -> 0.2.5
+ * [new tag]         0.20.0     -> 0.20.0
+ * [new tag]         0.20.1     -> 0.20.1
+ * [new tag]         0.20.2     -> 0.20.2
+ * [new tag]         0.21.0     -> 0.21.0
+ * [new tag]         0.21.1     -> 0.21.1
+ * [new tag]         0.22.0     -> 0.22.0
+ * [new tag]         0.23.0     -> 0.23.0
+ * [new tag]         0.24.0     -> 0.24.0
+ * [new tag]         0.24.1     -> 0.24.1
+ * [new tag]         0.24.2     -> 0.24.2
+ * [new tag]         0.25.0     -> 0.25.0
+ * [new tag]         0.26.0     -> 0.26.0
+ * [new tag]         0.26.1     -> 0.26.1
+ * [new tag]         0.27.0     -> 0.27.0
+ * [new tag]         0.27.1     -> 0.27.1
+ * [new tag]         0.27.2     -> 0.27.2
+ * [new tag]         0.27.3     -> 0.27.3
+ * [new tag]         0.28.0     -> 0.28.0
+ * [new tag]         0.28.1     -> 0.28.1
+ * [new tag]         0.28.2     -> 0.28.2
+ * [new tag]         0.29.0     -> 0.29.0
+ * [new tag]         0.29.1     -> 0.29.1
+ * [new tag]         0.3.0      -> 0.3.0
+ * [new tag]         0.3.1      -> 0.3.1
+ * [new tag]         0.3.2      -> 0.3.2
+ * [new tag]         0.3.3      -> 0.3.3
+ * [new tag]         0.3.4      -> 0.3.4
+ * [new tag]         0.30.0     -> 0.30.0
+ * [new tag]         0.30.1     -> 0.30.1
+ * [new tag]         0.30.2     -> 0.30.2
+ * [new tag]         0.30.3     -> 0.30.3
+ * [new tag]         0.30.4     -> 0.30.4
+ * [new tag]         0.30.5     -> 0.30.5
+ * [new tag]         0.31.0     -> 0.31.0
+ * [new tag]         0.31.1     -> 0.31.1
+ * [new tag]         0.31.2     -> 0.31.2
+ * [new tag]         0.31.3     -> 0.31.3
+ * [new tag]         0.31.4     -> 0.31.4
+ * [new tag]         0.31.5     -> 0.31.5
+ * [new tag]         0.32.0     -> 0.32.0
+ * [new tag]         0.32.1     -> 0.32.1
+ * [new tag]         0.32.2     -> 0.32.2
+ * [new tag]         0.33.0     -> 0.33.0
+ * [new tag]         0.33.1     -> 0.33.1
+ * [new tag]         0.33.2     -> 0.33.2
+ * [new tag]         0.33.3     -> 0.33.3
+ * [new tag]         0.33.4     -> 0.33.4
+ * [new tag]         0.33.5     -> 0.33.5
+ * [new tag]         0.34.0     -> 0.34.0
+ * [new tag]         0.34.1     -> 0.34.1
+ * [new tag]         0.34.2     -> 0.34.2
+ * [new tag]         0.35.0     -> 0.35.0
+ * [new tag]         0.36.0     -> 0.36.0
+ * [new tag]         0.36.1     -> 0.36.1
+ * [new tag]         0.37.0     -> 0.37.0
+ * [new tag]         0.37.1     -> 0.37.1
+ * [new tag]         0.37.2     -> 0.37.2
+ * [new tag]         0.38.0     -> 0.38.0
+ * [new tag]         0.39.0     -> 0.39.0
+ * [new tag]         0.39.1     -> 0.39.1
+ * [new tag]         0.4.0      -> 0.4.0
+ * [new tag]         0.4.1      -> 0.4.1
+ * [new tag]         0.4.2      -> 0.4.2
+ * [new tag]         0.40.0     -> 0.40.0
+ * [new tag]         0.41.0     -> 0.41.0
+ * [new tag]         0.41.1     -> 0.41.1
+ * [new tag]         0.41.2     -> 0.41.2
+ * [new tag]         0.42.0     -> 0.42.0
+ * [new tag]         0.42.1     -> 0.42.1
+ * [new tag]         0.43.0     -> 0.43.0
+ * [new tag]         0.43.1     -> 0.43.1
+ * [new tag]         0.43.2     -> 0.43.2
+ * [new tag]         0.43.3     -> 0.43.3
+ * [new tag]         0.5.0      -> 0.5.0
+ * [new tag]         0.5.1      -> 0.5.1
+ * [new tag]         0.6.0      -> 0.6.0
+ * [new tag]         0.6.1      -> 0.6.1
+ * [new tag]         0.7.0      -> 0.7.0
+ * [new tag]         0.7.1      -> 0.7.1
+ * [new tag]         0.7.2      -> 0.7.2
+ * [new tag]         0.7.3      -> 0.7.3
+ * [new tag]         0.8.0      -> 0.8.0
+ * [new tag]         0.8.1      -> 0.8.1
+ * [new tag]         0.8.2      -> 0.8.2
+ * [new tag]         0.9.0      -> 0.9.0
+ * [new tag]         0.9.1      -> 0.9.1
+ * [new tag]         0.9.2      -> 0.9.2
+ * [new tag]         0.9.3      -> 0.9.3
+ * [new tag]         1.0.0      -> 1.0.0
+ * [new tag]         1.0.1      -> 1.0.1
+ * [new tag]         1.1.0      -> 1.1.0
+ * [new tag]         1.1.1      -> 1.1.1
+ * [new tag]         1.1.2      -> 1.1.2
+ * [new tag]         1.1.3      -> 1.1.3
+ * [new tag]         1.2.0      -> 1.2.0
+ * [new tag]         1.2.1      -> 1.2.1
+ * [new tag]         1.2.2      -> 1.2.2
+ * [new tag]         1.2.3      -> 1.2.3
+ * [new tag]         1.2.4      -> 1.2.4
+ * [new tag]         1.2.5      -> 1.2.5
+ * [new tag]         1.3.0      -> 1.3.0
+ * [new tag]         1.3.1      -> 1.3.1
+ * [new tag]         1.3.2      -> 1.3.2
+ * [new tag]         1.3.3      -> 1.3.3
+ * [new tag]         1.3.4      -> 1.3.4
+ * [new tag]         1.3.5      -> 1.3.5
+ * [new tag]         1.4.0      -> 1.4.0
+ * [new tag]         1.4.1      -> 1.4.1
+ * [new tag]         1.4.2      -> 1.4.2
+ * [new tag]         1.4.3      -> 1.4.3
+ * [new tag]         1.4.4      -> 1.4.4
+ * [new tag]         1.5.0      -> 1.5.0
+ * [new tag]         1.5.1      -> 1.5.1
+ * [new tag]         1.5.2      -> 1.5.2
+ * [new tag]         1.6.0      -> 1.6.0
+ * [new tag]         1.6.1      -> 1.6.1
+ * [new tag]         1.6.2      -> 1.6.2
+HEAD is now at c374e92 Memfault Firmware SDK 1.3.3 (Build 3838)
+HEAD is now at c374e92 Memfault Firmware SDK 1.3.3 (Build 3838)
+=== updating canopennode (modules/lib/canopennode):
+--- canopennode: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/canopennode/.git/
+--- canopennode: fetching, need revision dec12fa3f0d790cafa8414a4c2930ea71ab72ffd
+remote: Enumerating objects: 1902, done.
+remote: Counting objects: 100% (1902/1902), done.
+remote: Compressing objects: 100% (555/555), done.
+remote: Total 1902 (delta 1372), reused 1867 (delta 1342), pack-reused 0
+Receiving objects: 100% (1902/1902), 1.05 MiB | 1.50 MiB/s, done.
+Resolving deltas: 100% (1372/1372), done.
+From https://github.com/zephyrproject-rtos/canopennode
+ * [new branch]      master            -> refs/west/master
+ * [new branch]      zephyr            -> refs/west/zephyr
+ * [new tag]         zephyr-snapshot-1 -> zephyr-snapshot-1
+HEAD is now at dec12fa stack: map CANopenNode crc16_ccitt() to Zephyr crc16_itu_t()
+HEAD is now at dec12fa stack: map CANopenNode crc16_ccitt() to Zephyr crc16_itu_t()
+=== updating chre (modules/lib/chre):
+--- chre: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/chre/.git/
+--- chre: fetching, need revision b7955c27e50485b7dafdc3888d7d6afdc2ac6d96
+remote: Enumerating objects: 30752, done.
+remote: Counting objects: 100% (721/721), done.
+remote: Compressing objects: 100% (514/514), done.
+remote: Total 30752 (delta 213), reused 618 (delta 167), pack-reused 30031
+Receiving objects: 100% (30752/30752), 6.67 MiB | 2.42 MiB/s, done.
+Resolving deltas: 100% (18385/18385), done.
+From https://github.com/zephyrproject-rtos/chre
+ * [new branch]        zephyr     -> refs/west/zephyr
+HEAD is now at b7955c27 Merge pull request #7 from stephanosio/require_full_libcpp
+HEAD is now at b7955c27 Merge pull request #7 from stephanosio/require_full_libcpp
+=== updating cmsis (modules/hal/cmsis):
+--- cmsis: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/cmsis/.git/
+--- cmsis: fetching, need revision 1abf29132e608826752e2edd1f4799a065db4031
+remote: Enumerating objects: 1401, done.
+remote: Counting objects: 100% (218/218), done.
+remote: Compressing objects: 100% (112/112), done.
+remote: Total 1401 (delta 136), reused 106 (delta 106), pack-reused 1183
+Receiving objects: 100% (1401/1401), 3.15 MiB | 2.27 MiB/s, done.
+Resolving deltas: 100% (1014/1014), done.
+From https://github.com/zephyrproject-rtos/cmsis
+ * [new branch]      master     -> refs/west/master
+HEAD is now at 1abf291 zephyr: cmake/kconfig are external
+HEAD is now at 1abf291 zephyr: cmake/kconfig are external
+=== updating edtt (tools/edtt):
+--- edtt: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/edtt/.git/
+--- edtt: fetching, need revision 64e5105ad82390164fb73fc654be3f73a608209a
+remote: Enumerating objects: 1239, done.
+remote: Counting objects: 100% (190/190), done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 1239 (delta 110), reused 190 (delta 110), pack-reused 1049
+Receiving objects: 100% (1239/1239), 735.89 KiB | 1.43 MiB/s, done.
+Resolving deltas: 100% (894/894), done.
+From https://github.com/zephyrproject-rtos/edtt
+ * [new branch]      le-audio      -> refs/west/le-audio
+ * [new branch]      main          -> refs/west/main
+ * [new branch]      public_master -> refs/west/public_master
+HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
+HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
+=== updating fatfs (modules/fs/fatfs):
+--- fatfs: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/fs/fatfs/.git/
+--- fatfs: fetching, need revision 427159bf95ea49b7680facffaa29ad506b42709b
+remote: Enumerating objects: 183, done.
+remote: Counting objects: 100% (47/47), done.
+remote: Compressing objects: 100% (29/29), done.
+remote: Total 183 (delta 19), reused 23 (delta 16), pack-reused 136
+Receiving objects: 100% (183/183), 1.54 MiB | 1.18 MiB/s, done.
+Resolving deltas: 100% (98/98), done.
+From https://github.com/zephyrproject-rtos/fatfs
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
+HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
+=== updating hal_nordic (modules/hal/nordic):
+--- hal_nordic: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/nordic/.git/
+--- hal_nordic: fetching, need revision 9784731461018d3e983604698fbbed6af2bea801
+remote: Enumerating objects: 6978, done.
+remote: Counting objects: 100% (423/423), done.
+remote: Compressing objects: 100% (145/145), done.
+remote: Total 6978 (delta 297), reused 279 (delta 278), pack-reused 6555
+Receiving objects: 100% (6978/6978), 18.21 MiB | 1.69 MiB/s, done.
+Resolving deltas: 100% (5221/5221), done.
+From https://github.com/nrfconnect/sdk-hal_nordic
+ * [new branch]      for-testing         -> refs/west/for-testing
+ * [new branch]      main                -> refs/west/main
+ * [new branch]      ncs-v.1.5-branch    -> refs/west/ncs-v.1.5-branch
+ * [new branch]      v3.4.99-ncs1-branch -> refs/west/v3.4.99-ncs1-branch
+ * [new tag]         v1.3.0-rc1          -> v1.3.0-rc1
+ * [new tag]         v1.5.1              -> v1.5.1
+ * [new tag]         v1.5.1-rc1          -> v1.5.1-rc1
+ * [new tag]         v1.5.2              -> v1.5.2
+HEAD is now at 9784731 nrfx_qspi: Correct use of workaround for anomaly 215 and 43 in nrfx_qspi
+HEAD is now at 9784731 nrfx_qspi: Correct use of workaround for anomaly 215 and 43 in nrfx_qspi
+=== updating hal_st (modules/hal/st):
+--- hal_st: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/st/.git/
+--- hal_st: fetching, need revision 9b128caf3e7b2e750169b880e83f210ea2213473
+remote: Enumerating objects: 8379, done.
+remote: Counting objects: 100% (35/35), done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 8379 (delta 17), reused 15 (delta 15), pack-reused 8344
+Receiving objects: 100% (8379/8379), 24.52 MiB | 2.25 MiB/s, done.
+Resolving deltas: 100% (6585/6585), done.
+From https://github.com/zephyrproject-rtos/hal_st
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at 9b128ca sensor/stmemsc: Align stmemsc i/f to v2.3
+HEAD is now at 9b128ca sensor/stmemsc: Align stmemsc i/f to v2.3
+=== updating hal_wurthelektronik (modules/hal/wurthelektronik):
+--- hal_wurthelektronik: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/wurthelektronik/.git/
+--- hal_wurthelektronik: fetching, need revision 24ca9873c3d608fad1fea0431836bc8f144c132e
+remote: Enumerating objects: 126, done.
+remote: Counting objects: 100% (126/126), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 126 (delta 68), reused 108 (delta 55), pack-reused 0
+Receiving objects: 100% (126/126), 133.43 KiB | 1.26 MiB/s, done.
+Resolving deltas: 100% (68/68), done.
+From https://github.com/zephyrproject-rtos/hal_wurthelektronik
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at 24ca987 Initialized WE HAL module repository.
+HEAD is now at 24ca987 Initialized WE HAL module repository.
+=== updating libmetal (modules/hal/libmetal):
+--- libmetal: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/libmetal/.git/
+--- libmetal: fetching, need revision b91611a6f47dd29fb24c46e5621e797557f80ec6
+remote: Enumerating objects: 981, done.
+remote: Counting objects: 100% (308/308), done.
+remote: Compressing objects: 100% (165/165), done.
+remote: Total 981 (delta 169), reused 217 (delta 133), pack-reused 673
+Receiving objects: 100% (981/981), 238.11 KiB | 1.18 MiB/s, done.
+Resolving deltas: 100% (588/588), done.
+From https://github.com/zephyrproject-rtos/libmetal
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at b91611a lib: update libmetal to release v2023.04.0
+HEAD is now at b91611a lib: update libmetal to release v2023.04.0
+=== updating liblc3 (modules/lib/liblc3):
+--- liblc3: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/liblc3/.git/
+--- liblc3: fetching, need revision 448f3de31f49a838988a162ef1e23a89ddf2d2ed
+remote: Enumerating objects: 578, done.
+remote: Counting objects: 100% (207/207), done.
+remote: Compressing objects: 100% (50/50), done.
+remote: Total 578 (delta 177), reused 157 (delta 157), pack-reused 371
+Receiving objects: 100% (578/578), 412.94 KiB | 1.87 MiB/s, done.
+Resolving deltas: 100% (384/384), done.
+From https://github.com/zephyrproject-rtos/liblc3
+ * [new branch]      main       -> refs/west/main
+HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
+HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
+=== updating littlefs (modules/fs/littlefs):
+--- littlefs: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/fs/littlefs/.git/
+--- littlefs: fetching, need revision ca583fd297ceb48bced3c2548600dc615d67af24
+remote: Enumerating objects: 3964, done.
+remote: Counting objects: 100% (1760/1760), done.
+remote: Compressing objects: 100% (532/532), done.
+remote: Total 3964 (delta 1236), reused 1694 (delta 1201), pack-reused 2204
+Receiving objects: 100% (3964/3964), 1.92 MiB | 2.67 MiB/s, done.
+Resolving deltas: 100% (2795/2795), done.
+From https://github.com/zephyrproject-rtos/littlefs
+ * [new branch]      zephyr          -> refs/west/zephyr
+ * [new tag]         littlefs-v2.1.0 -> littlefs-v2.1.0
+ * [new tag]         littlefs-v2.1.1 -> littlefs-v2.1.1
+ * [new tag]         littlefs-v2.1.2 -> littlefs-v2.1.2
+ * [new tag]         littlefs-v2.1.3 -> littlefs-v2.1.3
+ * [new tag]         littlefs-v2.1.4 -> littlefs-v2.1.4
+ * [new tag]         littlefs-v2.2.0 -> littlefs-v2.2.0
+HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
+HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
+=== updating loramac-node (modules/lib/loramac-node):
+--- loramac-node: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/loramac-node/.git/
+--- loramac-node: fetching, need revision 3029c9f304bf46a6e5205f3c8455dbc23108efec
+remote: Enumerating objects: 27557, done.
+remote: Counting objects: 100% (1179/1179), done.
+remote: Compressing objects: 100% (118/118), done.
+remote: Total 27557 (delta 1068), reused 1061 (delta 1061), pack-reused 26378
+Receiving objects: 100% (27557/27557), 23.37 MiB | 1.91 MiB/s, done.
+Resolving deltas: 100% (18195/18195), done.
+From https://github.com/zephyrproject-rtos/loramac-node
+ * [new branch]        master        -> refs/west/master
+ * [new branch]        v4.5.2-zephyr -> refs/west/v4.5.2-zephyr
+ * [new branch]        v4.6.0-zephyr -> refs/west/v4.6.0-zephyr
+ * [new branch]        v4.7.0-zephyr -> refs/west/v4.7.0-zephyr
+ * [new branch]        zephyr        -> refs/west/zephyr
+ * [new branch]        zephyr-v2.6   -> refs/west/zephyr-v2.6
+ * [new tag]           4.4.2-rc.4    -> 4.4.2-rc.4
+ * [new tag]           V3.4          -> V3.4
+ * [new tag]           v2.0          -> v2.0
+ * [new tag]           v2.1          -> v2.1
+ * [new tag]           v2.2          -> v2.2
+ * [new tag]           v2.3.RC1      -> v2.3.RC1
+ * [new tag]           v2.3.RC2      -> v2.3.RC2
+ * [new tag]           v3.0          -> v3.0
+ * [new tag]           v3.1          -> v3.1
+ * [new tag]           v3.2          -> v3.2
+ * [new tag]           v3.3          -> v3.3
+ * [new tag]           v3.4.1        -> v3.4.1
+ * [new tag]           v4.0.0        -> v4.0.0
+ * [new tag]           v4.1.0        -> v4.1.0
+ * [new tag]           v4.2.0        -> v4.2.0
+ * [new tag]           v4.3.0        -> v4.3.0
+ * [new tag]           v4.3.1        -> v4.3.1
+ * [new tag]           v4.3.2        -> v4.3.2
+ * [new tag]           v4.4.0        -> v4.4.0
+ * [new tag]           v4.4.1        -> v4.4.1
+ * [new tag]           v4.4.2        -> v4.4.2
+ * [new tag]           v4.4.2-rc.1   -> v4.4.2-rc.1
+ * [new tag]           v4.4.2-rc.2   -> v4.4.2-rc.2
+ * [new tag]           v4.4.2-rc.3   -> v4.4.2-rc.3
+ * [new tag]           v4.4.2-rc.5   -> v4.4.2-rc.5
+ * [new tag]           v4.4.2-rc.6   -> v4.4.2-rc.6
+ * [new tag]           v4.4.2-rc.7   -> v4.4.2-rc.7
+ * [new tag]           v4.4.3        -> v4.4.3
+ * [new tag]           v4.4.3_zephyr -> v4.4.3_zephyr
+HEAD is now at 3029c9f3 utilities: fix few shadowed variables
+HEAD is now at 3029c9f3 utilities: fix few shadowed variables
+=== updating lvgl (modules/lib/gui/lvgl):
+--- lvgl: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/gui/lvgl/.git/
+--- lvgl: fetching, need revision 8a6a2d1d29d17d1e4bdc94c243c146a39d635fdd
+remote: Enumerating objects: 64528, done.
+remote: Counting objects: 100% (64528/64528), done.
+remote: Compressing objects: 100% (13708/13708), done.
+remote: Total 64528 (delta 50736), reused 64212 (delta 50657), pack-reused 0
+Receiving objects: 100% (64528/64528), 75.92 MiB | 2.66 MiB/s, done.
+Resolving deltas: 100% (50736/50736), done.
+From https://github.com/zephyrproject-rtos/lvgl
+ * [new branch]        master     -> refs/west/master
+ * [new branch]        zephyr     -> refs/west/zephyr
+HEAD is now at 8a6a2d1d zephyr: Move gluecode back to zephyr main repository
+HEAD is now at 8a6a2d1d zephyr: Move gluecode back to zephyr main repository
+=== updating lz4 (modules/lib/lz4):
+--- lz4: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/lz4/.git/
+--- lz4: fetching, need revision 8e303c264fc21c2116dc612658003a22e933124d
+remote: Enumerating objects: 11726, done.
+remote: Total 11726 (delta 0), reused 0 (delta 0), pack-reused 11726
+Receiving objects: 100% (11726/11726), 4.98 MiB | 1.96 MiB/s, done.
+Resolving deltas: 100% (8345/8345), done.
+From https://github.com/zephyrproject-rtos/lz4
+ * [new branch]      zephyr     -> refs/west/zephyr
+ * [new tag]         lz4-r130   -> lz4-r130
+ * [new tag]         r116       -> r116
+ * [new tag]         r117       -> r117
+ * [new tag]         r118       -> r118
+ * [new tag]         r119       -> r119
+ * [new tag]         r120       -> r120
+ * [new tag]         r121       -> r121
+ * [new tag]         r122       -> r122
+ * [new tag]         r123       -> r123
+ * [new tag]         r124       -> r124
+ * [new tag]         r125       -> r125
+ * [new tag]         r126       -> r126
+ * [new tag]         r127       -> r127
+ * [new tag]         r128       -> r128
+ * [new tag]         r129       -> r129
+ * [new tag]         r130       -> r130
+ * [new tag]         r131       -> r131
+ * [new tag]         rc129v0    -> rc129v0
+ * [new tag]         v1.7.3     -> v1.7.3
+ * [new tag]         v1.7.4     -> v1.7.4
+ * [new tag]         v1.7.4.2   -> v1.7.4.2
+ * [new tag]         v1.7.5     -> v1.7.5
+ * [new tag]         v1.8.0     -> v1.8.0
+ * [new tag]         v1.8.1     -> v1.8.1
+ * [new tag]         v1.8.1.2   -> v1.8.1.2
+ * [new tag]         v1.8.2     -> v1.8.2
+ * [new tag]         v1.8.3     -> v1.8.3
+ * [new tag]         v1.9.0     -> v1.9.0
+ * [new tag]         v1.9.1     -> v1.9.1
+ * [new tag]         v1.9.2     -> v1.9.2
+ * [new tag]         v1.9.3     -> v1.9.3
+HEAD is now at 8e303c2 zephyr: make this repo a zephyr module
+HEAD is now at 8e303c2 zephyr: make this repo a zephyr module
+=== updating mipi-sys-t (modules/debug/mipi-sys-t):
+--- mipi-sys-t: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/mipi-sys-t/.git/
+--- mipi-sys-t: fetching, need revision a819419603a2dfcb47f7f39092e1bc112e45d1ef
+remote: Enumerating objects: 212, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 212 (delta 14), reused 5 (delta 4), pack-reused 182
+Receiving objects: 100% (212/212), 432.16 KiB | 1.02 MiB/s, done.
+Resolving deltas: 100% (69/69), done.
+From https://github.com/zephyrproject-rtos/mipi-sys-t
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at a819419 library: allow building without wchar support
+HEAD is now at a819419 library: allow building without wchar support
+=== updating nanopb (modules/lib/nanopb):
+--- nanopb: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/nanopb/.git/
+--- nanopb: fetching, need revision 42fa8b211e946b90b9d968523fce7b1cfe27617e
+remote: Enumerating objects: 8660, done.
+remote: Counting objects: 100% (53/53), done.
+remote: Compressing objects: 100% (38/38), done.
+remote: Total 8660 (delta 17), reused 28 (delta 15), pack-reused 8607
+Receiving objects: 100% (8660/8660), 4.14 MiB | 1.78 MiB/s, done.
+Resolving deltas: 100% (5556/5556), done.
+From https://github.com/zephyrproject-rtos/nanopb
+ * [new branch]      cifuzz_test4           -> refs/west/cifuzz_test4
+ * [new branch]      dev_dynamic_nanopb_pb2 -> refs/west/dev_dynamic_nanopb_pb2
+ * [new branch]      dev_markdown_docs      -> refs/west/dev_markdown_docs
+ * [new branch]      maintenance_0.1        -> refs/west/maintenance_0.1
+ * [new branch]      maintenance_0.2        -> refs/west/maintenance_0.2
+ * [new branch]      maintenance_0.3        -> refs/west/maintenance_0.3
+ * [new branch]      master                 -> refs/west/master
+ * [new branch]      zephyr                 -> refs/west/zephyr
+ * [new tag]         0.2.9.5                -> 0.2.9.5
+ * [new tag]         0.3.6                  -> 0.3.6
+ * [new tag]         0.3.7                  -> 0.3.7
+ * [new tag]         0.3.8                  -> 0.3.8
+ * [new tag]         0.3.9                  -> 0.3.9
+ * [new tag]         0.3.9.1                -> 0.3.9.1
+ * [new tag]         0.3.9.2                -> 0.3.9.2
+ * [new tag]         0.3.9.3                -> 0.3.9.3
+ * [new tag]         0.3.9.4                -> 0.3.9.4
+ * [new tag]         0.3.9.5                -> 0.3.9.5
+ * [new tag]         0.3.9.6                -> 0.3.9.6
+ * [new tag]         0.3.9.7                -> 0.3.9.7
+ * [new tag]         0.3.9.8                -> 0.3.9.8
+ * [new tag]         0.4.0                  -> 0.4.0
+ * [new tag]         0.4.1                  -> 0.4.1
+ * [new tag]         0.4.2                  -> 0.4.2
+ * [new tag]         0.4.3                  -> 0.4.3
+ * [new tag]         0.4.4                  -> 0.4.4
+ * [new tag]         0.4.5                  -> 0.4.5
+ * [new tag]         nanopb-0.1.0           -> nanopb-0.1.0
+ * [new tag]         nanopb-0.1.1           -> nanopb-0.1.1
+ * [new tag]         nanopb-0.1.2           -> nanopb-0.1.2
+ * [new tag]         nanopb-0.1.3           -> nanopb-0.1.3
+ * [new tag]         nanopb-0.1.4           -> nanopb-0.1.4
+ * [new tag]         nanopb-0.1.5           -> nanopb-0.1.5
+ * [new tag]         nanopb-0.1.6           -> nanopb-0.1.6
+ * [new tag]         nanopb-0.1.7           -> nanopb-0.1.7
+ * [new tag]         nanopb-0.1.8           -> nanopb-0.1.8
+ * [new tag]         nanopb-0.1.9           -> nanopb-0.1.9
+ * [new tag]         nanopb-0.1.9.1         -> nanopb-0.1.9.1
+ * [new tag]         nanopb-0.2.0           -> nanopb-0.2.0
+ * [new tag]         nanopb-0.2.1           -> nanopb-0.2.1
+ * [new tag]         nanopb-0.2.2           -> nanopb-0.2.2
+ * [new tag]         nanopb-0.2.3           -> nanopb-0.2.3
+ * [new tag]         nanopb-0.2.4           -> nanopb-0.2.4
+ * [new tag]         nanopb-0.2.5           -> nanopb-0.2.5
+ * [new tag]         nanopb-0.2.6           -> nanopb-0.2.6
+ * [new tag]         nanopb-0.2.7           -> nanopb-0.2.7
+ * [new tag]         nanopb-0.2.8           -> nanopb-0.2.8
+ * [new tag]         nanopb-0.2.9           -> nanopb-0.2.9
+ * [new tag]         nanopb-0.2.9.1         -> nanopb-0.2.9.1
+ * [new tag]         nanopb-0.2.9.2         -> nanopb-0.2.9.2
+ * [new tag]         nanopb-0.2.9.3         -> nanopb-0.2.9.3
+ * [new tag]         nanopb-0.2.9.4         -> nanopb-0.2.9.4
+ * [new tag]         nanopb-0.2.9.5         -> nanopb-0.2.9.5
+ * [new tag]         nanopb-0.3.0           -> nanopb-0.3.0
+ * [new tag]         nanopb-0.3.1           -> nanopb-0.3.1
+ * [new tag]         nanopb-0.3.2           -> nanopb-0.3.2
+ * [new tag]         nanopb-0.3.3           -> nanopb-0.3.3
+ * [new tag]         nanopb-0.3.4           -> nanopb-0.3.4
+ * [new tag]         nanopb-0.3.5           -> nanopb-0.3.5
+ * [new tag]         nanopb-0.3.6           -> nanopb-0.3.6
+ * [new tag]         nanopb-0.3.7           -> nanopb-0.3.7
+ * [new tag]         nanopb-0.3.8           -> nanopb-0.3.8
+ * [new tag]         nanopb-0.3.9           -> nanopb-0.3.9
+ * [new tag]         nanopb-0.3.9.1         -> nanopb-0.3.9.1
+ * [new tag]         nanopb-0.3.9.2         -> nanopb-0.3.9.2
+ * [new tag]         nanopb-0.3.9.3         -> nanopb-0.3.9.3
+ * [new tag]         nanopb-0.3.9.4         -> nanopb-0.3.9.4
+ * [new tag]         nanopb-0.3.9.5         -> nanopb-0.3.9.5
+ * [new tag]         nanopb-0.3.9.6         -> nanopb-0.3.9.6
+ * [new tag]         nanopb-0.3.9.7         -> nanopb-0.3.9.7
+ * [new tag]         nanopb-0.3.9.8         -> nanopb-0.3.9.8
+ * [new tag]         nanopb-0.4.0           -> nanopb-0.4.0
+ * [new tag]         nanopb-0.4.0-dev       -> nanopb-0.4.0-dev
+ * [new tag]         nanopb-0.4.1           -> nanopb-0.4.1
+ * [new tag]         nanopb-0.4.2           -> nanopb-0.4.2
+ * [new tag]         nanopb-0.4.3           -> nanopb-0.4.3
+ * [new tag]         nanopb-0.4.4           -> nanopb-0.4.4
+ * [new tag]         nanopb-0.4.5           -> nanopb-0.4.5
+HEAD is now at 42fa8b2 Merge pull request #2 from pdgendt/zephyr
+HEAD is now at 42fa8b2 Merge pull request #2 from pdgendt/zephyr
+=== updating net-tools (tools/net-tools):
+--- net-tools: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/net-tools/.git/
+--- net-tools: fetching, need revision e0828aa9629b533644dc96ff6d1295c939bd713c
+remote: Enumerating objects: 1528, done.
+remote: Counting objects: 100% (80/80), done.
+remote: Compressing objects: 100% (57/57), done.
+remote: Total 1528 (delta 35), reused 57 (delta 23), pack-reused 1448
+Receiving objects: 100% (1528/1528), 2.66 MiB | 2.27 MiB/s, done.
+Resolving deltas: 100% (533/533), done.
+From https://github.com/zephyrproject-rtos/net-tools
+ * [new branch]      master     -> refs/west/master
+HEAD is now at e0828aa net-setup: Add instructions for NAT and routing
+HEAD is now at e0828aa net-setup: Add instructions for NAT and routing
+=== updating nrf_hw_models (modules/bsim_hw_models/nrf_hw_models):
+--- nrf_hw_models: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/bsim_hw_models/nrf_hw_models/.git/
+--- nrf_hw_models: fetching, need revision 57b61a9a2da75c860f15ca79522b24d57992df2c
+remote: Enumerating objects: 2408, done.
+remote: Counting objects: 100% (1214/1214), done.
+remote: Compressing objects: 100% (522/522), done.
+remote: Total 2408 (delta 862), reused 1000 (delta 681), pack-reused 1194
+Receiving objects: 100% (2408/2408), 840.32 KiB | 1.08 MiB/s, done.
+Resolving deltas: 100% (1588/1588), done.
+From https://github.com/zephyrproject-rtos/nrf_hw_models
+ * [new branch]      main       -> refs/west/main
+ * [new branch]      master     -> refs/west/master
+HEAD is now at 57b61a9 INT CNTRL: Generalize to N controllers
+HEAD is now at 57b61a9 INT CNTRL: Generalize to N controllers
+=== updating open-amp (modules/lib/open-amp):
+--- open-amp: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/open-amp/.git/
+--- open-amp: fetching, need revision 42b7c577714b8f22ce82a901e19c1814af4609a8
+remote: Enumerating objects: 559, done.
+remote: Counting objects: 100% (491/491), done.
+remote: Compressing objects: 100% (271/271), done.
+remote: Total 559 (delta 243), reused 368 (delta 199), pack-reused 68
+Receiving objects: 100% (559/559), 1.62 MiB | 2.55 MiB/s, done.
+Resolving deltas: 100% (258/258), done.
+From https://github.com/zephyrproject-rtos/open-amp
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at 42b7c57 cmake: Compile with WITH_DCACHE_RSC_TABLE
+HEAD is now at 42b7c57 cmake: Compile with WITH_DCACHE_RSC_TABLE
+=== updating picolibc (modules/lib/picolibc):
+--- picolibc: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/picolibc/.git/
+--- picolibc: fetching, need revision d07c38ff051386f8e09a143ea0a6c1d6d66dd1d8
+remote: Enumerating objects: 234140, done.
+remote: Counting objects: 100% (14572/14572), done.
+remote: Compressing objects: 100% (1600/1600), done.
+remote: Total 234140 (delta 13189), reused 14035 (delta 12940), pack-reused 219568
+Receiving objects: 100% (234140/234140), 128.46 MiB | 3.23 MiB/s, done.
+Resolving deltas: 100% (189132/189132), done.
+From https://github.com/zephyrproject-rtos/picolibc
+ * [new branch]          Z-emcb-cygwin_daemon                           -> refs/west/Z-emcb-cygwin_daemon
+ * [new branch]          aarch64                                        -> refs/west/aarch64
+ * [new branch]          add-fakeroots-dir                              -> refs/west/add-fakeroots-dir
+ * [new branch]          amd64_to_x86_64                                -> refs/west/amd64_to_x86_64
+ * [new branch]          ancient-clang                                  -> refs/west/ancient-clang
+ * [new branch]          arc-20081103-branch                            -> refs/west/arc-20081103-branch
+ * [new branch]          arc-insight_6_8-branch                         -> refs/west/arc-insight_6_8-branch
+ * [new branch]          arm-read-tp-cleanup                            -> refs/west/arm-read-tp-cleanup
+ * [new branch]          binutils-2_10-branch                           -> refs/west/binutils-2_10-branch
+ * [new branch]          binutils-2_11-branch                           -> refs/west/binutils-2_11-branch
+ * [new branch]          binutils-2_12-branch                           -> refs/west/binutils-2_12-branch
+ * [new branch]          binutils-2_13-branch                           -> refs/west/binutils-2_13-branch
+ * [new branch]          binutils-2_14-branch                           -> refs/west/binutils-2_14-branch
+ * [new branch]          binutils-2_15-branch                           -> refs/west/binutils-2_15-branch
+ * [new branch]          binutils-2_16-branch                           -> refs/west/binutils-2_16-branch
+ * [new branch]          binutils-2_17-branch                           -> refs/west/binutils-2_17-branch
+ * [new branch]          binutils-2_18-branch                           -> refs/west/binutils-2_18-branch
+ * [new branch]          binutils-2_19-branch                           -> refs/west/binutils-2_19-branch
+ * [new branch]          binutils-2_20-branch                           -> refs/west/binutils-2_20-branch
+ * [new branch]          binutils-2_21-branch                           -> refs/west/binutils-2_21-branch
+ * [new branch]          binutils-2_22-branch                           -> refs/west/binutils-2_22-branch
+ * [new branch]          binutils-2_22_branch                           -> refs/west/binutils-2_22_branch
+ * [new branch]          binutils-2_23-branch                           -> refs/west/binutils-2_23-branch
+ * [new branch]          binutils-2_24-branch                           -> refs/west/binutils-2_24-branch
+ * [new branch]          binutils-arc-20080908-branch                   -> refs/west/binutils-arc-20080908-branch
+ * [new branch]          binutils-arc-20081103-branch                   -> refs/west/binutils-arc-20081103-branch
+ * [new branch]          binutils-csl-2_17-branch                       -> refs/west/binutils-csl-2_17-branch
+ * [new branch]          binutils-csl-arm-2005q1-branch                 -> refs/west/binutils-csl-arm-2005q1-branch
+ * [new branch]          binutils-csl-gxxpro-3_4-branch                 -> refs/west/binutils-csl-gxxpro-3_4-branch
+ * [new branch]          branch-1.4.6                                   -> refs/west/branch-1.4.6
+ * [new branch]          branch-1.8.4                                   -> refs/west/branch-1.8.4
+ * [new branch]          c-sky                                          -> refs/west/c-sky
+ * [new branch]          cagney-unwind-20030108-branch                  -> refs/west/cagney-unwind-20030108-branch
+ * [new branch]          cagney_bfdfile-20040213-branch                 -> refs/west/cagney_bfdfile-20040213-branch
+ * [new branch]          cagney_bigcore-20040122-branch                 -> refs/west/cagney_bigcore-20040122-branch
+ * [new branch]          cagney_convert-20030606-branch                 -> refs/west/cagney_convert-20030606-branch
+ * [new branch]          cagney_fileio-20030521-branch                  -> refs/west/cagney_fileio-20030521-branch
+ * [new branch]          cagney_frameaddr-20030403-branch               -> refs/west/cagney_frameaddr-20030403-branch
+ * [new branch]          cagney_framebase-20030326-branch               -> refs/west/cagney_framebase-20030326-branch
+ * [new branch]          cagney_lazyid-20030317-branch                  -> refs/west/cagney_lazyid-20030317-branch
+ * [new branch]          cagney_offbyone-20030303-branch                -> refs/west/cagney_offbyone-20030303-branch
+ * [new branch]          cagney_regbuf-20020515-branch                  -> refs/west/cagney_regbuf-20020515-branch
+ * [new branch]          cagney_sysregs-20020825-branch                 -> refs/west/cagney_sysregs-20020825-branch
+ * [new branch]          cagney_tramp-20040309-branch                   -> refs/west/cagney_tramp-20040309-branch
+ * [new branch]          cagney_writestrings-20030508-branch            -> refs/west/cagney_writestrings-20030508-branch
+ * [new branch]          cagney_x86i386-20030821-branch                 -> refs/west/cagney_x86i386-20030821-branch
+ * [new branch]          callout                                        -> refs/west/callout
+ * [new branch]          carlton_dictionary-branch                      -> refs/west/carlton_dictionary-branch
+ * [new branch]          cgen-1_1-branch                                -> refs/west/cgen-1_1-branch
+ * [new branch]          cgf-deleteme                                   -> refs/west/cgf-deleteme
+ * [new branch]          cgf-dev-branch                                 -> refs/west/cgf-dev-branch
+ * [new branch]          cmake                                          -> refs/west/cmake
+ * [new branch]          cmake-no-tls                                   -> refs/west/cmake-no-tls
+ * [new branch]          cmake-small-ultoa                              -> refs/west/cmake-small-ultoa
+ * [new branch]          cr-0x3b58                                      -> refs/west/cr-0x3b58
+ * [new branch]          cr-0x5e6                                       -> refs/west/cr-0x5e6
+ * [new branch]          cr-0x5ef                                       -> refs/west/cr-0x5ef
+ * [new branch]          cr-0x5f1                                       -> refs/west/cr-0x5f1
+ * [new branch]          cr-0x9b                                        -> refs/west/cr-0x9b
+ * [new branch]          cr-0x9c                                        -> refs/west/cr-0x9c
+ * [new branch]          cr-0x9d                                        -> refs/west/cr-0x9d
+ * [new branch]          cr-0x9e                                        -> refs/west/cr-0x9e
+ * [new branch]          csl-arm-20050325-branch                        -> refs/west/csl-arm-20050325-branch
+ * [new branch]          cv-branch                                      -> refs/west/cv-branch
+ * [new branch]          cv-branch-2                                    -> refs/west/cv-branch-2
+ * [new branch]          cv-post-1_7_9                                  -> refs/west/cv-post-1_7_9
+ * [new branch]          cygnus                                         -> refs/west/cygnus
+ * [new branch]          cygwin-1-1-4                                   -> refs/west/cygwin-1-1-4
+ * [new branch]          cygwin-1-3-1                                   -> refs/west/cygwin-1-3-1
+ * [new branch]          cygwin-1-3-10-1                                -> refs/west/cygwin-1-3-10-1
+ * [new branch]          cygwin-1-3-11-3                                -> refs/west/cygwin-1-3-11-3
+ * [new branch]          cygwin-1-3-12-1                                -> refs/west/cygwin-1-3-12-1
+ * [new branch]          cygwin-1-3-13-1                                -> refs/west/cygwin-1-3-13-1
+ * [new branch]          cygwin-1-3-13-2                                -> refs/west/cygwin-1-3-13-2
+ * [new branch]          cygwin-1-3-14-1                                -> refs/west/cygwin-1-3-14-1
+ * [new branch]          cygwin-1-3-15-1                                -> refs/west/cygwin-1-3-15-1
+ * [new branch]          cygwin-1-3-16-1                                -> refs/west/cygwin-1-3-16-1
+ * [new branch]          cygwin-1-3-17-1                                -> refs/west/cygwin-1-3-17-1
+ * [new branch]          cygwin-1-3-18-1                                -> refs/west/cygwin-1-3-18-1
+ * [new branch]          cygwin-1-3-19-1                                -> refs/west/cygwin-1-3-19-1
+ * [new branch]          cygwin-1-3-2                                   -> refs/west/cygwin-1-3-2
+ * [new branch]          cygwin-1-3-3                                   -> refs/west/cygwin-1-3-3
+ * [new branch]          cygwin-1-3-4                                   -> refs/west/cygwin-1-3-4
+ * [new branch]          cygwin-1-3-5                                   -> refs/west/cygwin-1-3-5
+ * [new branch]          cygwin-1-3-5-2                                 -> refs/west/cygwin-1-3-5-2
+ * [new branch]          cygwin-1-3-5-3                                 -> refs/west/cygwin-1-3-5-3
+ * [new branch]          cygwin-1-3-6-1                                 -> refs/west/cygwin-1-3-6-1
+ * [new branch]          cygwin-1-3-6-2                                 -> refs/west/cygwin-1-3-6-2
+ * [new branch]          cygwin-1-3-6-3                                 -> refs/west/cygwin-1-3-6-3
+ * [new branch]          cygwin-1-3-6-4                                 -> refs/west/cygwin-1-3-6-4
+ * [new branch]          cygwin-1-3-6-5                                 -> refs/west/cygwin-1-3-6-5
+ * [new branch]          cygwin-1-3-6-6                                 -> refs/west/cygwin-1-3-6-6
+ * [new branch]          cygwin-1-3-7-1                                 -> refs/west/cygwin-1-3-7-1
+ * [new branch]          cygwin-1-3-8-1                                 -> refs/west/cygwin-1-3-8-1
+ * [new branch]          cygwin-1-3-9                                   -> refs/west/cygwin-1-3-9
+ * [new branch]          cygwin-1_7_29-release-branchpoint              -> refs/west/cygwin-1_7_29-release-branchpoint
+ * [new branch]          cygwin-2.0                                     -> refs/west/cygwin-2.0
+ * [new branch]          cygwin-3_0-branch                              -> refs/west/cygwin-3_0-branch
+ * [new branch]          cygwin-64bit-branch                            -> refs/west/cygwin-64bit-branch
+ * [new branch]          cygwin-64bit-premerge-branch                   -> refs/west/cygwin-64bit-premerge-branch
+ * [new branch]          cygwin-acl                                     -> refs/west/cygwin-acl
+ * [new branch]          cygwin_daemon                                  -> refs/west/cygwin_daemon
+ * [new branch]          debian                                         -> refs/west/debian
+ * [new branch]          dje-cgen-play1-branch                          -> refs/west/dje-cgen-play1-branch
+ * [new branch]          docker-builder-packages.txt-hash               -> refs/west/docker-builder-packages.txt-hash
+ * [new branch]          drow-cplus-branch                              -> refs/west/drow-cplus-branch
+ * [new branch]          drow-reverse-20070409-branch                   -> refs/west/drow-reverse-20070409-branch
+ * [new branch]          drow_intercu-20040221-branch                   -> refs/west/drow_intercu-20040221-branch
+ * [new branch]          ezannoni_pie-20030916-branch                   -> refs/west/ezannoni_pie-20030916-branch
+ * [new branch]          ezannoni_pie-20040323-branch                   -> refs/west/ezannoni_pie-20040323-branch
+ * [new branch]          fifo_doover3                                   -> refs/west/fifo_doover3
+ * [new branch]          fixes-newlib                                   -> refs/west/fixes-newlib
+ * [new branch]          float-inlines                                  -> refs/west/float-inlines
+ * [new branch]          fp-zeuch                                       -> refs/west/fp-zeuch
+ * [new branch]          gdb-csl-20060226-branch                        -> refs/west/gdb-csl-20060226-branch
+ * [new branch]          gdb-csl-arm-20051020-branch                    -> refs/west/gdb-csl-arm-20051020-branch
+ * [new branch]          gdb-csl-available-20060303-branch              -> refs/west/gdb-csl-available-20060303-branch
+ * [new branch]          gdb-csl-gxxpro-6_3-branch                      -> refs/west/gdb-csl-gxxpro-6_3-branch
+ * [new branch]          gdb-csl-symbian-20060226-branch                -> refs/west/gdb-csl-symbian-20060226-branch
+ * [new branch]          gdb-premipsmulti-2000-06-06-branch             -> refs/west/gdb-premipsmulti-2000-06-06-branch
+ * [new branch]          gdb_5_0-2000-04-10-branch                      -> refs/west/gdb_5_0-2000-04-10-branch
+ * [new branch]          gdb_5_1-2001-07-29-branch                      -> refs/west/gdb_5_1-2001-07-29-branch
+ * [new branch]          gdb_5_1_0_1-2002-01-03-branch                  -> refs/west/gdb_5_1_0_1-2002-01-03-branch
+ * [new branch]          gdb_5_2-branch                                 -> refs/west/gdb_5_2-branch
+ * [new branch]          gdb_5_3-branch                                 -> refs/west/gdb_5_3-branch
+ * [new branch]          gdb_6_0-branch                                 -> refs/west/gdb_6_0-branch
+ * [new branch]          gdb_6_1-branch                                 -> refs/west/gdb_6_1-branch
+ * [new branch]          gdb_6_2-branch                                 -> refs/west/gdb_6_2-branch
+ * [new branch]          gdb_6_3-branch                                 -> refs/west/gdb_6_3-branch
+ * [new branch]          gdb_6_4-branch                                 -> refs/west/gdb_6_4-branch
+ * [new branch]          gdb_6_5-branch                                 -> refs/west/gdb_6_5-branch
+ * [new branch]          gdb_6_6-branch                                 -> refs/west/gdb_6_6-branch
+ * [new branch]          gdb_6_7-branch                                 -> refs/west/gdb_6_7-branch
+ * [new branch]          gdb_6_8-branch                                 -> refs/west/gdb_6_8-branch
+ * [new branch]          gdb_7_0-branch                                 -> refs/west/gdb_7_0-branch
+ * [new branch]          gdb_7_1-branch                                 -> refs/west/gdb_7_1-branch
+ * [new branch]          gdb_7_2-branch                                 -> refs/west/gdb_7_2-branch
+ * [new branch]          gdb_7_3-branch                                 -> refs/west/gdb_7_3-branch
+ * [new branch]          gdb_7_4-branch                                 -> refs/west/gdb_7_4-branch
+ * [new branch]          gdb_7_5-branch                                 -> refs/west/gdb_7_5-branch
+ * [new branch]          gdb_7_6-branch                                 -> refs/west/gdb_7_6-branch
+ * [new branch]          gdb_s390-2001-09-26-branch                     -> refs/west/gdb_s390-2001-09-26-branch
+ * [new branch]          gh                                             -> refs/west/gh
+ * [new branch]          insight_6_8-branch                             -> refs/west/insight_6_8-branch
+ * [new branch]          interps-20030202-branch                        -> refs/west/interps-20030202-branch
+ * [new branch]          isblank-extern-inline                          -> refs/west/isblank-extern-inline
+ * [new branch]          jimb-gdb_6_2-e500-branch                       -> refs/west/jimb-gdb_6_2-e500-branch
+ * [new branch]          jimb-macro-020506-branch                       -> refs/west/jimb-macro-020506-branch
+ * [new branch]          jimb-ppc64-linux-20030509-branch               -> refs/west/jimb-ppc64-linux-20030509-branch
+ * [new branch]          jimb-ppc64-linux-20030528-branch               -> refs/west/jimb-ppc64-linux-20030528-branch
+ * [new branch]          jimb-ppc64-linux-20030613-branch               -> refs/west/jimb-ppc64-linux-20030613-branch
+ * [new branch]          jimb-rda-nptl-branch                           -> refs/west/jimb-rda-nptl-branch
+ * [new branch]          kettenis-i386newframe-20030308-branch          -> refs/west/kettenis-i386newframe-20030308-branch
+ * [new branch]          kettenis_i386newframe-20030406-branch          -> refs/west/kettenis_i386newframe-20030406-branch
+ * [new branch]          kettenis_i386newframe-20030419-branch          -> refs/west/kettenis_i386newframe-20030419-branch
+ * [new branch]          kettenis_sparc-20030918-branch                 -> refs/west/kettenis_sparc-20030918-branch
+ * [new branch]          kseitz_interps-20020528-branch                 -> refs/west/kseitz_interps-20020528-branch
+ * [new branch]          locking-docs                                   -> refs/west/locking-docs
+ * [new branch]          main                                           -> refs/west/main
+ * [new branch]          mingw-std-ns-branch                            -> refs/west/mingw-std-ns-branch
+ * [new branch]          mingwex                                        -> refs/west/mingwex
+ * [new branch]          msnyder-checkpoint-072509-branch               -> refs/west/msnyder-checkpoint-072509-branch
+ * [new branch]          msnyder-fork-checkpoint-branch                 -> refs/west/msnyder-fork-checkpoint-branch
+ * [new branch]          msnyder-reverse-20060331-branch                -> refs/west/msnyder-reverse-20060331-branch
+ * [new branch]          msnyder-reverse-20060502-branch                -> refs/west/msnyder-reverse-20060502-branch
+ * [new branch]          msnyder-reverse-20080609-branch                -> refs/west/msnyder-reverse-20080609-branch
+ * [new branch]          msnyder-tracepoint-checkpoint-branch           -> refs/west/msnyder-tracepoint-checkpoint-branch
+ * [new branch]          msp430                                         -> refs/west/msp430
+ * [new branch]          multiprocess-20081120-branch                   -> refs/west/multiprocess-20081120-branch
+ * [new branch]          newlib                                         -> refs/west/newlib
+ * [new branch]          newlib-1_17_0-arc                              -> refs/west/newlib-1_17_0-arc
+ * [new branch]          newlib-autotools-branch                        -> refs/west/newlib-autotools-branch
+ * [new branch]          newlib-csl-20060320-branch                     -> refs/west/newlib-csl-20060320-branch
+ * [new branch]          nickrob-async-20060513-branch                  -> refs/west/nickrob-async-20060513-branch
+ * [new branch]          non-linux-ln                                   -> refs/west/non-linux-ln
+ * [new branch]          noreparent                                     -> refs/west/noreparent
+ * [new branch]          offbyone-20030313-branch                       -> refs/west/offbyone-20030313-branch
+ * [new branch]          pre-regex                                      -> refs/west/pre-regex
+ * [new branch]          pregp02r1                                      -> refs/west/pregp02r1
+ * [new branch]          readline_4_3-import-branch                     -> refs/west/readline_4_3-import-branch
+ * [new branch]          readline_5_1-import-branch                     -> refs/west/readline_5_1-import-branch
+ * [new branch]          reverse-20080717-branch                        -> refs/west/reverse-20080717-branch
+ * [new branch]          reverse-20080930-branch                        -> refs/west/reverse-20080930-branch
+ * [new branch]          reverse-20081226-branch                        -> refs/west/reverse-20081226-branch
+ * [new branch]          riscv-zicsr                                    -> refs/west/riscv-zicsr
+ * [new branch]          semihost-2.0-all                               -> refs/west/semihost-2.0-all
+ * [new branch]          sid-20020905-branch                            -> refs/west/sid-20020905-branch
+ * [new branch]          signal-rewrite                                 -> refs/west/signal-rewrite
+ * [new branch]          sysroot-skip-checks                            -> refs/west/sysroot-skip-checks
+ * [new branch]          tcltk840-20020924-branch                       -> refs/west/tcltk840-20020924-branch
+ * [new branch]          tls                                            -> refs/west/tls
+ * [new branch]          topic/af_unix                                  -> refs/west/topic/af_unix
+ * [new branch]          topic/ansification                             -> refs/west/topic/ansification
+ * [new branch]          topic/fifo                                     -> refs/west/topic/fifo
+ * [new branch]          topic/forkables                                -> refs/west/topic/forkables
+ * [new branch]          topic/locales                                  -> refs/west/topic/locales
+ * [new branch]          topic/posix_acl_funcs                          -> refs/west/topic/posix_acl_funcs
+ * [new branch]          topic/ssp                                      -> refs/west/topic/ssp
+ * [new branch]          unlabeled-1.1.1.1.2                            -> refs/west/unlabeled-1.1.1.1.2
+ * [new branch]          unlabeled-1.100.2                              -> refs/west/unlabeled-1.100.2
+ * [new branch]          unlabeled-1.1010.2                             -> refs/west/unlabeled-1.1010.2
+ * [new branch]          unlabeled-1.1019.2                             -> refs/west/unlabeled-1.1019.2
+ * [new branch]          unlabeled-1.1042.2                             -> refs/west/unlabeled-1.1042.2
+ * [new branch]          unlabeled-1.1042.2.1.4                         -> refs/west/unlabeled-1.1042.2.1.4
+ * [new branch]          unlabeled-1.1042.2.1.4.2.4                     -> refs/west/unlabeled-1.1042.2.1.4.2.4
+ * [new branch]          unlabeled-1.1042.2.1.4.2.4.2.2                 -> refs/west/unlabeled-1.1042.2.1.4.2.4.2.2
+ * [new branch]          unlabeled-1.105.2                              -> refs/west/unlabeled-1.105.2
+ * [new branch]          unlabeled-1.106.2                              -> refs/west/unlabeled-1.106.2
+ * [new branch]          unlabeled-1.106.8                              -> refs/west/unlabeled-1.106.8
+ * [new branch]          unlabeled-1.107.12                             -> refs/west/unlabeled-1.107.12
+ * [new branch]          unlabeled-1.11.2                               -> refs/west/unlabeled-1.11.2
+ * [new branch]          unlabeled-1.112.4                              -> refs/west/unlabeled-1.112.4
+ * [new branch]          unlabeled-1.116.4                              -> refs/west/unlabeled-1.116.4
+ * [new branch]          unlabeled-1.12.20                              -> refs/west/unlabeled-1.12.20
+ * [new branch]          unlabeled-1.12.30                              -> refs/west/unlabeled-1.12.30
+ * [new branch]          unlabeled-1.12.4                               -> refs/west/unlabeled-1.12.4
+ * [new branch]          unlabeled-1.120.2                              -> refs/west/unlabeled-1.120.2
+ * [new branch]          unlabeled-1.125.2                              -> refs/west/unlabeled-1.125.2
+ * [new branch]          unlabeled-1.13.10                              -> refs/west/unlabeled-1.13.10
+ * [new branch]          unlabeled-1.13.2                               -> refs/west/unlabeled-1.13.2
+ * [new branch]          unlabeled-1.13.30                              -> refs/west/unlabeled-1.13.30
+ * [new branch]          unlabeled-1.13.4                               -> refs/west/unlabeled-1.13.4
+ * [new branch]          unlabeled-1.133.2                              -> refs/west/unlabeled-1.133.2
+ * [new branch]          unlabeled-1.134.4                              -> refs/west/unlabeled-1.134.4
+ * [new branch]          unlabeled-1.135.4                              -> refs/west/unlabeled-1.135.4
+ * [new branch]          unlabeled-1.1370.2                             -> refs/west/unlabeled-1.1370.2
+ * [new branch]          unlabeled-1.142.2                              -> refs/west/unlabeled-1.142.2
+ * [new branch]          unlabeled-1.143.4                              -> refs/west/unlabeled-1.143.4
+ * [new branch]          unlabeled-1.144.2                              -> refs/west/unlabeled-1.144.2
+ * [new branch]          unlabeled-1.15.10                              -> refs/west/unlabeled-1.15.10
+ * [new branch]          unlabeled-1.15.2                               -> refs/west/unlabeled-1.15.2
+ * [new branch]          unlabeled-1.1527.4                             -> refs/west/unlabeled-1.1527.4
+ * [new branch]          unlabeled-1.153.2                              -> refs/west/unlabeled-1.153.2
+ * [new branch]          unlabeled-1.1563.2                             -> refs/west/unlabeled-1.1563.2
+ * [new branch]          unlabeled-1.1656.2                             -> refs/west/unlabeled-1.1656.2
+ * [new branch]          unlabeled-1.167.4                              -> refs/west/unlabeled-1.167.4
+ * [new branch]          unlabeled-1.17.2                               -> refs/west/unlabeled-1.17.2
+ * [new branch]          unlabeled-1.17.4                               -> refs/west/unlabeled-1.17.4
+ * [new branch]          unlabeled-1.1710.2                             -> refs/west/unlabeled-1.1710.2
+ * [new branch]          unlabeled-1.172.4                              -> refs/west/unlabeled-1.172.4
+ * [new branch]          unlabeled-1.18.10                              -> refs/west/unlabeled-1.18.10
+ * [new branch]          unlabeled-1.18.2                               -> refs/west/unlabeled-1.18.2
+ * [new branch]          unlabeled-1.1806.2                             -> refs/west/unlabeled-1.1806.2
+ * [new branch]          unlabeled-1.1856.2                             -> refs/west/unlabeled-1.1856.2
+ * [new branch]          unlabeled-1.188.2                              -> refs/west/unlabeled-1.188.2
+ * [new branch]          unlabeled-1.188.2.1.8                          -> refs/west/unlabeled-1.188.2.1.8
+ * [new branch]          unlabeled-1.188.2.1.8.2.2                      -> refs/west/unlabeled-1.188.2.1.8.2.2
+ * [new branch]          unlabeled-1.19.12                              -> refs/west/unlabeled-1.19.12
+ * [new branch]          unlabeled-1.2.2                                -> refs/west/unlabeled-1.2.2
+ * [new branch]          unlabeled-1.20.4                               -> refs/west/unlabeled-1.20.4
+ * [new branch]          unlabeled-1.21.2                               -> refs/west/unlabeled-1.21.2
+ * [new branch]          unlabeled-1.21.4                               -> refs/west/unlabeled-1.21.4
+ * [new branch]          unlabeled-1.22.2                               -> refs/west/unlabeled-1.22.2
+ * [new branch]          unlabeled-1.22.4                               -> refs/west/unlabeled-1.22.4
+ * [new branch]          unlabeled-1.226.2                              -> refs/west/unlabeled-1.226.2
+ * [new branch]          unlabeled-1.23.16                              -> refs/west/unlabeled-1.23.16
+ * [new branch]          unlabeled-1.23.2                               -> refs/west/unlabeled-1.23.2
+ * [new branch]          unlabeled-1.23.4                               -> refs/west/unlabeled-1.23.4
+ * [new branch]          unlabeled-1.231.4                              -> refs/west/unlabeled-1.231.4
+ * [new branch]          unlabeled-1.234.16                             -> refs/west/unlabeled-1.234.16
+ * [new branch]          unlabeled-1.235.2                              -> refs/west/unlabeled-1.235.2
+ * [new branch]          unlabeled-1.238.4                              -> refs/west/unlabeled-1.238.4
+ * [new branch]          unlabeled-1.24.16                              -> refs/west/unlabeled-1.24.16
+ * [new branch]          unlabeled-1.24.2                               -> refs/west/unlabeled-1.24.2
+ * [new branch]          unlabeled-1.24.4                               -> refs/west/unlabeled-1.24.4
+ * [new branch]          unlabeled-1.248.2                              -> refs/west/unlabeled-1.248.2
+ * [new branch]          unlabeled-1.253.2                              -> refs/west/unlabeled-1.253.2
+ * [new branch]          unlabeled-1.27.12                              -> refs/west/unlabeled-1.27.12
+ * [new branch]          unlabeled-1.27.8                               -> refs/west/unlabeled-1.27.8
+ * [new branch]          unlabeled-1.30.4                               -> refs/west/unlabeled-1.30.4
+ * [new branch]          unlabeled-1.31.4                               -> refs/west/unlabeled-1.31.4
+ * [new branch]          unlabeled-1.32.16                              -> refs/west/unlabeled-1.32.16
+ * [new branch]          unlabeled-1.32.2                               -> refs/west/unlabeled-1.32.2
+ * [new branch]          unlabeled-1.35.12                              -> refs/west/unlabeled-1.35.12
+ * [new branch]          unlabeled-1.38.4                               -> refs/west/unlabeled-1.38.4
+ * [new branch]          unlabeled-1.39.2                               -> refs/west/unlabeled-1.39.2
+ * [new branch]          unlabeled-1.44.2                               -> refs/west/unlabeled-1.44.2
+ * [new branch]          unlabeled-1.44.4                               -> refs/west/unlabeled-1.44.4
+ * [new branch]          unlabeled-1.45.2                               -> refs/west/unlabeled-1.45.2
+ * [new branch]          unlabeled-1.45.8                               -> refs/west/unlabeled-1.45.8
+ * [new branch]          unlabeled-1.46.4                               -> refs/west/unlabeled-1.46.4
+ * [new branch]          unlabeled-1.48.16                              -> refs/west/unlabeled-1.48.16
+ * [new branch]          unlabeled-1.5.16                               -> refs/west/unlabeled-1.5.16
+ * [new branch]          unlabeled-1.5.2                                -> refs/west/unlabeled-1.5.2
+ * [new branch]          unlabeled-1.50.2                               -> refs/west/unlabeled-1.50.2
+ * [new branch]          unlabeled-1.50.6                               -> refs/west/unlabeled-1.50.6
+ * [new branch]          unlabeled-1.52.2                               -> refs/west/unlabeled-1.52.2
+ * [new branch]          unlabeled-1.53.6                               -> refs/west/unlabeled-1.53.6
+ * [new branch]          unlabeled-1.54.4                               -> refs/west/unlabeled-1.54.4
+ * [new branch]          unlabeled-1.64.2                               -> refs/west/unlabeled-1.64.2
+ * [new branch]          unlabeled-1.65.12                              -> refs/west/unlabeled-1.65.12
+ * [new branch]          unlabeled-1.65.4                               -> refs/west/unlabeled-1.65.4
+ * [new branch]          unlabeled-1.66.2                               -> refs/west/unlabeled-1.66.2
+ * [new branch]          unlabeled-1.69.4                               -> refs/west/unlabeled-1.69.4
+ * [new branch]          unlabeled-1.74.4                               -> refs/west/unlabeled-1.74.4
+ * [new branch]          unlabeled-1.75.4                               -> refs/west/unlabeled-1.75.4
+ * [new branch]          unlabeled-1.8.2                                -> refs/west/unlabeled-1.8.2
+ * [new branch]          unlabeled-1.81.2                               -> refs/west/unlabeled-1.81.2
+ * [new branch]          unlabeled-1.83.4                               -> refs/west/unlabeled-1.83.4
+ * [new branch]          unlabeled-1.86.2                               -> refs/west/unlabeled-1.86.2
+ * [new branch]          unlabeled-1.88.2                               -> refs/west/unlabeled-1.88.2
+ * [new branch]          unlabeled-1.90.2                               -> refs/west/unlabeled-1.90.2
+ * [new branch]          unlabeled-1.90.2.1.4                           -> refs/west/unlabeled-1.90.2.1.4
+ * [new branch]          unlabeled-1.93.2                               -> refs/west/unlabeled-1.93.2
+ * [new branch]          vendor                                         -> refs/west/vendor
+ * [new branch]          x86-more-32                                    -> refs/west/x86-more-32
+ * [new branch]          zephyr-add-library                             -> refs/west/zephyr-add-library
+ * [new branch]          zephyr-deprecated                              -> refs/west/zephyr-deprecated
+ * [new branch]          zephyr-hacks                                   -> refs/west/zephyr-hacks
+ * [new branch]          zephyr-no-posix-define                         -> refs/west/zephyr-no-posix-define
+ * [new branch]          zephyr-posix                                   -> refs/west/zephyr-posix
+ * [new branch]          zephyr-source                                  -> refs/west/zephyr-source
+ * [new tag]             1.0                                            -> 1.0
+ * [new tag]             1.0-1                                          -> 1.0-1
+ * [new tag]             1.1                                            -> 1.1
+ * [new tag]             1.1-1                                          -> 1.1-1
+ * [new tag]             1.1-2                                          -> 1.1-2
+ * [new tag]             1.1.1                                          -> 1.1.1
+ * [new tag]             1.1.1-1                                        -> 1.1.1-1
+ * [new tag]             1.2                                            -> 1.2
+ * [new tag]             1.2-1                                          -> 1.2-1
+ * [new tag]             1.2.1                                          -> 1.2.1
+ * [new tag]             1.2.1-1                                        -> 1.2.1-1
+ * [new tag]             1.3                                            -> 1.3
+ * [new tag]             1.3-1                                          -> 1.3-1
+ * [new tag]             1.4                                            -> 1.4
+ * [new tag]             1.4-1                                          -> 1.4-1
+ * [new tag]             1.4.1                                          -> 1.4.1
+ * [new tag]             1.4.1-1                                        -> 1.4.1-1
+ * [new tag]             1.4.1-2                                        -> 1.4.1-2
+ * [new tag]             1.4.2                                          -> 1.4.2
+ * [new tag]             1.4.2-1                                        -> 1.4.2-1
+ * [new tag]             1.4.2-2                                        -> 1.4.2-2
+ * [new tag]             1.4.2-3                                        -> 1.4.2-3
+ * [new tag]             1.4.3                                          -> 1.4.3
+ * [new tag]             1.4.3-1                                        -> 1.4.3-1
+ * [new tag]             1.4.4                                          -> 1.4.4
+ * [new tag]             1.4.4-1                                        -> 1.4.4-1
+ * [new tag]             1.4.5                                          -> 1.4.5
+ * [new tag]             1.4.5-1                                        -> 1.4.5-1
+ * [new tag]             1.4.6                                          -> 1.4.6
+ * [new tag]             1.4.6-1                                        -> 1.4.6-1
+ * [new tag]             1.4.7                                          -> 1.4.7
+ * [new tag]             1.4.7-1                                        -> 1.4.7-1
+ * [new tag]             1.4.7-2                                        -> 1.4.7-2
+ * [new tag]             1.5                                            -> 1.5
+ * [new tag]             1.5-1                                          -> 1.5-1
+ * [new tag]             1.5.1                                          -> 1.5.1
+ * [new tag]             1.5.1-1                                        -> 1.5.1-1
+ * [new tag]             1.5.1-2                                        -> 1.5.1-2
+ * [new tag]             1.6                                            -> 1.6
+ * [new tag]             1.6-1                                          -> 1.6-1
+ * [new tag]             1.6.1                                          -> 1.6.1
+ * [new tag]             1.6.1-1                                        -> 1.6.1-1
+ * [new tag]             1.6.2                                          -> 1.6.2
+ * [new tag]             1.6.2-1                                        -> 1.6.2-1
+ * [new tag]             1.7                                            -> 1.7
+ * [new tag]             1.7-1                                          -> 1.7-1
+ * [new tag]             1.7.1                                          -> 1.7.1
+ * [new tag]             1.7.1-1                                        -> 1.7.1-1
+ * [new tag]             1.7.2                                          -> 1.7.2
+ * [new tag]             1.7.2-1                                        -> 1.7.2-1
+ * [new tag]             1.7.2-2                                        -> 1.7.2-2
+ * [new tag]             1.7.3                                          -> 1.7.3
+ * [new tag]             1.7.3-1                                        -> 1.7.3-1
+ * [new tag]             1.7.3-2                                        -> 1.7.3-2
+ * [new tag]             1.7.4                                          -> 1.7.4
+ * [new tag]             1.7.4-1                                        -> 1.7.4-1
+ * [new tag]             1.7.5                                          -> 1.7.5
+ * [new tag]             1.7.5-1                                        -> 1.7.5-1
+ * [new tag]             1.7.6                                          -> 1.7.6
+ * [new tag]             1.7.6-1                                        -> 1.7.6-1
+ * [new tag]             1.7.8                                          -> 1.7.8
+ * [new tag]             1.7.9                                          -> 1.7.9
+ * [new tag]             1.8.1                                          -> 1.8.1
+ * [new tag]             1.8.2                                          -> 1.8.2
+ * [new tag]             1.8.2-1                                        -> 1.8.2-1
+ * [new tag]             1.8.4                                          -> 1.8.4
+ * [new tag]             1.8.6                                          -> 1.8.6
+ * [new tag]             3.1.0.2019.08.08                               -> 3.1.0.2019.08.08
+ * [new tag]             3.1.0.2019.08.08-1                             -> 3.1.0.2019.08.08-1
+ * [new tag]             3.1.0.2019.08.14                               -> 3.1.0.2019.08.14
+ * [new tag]             3.1.0.2019.08.14-1                             -> 3.1.0.2019.08.14-1
+ * [new tag]             EOL_registry_mounts                            -> EOL_registry_mounts
+ * [new tag]             Z-cygwin_daemon_merge-new_HEAD                 -> Z-cygwin_daemon_merge-new_HEAD
+ * [new tag]             Z-cygwin_daemon_merge_HEAD                     -> Z-cygwin_daemon_merge_HEAD
+ * [new tag]             after-mmap-privanon-noreserve                  -> after-mmap-privanon-noreserve
+ * [new tag]             after-mmap-revamp                              -> after-mmap-revamp
+ * [new tag]             arc-20081103-branchpoint                       -> arc-20081103-branchpoint
+ * [new tag]             arc-insight_6_8-branchpoint                    -> arc-insight_6_8-branchpoint
+ * [new tag]             arc-sim-20090309                               -> arc-sim-20090309
+ * [new tag]             before-mmap-revamp                             -> before-mmap-revamp
+ * [new tag]             binu_ss_19990502                               -> binu_ss_19990502
+ * [new tag]             binu_ss_19990602                               -> binu_ss_19990602
+ * [new tag]             binu_ss_19990721                               -> binu_ss_19990721
+ * [new tag]             binutils-2_10                                  -> binutils-2_10
+ * [new tag]             binutils-2_10-branchpoint                      -> binutils-2_10-branchpoint
+ * [new tag]             binutils-2_10_1                                -> binutils-2_10_1
+ * [new tag]             binutils-2_11                                  -> binutils-2_11
+ * [new tag]             binutils-2_11_1                                -> binutils-2_11_1
+ * [new tag]             binutils-2_11_2                                -> binutils-2_11_2
+ * [new tag]             binutils-2_12                                  -> binutils-2_12
+ * [new tag]             binutils-2_12-branchpoint                      -> binutils-2_12-branchpoint
+ * [new tag]             binutils-2_12_1                                -> binutils-2_12_1
+ * [new tag]             binutils-2_13                                  -> binutils-2_13
+ * [new tag]             binutils-2_13-branchpoint                      -> binutils-2_13-branchpoint
+ * [new tag]             binutils-2_13_1                                -> binutils-2_13_1
+ * [new tag]             binutils-2_13_2                                -> binutils-2_13_2
+ * [new tag]             binutils-2_13_2_1                              -> binutils-2_13_2_1
+ * [new tag]             binutils-2_14                                  -> binutils-2_14
+ * [new tag]             binutils-2_14-branchpoint                      -> binutils-2_14-branchpoint
+ * [new tag]             binutils-2_15                                  -> binutils-2_15
+ * [new tag]             binutils-2_15-branchpoint                      -> binutils-2_15-branchpoint
+ * [new tag]             binutils-2_16                                  -> binutils-2_16
+ * [new tag]             binutils-2_16-branchpoint                      -> binutils-2_16-branchpoint
+ * [new tag]             binutils-2_16_1                                -> binutils-2_16_1
+ * [new tag]             binutils-2_17                                  -> binutils-2_17
+ * [new tag]             binutils-2_17-branchpoint                      -> binutils-2_17-branchpoint
+ * [new tag]             binutils-2_18                                  -> binutils-2_18
+ * [new tag]             binutils-2_18-branchpoint                      -> binutils-2_18-branchpoint
+ * [new tag]             binutils-2_19                                  -> binutils-2_19
+ * [new tag]             binutils-2_19-branchpoint                      -> binutils-2_19-branchpoint
+ * [new tag]             binutils-2_19_1                                -> binutils-2_19_1
+ * [new tag]             binutils-2_20                                  -> binutils-2_20
+ * [new tag]             binutils-2_20-branchpoint                      -> binutils-2_20-branchpoint
+ * [new tag]             binutils-2_20_1                                -> binutils-2_20_1
+ * [new tag]             binutils-2_21                                  -> binutils-2_21
+ * [new tag]             binutils-2_21-branchpoint                      -> binutils-2_21-branchpoint
+ * [new tag]             binutils-2_21_1                                -> binutils-2_21_1
+ * [new tag]             binutils-2_22                                  -> binutils-2_22
+ * [new tag]             binutils-2_22-branchpoint                      -> binutils-2_22-branchpoint
+ * [new tag]             binutils-2_23                                  -> binutils-2_23
+ * [new tag]             binutils-2_23-branchpoint                      -> binutils-2_23-branchpoint
+ * [new tag]             binutils-2_23_1                                -> binutils-2_23_1
+ * [new tag]             binutils-2_23_2                                -> binutils-2_23_2
+ * [new tag]             binutils-2_24-branchpoint                      -> binutils-2_24-branchpoint
+ * [new tag]             binutils-arc-20080908-branchpoint              -> binutils-arc-20080908-branchpoint
+ * [new tag]             binutils-arc-20081103-branchpoint              -> binutils-arc-20081103-branchpoint
+ * [new tag]             binutils-csl-2_17-branchpoint                  -> binutils-csl-2_17-branchpoint
+ * [new tag]             binutils-csl-arm-2005q1-branchpoint            -> binutils-csl-arm-2005q1-branchpoint
+ * [new tag]             binutils-csl-arm-2005q1a                       -> binutils-csl-arm-2005q1a
+ * [new tag]             binutils-csl-arm-2005q1b                       -> binutils-csl-arm-2005q1b
+ * [new tag]             binutils-csl-arm-2006q1-6                      -> binutils-csl-arm-2006q1-6
+ * [new tag]             binutils-csl-arm-2006q3-19                     -> binutils-csl-arm-2006q3-19
+ * [new tag]             binutils-csl-arm-2006q3-21                     -> binutils-csl-arm-2006q3-21
+ * [new tag]             binutils-csl-arm-2006q3-26                     -> binutils-csl-arm-2006q3-26
+ * [new tag]             binutils-csl-arm-2006q3-27                     -> binutils-csl-arm-2006q3-27
+ * [new tag]             binutils-csl-coldfire-4_1-10                   -> binutils-csl-coldfire-4_1-10
+ * [new tag]             binutils-csl-coldfire-4_1-11                   -> binutils-csl-coldfire-4_1-11
+ * [new tag]             binutils-csl-coldfire-4_1-28                   -> binutils-csl-coldfire-4_1-28
+ * [new tag]             binutils-csl-coldfire-4_1-30                   -> binutils-csl-coldfire-4_1-30
+ * [new tag]             binutils-csl-coldfire-4_1-32                   -> binutils-csl-coldfire-4_1-32
+ * [new tag]             binutils-csl-gxxpro-3_4-branchpoint            -> binutils-csl-gxxpro-3_4-branchpoint
+ * [new tag]             binutils-csl-innovasic-fido-3_4_4-33           -> binutils-csl-innovasic-fido-3_4_4-33
+ * [new tag]             binutils-csl-morpho-4_1-4                      -> binutils-csl-morpho-4_1-4
+ * [new tag]             binutils-csl-palmsource-arm-prelinker-1_0-1    -> binutils-csl-palmsource-arm-prelinker-1_0-1
+ * [new tag]             binutils-csl-renesas-4_1-6                     -> binutils-csl-renesas-4_1-6
+ * [new tag]             binutils-csl-renesas-4_1-7                     -> binutils-csl-renesas-4_1-7
+ * [new tag]             binutils-csl-renesas-4_1-8                     -> binutils-csl-renesas-4_1-8
+ * [new tag]             binutils-csl-renesas-4_1-9                     -> binutils-csl-renesas-4_1-9
+ * [new tag]             binutils-csl-sourcerygxx-3_4_4-17              -> binutils-csl-sourcerygxx-3_4_4-17
+ * [new tag]             binutils-csl-sourcerygxx-3_4_4-19              -> binutils-csl-sourcerygxx-3_4_4-19
+ * [new tag]             binutils-csl-sourcerygxx-3_4_4-21              -> binutils-csl-sourcerygxx-3_4_4-21
+ * [new tag]             binutils-csl-sourcerygxx-3_4_4-25              -> binutils-csl-sourcerygxx-3_4_4-25
+ * [new tag]             binutils-csl-sourcerygxx-3_4_4-32              -> binutils-csl-sourcerygxx-3_4_4-32
+ * [new tag]             binutils-csl-sourcerygxx-4_1-12                -> binutils-csl-sourcerygxx-4_1-12
+ * [new tag]             binutils-csl-sourcerygxx-4_1-13                -> binutils-csl-sourcerygxx-4_1-13
+ * [new tag]             binutils-csl-sourcerygxx-4_1-14                -> binutils-csl-sourcerygxx-4_1-14
+ * [new tag]             binutils-csl-sourcerygxx-4_1-15                -> binutils-csl-sourcerygxx-4_1-15
+ * [new tag]             binutils-csl-sourcerygxx-4_1-17                -> binutils-csl-sourcerygxx-4_1-17
+ * [new tag]             binutils-csl-sourcerygxx-4_1-18                -> binutils-csl-sourcerygxx-4_1-18
+ * [new tag]             binutils-csl-sourcerygxx-4_1-19                -> binutils-csl-sourcerygxx-4_1-19
+ * [new tag]             binutils-csl-sourcerygxx-4_1-20                -> binutils-csl-sourcerygxx-4_1-20
+ * [new tag]             binutils-csl-sourcerygxx-4_1-21                -> binutils-csl-sourcerygxx-4_1-21
+ * [new tag]             binutils-csl-sourcerygxx-4_1-22                -> binutils-csl-sourcerygxx-4_1-22
+ * [new tag]             binutils-csl-sourcerygxx-4_1-23                -> binutils-csl-sourcerygxx-4_1-23
+ * [new tag]             binutils-csl-sourcerygxx-4_1-24                -> binutils-csl-sourcerygxx-4_1-24
+ * [new tag]             binutils-csl-sourcerygxx-4_1-25                -> binutils-csl-sourcerygxx-4_1-25
+ * [new tag]             binutils-csl-sourcerygxx-4_1-26                -> binutils-csl-sourcerygxx-4_1-26
+ * [new tag]             binutils-csl-sourcerygxx-4_1-27                -> binutils-csl-sourcerygxx-4_1-27
+ * [new tag]             binutils-csl-sourcerygxx-4_1-28                -> binutils-csl-sourcerygxx-4_1-28
+ * [new tag]             binutils-csl-sourcerygxx-4_1-29                -> binutils-csl-sourcerygxx-4_1-29
+ * [new tag]             binutils-csl-sourcerygxx-4_1-30                -> binutils-csl-sourcerygxx-4_1-30
+ * [new tag]             binutils-csl-sourcerygxx-4_1-32                -> binutils-csl-sourcerygxx-4_1-32
+ * [new tag]             binutils-csl-sourcerygxx-4_1-4                 -> binutils-csl-sourcerygxx-4_1-4
+ * [new tag]             binutils-csl-sourcerygxx-4_1-5                 -> binutils-csl-sourcerygxx-4_1-5
+ * [new tag]             binutils-csl-sourcerygxx-4_1-6                 -> binutils-csl-sourcerygxx-4_1-6
+ * [new tag]             binutils-csl-sourcerygxx-4_1-7                 -> binutils-csl-sourcerygxx-4_1-7
+ * [new tag]             binutils-csl-sourcerygxx-4_1-8                 -> binutils-csl-sourcerygxx-4_1-8
+ * [new tag]             binutils-csl-sourcerygxx-4_1-9                 -> binutils-csl-sourcerygxx-4_1-9
+ * [new tag]             binutils-csl-wrs-linux-3_4_4-20                -> binutils-csl-wrs-linux-3_4_4-20
+ * [new tag]             binutils-csl-wrs-linux-3_4_4-21                -> binutils-csl-wrs-linux-3_4_4-21
+ * [new tag]             binutils-csl-wrs-linux-3_4_4-22                -> binutils-csl-wrs-linux-3_4_4-22
+ * [new tag]             binutils-csl-wrs-linux-3_4_4-23                -> binutils-csl-wrs-linux-3_4_4-23
+ * [new tag]             binutils-csl-wrs-linux-3_4_4-24                -> binutils-csl-wrs-linux-3_4_4-24
+ * [new tag]             binutils_latest_snapshot                       -> binutils_latest_snapshot
+ * [new tag]             cagney-unwind-20030108-branchpoint             -> cagney-unwind-20030108-branchpoint
+ * [new tag]             cagney_bfdfile-20040213-branchpoint            -> cagney_bfdfile-20040213-branchpoint
+ * [new tag]             cagney_bigcore-20040122-branchpoint            -> cagney_bigcore-20040122-branchpoint
+ * [new tag]             cagney_convert-20030606-branchpoint            -> cagney_convert-20030606-branchpoint
+ * [new tag]             cagney_fileio-20030521-branchpoint             -> cagney_fileio-20030521-branchpoint
+ * [new tag]             cagney_frameaddr-20030403-branchpoint          -> cagney_frameaddr-20030403-branchpoint
+ * [new tag]             cagney_frameaddr-20030409-mergepoint           -> cagney_frameaddr-20030409-mergepoint
+ * [new tag]             cagney_framebase-20030326-branchpoint          -> cagney_framebase-20030326-branchpoint
+ * [new tag]             cagney_framebase-20030330-mergepoint           -> cagney_framebase-20030330-mergepoint
+ * [new tag]             cagney_lazyid-20030317-branchpoint             -> cagney_lazyid-20030317-branchpoint
+ * [new tag]             cagney_offbyone-20030303-branchpoint           -> cagney_offbyone-20030303-branchpoint
+ * [new tag]             cagney_regbuf-20020515-branchpoint             -> cagney_regbuf-20020515-branchpoint
+ * [new tag]             cagney_sysregs-20020825-branchpoint            -> cagney_sysregs-20020825-branchpoint
+ * [new tag]             cagney_tramp-20040309-branchpoint              -> cagney_tramp-20040309-branchpoint
+ * [new tag]             cagney_tramp-20040321-mergepoint               -> cagney_tramp-20040321-mergepoint
+ * [new tag]             cagney_writestrings-20030508-branchpoint       -> cagney_writestrings-20030508-branchpoint
+ * [new tag]             cagney_x86i386-20030821-branchpoint            -> cagney_x86i386-20030821-branchpoint
+ * [new tag]             carlton-dictionary-20031111-merge              -> carlton-dictionary-20031111-merge
+ * [new tag]             carlton_dictionary-20020920-branchpoint        -> carlton_dictionary-20020920-branchpoint
+ * [new tag]             carlton_dictionary-20020927-merge              -> carlton_dictionary-20020927-merge
+ * [new tag]             carlton_dictionary-20021011-merge              -> carlton_dictionary-20021011-merge
+ * [new tag]             carlton_dictionary-20021025-merge              -> carlton_dictionary-20021025-merge
+ * [new tag]             carlton_dictionary-20021115-merge              -> carlton_dictionary-20021115-merge
+ * [new tag]             carlton_dictionary-20021223-merge              -> carlton_dictionary-20021223-merge
+ * [new tag]             carlton_dictionary-20030207-merge              -> carlton_dictionary-20030207-merge
+ * [new tag]             carlton_dictionary-20030305-merge              -> carlton_dictionary-20030305-merge
+ * [new tag]             carlton_dictionary-20030416-merge              -> carlton_dictionary-20030416-merge
+ * [new tag]             carlton_dictionary-20030430-merge              -> carlton_dictionary-20030430-merge
+ * [new tag]             carlton_dictionary-20030523-merge              -> carlton_dictionary-20030523-merge
+ * [new tag]             carlton_dictionary-20030627-merge              -> carlton_dictionary-20030627-merge
+ * [new tag]             carlton_dictionary-20030805-merge              -> carlton_dictionary-20030805-merge
+ * [new tag]             carlton_dictionary-20030917-merge              -> carlton_dictionary-20030917-merge
+ * [new tag]             carlton_dictionary-20031215-merge              -> carlton_dictionary-20031215-merge
+ * [new tag]             carlton_dictionary-20040126-merge              -> carlton_dictionary-20040126-merge
+ * [new tag]             cgen-1_1-branchpoint                           -> cgen-1_1-branchpoint
+ * [new tag]             cgen-snapshot-20071001                         -> cgen-snapshot-20071001
+ * [new tag]             cgen-snapshot-20071101                         -> cgen-snapshot-20071101
+ * [new tag]             cgen-snapshot-20071201                         -> cgen-snapshot-20071201
+ * [new tag]             cgen-snapshot-20080101                         -> cgen-snapshot-20080101
+ * [new tag]             cgen-snapshot-20080201                         -> cgen-snapshot-20080201
+ * [new tag]             cgen-snapshot-20080301                         -> cgen-snapshot-20080301
+ * [new tag]             cgen-snapshot-20080401                         -> cgen-snapshot-20080401
+ * [new tag]             cgen-snapshot-20080501                         -> cgen-snapshot-20080501
+ * [new tag]             cgen-snapshot-20080601                         -> cgen-snapshot-20080601
+ * [new tag]             cgen-snapshot-20080701                         -> cgen-snapshot-20080701
+ * [new tag]             cgen-snapshot-20080801                         -> cgen-snapshot-20080801
+ * [new tag]             cgen-snapshot-20080901                         -> cgen-snapshot-20080901
+ * [new tag]             cgen-snapshot-20081001                         -> cgen-snapshot-20081001
+ * [new tag]             cgen-snapshot-20081101                         -> cgen-snapshot-20081101
+ * [new tag]             cgen-snapshot-20081201                         -> cgen-snapshot-20081201
+ * [new tag]             cgen-snapshot-20090101                         -> cgen-snapshot-20090101
+ * [new tag]             cgen-snapshot-20090201                         -> cgen-snapshot-20090201
+ * [new tag]             cgen-snapshot-20090301                         -> cgen-snapshot-20090301
+ * [new tag]             cgen-snapshot-20090401                         -> cgen-snapshot-20090401
+ * [new tag]             cgen-snapshot-20090501                         -> cgen-snapshot-20090501
+ * [new tag]             cgen-snapshot-20090601                         -> cgen-snapshot-20090601
+ * [new tag]             cgen-snapshot-20090701                         -> cgen-snapshot-20090701
+ * [new tag]             cgen-snapshot-20090801                         -> cgen-snapshot-20090801
+ * [new tag]             cgen-snapshot-20090901                         -> cgen-snapshot-20090901
+ * [new tag]             cgen-snapshot-20091001                         -> cgen-snapshot-20091001
+ * [new tag]             cgen-snapshot-20091101                         -> cgen-snapshot-20091101
+ * [new tag]             cgen-snapshot-20091201                         -> cgen-snapshot-20091201
+ * [new tag]             cgen-snapshot-20100101                         -> cgen-snapshot-20100101
+ * [new tag]             cgen-snapshot-20100201                         -> cgen-snapshot-20100201
+ * [new tag]             cgen-snapshot-20100301                         -> cgen-snapshot-20100301
+ * [new tag]             cgen-snapshot-20100401                         -> cgen-snapshot-20100401
+ * [new tag]             cgen-snapshot-20100501                         -> cgen-snapshot-20100501
+ * [new tag]             cgen-snapshot-20100601                         -> cgen-snapshot-20100601
+ * [new tag]             cgen-snapshot-20100701                         -> cgen-snapshot-20100701
+ * [new tag]             cgen-snapshot-20100801                         -> cgen-snapshot-20100801
+ * [new tag]             cgen-snapshot-20100901                         -> cgen-snapshot-20100901
+ * [new tag]             cgen-snapshot-20101001                         -> cgen-snapshot-20101001
+ * [new tag]             cgen-snapshot-20101101                         -> cgen-snapshot-20101101
+ * [new tag]             cgen-snapshot-20101201                         -> cgen-snapshot-20101201
+ * [new tag]             cgen-snapshot-20110101                         -> cgen-snapshot-20110101
+ * [new tag]             cgen-snapshot-20110201                         -> cgen-snapshot-20110201
+ * [new tag]             cgen-snapshot-20110301                         -> cgen-snapshot-20110301
+ * [new tag]             cgen-snapshot-20110401                         -> cgen-snapshot-20110401
+ * [new tag]             cgen-snapshot-20110501                         -> cgen-snapshot-20110501
+ * [new tag]             cgen-snapshot-20110601                         -> cgen-snapshot-20110601
+ * [new tag]             cgen-snapshot-20110701                         -> cgen-snapshot-20110701
+ * [new tag]             cgen-snapshot-20110801                         -> cgen-snapshot-20110801
+ * [new tag]             cgen-snapshot-20110901                         -> cgen-snapshot-20110901
+ * [new tag]             cgen-snapshot-20111001                         -> cgen-snapshot-20111001
+ * [new tag]             cgen-snapshot-20111101                         -> cgen-snapshot-20111101
+ * [new tag]             cgen-snapshot-20111201                         -> cgen-snapshot-20111201
+ * [new tag]             cgen-snapshot-20120101                         -> cgen-snapshot-20120101
+ * [new tag]             cgen-snapshot-20120201                         -> cgen-snapshot-20120201
+ * [new tag]             cgen-snapshot-20120301                         -> cgen-snapshot-20120301
+ * [new tag]             cgen-snapshot-20120401                         -> cgen-snapshot-20120401
+ * [new tag]             cgen-snapshot-20120501                         -> cgen-snapshot-20120501
+ * [new tag]             cgen-snapshot-20120601                         -> cgen-snapshot-20120601
+ * [new tag]             cgen-snapshot-20120701                         -> cgen-snapshot-20120701
+ * [new tag]             cgen-snapshot-20120801                         -> cgen-snapshot-20120801
+ * [new tag]             cgen-snapshot-20120901                         -> cgen-snapshot-20120901
+ * [new tag]             cgen-snapshot-20121001                         -> cgen-snapshot-20121001
+ * [new tag]             cgen-snapshot-20121101                         -> cgen-snapshot-20121101
+ * [new tag]             cgen-snapshot-20121201                         -> cgen-snapshot-20121201
+ * [new tag]             cgen-snapshot-20130101                         -> cgen-snapshot-20130101
+ * [new tag]             cgen-snapshot-20130201                         -> cgen-snapshot-20130201
+ * [new tag]             cgen-snapshot-20130301                         -> cgen-snapshot-20130301
+ * [new tag]             cgen-snapshot-20130401                         -> cgen-snapshot-20130401
+ * [new tag]             cgen-snapshot-20130501                         -> cgen-snapshot-20130501
+ * [new tag]             cgen-snapshot-20130601                         -> cgen-snapshot-20130601
+ * [new tag]             cgen-snapshot-20130701                         -> cgen-snapshot-20130701
+ * [new tag]             cgen-snapshot-20130801                         -> cgen-snapshot-20130801
+ * [new tag]             cgen-snapshot-20130901                         -> cgen-snapshot-20130901
+ * [new tag]             cgen-snapshot-20131001                         -> cgen-snapshot-20131001
+ * [new tag]             cgen-snapshot-20131101                         -> cgen-snapshot-20131101
+ * [new tag]             cgen-snapshot-20131201                         -> cgen-snapshot-20131201
+ * [new tag]             cgen-snapshot-20140101                         -> cgen-snapshot-20140101
+ * [new tag]             cgen-snapshot-20140201                         -> cgen-snapshot-20140201
+ * [new tag]             cgen-snapshot-20140301                         -> cgen-snapshot-20140301
+ * [new tag]             cgen-snapshot-20140401                         -> cgen-snapshot-20140401
+ * [new tag]             cgen-snapshot-20140501                         -> cgen-snapshot-20140501
+ * [new tag]             cgen-snapshot-20140601                         -> cgen-snapshot-20140601
+ * [new tag]             cgen-snapshot-20140701                         -> cgen-snapshot-20140701
+ * [new tag]             cgen-snapshot-20140801                         -> cgen-snapshot-20140801
+ * [new tag]             cgen-snapshot-20140901                         -> cgen-snapshot-20140901
+ * [new tag]             cgen-snapshot-20141001                         -> cgen-snapshot-20141001
+ * [new tag]             cgen-snapshot-20141101                         -> cgen-snapshot-20141101
+ * [new tag]             cgen-snapshot-20141201                         -> cgen-snapshot-20141201
+ * [new tag]             cgen-snapshot-20150101                         -> cgen-snapshot-20150101
+ * [new tag]             cgen-snapshot-20150201                         -> cgen-snapshot-20150201
+ * [new tag]             cgen-snapshot-20150301                         -> cgen-snapshot-20150301
+ * [new tag]             cgf-more-exit-sync                             -> cgf-more-exit-sync
+ * [new tag]             corinna-01                                     -> corinna-01
+ * [new tag]             cr-0x99                                        -> cr-0x99
+ * [new tag]             csl-arm-2003-q4                                -> csl-arm-2003-q4
+ * [new tag]             csl-arm-2004-q1                                -> csl-arm-2004-q1
+ * [new tag]             csl-arm-2004-q1a                               -> csl-arm-2004-q1a
+ * [new tag]             csl-arm-2004-q3                                -> csl-arm-2004-q3
+ * [new tag]             csl-arm-2004-q3d                               -> csl-arm-2004-q3d
+ * [new tag]             csl-arm-20050325-branchpoint                   -> csl-arm-20050325-branchpoint
+ * [new tag]             cygnus_cvs_20020108_pre                        -> cygnus_cvs_20020108_pre
+ * [new tag]             cygwin-1-1-5                                   -> cygwin-1-1-5
+ * [new tag]             cygwin-1-1-6                                   -> cygwin-1-1-6
+ * [new tag]             cygwin-1-1-7                                   -> cygwin-1-1-7
+ * [new tag]             cygwin-1-1-8                                   -> cygwin-1-1-8
+ * [new tag]             cygwin-1-3-19-1-branchpoint                    -> cygwin-1-3-19-1-branchpoint
+ * [new tag]             cygwin-1_1_1                                   -> cygwin-1_1_1
+ * [new tag]             cygwin-1_7_1-release                           -> cygwin-1_7_1-release
+ * [new tag]             cygwin-1_7_10-release                          -> cygwin-1_7_10-release
+ * [new tag]             cygwin-1_7_11-release                          -> cygwin-1_7_11-release
+ * [new tag]             cygwin-1_7_12-release                          -> cygwin-1_7_12-release
+ * [new tag]             cygwin-1_7_14-release                          -> cygwin-1_7_14-release
+ * [new tag]             cygwin-1_7_14_2-release                        -> cygwin-1_7_14_2-release
+ * [new tag]             cygwin-1_7_15-release                          -> cygwin-1_7_15-release
+ * [new tag]             cygwin-1_7_16-release                          -> cygwin-1_7_16-release
+ * [new tag]             cygwin-1_7_17-release                          -> cygwin-1_7_17-release
+ * [new tag]             cygwin-1_7_18-release                          -> cygwin-1_7_18-release
+ * [new tag]             cygwin-1_7_19-release                          -> cygwin-1_7_19-release
+ * [new tag]             cygwin-1_7_2-release                           -> cygwin-1_7_2-release
+ * [new tag]             cygwin-1_7_20-release                          -> cygwin-1_7_20-release
+ * [new tag]             cygwin-1_7_21-release                          -> cygwin-1_7_21-release
+ * [new tag]             cygwin-1_7_22-release                          -> cygwin-1_7_22-release
+ * [new tag]             cygwin-1_7_23-release                          -> cygwin-1_7_23-release
+ * [new tag]             cygwin-1_7_24-release                          -> cygwin-1_7_24-release
+ * [new tag]             cygwin-1_7_25-release                          -> cygwin-1_7_25-release
+ * [new tag]             cygwin-1_7_26-release                          -> cygwin-1_7_26-release
+ * [new tag]             cygwin-1_7_27-release                          -> cygwin-1_7_27-release
+ * [new tag]             cygwin-1_7_28-release                          -> cygwin-1_7_28-release
+ * [new tag]             cygwin-1_7_29-release                          -> cygwin-1_7_29-release
+ * [new tag]             cygwin-1_7_3-release                           -> cygwin-1_7_3-release
+ * [new tag]             cygwin-1_7_30-release                          -> cygwin-1_7_30-release
+ * [new tag]             cygwin-1_7_31-release                          -> cygwin-1_7_31-release
+ * [new tag]             cygwin-1_7_32-release                          -> cygwin-1_7_32-release
+ * [new tag]             cygwin-1_7_33-release                          -> cygwin-1_7_33-release
+ * [new tag]             cygwin-1_7_34-release                          -> cygwin-1_7_34-release
+ * [new tag]             cygwin-1_7_35-release                          -> cygwin-1_7_35-release
+ * [new tag]             cygwin-1_7_4-release                           -> cygwin-1_7_4-release
+ * [new tag]             cygwin-1_7_5-release                           -> cygwin-1_7_5-release
+ * [new tag]             cygwin-1_7_7-release                           -> cygwin-1_7_7-release
+ * [new tag]             cygwin-1_7_8-release                           -> cygwin-1_7_8-release
+ * [new tag]             cygwin-1_7_9-release                           -> cygwin-1_7_9-release
+ * [new tag]             cygwin-2_0_0-release                           -> cygwin-2_0_0-release
+ * [new tag]             cygwin-2_0_1-release                           -> cygwin-2_0_1-release
+ * [new tag]             cygwin-2_0_2-release                           -> cygwin-2_0_2-release
+ * [new tag]             cygwin-2_0_3-release                           -> cygwin-2_0_3-release
+ * [new tag]             cygwin-2_0_4-release                           -> cygwin-2_0_4-release
+ * [new tag]             cygwin-2_10_0-release                          -> cygwin-2_10_0-release
+ * [new tag]             cygwin-2_11_0-release                          -> cygwin-2_11_0-release
+ * [new tag]             cygwin-2_11_1-release                          -> cygwin-2_11_1-release
+ * [new tag]             cygwin-2_11_2-release                          -> cygwin-2_11_2-release
+ * [new tag]             cygwin-2_1_0-release                           -> cygwin-2_1_0-release
+ * [new tag]             cygwin-2_2_0-release                           -> cygwin-2_2_0-release
+ * [new tag]             cygwin-2_2_1-release                           -> cygwin-2_2_1-release
+ * [new tag]             cygwin-2_3_0-release                           -> cygwin-2_3_0-release
+ * [new tag]             cygwin-2_3_1-relase                            -> cygwin-2_3_1-relase
+ * [new tag]             cygwin-2_3_1-release                           -> cygwin-2_3_1-release
+ * [new tag]             cygwin-2_4_0-release                           -> cygwin-2_4_0-release
+ * [new tag]             cygwin-2_4_1-release                           -> cygwin-2_4_1-release
+ * [new tag]             cygwin-2_5_0-release                           -> cygwin-2_5_0-release
+ * [new tag]             cygwin-2_5_1-release                           -> cygwin-2_5_1-release
+ * [new tag]             cygwin-2_5_2-release                           -> cygwin-2_5_2-release
+ * [new tag]             cygwin-2_6_0-release                           -> cygwin-2_6_0-release
+ * [new tag]             cygwin-2_6_1-release                           -> cygwin-2_6_1-release
+ * [new tag]             cygwin-2_7_0-release                           -> cygwin-2_7_0-release
+ * [new tag]             cygwin-2_8_0-release                           -> cygwin-2_8_0-release
+ * [new tag]             cygwin-2_8_1-release                           -> cygwin-2_8_1-release
+ * [new tag]             cygwin-2_8_2-release                           -> cygwin-2_8_2-release
+ * [new tag]             cygwin-2_9_0-release                           -> cygwin-2_9_0-release
+ * [new tag]             cygwin-3_0_0-release                           -> cygwin-3_0_0-release
+ * [new tag]             cygwin-3_0_1-release                           -> cygwin-3_0_1-release
+ * [new tag]             cygwin-3_0_2-release                           -> cygwin-3_0_2-release
+ * [new tag]             cygwin-3_0_3-release                           -> cygwin-3_0_3-release
+ * [new tag]             cygwin-3_0_4-release                           -> cygwin-3_0_4-release
+ * [new tag]             cygwin-3_0_5-release                           -> cygwin-3_0_5-release
+ * [new tag]             cygwin-3_0_6-release                           -> cygwin-3_0_6-release
+ * [new tag]             cygwin-3_0_7-release                           -> cygwin-3_0_7-release
+ * [new tag]             cygwin-3_1_0-release                           -> cygwin-3_1_0-release
+ * [new tag]             cygwin-3_1_1-release                           -> cygwin-3_1_1-release
+ * [new tag]             cygwin-3_1_2-release                           -> cygwin-3_1_2-release
+ * [new tag]             cygwin-3_1_3-release                           -> cygwin-3_1_3-release
+ * [new tag]             cygwin-3_1_4-release                           -> cygwin-3_1_4-release
+ * [new tag]             cygwin-64bit-postmerge                         -> cygwin-64bit-postmerge
+ * [new tag]             cygwin-64bit-premerge                          -> cygwin-64bit-premerge
+ * [new tag]             cygwin-pre-user-db                             -> cygwin-pre-user-db
+ * [new tag]             cygwin_daemon_merge_HEAD                       -> cygwin_daemon_merge_HEAD
+ * [new tag]             debian-2.10.0-1                                -> debian-2.10.0-1
+ * [new tag]             dje-cgen-play1-branchpoint                     -> dje-cgen-play1-branchpoint
+ * [new tag]             drop_9x_support_start                          -> drop_9x_support_start
+ * [new tag]             drow-cplus-branchpoint                         -> drow-cplus-branchpoint
+ * [new tag]             drow-cplus-merge-20021020                      -> drow-cplus-merge-20021020
+ * [new tag]             drow-cplus-merge-20021025                      -> drow-cplus-merge-20021025
+ * [new tag]             drow-cplus-merge-20031214                      -> drow-cplus-merge-20031214
+ * [new tag]             drow-cplus-merge-20031220                      -> drow-cplus-merge-20031220
+ * [new tag]             drow-cplus-merge-20031224                      -> drow-cplus-merge-20031224
+ * [new tag]             drow-cplus-merge-20040113                      -> drow-cplus-merge-20040113
+ * [new tag]             drow-cplus-merge-20040208                      -> drow-cplus-merge-20040208
+ * [new tag]             drow-reverse-20070409-branchpoint              -> drow-reverse-20070409-branchpoint
+ * [new tag]             drow_intercu-20040221-branchpoint              -> drow_intercu-20040221-branchpoint
+ * [new tag]             drow_intercu-merge-20040327                    -> drow_intercu-merge-20040327
+ * [new tag]             drow_intercu-merge-20040402                    -> drow_intercu-merge-20040402
+ * [new tag]             drow_intercu-merge-20040915                    -> drow_intercu-merge-20040915
+ * [new tag]             drow_intercu-merge-20040921                    -> drow_intercu-merge-20040921
+ * [new tag]             egcs_20000222                                  -> egcs_20000222
+ * [new tag]             ezannoni_pie-20030916-branchpoint              -> ezannoni_pie-20030916-branchpoint
+ * [new tag]             ezannoni_pie-20040323-branchpoint              -> ezannoni_pie-20040323-branchpoint
+ * [new tag]             gdb-csl-20060226-branch-local-2                -> gdb-csl-20060226-branch-local-2
+ * [new tag]             gdb-csl-20060226-branch-merge-to-csl-local-1   -> gdb-csl-20060226-branch-merge-to-csl-local-1
+ * [new tag]             gdb-csl-20060226-branch-merge-to-csl-symbian-1 -> gdb-csl-20060226-branch-merge-to-csl-symbian-1
+ * [new tag]             gdb-csl-20060226-branchpoint                   -> gdb-csl-20060226-branchpoint
+ * [new tag]             gdb-csl-arm-20050325-2005-q1a                  -> gdb-csl-arm-20050325-2005-q1a
+ * [new tag]             gdb-csl-arm-20050325-2005-q1b                  -> gdb-csl-arm-20050325-2005-q1b
+ * [new tag]             gdb-csl-arm-20051020-branchpoint               -> gdb-csl-arm-20051020-branchpoint
+ * [new tag]             gdb-csl-arm-2006q1-6                           -> gdb-csl-arm-2006q1-6
+ * [new tag]             gdb-csl-available-20060303-branchpoint         -> gdb-csl-available-20060303-branchpoint
+ * [new tag]             gdb-csl-coldfire-4_1-10                        -> gdb-csl-coldfire-4_1-10
+ * [new tag]             gdb-csl-coldfire-4_1-11                        -> gdb-csl-coldfire-4_1-11
+ * [new tag]             gdb-csl-gxxpro-6_3-branchpoint                 -> gdb-csl-gxxpro-6_3-branchpoint
+ * [new tag]             gdb-csl-morpho-4_1-4                           -> gdb-csl-morpho-4_1-4
+ * [new tag]             gdb-csl-sourcerygxx-3_4_4-17                   -> gdb-csl-sourcerygxx-3_4_4-17
+ * [new tag]             gdb-csl-sourcerygxx-3_4_4-19                   -> gdb-csl-sourcerygxx-3_4_4-19
+ * [new tag]             gdb-csl-sourcerygxx-3_4_4-21                   -> gdb-csl-sourcerygxx-3_4_4-21
+ * [new tag]             gdb-csl-sourcerygxx-3_4_4-25                   -> gdb-csl-sourcerygxx-3_4_4-25
+ * [new tag]             gdb-csl-sourcerygxx-4_1-12                     -> gdb-csl-sourcerygxx-4_1-12
+ * [new tag]             gdb-csl-sourcerygxx-4_1-13                     -> gdb-csl-sourcerygxx-4_1-13
+ * [new tag]             gdb-csl-sourcerygxx-4_1-14                     -> gdb-csl-sourcerygxx-4_1-14
+ * [new tag]             gdb-csl-sourcerygxx-4_1-17                     -> gdb-csl-sourcerygxx-4_1-17
+ * [new tag]             gdb-csl-sourcerygxx-4_1-4                      -> gdb-csl-sourcerygxx-4_1-4
+ * [new tag]             gdb-csl-sourcerygxx-4_1-5                      -> gdb-csl-sourcerygxx-4_1-5
+ * [new tag]             gdb-csl-sourcerygxx-4_1-6                      -> gdb-csl-sourcerygxx-4_1-6
+ * [new tag]             gdb-csl-sourcerygxx-4_1-7                      -> gdb-csl-sourcerygxx-4_1-7
+ * [new tag]             gdb-csl-sourcerygxx-4_1-8                      -> gdb-csl-sourcerygxx-4_1-8
+ * [new tag]             gdb-csl-sourcerygxx-4_1-9                      -> gdb-csl-sourcerygxx-4_1-9
+ * [new tag]             gdb-csl-symbian-20060226-branchpoint           -> gdb-csl-symbian-20060226-branchpoint
+ * [new tag]             gdb-csl-symbian-6_4_50_20060226-10             -> gdb-csl-symbian-6_4_50_20060226-10
+ * [new tag]             gdb-csl-symbian-6_4_50_20060226-11             -> gdb-csl-symbian-6_4_50_20060226-11
+ * [new tag]             gdb-csl-symbian-6_4_50_20060226-12             -> gdb-csl-symbian-6_4_50_20060226-12
+ * [new tag]             gdb-csl-symbian-6_4_50_20060226-8              -> gdb-csl-symbian-6_4_50_20060226-8
+ * [new tag]             gdb-csl-symbian-6_4_50_20060226-9              -> gdb-csl-symbian-6_4_50_20060226-9
+ * [new tag]             gdb-premipsmulti-2000-06-06-branchpoint        -> gdb-premipsmulti-2000-06-06-branchpoint
+ * [new tag]             gdb_4_18_2-2000-05-18-release                  -> gdb_4_18_2-2000-05-18-release
+ * [new tag]             gdb_4_95_0-2000-04-27-snapshot                 -> gdb_4_95_0-2000-04-27-snapshot
+ * [new tag]             gdb_4_95_1-2000-05-11-snapshot                 -> gdb_4_95_1-2000-05-11-snapshot
+ * [new tag]             gdb_5_0-2000-04-10-branchpoint                 -> gdb_5_0-2000-04-10-branchpoint
+ * [new tag]             gdb_5_0-2000-05-19-release                     -> gdb_5_0-2000-05-19-release
+ * [new tag]             gdb_5_1-2001-07-29-branchpoint                 -> gdb_5_1-2001-07-29-branchpoint
+ * [new tag]             gdb_5_1-2001-11-21-release                     -> gdb_5_1-2001-11-21-release
+ * [new tag]             gdb_5_1_0_1-2002-01-03-branchpoint             -> gdb_5_1_0_1-2002-01-03-branchpoint
+ * [new tag]             gdb_5_1_0_1-2002-01-03-release                 -> gdb_5_1_0_1-2002-01-03-release
+ * [new tag]             gdb_5_1_1-2002-01-24-release                   -> gdb_5_1_1-2002-01-24-release
+ * [new tag]             gdb_5_2-2002-03-03-branchpoint                 -> gdb_5_2-2002-03-03-branchpoint
+ * [new tag]             gdb_5_2-2002-04-29-release                     -> gdb_5_2-2002-04-29-release
+ * [new tag]             gdb_5_2_1-2002-07-23-release                   -> gdb_5_2_1-2002-07-23-release
+ * [new tag]             gdb_5_3-2002-09-04-branchpoint                 -> gdb_5_3-2002-09-04-branchpoint
+ * [new tag]             gdb_5_3-2002-12-12-release                     -> gdb_5_3-2002-12-12-release
+ * [new tag]             gdb_6_0-2003-06-23-branchpoint                 -> gdb_6_0-2003-06-23-branchpoint
+ * [new tag]             gdb_6_0-2003-10-04-release                     -> gdb_6_0-2003-10-04-release
+ * [new tag]             gdb_6_1-2004-03-01-gmt-branchpoint             -> gdb_6_1-2004-03-01-gmt-branchpoint
+ * [new tag]             gdb_6_1-2004-04-05-release                     -> gdb_6_1-2004-04-05-release
+ * [new tag]             gdb_6_1_1-20040616-release                     -> gdb_6_1_1-20040616-release
+ * [new tag]             gdb_6_2-2004-07-10-gmt-branchpoint             -> gdb_6_2-2004-07-10-gmt-branchpoint
+ * [new tag]             gdb_6_2-20040730-release                       -> gdb_6_2-20040730-release
+ * [new tag]             gdb_6_3-20041019-branchpoint                   -> gdb_6_3-20041019-branchpoint
+ * [new tag]             gdb_6_3-20041109-release                       -> gdb_6_3-20041109-release
+ * [new tag]             gdb_6_4-2005-11-01-branchpoint                 -> gdb_6_4-2005-11-01-branchpoint
+ * [new tag]             gdb_6_4-20051202-release                       -> gdb_6_4-20051202-release
+ * [new tag]             gdb_6_5-2006-05-14-branchpoint                 -> gdb_6_5-2006-05-14-branchpoint
+ * [new tag]             gdb_6_5-20060621-release                       -> gdb_6_5-20060621-release
+ * [new tag]             gdb_6_6-2006-11-15-branchpoint                 -> gdb_6_6-2006-11-15-branchpoint
+ * [new tag]             gdb_6_6-2006-12-18-release                     -> gdb_6_6-2006-12-18-release
+ * [new tag]             gdb_6_7-2007-09-07-branchpoint                 -> gdb_6_7-2007-09-07-branchpoint
+ * [new tag]             gdb_6_7-2007-10-10-release                     -> gdb_6_7-2007-10-10-release
+ * [new tag]             gdb_6_7_1-2007-10-29-release                   -> gdb_6_7_1-2007-10-29-release
+ * [new tag]             gdb_6_8-2008-02-26-branchpoint                 -> gdb_6_8-2008-02-26-branchpoint
+ * [new tag]             gdb_6_8-2008-03-27-release                     -> gdb_6_8-2008-03-27-release
+ * [new tag]             gdb_7_0-2009-09-16-branchpoint                 -> gdb_7_0-2009-09-16-branchpoint
+ * [new tag]             gdb_7_0-2009-10-06-release                     -> gdb_7_0-2009-10-06-release
+ * [new tag]             gdb_7_0_1-2009-12-22-release                   -> gdb_7_0_1-2009-12-22-release
+ * [new tag]             gdb_7_1-2010-02-18-branchpoint                 -> gdb_7_1-2010-02-18-branchpoint
+ * [new tag]             gdb_7_1-2010-03-18-release                     -> gdb_7_1-2010-03-18-release
+ * [new tag]             gdb_7_2-2010-07-07-branchpoint                 -> gdb_7_2-2010-07-07-branchpoint
+ * [new tag]             gdb_7_2-2010-09-02-release                     -> gdb_7_2-2010-09-02-release
+ * [new tag]             gdb_7_3-2011-04-01-branchpoint                 -> gdb_7_3-2011-04-01-branchpoint
+ * [new tag]             gdb_7_3-2011-07-26-release                     -> gdb_7_3-2011-07-26-release
+ * [new tag]             gdb_7_3_1-2011-09-04-release                   -> gdb_7_3_1-2011-09-04-release
+ * [new tag]             gdb_7_4-2011-12-13-branchpoint                 -> gdb_7_4-2011-12-13-branchpoint
+ * [new tag]             gdb_7_4-2012-01-24-release                     -> gdb_7_4-2012-01-24-release
+ * [new tag]             gdb_7_4_1-2012-04-26-release                   -> gdb_7_4_1-2012-04-26-release
+ * [new tag]             gdb_7_5-2012-07-18-branchpoint                 -> gdb_7_5-2012-07-18-branchpoint
+ * [new tag]             gdb_7_5-2012-08-17-release                     -> gdb_7_5-2012-08-17-release
+ * [new tag]             gdb_7_5_1-2012-11-29-release                   -> gdb_7_5_1-2012-11-29-release
+ * [new tag]             gdb_7_6-2013-03-12-branchpoint                 -> gdb_7_6-2013-03-12-branchpoint
+ * [new tag]             gdb_7_6-2013-04-26-release                     -> gdb_7_6-2013-04-26-release
+ * [new tag]             gdb_7_6_1-2013-08-30-release                   -> gdb_7_6_1-2013-08-30-release
+ * [new tag]             gdb_s390-2001-09-26-branchpoint                -> gdb_s390-2001-09-26-branchpoint
+ * [new tag]             hmm                                            -> hmm
+ * [new tag]             insight-precleanup-2001-01-01                  -> insight-precleanup-2001-01-01
+ * [new tag]             insight_6_5-20061003-release                   -> insight_6_5-20061003-release
+ * [new tag]             insight_6_6-20070208-release                   -> insight_6_6-20070208-release
+ * [new tag]             insight_6_8-branchpoint                        -> insight_6_8-branchpoint
+ * [new tag]             interps-20030202-branchpoint                   -> interps-20030202-branchpoint
+ * [new tag]             jimb-gdb_6_2-e500-branchpoint                  -> jimb-gdb_6_2-e500-branchpoint
+ * [new tag]             jimb-macro-020506-branchpoint                  -> jimb-macro-020506-branchpoint
+ * [new tag]             jimb-ppc64-linux-20030509-branchpoint          -> jimb-ppc64-linux-20030509-branchpoint
+ * [new tag]             jimb-ppc64-linux-20030528-branchpoint          -> jimb-ppc64-linux-20030528-branchpoint
+ * [new tag]             jimb-ppc64-linux-20030613-branchpoint          -> jimb-ppc64-linux-20030613-branchpoint
+ * [new tag]             jimb-rda-nptl-branchpoint                      -> jimb-rda-nptl-branchpoint
+ * [new tag]             kettenis-i386newframe-20030308-branchpoint     -> kettenis-i386newframe-20030308-branchpoint
+ * [new tag]             kettenis-i386newframe-20030316-mergepoint      -> kettenis-i386newframe-20030316-mergepoint
+ * [new tag]             kettenis_i386newframe-20030406-branchpoint     -> kettenis_i386newframe-20030406-branchpoint
+ * [new tag]             kettenis_i386newframe-20030419-branchpoint     -> kettenis_i386newframe-20030419-branchpoint
+ * [new tag]             kettenis_i386newframe-20030504-mergepoint      -> kettenis_i386newframe-20030504-mergepoint
+ * [new tag]             kettenis_i386newframe-20030517-mergepoint      -> kettenis_i386newframe-20030517-mergepoint
+ * [new tag]             kettenis_sparc-20030918-branchpoint            -> kettenis_sparc-20030918-branchpoint
+ * [new tag]             kseitz_interps-20020528-branchpoint            -> kseitz_interps-20020528-branchpoint
+ * [new tag]             kseitz_interps-20020829-merge                  -> kseitz_interps-20020829-merge
+ * [new tag]             kseitz_interps-20020930-merge                  -> kseitz_interps-20020930-merge
+ * [new tag]             kseitz_interps-20021103-merge                  -> kseitz_interps-20021103-merge
+ * [new tag]             kseitz_interps-20021105-merge                  -> kseitz_interps-20021105-merge
+ * [new tag]             mingw-runtime-2_0                              -> mingw-runtime-2_0
+ * [new tag]             mingw-runtime-2_4                              -> mingw-runtime-2_4
+ * [new tag]             msnyder-checkpoint-072509-branchpoint          -> msnyder-checkpoint-072509-branchpoint
+ * [new tag]             msnyder-fork-checkpoint-branchpoint            -> msnyder-fork-checkpoint-branchpoint
+ * [new tag]             msnyder-reverse-20060331-branchpoint           -> msnyder-reverse-20060331-branchpoint
+ * [new tag]             msnyder-reverse-20060502-branchpoint           -> msnyder-reverse-20060502-branchpoint
+ * [new tag]             msnyder-reverse-20080609-branchpoint           -> msnyder-reverse-20080609-branchpoint
+ * [new tag]             msnyder-tracepoint-checkpoint-branchpoint      -> msnyder-tracepoint-checkpoint-branchpoint
+ * [new tag]             multiprocess-20081120-branchpoint              -> multiprocess-20081120-branchpoint
+ * [new tag]             newlib-1_10_0                                  -> newlib-1_10_0
+ * [new tag]             newlib-1_11_0                                  -> newlib-1_11_0
+ * [new tag]             newlib-1_12_0                                  -> newlib-1_12_0
+ * [new tag]             newlib-1_13_0                                  -> newlib-1_13_0
+ * [new tag]             newlib-1_14_0                                  -> newlib-1_14_0
+ * [new tag]             newlib-1_15_0                                  -> newlib-1_15_0
+ * [new tag]             newlib-1_16_0                                  -> newlib-1_16_0
+ * [new tag]             newlib-1_17_0                                  -> newlib-1_17_0
+ * [new tag]             newlib-1_18_0                                  -> newlib-1_18_0
+ * [new tag]             newlib-1_19_0                                  -> newlib-1_19_0
+ * [new tag]             newlib-1_20_0                                  -> newlib-1_20_0
+ * [new tag]             newlib-1_9_0                                   -> newlib-1_9_0
+ * [new tag]             newlib-2000-02-17                              -> newlib-2000-02-17
+ * [new tag]             newlib-2_0_0                                   -> newlib-2_0_0
+ * [new tag]             newlib-2_1_0                                   -> newlib-2_1_0
+ * [new tag]             newlib-2_2_0                                   -> newlib-2_2_0
+ * [new tag]             newlib-2_3_0                                   -> newlib-2_3_0
+ * [new tag]             newlib-2_4_0                                   -> newlib-2_4_0
+ * [new tag]             newlib-2_5_0                                   -> newlib-2_5_0
+ * [new tag]             newlib-3.0.0                                   -> newlib-3.0.0
+ * [new tag]             newlib-3.1.0                                   -> newlib-3.1.0
+ * [new tag]             newlib-3.2.0                                   -> newlib-3.2.0
+ * [new tag]             newlib-3.3.0                                   -> newlib-3.3.0
+ * [new tag]             newlib-csl-20060320-branchpoint                -> newlib-csl-20060320-branchpoint
+ * [new tag]             newlib-csl-arm-2005-q1a                        -> newlib-csl-arm-2005-q1a
+ * [new tag]             newlib-csl-arm-2005-q1b                        -> newlib-csl-arm-2005-q1b
+ * [new tag]             newlib-csl-arm-2006q1-6                        -> newlib-csl-arm-2006q1-6
+ * [new tag]             newlib-csl-arm-2006q3-19                       -> newlib-csl-arm-2006q3-19
+ * [new tag]             newlib-csl-arm-2006q3-21                       -> newlib-csl-arm-2006q3-21
+ * [new tag]             newlib-csl-arm-2006q3-26                       -> newlib-csl-arm-2006q3-26
+ * [new tag]             newlib-csl-arm-2006q3-27                       -> newlib-csl-arm-2006q3-27
+ * [new tag]             newlib-csl-coldfire-4_1-28                     -> newlib-csl-coldfire-4_1-28
+ * [new tag]             newlib-csl-coldfire-4_1-30                     -> newlib-csl-coldfire-4_1-30
+ * [new tag]             newlib-csl-coldfire-4_1-32                     -> newlib-csl-coldfire-4_1-32
+ * [new tag]             newlib-csl-innovasic-fido-3_4_4-33             -> newlib-csl-innovasic-fido-3_4_4-33
+ * [new tag]             newlib-csl-sourcerygxx-3_4_4-25                -> newlib-csl-sourcerygxx-3_4_4-25
+ * [new tag]             newlib-csl-sourcerygxx-4_1-12                  -> newlib-csl-sourcerygxx-4_1-12
+ * [new tag]             newlib-csl-sourcerygxx-4_1-13                  -> newlib-csl-sourcerygxx-4_1-13
+ * [new tag]             newlib-csl-sourcerygxx-4_1-14                  -> newlib-csl-sourcerygxx-4_1-14
+ * [new tag]             newlib-csl-sourcerygxx-4_1-17                  -> newlib-csl-sourcerygxx-4_1-17
+ * [new tag]             newlib-csl-sourcerygxx-4_1-18                  -> newlib-csl-sourcerygxx-4_1-18
+ * [new tag]             newlib-csl-sourcerygxx-4_1-19                  -> newlib-csl-sourcerygxx-4_1-19
+ * [new tag]             newlib-csl-sourcerygxx-4_1-21                  -> newlib-csl-sourcerygxx-4_1-21
+ * [new tag]             newlib-csl-sourcerygxx-4_1-23                  -> newlib-csl-sourcerygxx-4_1-23
+ * [new tag]             newlib-csl-sourcerygxx-4_1-24                  -> newlib-csl-sourcerygxx-4_1-24
+ * [new tag]             newlib-csl-sourcerygxx-4_1-26                  -> newlib-csl-sourcerygxx-4_1-26
+ * [new tag]             newlib-csl-sourcerygxx-4_1-27                  -> newlib-csl-sourcerygxx-4_1-27
+ * [new tag]             newlib-csl-sourcerygxx-4_1-28                  -> newlib-csl-sourcerygxx-4_1-28
+ * [new tag]             newlib-csl-sourcerygxx-4_1-30                  -> newlib-csl-sourcerygxx-4_1-30
+ * [new tag]             newlib-csl-sourcerygxx-4_1-32                  -> newlib-csl-sourcerygxx-4_1-32
+ * [new tag]             newlib-csl-sourcerygxx-4_1-4                   -> newlib-csl-sourcerygxx-4_1-4
+ * [new tag]             newlib-csl-sourcerygxx-4_1-5                   -> newlib-csl-sourcerygxx-4_1-5
+ * [new tag]             newlib-csl-sourcerygxx-4_1-6                   -> newlib-csl-sourcerygxx-4_1-6
+ * [new tag]             newlib-csl-sourcerygxx-4_1-7                   -> newlib-csl-sourcerygxx-4_1-7
+ * [new tag]             newlib-csl-sourcerygxx-4_1-8                   -> newlib-csl-sourcerygxx-4_1-8
+ * [new tag]             newlib-csl-sourcerygxx-4_1-9                   -> newlib-csl-sourcerygxx-4_1-9
+ * [new tag]             newlib-snapshot-20150323                       -> newlib-snapshot-20150323
+ * [new tag]             newlib-snapshot-20150423                       -> newlib-snapshot-20150423
+ * [new tag]             newlib-snapshot-20150526                       -> newlib-snapshot-20150526
+ * [new tag]             newlib-snapshot-20150623                       -> newlib-snapshot-20150623
+ * [new tag]             newlib-snapshot-20150723                       -> newlib-snapshot-20150723
+ * [new tag]             newlib-snapshot-20150824                       -> newlib-snapshot-20150824
+ * [new tag]             newlib-snapshot-20150924                       -> newlib-snapshot-20150924
+ * [new tag]             newlib-snapshot-20151023                       -> newlib-snapshot-20151023
+ * [new tag]             newlib-snapshot-20160104                       -> newlib-snapshot-20160104
+ * [new tag]             newlib-snapshot-20160226                       -> newlib-snapshot-20160226
+ * [new tag]             newlib-snapshot-20160527                       -> newlib-snapshot-20160527
+ * [new tag]             newlib-snapshot-20160923                       -> newlib-snapshot-20160923
+ * [new tag]             newlib-snapshot-20170228                       -> newlib-snapshot-20170228
+ * [new tag]             newlib-snapshot-20170323                       -> newlib-snapshot-20170323
+ * [new tag]             newlib-snapshot-20170421                       -> newlib-snapshot-20170421
+ * [new tag]             newlib-snapshot-20170519                       -> newlib-snapshot-20170519
+ * [new tag]             newlib-snapshot-20170623                       -> newlib-snapshot-20170623
+ * [new tag]             newlib-snapshot-20170720                       -> newlib-snapshot-20170720
+ * [new tag]             newlib-snapshot-20170818                       -> newlib-snapshot-20170818
+ * [new tag]             newlib-snapshot-20170922                       -> newlib-snapshot-20170922
+ * [new tag]             newlib-snapshot-20171222                       -> newlib-snapshot-20171222
+ * [new tag]             newlib-snapshot-20180118                       -> newlib-snapshot-20180118
+ * [new tag]             newlib-snapshot-20180226                       -> newlib-snapshot-20180226
+ * [new tag]             newlib-snapshot-20180720                       -> newlib-snapshot-20180720
+ * [new tag]             newlib-snapshot-20180802                       -> newlib-snapshot-20180802
+ * [new tag]             newlib-snapshot-20180831                       -> newlib-snapshot-20180831
+ * [new tag]             newlib-snapshot-20181231                       -> newlib-snapshot-20181231
+ * [new tag]             newlib-snapshot-20200102                       -> newlib-snapshot-20200102
+ * [new tag]             nickrob-async-20060513-branchpoint             -> nickrob-async-20060513-branchpoint
+ * [new tag]             nickrob-async-20060828-mergepoint              -> nickrob-async-20060828-mergepoint
+ * [new tag]             offbyone-20030313-branchpoint                  -> offbyone-20030313-branchpoint
+ * [new tag]             post-ptmalloc3                                 -> post-ptmalloc3
+ * [new tag]             post_wait_sig_exit                             -> post_wait_sig_exit
+ * [new tag]             pre-cgf-merge                                  -> pre-cgf-merge
+ * [new tag]             pre-cygwin-heap                                -> pre-cygwin-heap
+ * [new tag]             pre-no-this                                    -> pre-no-this
+ * [new tag]             pre-notty                                      -> pre-notty
+ * [new tag]             pre-posix-scan                                 -> pre-posix-scan
+ * [new tag]             pre-ptmalloc3                                  -> pre-ptmalloc3
+ * [new tag]             pre-ptymaster-archetype                        -> pre-ptymaster-archetype
+ * [new tag]             pre-ripout-set_console_state_for_spawn         -> pre-ripout-set_console_state_for_spawn
+ * [new tag]             pre-sigrewrite                                 -> pre-sigrewrite
+ * [new tag]             pre_wait_sig_exit                              -> pre_wait_sig_exit
+ * [new tag]             predaemon                                      -> predaemon
+ * [new tag]             prefifo                                        -> prefifo
+ * [new tag]             preoverlapped                                  -> preoverlapped
+ * [new tag]             readline_4_3-import-branchpoint                -> readline_4_3-import-branchpoint
+ * [new tag]             readline_5_1-import-branchpoint                -> readline_5_1-import-branchpoint
+ * [new tag]             reparent-point                                 -> reparent-point
+ * [new tag]             repo-unification-2000-02-06                    -> repo-unification-2000-02-06
+ * [new tag]             reverse-20080717-branchpoint                   -> reverse-20080717-branchpoint
+ * [new tag]             reverse-20080930-branchpoint                   -> reverse-20080930-branchpoint
+ * [new tag]             reverse-20081226-branchpoint                   -> reverse-20081226-branchpoint
+ * [new tag]             sid-20020905-branchpoint                       -> sid-20020905-branchpoint
+ * [new tag]             sid-snapshot-20071001                          -> sid-snapshot-20071001
+ * [new tag]             sid-snapshot-20071101                          -> sid-snapshot-20071101
+ * [new tag]             sid-snapshot-20071201                          -> sid-snapshot-20071201
+ * [new tag]             sid-snapshot-20080101                          -> sid-snapshot-20080101
+ * [new tag]             sid-snapshot-20080201                          -> sid-snapshot-20080201
+ * [new tag]             sid-snapshot-20080301                          -> sid-snapshot-20080301
+ * [new tag]             sid-snapshot-20080401                          -> sid-snapshot-20080401
+ * [new tag]             sid-snapshot-20080403                          -> sid-snapshot-20080403
+ * [new tag]             sid-snapshot-20080501                          -> sid-snapshot-20080501
+ * [new tag]             sid-snapshot-20080601                          -> sid-snapshot-20080601
+ * [new tag]             sid-snapshot-20080701                          -> sid-snapshot-20080701
+ * [new tag]             sid-snapshot-20080801                          -> sid-snapshot-20080801
+ * [new tag]             sid-snapshot-20080901                          -> sid-snapshot-20080901
+ * [new tag]             sid-snapshot-20081001                          -> sid-snapshot-20081001
+ * [new tag]             sid-snapshot-20081101                          -> sid-snapshot-20081101
+ * [new tag]             sid-snapshot-20081201                          -> sid-snapshot-20081201
+ * [new tag]             sid-snapshot-20090101                          -> sid-snapshot-20090101
+ * [new tag]             sid-snapshot-20090201                          -> sid-snapshot-20090201
+ * [new tag]             sid-snapshot-20090301                          -> sid-snapshot-20090301
+ * [new tag]             sid-snapshot-20090401                          -> sid-snapshot-20090401
+ * [new tag]             sid-snapshot-20090501                          -> sid-snapshot-20090501
+ * [new tag]             sid-snapshot-20090601                          -> sid-snapshot-20090601
+ * [new tag]             sid-snapshot-20090701                          -> sid-snapshot-20090701
+ * [new tag]             sid-snapshot-20090801                          -> sid-snapshot-20090801
+ * [new tag]             sid-snapshot-20090901                          -> sid-snapshot-20090901
+ * [new tag]             sid-snapshot-20091001                          -> sid-snapshot-20091001
+ * [new tag]             sid-snapshot-20091101                          -> sid-snapshot-20091101
+ * [new tag]             sid-snapshot-20091201                          -> sid-snapshot-20091201
+ * [new tag]             sid-snapshot-20100101                          -> sid-snapshot-20100101
+ * [new tag]             sid-snapshot-20100201                          -> sid-snapshot-20100201
+ * [new tag]             sid-snapshot-20100301                          -> sid-snapshot-20100301
+ * [new tag]             sid-snapshot-20100401                          -> sid-snapshot-20100401
+ * [new tag]             sid-snapshot-20100501                          -> sid-snapshot-20100501
+ * [new tag]             sid-snapshot-20100601                          -> sid-snapshot-20100601
+ * [new tag]             sid-snapshot-20100701                          -> sid-snapshot-20100701
+ * [new tag]             sid-snapshot-20100801                          -> sid-snapshot-20100801
+ * [new tag]             sid-snapshot-20100901                          -> sid-snapshot-20100901
+ * [new tag]             sid-snapshot-20101001                          -> sid-snapshot-20101001
+ * [new tag]             sid-snapshot-20101101                          -> sid-snapshot-20101101
+ * [new tag]             sid-snapshot-20101201                          -> sid-snapshot-20101201
+ * [new tag]             sid-snapshot-20110101                          -> sid-snapshot-20110101
+ * [new tag]             sid-snapshot-20110201                          -> sid-snapshot-20110201
+ * [new tag]             sid-snapshot-20110301                          -> sid-snapshot-20110301
+ * [new tag]             sid-snapshot-20110401                          -> sid-snapshot-20110401
+ * [new tag]             sid-snapshot-20110501                          -> sid-snapshot-20110501
+ * [new tag]             sid-snapshot-20110601                          -> sid-snapshot-20110601
+ * [new tag]             sid-snapshot-20110701                          -> sid-snapshot-20110701
+ * [new tag]             sid-snapshot-20110801                          -> sid-snapshot-20110801
+ * [new tag]             sid-snapshot-20110901                          -> sid-snapshot-20110901
+ * [new tag]             sid-snapshot-20111001                          -> sid-snapshot-20111001
+ * [new tag]             sid-snapshot-20111101                          -> sid-snapshot-20111101
+ * [new tag]             sid-snapshot-20111201                          -> sid-snapshot-20111201
+ * [new tag]             sid-snapshot-20120101                          -> sid-snapshot-20120101
+ * [new tag]             sid-snapshot-20120201                          -> sid-snapshot-20120201
+ * [new tag]             sid-snapshot-20120301                          -> sid-snapshot-20120301
+ * [new tag]             sid-snapshot-20120401                          -> sid-snapshot-20120401
+ * [new tag]             sid-snapshot-20120501                          -> sid-snapshot-20120501
+ * [new tag]             sid-snapshot-20120601                          -> sid-snapshot-20120601
+ * [new tag]             sid-snapshot-20120701                          -> sid-snapshot-20120701
+ * [new tag]             sid-snapshot-20120801                          -> sid-snapshot-20120801
+ * [new tag]             sid-snapshot-20120901                          -> sid-snapshot-20120901
+ * [new tag]             sid-snapshot-20121001                          -> sid-snapshot-20121001
+ * [new tag]             sid-snapshot-20121101                          -> sid-snapshot-20121101
+ * [new tag]             sid-snapshot-20121201                          -> sid-snapshot-20121201
+ * [new tag]             sid-snapshot-20130101                          -> sid-snapshot-20130101
+ * [new tag]             sid-snapshot-20130201                          -> sid-snapshot-20130201
+ * [new tag]             sid-snapshot-20130301                          -> sid-snapshot-20130301
+ * [new tag]             sid-snapshot-20130401                          -> sid-snapshot-20130401
+ * [new tag]             sid-snapshot-20130501                          -> sid-snapshot-20130501
+ * [new tag]             sid-snapshot-20130601                          -> sid-snapshot-20130601
+ * [new tag]             sid-snapshot-20130701                          -> sid-snapshot-20130701
+ * [new tag]             sid-snapshot-20130801                          -> sid-snapshot-20130801
+ * [new tag]             sid-snapshot-20130901                          -> sid-snapshot-20130901
+ * [new tag]             sid-snapshot-20131001                          -> sid-snapshot-20131001
+ * [new tag]             sid-snapshot-20131101                          -> sid-snapshot-20131101
+ * [new tag]             sid-snapshot-20131201                          -> sid-snapshot-20131201
+ * [new tag]             sid-snapshot-20140101                          -> sid-snapshot-20140101
+ * [new tag]             sid-snapshot-20140201                          -> sid-snapshot-20140201
+ * [new tag]             sid-snapshot-20140301                          -> sid-snapshot-20140301
+ * [new tag]             sid-snapshot-20140401                          -> sid-snapshot-20140401
+ * [new tag]             sid-snapshot-20140501                          -> sid-snapshot-20140501
+ * [new tag]             sid-snapshot-20140601                          -> sid-snapshot-20140601
+ * [new tag]             sid-snapshot-20140701                          -> sid-snapshot-20140701
+ * [new tag]             sid-snapshot-20140801                          -> sid-snapshot-20140801
+ * [new tag]             sid-snapshot-20140901                          -> sid-snapshot-20140901
+ * [new tag]             sid-snapshot-20141001                          -> sid-snapshot-20141001
+ * [new tag]             sid-snapshot-20141101                          -> sid-snapshot-20141101
+ * [new tag]             sid-snapshot-20141201                          -> sid-snapshot-20141201
+ * [new tag]             sid-snapshot-20150101                          -> sid-snapshot-20150101
+ * [new tag]             sid-snapshot-20150201                          -> sid-snapshot-20150201
+ * [new tag]             sid-snapshot-20150301                          -> sid-snapshot-20150301
+ * [new tag]             tcltk840-20020924-branchpoint                  -> tcltk840-20020924-branchpoint
+ * [new tag]             w32api-1_5                                     -> w32api-1_5
+ * [new tag]             w32api-2_2                                     -> w32api-2_2
+ * [new tag]             winsup-2000-02-17                              -> winsup-2000-02-17
+ * [new tag]             x86_64versiong3                                -> x86_64versiong3
+HEAD is now at d07c38ff0 Version 1.8.2
+HEAD is now at d07c38ff0 Version 1.8.2
+=== updating segger (modules/debug/segger):
+--- segger: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/segger/.git/
+--- segger: fetching, need revision 9d0191285956cef43daf411edc2f1a7788346def
+remote: Enumerating objects: 238, done.
+remote: Counting objects: 100% (69/69), done.
+remote: Compressing objects: 100% (40/40), done.
+remote: Total 238 (delta 41), reused 37 (delta 28), pack-reused 169
+Receiving objects: 100% (238/238), 171.77 KiB | 1.00 MiB/s, done.
+Resolving deltas: 100% (112/112), done.
+From https://github.com/zephyrproject-rtos/segger
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at 9d01912 segger: config: RTT spinlock implementation
+HEAD is now at 9d01912 segger: config: RTT spinlock implementation
+=== updating tinycrypt (modules/crypto/tinycrypt):
+--- tinycrypt: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/crypto/tinycrypt/.git/
+--- tinycrypt: fetching, need revision 3e9a49d2672ec01435ffbf0d788db6d95ef28de0
+remote: Enumerating objects: 46, done.
+remote: Counting objects: 100% (46/46), done.
+remote: Compressing objects: 100% (30/30), done.
+remote: Total 46 (delta 11), reused 46 (delta 11), pack-reused 0
+Unpacking objects: 100% (46/46), 66.61 KiB | 766.00 KiB/s, done.
+From https://github.com/zephyrproject-rtos/tinycrypt
+ * [new branch]      master     -> refs/west/master
+HEAD is now at 3e9a49d cmake: Fix conditional in root CMakeLists.txt
+HEAD is now at 3e9a49d cmake: Fix conditional in root CMakeLists.txt
+=== updating TraceRecorderSource (modules/debug/TraceRecorder):
+--- TraceRecorderSource: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/TraceRecorder/.git/
+--- TraceRecorderSource: fetching, need revision 1ede7ce8e7ab226e9a84d95266241ba3f38d91d2
+remote: Enumerating objects: 4102, done.
+remote: Counting objects: 100% (1899/1899), done.
+remote: Compressing objects: 100% (195/195), done.
+remote: Total 4102 (delta 1777), reused 1704 (delta 1704), pack-reused 2203
+Receiving objects: 100% (4102/4102), 2.64 MiB | 2.50 MiB/s, done.
+Resolving deltas: 100% (2886/2886), done.
+From https://github.com/zephyrproject-rtos/TraceRecorderSource
+ * [new branch]      main       -> refs/west/main
+ * [new branch]      up2        -> refs/west/up2
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at 1ede7ce Merge pull request #16 from aronlander-pe/zephyr
+HEAD is now at 1ede7ce Merge pull request #16 from aronlander-pe/zephyr
+=== updating tf-m-tests (modules/tee/tf-m/tf-m-tests):
+--- tf-m-tests: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/tf-m-tests/.git/
+--- tf-m-tests: fetching, need revision a878426da78fbd1486dfc29d6c6b82be4ee79e72
+remote: Enumerating objects: 5195, done.
+remote: Counting objects: 100% (5195/5195), done.
+remote: Compressing objects: 100% (1914/1914), done.
+remote: Total 5195 (delta 3574), reused 4827 (delta 3213), pack-reused 0
+Receiving objects: 100% (5195/5195), 2.69 MiB | 2.36 MiB/s, done.
+Resolving deltas: 100% (3574/3574), done.
+From https://github.com/zephyrproject-rtos/tf-m-tests
+ * [new branch]      main          -> refs/west/main
+ * [new branch]      release/1.7.x -> refs/west/release/1.7.x
+HEAD is now at a878426 Merge pull request #7 from d3zd3z/zephyr-1.8.0
+HEAD is now at a878426 Merge pull request #7 from d3zd3z/zephyr-1.8.0
+=== updating psa-arch-tests (modules/tee/tf-m/psa-arch-tests):
+--- psa-arch-tests: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/psa-arch-tests/.git/
+--- psa-arch-tests: fetching, need revision 6a17330e0dfb5f319730f974d5b05f7b7f04757b
+remote: Enumerating objects: 12893, done.
+remote: Counting objects: 100% (1001/1001), done.
+remote: Compressing objects: 100% (414/414), done.
+remote: Total 12893 (delta 640), reused 831 (delta 580), pack-reused 11892
+Receiving objects: 100% (12893/12893), 18.51 MiB | 3.16 MiB/s, done.
+Resolving deltas: 100% (9611/9611), done.
+From https://github.com/zephyrproject-rtos/psa-arch-tests
+ * [new branch]      main                     -> refs/west/main
+ * [new tag]         Before_Crypto_1.0        -> Before_Crypto_1.0
+ * [new tag]         v18.07_0.6               -> v18.07_0.6
+ * [new tag]         v18.07_TBSA0.6           -> v18.07_TBSA0.6
+ * [new tag]         v18.10_FF0.5             -> v18.10_FF0.5
+ * [new tag]         v19.01_API0.7            -> v19.01_API0.7
+ * [new tag]         v19.02_API0.8            -> v19.02_API0.8
+ * [new tag]         v19.02_EW0_0.8           -> v19.02_EW0_0.8
+ * [new tag]         v19.06_API0.9            -> v19.06_API0.9
+ * [new tag]         v19.08_TBSA0.9           -> v19.08_TBSA0.9
+ * [new tag]         v20.03_API1.0            -> v20.03_API1.0
+ * [new tag]         v20.11_API1.1            -> v20.11_API1.1
+ * [new tag]         v21.07_API1.2_ADAC_ALPHA -> v21.07_API1.2_ADAC_ALPHA
+HEAD is now at 6a17330 dev-apis: platform: Increase timeout for nRF devs
+HEAD is now at 6a17330 dev-apis: platform: Increase timeout for nRF devs
+=== updating uoscore-uedhoc (modules/lib/uoscore-uedhoc):
+--- uoscore-uedhoc: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/uoscore-uedhoc/.git/
+--- uoscore-uedhoc: fetching, need revision 5fe2cb613bd7e4590bd1b00c2adf181ac0229379
+remote: Enumerating objects: 6975, done.
+remote: Counting objects: 100% (6975/6975), done.
+remote: Compressing objects: 100% (1801/1801), done.
+remote: Total 6975 (delta 5155), reused 6819 (delta 5000), pack-reused 0
+Receiving objects: 100% (6975/6975), 2.31 MiB | 2.17 MiB/s, done.
+Resolving deltas: 100% (5155/5155), done.
+From https://github.com/zephyrproject-rtos/uoscore-uedhoc
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at 5fe2cb6 2.2.1
+HEAD is now at 5fe2cb6 2.2.1
+=== updating zcbor (modules/lib/zcbor):
+--- zcbor: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/zcbor/.git/
+--- zcbor: fetching, need revision 67fd8bb88d3136738661fa8bb5f9989103f4599e
+remote: Enumerating objects: 5189, done.
+remote: Counting objects: 100% (1112/1112), done.
+remote: Compressing objects: 100% (358/358), done.
+remote: Total 5189 (delta 834), reused 823 (delta 737), pack-reused 4077
+Receiving objects: 100% (5189/5189), 1.60 MiB | 2.02 MiB/s, done.
+Resolving deltas: 100% (3080/3080), done.
+From https://github.com/zephyrproject-rtos/zcbor
+ * [new branch]      main              -> refs/west/main
+ * [new branch]      release/0.6.1     -> refs/west/release/0.6.1
+ * [new tag]         0.1.0             -> 0.1.0
+ * [new tag]         0.2.0             -> 0.2.0
+ * [new tag]         0.3.0             -> 0.3.0
+ * [new tag]         0.3.1             -> 0.3.1
+ * [new tag]         0.4.0             -> 0.4.0
+ * [new tag]         0.5.0             -> 0.5.0
+ * [new tag]         0.5.1             -> 0.5.1
+ * [new tag]         0.6.0             -> 0.6.0
+ * [new tag]         0.8.0             -> 0.8.0
+ * [new tag]         0.8.1             -> 0.8.1
+ * [new tag]         deprecated-master -> deprecated-master
+ * [new tag]         inital-pr         -> inital-pr
+ * [new tag]         old-structure     -> old-structure
+HEAD is now at 67fd8bb Update version from 0.6.99 to 0.7.0
+HEAD is now at 67fd8bb Update version from 0.6.99 to 0.7.0
+=== updating zscilib (modules/lib/zscilib):
+--- zscilib: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/zscilib/.git/
+--- zscilib: fetching, need revision 34c3432e81085bb717e4871d21ca419ae0058ec5
+remote: Enumerating objects: 5345, done.
+remote: Counting objects: 100% (550/550), done.
+remote: Compressing objects: 100% (126/126), done.
+remote: Total 5345 (delta 452), reused 427 (delta 423), pack-reused 4795
+Receiving objects: 100% (5345/5345), 3.00 MiB | 2.33 MiB/s, done.
+Resolving deltas: 100% (4041/4041), done.
+From https://github.com/zephyrproject-rtos/zscilib
+ * [new branch]      gh-pages                 -> refs/west/gh-pages
+ * [new branch]      master                   -> refs/west/master
+ * [new branch]      revert-38-fix_zephyr_3_1 -> refs/west/revert-38-fix_zephyr_3_1
+ * [new tag]         v0.2.0-rc1               -> v0.2.0-rc1
+HEAD is now at 34c3432 Merge pull request #50 from microbuilder/ztest_fixes
+HEAD is now at 34c3432 Merge pull request #50 from microbuilder/ztest_fixes
+(ncs_2.5.2) bash-3.2$
+(ncs_2.5.2) bash-3.2$ west zephyr-export
+Zephyr (/Users/makmorit/opt/ncs_2.5.2/zephyr/share/zephyr-package/cmake)
+has been added to the user package registry in:
+~/.cmake/packages/Zephyr
+
+ZephyrUnittest (/Users/makmorit/opt/ncs_2.5.2/zephyr/share/zephyrunittest-package/cmake)
+has been added to the user package registry in:
+~/.cmake/packages/ZephyrUnittest
+
+(ncs_2.5.2) bash-3.2$
