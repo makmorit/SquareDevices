@@ -32,3 +32,24 @@ nRF5340 DKと接続されます。<br>
 <img src="images/NRFDKINIT_05.jpg" width="400">
 
 これで、nRF5340 DKとの接続は完了となります。
+
+## nRF5340 DKを初期化
+
+Programmer画面左部メニューの「Erase all」を実行します。
+
+<img src="images/NRFDKINIT_06.jpg" width="400">
+
+初期化処理が開始し、nRF5340のFlash ROMに書き込まれているプログラムやデータ等が一括削除されます。
+
+<img src="images/NRFDKINIT_07.jpg" width="400">
+
+初期化処理が完了したら、その後、nRF5340 DKとの接続を解除します。<br>
+画面左上部の三角印のアイコン「Disconnect device」をクリックします。
+
+<img src="images/NRFDKINIT_08.jpg" width="400">
+
+接続を解除したら「Quit nRF Connect for Desktop」をクリックし、Programmerを終了します。
+
+<img src="images/NRFDKINIT_09.jpg" width="400">
+
+以上で、nRF5340 DKの初期化は完了になります。
