@@ -125,3 +125,64 @@ Starting Nordic UART service example
 ```
 
 以上で、サンプルアプリの書込みは完了です。
+
+## サンプルアプリの動作確認
+
+Androidアプリ「nRF Connect」を使用し、nRF5340に書き込んだ「Peripheral UART」が正常に動作することを確認します。
+
+### サービスに接続
+
+Androidアプリ「nRF Connect」を起動します。<br>
+デバイス一覧に「Nordic_UART_Service」がリストされていることを確認します。
+
+その後、右横の「CONNECT」ボタンをタップします。
+
+<img src="images/NCSTEST_01.jpeg" width="160">
+
+サービス一覧が表示されます。<br>
+一覧の中から「Nordic UART Service」をタップします。
+
+<img src="images/NCSTEST_02.jpeg" width="160">
+
+下部に３点のキャラクタリスティックが一覧表示されます。<br>
+「TX Charactaristic」の右横のアイコンをタップします。
+
+<img src="images/NCSTEST_03.jpeg" width="160">
+
+DescriptorsのValueが「Notifications enabled」に切り替わります。<br>
+この状態で、nRF5340から文字列データを受信することができるようになります。
+
+<img src="images/NCSTEST_04.jpeg" width="160">
+
+### データ送受信
+
+まずは、AndroidからnRF5340へ、文字列データを送信してみます。<br>
+「RX Charactaristic」の右横のアイコンをタップします。
+
+<img src="images/NCSTEST_04.jpeg" width="160">
+
+下図のようなポップアップが表示されるので、任意の文字列（`qwerty`）を入力し「SEND」をタップします。
+
+<img src="images/NCSTEST_05.jpeg" width="160">
+
+Android側から送信した文字列データが、nRF5340側で受信されます。<br>
+下図のように、受信した文字列データ（`qwerty`）がデバッグ出力されます。
+
+<img src="images/NCSTEST_06.jpg" width="540">
+
+次に、nRF5340からAndroidへ、文字列データを送信してみます。<br>
+screenコマンドが実行中のターミナル画面上で、任意の文字列（`asdfgh`）を入力し、Enterキーを押します。<br>
+（入力した`asdfgh`は、ターミナル画面上にエコーバックされないのでご注意ください）
+
+nRF5340側から送信した文字列データが、Android側で受信されます。<br>
+「TX Charactaristic」のValueに、受信した文字列データ（`asdfgh`）が表示されます。
+
+テストが完了したら、画面右上部の「DISCONNECT」をタップし、サービス接続を切断します。
+
+<img src="images/NCSTEST_08.jpeg" width="160">
+
+サービス接続が切断され、サービス名／キャラクタリスティック名がグレー文字に変わります。
+
+<img src="images/NCSTEST_09.jpeg" width="160">
+
+以上で、サンプルアプリの動作確認は完了です。
