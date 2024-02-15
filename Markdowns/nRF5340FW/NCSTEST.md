@@ -84,3 +84,14 @@ bash-3.2$
 ```
 
 以上で、サンプルアプリのビルドは完了です。
+
+## サンプルアプリの書込み
+
+nRF5340 DKを初期化した後、ビルドしたサンプルアプリを、nRF5340 DKに書込みます。
+
+### nRF5340の初期化
+
+サンプルアプリを書き込みする前に、nRF5340のFlash ROMを初期化します。
+
+[nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download)のProgrammerというアプリを使用すると、nRF5340のFlash ROMに書き込まれているプログラムやデータ等が一括削除できます。<br>
+手順につきましては、別ドキュメント「[nRF5340 DK初期化手順書](../../Markdowns/nRF5340FW/NRFDKINIT.md)」をご参照願います。
