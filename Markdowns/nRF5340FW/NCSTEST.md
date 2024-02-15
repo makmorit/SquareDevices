@@ -95,3 +95,33 @@ nRF5340 DKを初期化した後、ビルドしたサンプルアプリを、nRF5
 
 [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download)のProgrammerというアプリを使用すると、nRF5340のFlash ROMに書き込まれているプログラムやデータ等が一括削除できます。<br>
 手順につきましては、別ドキュメント「[nRF5340 DK初期化手順書](../../Markdowns/nRF5340FW/NRFDKINIT.md)」をご参照願います。
+
+### 書込み
+
+ビルド用スクリプト`westbuild.sh -f`を実行し、ビルドしたファームウェアを、nRF5340に書込みます。<br>
+（実行例は<b>[こちら](logs/westbuild-f.log)</b>）
+
+```
+bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
+bash-3.2$ ./westbuild.sh -f
+-- west flash: rebuilding
+:
+-- west flash: using runner nrfjprog
+:
+-- runners.nrfjprog: Board with serial number 960160943 flashed successfully.
+bash-3.2$
+```
+
+### ファームウェア起動確認
+
+USBケーブルを使用してnRF5340 DKとPCを接続し、`screen`コマンドでデバッグプリントを監視すると、ファームウェア書込み完了後に以下のようなログが出力されます。<br>
+（表示されない場合は、nRF5340 DKのRESETボタンを１回押下してください）
+
+```
+bash-3.2$ screen /dev/tty.usbmodem0009601609435 115200
+
+*** Booting nRF Connect SDK v2.5.2 ***
+Starting Nordic UART service example
+```
+
+以上で、サンプルアプリの書込みは完了です。

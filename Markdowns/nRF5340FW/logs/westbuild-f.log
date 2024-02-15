@@ -1,0 +1,34 @@
+bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
+bash-3.2$
+bash-3.2$ ./westbuild.sh -f
+-- west flash: rebuilding
+cmake version 3.28.3 is OK; minimum version is 3.13.1
+Running CMake: /usr/local/bin/cmake --build build_signed
+[0/4] Performing build step for 'hci_rpmsg_subimage'
+ninja: no work to do.
+[3/3] Completed 'hci_rpmsg_subimage'
+-- west flash: using runner nrfjprog
+runners.nrfjprog: nrfjprog --ids
+Using board 960160943
+-- runners.nrfjprog: Flashing file: build_signed/zephyr/merged_domains.hex
+-- runners.nrfjprog: build_signed/zephyr/merged_domains.hex targets both nRF53 coprocessors; splitting it into: build_signed/zephyr/GENERATED_CP_NETWORK_merged_domains.hex and build_signed/zephyr/GENERATED_CP_APPLICATION_merged_domains.hex
+runners.nrfjprog: defer: True op: {'operation': {'type': 'program', 'firmware': {'file': 'build_signed/zephyr/GENERATED_CP_NETWORK_merged_domains.hex', 'format': 'NRFDL_FW_INTEL_HEX'}, 'chip_erase_mode': 'ERASE_PAGES', 'verify': 'VERIFY_READ'}, 'core': 'NRFDL_DEVICE_CORE_NETWORK'}
+runners.nrfjprog: defer: True op: {'operation': {'type': 'program', 'firmware': {'file': 'build_signed/zephyr/GENERATED_CP_APPLICATION_merged_domains.hex', 'format': 'NRFDL_FW_INTEL_HEX'}, 'chip_erase_mode': 'ERASE_PAGES', 'verify': 'VERIFY_READ'}, 'core': 'NRFDL_DEVICE_CORE_APPLICATION'}
+runners.nrfjprog: Flushing ops
+runners.nrfjprog: Executing op: {'operation': {'type': 'program', 'firmware': {'file': 'build_signed/zephyr/GENERATED_CP_NETWORK_merged_domains.hex', 'format': 'NRFDL_FW_INTEL_HEX'}, 'chip_erase_mode': 'ERASE_PAGES', 'verify': 'VERIFY_READ'}, 'core': 'NRFDL_DEVICE_CORE_NETWORK'}
+runners.nrfjprog: nrfjprog --program build_signed/zephyr/GENERATED_CP_NETWORK_merged_domains.hex --sectorerase --verify -f NRF53 --coprocessor CP_NETWORK --snr 960160943
+[ #################### ]  11.758s | Erase file - Done erasing
+[ #################### ]   1.250s | Program file - Done programming
+[ #################### ]   1.268s | Verify file - Done verifying
+runners.nrfjprog: Executing op: {'operation': {'type': 'program', 'firmware': {'file': 'build_signed/zephyr/GENERATED_CP_APPLICATION_merged_domains.hex', 'format': 'NRFDL_FW_INTEL_HEX'}, 'chip_erase_mode': 'ERASE_PAGES', 'verify': 'VERIFY_READ'}, 'core': 'NRFDL_DEVICE_CORE_APPLICATION'}
+runners.nrfjprog: nrfjprog --program build_signed/zephyr/GENERATED_CP_APPLICATION_merged_domains.hex --sectorerase --verify -f NRF53 --coprocessor CP_APPLICATION --snr 960160943
+[ #################### ]   4.845s | Erase file - Done erasing
+[ #################### ]   1.111s | Program file - Done programming
+[ #################### ]   1.120s | Verify file - Done verifying
+runners.nrfjprog: defer: False op: {'operation': {'type': 'reset', 'option': 'RESET_PIN'}}
+runners.nrfjprog: Executing op: {'operation': {'type': 'reset', 'option': 'RESET_PIN'}}
+runners.nrfjprog: nrfjprog --pinreset -f NRF53 --snr 960160943
+Applying pin reset.
+runners.nrfjprog: Flushing ops
+-- runners.nrfjprog: Board with serial number 960160943 flashed successfully.
+bash-3.2$
