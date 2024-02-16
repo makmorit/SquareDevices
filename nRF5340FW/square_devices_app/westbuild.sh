@@ -4,9 +4,10 @@
 #   nrf5340dk_nrf5340_cpuapp
 export BUILD_TARGET=nrf5340dk_nrf5340_cpuapp
 
-# Environment variables for the GNU Arm Embedded toolchain
-export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/opt/arm-gnu-toolchain-12.2.rel1-darwin-x86_64-arm-none-eabi"
+# Environment variables for Zephyr SDK
+export ZEPHYR_SDK_INSTALL_DIR="${HOME}/opt/zephyr-sdk-0.16.1"
+export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
+export ZEPHYR_TOOLCHAIN_PATH="${HOME}/opt/zephyr-sdk-0.16.1"
 
 # Paths for command
 export PATH=${PATH}:/usr/local/bin
@@ -15,7 +16,7 @@ export PATH=${PATH}:/usr/local/bin
 export FWLIB_PATH=../../Firmwares
 
 # bash completion
-export NCS_HOME=${HOME}/opt/ncs_2.2.0
+export NCS_HOME=${HOME}/opt/ncs_2.5.2
 export ZEPHYR_BASE=${NCS_HOME}/zephyr
 source ${ZEPHYR_BASE}/zephyr-env.sh
 
