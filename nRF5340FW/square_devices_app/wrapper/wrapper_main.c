@@ -30,18 +30,12 @@ void app_main_event_notify_ble_request_received(void);
 //
 // 暗号化関連処理
 //
-#include "app_crypto.h"
-#include "app_crypto_define.h"
-
 static void (*_resume_func)(void);
 
 void wrapper_main_crypto_do_process(uint8_t event, void (*resume_func)(void))
 {
     // コールバック関数の参照を保持
     _resume_func = resume_func;
-
-    // 暗号化関連処理を専用スレッドで実行
-    app_crypto_event_notify(event);
 }
 
 void wrapper_main_crypto_random_pregen_done(void)
@@ -61,18 +55,10 @@ void wrapper_main_usb_configured(void)
     // TODO: 各種業務処理を実行
 }
 
-static void crypto_random_pregen_done(void)
-{
-    // TODO: 各種業務処理を実行
-
-    // プラットフォームに制御を戻す
-    app_main_wrapper_initialized();
-}
-
 void wrapper_main_data_channel_initialized(void)
 {
-    // ランダムベクターを事前生成（専用スレッドで実行させるよう指示）
-    wrapper_main_crypto_do_process(CRYPTO_EVT_RANDOM_PREGEN, crypto_random_pregen_done);
+    // プラットフォームに制御を戻す
+    app_main_wrapper_initialized();
 }
 
 void wrapper_main_hid_data_frame_received(uint8_t *data, size_t size)
