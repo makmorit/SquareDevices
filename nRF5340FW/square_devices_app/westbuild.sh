@@ -45,8 +45,8 @@ if [ "$1" == "-f" ]; then
         exit 1
     fi
 else
-    # Config for BLE DFU & others
-    OVR_OPT="-DOVERLAY_CONFIG=overlay-smp.conf;overlay-opt.conf"
+    # Config for BLE DFU
+    OVR_OPT="-DOVERLAY_CONFIG=overlay-smp.conf"
     # Config for target board
     HW_REV_STR=`retrieve_prj_conf CONFIG_BT_DIS_HW_REV_STR`
     if [ -n "${HW_REV_STR}" ]; then
