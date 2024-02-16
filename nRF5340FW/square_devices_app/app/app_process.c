@@ -18,7 +18,6 @@
 #include "app_rtcc.h"
 #include "app_status_indicator.h"
 #include "app_timer.h"
-#include "app_usb.h"
 
 // ログ出力制御
 #define LOG_LEVEL LOG_LEVEL_DBG
@@ -40,9 +39,6 @@ void app_process_init(void)
 {
     // ボタン、LEDを使用可能にする
     app_board_initialize();
-
-    // USBを使用可能にする
-    app_usb_initialize();
 
     // タイマーを使用可能にする
     app_timer_initialize();
