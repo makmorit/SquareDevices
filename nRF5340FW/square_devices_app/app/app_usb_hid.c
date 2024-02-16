@@ -109,7 +109,7 @@ static const struct hid_ops ops = {
     .on_idle         = on_idle_cb,
 };
 
-static int composite_pre_init(const struct device *dev)
+static int composite_pre_init(void)
 {
     hdev = device_get_binding("HID_0");
     if (hdev == NULL) {

@@ -51,10 +51,9 @@ static bool initialize_gpio(const struct gpio_dt_spec *device, gpio_flags_t flag
     return true;
 }
 
-static int app_tiny_tft_init(const struct device *dev)
+static int app_tiny_tft_init(void)
 {
     // SPI（spi4）デバイス初期化
-    (void)dev;
     spi_dev = DEVICE_DT_GET(DT_NODELABEL(spi4));
     if (device_is_ready(spi_dev) == false) {
         LOG_ERR("SPI master #4 is not ready");
