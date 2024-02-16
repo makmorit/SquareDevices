@@ -21,9 +21,7 @@ LOG_MODULE_REGISTER(app_ble_init);
 //
 // for Bluetooth smp service
 //
-#include <zephyr/mgmt/mcumgr/smp_bt.h>
-#include "os_mgmt/os_mgmt.h"
-#include "img_mgmt/img_mgmt.h"
+#include <zephyr/mgmt/mcumgr/transport/smp_bt.h>
 
 //
 // パスキー関連
@@ -83,10 +81,6 @@ static void bt_ready(int err)
 
 void app_ble_init(void)
 {
-    // BLE SMPサービスの設定
-    os_mgmt_register_group();
-    img_mgmt_register_group();
-
     // ペアリングモードを設定
     app_ble_pairing_register_callbacks();
     if (app_ble_pairing_mode_set(false) == false) {
