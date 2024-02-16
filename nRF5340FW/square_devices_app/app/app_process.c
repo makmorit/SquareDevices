@@ -11,8 +11,6 @@
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_channel.h"
-#include "app_crypto.h"
-#include "app_crypto_define.h"
 #include "app_event.h"
 #include "app_event_define.h"
 #include "app_rtcc.h"
@@ -56,9 +54,10 @@ static void subsys_init(void)
     // リアルタイムクロックカレンダーの初期化
     app_rtcc_initialize();
 
-    // 暗号化関連の初期化
-    //   別スレッドでランダムシードを生成
-    app_crypto_event_notify(CRYPTO_EVT_INIT);
+    // Bluetoothサービス開始を指示
+    //   同時に、Flash ROMストレージが
+    //   使用可能となります。
+    app_ble_init();
 }
 
 static void app_crypto_init_done(void)
