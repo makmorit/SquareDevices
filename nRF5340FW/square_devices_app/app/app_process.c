@@ -60,15 +60,6 @@ static void subsys_init(void)
     app_ble_init();
 }
 
-static void app_crypto_init_done(void)
-{
-    // 暗号化関連の初期化処理完了
-    //   Bluetoothサービス開始を指示
-    //   同時に、Flash ROMストレージが
-    //   使用可能となります。
-    app_ble_init();
-}
-
 //
 // ボタンイベント振分け処理
 //
@@ -223,17 +214,11 @@ void app_process_for_event(uint8_t event)
         case APEVT_CHANNEL_INIT_TIMEOUT:
             app_channel_on_channel_init_timeout();
             break;
-        case APEVT_APP_CRYPTO_INIT_DONE:
-            app_crypto_init_done();
-            break;
         case APEVT_USB_CONFIGURED:
             usb_configured();
             break;
         case APEVT_CHANNEL_INITIALIZED:
             data_channel_initialized();
-            break;
-        case APEVT_APP_CRYPTO_RANDOM_PREGEN_DONE:
-            wrapper_main_crypto_random_pregen_done();
             break;
         case APEVT_HID_REQUEST_RECEIVED:
             wrapper_main_hid_request_received();

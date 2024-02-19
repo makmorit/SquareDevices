@@ -28,26 +28,6 @@ void app_main_event_notify_ccid_request_received(void);
 void app_main_event_notify_ble_request_received(void);
 
 //
-// 暗号化関連処理
-//
-static void (*_resume_func)(void);
-
-void wrapper_main_crypto_do_process(uint8_t event, void (*resume_func)(void))
-{
-    // コールバック関数の参照を保持
-    _resume_func = resume_func;
-}
-
-void wrapper_main_crypto_random_pregen_done(void)
-{
-    // コールバック関数を実行
-    if (_resume_func != NULL) {
-        (*_resume_func)();
-        _resume_func = NULL;
-    }
-}
-
-//
 // データ処理イベント関連
 //
 void wrapper_main_usb_configured(void)
