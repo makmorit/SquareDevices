@@ -231,13 +231,10 @@ void app_board_led_light(LED_COLOR led_color, bool led_on)
 // --> ボタン押下でシステムが再始動
 //
 #include <hal/nrf_gpio.h>
-#include <zephyr/pm/pm.h>
+#include <zephyr/sys/poweroff.h>
 
-//
-// TODO: Need to research alternative
-// static const uint8_t cpu = 0;
-// static const struct pm_state_info si = {PM_STATE_SOFT_OFF, 0, 0};
-//
+static void system_off_work_handler(struct k_work *work);
+static K_WORK_DELAYABLE_DEFINE(system_off_work, system_off_work_handler);
 
 void app_board_prepare_for_deep_sleep(void)
 {
@@ -255,11 +252,12 @@ void app_board_prepare_for_deep_sleep(void)
     nrf_gpio_cfg_sense_set(sw0_pin_number, NRF_GPIO_PIN_SENSE_LOW);
 
     printk("Entering system off; press BUTTON to restart... \n\n\r");
-    //
-    // TODO: Need to research alternative
-    // pm_state_force(cpu, &si);
-    //
-    k_sleep(K_MSEC(100));
+    k_work_schedule(&system_off_work, K_MSEC(2000));
+}
+
+static void system_off_work_handler(struct k_work *work)
+{
+    sys_poweroff();
 }
 
 //
