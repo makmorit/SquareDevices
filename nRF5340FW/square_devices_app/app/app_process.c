@@ -126,12 +126,6 @@ static void led_blink(void)
     app_status_indicator_blink();
 }
 
-static void enter_to_bootloader(void)
-{
-    // ブートローダーに制御を移すため、システムを再始動
-    app_board_prepare_for_system_reset();
-}
-
 static void data_channel_initialized(void)
 {
     // 業務関連の初期化処理に移行
@@ -157,9 +151,6 @@ void app_process_for_event(uint8_t event)
             break;
         case APEVT_LED_BLINK:
             led_blink();
-            break;
-        case APEVT_ENTER_TO_BOOTLOADER:
-            enter_to_bootloader();
             break;
         case APEVT_BLE_AVAILABLE:
             app_channel_on_ble_available();
