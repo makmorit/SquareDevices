@@ -197,9 +197,6 @@ void app_process_for_event(uint8_t event)
         case APEVT_CHANNEL_INITIALIZED:
             data_channel_initialized();
             break;
-        case APEVT_HID_REQUEST_RECEIVED:
-            wrapper_main_hid_request_received();
-            break;
         case APEVT_BLE_REQUEST_RECEIVED:
             wrapper_main_ble_request_received();
             break;
@@ -230,12 +227,6 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
 {
     // イベントに対応する処理を実行
     switch (event) {
-        case DATEVT_HID_DATA_FRAME_RECEIVED:
-            wrapper_main_hid_data_frame_received(data, size);
-            break;
-        case DATEVT_HID_REPORT_SENT:
-            wrapper_main_hid_report_sent();
-            break;
         case DATEVT_BLE_DATA_FRAME_RECEIVED:
             wrapper_main_ble_data_frame_received(data, size);
             break;
@@ -268,11 +259,6 @@ void app_main_wrapper_initialized(void)
 
     // バージョンをデバッグ出力
     LOG_INF("Square device application (%s) version %s (%d)", CONFIG_BT_DIS_HW_REV_STR, CONFIG_BT_DIS_FW_REV_STR, CONFIG_APP_FW_BUILD);
-}
-
-void app_main_event_notify_hid_request_received(void)
-{
-    app_event_notify(APEVT_HID_REQUEST_RECEIVED);
 }
 
 void app_main_event_notify_ble_request_received(void)

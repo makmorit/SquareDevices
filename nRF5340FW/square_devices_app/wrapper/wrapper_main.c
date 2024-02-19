@@ -23,7 +23,6 @@ static FIDO_RESPONSE_T m_fido_response;
 // 業務処理-->プラットフォーム連携用
 //
 void app_main_wrapper_initialized(void);
-void app_main_event_notify_hid_request_received(void);
 void app_main_event_notify_ble_request_received(void);
 
 //
@@ -33,21 +32,6 @@ void wrapper_main_data_channel_initialized(void)
 {
     // プラットフォームに制御を戻す
     app_main_wrapper_initialized();
-}
-
-void wrapper_main_hid_data_frame_received(uint8_t *data, size_t size)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_hid_request_received(void)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_hid_report_sent(void)
-{
-    // TODO: 各種業務処理を実行
 }
 
 void wrapper_main_ble_data_frame_received(uint8_t *data, size_t size)
