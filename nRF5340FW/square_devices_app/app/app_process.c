@@ -229,9 +229,6 @@ void app_process_for_event(uint8_t event)
         case APEVT_NOTIFY_BLE_DISCONNECTED:
             wrapper_main_notify_ble_disconnected();
             break;
-        case APEVT_CCID_REQUEST_RECEIVED:
-            wrapper_main_ccid_request_received();
-            break;
         case APEVT_APP_SETTINGS_SAVED:
             wrapper_main_app_settings_saved();
             break;
@@ -261,9 +258,6 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
             break;
         case DATEVT_HID_REPORT_SENT:
             wrapper_main_hid_report_sent();
-            break;
-        case DATEVT_CCID_DATA_FRAME_RECEIVED:
-            wrapper_main_ccid_data_frame_received(data, size);
             break;
         case DATEVT_BLE_DATA_FRAME_RECEIVED:
             wrapper_main_ble_data_frame_received(data, size);
@@ -302,11 +296,6 @@ void app_main_wrapper_initialized(void)
 void app_main_event_notify_hid_request_received(void)
 {
     app_event_notify(APEVT_HID_REQUEST_RECEIVED);
-}
-
-void app_main_event_notify_ccid_request_received(void)
-{
-    app_event_notify(APEVT_CCID_REQUEST_RECEIVED);
 }
 
 void app_main_event_notify_ble_request_received(void)

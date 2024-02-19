@@ -24,7 +24,6 @@ static FIDO_RESPONSE_T m_fido_response;
 //
 void app_main_wrapper_initialized(void);
 void app_main_event_notify_hid_request_received(void);
-void app_main_event_notify_ccid_request_received(void);
 void app_main_event_notify_ble_request_received(void);
 
 //
@@ -52,16 +51,6 @@ void wrapper_main_hid_request_received(void)
 }
 
 void wrapper_main_hid_report_sent(void)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_ccid_data_frame_received(uint8_t *data, size_t size)
-{
-    // TODO: 各種業務処理を実行
-}
-
-void wrapper_main_ccid_request_received(void)
 {
     // TODO: 各種業務処理を実行
 }
