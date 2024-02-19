@@ -114,36 +114,20 @@ void app_channel_on_ble_unavailable(void)
     app_status_indicator_abort();
 }
 
-void app_channel_on_usb_disconnected(void)
-{
-    // システムを再始動させる
-    app_board_prepare_for_system_reset();
-}
-
 void app_channel_on_channel_init_timeout(void)
 {
-    if (app_status_indicator_is_usb_available()) {
-        // USBチャネル初期化完了
-        data_channel_initialized();
-        // アイドル時のLED点滅パターンを設定
-        app_status_indicator_idle();
-        // 汎用ステータスを削除
-        app_flash_general_status_flag_reset();
-
-    } else {
-        // USBが使用可能でない場合、汎用ステータスの設定を参照
-        bool flag = app_flash_general_status_flag();
-        // 次回起動時の判定のため、先に汎用ステータスを設定しておく
-        app_flash_general_status_flag_set();
-        // 汎用ステータスが設定されていない場合、スリープ状態に遷移
-        if (flag == false) {
-            app_event_notify(APEVT_IDLING_DETECTED);
-            return;
-        }
-
-        // ペアリングモード初期設定-->BLEアドバタイズ開始-->LED点灯パターン設定
-        initialize_pairing_mode();
+    // 汎用ステータスの設定を参照
+    bool flag = app_flash_general_status_flag();
+    // 次回起動時の判定のため、先に汎用ステータスを設定しておく
+    app_flash_general_status_flag_set();
+    // 汎用ステータスが設定されていない場合、スリープ状態に遷移
+    if (flag == false) {
+        app_event_notify(APEVT_IDLING_DETECTED);
+        return;
     }
+
+    // ペアリングモード初期設定-->BLEアドバタイズ開始-->LED点灯パターン設定
+    initialize_pairing_mode();
 
     // LED点滅管理用のタイマーを始動
     //   100msごとにAPEVT_LED_BLINKが通知される

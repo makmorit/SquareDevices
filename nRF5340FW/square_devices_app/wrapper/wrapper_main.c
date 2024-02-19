@@ -29,11 +29,6 @@ void app_main_event_notify_ble_request_received(void);
 //
 // データ処理イベント関連
 //
-void wrapper_main_usb_configured(void)
-{
-    // TODO: 各種業務処理を実行
-}
-
 void wrapper_main_data_channel_initialized(void)
 {
     // プラットフォームに制御を戻す

@@ -132,23 +132,6 @@ static void enter_to_bootloader(void)
     app_board_prepare_for_system_reset();
 }
 
-static void usb_configured(void)
-{
-    if (app_ble_advertise_is_available() && (app_ble_advertise_is_stopped() == false)) {
-        // 既にBLEチャネルが起動している場合は、
-        // システムを再始動させる
-        app_board_prepare_for_system_reset();
-        return;
-    }
-
-    // USBが使用可能になったことを
-    // LED点滅制御に通知
-    app_status_indicator_notify_usb_available(true);
-
-    // 各種業務処理を実行
-    wrapper_main_usb_configured();
-}
-
 static void data_channel_initialized(void)
 {
     // 業務関連の初期化処理に移行
@@ -205,17 +188,11 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_PAIRING_ACCEPTED:
             app_channel_on_ble_pairing_accepted();
             break;
-        case APEVT_USB_DISCONNECTED:
-            app_channel_on_usb_disconnected();
-            break;
         case APEVT_IDLING_DETECTED:
             app_channel_on_ble_idling_detected();
             break;
         case APEVT_CHANNEL_INIT_TIMEOUT:
             app_channel_on_channel_init_timeout();
-            break;
-        case APEVT_USB_CONFIGURED:
-            usb_configured();
             break;
         case APEVT_CHANNEL_INITIALIZED:
             data_channel_initialized();
