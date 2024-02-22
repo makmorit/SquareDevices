@@ -273,12 +273,13 @@ bool mcumgr_cbor_decode_result_info(uint8_t *cbor_data_buffer, size_t cbor_data_
     if (parse_root_map(cbor_data_buffer, cbor_data_length, &parser, &root_map) == false) {
         return false;
     }
+    // "off"エントリーを抽出（数値）
+    if (parse_off(&root_map)) {
+        // "off"が存在する場合は正常終了として扱う
+        return true;
+    }
     // "rc"エントリーを抽出（数値）
     if (parse_rc(&root_map) == false) {
-        return false;
-    }
-    // "off"エントリーを抽出（数値）
-    if (parse_off(&root_map) == false) {
         return false;
     }
     // 正常終了
