@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <dirent.h>
-
+#include "log_debug.h"
 #include "mcumgr_app_image.h"
 
 // ファームウェア更新イメージ（app_update.PCA10095.0.4.0.bin）のフルパスを保持
@@ -117,7 +117,7 @@ static bool read_app_image_file(const char *file_name, size_t max_size, uint8_t 
 
     FILE *f = fopen(file_name, "rb");
     if (f == NULL) {
-        printf("%s: fopen failed (%s)", __func__, file_name);
+        log_debug("%s: fopen failed (%s)", __func__, file_name);
         return false;
     }
 
@@ -126,7 +126,7 @@ static bool read_app_image_file(const char *file_name, size_t max_size, uint8_t 
         if (++i == max_size) {
             // 読み込み可能最大サイズを超えた場合はfalse
             fclose(f);
-            printf("%s: read size reached max size (%d bytes)", __func__, (int)max_size);
+            log_debug("%s: read size reached max size (%d bytes)", __func__, (int)max_size);
             return false;
         }
     }
@@ -189,7 +189,7 @@ static bool extract_image_hash_sha256(void)
         }
     }
     // SHA-256ハッシュが見つからなかった場合はエラー
-    printf("%s: SHA-256 hash of image not found", __func__);
+    log_debug("%s: SHA-256 hash of image not found", __func__);
     return false;
 }
 
