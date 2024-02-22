@@ -222,4 +222,12 @@ static ToolLogFile *sharedInstance;
         return logTypeStr;
     }
 
+#pragma mark - Non Objective-C codes
+
+    void handle_log_debug(char *message) {
+        NSString *messageString = [[NSString alloc] initWithUTF8String:message];
+        ToolLogFile *toolLogFile = sharedInstance;
+        [toolLogFile debug:messageString];
+    }
+
 @end
