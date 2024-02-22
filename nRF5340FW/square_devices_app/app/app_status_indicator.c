@@ -47,27 +47,6 @@ static void led_blink_parameter_set(LED_COLOR led_for_blink, uint32_t interval_o
 }
 
 //
-// USB状態関連
-//
-// USBが利用可能かどうかを保持
-static bool m_usb_available = false;
-
-void app_status_indicator_notify_usb_available(bool available)
-{
-    // USBが利用可能かどうかを設定
-    m_usb_available = available;
-
-    // アイドル時のLED点滅パターンを再設定
-    app_status_indicator_idle();
-}
-
-bool app_status_indicator_is_usb_available(void)
-{
-    // USBが利用可能かどうかを戻す
-    return m_usb_available;
-}
-
-//
 // LED点灯／消灯制御関連
 //
 void app_status_indicator_light_all(bool led_on)
@@ -87,15 +66,9 @@ void app_status_indicator_none(void)
 
 void app_status_indicator_idle(void)
 {
-    if (m_usb_available) {
-        // USB稼働中＝GREEN LED点滅
-        led_blink_parameter_set(LED_COLOR_GREEN, LED_IDLE_OFF_INTERVAL_CNT, LED_IDLE_ON_INTERVAL_CNT);
-
-    } else {
-        // BLEペリフェラル稼働中かつ
-        // 非ペアリングモード＝BLUE LED点滅
-        led_blink_parameter_set(LED_COLOR_BLUE, LED_IDLE_OFF_INTERVAL_CNT, LED_IDLE_ON_INTERVAL_CNT);
-    }
+    // BLEペリフェラル稼働中かつ
+    // 非ペアリングモード＝BLUE LED点滅
+    led_blink_parameter_set(LED_COLOR_BLUE, LED_IDLE_OFF_INTERVAL_CNT, LED_IDLE_ON_INTERVAL_CNT);
 
     // 該当色のLEDを、約２秒ごとに点滅させる
     led_blink_reset(true);

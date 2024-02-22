@@ -19,13 +19,6 @@
 LOG_MODULE_REGISTER(app_ble_init);
 
 //
-// for Bluetooth smp service
-//
-#include <zephyr/mgmt/mcumgr/smp_bt.h>
-#include "os_mgmt/os_mgmt.h"
-#include "img_mgmt/img_mgmt.h"
-
-//
 // パスキー関連
 //
 #if defined(CONFIG_BT_FIXED_PASSKEY)
@@ -83,10 +76,6 @@ static void bt_ready(int err)
 
 void app_ble_init(void)
 {
-    // BLE SMPサービスの設定
-    os_mgmt_register_group();
-    img_mgmt_register_group();
-
     // ペアリングモードを設定
     app_ble_pairing_register_callbacks();
     if (app_ble_pairing_mode_set(false) == false) {
@@ -104,9 +93,5 @@ void app_ble_init(void)
         // BLE使用不能イベントを業務処理スレッドに引き渡す
         app_event_notify(APEVT_BLE_UNAVAILABLE);
         LOG_ERR("Bluetooth init failed (bt_enable returns %d)", rc);
-        return;
     }
-
-    // Initialize the Bluetooth mcumgr transport.
-    smp_bt_register();
 }

@@ -10,7 +10,6 @@ target_sources(app PRIVATE
     src/main.c
     ${app_sources}
     ${wrapper_sources}
-    $ENV{NCS_HOME}/mbedtls/library/ctr_drbg.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_ble_receive.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_ble_send.c
     $ENV{FWLIB_PATH}/fido2_lib/fido_command.c
@@ -21,7 +20,6 @@ target_sources(app PRIVATE
     $ENV{FWLIB_PATH}/vendor_lib/vendor_command.c
 )
 target_include_directories(app PRIVATE 
-    $ENV{NCS_HOME}/modules/lib/tinycbor/include
     $ENV{ZEPHYR_BASE}/subsys/settings/include
     app
     $ENV{FWLIB_PATH}/fido2_lib

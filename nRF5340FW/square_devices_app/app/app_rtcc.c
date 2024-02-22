@@ -520,10 +520,9 @@ bool app_rtcc_get_timestamp(char *buf, size_t size)
 // デバイスの初期化
 //
 #ifdef CONFIG_USE_EXTERNAL_RTCC
-static int app_rtcc_init(const struct device *dev)
+static int app_rtcc_init(void)
 {
     // I2C（i2c1）デバイス初期化
-    (void)dev;
     i2c_dev = DEVICE_DT_GET(DT_NODELABEL(i2c1));
     if (device_is_ready(i2c_dev) == false) {
         return -ENOTSUP;

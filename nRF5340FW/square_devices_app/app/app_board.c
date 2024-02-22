@@ -231,10 +231,10 @@ void app_board_led_light(LED_COLOR led_color, bool led_on)
 // --> ボタン押下でシステムが再始動
 //
 #include <hal/nrf_gpio.h>
-#include <zephyr/pm/pm.h>
+#include <zephyr/sys/poweroff.h>
 
-static const uint8_t cpu = 0;
-static const struct pm_state_info si = {PM_STATE_SOFT_OFF, 0, 0};
+static void system_off_work_handler(struct k_work *work);
+static K_WORK_DELAYABLE_DEFINE(system_off_work, system_off_work_handler);
 
 void app_board_prepare_for_deep_sleep(void)
 {
@@ -252,8 +252,12 @@ void app_board_prepare_for_deep_sleep(void)
     nrf_gpio_cfg_sense_set(sw0_pin_number, NRF_GPIO_PIN_SENSE_LOW);
 
     printk("Entering system off; press BUTTON to restart... \n\n\r");
-    pm_state_force(cpu, &si);
-    k_sleep(K_MSEC(100));
+    k_work_schedule(&system_off_work, K_MSEC(2000));
+}
+
+static void system_off_work_handler(struct k_work *work)
+{
+    sys_poweroff();
 }
 
 //
@@ -264,20 +268,4 @@ void app_board_prepare_for_system_reset(void)
 {
     printk("System will restart... \n\n\r");
     NVIC_SystemReset();
-}
-
-//
-// ブートローダーモードに遷移させる
-//
-#include <hal/nrf_power.h>
-
-#define BOOTLOADER_DFU_GPREGRET         (0xB0)
-#define BOOTLOADER_DFU_START_BIT_MASK   (0x01)
-#define BOOTLOADER_DFU_START            (BOOTLOADER_DFU_GPREGRET | BOOTLOADER_DFU_START_BIT_MASK)
-
-void app_board_prepare_for_bootloader_mode(void)
-{
-    // ブートローダーモードに遷移させるため、
-    // GPREGRETレジスターにその旨の値を設定
-    nrf_power_gpregret_set(NRF_POWER, BOOTLOADER_DFU_START);
 }

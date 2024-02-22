@@ -11,14 +11,11 @@
 #include "app_ble_init.h"
 #include "app_board.h"
 #include "app_channel.h"
-#include "app_crypto.h"
-#include "app_crypto_define.h"
 #include "app_event.h"
 #include "app_event_define.h"
 #include "app_rtcc.h"
 #include "app_status_indicator.h"
 #include "app_timer.h"
-#include "app_usb.h"
 
 // ログ出力制御
 #define LOG_LEVEL LOG_LEVEL_DBG
@@ -41,9 +38,6 @@ void app_process_init(void)
     // ボタン、LEDを使用可能にする
     app_board_initialize();
 
-    // USBを使用可能にする
-    app_usb_initialize();
-
     // タイマーを使用可能にする
     app_timer_initialize();
 
@@ -60,15 +54,7 @@ static void subsys_init(void)
     // リアルタイムクロックカレンダーの初期化
     app_rtcc_initialize();
 
-    // 暗号化関連の初期化
-    //   別スレッドでランダムシードを生成
-    app_crypto_event_notify(CRYPTO_EVT_INIT);
-}
-
-static void app_crypto_init_done(void)
-{
-    // 暗号化関連の初期化処理完了
-    //   Bluetoothサービス開始を指示
+    // Bluetoothサービス開始を指示
     //   同時に、Flash ROMストレージが
     //   使用可能となります。
     app_ble_init();
@@ -140,29 +126,6 @@ static void led_blink(void)
     app_status_indicator_blink();
 }
 
-static void enter_to_bootloader(void)
-{
-    // ブートローダーに制御を移すため、システムを再始動
-    app_board_prepare_for_system_reset();
-}
-
-static void usb_configured(void)
-{
-    if (app_ble_advertise_is_available() && (app_ble_advertise_is_stopped() == false)) {
-        // 既にBLEチャネルが起動している場合は、
-        // システムを再始動させる
-        app_board_prepare_for_system_reset();
-        return;
-    }
-
-    // USBが使用可能になったことを
-    // LED点滅制御に通知
-    app_status_indicator_notify_usb_available(true);
-
-    // 各種業務処理を実行
-    wrapper_main_usb_configured();
-}
-
 static void data_channel_initialized(void)
 {
     // 業務関連の初期化処理に移行
@@ -188,9 +151,6 @@ void app_process_for_event(uint8_t event)
             break;
         case APEVT_LED_BLINK:
             led_blink();
-            break;
-        case APEVT_ENTER_TO_BOOTLOADER:
-            enter_to_bootloader();
             break;
         case APEVT_BLE_AVAILABLE:
             app_channel_on_ble_available();
@@ -219,38 +179,20 @@ void app_process_for_event(uint8_t event)
         case APEVT_BLE_PAIRING_ACCEPTED:
             app_channel_on_ble_pairing_accepted();
             break;
-        case APEVT_USB_DISCONNECTED:
-            app_channel_on_usb_disconnected();
-            break;
         case APEVT_IDLING_DETECTED:
             app_channel_on_ble_idling_detected();
             break;
         case APEVT_CHANNEL_INIT_TIMEOUT:
             app_channel_on_channel_init_timeout();
             break;
-        case APEVT_APP_CRYPTO_INIT_DONE:
-            app_crypto_init_done();
-            break;
-        case APEVT_USB_CONFIGURED:
-            usb_configured();
-            break;
         case APEVT_CHANNEL_INITIALIZED:
             data_channel_initialized();
-            break;
-        case APEVT_APP_CRYPTO_RANDOM_PREGEN_DONE:
-            wrapper_main_crypto_random_pregen_done();
-            break;
-        case APEVT_HID_REQUEST_RECEIVED:
-            wrapper_main_hid_request_received();
             break;
         case APEVT_BLE_REQUEST_RECEIVED:
             wrapper_main_ble_request_received();
             break;
         case APEVT_NOTIFY_BLE_DISCONNECTED:
             wrapper_main_notify_ble_disconnected();
-            break;
-        case APEVT_CCID_REQUEST_RECEIVED:
-            wrapper_main_ccid_request_received();
             break;
         case APEVT_APP_SETTINGS_SAVED:
             wrapper_main_app_settings_saved();
@@ -276,15 +218,6 @@ void app_process_for_data_event(uint8_t event, uint8_t *data, size_t size)
 {
     // イベントに対応する処理を実行
     switch (event) {
-        case DATEVT_HID_DATA_FRAME_RECEIVED:
-            wrapper_main_hid_data_frame_received(data, size);
-            break;
-        case DATEVT_HID_REPORT_SENT:
-            wrapper_main_hid_report_sent();
-            break;
-        case DATEVT_CCID_DATA_FRAME_RECEIVED:
-            wrapper_main_ccid_data_frame_received(data, size);
-            break;
         case DATEVT_BLE_DATA_FRAME_RECEIVED:
             wrapper_main_ble_data_frame_received(data, size);
             break;
@@ -317,16 +250,6 @@ void app_main_wrapper_initialized(void)
 
     // バージョンをデバッグ出力
     LOG_INF("Square device application (%s) version %s (%d)", CONFIG_BT_DIS_HW_REV_STR, CONFIG_BT_DIS_FW_REV_STR, CONFIG_APP_FW_BUILD);
-}
-
-void app_main_event_notify_hid_request_received(void)
-{
-    app_event_notify(APEVT_HID_REQUEST_RECEIVED);
-}
-
-void app_main_event_notify_ccid_request_received(void)
-{
-    app_event_notify(APEVT_CCID_REQUEST_RECEIVED);
 }
 
 void app_main_event_notify_ble_request_received(void)

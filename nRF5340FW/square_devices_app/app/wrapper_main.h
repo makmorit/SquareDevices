@@ -18,15 +18,7 @@ extern "C" {
 //
 // 関数群
 //
-void        wrapper_main_crypto_do_process(uint8_t event, void (*resume_func)(void));
-void        wrapper_main_crypto_random_pregen_done(void);
-void        wrapper_main_usb_configured(void);
 void        wrapper_main_data_channel_initialized(void);
-void        wrapper_main_hid_data_frame_received(uint8_t *data, size_t size);
-void        wrapper_main_hid_request_received(void);
-void        wrapper_main_hid_report_sent(void);
-void        wrapper_main_ccid_data_frame_received(uint8_t *data, size_t size);
-void        wrapper_main_ccid_request_received(void);
 void        wrapper_main_ble_data_frame_received(uint8_t *data, size_t size);
 void        wrapper_main_ble_request_received(void);
 void        wrapper_main_ble_response_resume(void);
