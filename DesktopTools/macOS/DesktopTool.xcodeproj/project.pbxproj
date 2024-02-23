@@ -123,6 +123,8 @@
 		7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */; };
 		7AB1C8332B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
 		7AB1C8342B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
+		7ABF6ED02B87347200679062 /* log_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 7ABF6ECF2B87347200679062 /* log_debug.c */; };
+		7ABF6ED12B87347200679062 /* log_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 7ABF6ECF2B87347200679062 /* log_debug.c */; };
 		7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
 		7AD2DD502B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
 		7AD2DD532B6352C900E4BE93 /* DeviceTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */; };
@@ -247,6 +249,8 @@
 		7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.3.bin; sourceTree = "<group>"; };
 		7ABD1FC42B2FEC840056E14A /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABD1FC52B2FEC840056E14A /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ABF6ECE2B87344E00679062 /* log_debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = log_debug.h; sourceTree = "<group>"; };
+		7ABF6ECF2B87347200679062 /* log_debug.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = log_debug.c; sourceTree = "<group>"; };
 		7AC035732B4FBD1C009BB9F9 /* FWUpdateTransferDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransferDefine.h; sourceTree = "<group>"; };
 		7AD2DD4D2B634EC000E4BE93 /* DeviceTimestampShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceTimestampShow.h; sourceTree = "<group>"; };
 		7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceTimestampShow.m; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 		7A4C217C287520DA005CC8D0 /* AppCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7ABF6ECE2B87344E00679062 /* log_debug.h */,
+				7ABF6ECF2B87347200679062 /* log_debug.c */,
 				7AB1C8232B2C03CF00830345 /* AppUtil.h */,
 				7AB1C8242B2C047700830345 /* AppUtil.m */,
 				7A0DF8A92B464B8700FAE3FF /* CommandWindow.h */,
@@ -689,6 +695,7 @@
 				7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7AEC09252B6B449E006D2B76 /* PingTestQuery.m in Sources */,
 				7A60EA032A27091E006B25BA /* ToolVersionInfo.m in Sources */,
+				7ABF6ED02B87347200679062 /* log_debug.c in Sources */,
 				7AD2DD532B6352C900E4BE93 /* DeviceTimestamp.m in Sources */,
 				7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7AB1C8252B2C047700830345 /* AppUtil.m in Sources */,
@@ -739,6 +746,7 @@
 				7A2CCB942B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
 				7AEC09262B6B449E006D2B76 /* PingTestQuery.m in Sources */,
 				7A60EA042A27091E006B25BA /* ToolVersionInfo.m in Sources */,
+				7ABF6ED12B87347200679062 /* log_debug.c in Sources */,
 				7AD2DD542B6352C900E4BE93 /* DeviceTimestamp.m in Sources */,
 				7A2CCB8F2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7AB1C8262B2C047700830345 /* AppUtil.m in Sources */,
@@ -897,7 +905,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -930,7 +938,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -965,7 +973,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -998,7 +1006,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";

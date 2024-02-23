@@ -6,6 +6,7 @@
 //
 #include <stdio.h>
 #include "cbor.h"
+#include "log_debug.h"
 
 #define HASH_SIZE   32
 #define SLOT_CNT    2
@@ -58,19 +59,19 @@ static bool parse_integer_value(const CborValue *map, const char *string, int *r
     CborValue value;
     CborError ret = cbor_value_map_find_value(map, string, &value);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
         return false;
     }
     // 型をチェック
     CborType type = cbor_value_get_type(&value);
     if (type != CborIntegerType) {
-        printf("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
+        log_debug("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
         return false;
     }
     // 値を抽出
     ret = cbor_value_get_int_checked(&value, result);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_get_int_checked(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_get_int_checked(%s) returns %d", __func__, string, ret);
         return false;
     }
     return true;
@@ -82,25 +83,25 @@ static bool parse_fixed_bytes_value(const CborValue *map, const char *string, ui
     CborValue value;
     CborError ret = cbor_value_map_find_value(map, string, &value);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
         return false;
     }
     // 型をチェック
     CborType type = cbor_value_get_type(&value);
     if (type != CborByteStringType) {
-        printf("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
+        log_debug("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
         return false;
     }
     // 値を抽出
     size_t sz = size;
     ret = cbor_value_copy_byte_string(&value, result, &sz, NULL);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_copy_byte_string(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_copy_byte_string(%s) returns %d", __func__, string, ret);
         return false;
     }
     // 抽出サイズをチェック
     if (sz != size) {
-        printf("%s: cbor_value_copy_byte_string(%s) returns size %zu", __func__, string, sz);
+        log_debug("%s: cbor_value_copy_byte_string(%s) returns size %zu", __func__, string, sz);
         return false;
     }
     return true;
@@ -112,19 +113,19 @@ static bool parse_boolean_value(const CborValue *map, const char *string, bool *
     CborValue value;
     CborError ret = cbor_value_map_find_value(map, string, &value);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
         return false;
     }
     // 型をチェック
     CborType type = cbor_value_get_type(&value);
     if (type != CborBooleanType) {
-        printf("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
+        log_debug("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
         return false;
     }
     // 値を抽出
     ret = cbor_value_get_boolean(&value, result);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_get_boolean(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_get_boolean(%s) returns %d", __func__, string, ret);
         return false;
     }
     return true;
@@ -143,13 +144,13 @@ static bool parse_root_map(const uint8_t *buffer, size_t size, CborParser *parse
     // CBOR parser初期化
     CborError ret = cbor_parser_init(buffer, size, CborValidateCanonicalFormat, parser, root_map);
     if (ret != CborNoError) {
-        printf("%s: cbor_parser_init returns %d", __func__, ret);
+        log_debug("%s: cbor_parser_init returns %d", __func__, ret);
         return false;
     }
     // ルートのMapを抽出
     CborType type = cbor_value_get_type(root_map);
     if (type != CborMapType) {
-        printf("%s: cbor_value_get_type returns type %d", __func__, type);
+        log_debug("%s: cbor_value_get_type returns type %d", __func__, type);
         return false;
     }
     return true;
@@ -160,13 +161,13 @@ static bool parse_array(const CborValue *map, const char *string, CborValue *res
     // Mapから指定キーのエントリーを抽出
     CborError ret = cbor_value_map_find_value(map, string, result);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
+        log_debug("%s: cbor_value_map_find_value(%s) returns %d", __func__, string, ret);
         return false;
     }
     // 型をチェック
     CborType type = cbor_value_get_type(result);
     if (type != CborArrayType) {
-        printf("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
+        log_debug("%s: cbor_value_get_type(%s) returns type %d", __func__, string, type);
         return false;
     }
     return true;
@@ -178,7 +179,7 @@ static bool parse_images_array(const CborValue *array)
     CborValue map;
     CborError ret = cbor_value_enter_container(array, &map);
     if (ret != CborNoError) {
-        printf("%s: cbor_value_enter_container returns %d", __func__, ret);
+        log_debug("%s: cbor_value_enter_container returns %d", __func__, ret);
         return false;
     }
     while (ret == CborNoError) {
@@ -187,7 +188,7 @@ static bool parse_images_array(const CborValue *array)
         if (type == CborInvalidType) {
             break;
         } else if (type != CborMapType) {
-            printf("%s: cbor_value_get_type returns type %d", __func__, type);
+            log_debug("%s: cbor_value_get_type returns type %d", __func__, type);
             return false;
         }
         // "slot"エントリーを抽出（数値）
@@ -207,7 +208,7 @@ static bool parse_images_array(const CborValue *array)
         // 次の配列要素に移動
         ret = cbor_value_advance(&map);
         if (ret != CborNoError) {
-            printf("%s: cbor_value_advance returns %d", __func__, ret);
+            log_debug("%s: cbor_value_advance returns %d", __func__, ret);
             return false;
         }
     }
@@ -272,12 +273,13 @@ bool mcumgr_cbor_decode_result_info(uint8_t *cbor_data_buffer, size_t cbor_data_
     if (parse_root_map(cbor_data_buffer, cbor_data_length, &parser, &root_map) == false) {
         return false;
     }
+    // "off"エントリーを抽出（数値）
+    if (parse_off(&root_map)) {
+        // "off"が存在する場合は正常終了として扱う
+        return true;
+    }
     // "rc"エントリーを抽出（数値）
     if (parse_rc(&root_map) == false) {
-        return false;
-    }
-    // "off"エントリーを抽出（数値）
-    if (parse_off(&root_map) == false) {
         return false;
     }
     // 正常終了
