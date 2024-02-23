@@ -15,6 +15,8 @@
 		64ED9A9D164752C800F39EAE /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9A9C164752C800F39EAE /* IOBluetooth.framework */; };
 		7A0DF8AB2B464CD500FAE3FF /* CommandWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */; };
 		7A0DF8AC2B464CD500FAE3FF /* CommandWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */; };
+		7A184C942B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */; };
+		7A184C952B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */; };
 		7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
@@ -121,8 +123,6 @@
 		7AB1C82A2B2C330000830345 /* FWUpdateImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C8282B2C330000830345 /* FWUpdateImage.m */; };
 		7AB1C82D2B2C3C9100830345 /* mcumgr_app_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */; };
 		7AB1C82E2B2C3C9100830345 /* mcumgr_app_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */; };
-		7AB1C8332B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
-		7AB1C8342B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */; };
 		7ABF6ED02B87347200679062 /* log_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 7ABF6ECF2B87347200679062 /* log_debug.c */; };
 		7ABF6ED12B87347200679062 /* log_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 7ABF6ECF2B87347200679062 /* log_debug.c */; };
 		7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
@@ -161,6 +161,7 @@
 		64ED9A9C164752C800F39EAE /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
 		7A0DF8A92B464B8700FAE3FF /* CommandWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandWindow.h; sourceTree = "<group>"; };
 		7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandWindow.m; sourceTree = "<group>"; };
+		7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.4.bin; sourceTree = "<group>"; };
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
 		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
 		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
@@ -246,7 +247,6 @@
 		7AB1C8282B2C330000830345 /* FWUpdateImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateImage.m; sourceTree = "<group>"; };
 		7AB1C82B2B2C3C9100830345 /* mcumgr_app_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcumgr_app_image.h; sourceTree = "<group>"; };
 		7AB1C82C2B2C3C9100830345 /* mcumgr_app_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcumgr_app_image.c; sourceTree = "<group>"; };
-		7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.3.bin; sourceTree = "<group>"; };
 		7ABD1FC42B2FEC840056E14A /* DesktopTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABD1FC52B2FEC840056E14A /* VendorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABF6ECE2B87344E00679062 /* log_debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = log_debug.h; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 		7A36FB302A1B3461005C78D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7AB1C8322B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin */,
+				7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */,
 				7A62E6FA2ADCF97F007942AE /* clock_edit.png */,
 				7A62E6F92ADCF97F007942AE /* clock.png */,
 				7A810FF62A1C8AE400C0BAED /* check_box.png */,
@@ -629,7 +629,6 @@
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
-				7AB1C8332B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
@@ -637,6 +636,7 @@
 				7A62E6FB2ADCF97F007942AE /* clock.png in Resources */,
 				7A3F4F262875633C003CFE67 /* icon.png in Resources */,
 				7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */,
+				7A184C942B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */,
 				7A58D0632A1C4661002FF8B6 /* connect.png in Resources */,
 				7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */,
 				64ED9A841647439300F39EAE /* InfoPlist.strings in Resources */,
@@ -658,7 +658,6 @@
 				7A810FF42A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06C2A1C7957002FF8B6 /* information.png in Resources */,
 				7A2CCB962B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
-				7AB1C8342B2C3E9E00830345 /* app_update.PCA10095_01.0.0.3.bin in Resources */,
 				7A27126F2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
 				7A58D0662A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0682A1C4661002FF8B6 /* disconnect.png in Resources */,
@@ -666,6 +665,7 @@
 				7A62E6FC2ADCF97F007942AE /* clock.png in Resources */,
 				7A8B3DFE296E56640005F7B1 /* icon.png in Resources */,
 				7A9A259C2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */,
+				7A184C952B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */,
 				7A58D0642A1C4661002FF8B6 /* connect.png in Resources */,
 				7A8B3E16296E56640005F7B1 /* Images.xcassets in Resources */,
 				7A8B3E1A296E56640005F7B1 /* InfoPlist.strings in Resources */,
