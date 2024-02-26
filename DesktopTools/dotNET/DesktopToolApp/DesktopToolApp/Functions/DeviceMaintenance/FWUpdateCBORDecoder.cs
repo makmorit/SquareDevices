@@ -74,6 +74,18 @@ namespace DesktopTool
             // Map内を探索
             foreach (CBORObject uploadResultInfoKey in uploadResultInfoMap.Keys) {
                 string keyStr = uploadResultInfoKey.AsString();
+                if (keyStr.Equals("off")) {
+                    // "off"エントリーを抽出（数値）
+                    UInt32 off = 0;
+                    if (ParseUInt32Value(uploadResultInfoMap, uploadResultInfoKey, ref off) == false) {
+                        return false;
+                    }
+                    // "off"エントリーが存在する場合は正常終了扱い
+                    // （他のエントリーが存在しない仕様）
+                    ResultInfo.Off = off;
+                    ResultInfo.Rc = 0;
+                    return true;
+                }
                 if (keyStr.Equals("rc")) {
                     // "rc"エントリーを抽出（数値）
                     byte rc = 0;
@@ -81,14 +93,6 @@ namespace DesktopTool
                         return false;
                     }
                     ResultInfo.Rc = rc;
-                }
-                if (keyStr.Equals("off")) {
-                    // "off"エントリーを抽出（数値）
-                    UInt32 off = 0;
-                    if (ParseUInt32Value(uploadResultInfoMap, uploadResultInfoKey, ref off) == false) {
-                        return false;
-                    }
-                    ResultInfo.Off = off;
                 }
             }
             return true;
