@@ -28,3 +28,6 @@ Windows 11
 
 - <b>[インストール手順書](../../../Markdowns/DesktopTools/dotNET/INSTALL.md)</b><br>
 デスクトップツールをWindows環境にインストールする手順について掲載しています。
+
+- <b>[ログファイル参照手順書](../../../Markdowns/DesktopTools/dotNET/VIEWLOG.md)</b><br>
+デスクトップツールから出力されるログファイルの参照手順について説明しています。
