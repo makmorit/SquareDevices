@@ -22,4 +22,4 @@ macOS Monterey (Version 12)〜 <br>
 * ログファイル参照
 
 ### 画面イメージ
-<img src="../../DesktopTools/macOSApp/assets01/0001.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="400">

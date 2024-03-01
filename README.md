@@ -1,7 +1,7 @@
 
 # Square devices
 
-<img src="Markdowns/assets01/pc.png" width="200">
+<img src="Markdowns/images/pc.png" width="200">
 
 最終更新日：2024/2/29
 

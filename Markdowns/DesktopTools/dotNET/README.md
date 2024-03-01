@@ -22,4 +22,9 @@ Windows 11
 * ログファイル参照
 
 ### 画面イメージ
-<img src="../../DesktopTools/dotNET/assets01/0001.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="400">
+
+### 手順書
+
+- <b>[インストール手順書](../../../Markdowns/DesktopTools/dotNET/INSTALL.md)</b><br>
+デスクトップツールをWindows環境にインストールする手順について掲載しています。
