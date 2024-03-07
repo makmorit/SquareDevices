@@ -3,7 +3,7 @@
 
 <img src="Markdowns/images/pc.png" width="200">
 
-最終更新日：2024/2/29
+最終更新日：2024/3/7
 
 nRF5340を使用したBLEデバイスを製作しています。
 
@@ -18,7 +18,5 @@ PC環境から、nRF5340基板の動作に必要な各種設定／動作テス�
 
 ## ハードウェア
 
-- <b>（製作中）[MDBT53 Slim Board](Hardwares/MDBT53SlimBoard)</b><br>
-Nordic社のSoC「nRF5340」を使用したBLEデバイスです。<br>
-日本国内の技適取得済みであるnRF5340搭載モジュール「MDBT53」を使用します。<br>
-小型ボタン乾電池（CR1225）で駆動し、BLEペリフェラルデバイスとして動作します。
+- <b>[nRF5340基板の製作](Markdowns/Hardwares/README.md)</b><br>
+Nordic社のSoC「nRF5340」を使用したBLEデバイスを制作しています。
