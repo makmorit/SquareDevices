@@ -1,11 +1,8 @@
-
 # Square devices
 
 <img src="Markdowns/images/pc.png" width="200">
 
 最終更新日：2024/3/7
-
-nRF5340を使用したBLEデバイスを製作しています。
 
 ## プログラム
 
@@ -19,4 +16,4 @@ PC環境から、nRF5340基板の動作に必要な各種設定／動作テス�
 ## ハードウェア
 
 - <b>[nRF5340基板の製作](Markdowns/Hardwares/README.md)</b><br>
-Nordic社のSoC「nRF5340」を使用したBLEデバイスを制作しています。
+Nordic社のSoC「nRF5340」を使用したBLEデバイスを製作しています。
