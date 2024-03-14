@@ -1,6 +1,6 @@
 # nRF5340基板の製作
 
-最終更新日：2024/3/7
+最終更新日：2024/3/14
 
 ## 概要
 
@@ -11,6 +11,8 @@ Nordic社のSoC「nRF5340」を使用したBLEデバイスを製作していま�
 最終更新日現在、Nordic社から販売されている「nRF5340 DK」、および数点の周辺部材から成る評価基板を用意し、ファームウェア、デスクトップツールの制作に使用しています。<br>
 nRF5340 DKについては下記リンクご参照<br>
 https://www.nordicsemi.com/Products/Development-hardware/nrf5340-dk
+
+<img src="images/BOARD_01.jpg" width="400">
 
 ### 特徴
 - BLEペリフェラルデバイスとして動作
@@ -24,6 +26,8 @@ https://www.nordicsemi.com/Products/Development-hardware/nrf5340-dk
 評価基板では、FORMIKE製の超小型TFTディスプレイ「KWH009ST02-F01」を接続する前提としております。<br>
 「KWH009ST02-F01」については下記リンクご参照<br>
 https://www.wandisplay.com/jp/products/KWH009ST02-F01.html
+
+<img src="images/BOARD_02.jpg" width="300">
 
 #### 特色
 - 外形寸法：`28`mm x `14`mm
