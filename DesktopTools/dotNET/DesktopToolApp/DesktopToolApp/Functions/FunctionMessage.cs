@@ -12,7 +12,6 @@
         public const string MSG_MENU_ITEM_NAME_BLE_SETTINGS = "BLE設定";
         public const string MSG_MENU_ITEM_NAME_BLE_PAIRING = "ペアリング実行";
         public const string MSG_MENU_ITEM_NAME_BLE_UNPAIRING = "ペアリング解除要求";
-        public const string MSG_MENU_ITEM_NAME_BLE_ERASE_BOND = "ペアリング情報削除";
 
         public const string MSG_MENU_ITEM_NAME_DEVICE_INFOS = "デバイス保守";
         public const string MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE = "ファームウェア更新";
@@ -41,10 +40,6 @@
         public const string MSG_BLE_UNPAIRING_WAIT_SEC_FORMAT = "あと {0} 秒";
         public const string MSG_BLE_UNPAIRING_WAIT_CANCELED = "BLEデバイスのペアリング解除をユーザーが中止しました。";
         public const string MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT = "Bluetooth環境設定からのデバイス削除が検知されませんでした。";
-
-        // ペアリング情報削除
-        public const string MSG_BLE_ERASE_BONDS = "BLEデバイスからペアリング情報をすべて削除します。";
-        public const string MSG_PROMPT_BLE_ERASE_BONDS = "削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？";
 
         // ファームウェア更新
         public const string MSG_FW_UPDATE_FUNC_NOT_AVAILABLE = "ファームウェア更新機能が利用できません。";
