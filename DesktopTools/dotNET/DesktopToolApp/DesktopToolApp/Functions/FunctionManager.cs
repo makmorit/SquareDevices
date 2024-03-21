@@ -25,7 +25,6 @@ namespace DesktopTool
                         MSG_MENU_ITEM_NAME_BLE_SETTINGS,
                         MSG_MENU_ITEM_NAME_BLE_PAIRING,     "Images\\connect.png",
                         MSG_MENU_ITEM_NAME_BLE_UNPAIRING,   "Images\\disconnect.png",
-                        MSG_MENU_ITEM_NAME_BLE_ERASE_BOND,  "Images\\delete.png"
                     },
                     new string[] {
                         MSG_MENU_ITEM_NAME_DEVICE_INFOS,
@@ -62,9 +61,6 @@ namespace DesktopTool
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_UNPAIRING)) {
                 new BLEUnpairing(menuItemName);
-
-            } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_BLE_ERASE_BOND)) {
-                new EraseBondingInfo(menuItemName);
 
             } else if (menuItemName.Equals(MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE)) {
                 new FWUpdate(menuItemName);
