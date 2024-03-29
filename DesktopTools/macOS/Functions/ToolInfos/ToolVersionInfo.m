@@ -17,11 +17,7 @@
 
     - (void)getVersionInfo {
         // タイトル設定
-        if ([ToolCommonFunc isVendorMaintenanceTool]) {
-            [self setToolName:MSG_VENDOR_TOOL_TITLE_FULL];
-        } else {
-            [self setToolName:MSG_TOOL_TITLE_FULL];
-        }
+        [self setToolName:MSG_TOOL_TITLE_FULL];
         // バージョン、Copyright
         NSString *versionString = [NSString stringWithFormat:MSG_FORMAT_TOOL_VERSION,
             [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];

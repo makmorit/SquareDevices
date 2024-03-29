@@ -14,7 +14,6 @@
     + (NSString *)getAppVersionString;
     + (NSString *)getAppBuildNumberString;
     + (NSString *)getAppBundleNameString;
-    + (bool)isVendorMaintenanceTool;
 
 @end
 
