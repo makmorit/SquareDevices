@@ -45,10 +45,6 @@
 #define MSG_BLE_UNPAIRING_WAIT_CANCELED             @"BLEデバイスのペアリング解除をユーザーが中止しました。"
 #define MSG_BLE_UNPAIRING_WAIT_DISC_TIMEOUT         @"Bluetooth環境設定からのデバイス削除が検知されませんでした。"
 
-#pragma mark - ペアリング情報削除
-#define MSG_BLE_ERASE_BONDS                         @"BLEデバイスからペアリング情報をすべて削除します。"
-#define MSG_PROMPT_BLE_ERASE_BONDS                  @"削除後は全てのPC等から、BLEデバイスに接続できなくなります。\n削除処理を実行しますか？"
-
 #pragma mark - ファームウェア更新
 #define MSG_FW_UPDATE_FUNC_NOT_AVAILABLE            @"ファームウェア更新機能が利用できません。"
 #define MSG_FW_UPDATE_IMAGE_FILE_NOT_EXIST          @"ファームウェア更新イメージファイルが存在しません。"

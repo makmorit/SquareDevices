@@ -30,7 +30,6 @@
 		7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
 		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
 		7A58D0632A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
-		7A58D0652A1C4661002FF8B6 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0612A1C4661002FF8B6 /* delete.png */; };
 		7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
 		7A5DED5B2B1860BE00EC670A /* BLEU2FTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */; };
@@ -68,7 +67,6 @@
 		7AD2DD4F2B634EDD00E4BE93 /* DeviceTimestampShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD4E2B634EDD00E4BE93 /* DeviceTimestampShow.m */; };
 		7AD2DD532B6352C900E4BE93 /* DeviceTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */; };
 		7ADA84641FE36E6D00879CB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA84631FE36E6D00879CB4 /* Images.xcassets */; };
-		7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */; };
 		7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
@@ -119,7 +117,6 @@
 		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
 		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
 		7A58D0602A1C4661002FF8B6 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
-		7A58D0612A1C4661002FF8B6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		7A5DEBE72AEF7A1A002D87D8 /* BLEDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
@@ -186,8 +183,6 @@
 		7AD2DD512B6352B500E4BE93 /* DeviceTimestamp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceTimestamp.h; sourceTree = "<group>"; };
 		7AD2DD522B6352C900E4BE93 /* DeviceTimestamp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceTimestamp.m; sourceTree = "<group>"; };
 		7ADA84631FE36E6D00879CB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EraseBondingInfo.h; sourceTree = "<group>"; };
-		7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EraseBondingInfo.m; sourceTree = "<group>"; };
 		7ADD426E2A2D713D0086CF47 /* BLEPairing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPairing.h; sourceTree = "<group>"; };
 		7ADD426F2A2D71B70086CF47 /* BLEPairing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPairing.m; sourceTree = "<group>"; };
 		7ADD42722A2D7F1C0086CF47 /* FunctionMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionMessage.h; sourceTree = "<group>"; };
@@ -323,7 +318,6 @@
 				7A810FEE2A1C845900C0BAED /* statistics.png */,
 				7A58D0692A1C7957002FF8B6 /* information.png */,
 				7A58D0602A1C4661002FF8B6 /* connect.png */,
-				7A58D0612A1C4661002FF8B6 /* delete.png */,
 				7A58D0622A1C4661002FF8B6 /* disconnect.png */,
 			);
 			path = Resources;
@@ -412,8 +406,6 @@
 				7A2CCB922B21A97500605CAA /* BLEUnpairRequestWindow.h */,
 				7A2CCB902B21A97500605CAA /* BLEUnpairRequestWindow.m */,
 				7A2CCB912B21A97500605CAA /* BLEUnpairRequestWindow.xib */,
-				7ADC374A2B0F311200190AB1 /* EraseBondingInfo.h */,
-				7ADC374B2B0F31A600190AB1 /* EraseBondingInfo.m */,
 			);
 			path = BLEConnection;
 			sourceTree = "<group>";
@@ -521,7 +513,6 @@
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
 				7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */,
-				7A58D0652A1C4661002FF8B6 /* delete.png in Resources */,
 				7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */,
 				7A810FFA2A1C8AE400C0BAED /* check_box.png in Resources */,
 				7A62E6FB2ADCF97F007942AE /* clock.png in Resources */,
@@ -562,7 +553,6 @@
 				7A2CCB8E2B21A28E00605CAA /* BLEUnpairRequest.m in Sources */,
 				7AB1C8252B2C047700830345 /* AppUtil.m in Sources */,
 				7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */,
-				7ADC374C2B0F31A600190AB1 /* EraseBondingInfo.m in Sources */,
 				7AB1C81C2B2BEB7D00830345 /* FWUpdate.m in Sources */,
 				7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */,
 				7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */,
