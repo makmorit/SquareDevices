@@ -25,6 +25,9 @@ macOS Monterey (Version 12)〜 <br>
 
 ### 手順書
 
+- <b>[インストール手順書](../../../Markdowns/DesktopTools/macOSApp/INSTALL.md)</b><br>
+デスクトップツールをmacOS環境にインストールする手順について掲載しています。
+
 - <b>[現在時刻参照／設定手順書](../../../Markdowns/DesktopTools/macOSApp/TIMESET.md)</b><br>
 デスクトップツールを使用して、PC環境から、nRF5340基板の現在時刻を参照／設定する手順について掲載しています。
 
