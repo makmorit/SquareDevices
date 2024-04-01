@@ -25,5 +25,8 @@ macOS Monterey (Version 12)〜 <br>
 
 ### 手順書
 
+- <b>[現在時刻参照／設定手順書](../../../Markdowns/DesktopTools/dotNET/TIMESET.md)</b><br>
+デスクトップツールを使用して、PC環境から、nRF5340基板の現在時刻を参照／設定する手順について掲載しています。
+
 - <b>[ログファイル参照手順書](../../../Markdowns/DesktopTools/macOSApp/VIEWLOG.md)</b><br>
 デスクトップツールから出力されるログファイルの参照手順について説明しています。
