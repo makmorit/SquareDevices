@@ -1,6 +1,6 @@
 # macOS版 デスクトップツール
 
-最終更新日：2024/4/1
+最終更新日：2024/4/4
 
 ## 概要
 PC環境から、nRF5340基板の動作に必要な各種設定／動作テスト等を行うためのツールです。
@@ -27,6 +27,9 @@ macOS Monterey (Version 12)〜 <br>
 
 - <b>[インストール手順書](../../../Markdowns/DesktopTools/macOSApp/INSTALL.md)</b><br>
 デスクトップツールをmacOS環境にインストールする手順について掲載しています。
+
+- <b>[ペアリング手順書](../../../Markdowns/DesktopTools/macOSApp/PAIRING.md)</b><br>
+デスクトップツールを使用して、PC環境にnRF5340基板をペアリングする手順について掲載しています。
 
 - <b>[現在時刻参照／設定手順書](../../../Markdowns/DesktopTools/macOSApp/TIMESET.md)</b><br>
 デスクトップツールを使用して、PC環境から、nRF5340基板の現在時刻を参照／設定する手順について掲載しています。
