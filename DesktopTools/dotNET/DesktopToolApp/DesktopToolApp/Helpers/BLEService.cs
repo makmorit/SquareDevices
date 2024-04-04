@@ -101,7 +101,14 @@ namespace DesktopTool
                     await Task.Run(() => System.Threading.Thread.Sleep(100));
                 }
 
-                CharacteristicForNotify = BLEservice.GetCharacteristics(parameter.CharacteristicForNotify)[0];
+                GattCharacteristicsResult result = await BLEservice.GetCharacteristicsForUuidAsync(parameter.CharacteristicForNotify);
+                if (result.Characteristics.Count == 0) {
+                    AppLogUtil.OutputLogError("BLEservice.GetCharacteristicsForUuidAsync: no characteristics found.");
+                    StopCommunicate();
+                    return false;
+                }
+
+                CharacteristicForNotify = result.Characteristics[0];
                 if (await StartBLENotification(CharacteristicForNotify)) {
                     AppLogUtil.OutputLogInfo(string.Format("{0}({1})", MSG_BLE_U2F_NOTIFICATION_START, BLEservice.Device.Name));
                     return true;
