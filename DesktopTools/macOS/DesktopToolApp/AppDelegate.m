@@ -23,11 +23,7 @@
 
     - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
         // タイトル設定
-        if ([ToolCommonFunc isVendorMaintenanceTool]) {
-            [[self window] setTitle:MSG_VENDOR_TOOL_TITLE];
-        } else {
-            [[self window] setTitle:MSG_TOOL_TITLE];
-        }
+        [[self window] setTitle:MSG_TOOL_TITLE];
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         // スタックビューをウィンドウに表示
