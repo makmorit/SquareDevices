@@ -24,9 +24,4 @@
         return [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
     }
 
-    + (bool)isVendorMaintenanceTool {
-        NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-        return [bundleIdentifier isEqualToString:@"jp.makmorit.tools.VendorTool"];
-    }
-
 @end

@@ -16,7 +16,6 @@
 #import "DeviceStorageInfo.h"
 #import "DeviceTimestampSet.h"
 #import "DeviceTimestampShow.h"
-#import "EraseBondingInfo.h"
 #import "FWUpdate.h"
 #import "FWVersionInfo.h"
 #import "PingTester.h"
@@ -41,8 +40,6 @@
             [self setCurrentFunction:[[BLEPairing alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_UNPAIRING]) {
             [self setCurrentFunction:[[BLEUnpairing alloc] initWithDelegate:delegate]];
-        } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_BLE_ERASE_BOND]) {
-            [self setCurrentFunction:[[EraseBondingInfo alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE]) {
             [self setCurrentFunction:[[FWUpdate alloc] initWithDelegate:delegate]];
         } else if ([title isEqualToString:MSG_MENU_ITEM_NAME_PING_TEST]) {
@@ -82,7 +79,6 @@
             @[MSG_MENU_ITEM_NAME_BLE_SETTINGS, @[
                 @[MSG_MENU_ITEM_NAME_BLE_PAIRING,     @"connect"],
                 @[MSG_MENU_ITEM_NAME_BLE_UNPAIRING,   @"disconnect"],
-                @[MSG_MENU_ITEM_NAME_BLE_ERASE_BOND,  @"delete"]
             ]],
             @[MSG_MENU_ITEM_NAME_DEVICE_INFOS, @[
                 @[MSG_MENU_ITEM_NAME_FIRMWARE_UPDATE, @"update"],
