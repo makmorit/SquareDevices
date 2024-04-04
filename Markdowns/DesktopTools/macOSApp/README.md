@@ -31,6 +31,9 @@ macOS Monterey (Version 12)〜 <br>
 - <b>[ペアリング手順書](../../../Markdowns/DesktopTools/macOSApp/PAIRING.md)</b><br>
 デスクトップツールを使用して、PC環境にnRF5340基板をペアリングする手順について掲載しています。
 
+- <b>[ファームウェア更新手順書](../../../Markdowns/DesktopTools/macOSApp/FWUPDATE.md)</b><br>
+デスクトップツールを使用して、PC環境から、nRF5340基板のファームウェアを更新する手順について掲載しています。
+
 - <b>[現在時刻参照／設定手順書](../../../Markdowns/DesktopTools/macOSApp/TIMESET.md)</b><br>
 デスクトップツールを使用して、PC環境から、nRF5340基板の現在時刻を参照／設定する手順について掲載しています。
 
