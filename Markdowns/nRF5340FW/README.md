@@ -37,3 +37,9 @@ nRF5340ファームウェアの更新イメージファイル最終版（Version
 
 - <b>[nRF Connect SDKインストール手順書](../../Markdowns/nRF5340FW/NCSINST.md)</b>
 - <b>[nRF Connect SDK動作確認手順書](../../Markdowns/nRF5340FW/NCSTEST.md)</b>
+
+### 開発資源
+
+以下のドキュメントをご参照願います。
+
+- <b>[ファームウェア開発用ライブラリー群](../../Markdowns/Firmwares/README.md)</b>
