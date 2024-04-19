@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Copyright>Copyright © 2023-2024 makmorit</Copyright>
     <Company>makmorit</Company>
     <Product>DesktopTool</Product>
