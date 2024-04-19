@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:DesktopTool"
         xmlns:local="clr-namespace:DesktopTool"
         mc:Ignorable="d"
-        Title="{Binding TitleString}" Height="500" Width="700" ResizeMode="CanMinimize">
+        Title="{Binding TitleString}" Height="500" Width="500" ResizeMode="CanMinimize">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
