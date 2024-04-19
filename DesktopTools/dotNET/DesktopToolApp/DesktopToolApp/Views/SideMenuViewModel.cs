@@ -9,20 +9,25 @@ namespace DesktopTool
         // このクラスのインスタンス
         private static SideMenuViewModel Instance = null!;
 
+        private bool contentControlVisibled;
         private readonly RelayCommand<object> SetSelectedItemRelayCommand;
-        private bool isEnabled;
 
         public SideMenuViewModel()
         {
+            contentControlVisibled = true;
             SetSelectedItemRelayCommand = new RelayCommand<object>(OnMenuItemSelected);
-            IsEnabled = true;
             Instance = this;
         }
 
-        public bool IsEnabled
+        public bool ContentControlVisibled
         {
-            get { return isEnabled; }
-            set { isEnabled = value; NotifyPropertyChanged(nameof(IsEnabled)); }
+            get { return contentControlVisibled; }
+            set {
+                if (contentControlVisibled != value) {
+                    contentControlVisibled = value;
+                    NotifyPropertyChanged(nameof(ContentControlVisibled));
+                }
+            }
         }
 
         public ICommand SetSelectedItemCommand
@@ -77,8 +82,8 @@ namespace DesktopTool
         //
         public static void EnableMenuItemSelection(bool b)
         {
-            // サイドバーを使用可能／不能とする
-            Instance.IsEnabled = b;
+            // サイドバーを表示／非表示化
+            Instance.ContentControlVisibled = b;
         }
     }
 

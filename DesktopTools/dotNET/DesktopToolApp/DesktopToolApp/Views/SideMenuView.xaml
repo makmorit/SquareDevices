@@ -10,7 +10,10 @@
     <UserControl.DataContext>
         <vm:SideMenuViewModel />
     </UserControl.DataContext>
-    <Grid IsEnabled="{Binding IsEnabled}">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibilityConverter" ></BooleanToVisibilityConverter>
+    </UserControl.Resources>
+    <Grid Visibility="{Binding ContentControlVisibled, Converter={StaticResource VisibilityConverter}}">
         <TreeView ItemsSource="{Binding MenuItemGroups}" SelectedItemChanged="OnSelectedItemChanged">
             <TreeView.ItemContainerStyle>
                 <Style TargetType="TreeViewItem">
