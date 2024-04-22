@@ -14,23 +14,23 @@
 
 デスクトップツールの左側メニュー「ペアリング実行」をクリックします。
 
-<img src="images/BLEPAIR_01.jpg" width="400">
+<img src="images/BLEPAIR_01.jpg" width="280">
 
 ツール画面右側に、ペアリング実行画面が表示されますので「実行」をクリックします。
 
-<img src="images/BLEPAIR_02.jpg" width="400">
+<img src="images/BLEPAIR_02.jpg" width="280">
 
 パスコード入力画面がポップアップ表示されます。<br>
 nRF5340基板がTFTディスプレイに表示したパスコード（６桁の数字）を入力し「ペアリング実行」ボタンをクリックします。
 
-<img src="images/BLEPAIR_03.jpg" width="400">
+<img src="images/BLEPAIR_03.jpg" width="280">
 
 ペアリング処理が開始されますので、そのまま待ちます。<br>
 ペアリング処理が正常終了すると、下図のようなメッセージが表示され、処理が成功したことを知らせます。
 
 「閉じる」ボタンをクリックし、ペアリング実行画面を閉じます。
 
-<img src="images/BLEPAIR_04.jpg" width="400">
+<img src="images/BLEPAIR_04.jpg" width="280">
 
 WindowsのBluetooth設定画面を開き「SquareDevice53」が表示されている事を確認します。
 
