@@ -56,7 +56,7 @@ Windowsのスタートメニューに、アイコン「SquareDevices Desktop Too
 
 デスクトップツールの画面が起動すれば、インストールは完了です。
 
-<img src="../../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="280">
 
 [注1] Windows 10のバージョン「Windows 10 November 2019 Update」以降においては、管理者として実行されていないプログラムの場合、BLEデバイスとの直接的なBluetooth通信ができない仕様となったようです。Windows版デスクトップツールでは、BLEデバイスとの直接的なBluetooth通信が必要なため、管理者として実行させるようにしております。その影響で、ツール起動のたびに「アプリがデバイスに変更を加えることを許可しますか？」というメッセージが表示されてしまいますが（下図ご参照）、不具合ではありません。
 
