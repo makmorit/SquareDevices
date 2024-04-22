@@ -23,7 +23,7 @@ PC環境から、nRF5340基板の動作に必要な各種設定／動作テス�
 ## [Windows版](../../Markdowns/DesktopTools/dotNET/README.md)
 
 #### 画面イメージ
-<img src="../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="400">
+<img src="../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="280">
 
 #### 動作環境
 Windows 10 (64bit版)、Windows 11

@@ -21,7 +21,7 @@ Windows 11
 * ログファイル参照
 
 ### 画面イメージ
-<img src="../../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/dotNET/images/README_01.jpg" width="280">
 
 ### 手順書
 
