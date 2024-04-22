@@ -1,6 +1,6 @@
 # ペアリング手順書
 
-最終更新日：2024/3/18
+最終更新日：2024/4/22
 
 ## 概要
 
@@ -16,7 +16,7 @@
 
 <img src="images/BLEPAIR_01.jpg" width="280">
 
-ツール画面右側に、ペアリング実行画面が表示されますので「実行」をクリックします。
+ペアリング実行画面が表示されますので「実行」をクリックします。
 
 <img src="images/BLEPAIR_02.jpg" width="280">
 
@@ -43,7 +43,7 @@ WindowsのBluetooth設定画面を開き「SquareDevice53」が表示されて�
 
 <img src="images/PINGTEST_01.jpg" width="280">
 
-ツール画面右側に、PINGテスト実行画面が表示されますので「実行」をクリックします。
+PINGテスト実行画面が表示されますので「実行」をクリックします。
 
 <img src="images/PINGTEST_02.jpg" width="280">
 
@@ -67,7 +67,7 @@ PC環境とnRF5340基板のペアリングを解除するには、ペアリン�
 
 <img src="images/BLEUNPAIR_01.jpg" width="280">
 
-ツール画面右側に、ペアリング解除要求画面が表示されますので「実行」をクリックします。
+ペアリング解除要求画面が表示されますので「実行」をクリックします。
 
 <img src="images/BLEUNPAIR_02.jpg" width="280">
 
@@ -88,7 +88,8 @@ WindowsのBluetooth設定画面から「SquareDevice53」が消去され、nRF53
 
 <img src="images/BLEUNPAIR_07.jpg" width="480">
 
-一方、デスクトップツール側でも下図のようなメッセージが表示され、ペアリング解除要求処理が成功したことを知らせます。
+一方、デスクトップツール側でも下図のようなメッセージが表示され、ペアリング解除要求処理が成功したことを知らせます。<br>
+「閉じる」ボタンをクリックし、ペアリング解除要求画面を閉じます。
 
 <img src="images/BLEUNPAIR_04.jpg" width="280">
 
