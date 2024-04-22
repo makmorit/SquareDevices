@@ -41,20 +41,20 @@ WindowsのBluetooth設定画面を開き「SquareDevice53」が表示されて�
 デスクトップツールからPINGテスト[注1]を実行すると、PC〜nRF5340基板間の接続確認を行うことができます。<br>
 デスクトップツールの左側メニュー「PINGテスト実行」をクリックします。
 
-<img src="images/PINGTEST_01.jpg" width="400">
+<img src="images/PINGTEST_01.jpg" width="280">
 
 ツール画面右側に、PINGテスト実行画面が表示されますので「実行」をクリックします。
 
-<img src="images/PINGTEST_02.jpg" width="400">
+<img src="images/PINGTEST_02.jpg" width="280">
 
 PINGテストが開始されますので、そのまま待ちます。
 
-<img src="images/PINGTEST_03.jpg" width="400">
+<img src="images/PINGTEST_03.jpg" width="280">
 
 PINGテストが正常終了すると、下図のようなメッセージが表示され、処理が成功したことを知らせます。<br>
 「閉じる」ボタンをクリックし、PINGテスト実行画面を閉じます。
 
-<img src="images/PINGTEST_04.jpg" width="400">
+<img src="images/PINGTEST_04.jpg" width="280">
 
 以上で、ペアリングの実行は完了です。
 
