@@ -113,8 +113,9 @@ namespace DesktopTool
         //
         public static void ShowFunctionView()
         {
-            // サイドメニューを使用不能とする
+            // サイドメニューを非表示
             SideMenuViewModel.EnableMenuItemSelection(false);
+            MainWindowViewModel.HideMenuItemView();
             // サブ画面を領域内に表示
             FunctionViewModel.ShowContentControl(true);
         }
@@ -123,7 +124,8 @@ namespace DesktopTool
         {
             // サブ画面を領域から消す
             FunctionViewModel.ShowContentControl(false);
-            // サイドメニューを使用可能とする
+            // サイドメニューを表示
+            MainWindowViewModel.ShowMenuItemView();
             SideMenuViewModel.EnableMenuItemSelection(true);
         }
     }
