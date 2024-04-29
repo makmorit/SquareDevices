@@ -70,6 +70,7 @@
 		7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
+		7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEA0E682BDF797A00C7073F /* SideMenu.m */; };
 		7AEC09212B6B41EB006D2B76 /* PingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC09202B6B41EB006D2B76 /* PingTester.m */; };
 		7AEC09252B6B449E006D2B76 /* PingTestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC09242B6B449E006D2B76 /* PingTestQuery.m */; };
 		7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */; };
@@ -190,6 +191,8 @@
 		7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWVersionInfo.m; sourceTree = "<group>"; };
 		7AE6031B2875218100DA5BF3 /* ToolLogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolLogFile.m; sourceTree = "<group>"; };
 		7AE6031D287521A800DA5BF3 /* ToolLogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolLogFile.h; sourceTree = "<group>"; };
+		7AEA0E682BDF797A00C7073F /* SideMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenu.m; sourceTree = "<group>"; };
+		7AEA0E6A2BDF799B00C7073F /* SideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
 		7AEC091F2B6B41B3006D2B76 /* PingTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingTester.h; sourceTree = "<group>"; };
 		7AEC09202B6B41EB006D2B76 /* PingTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingTester.m; sourceTree = "<group>"; };
 		7AEC09232B6B440C006D2B76 /* PingTestQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingTestQuery.h; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
+				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
+				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
+				7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */,
 				7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
