@@ -13,8 +13,7 @@
 
 @interface ToolSideMenuView : NSViewController
 
-    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray withFrameRect:(NSRect)frameRect;
-    - (void)willEnableToSelect:(bool)isEnabled;
+    - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
 
 @end
 
