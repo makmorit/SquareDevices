@@ -4,19 +4,18 @@
 //
 //  Created by Makoto Morita on 2023/05/30.
 //
-#import "ToolMainView.h"
-#import "ToolSideMenuView.h"
 #import "FunctionBase.h"
 #import "FunctionManager.h"
+#import "SideMenu.h"
+#import "ToolMainView.h"
 
-@interface ToolMainView () <ToolSideMenuViewDelegate, FunctionBaseDelegate>
-
+@interface ToolMainView () <SideMenuDelegate, FunctionBaseDelegate>
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
     @property (assign) IBOutlet NSView          *viewForSideMenu;
     @property (assign) IBOutlet NSView          *viewForFunction;
-    // サイドメニュー領域の参照を保持
-    @property (nonatomic) ToolSideMenuView      *toolSideMenuView;
+    // サイドメニュークラスの参照を保持
+    @property (nonatomic) SideMenu              *sideMenu;
     // 業務処理クラスの参照を保持
     @property (nonatomic) FunctionManager       *functionManager;
 
@@ -39,13 +38,15 @@
     - (void)viewDidLoad {
         // サイドメニュー領域のインスタンスを生成
         [super viewDidLoad];
-        [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray] withFrameRect:[[self viewForSideMenu] visibleRect]]];
-        [[self stackView] addSubview:[[self toolSideMenuView] view]];
+        [self setSideMenu:[[SideMenu alloc] initWithDelegate:self]];
+        // スタックビューを表示
+        NSRect visibleRect = [[self viewForSideMenu] visibleRect];
+        [[self sideMenu] addSideMenuToStackView:[self stackView] withVisibleRect:visibleRect];
     }
 
-#pragma mark - Callback from SideMenuView
+#pragma mark - Callback from SideMenu
 
-    - (void)ToolSideMenuView:(ToolSideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title {
+    - (void)SideMenu:(SideMenu *)sideMenu didSelectItemWithTitle:(NSString *)title {
         // 業務クラスに制御を移す
         [[self functionManager] willProcessWithDelegate:self withTitle:title];
     }
@@ -63,8 +64,8 @@
     }
 
     - (void)FunctionBase:(FunctionBase *)functionBase notifyEnableMenuSelection:(bool)isEnabled {
-        // サイドメニュー領域を使用可能／不能にする
-        [[self toolSideMenuView] willEnableToSelect:isEnabled];
+        // サイドメニュー領域を隠す
+        [[self sideMenu] setMenuHidden:!isEnabled];
     }
 
 @end
