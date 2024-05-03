@@ -1,5 +1,5 @@
 //
-//  ToolMainView.m
+//  AppMainView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/30.
@@ -7,7 +7,7 @@
 #import "FunctionBase.h"
 #import "FunctionManager.h"
 #import "SideMenu.h"
-#import "ToolMainView.h"
+#import "AppMainView.h"
 
 @interface ToolMainView () <SideMenuDelegate, FunctionBaseDelegate>
     // ビュー領域を格納する領域の参照を保持

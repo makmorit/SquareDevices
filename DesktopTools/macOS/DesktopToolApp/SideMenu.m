@@ -6,7 +6,7 @@
 //
 #import "FunctionManager.h"
 #import "SideMenu.h"
-#import "ToolSideMenuView.h"
+#import "SideMenuView.h"
 
 @interface SideMenu () <ToolSideMenuViewDelegate>
     // 上位クラスの参照を保持

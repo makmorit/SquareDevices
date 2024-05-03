@@ -1,12 +1,12 @@
 //
-//  ToolSideMenuView.m
+//  SideMenuView.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
 #import "AppCommonMessage.h"
 #import "SideMenu.h"
-#import "ToolSideMenuView.h"
+#import "SideMenuView.h"
 
 @interface ToolSideMenuView () <NSOutlineViewDelegate>
     // 画面表示データの参照を保持

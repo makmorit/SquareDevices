@@ -29,7 +29,7 @@
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
 		7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */; };
 		7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
-		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
+		7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */; };
 		7A58D0632A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
 		7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
@@ -52,7 +52,7 @@
 		7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */; };
 		7A9597F52B3E674500AE1FED /* FWUpdateTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */; };
 		7A98D7E02A258EE7005A593E /* AppMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* AppMainView.xib */; };
-		7A98D7E42A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
+		7A98D7E42A259221005A593E /* AppMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* AppMainView.m */; };
 		7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */; };
 		7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */; };
 		7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */; };
@@ -118,8 +118,8 @@
 		7A4FA3D32B4BBA1900291A69 /* BLESMPTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLESMPTransport.h; sourceTree = "<group>"; };
 		7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLESMPTransport.m; sourceTree = "<group>"; };
 		7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
-		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
-		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
+		7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
+		7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		7A58D0602A1C4661002FF8B6 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateTransfer.m; sourceTree = "<group>"; };
 		7A9715212AE2576600350B98 /* HelperMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperMessage.h; sourceTree = "<group>"; };
 		7A98D7DF2A258EE7005A593E /* AppMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainView.xib; sourceTree = "<group>"; };
-		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
-		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
+		7A98D7E22A259221005A593E /* AppMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMainView.h; sourceTree = "<group>"; };
+		7A98D7E32A259221005A593E /* AppMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMainView.m; sourceTree = "<group>"; };
 		7A9A25962B3D61F700EA4B34 /* FWUpdateProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUpdateProgressWindow.h; sourceTree = "<group>"; };
 		7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUpdateProgressWindow.m; sourceTree = "<group>"; };
 		7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWUpdateProgressWindow.xib; sourceTree = "<group>"; };
@@ -289,8 +289,6 @@
 				7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */,
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
 				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
-				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
-				7A8913672A26ECAD00FC3C45 /* FunctionBase.m */,
 				7A3E90992B146BD00089436E /* FunctionDefine.h */,
 				7A2712772A24984F00FA9030 /* FunctionManager.h */,
 				7A2712782A24987100FA9030 /* FunctionManager.m */,
@@ -337,6 +335,8 @@
 				64ED9A8C1647439300F39EAE /* AppDelegate.m */,
 				7A2430F72BE4684200D8D81A /* AppMain.h */,
 				7A2430F82BE469DD00D8D81A /* AppMain.m */,
+				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
+				7A8913672A26ECAD00FC3C45 /* FunctionBase.m */,
 				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
 				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
@@ -380,13 +380,13 @@
 		7A98D7DE2A258EA7005A593E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A98D7E22A259221005A593E /* AppMainView.h */,
+				7A98D7E32A259221005A593E /* AppMainView.m */,
+				7A98D7DF2A258EE7005A593E /* AppMainView.xib */,
 				7A2712732A247B1F00FA9030 /* FunctionView.h */,
 				7A2712742A247B1F00FA9030 /* FunctionView.m */,
-				7A98D7E22A259221005A593E /* ToolMainView.h */,
-				7A98D7E32A259221005A593E /* ToolMainView.m */,
-				7A98D7DF2A258EE7005A593E /* AppMainView.xib */,
-				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
-				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
+				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
+				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
 			);
 			path = Views;
@@ -553,7 +553,7 @@
 				7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
 				7A2430F92BE469DD00D8D81A /* AppMain.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
-				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
+				7A98D7E42A259221005A593E /* AppMainView.m in Sources */,
 				7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */,
 				7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
@@ -584,7 +584,7 @@
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
-				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
+				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7A7C96A12B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */,
 				7AEC09212B6B41EB006D2B76 /* PingTester.m in Sources */,

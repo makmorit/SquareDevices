@@ -1,11 +1,11 @@
 //
-//  ToolSideMenuView.h
+//  SideMenuView.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/24.
 //
-#ifndef ToolSideMenuView_h
-#define ToolSideMenuView_h
+#ifndef SideMenuView_h
+#define SideMenuView_h
 
 #import <Foundation/Foundation.h>
 
@@ -23,4 +23,4 @@
 
 @end
 
-#endif /* ToolSideMenuView_h */
+#endif /* SideMenuView_h */

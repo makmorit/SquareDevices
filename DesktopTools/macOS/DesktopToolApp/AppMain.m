@@ -5,7 +5,7 @@
 //  Created by Makoto Morita on 2024/05/03.
 //
 #import "AppMain.h"
-#import "ToolMainView.h"
+#import "AppMainView.h"
 
 @interface AppMain ()
     // メイン画面領域の参照を保持

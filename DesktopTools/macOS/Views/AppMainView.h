@@ -1,11 +1,11 @@
 //
-//  ToolMainView.h
+//  AppMainView.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2023/05/30.
 //
-#ifndef ToolMainView_h
-#define ToolMainView_h
+#ifndef AppMainView_h
+#define AppMainView_h
 
 #import <Foundation/Foundation.h>
 
@@ -15,4 +15,4 @@
 
 @end
 
-#endif /* ToolMainView_h */
+#endif /* AppMainView_h */
