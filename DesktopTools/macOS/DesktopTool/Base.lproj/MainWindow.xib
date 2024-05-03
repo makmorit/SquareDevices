@@ -372,17 +372,17 @@
         </menu>
         <window title="デスクトップツール" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="664" height="400"/>
+            <rect key="contentRect" x="335" y="390" width="460" height="400"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
             <view key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="664" height="400"/>
+                <rect key="frame" x="0.0" y="0.0" width="460" height="400"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             </view>
             <point key="canvasLocation" x="132" y="107"/>
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="mainView" destination="372" id="EsT-D8-ReQ"/>
+                <outlet property="view" destination="372" id="MJv-0P-qJz"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

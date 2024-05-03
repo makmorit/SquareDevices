@@ -15,6 +15,7 @@
 		64ED9A9D164752C800F39EAE /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9A9C164752C800F39EAE /* IOBluetooth.framework */; };
 		7A0DF8AB2B464CD500FAE3FF /* CommandWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */; };
 		7A184C942B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */; };
+		7A2430F92BE469DD00D8D81A /* AppMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2430F82BE469DD00D8D81A /* AppMain.m */; };
 		7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
 		7A2712752A247B2000FA9030 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* FunctionView.m */; };
@@ -27,8 +28,8 @@
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
 		7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */; };
-		7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
-		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
+		7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
+		7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */; };
 		7A58D0632A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
 		7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
 		7A58D06B2A1C7957002FF8B6 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0692A1C7957002FF8B6 /* information.png */; };
@@ -50,8 +51,8 @@
 		7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* FunctionBase.m */; };
 		7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */; };
 		7A9597F52B3E674500AE1FED /* FWUpdateTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */; };
-		7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* ToolMainView.xib */; };
-		7A98D7E42A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
+		7A98D7E02A258EE7005A593E /* AppMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* AppMainView.xib */; };
+		7A98D7E42A259221005A593E /* AppMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* AppMainView.m */; };
 		7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */; };
 		7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */; };
 		7A9A259F2B3D647500EA4B34 /* FWUpdateProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A259E2B3D647500EA4B34 /* FWUpdateProgress.m */; };
@@ -70,6 +71,7 @@
 		7ADD42702A2D71B70086CF47 /* BLEPairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD426F2A2D71B70086CF47 /* BLEPairing.m */; };
 		7ADD42822A2DC0700086CF47 /* FWVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */; };
 		7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6031B2875218100DA5BF3 /* ToolLogFile.m */; };
+		7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEA0E682BDF797A00C7073F /* SideMenu.m */; };
 		7AEC09212B6B41EB006D2B76 /* PingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC09202B6B41EB006D2B76 /* PingTester.m */; };
 		7AEC09252B6B449E006D2B76 /* PingTestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC09242B6B449E006D2B76 /* PingTestQuery.m */; };
 		7AF454FD2B1DAA5A00BC8474 /* BLEUnpairing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF454FC2B1DAA5A00BC8474 /* BLEUnpairing.m */; };
@@ -91,6 +93,8 @@
 		7A0DF8A92B464B8700FAE3FF /* CommandWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandWindow.h; sourceTree = "<group>"; };
 		7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandWindow.m; sourceTree = "<group>"; };
 		7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.4.bin; sourceTree = "<group>"; };
+		7A2430F72BE4684200D8D81A /* AppMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMain.h; sourceTree = "<group>"; };
+		7A2430F82BE469DD00D8D81A /* AppMain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMain.m; sourceTree = "<group>"; };
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
 		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
 		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
@@ -113,9 +117,9 @@
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7A4FA3D32B4BBA1900291A69 /* BLESMPTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLESMPTransport.h; sourceTree = "<group>"; };
 		7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLESMPTransport.m; sourceTree = "<group>"; };
-		7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolSideMenuView.xib; sourceTree = "<group>"; };
-		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
-		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
+		7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
+		7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuView.h; sourceTree = "<group>"; };
+		7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuView.m; sourceTree = "<group>"; };
 		7A58D0602A1C4661002FF8B6 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		7A58D0622A1C4661002FF8B6 /* disconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnect.png; sourceTree = "<group>"; };
 		7A58D0692A1C7957002FF8B6 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
@@ -151,9 +155,9 @@
 		7A9597F32B3E66D400AE1FED /* FWUpdateTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransfer.h; sourceTree = "<group>"; };
 		7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateTransfer.m; sourceTree = "<group>"; };
 		7A9715212AE2576600350B98 /* HelperMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperMessage.h; sourceTree = "<group>"; };
-		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
-		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
-		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
+		7A98D7DF2A258EE7005A593E /* AppMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainView.xib; sourceTree = "<group>"; };
+		7A98D7E22A259221005A593E /* AppMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMainView.h; sourceTree = "<group>"; };
+		7A98D7E32A259221005A593E /* AppMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMainView.m; sourceTree = "<group>"; };
 		7A9A25962B3D61F700EA4B34 /* FWUpdateProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUpdateProgressWindow.h; sourceTree = "<group>"; };
 		7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUpdateProgressWindow.m; sourceTree = "<group>"; };
 		7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWUpdateProgressWindow.xib; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 		7ADD42812A2DC0700086CF47 /* FWVersionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWVersionInfo.m; sourceTree = "<group>"; };
 		7AE6031B2875218100DA5BF3 /* ToolLogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolLogFile.m; sourceTree = "<group>"; };
 		7AE6031D287521A800DA5BF3 /* ToolLogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolLogFile.h; sourceTree = "<group>"; };
+		7AEA0E682BDF797A00C7073F /* SideMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenu.m; sourceTree = "<group>"; };
+		7AEA0E6A2BDF799B00C7073F /* SideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
 		7AEC091F2B6B41B3006D2B76 /* PingTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingTester.h; sourceTree = "<group>"; };
 		7AEC09202B6B41EB006D2B76 /* PingTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingTester.m; sourceTree = "<group>"; };
 		7AEC09232B6B440C006D2B76 /* PingTestQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingTestQuery.h; sourceTree = "<group>"; };
@@ -283,8 +289,6 @@
 				7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */,
 				7A5DED592B185FC900EC670A /* BLEU2FTransport.h */,
 				7A5DED5A2B1860BE00EC670A /* BLEU2FTransport.m */,
-				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
-				7A8913672A26ECAD00FC3C45 /* FunctionBase.m */,
 				7A3E90992B146BD00089436E /* FunctionDefine.h */,
 				7A2712772A24984F00FA9030 /* FunctionManager.h */,
 				7A2712782A24987100FA9030 /* FunctionManager.m */,
@@ -329,6 +333,12 @@
 				7A92D0E228754B140094D2DB /* AppCommonMessage.h */,
 				64ED9A8B1647439300F39EAE /* AppDelegate.h */,
 				64ED9A8C1647439300F39EAE /* AppDelegate.m */,
+				7A2430F72BE4684200D8D81A /* AppMain.h */,
+				7A2430F82BE469DD00D8D81A /* AppMain.m */,
+				7A8913662A26EC8D00FC3C45 /* FunctionBase.h */,
+				7A8913672A26ECAD00FC3C45 /* FunctionBase.m */,
+				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
+				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
 			path = DesktopToolApp;
 			sourceTree = "<group>";
@@ -370,14 +380,14 @@
 		7A98D7DE2A258EA7005A593E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A98D7E22A259221005A593E /* AppMainView.h */,
+				7A98D7E32A259221005A593E /* AppMainView.m */,
+				7A98D7DF2A258EE7005A593E /* AppMainView.xib */,
 				7A2712732A247B1F00FA9030 /* FunctionView.h */,
 				7A2712742A247B1F00FA9030 /* FunctionView.m */,
-				7A98D7E22A259221005A593E /* ToolMainView.h */,
-				7A98D7E32A259221005A593E /* ToolMainView.m */,
-				7A98D7DF2A258EE7005A593E /* ToolMainView.xib */,
-				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
-				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
-				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
+				7A53E22B2A1DAE94006BAA2B /* SideMenuView.h */,
+				7A53E22C2A1DAE94006BAA2B /* SideMenuView.m */,
+				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -508,7 +518,7 @@
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
 				7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */,
-				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
+				7A98D7E02A258EE7005A593E /* AppMainView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,
@@ -524,7 +534,7 @@
 				64ED9A841647439300F39EAE /* InfoPlist.strings in Resources */,
 				7A810FFC2A1C8AE400C0BAED /* update.png in Resources */,
 				64ED9A901647439300F39EAE /* MainWindow.xib in Resources */,
-				7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */,
+				7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
 				7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,8 +551,10 @@
 				7A2712792A24987100FA9030 /* FunctionManager.m in Sources */,
 				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
+				7A2430F92BE469DD00D8D81A /* AppMain.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
-				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
+				7A98D7E42A259221005A593E /* AppMainView.m in Sources */,
+				7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */,
 				7AB1C8292B2C330000830345 /* FWUpdateImage.m in Sources */,
 				64ED9A861647439300F39EAE /* main.m in Sources */,
 				7A2CCB932B21A97500605CAA /* BLEUnpairRequestWindow.m in Sources */,
@@ -572,7 +584,7 @@
 				64ED9A8D1647439300F39EAE /* AppDelegate.m in Sources */,
 				7A2AF4DF2B7077E9004C5CC4 /* DeviceStorage.m in Sources */,
 				7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */,
-				7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */,
+				7A53E22D2A1DAE94006BAA2B /* SideMenuView.m in Sources */,
 				7A2A037F2AF497BF00951196 /* BLEPeripheralRequester.m in Sources */,
 				7A7C96A12B5A22A20096699E /* FWUpdateSMPTransfer.m in Sources */,
 				7AEC09212B6B41EB006D2B76 /* PingTester.m in Sources */,
@@ -706,7 +718,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEAD_CODE_STRIPPING = YES;
 				DYLIB_INSTALL_NAME_BASE = "";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -724,7 +736,7 @@
 					"${HOME}/opt/tinycbor/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.makmorit.tools.DesktopTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -739,7 +751,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "";
@@ -758,7 +770,7 @@
 					"${HOME}/opt/tinycbor/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.makmorit.tools.DesktopTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
