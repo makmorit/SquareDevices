@@ -28,7 +28,7 @@
 		7A36FB432A1B3A8C005C78D6 /* PopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A36FB422A1B3A8C005C78D6 /* PopupWindow.m */; };
 		7A3F4F262875633C003CFE67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F4F252875633C003CFE67 /* icon.png */; };
 		7A4FA3D52B4BBA5D00291A69 /* BLESMPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */; };
-		7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */; };
+		7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */; };
 		7A53E22D2A1DAE94006BAA2B /* ToolSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */; };
 		7A58D0632A1C4661002FF8B6 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0602A1C4661002FF8B6 /* connect.png */; };
 		7A58D0672A1C4661002FF8B6 /* disconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A58D0622A1C4661002FF8B6 /* disconnect.png */; };
@@ -117,7 +117,7 @@
 		7A3F4F252875633C003CFE67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7A4FA3D32B4BBA1900291A69 /* BLESMPTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLESMPTransport.h; sourceTree = "<group>"; };
 		7A4FA3D42B4BBA5D00291A69 /* BLESMPTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLESMPTransport.m; sourceTree = "<group>"; };
-		7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolSideMenuView.xib; sourceTree = "<group>"; };
+		7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolSideMenuView.h; sourceTree = "<group>"; };
 		7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolSideMenuView.m; sourceTree = "<group>"; };
 		7A58D0602A1C4661002FF8B6 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 				7A98D7DF2A258EE7005A593E /* AppMainView.xib */,
 				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
-				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
+				7A53E2252A1DA99A006BAA2B /* SideMenuView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				64ED9A841647439300F39EAE /* InfoPlist.strings in Resources */,
 				7A810FFC2A1C8AE400C0BAED /* update.png in Resources */,
 				64ED9A901647439300F39EAE /* MainWindow.xib in Resources */,
-				7A53E2262A1DA99A006BAA2B /* ToolSideMenuView.xib in Resources */,
+				7A53E2262A1DA99A006BAA2B /* SideMenuView.xib in Resources */,
 				7AA301AA2A286FD90039E7E0 /* ToolDoProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

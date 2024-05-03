@@ -23,7 +23,7 @@
 @implementation ToolSideMenuView
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
-        self = [super initWithNibName:@"ToolSideMenuView" bundle:nil];
+        self = [super initWithNibName:@"SideMenuView" bundle:nil];
         if (self != nil) {
             // 画面表示データの参照を保持
             [self setParameterObject:(SideMenu *)delegate];
