@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ToolMainView">
+        <customObject id="-2" userLabel="File's Owner" customClass="AppMainView">
             <connections>
                 <outlet property="stackView" destination="TF5-Hf-Vt1" id="Pgf-NQ-IzD"/>
                 <outlet property="view" destination="c22-O7-iKe" id="bXn-M3-1ZV"/>

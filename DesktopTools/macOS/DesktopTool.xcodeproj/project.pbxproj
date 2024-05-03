@@ -51,7 +51,7 @@
 		7A8913682A26ECAD00FC3C45 /* FunctionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8913672A26ECAD00FC3C45 /* FunctionBase.m */; };
 		7A92D0E628754F3C0094D2DB /* ToolCommonFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A92D0E428754F3C0094D2DB /* ToolCommonFunc.m */; };
 		7A9597F52B3E674500AE1FED /* FWUpdateTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */; };
-		7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* ToolMainView.xib */; };
+		7A98D7E02A258EE7005A593E /* AppMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98D7DF2A258EE7005A593E /* AppMainView.xib */; };
 		7A98D7E42A259221005A593E /* ToolMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A98D7E32A259221005A593E /* ToolMainView.m */; };
 		7A9A25992B3D61F700EA4B34 /* FWUpdateProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A25972B3D61F700EA4B34 /* FWUpdateProgressWindow.m */; };
 		7A9A259B2B3D61F700EA4B34 /* FWUpdateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9A25982B3D61F700EA4B34 /* FWUpdateProgressWindow.xib */; };
@@ -155,7 +155,7 @@
 		7A9597F32B3E66D400AE1FED /* FWUpdateTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWUpdateTransfer.h; sourceTree = "<group>"; };
 		7A9597F42B3E674500AE1FED /* FWUpdateTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWUpdateTransfer.m; sourceTree = "<group>"; };
 		7A9715212AE2576600350B98 /* HelperMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperMessage.h; sourceTree = "<group>"; };
-		7A98D7DF2A258EE7005A593E /* ToolMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolMainView.xib; sourceTree = "<group>"; };
+		7A98D7DF2A258EE7005A593E /* AppMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppMainView.xib; sourceTree = "<group>"; };
 		7A98D7E22A259221005A593E /* ToolMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolMainView.h; sourceTree = "<group>"; };
 		7A98D7E32A259221005A593E /* ToolMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolMainView.m; sourceTree = "<group>"; };
 		7A9A25962B3D61F700EA4B34 /* FWUpdateProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUpdateProgressWindow.h; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 				7A2712742A247B1F00FA9030 /* FunctionView.m */,
 				7A98D7E22A259221005A593E /* ToolMainView.h */,
 				7A98D7E32A259221005A593E /* ToolMainView.m */,
-				7A98D7DF2A258EE7005A593E /* ToolMainView.xib */,
+				7A98D7DF2A258EE7005A593E /* AppMainView.xib */,
 				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
@@ -518,7 +518,7 @@
 				7A810FF82A1C8AE400C0BAED /* processor.png in Resources */,
 				7A810FEF2A1C845900C0BAED /* action_log.png in Resources */,
 				7A62E6FD2ADCF97F007942AE /* clock_edit.png in Resources */,
-				7A98D7E02A258EE7005A593E /* ToolMainView.xib in Resources */,
+				7A98D7E02A258EE7005A593E /* AppMainView.xib in Resources */,
 				7A810FF32A1C845900C0BAED /* statistics.png in Resources */,
 				7A58D06B2A1C7957002FF8B6 /* information.png in Resources */,
 				7A2CCB952B21A97500605CAA /* BLEUnpairRequestWindow.xib in Resources */,

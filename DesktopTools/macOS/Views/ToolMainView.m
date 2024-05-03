@@ -24,7 +24,7 @@
 @implementation ToolMainView
 
     - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect {
-        self = [super initWithNibName:@"ToolMainView" bundle:nil];
+        self = [super initWithNibName:@"AppMainView" bundle:nil];
         if (self != nil) {
             // 業務処理クラスを初期化
             [self setFunctionManager:[[FunctionManager alloc] init]];
