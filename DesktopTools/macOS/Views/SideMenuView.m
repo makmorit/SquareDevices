@@ -8,7 +8,7 @@
 #import "SideMenu.h"
 #import "SideMenuView.h"
 
-@interface ToolSideMenuView () <NSOutlineViewDelegate>
+@interface SideMenuView () <NSOutlineViewDelegate>
     // 画面表示データの参照を保持
     @property (weak) SideMenu                           *parameterObject;
     // 上位クラスの参照を保持
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ToolSideMenuView
+@implementation SideMenuView
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray {
         self = [super initWithNibName:@"SideMenuView" bundle:nil];
@@ -102,7 +102,7 @@
 
     - (void)sideMenuItemDidSelectWithName:(NSString *)selectedItemTitle {
         // クリックされたメニュー項目の情報を通知
-        [[self delegate] ToolSideMenuView:self didSelectItemWithTitle:selectedItemTitle];
+        [[self delegate] SideMenuView:self didSelectItemWithTitle:selectedItemTitle];
     }
 
 #pragma mark - Display menu items

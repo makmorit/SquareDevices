@@ -8,11 +8,11 @@
 #import "SideMenu.h"
 #import "SideMenuView.h"
 
-@interface SideMenu () <ToolSideMenuViewDelegate>
+@interface SideMenu () <SideMenuViewDelegate>
     // 上位クラスの参照を保持
     @property (nonatomic) id                             delegate;
     // サイドメニュー領域の参照を保持
-    @property (nonatomic) ToolSideMenuView              *toolSideMenuView;
+    @property (nonatomic) SideMenuView              *toolSideMenuView;
 
 @end
 
@@ -23,7 +23,7 @@
         if (self != nil) {
             // サイドメニュー領域のインスタンスを生成
             [self setDelegate:delegate];
-            [self setToolSideMenuView:[[ToolSideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray]]];
+            [self setToolSideMenuView:[[SideMenuView alloc] initWithDelegate:self withItemsArray:[FunctionManager createMenuItemsArray]]];
         }
         return self;
     }
@@ -40,7 +40,7 @@
         return ![self menuHidden];
     }
 
-    - (void)ToolSideMenuView:(ToolSideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title {
+    - (void)SideMenuView:(SideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title {
         [[self delegate] SideMenu:self didSelectItemWithTitle:title];
     }
 

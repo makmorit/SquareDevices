@@ -9,17 +9,17 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ToolSideMenuViewDelegate;
+@protocol SideMenuViewDelegate;
 
-@interface ToolSideMenuView : NSViewController
+@interface SideMenuView : NSViewController
 
     - (instancetype)initWithDelegate:(id)delegate withItemsArray:(NSArray *)itemsArray;
 
 @end
 
-@protocol ToolSideMenuViewDelegate <NSObject>
+@protocol SideMenuViewDelegate <NSObject>
 
-    - (void)ToolSideMenuView:(ToolSideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title;
+    - (void)SideMenuView:(SideMenuView *)sideMenuView didSelectItemWithTitle:(NSString *)title;
 
 @end
 
