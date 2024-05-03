@@ -335,6 +335,10 @@
 				7A92D0E228754B140094D2DB /* AppCommonMessage.h */,
 				64ED9A8B1647439300F39EAE /* AppDelegate.h */,
 				64ED9A8C1647439300F39EAE /* AppDelegate.m */,
+				7A2430F72BE4684200D8D81A /* MainView.h */,
+				7A2430F82BE469DD00D8D81A /* MainView.m */,
+				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
+				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
 			path = DesktopToolApp;
 			sourceTree = "<group>";
@@ -384,10 +388,6 @@
 				7A53E22B2A1DAE94006BAA2B /* ToolSideMenuView.h */,
 				7A53E22C2A1DAE94006BAA2B /* ToolSideMenuView.m */,
 				7A53E2252A1DA99A006BAA2B /* ToolSideMenuView.xib */,
-				7A2430F72BE4684200D8D81A /* MainView.h */,
-				7A2430F82BE469DD00D8D81A /* MainView.m */,
-				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
-				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
