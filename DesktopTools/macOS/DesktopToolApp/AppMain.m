@@ -9,7 +9,7 @@
 
 @interface AppMain ()
     // メイン画面領域の参照を保持
-    @property (nonatomic) ToolMainView                  *toolMainView;
+    @property (nonatomic) AppMainView           *appMainView;
 
 @end
 
@@ -19,14 +19,14 @@
         self = [super init];
         if (self != nil) {
             // メイン画面領域のインスタンスを生成
-            [self setToolMainView:[[ToolMainView alloc] initWithContentLayoutRect:contentLayoutRect]];
+            [self setAppMainView:[[AppMainView alloc] initWithContentLayoutRect:contentLayoutRect]];
         }
         return self;
     }
 
     - (void)addStackViewToAppView:(NSView *)appView {
         // スタックビューをウィンドウに表示
-        [appView addSubview:[[self toolMainView] view]];
+        [appView addSubview:[[self appMainView] view]];
     }
 
 @end

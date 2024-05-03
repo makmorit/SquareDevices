@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ToolMainView : NSViewController
+@interface AppMainView : NSViewController
 
     - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect;
 

@@ -9,7 +9,7 @@
 #import "SideMenu.h"
 #import "AppMainView.h"
 
-@interface ToolMainView () <SideMenuDelegate, FunctionBaseDelegate>
+@interface AppMainView () <SideMenuDelegate, FunctionBaseDelegate>
     // ビュー領域を格納する領域の参照を保持
     @property (assign) IBOutlet NSView          *stackView;
     @property (assign) IBOutlet NSView          *viewForSideMenu;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ToolMainView
+@implementation AppMainView
 
     - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect {
         self = [super initWithNibName:@"AppMainView" bundle:nil];
