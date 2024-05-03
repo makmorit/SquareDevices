@@ -1,19 +1,19 @@
 //
-//  MainView.m
+//  AppMain.m
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2024/05/03.
 //
-#import "MainView.h"
+#import "AppMain.h"
 #import "ToolMainView.h"
 
-@interface MainView ()
+@interface AppMain ()
     // メイン画面領域の参照を保持
     @property (nonatomic) ToolMainView                  *toolMainView;
 
 @end
 
-@implementation MainView
+@implementation AppMain
 
     - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect {
         self = [super init];
@@ -24,9 +24,9 @@
         return self;
     }
 
-    - (void)addStackViewToMainView:(NSView *)mainView {
+    - (void)addStackViewToAppView:(NSView *)appView {
         // スタックビューをウィンドウに表示
-        [mainView addSubview:[[self toolMainView] view]];
+        [appView addSubview:[[self toolMainView] view]];
     }
 
 @end

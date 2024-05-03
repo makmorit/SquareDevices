@@ -6,7 +6,7 @@
 //
 #import "AppCommonMessage.h"
 #import "AppDelegate.h"
-#import "MainView.h"
+#import "AppMain.h"
 #import "ToolCommonFunc.h"
 #import "ToolLogFile.h"
 
@@ -15,7 +15,7 @@
     @property (assign) IBOutlet NSWindow        *window;
     @property (assign) IBOutlet NSView          *view;
     // スタックビューの参照を保持
-    @property (nonatomic) MainView              *mainView;
+    @property (nonatomic) AppMain               *appMain;
 
 @end
 
@@ -27,8 +27,8 @@
         // アプリケーション開始ログを出力
         [[ToolLogFile defaultLogger] infoWithFormat:MSG_FORMAT_TOOL_LAUNCHED, [[self window] title], [ToolCommonFunc getAppVersionString], [ToolCommonFunc getAppBuildNumberString]];
         // スタックビューをウィンドウに表示
-        [self setMainView:[[MainView alloc] initWithContentLayoutRect:[[self window] contentLayoutRect]]];
-        [[self mainView] addStackViewToMainView:[self view]];
+        [self setAppMain:[[AppMain alloc] initWithContentLayoutRect:[[self window] contentLayoutRect]]];
+        [[self appMain] addStackViewToAppView:[self view]];
     }
 
     - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {

@@ -15,7 +15,7 @@
 		64ED9A9D164752C800F39EAE /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ED9A9C164752C800F39EAE /* IOBluetooth.framework */; };
 		7A0DF8AB2B464CD500FAE3FF /* CommandWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */; };
 		7A184C942B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */; };
-		7A2430F92BE469DD00D8D81A /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2430F82BE469DD00D8D81A /* MainView.m */; };
+		7A2430F92BE469DD00D8D81A /* AppMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2430F82BE469DD00D8D81A /* AppMain.m */; };
 		7A27126E2A2471B200FA9030 /* ToolVersionInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */; };
 		7A2712702A2471B200FA9030 /* ToolVersionInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */; };
 		7A2712752A247B2000FA9030 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2712742A247B1F00FA9030 /* FunctionView.m */; };
@@ -93,8 +93,8 @@
 		7A0DF8A92B464B8700FAE3FF /* CommandWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandWindow.h; sourceTree = "<group>"; };
 		7A0DF8AA2B464CD500FAE3FF /* CommandWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandWindow.m; sourceTree = "<group>"; };
 		7A184C932B883CE100D956E9 /* app_update.PCA10095_01.0.0.4.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = app_update.PCA10095_01.0.0.4.bin; sourceTree = "<group>"; };
-		7A2430F72BE4684200D8D81A /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
-		7A2430F82BE469DD00D8D81A /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
+		7A2430F72BE4684200D8D81A /* AppMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMain.h; sourceTree = "<group>"; };
+		7A2430F82BE469DD00D8D81A /* AppMain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppMain.m; sourceTree = "<group>"; };
 		7A27126B2A2471B200FA9030 /* ToolVersionInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolVersionInfoView.h; sourceTree = "<group>"; };
 		7A27126C2A2471B200FA9030 /* ToolVersionInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolVersionInfoView.xib; sourceTree = "<group>"; };
 		7A27126D2A2471B200FA9030 /* ToolVersionInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolVersionInfoView.m; sourceTree = "<group>"; };
@@ -335,8 +335,8 @@
 				7A92D0E228754B140094D2DB /* AppCommonMessage.h */,
 				64ED9A8B1647439300F39EAE /* AppDelegate.h */,
 				64ED9A8C1647439300F39EAE /* AppDelegate.m */,
-				7A2430F72BE4684200D8D81A /* MainView.h */,
-				7A2430F82BE469DD00D8D81A /* MainView.m */,
+				7A2430F72BE4684200D8D81A /* AppMain.h */,
+				7A2430F82BE469DD00D8D81A /* AppMain.m */,
 				7AEA0E6A2BDF799B00C7073F /* SideMenu.h */,
 				7AEA0E682BDF797A00C7073F /* SideMenu.m */,
 			);
@@ -551,7 +551,7 @@
 				7A2712792A24987100FA9030 /* FunctionManager.m in Sources */,
 				7A62E7022ADD1873007942AE /* BLEPeripheralScanner.m in Sources */,
 				7A7CEE212B6B275900BA9F41 /* DeviceTimestampSet.m in Sources */,
-				7A2430F92BE469DD00D8D81A /* MainView.m in Sources */,
+				7A2430F92BE469DD00D8D81A /* AppMain.m in Sources */,
 				7AE6031C2875218100DA5BF3 /* ToolLogFile.m in Sources */,
 				7A98D7E42A259221005A593E /* ToolMainView.m in Sources */,
 				7AEA0E692BDF797A00C7073F /* SideMenu.m in Sources */,

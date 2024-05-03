@@ -1,19 +1,19 @@
 //
-//  MainView.h
+//  AppMain.h
 //  DesktopTool
 //
 //  Created by Makoto Morita on 2024/05/03.
 //
-#ifndef MainView_h
-#define MainView_h
+#ifndef AppMain_h
+#define AppMain_h
 
 #import <Foundation/Foundation.h>
 
-@interface MainView : NSObject
+@interface AppMain : NSObject
 
     - (instancetype)initWithContentLayoutRect:(NSRect)contentLayoutRect;
-    - (void)addStackViewToMainView:(NSView *)mainView;
+    - (void)addStackViewToAppView:(NSView *)appView;
 
 @end
 
-#endif /* MainView_h */
+#endif /* AppMain_h */
