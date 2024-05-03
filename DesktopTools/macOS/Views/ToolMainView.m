@@ -55,11 +55,11 @@
 
     - (void)FunctionBase:(FunctionBase *)functionBase notifyShowSubView:(NSView *)subView {
         // 画面の描画位置・領域を設定
-        NSRect rect = [[self viewForFunction] visibleRect];
-        NSRect frame = [[self viewForFunction] frame];
-        NSRect frameRect = NSMakeRect(frame.origin.x, frame.origin.y, rect.size.width, rect.size.height);
+        CGPoint originOfView = [[self view] frame].origin;
+        CGSize sizeOfView = [[self view] frame].size;
+        NSRect frameRect = NSMakeRect(originOfView.x, originOfView.y, sizeOfView.width, sizeOfView.height);
         [functionBase setFunctionViewFrameRect:frameRect];
-        // 画面右側の領域に業務処理画面を表示
+        // 業務処理画面を画面領域いっぱいに表示
         [[self stackView] addSubview:subView];
     }
 
