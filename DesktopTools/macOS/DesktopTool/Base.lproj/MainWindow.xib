@@ -382,7 +382,7 @@
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="mainView" destination="372" id="EsT-D8-ReQ"/>
+                <outlet property="view" destination="372" id="MJv-0P-qJz"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
