@@ -1,6 +1,6 @@
 # ファームウェア更新手順書
 
-最終更新日：2024/4/4
+最終更新日：2024/5/10
 
 ## 概要
 
@@ -10,24 +10,24 @@
 
 デスクトップツールの左側メニュー「ファームウェア更新」をクリックします。
 
-<img src="images/FWUPDATE_01.jpg" width="400">
+<img src="images/FWUPDATE_01.jpg" width="280">
 
-ツール画面右側に、ファームウェア更新画面が表示されますので「実行」をクリックします。
+ファームウェア更新画面が表示されますので「実行」をクリックします。
 
-<img src="images/FWUPDATE_02.jpg" width="400">
+<img src="images/FWUPDATE_02.jpg" width="280">
 
 ファームウェア更新のための前処理が実行されるので、しばらく待ちます。
 
-<img src="images/FWUPDATE_03.jpg" width="400">
+<img src="images/FWUPDATE_03.jpg" width="280">
 
 ファームウェア更新処理を開始する前に、確認メッセージがポップアップ表示されます。<br>
 「Yes」ボタンをクリックすると、ファームウェア更新処理が開始されます。
 
-<img src="images/FWUPDATE_04.jpg" width="400">
+<img src="images/FWUPDATE_04.jpg" width="280">
 
 ファームウェア更新処理が開始されると、更新処理の進捗表示画面がポップアップ表示されます。
 
-<img src="images/FWUPDATE_05.jpg" width="400">
+<img src="images/FWUPDATE_05.jpg" width="280">
 
 ほどなく、デスクトップツールに同梱された、最新のファームウェア更新イメージデータが、nRF5340基板へ転送されます。
 
