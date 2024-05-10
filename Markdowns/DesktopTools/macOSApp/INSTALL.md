@@ -1,6 +1,6 @@
 # インストール手順書
 
-最終更新日：2024/4/1
+最終更新日：2024/5/3
 
 ## 概要
 デスクトップツールをmacOS環境にインストールする手順について掲載しています。
@@ -47,4 +47,4 @@ macOSのアプリケーションフォルダーに、アイコン「DesktopTool�
 
 デスクトップツールの画面が起動すれば、インストールは完了です。
 
-<img src="../../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="280">

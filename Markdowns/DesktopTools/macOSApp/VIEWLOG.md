@@ -16,11 +16,11 @@
 ログファイルの格納場所を、macOSのFinderで開くことができます。<br>
 デスクトップツールを起動し「ログファイル参照」ボタンをクリックします。
 
-<img src="images/VIEWLOG_01.jpg" width="400">
+<img src="images/VIEWLOG_01.jpg" width="280">
 
 ログファイル`DesktopTool.log`を格納するディレクトリーが、macOSのFinderで表示されます。
 
-<img src="images/VIEWLOG_02.jpg" width="600">
+<img src="images/VIEWLOG_02.jpg" width="465">
 
 ログファイルは通常のテキストファイルですので、適宜、テキストエディターにより内容を参照することが可能です。
 

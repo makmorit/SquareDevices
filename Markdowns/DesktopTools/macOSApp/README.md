@@ -1,6 +1,6 @@
 # macOS版 デスクトップツール
 
-最終更新日：2024/4/4
+最終更新日：2024/5/3
 
 ## 概要
 PC環境から、nRF5340基板の動作に必要な各種設定／動作テスト等を行うためのツールです。
@@ -21,7 +21,7 @@ macOS Monterey (Version 12)〜 <br>
 * ログファイル参照
 
 ### 画面イメージ
-<img src="../../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="400">
+<img src="../../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="280">
 
 ### 手順書
 

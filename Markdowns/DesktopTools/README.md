@@ -1,6 +1,6 @@
 # デスクトップツール
 
-最終更新日：2024/4/22
+最終更新日：2024/5/3
 
 ## 概要
 PC環境から、nRF5340基板の動作に必要な各種設定／動作テスト等を行うためのツールです。<br>
@@ -28,7 +28,7 @@ Windows 10 (64bit版)、Windows 11
 ## [macOS版](../../Markdowns/DesktopTools/macOSApp/README.md)
 
 #### 画面イメージ
-<img src="../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="400">
+<img src="../../Markdowns/DesktopTools/macOSApp/images/README_01.jpg" width="280">
 
 #### 動作環境
 macOS Monterey (Version 12)〜 <br>

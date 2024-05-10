@@ -1,6 +1,6 @@
 # 現在時刻参照／設定手順書
 
-最終更新日：2024/4/1
+最終更新日：2024/5/10
 
 ## 概要
 
@@ -15,15 +15,15 @@ nRF5340基板のボタンを押下し、稼働状態（基板上のLEDが点滅�
 
 デスクトップツールの左側メニュー「現在時刻参照」をクリックします
 
-<img src="images/TIMESET_01.jpg" width="400">
+<img src="images/TIMESET_01.jpg" width="280">
 
-ツール画面右側に、現在時刻参照画面が表示されますので「実行」をクリックします。
+現在時刻参照画面が表示されますので「実行」をクリックします。
 
-<img src="images/TIMESET_02.jpg" width="400">
+<img src="images/TIMESET_02.jpg" width="280">
 
 程なく、nRF5340基板から取得した現在時刻と、取得時点におけるPC（デスクトップツール）の現在時刻を確認できます。
 
-<img src="images/TIMESET_03.jpg" width="400">
+<img src="images/TIMESET_03.jpg" width="280">
 
 これで、現在時刻の参照は完了です。
 
@@ -31,18 +31,18 @@ nRF5340基板のボタンを押下し、稼働状態（基板上のLEDが点滅�
 
 デスクトップツールの左側メニュー「現在時刻設定」をクリックします
 
-<img src="images/TIMESET_04.jpg" width="400">
+<img src="images/TIMESET_04.jpg" width="280">
 
-ツール画面右側に、現在時刻設定画面が表示されますので「実行」をクリックします。
+現在時刻設定画面が表示されますので「実行」をクリックします。
 
-<img src="images/TIMESET_05.jpg" width="400">
+<img src="images/TIMESET_05.jpg" width="280">
 
 下図のような確認ポップアップ表示されますので「Yes」をクリックします。
 
-<img src="images/TIMESET_06.jpg" width="400">
+<img src="images/TIMESET_06.jpg" width="280">
 
 程なく、nRF5340基板に登録された現在時刻と、登録時点におけるPC（デスクトップツール）の現在時刻を確認できます。
 
-<img src="images/TIMESET_07.jpg" width="400">
+<img src="images/TIMESET_07.jpg" width="280">
 
 これで、現在時刻の設定は完了です。
