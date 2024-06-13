@@ -1,8 +1,8 @@
 # nRF Connect SDKインストール手順書
 
-最終更新日：2024/02/12
+最終更新日：2024/06/13
 
-「[nRF Connect SDK v2.5.2](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.5.2/nrf/index.html)」をmacOSにインストールする手順について掲載します。
+「[nRF Connect SDK v2.6.1](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.6.1/nrf/index.html)」をmacOSにインストールする手順について掲載します。
 
 ## 使用したシステム
 
@@ -28,19 +28,19 @@ brew list --versions
 
 #### 仮想環境の作成
 
-本例では、`${HOME}/opt/ncs_2.5.2`というフォルダーに、Pythonの仮想環境を作成するものとします。<br>
+本例では、`${HOME}/opt/ncs_2.6.1`というフォルダーに、Pythonの仮想環境を作成するものとします。<br>
 以下のコマンドを実行します。
 
 ```
 cd ${HOME}/opt
-python -m venv ncs_2.5.2
+python -m venv ncs_2.6.1
 ```
 
 以下は実行例になります。
 
 ```
 bash-3.2$ cd ${HOME}/opt
-bash-3.2$ python -m venv ncs_2.5.2
+bash-3.2$ python -m venv ncs_2.6.1
 bash-3.2$
 ```
 
@@ -49,19 +49,19 @@ bash-3.2$
 仮想環境に入るためには、仮想環境フォルダーでコマンド`source bin/activate`を実行します。
 
 ```
-bash-3.2$ cd ${HOME}/opt/ncs_2.5.2
+bash-3.2$ cd ${HOME}/opt/ncs_2.6.1
 bash-3.2$ source bin/activate
-(ncs_2.5.2) bash-3.2$
+(ncs_2.6.1) bash-3.2$
 ```
 
-`(ncs_2.5.2) bash-3.2$ `というコマンドプロンプト表示により、仮想環境に入ったことが確認できます。
+`(ncs_2.6.1) bash-3.2$ `というコマンドプロンプト表示により、仮想環境に入ったことが確認できます。
 
 #### 仮想環境から抜ける
 
 仮想環境から通常のシェルに戻るためには、コマンド`deactivate`を実行します。
 
 ```
-(ncs_2.5.2) bash-3.2$ deactivate
+(ncs_2.6.1) bash-3.2$ deactivate
 bash-3.2$
 ```
 
@@ -85,11 +85,11 @@ pip3 install west
 
 #### リポジトリーのチェックアウト
 
-GitHubリポジトリーから「nRF Connect SDK v2.5.2」の全ファイルイメージをチェックアウトします。<br>
+GitHubリポジトリーから「nRF Connect SDK v2.6.1」の全ファイルイメージをチェックアウトします。<br>
 ターミナルから以下のコマンドを実行します。（実行例は<b>[こちら](logs/west.log)</b>）
 
 ```
-west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5.2
+west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.6.1
 west update
 west zephyr-export
 ```
@@ -117,8 +117,8 @@ Zephyr SDKのバンドルをダウンロードします。
 
 ```
 cd ${HOME}/Downloads/
-wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
-wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
+wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.5/zephyr-sdk-0.16.5_macos-x86_64.tar.xz
+wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.5/sha256.sum | shasum --check --ignore-missing
 ```
 
 #### SDKの導入
@@ -128,7 +128,7 @@ wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1
 
 ```
 cd ${HOME}/opt
-tar xvf ${HOME}/Downloads/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
+tar xvf ${HOME}/Downloads/zephyr-sdk-0.16.5_macos-x86_64.tar.xz
 ```
 
 #### SDKの設定
@@ -137,7 +137,7 @@ tar xvf ${HOME}/Downloads/zephyr-sdk-0.16.1_macos-x86_64.tar.xz
 以下のコマンドを実行します。（実行例は<b>[こちら](logs/zephyr_sdk_setup.log)</b>）
 
 ```
-cd ${HOME}/opt/zephyr-sdk-0.16.1
+cd ${HOME}/opt/zephyr-sdk-0.16.5
 ./setup.sh
 ```
 
