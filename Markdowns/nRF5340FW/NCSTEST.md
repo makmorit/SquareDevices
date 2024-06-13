@@ -1,8 +1,8 @@
 # nRF Connect SDK動作確認手順書
 
-最終更新日：2024/02/15
+最終更新日：2024/06/13
 
-macOSにインストールされた「[nRF Connect SDK v2.5.2](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.5.2/nrf/index.html)」の動作確認手順について掲載します。
+macOSにインストールされた「[nRF Connect SDK v2.6.1](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.6.1/nrf/index.html)」の動作確認手順について掲載します。
 
 ## 使用したシステム
 
@@ -23,7 +23,7 @@ OS: Android 8.0.0<br>
 本手順書で必要となる各種ソフトウェアを、macOSにインストールします。
 
 - <b>サンプルアプリのビルド</b><br>
-Nordic社から公開されているサンプルアプリ「[Peripheral UART](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.5.2/nrf/samples/bluetooth/peripheral_uart/README.html)」を、nRF Connect SDKでビルドします。
+Nordic社から公開されているサンプルアプリ「[Peripheral UART](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.6.1/nrf/samples/bluetooth/peripheral_uart/README.html)」を、nRF Connect SDKでビルドします。
 
 - <b>サンプルアプリの書込み</b><br>
 nRF5340 DKを初期化した後、ビルドしたサンプルアプリを、nRF5340 DKに書込みます。
@@ -41,11 +41,11 @@ nRF Connect SDKのサンプルアプリを、適宜フォルダーにコピー�
 
 ```
 bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/
-bash-3.2$ cp -pr ${HOME}/opt/ncs_2.5.2/nrf/samples/bluetooth/peripheral_uart .
+bash-3.2$ cp -pr ${HOME}/opt/ncs_2.6.1/nrf/samples/bluetooth/peripheral_uart .
 bash-3.2$ ls -al
 total 24
 :
-drwxr-xr-x  17 makmorit  staff    544  2 12 11:36 peripheral_uart
+drwxr-xr-x  17 makmorit  staff    544  6 13 11:58 peripheral_uart
 :
 bash-3.2$
 ```
@@ -60,12 +60,12 @@ bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
 bash-3.2$ ls -al
 total 128
 :
--rw-r--r--   1 makmorit  staff    882  2 15 12:02 westbuild.sh
+-rw-r--r--   1 makmorit  staff    882  6 13 14:09 westbuild.sh
 bash-3.2$ chmod +x westbuild.sh
 bash-3.2$ ls -al
 total 128
 :
--rwxr-xr-x   1 makmorit  staff    882  2 15 12:02 westbuild.sh
+-rwxr-xr-x   1 makmorit  staff    882  6 13 14:09 westbuild.sh
 bash-3.2$
 
 ```
@@ -108,7 +108,7 @@ bash-3.2$ ./westbuild.sh -f
 :
 -- west flash: using runner nrfjprog
 :
--- runners.nrfjprog: Board with serial number 960160943 flashed successfully.
+-- runners.nrfjprog: Board with serial number 1050084791 flashed successfully.
 bash-3.2$
 ```
 
@@ -118,9 +118,9 @@ USBケーブルを使用してnRF5340 DKとPCを接続し、`screen`コマンド
 （表示されない場合は、nRF5340 DKのRESETボタンを１回押下してください）
 
 ```
-bash-3.2$ screen /dev/tty.usbmodem0009601609435 115200
+bash-3.2$ screen /dev/tty.usbmodem0010500847913 115200
 
-*** Booting nRF Connect SDK v2.5.2 ***
+*** Booting nRF Connect SDK v3.5.99-ncs1-1 ***
 Starting Nordic UART service example
 ```
 
