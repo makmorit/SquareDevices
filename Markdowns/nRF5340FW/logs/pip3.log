@@ -1,306 +1,317 @@
-(ncs_2.5.2) bash-3.2$ 
-(ncs_2.5.2) bash-3.2$ pwd
-/Users/makmorit/opt/ncs_2.5.2
-(ncs_2.5.2) bash-3.2$ pip install -r zephyr/scripts/requirements.txt
+bash-3.2$ cd ${HOME}/opt/ncs_2.6.1
+bash-3.2$ source bin/activate
+(ncs_2.6.1) bash-3.2$ pip install -r zephyr/scripts/requirements.txt
 Ignoring windows-curses: markers 'sys_platform == "win32"' don't match your environment
 Ignoring python-magic-bin: markers 'sys_platform == "win32"' don't match your environment
 Collecting pyelftools>=0.27
-  Downloading pyelftools-0.30-py2.py3-none-any.whl (177 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 177.6/177.6 KB 1.3 MB/s eta 0:00:00
+  Downloading pyelftools-0.31-py3-none-any.whl (180 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 180.5/180.5 KB 2.1 MB/s eta 0:00:00
 Requirement already satisfied: PyYAML>=5.1 in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-base.txt (line 11)) (6.0.1)
 Requirement already satisfied: pykwalify in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-base.txt (line 14)) (1.8.0)
 Collecting canopen
-  Downloading canopen-2.2.0-py3-none-any.whl (61 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.3/61.3 KB 1.3 MB/s eta 0:00:00
-Requirement already satisfied: packaging in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-base.txt (line 18)) (23.2)
+  Using cached canopen-2.2.0-py3-none-any.whl (61 kB)
+Requirement already satisfied: packaging in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-base.txt (line 18)) (24.1)
 Collecting progress
-  Downloading progress-1.6.tar.gz (7.8 kB)
+  Using cached progress-1.6.tar.gz (7.8 kB)
   Preparing metadata (setup.py) ... done
 Collecting psutil
-  Downloading psutil-5.9.8-cp36-abi3-macosx_10_9_x86_64.whl (248 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.7/248.7 KB 2.5 MB/s eta 0:00:00
+  Using cached psutil-5.9.8-cp36-abi3-macosx_10_9_x86_64.whl (248 kB)
 Collecting pylink-square
-  Downloading pylink_square-1.2.0-py2.py3-none-any.whl (82 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.4/82.4 KB 2.2 MB/s eta 0:00:00
+  Using cached pylink_square-1.2.0-py2.py3-none-any.whl (82 kB)
 Collecting pyserial
   Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)
 Collecting requests
-  Using cached requests-2.31.0-py3-none-any.whl (62 kB)
+  Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 KB 2.9 MB/s eta 0:00:00
 Collecting anytree
-  Downloading anytree-2.12.1-py3-none-any.whl (44 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.9/44.9 KB 4.2 MB/s eta 0:00:00
+  Using cached anytree-2.12.1-py3-none-any.whl (44 kB)
 Collecting intelhex
   Using cached intelhex-2.3.0-py2.py3-none-any.whl (50 kB)
 Requirement already satisfied: west>=0.14.0 in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-base.txt (line 33)) (1.2.0)
 Requirement already satisfied: colorama in ./lib/python3.8/site-packages (from -r zephyr/scripts/requirements-build-test.txt (line 7)) (0.4.6)
 Collecting ply>=3.10
-  Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.6/49.6 KB 4.5 MB/s eta 0:00:00
-Collecting gcovr>=4.2
-  Downloading gcovr-7.0-py2.py3-none-any.whl (194 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.2/194.2 KB 2.2 MB/s eta 0:00:00
+  Using cached ply-3.11-py2.py3-none-any.whl (49 kB)
+Collecting gcovr>=6.0
+  Downloading gcovr-7.2-py2.py3-none-any.whl (198 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.5/198.5 KB 3.5 MB/s eta 0:00:00
 Collecting coverage
-  Downloading coverage-7.4.1-cp38-cp38-macosx_10_9_x86_64.whl (206 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.3/206.3 KB 2.4 MB/s eta 0:00:00
+  Downloading coverage-7.5.3-cp38-cp38-macosx_10_9_x86_64.whl (204 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 204.1/204.1 KB 3.4 MB/s eta 0:00:00
 Collecting pytest
-  Downloading pytest-8.0.0-py3-none-any.whl (334 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 334.0/334.0 KB 2.5 MB/s eta 0:00:00
+  Downloading pytest-8.2.2-py3-none-any.whl (339 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 339.9/339.9 KB 2.9 MB/s eta 0:00:00
 Collecting mypy
-  Downloading mypy-1.8.0-cp38-cp38-macosx_10_9_x86_64.whl (10.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 3.4 MB/s eta 0:00:00
+  Downloading mypy-1.10.0-cp38-cp38-macosx_10_9_x86_64.whl (10.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 4.3 MB/s eta 0:00:00
 Collecting mock>=4.0.1
-  Downloading mock-5.1.0-py3-none-any.whl (30 kB)
+  Using cached mock-5.1.0-py3-none-any.whl (30 kB)
 Collecting pyocd>=0.35.0
-  Downloading pyocd-0.36.0-py3-none-any.whl (14.0 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.0/14.0 MB 5.0 MB/s eta 0:00:00
+  Using cached pyocd-0.36.0-py3-none-any.whl (14.0 MB)
 Collecting tabulate
-  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+  Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
 Collecting cbor>=1.0.0
-  Downloading cbor-1.0.0.tar.gz (20 kB)
+  Using cached cbor-1.0.0.tar.gz (20 kB)
   Preparing metadata (setup.py) ... done
 Collecting gitlint
-  Downloading gitlint-0.19.1-py3-none-any.whl (2.6 kB)
+  Using cached gitlint-0.19.1-py3-none-any.whl (2.6 kB)
 Collecting junit2html
-  Downloading junit2html-30.1.3-py3-none-any.whl (15 kB)
+  Downloading junit2html-31.0.2-py3-none-any.whl (17 kB)
 Collecting clang-format>=15.0.0
-  Downloading clang_format-17.0.6-py2.py3-none-macosx_10_9_x86_64.whl (1.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 4.0 MB/s eta 0:00:00
+  Downloading clang_format-18.1.6-py2.py3-none-macosx_10_9_x86_64.whl (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 4.5 MB/s eta 0:00:00
 Collecting lpc_checksum
-  Downloading lpc_checksum-2.2.0-py3-none-any.whl (4.4 kB)
-Collecting Pillow
-  Downloading pillow-10.2.0-cp38-cp38-macosx_10_10_x86_64.whl (3.5 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 2.3 MB/s eta 0:00:00
+  Using cached lpc_checksum-2.2.0-py3-none-any.whl (4.4 kB)
+Collecting Pillow>=10.0
+  Downloading pillow-10.3.0-cp38-cp38-macosx_10_10_x86_64.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 3.8 MB/s eta 0:00:00
 Collecting imgtool>=1.9
-  Downloading imgtool-2.0.0-py3-none-any.whl (34 kB)
+  Downloading imgtool-2.1.0-py3-none-any.whl (34 kB)
 Collecting grpcio-tools>=1.47.0
-  Downloading grpcio_tools-1.60.1-cp38-cp38-macosx_10_10_universal2.whl (5.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 3.8 MB/s eta 0:00:00
+  Downloading grpcio_tools-1.64.1-cp38-cp38-macosx_10_9_universal2.whl (5.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 4.2 MB/s eta 0:00:00
 Collecting protobuf>=3.20.3
-  Downloading protobuf-4.25.2-cp37-abi3-macosx_10_9_universal2.whl (394 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 394.2/394.2 KB 4.0 MB/s eta 0:00:00
+  Downloading protobuf-5.27.1-cp38-abi3-macosx_10_9_universal2.whl (412 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 412.3/412.3 KB 5.2 MB/s eta 0:00:00
 Collecting PyGithub
-  Downloading PyGithub-2.2.0-py3-none-any.whl (350 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 350.2/350.2 KB 4.4 MB/s eta 0:00:00
+  Downloading PyGithub-2.3.0-py3-none-any.whl (354 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 354.4/354.4 KB 5.7 MB/s eta 0:00:00
 Collecting graphviz
-  Downloading graphviz-0.20.1-py3-none-any.whl (47 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.0/47.0 KB 2.6 MB/s eta 0:00:00
-Collecting zcbor>=0.6.0
-  Downloading zcbor-0.8.1-py3-none-any.whl (81 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.1/81.1 KB 1.8 MB/s eta 0:00:00
+  Downloading graphviz-0.20.3-py3-none-any.whl (47 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.1/47.1 KB 4.4 MB/s eta 0:00:00
+Collecting zcbor>=0.8.0
+  Using cached zcbor-0.8.1-py3-none-any.whl (81 kB)
 Collecting python-magic
   Using cached python_magic-0.4.27-py2.py3-none-any.whl (13 kB)
 Collecting lxml
-  Downloading lxml-5.1.0-cp38-cp38-macosx_10_9_x86_64.whl (4.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 2.4 MB/s eta 0:00:00
+  Downloading lxml-5.2.2-cp38-cp38-macosx_10_9_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 3.2 MB/s eta 0:00:00
 Collecting junitparser>=2
-  Downloading junitparser-3.1.1-py2.py3-none-any.whl (13 kB)
+  Downloading junitparser-3.1.2-py2.py3-none-any.whl (13 kB)
 Collecting pylint
-  Downloading pylint-3.0.3-py3-none-any.whl (510 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.6/510.6 KB 4.4 MB/s eta 0:00:00
+  Downloading pylint-3.2.3-py3-none-any.whl (519 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 519.2/519.2 KB 5.2 MB/s eta 0:00:00
 Collecting yamllint
-  Downloading yamllint-1.34.0-py3-none-any.whl (66 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.7/66.7 KB 2.1 MB/s eta 0:00:00
-Requirement already satisfied: docopt>=0.6.2 in ./lib/python3.8/site-packages (from pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (0.6.2)
-Requirement already satisfied: python-dateutil>=2.8.0 in ./lib/python3.8/site-packages (from pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (2.8.2)
+  Downloading yamllint-1.35.1-py3-none-any.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.7/66.7 KB 3.4 MB/s eta 0:00:00
 Requirement already satisfied: ruamel.yaml>=0.16.0 in ./lib/python3.8/site-packages (from pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (0.18.6)
+Requirement already satisfied: python-dateutil>=2.8.0 in ./lib/python3.8/site-packages (from pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (2.9.0.post0)
+Requirement already satisfied: docopt>=0.6.2 in ./lib/python3.8/site-packages (from pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (0.6.2)
 Collecting python-can>=3.0.0
-  Downloading python_can-4.3.1-py3-none-any.whl (262 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 262.1/262.1 KB 3.3 MB/s eta 0:00:00
+  Downloading python_can-4.4.0-py3-none-any.whl (264 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 264.3/264.3 KB 3.6 MB/s eta 0:00:00
 Requirement already satisfied: six in ./lib/python3.8/site-packages (from pylink-square->-r zephyr/scripts/requirements-base.txt (line 21)) (1.16.0)
-Collecting idna<4,>=2.5
-  Using cached idna-3.6-py3-none-any.whl (61 kB)
 Collecting certifi>=2017.4.17
-  Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 KB 4.4 MB/s eta 0:00:00
+  Downloading certifi-2024.6.2-py3-none-any.whl (164 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 164.4/164.4 KB 3.6 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.7-py3-none-any.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.8/66.8 KB 2.8 MB/s eta 0:00:00
 Collecting urllib3<3,>=1.21.1
-  Downloading urllib3-2.2.0-py3-none-any.whl (120 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.9/120.9 KB 2.8 MB/s eta 0:00:00
+  Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 KB 2.9 MB/s eta 0:00:00
 Collecting charset-normalizer<4,>=2
   Using cached charset_normalizer-3.3.2-cp38-cp38-macosx_10_9_x86_64.whl (121 kB)
 Requirement already satisfied: setuptools in ./lib/python3.8/site-packages (from west>=0.14.0->-r zephyr/scripts/requirements-base.txt (line 33)) (56.0.0)
-Collecting jinja2
-  Downloading Jinja2-3.1.3-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.2/133.2 KB 2.8 MB/s eta 0:00:00
+Collecting colorlog
+  Downloading colorlog-6.8.2-py3-none-any.whl (11 kB)
 Collecting pygments>=2.13.0
-  Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 2.7 MB/s eta 0:00:00
-Collecting pluggy<2.0,>=1.3.0
-  Downloading pluggy-1.4.0-py3-none-any.whl (20 kB)
-Collecting tomli>=1.0.0
-  Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+  Downloading pygments-2.18.0-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 5.2 MB/s eta 0:00:00
+Collecting jinja2
+  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 3.3 MB/s eta 0:00:00
+Collecting tomli>=1.1.0
+  Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
+Collecting pluggy<2.0,>=1.5
+  Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
 Collecting exceptiongroup>=1.0.0rc8
-  Using cached exceptiongroup-1.2.0-py3-none-any.whl (16 kB)
+  Downloading exceptiongroup-1.2.1-py3-none-any.whl (16 kB)
 Collecting iniconfig
-  Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
-Collecting mypy-extensions>=1.0.0
-  Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+  Using cached iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
 Collecting typing-extensions>=4.1.0
-  Using cached typing_extensions-4.9.0-py3-none-any.whl (32 kB)
-Collecting cmsis-pack-manager<1.0,>=0.5.2
-  Downloading cmsis_pack_manager-0.5.3-py3-none-macosx_10_9_x86_64.whl (3.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 1.5 MB/s eta 0:00:00
-Collecting lark<2.0,>=1.1.5
-  Downloading lark-1.1.9-py3-none-any.whl (111 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.7/111.7 KB 2.4 MB/s eta 0:00:00
-Collecting capstone<5.0,>=4.0
-  Downloading capstone-4.0.2.tar.gz (2.0 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 1.2 MB/s eta 0:00:00
-  Preparing metadata (setup.py) ... done
-Collecting pyusb<2.0,>=1.2.1
-  Downloading pyusb-1.2.1-py3-none-any.whl (58 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.4/58.4 KB 963.2 kB/s eta 0:00:00
+  Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Collecting mypy-extensions>=1.0.0
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
 Collecting hidapi<1.0,>=0.10.1
-  Downloading hidapi-0.14.0-cp38-cp38-macosx_10_9_x86_64.whl (59 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.4/59.4 KB 1.4 MB/s eta 0:00:00
+  Using cached hidapi-0.14.0-cp38-cp38-macosx_10_9_x86_64.whl (59 kB)
+Collecting cmsis-pack-manager<1.0,>=0.5.2
+  Using cached cmsis_pack_manager-0.5.3-py3-none-macosx_10_9_x86_64.whl (3.1 MB)
 Collecting prettytable<4.0,>=2.0
-  Downloading prettytable-3.9.0-py3-none-any.whl (27 kB)
-Collecting importlib-resources
-  Downloading importlib_resources-6.1.1-py3-none-any.whl (33 kB)
-Collecting libusb-package<2.0,>=1.0
-  Downloading libusb_package-1.0.26.2-cp38-cp38-macosx_10_9_x86_64.whl (63 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.4/63.4 KB 3.6 MB/s eta 0:00:00
-Collecting natsort<9.0,>=8.0.0
-  Downloading natsort-8.4.0-py3-none-any.whl (38 kB)
+  Downloading prettytable-3.10.0-py3-none-any.whl (28 kB)
 Collecting intervaltree<4.0,>=3.0.2
-  Downloading intervaltree-3.1.0.tar.gz (32 kB)
+  Using cached intervaltree-3.1.0.tar.gz (32 kB)
   Preparing metadata (setup.py) ... done
 Collecting importlib-metadata>=3.6
-  Using cached importlib_metadata-7.0.1-py3-none-any.whl (23 kB)
+  Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+Collecting capstone<5.0,>=4.0
+  Using cached capstone-4.0.2.tar.gz (2.0 MB)
+  Preparing metadata (setup.py) ... done
+Collecting pyusb<2.0,>=1.2.1
+  Using cached pyusb-1.2.1-py3-none-any.whl (58 kB)
+Collecting lark<2.0,>=1.1.5
+  Using cached lark-1.1.9-py3-none-any.whl (111 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-6.4.0-py3-none-any.whl (38 kB)
+Collecting libusb-package<2.0,>=1.0
+  Using cached libusb_package-1.0.26.2-cp38-cp38-macosx_10_9_x86_64.whl (63 kB)
+Collecting natsort<9.0,>=8.0.0
+  Using cached natsort-8.4.0-py3-none-any.whl (38 kB)
 Collecting gitlint-core[trusted-deps]==0.19.1
-  Downloading gitlint_core-0.19.1-py3-none-any.whl (44 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.2/44.2 KB 1.3 MB/s eta 0:00:00
+  Using cached gitlint_core-0.19.1-py3-none-any.whl (44 kB)
+Collecting arrow>=1
+  Using cached arrow-1.3.0-py3-none-any.whl (66 kB)
 Collecting click>=8
   Using cached click-8.1.7-py3-none-any.whl (97 kB)
-Collecting arrow>=1
-  Downloading arrow-1.3.0-py3-none-any.whl (66 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 KB 2.5 MB/s eta 0:00:00
 Collecting sh>=1.13.0
-  Downloading sh-2.0.6-py3-none-any.whl (38 kB)
+  Downloading sh-2.0.7-py3-none-any.whl (38 kB)
+Collecting arrow>=1
+  Using cached arrow-1.2.3-py3-none-any.whl (66 kB)
 Collecting click>=8
   Using cached click-8.1.3-py3-none-any.whl (96 kB)
 Collecting sh>=1.13.0
-  Downloading sh-1.14.3.tar.gz (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.9/62.9 KB 1.9 MB/s eta 0:00:00
+  Using cached sh-1.14.3.tar.gz (62 kB)
   Preparing metadata (setup.py) ... done
-Collecting arrow>=1
-  Downloading arrow-1.2.3-py3-none-any.whl (66 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 KB 3.3 MB/s eta 0:00:00
 Collecting cryptography>=2.4.2
-  Downloading cryptography-42.0.2-cp37-abi3-macosx_10_12_x86_64.whl (3.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 2.5 MB/s eta 0:00:00
+  Downloading cryptography-42.0.8-cp37-abi3-macosx_10_12_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 5.5 MB/s eta 0:00:00
 Collecting cbor2
-  Downloading cbor2-5.6.1-cp38-cp38-macosx_10_9_x86_64.whl (68 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.0/68.0 KB 1.0 MB/s eta 0:00:00
-Collecting grpcio>=1.60.1
-  Downloading grpcio-1.60.1-cp38-cp38-macosx_10_10_universal2.whl (9.7 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 4.1 MB/s eta 0:00:00
+  Downloading cbor2-5.6.4-cp38-cp38-macosx_10_9_x86_64.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.0/67.0 KB 2.9 MB/s eta 0:00:00
+Collecting grpcio>=1.64.1
+  Downloading grpcio-1.64.1-cp38-cp38-macosx_10_9_universal2.whl (10.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 7.7 MB/s eta 0:00:00
+Collecting Deprecated
+  Using cached Deprecated-1.2.14-py2.py3-none-any.whl (9.6 kB)
 Collecting pyjwt[crypto]>=2.4.0
   Using cached PyJWT-2.8.0-py3-none-any.whl (22 kB)
 Collecting pynacl>=1.4.0
-  Downloading PyNaCl-1.5.0-cp36-abi3-macosx_10_10_universal2.whl (349 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 349.9/349.9 KB 2.7 MB/s eta 0:00:00
-Collecting Deprecated
-  Using cached Deprecated-1.2.14-py2.py3-none-any.whl (9.6 kB)
+  Using cached PyNaCl-1.5.0-cp36-abi3-macosx_10_10_universal2.whl (349 kB)
 Collecting regex>=2022.3.15
-  Using cached regex-2023.12.25-cp38-cp38-macosx_10_9_x86_64.whl (296 kB)
-Collecting mccabe<0.8,>=0.6
-  Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+  Downloading regex-2024.5.15-cp38-cp38-macosx_10_9_x86_64.whl (281 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 281.8/281.8 KB 5.0 MB/s eta 0:00:00
 Collecting platformdirs>=2.2.0
-  Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
-Collecting astroid<=3.1.0-dev0,>=3.0.1
-  Downloading astroid-3.0.3-py3-none-any.whl (275 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 275.2/275.2 KB 4.3 MB/s eta 0:00:00
-Collecting tomlkit>=0.10.1
-  Downloading tomlkit-0.12.3-py3-none-any.whl (37 kB)
-Collecting dill>=0.2
-  Downloading dill-0.3.8-py3-none-any.whl (116 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 KB 2.7 MB/s eta 0:00:00
+  Downloading platformdirs-4.2.2-py3-none-any.whl (18 kB)
+Collecting mccabe<0.8,>=0.6
+  Using cached mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
 Collecting isort!=5.13.0,<6,>=4.2.5
-  Downloading isort-5.13.2-py3-none-any.whl (92 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.3/92.3 KB 6.3 MB/s eta 0:00:00
+  Using cached isort-5.13.2-py3-none-any.whl (92 kB)
+Collecting tomlkit>=0.10.1
+  Downloading tomlkit-0.12.5-py3-none-any.whl (37 kB)
+Collecting dill>=0.2
+  Using cached dill-0.3.8-py3-none-any.whl (116 kB)
+Collecting astroid<=3.3.0-dev0,>=3.2.2
+  Downloading astroid-3.2.2-py3-none-any.whl (276 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 276.3/276.3 KB 3.8 MB/s eta 0:00:00
 Collecting pathspec>=0.5.3
-  Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+  Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
 Collecting cffi
   Using cached cffi-1.16.0-cp38-cp38-macosx_10_9_x86_64.whl (182 kB)
 Collecting appdirs<2.0,>=1.4
-  Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
 Collecting zipp>=0.5
-  Using cached zipp-3.17.0-py3-none-any.whl (7.4 kB)
+  Downloading zipp-3.19.2-py3-none-any.whl (9.0 kB)
 Collecting sortedcontainers<3.0,>=2.0
   Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
 Collecting MarkupSafe>=2.0
-  Downloading MarkupSafe-2.1.5-cp38-cp38-macosx_10_9_x86_64.whl (14 kB)
+  Using cached MarkupSafe-2.1.5-cp38-cp38-macosx_10_9_x86_64.whl (14 kB)
 Collecting wcwidth
-  Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+  Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
 Collecting wrapt~=1.10
   Using cached wrapt-1.16.0-cp38-cp38-macosx_10_9_x86_64.whl (37 kB)
 Collecting msgpack~=1.0.0
-  Downloading msgpack-1.0.7-cp38-cp38-macosx_10_9_x86_64.whl (234 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 234.5/234.5 KB 3.8 MB/s eta 0:00:00
+  Downloading msgpack-1.0.8-cp38-cp38-macosx_10_9_x86_64.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.0/87.0 KB 2.6 MB/s eta 0:00:00
 Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in ./lib/python3.8/site-packages (from ruamel.yaml>=0.16.0->pykwalify->-r zephyr/scripts/requirements-base.txt (line 14)) (0.2.8)
 Collecting pycparser
-  Using cached pycparser-2.21-py2.py3-none-any.whl (118 kB)
+  Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.6/117.6 KB 3.5 MB/s eta 0:00:00
 Using legacy 'setup.py install' for progress, since package 'wheel' is not installed.
 Using legacy 'setup.py install' for cbor, since package 'wheel' is not installed.
 Using legacy 'setup.py install' for sh, since package 'wheel' is not installed.
 Using legacy 'setup.py install' for capstone, since package 'wheel' is not installed.
 Using legacy 'setup.py install' for intervaltree, since package 'wheel' is not installed.
-Installing collected packages: wcwidth, sortedcontainers, sh, pyserial, pyelftools, progress, ply, junitparser, intelhex, clang-format, cbor, appdirs, zipp, wrapt, urllib3, typing-extensions, tomlkit, tomli, tabulate, regex, pyusb, python-magic, pyjwt, pygments, pycparser, psutil, protobuf, prettytable, pluggy, platformdirs, Pillow, pathspec, natsort, mypy-extensions, msgpack, mock, mccabe, MarkupSafe, lxml, lpc_checksum, lark, isort, intervaltree, iniconfig, idna, hidapi, grpcio, graphviz, exceptiongroup, dill, coverage, click, charset-normalizer, certifi, cbor2, capstone, anytree, zcbor, yamllint, requests, python-can, pytest, pylink-square, mypy, jinja2, importlib-resources, importlib-metadata, grpcio-tools, Deprecated, cffi, astroid, arrow, pynacl, pylint, libusb-package, junit2html, gitlint-core, gcovr, cryptography, cmsis-pack-manager, canopen, pyocd, imgtool, PyGithub, gitlint
+Installing collected packages: wcwidth, sortedcontainers, sh, pyserial, pyelftools, progress, ply, junitparser, intelhex, clang-format, cbor, appdirs, zipp, wrapt, urllib3, typing-extensions, tomlkit, tomli, tabulate, regex, pyusb, python-magic, pyjwt, pygments, pycparser, psutil, protobuf, prettytable, pluggy, platformdirs, Pillow, pathspec, natsort, mypy-extensions, msgpack, mock, mccabe, MarkupSafe, lxml, lpc_checksum, lark, isort, intervaltree, iniconfig, idna, hidapi, grpcio, graphviz, exceptiongroup, dill, coverage, colorlog, click, charset-normalizer, certifi, cbor2, capstone, anytree, zcbor, yamllint, requests, python-can, pytest, pylink-square, mypy, jinja2, importlib-resources, importlib-metadata, grpcio-tools, Deprecated, cffi, astroid, arrow, pynacl, pylint, libusb-package, junit2html, gitlint-core, gcovr, cryptography, cmsis-pack-manager, canopen, pyocd, imgtool, PyGithub, gitlint
   Running setup.py install for sh ... done
   Running setup.py install for progress ... done
   Running setup.py install for cbor ... done
   Running setup.py install for intervaltree ... done
   Running setup.py install for capstone ... done
-Successfully installed Deprecated-1.2.14 MarkupSafe-2.1.5 Pillow-10.2.0 PyGithub-2.2.0 anytree-2.12.1 appdirs-1.4.4 arrow-1.2.3 astroid-3.0.3 canopen-2.2.0 capstone-4.0.2 cbor-1.0.0 cbor2-5.6.1 certifi-2024.2.2 cffi-1.16.0 charset-normalizer-3.3.2 clang-format-17.0.6 click-8.1.3 cmsis-pack-manager-0.5.3 coverage-7.4.1 cryptography-42.0.2 dill-0.3.8 exceptiongroup-1.2.0 gcovr-7.0 gitlint-0.19.1 gitlint-core-0.19.1 graphviz-0.20.1 grpcio-1.60.1 grpcio-tools-1.60.1 hidapi-0.14.0 idna-3.6 imgtool-2.0.0 importlib-metadata-7.0.1 importlib-resources-6.1.1 iniconfig-2.0.0 intelhex-2.3.0 intervaltree-3.1.0 isort-5.13.2 jinja2-3.1.3 junit2html-30.1.3 junitparser-3.1.1 lark-1.1.9 libusb-package-1.0.26.2 lpc_checksum-2.2.0 lxml-5.1.0 mccabe-0.7.0 mock-5.1.0 msgpack-1.0.7 mypy-1.8.0 mypy-extensions-1.0.0 natsort-8.4.0 pathspec-0.12.1 platformdirs-4.2.0 pluggy-1.4.0 ply-3.11 prettytable-3.9.0 progress-1.6 protobuf-4.25.2 psutil-5.9.8 pycparser-2.21 pyelftools-0.30 pygments-2.17.2 pyjwt-2.8.0 pylink-square-1.2.0 pylint-3.0.3 pynacl-1.5.0 pyocd-0.36.0 pyserial-3.5 pytest-8.0.0 python-can-4.3.1 python-magic-0.4.27 pyusb-1.2.1 regex-2023.12.25 requests-2.31.0 sh-1.14.3 sortedcontainers-2.4.0 tabulate-0.9.0 tomli-2.0.1 tomlkit-0.12.3 typing-extensions-4.9.0 urllib3-2.2.0 wcwidth-0.2.13 wrapt-1.16.0 yamllint-1.34.0 zcbor-0.8.1 zipp-3.17.0
+Successfully installed Deprecated-1.2.14 MarkupSafe-2.1.5 Pillow-10.3.0 PyGithub-2.3.0 anytree-2.12.1 appdirs-1.4.4 arrow-1.2.3 astroid-3.2.2 canopen-2.2.0 capstone-4.0.2 cbor-1.0.0 cbor2-5.6.4 certifi-2024.6.2 cffi-1.16.0 charset-normalizer-3.3.2 clang-format-18.1.6 click-8.1.3 cmsis-pack-manager-0.5.3 colorlog-6.8.2 coverage-7.5.3 cryptography-42.0.8 dill-0.3.8 exceptiongroup-1.2.1 gcovr-7.2 gitlint-0.19.1 gitlint-core-0.19.1 graphviz-0.20.3 grpcio-1.64.1 grpcio-tools-1.64.1 hidapi-0.14.0 idna-3.7 imgtool-2.1.0 importlib-metadata-7.1.0 importlib-resources-6.4.0 iniconfig-2.0.0 intelhex-2.3.0 intervaltree-3.1.0 isort-5.13.2 jinja2-3.1.4 junit2html-31.0.2 junitparser-3.1.2 lark-1.1.9 libusb-package-1.0.26.2 lpc_checksum-2.2.0 lxml-5.2.2 mccabe-0.7.0 mock-5.1.0 msgpack-1.0.8 mypy-1.10.0 mypy-extensions-1.0.0 natsort-8.4.0 pathspec-0.12.1 platformdirs-4.2.2 pluggy-1.5.0 ply-3.11 prettytable-3.10.0 progress-1.6 protobuf-5.27.1 psutil-5.9.8 pycparser-2.22 pyelftools-0.31 pygments-2.18.0 pyjwt-2.8.0 pylink-square-1.2.0 pylint-3.2.3 pynacl-1.5.0 pyocd-0.36.0 pyserial-3.5 pytest-8.2.2 python-can-4.4.0 python-magic-0.4.27 pyusb-1.2.1 regex-2024.5.15 requests-2.32.3 sh-1.14.3 sortedcontainers-2.4.0 tabulate-0.9.0 tomli-2.0.1 tomlkit-0.12.5 typing-extensions-4.12.2 urllib3-2.2.1 wcwidth-0.2.13 wrapt-1.16.0 yamllint-1.35.1 zcbor-0.8.1 zipp-3.19.2
 WARNING: You are using pip version 22.0.4; however, version 24.0 is available.
-You should consider upgrading via the '/Users/makmorit/opt/ncs_2.5.2/bin/python -m pip install --upgrade pip' command.
-(ncs_2.5.2) bash-3.2$
-(ncs_2.5.2) bash-3.2$ pip install -r nrf/scripts/requirements.txt
+You should consider upgrading via the '/Users/makmorit/opt/ncs_2.6.1/bin/python -m pip install --upgrade pip' command.
+(ncs_2.6.1) bash-3.2$ pip install -r nrf/scripts/requirements.txt
 Requirement already satisfied: west>=1.0.0 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-base.txt (line 1)) (1.2.0)
-Requirement already satisfied: cbor2>=5.4.2.post1 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 1)) (5.6.1)
-Requirement already satisfied: clang-format in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 2)) (17.0.6)
+Requirement already satisfied: cbor2>=5.4.2.post1 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 1)) (5.6.4)
+Requirement already satisfied: clang-format in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 2)) (18.1.6)
 Collecting ecdsa
-  Using cached ecdsa-0.18.0-py2.py3-none-any.whl (142 kB)
-Requirement already satisfied: cryptography>=35.0.0 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 4)) (42.0.2)
+  Downloading ecdsa-0.19.0-py2.py3-none-any.whl (149 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 149.3/149.3 KB 1.8 MB/s eta 0:00:00
+Requirement already satisfied: cryptography>=42.0.4 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 4)) (42.0.8)
 Collecting imagesize>=1.2.0
-  Downloading imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
+  Using cached imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
 Requirement already satisfied: intelhex in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 6)) (2.3.0)
-Requirement already satisfied: pylint in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 7)) (3.0.3)
-Requirement already satisfied: zcbor in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 8)) (0.8.1)
+Requirement already satisfied: pylint in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 7)) (3.2.3)
+Requirement already satisfied: zcbor~=0.8.0 in ./lib/python3.8/site-packages (from -r nrf/scripts/requirements-build.txt (line 8)) (0.8.1)
+Collecting nrf-regtool~=5.1.0
+  Downloading nrf_regtool-5.1.0-py3-none-any.whl (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.3/53.3 KB 1.6 MB/s eta 0:00:00
 Requirement already satisfied: colorama in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (0.4.6)
+Requirement already satisfied: pykwalify in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (1.8.0)
+Requirement already satisfied: packaging in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (24.1)
 Requirement already satisfied: setuptools in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (56.0.0)
 Requirement already satisfied: PyYAML>=5.1 in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (6.0.1)
-Requirement already satisfied: packaging in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (23.2)
-Requirement already satisfied: pykwalify in ./lib/python3.8/site-packages (from west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (1.8.0)
 Requirement already satisfied: six>=1.9.0 in ./lib/python3.8/site-packages (from ecdsa->-r nrf/scripts/requirements-build.txt (line 3)) (1.16.0)
-Requirement already satisfied: cffi>=1.12 in ./lib/python3.8/site-packages (from cryptography>=35.0.0->-r nrf/scripts/requirements-build.txt (line 4)) (1.16.0)
-Requirement already satisfied: astroid<=3.1.0-dev0,>=3.0.1 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (3.0.3)
-Requirement already satisfied: typing-extensions>=3.10.0 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (4.9.0)
-Requirement already satisfied: isort!=5.13.0,<6,>=4.2.5 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (5.13.2)
-Requirement already satisfied: mccabe<0.8,>=0.6 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (0.7.0)
+Requirement already satisfied: cffi>=1.12 in ./lib/python3.8/site-packages (from cryptography>=42.0.4->-r nrf/scripts/requirements-build.txt (line 4)) (1.16.0)
 Requirement already satisfied: tomli>=1.1.0 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (2.0.1)
-Requirement already satisfied: platformdirs>=2.2.0 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (4.2.0)
-Requirement already satisfied: tomlkit>=0.10.1 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (0.12.3)
+Requirement already satisfied: mccabe<0.8,>=0.6 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (0.7.0)
+Requirement already satisfied: astroid<=3.3.0-dev0,>=3.2.2 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (3.2.2)
+Requirement already satisfied: platformdirs>=2.2.0 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (4.2.2)
+Requirement already satisfied: isort!=5.13.0,<6,>=4.2.5 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (5.13.2)
+Requirement already satisfied: typing-extensions>=3.10.0 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (4.12.2)
+Requirement already satisfied: tomlkit>=0.10.1 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (0.12.5)
 Requirement already satisfied: dill>=0.2 in ./lib/python3.8/site-packages (from pylint->-r nrf/scripts/requirements-build.txt (line 7)) (0.3.8)
-Requirement already satisfied: regex>=2022.3.15 in ./lib/python3.8/site-packages (from zcbor->-r nrf/scripts/requirements-build.txt (line 8)) (2023.12.25)
-Requirement already satisfied: pycparser in ./lib/python3.8/site-packages (from cffi>=1.12->cryptography>=35.0.0->-r nrf/scripts/requirements-build.txt (line 4)) (2.21)
-Requirement already satisfied: ruamel.yaml>=0.16.0 in ./lib/python3.8/site-packages (from pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (0.18.6)
+Requirement already satisfied: regex>=2022.3.15 in ./lib/python3.8/site-packages (from zcbor~=0.8.0->-r nrf/scripts/requirements-build.txt (line 8)) (2024.5.15)
+Collecting svada~=2.0.0
+  Downloading svada-2.0.2-py3-none-any.whl (50 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 KB 1.7 MB/s eta 0:00:00
+Requirement already satisfied: click>=8.0.0 in ./lib/python3.8/site-packages (from nrf-regtool~=5.1.0->-r nrf/scripts/requirements-build.txt (line 9)) (8.1.3)
+Collecting more-itertools
+  Downloading more_itertools-10.3.0-py3-none-any.whl (59 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.2/59.2 KB 2.3 MB/s eta 0:00:00
+Collecting devicetree~=0.0.2
+  Downloading devicetree-0.0.2-py3-none-any.whl (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.3/49.3 KB 1.5 MB/s eta 0:00:00
+Requirement already satisfied: pycparser in ./lib/python3.8/site-packages (from cffi>=1.12->cryptography>=42.0.4->-r nrf/scripts/requirements-build.txt (line 4)) (2.22)
+Collecting lxml~=4.9
+  Using cached lxml-4.9.4.tar.gz (3.6 MB)
+  Preparing metadata (setup.py) ... done
+Collecting numpy~=1.21
+  Using cached numpy-1.24.4-cp38-cp38-macosx_10_9_x86_64.whl (19.8 MB)
+Collecting setuptools-scm[toml]>=6.2
+  Downloading setuptools_scm-8.1.0-py3-none-any.whl (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.7/43.7 KB 1.8 MB/s eta 0:00:00
 Requirement already satisfied: docopt>=0.6.2 in ./lib/python3.8/site-packages (from pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (0.6.2)
-Requirement already satisfied: python-dateutil>=2.8.0 in ./lib/python3.8/site-packages (from pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (2.8.2)
+Requirement already satisfied: python-dateutil>=2.8.0 in ./lib/python3.8/site-packages (from pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: ruamel.yaml>=0.16.0 in ./lib/python3.8/site-packages (from pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (0.18.6)
 Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in ./lib/python3.8/site-packages (from ruamel.yaml>=0.16.0->pykwalify->west>=1.0.0->-r nrf/scripts/requirements-base.txt (line 1)) (0.2.8)
-Installing collected packages: imagesize, ecdsa
-Successfully installed ecdsa-0.18.0 imagesize-1.4.1
+Using legacy 'setup.py install' for lxml, since package 'wheel' is not installed.
+Installing collected packages: setuptools-scm, numpy, more-itertools, lxml, imagesize, ecdsa, devicetree, svada, nrf-regtool
+  Attempting uninstall: lxml
+    Found existing installation: lxml 5.2.2
+    Uninstalling lxml-5.2.2:
+      Successfully uninstalled lxml-5.2.2
+  Running setup.py install for lxml ... done
+Successfully installed devicetree-0.0.2 ecdsa-0.19.0 imagesize-1.4.1 lxml-4.9.4 more-itertools-10.3.0 nrf-regtool-5.1.0 numpy-1.24.4 setuptools-scm-8.1.0 svada-2.0.2
 WARNING: You are using pip version 22.0.4; however, version 24.0 is available.
-You should consider upgrading via the '/Users/makmorit/opt/ncs_2.5.2/bin/python -m pip install --upgrade pip' command.
-(ncs_2.5.2) bash-3.2$
-(ncs_2.5.2) bash-3.2$ pip install -r bootloader/mcuboot/scripts/requirements.txt
-Requirement already satisfied: cryptography>=2.6 in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 1)) (42.0.2)
+You should consider upgrading via the '/Users/makmorit/opt/ncs_2.6.1/bin/python -m pip install --upgrade pip' command.
+(ncs_2.6.1) bash-3.2$
+(ncs_2.6.1) bash-3.2$ pip install -r bootloader/mcuboot/scripts/requirements.txt
+Requirement already satisfied: cryptography>=2.6 in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 1)) (42.0.8)
 Requirement already satisfied: intelhex in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 2)) (2.3.0)
 Requirement already satisfied: click in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 3)) (8.1.3)
-Requirement already satisfied: cbor2 in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 4)) (5.6.1)
+Requirement already satisfied: cbor2 in ./lib/python3.8/site-packages (from -r bootloader/mcuboot/scripts/requirements.txt (line 4)) (5.6.4)
 Requirement already satisfied: cffi>=1.12 in ./lib/python3.8/site-packages (from cryptography>=2.6->-r bootloader/mcuboot/scripts/requirements.txt (line 1)) (1.16.0)
-Requirement already satisfied: pycparser in ./lib/python3.8/site-packages (from cffi>=1.12->cryptography>=2.6->-r bootloader/mcuboot/scripts/requirements.txt (line 1)) (2.21)
+Requirement already satisfied: pycparser in ./lib/python3.8/site-packages (from cffi>=1.12->cryptography>=2.6->-r bootloader/mcuboot/scripts/requirements.txt (line 1)) (2.22)
 WARNING: You are using pip version 22.0.4; however, version 24.0 is available.
-You should consider upgrading via the '/Users/makmorit/opt/ncs_2.5.2/bin/python -m pip install --upgrade pip' command.
-(ncs_2.5.2) bash-3.2$
-(ncs_2.5.2) bash-3.2$
+You should consider upgrading via the '/Users/makmorit/opt/ncs_2.6.1/bin/python -m pip install --upgrade pip' command.
+(ncs_2.6.1) bash-3.2$
