@@ -1,14 +1,14 @@
-(ncs_2.5.2) bash-3.2$ west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5.2
-=== Initializing in /Users/makmorit/opt/ncs_2.5.2
---- Cloning manifest repository from https://github.com/nrfconnect/sdk-nrf, rev. v2.5.2
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/.west/manifest-tmp'...
-remote: Enumerating objects: 207434, done.
-remote: Counting objects: 100% (1221/1221), done.
-remote: Compressing objects: 100% (888/888), done.
-remote: Total 207434 (delta 622), reused 644 (delta 319), pack-reused 206213
-Receiving objects: 100% (207434/207434), 136.89 MiB | 3.60 MiB/s, done.
-Resolving deltas: 100% (155016/155016), done.
-Note: switching to '750a0eab914e23669ffa93982578afbaff2af254'.
+(ncs_2.6.1) bash-3.2$ west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.6.1
+=== Initializing in /Users/makmorit/opt/ncs_2.6.1
+--- Cloning manifest repository from https://github.com/nrfconnect/sdk-nrf, rev. v2.6.1
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/.west/manifest-tmp'...
+remote: Enumerating objects: 238839, done.
+remote: Counting objects: 100% (1406/1406), done.
+remote: Compressing objects: 100% (848/848), done.
+remote: Total 238839 (delta 757), reused 962 (delta 543), pack-reused 237433
+Receiving objects: 100% (238839/238839), 152.84 MiB | 6.22 MiB/s, done.
+Resolving deltas: 100% (178096/178096), done.
+Note: switching to 'eef645c4a31201df353fdff5447262d7675fa1c1'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -25,185 +25,195 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-Updating files: 100% (8087/8087), done.
+Updating files: 100% (9136/9136), done.
 --- setting manifest.path to nrf
-=== Initialized. Now run "west update" inside /Users/makmorit/opt/ncs_2.5.2.
-(ncs_2.5.2) bash-3.2$
-(ncs_2.5.2) bash-3.2$ west update
+=== Initialized. Now run "west update" inside /Users/makmorit/opt/ncs_2.6.1.
+(ncs_2.6.1) bash-3.2$
+(ncs_2.6.1) bash-3.2$ west update
 === updating zephyr (zephyr):
 --- zephyr: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/zephyr/.git/
---- zephyr: fetching, need revision v3.4.99-ncs1-2
-remote: Enumerating objects: 927561, done.
-remote: Counting objects: 100% (48874/48874), done.
-remote: Compressing objects: 100% (3329/3329), done.
-remote: Total 927561 (delta 46171), reused 45547 (delta 45545), pack-reused 878687
-Receiving objects: 100% (927561/927561), 545.87 MiB | 2.70 MiB/s, done.
-Resolving deltas: 100% (711809/711809), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/zephyr/.git/
+--- zephyr: fetching, need revision v3.5.99-ncs1-1
+remote: Enumerating objects: 1072478, done.
+remote: Total 1072478 (delta 0), reused 0 (delta 0), pack-reused 1072478
+Receiving objects: 100% (1072478/1072478), 594.10 MiB | 4.46 MiB/s, done.
+Resolving deltas: 100% (809814/809814), done.
 From https://github.com/nrfconnect/sdk-zephyr
- * tag                     v3.4.99-ncs1-2            -> FETCH_HEAD
- * [new tag]               v1.13.99-ncs1             -> v1.13.99-ncs1
- * [new tag]               v1.13.99-ncs1-rc1         -> v1.13.99-ncs1-rc1
- * [new tag]               v1.13.99-ncs2             -> v1.13.99-ncs2
- * [new tag]               v1.13.99-ncs2-rc1         -> v1.13.99-ncs2-rc1
- * [new tag]               v1.13.99-ncs2-rc2         -> v1.13.99-ncs2-rc2
- * [new tag]               v1.14.99-ncs1             -> v1.14.99-ncs1
- * [new tag]               v1.14.99-ncs1-rc1         -> v1.14.99-ncs1-rc1
- * [new tag]               v1.14.99-ncs1-rc2         -> v1.14.99-ncs1-rc2
- * [new tag]               v1.14.99-ncs2             -> v1.14.99-ncs2
- * [new tag]               v1.14.99-ncs2-rc1         -> v1.14.99-ncs2-rc1
- * [new tag]               v1.14.99-ncs2-rc2         -> v1.14.99-ncs2-rc2
- * [new tag]               v1.14.99-ncs2-rc3         -> v1.14.99-ncs2-rc3
- * [new tag]               v1.14.99-ncs2-rc4         -> v1.14.99-ncs2-rc4
- * [new tag]               v1.14.99-ncs3-snapshot1   -> v1.14.99-ncs3-snapshot1
- * [new tag]               v1.14.99-ncs3-snapshot2   -> v1.14.99-ncs3-snapshot2
- * [new tag]               v2.0.99-ncs1              -> v2.0.99-ncs1
- * [new tag]               v2.0.99-ncs1-rc1          -> v2.0.99-ncs1-rc1
- * [new tag]               v2.0.99-ncs1-rc2          -> v2.0.99-ncs1-rc2
- * [new tag]               v2.0.99-ncs1-rc3          -> v2.0.99-ncs1-rc3
- * [new tag]               v2.0.99-ncs1-snapshot1    -> v2.0.99-ncs1-snapshot1
- * [new tag]               v2.1.0-ncs1-snapshot1     -> v2.1.0-ncs1-snapshot1
- * [new tag]               v2.1.99-ncs1              -> v2.1.99-ncs1
- * [new tag]               v2.1.99-ncs1-rc1          -> v2.1.99-ncs1-rc1
- * [new tag]               v2.1.99-ncs1-rc2          -> v2.1.99-ncs1-rc2
- * [new tag]               v2.1.99-ncs1-snapshot1    -> v2.1.99-ncs1-snapshot1
- * [new tag]               v2.3.0-rc1-ncs1           -> v2.3.0-rc1-ncs1
- * [new tag]               v2.3.0-rc1-ncs1-rc1       -> v2.3.0-rc1-ncs1-rc1
- * [new tag]               v2.3.0-rc1-ncs1-rc2       -> v2.3.0-rc1-ncs1-rc2
- * [new tag]               v2.3.0-rc1-ncs1-rc3       -> v2.3.0-rc1-ncs1-rc3
- * [new tag]               v2.3.0-rc1-ncs1-snapshot1 -> v2.3.0-rc1-ncs1-snapshot1
- * [new tag]               v2.3.0-rc1-ncs2           -> v2.3.0-rc1-ncs2
- * [new tag]               v2.3.0-rc1-ncs3           -> v2.3.0-rc1-ncs3
- * [new tag]               v2.4.0-ncs1               -> v2.4.0-ncs1
- * [new tag]               v2.4.0-ncs1-rc1           -> v2.4.0-ncs1-rc1
- * [new tag]               v2.4.0-ncs1-rc2           -> v2.4.0-ncs1-rc2
- * [new tag]               v2.4.0-ncs1-snapshot1     -> v2.4.0-ncs1-snapshot1
- * [new tag]               v2.4.0-ncs2               -> v2.4.0-ncs2
- * [new tag]               v2.4.0-ncs2-rc1           -> v2.4.0-ncs2-rc1
- * [new tag]               v2.4.99-ncs1              -> v2.4.99-ncs1
- * [new tag]               v2.4.99-ncs1-rc1          -> v2.4.99-ncs1-rc1
- * [new tag]               v2.4.99-ncs1-snapshot1    -> v2.4.99-ncs1-snapshot1
- * [new tag]               v2.4.99-ncs2              -> v2.4.99-ncs2
- * [new tag]               v2.4.99-ncs2-1            -> v2.4.99-ncs2-1
- * [new tag]               v2.4.99-ncs2-rc1          -> v2.4.99-ncs2-rc1
- * [new tag]               v2.6.0-ncs1-rc3           -> v2.6.0-ncs1-rc3
- * [new tag]               v2.6.0-rc1-ncs1           -> v2.6.0-rc1-ncs1
- * [new tag]               v2.6.0-rc1-ncs1-rc1       -> v2.6.0-rc1-ncs1-rc1
- * [new tag]               v2.6.0-rc1-ncs1-snapshot1 -> v2.6.0-rc1-ncs1-snapshot1
- * [new tag]               v2.6.99-ncs1              -> v2.6.99-ncs1
- * [new tag]               v2.6.99-ncs1-1            -> v2.6.99-ncs1-1
- * [new tag]               v2.6.99-ncs1-rc1          -> v2.6.99-ncs1-rc1
- * [new tag]               v2.6.99-ncs1-rc2          -> v2.6.99-ncs1-rc2
- * [new tag]               v2.6.99-ncs1-snapshot1    -> v2.6.99-ncs1-snapshot1
- * [new tag]               v2.7.0-ncs1               -> v2.7.0-ncs1
- * [new tag]               v2.7.0-ncs1-rc1           -> v2.7.0-ncs1-rc1
- * [new tag]               v2.7.0-ncs1-rc2           -> v2.7.0-ncs1-rc2
- * [new tag]               v2.7.0-ncs1-snapshot1     -> v2.7.0-ncs1-snapshot1
- * [new tag]               v2.7.0-ncs1-snapshot2     -> v2.7.0-ncs1-snapshot2
- * [new tag]               v2.7.99-ncs1              -> v2.7.99-ncs1
- * [new tag]               v2.7.99-ncs1-1            -> v2.7.99-ncs1-1
- * [new tag]               v2.7.99-ncs1-rc1          -> v2.7.99-ncs1-rc1
- * [new tag]               v2.7.99-ncs1-rc2          -> v2.7.99-ncs1-rc2
- * [new tag]               v3.0.99-ncs1              -> v3.0.99-ncs1
- * [new tag]               v3.0.99-ncs1-1            -> v3.0.99-ncs1-1
- * [new tag]               v3.0.99-ncs1-rc1          -> v3.0.99-ncs1-rc1
- * [new tag]               v3.0.99-ncs1-rc2          -> v3.0.99-ncs1-rc2
- * [new tag]               v3.0.99-ncs1-snapshot1    -> v3.0.99-ncs1-snapshot1
- * [new tag]               v3.1.99-ncs1              -> v3.1.99-ncs1
- * [new tag]               v3.1.99-ncs1-1            -> v3.1.99-ncs1-1
- * [new tag]               v3.1.99-ncs1-2            -> v3.1.99-ncs1-2
- * [new tag]               v3.1.99-ncs1-3            -> v3.1.99-ncs1-3
- * [new tag]               v3.1.99-ncs1-rc1          -> v3.1.99-ncs1-rc1
- * [new tag]               v3.1.99-ncs1-rc2          -> v3.1.99-ncs1-rc2
- * [new tag]               v3.1.99-ncs1-snapshot1    -> v3.1.99-ncs1-snapshot1
- * [new tag]               v3.2.99-ncs1              -> v3.2.99-ncs1
- * [new tag]               v3.2.99-ncs1-rc1          -> v3.2.99-ncs1-rc1
- * [new tag]               v3.2.99-ncs1-rc2          -> v3.2.99-ncs1-rc2
- * [new tag]               v3.2.99-ncs1-snapshot1    -> v3.2.99-ncs1-snapshot1
- * [new tag]               v3.2.99-ncs2              -> v3.2.99-ncs2
- * [new tag]               v3.2.99-ncs2-rc1          -> v3.2.99-ncs2-rc1
- * [new tag]               v3.2.99-ncs2-rc2          -> v3.2.99-ncs2-rc2
- * [new tag]               v3.2.99-ncs2-snapshot1    -> v3.2.99-ncs2-snapshot1
- * [new tag]               v3.3.99-ncs1              -> v3.3.99-ncs1
- * [new tag]               v3.3.99-ncs1-1            -> v3.3.99-ncs1-1
- * [new tag]               v3.3.99-ncs1-2            -> v3.3.99-ncs1-2
- * [new tag]               v3.3.99-ncs1-rc1          -> v3.3.99-ncs1-rc1
- * [new tag]               v3.3.99-ncs1-rc2          -> v3.3.99-ncs1-rc2
- * [new tag]               v3.3.99-ncs1-snapshot1    -> v3.3.99-ncs1-snapshot1
- * [new tag]               v3.4.99-ncs1              -> v3.4.99-ncs1
- * [new tag]               v3.4.99-ncs1-1            -> v3.4.99-ncs1-1
- * [new tag]               v3.4.99-ncs1-1-rc1        -> v3.4.99-ncs1-1-rc1
- * [new tag]               v3.4.99-ncs1-2            -> v3.4.99-ncs1-2
- * [new tag]               v3.4.99-ncs1-rc1          -> v3.4.99-ncs1-rc1
- * [new tag]               v3.4.99-ncs1-rc2          -> v3.4.99-ncs1-rc2
- * [new tag]               v3.4.99-ncs1-snapshot1    -> v3.4.99-ncs1-snapshot1
-Updating files: 100% (28989/28989), done.
-HEAD is now at 4b5ef27041 [nrf fromtree] wifi: shell: Fix default band value
-HEAD is now at 4b5ef27041 [nrf fromtree] wifi: shell: Fix default band value
+ * tag                       v3.5.99-ncs1-1            -> FETCH_HEAD
+ * [new tag]                 v1.13.99-ncs1             -> v1.13.99-ncs1
+ * [new tag]                 v1.13.99-ncs1-rc1         -> v1.13.99-ncs1-rc1
+ * [new tag]                 v1.13.99-ncs2             -> v1.13.99-ncs2
+ * [new tag]                 v1.13.99-ncs2-rc1         -> v1.13.99-ncs2-rc1
+ * [new tag]                 v1.13.99-ncs2-rc2         -> v1.13.99-ncs2-rc2
+ * [new tag]                 v1.14.99-ncs1             -> v1.14.99-ncs1
+ * [new tag]                 v1.14.99-ncs1-rc1         -> v1.14.99-ncs1-rc1
+ * [new tag]                 v1.14.99-ncs1-rc2         -> v1.14.99-ncs1-rc2
+ * [new tag]                 v1.14.99-ncs2             -> v1.14.99-ncs2
+ * [new tag]                 v1.14.99-ncs2-rc1         -> v1.14.99-ncs2-rc1
+ * [new tag]                 v1.14.99-ncs2-rc2         -> v1.14.99-ncs2-rc2
+ * [new tag]                 v1.14.99-ncs2-rc3         -> v1.14.99-ncs2-rc3
+ * [new tag]                 v1.14.99-ncs2-rc4         -> v1.14.99-ncs2-rc4
+ * [new tag]                 v1.14.99-ncs3-snapshot1   -> v1.14.99-ncs3-snapshot1
+ * [new tag]                 v1.14.99-ncs3-snapshot2   -> v1.14.99-ncs3-snapshot2
+ * [new tag]                 v2.0.99-ncs1              -> v2.0.99-ncs1
+ * [new tag]                 v2.0.99-ncs1-rc1          -> v2.0.99-ncs1-rc1
+ * [new tag]                 v2.0.99-ncs1-rc2          -> v2.0.99-ncs1-rc2
+ * [new tag]                 v2.0.99-ncs1-rc3          -> v2.0.99-ncs1-rc3
+ * [new tag]                 v2.0.99-ncs1-snapshot1    -> v2.0.99-ncs1-snapshot1
+ * [new tag]                 v2.1.0-ncs1-snapshot1     -> v2.1.0-ncs1-snapshot1
+ * [new tag]                 v2.1.99-ncs1              -> v2.1.99-ncs1
+ * [new tag]                 v2.1.99-ncs1-rc1          -> v2.1.99-ncs1-rc1
+ * [new tag]                 v2.1.99-ncs1-rc2          -> v2.1.99-ncs1-rc2
+ * [new tag]                 v2.1.99-ncs1-snapshot1    -> v2.1.99-ncs1-snapshot1
+ * [new tag]                 v2.3.0-rc1-ncs1           -> v2.3.0-rc1-ncs1
+ * [new tag]                 v2.3.0-rc1-ncs1-rc1       -> v2.3.0-rc1-ncs1-rc1
+ * [new tag]                 v2.3.0-rc1-ncs1-rc2       -> v2.3.0-rc1-ncs1-rc2
+ * [new tag]                 v2.3.0-rc1-ncs1-rc3       -> v2.3.0-rc1-ncs1-rc3
+ * [new tag]                 v2.3.0-rc1-ncs1-snapshot1 -> v2.3.0-rc1-ncs1-snapshot1
+ * [new tag]                 v2.3.0-rc1-ncs2           -> v2.3.0-rc1-ncs2
+ * [new tag]                 v2.3.0-rc1-ncs3           -> v2.3.0-rc1-ncs3
+ * [new tag]                 v2.4.0-ncs1               -> v2.4.0-ncs1
+ * [new tag]                 v2.4.0-ncs1-rc1           -> v2.4.0-ncs1-rc1
+ * [new tag]                 v2.4.0-ncs1-rc2           -> v2.4.0-ncs1-rc2
+ * [new tag]                 v2.4.0-ncs1-snapshot1     -> v2.4.0-ncs1-snapshot1
+ * [new tag]                 v2.4.0-ncs2               -> v2.4.0-ncs2
+ * [new tag]                 v2.4.0-ncs2-rc1           -> v2.4.0-ncs2-rc1
+ * [new tag]                 v2.4.99-ncs1              -> v2.4.99-ncs1
+ * [new tag]                 v2.4.99-ncs1-rc1          -> v2.4.99-ncs1-rc1
+ * [new tag]                 v2.4.99-ncs1-snapshot1    -> v2.4.99-ncs1-snapshot1
+ * [new tag]                 v2.4.99-ncs2              -> v2.4.99-ncs2
+ * [new tag]                 v2.4.99-ncs2-1            -> v2.4.99-ncs2-1
+ * [new tag]                 v2.4.99-ncs2-rc1          -> v2.4.99-ncs2-rc1
+ * [new tag]                 v2.6.0-ncs1-rc3           -> v2.6.0-ncs1-rc3
+ * [new tag]                 v2.6.0-rc1-ncs1           -> v2.6.0-rc1-ncs1
+ * [new tag]                 v2.6.0-rc1-ncs1-rc1       -> v2.6.0-rc1-ncs1-rc1
+ * [new tag]                 v2.6.0-rc1-ncs1-snapshot1 -> v2.6.0-rc1-ncs1-snapshot1
+ * [new tag]                 v2.6.99-ncs1              -> v2.6.99-ncs1
+ * [new tag]                 v2.6.99-ncs1-1            -> v2.6.99-ncs1-1
+ * [new tag]                 v2.6.99-ncs1-rc1          -> v2.6.99-ncs1-rc1
+ * [new tag]                 v2.6.99-ncs1-rc2          -> v2.6.99-ncs1-rc2
+ * [new tag]                 v2.6.99-ncs1-snapshot1    -> v2.6.99-ncs1-snapshot1
+ * [new tag]                 v2.7.0-ncs1               -> v2.7.0-ncs1
+ * [new tag]                 v2.7.0-ncs1-rc1           -> v2.7.0-ncs1-rc1
+ * [new tag]                 v2.7.0-ncs1-rc2           -> v2.7.0-ncs1-rc2
+ * [new tag]                 v2.7.0-ncs1-snapshot1     -> v2.7.0-ncs1-snapshot1
+ * [new tag]                 v2.7.0-ncs1-snapshot2     -> v2.7.0-ncs1-snapshot2
+ * [new tag]                 v2.7.99-ncs1              -> v2.7.99-ncs1
+ * [new tag]                 v2.7.99-ncs1-1            -> v2.7.99-ncs1-1
+ * [new tag]                 v2.7.99-ncs1-rc1          -> v2.7.99-ncs1-rc1
+ * [new tag]                 v2.7.99-ncs1-rc2          -> v2.7.99-ncs1-rc2
+ * [new tag]                 v3.0.99-ncs1              -> v3.0.99-ncs1
+ * [new tag]                 v3.0.99-ncs1-1            -> v3.0.99-ncs1-1
+ * [new tag]                 v3.0.99-ncs1-rc1          -> v3.0.99-ncs1-rc1
+ * [new tag]                 v3.0.99-ncs1-rc2          -> v3.0.99-ncs1-rc2
+ * [new tag]                 v3.0.99-ncs1-snapshot1    -> v3.0.99-ncs1-snapshot1
+ * [new tag]                 v3.1.99-ncs1              -> v3.1.99-ncs1
+ * [new tag]                 v3.1.99-ncs1-1            -> v3.1.99-ncs1-1
+ * [new tag]                 v3.1.99-ncs1-2            -> v3.1.99-ncs1-2
+ * [new tag]                 v3.1.99-ncs1-3            -> v3.1.99-ncs1-3
+ * [new tag]                 v3.1.99-ncs1-rc1          -> v3.1.99-ncs1-rc1
+ * [new tag]                 v3.1.99-ncs1-rc2          -> v3.1.99-ncs1-rc2
+ * [new tag]                 v3.1.99-ncs1-snapshot1    -> v3.1.99-ncs1-snapshot1
+ * [new tag]                 v3.2.99-ncs1              -> v3.2.99-ncs1
+ * [new tag]                 v3.2.99-ncs1-rc1          -> v3.2.99-ncs1-rc1
+ * [new tag]                 v3.2.99-ncs1-rc2          -> v3.2.99-ncs1-rc2
+ * [new tag]                 v3.2.99-ncs1-snapshot1    -> v3.2.99-ncs1-snapshot1
+ * [new tag]                 v3.2.99-ncs2              -> v3.2.99-ncs2
+ * [new tag]                 v3.2.99-ncs2-rc1          -> v3.2.99-ncs2-rc1
+ * [new tag]                 v3.2.99-ncs2-rc2          -> v3.2.99-ncs2-rc2
+ * [new tag]                 v3.2.99-ncs2-snapshot1    -> v3.2.99-ncs2-snapshot1
+ * [new tag]                 v3.3.99-ncs1              -> v3.3.99-ncs1
+ * [new tag]                 v3.3.99-ncs1-1            -> v3.3.99-ncs1-1
+ * [new tag]                 v3.3.99-ncs1-2            -> v3.3.99-ncs1-2
+ * [new tag]                 v3.3.99-ncs1-rc1          -> v3.3.99-ncs1-rc1
+ * [new tag]                 v3.3.99-ncs1-rc2          -> v3.3.99-ncs1-rc2
+ * [new tag]                 v3.3.99-ncs1-snapshot1    -> v3.3.99-ncs1-snapshot1
+ * [new tag]                 v3.4.99-ncs1              -> v3.4.99-ncs1
+ * [new tag]                 v3.4.99-ncs1-1            -> v3.4.99-ncs1-1
+ * [new tag]                 v3.4.99-ncs1-1-rc1        -> v3.4.99-ncs1-1-rc1
+ * [new tag]                 v3.4.99-ncs1-2            -> v3.4.99-ncs1-2
+ * [new tag]                 v3.4.99-ncs1-3            -> v3.4.99-ncs1-3
+ * [new tag]                 v3.4.99-ncs1-rc1          -> v3.4.99-ncs1-rc1
+ * [new tag]                 v3.4.99-ncs1-rc2          -> v3.4.99-ncs1-rc2
+ * [new tag]                 v3.4.99-ncs1-snapshot1    -> v3.4.99-ncs1-snapshot1
+ * [new tag]                 v3.5.99-ncs1              -> v3.5.99-ncs1
+ * [new tag]                 v3.5.99-ncs1-1            -> v3.5.99-ncs1-1
+ * [new tag]                 v3.5.99-ncs1-rc1          -> v3.5.99-ncs1-rc1
+ * [new tag]                 v3.5.99-ncs1-rc2          -> v3.5.99-ncs1-rc2
+ * [new tag]                 v3.5.99-ncs1-snapshot1    -> v3.5.99-ncs1-snapshot1
+ * [new tag]                 v3.6.99-ncs2-rc1          -> v3.6.99-ncs2-rc1
+Updating files: 100% (31095/31095), done.
+HEAD is now at 3758bcbfa5c [nrf fromtree] drivers: pinctrl_nrf: Configure QSPI IO3 pin as output set high
+HEAD is now at 3758bcbfa5c [nrf fromtree] drivers: pinctrl_nrf: Configure QSPI IO3 pin as output set high
 === updating bsim (tools/bsim):
 --- bsim: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/bsim/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/tools/bsim/.git/
 --- bsim: fetching, need revision 384a091445c57b44ac8cbd18ebd245b47c71db94
-remote: Enumerating objects: 38, done.
-remote: Counting objects: 100% (38/38), done.
-remote: Compressing objects: 100% (25/25), done.
-remote: Total 38 (delta 25), reused 24 (delta 11), pack-reused 0
-Unpacking objects: 100% (38/38), 6.81 KiB | 303.00 KiB/s, done.
+remote: Enumerating objects: 50, done.
+remote: Counting objects: 100% (50/50), done.
+remote: Compressing objects: 100% (31/31), done.
+remote: Total 50 (delta 33), reused 34 (delta 17), pack-reused 0
+Unpacking objects: 100% (50/50), 8.46 KiB | 279.00 KiB/s, done.
 From https://github.com/BabbleSim/bsim_west
  * [new branch]      main       -> refs/west/main
  * [new branch]      v2.1       -> refs/west/v2.1
  * [new branch]      v2.1.1     -> refs/west/v2.1.1
+ * [new branch]      v2.2       -> refs/west/v2.2
+ * [new branch]      v2.2.1     -> refs/west/v2.2.1
 HEAD is now at 384a091 west.yaml Update to 2.1.1
 HEAD is now at 384a091 west.yaml Update to 2.1.1
 === updating hostap (modules/lib/hostap):
 --- hostap: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/hostap/.git/
---- hostap: fetching, need revision eb6119524273f65f64a7710fbd876c829094a216
-remote: Enumerating objects: 113616, done.
-remote: Counting objects: 100% (2621/2621), done.
-remote: Compressing objects: 100% (267/267), done.
-remote: Total 113616 (delta 2396), reused 2437 (delta 2343), pack-reused 110995
-Receiving objects: 100% (113616/113616), 22.93 MiB | 3.09 MiB/s, done.
-Resolving deltas: 100% (93216/93216), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/hostap/.git/
+--- hostap: fetching, need revision e080aa8d0c7706ec5ab74785b3c8accc4973cd86
+remote: Enumerating objects: 113776, done.
+remote: Counting objects: 100% (2781/2781), done.
+remote: Compressing objects: 100% (311/311), done.
+remote: Total 113776 (delta 2528), reused 2570 (delta 2457), pack-reused 110995
+Receiving objects: 100% (113776/113776), 22.94 MiB | 3.48 MiB/s, done.
+Resolving deltas: 100% (93348/93348), done.
 From https://github.com/nrfconnect/sdk-hostap
  * [new branch]          hcs                           -> refs/west/hcs
  * [new branch]          hostap_2_11_devel-ncs1-branch -> refs/west/hostap_2_11_devel-ncs1-branch
  * [new branch]          main                          -> refs/west/main
  * [new branch]          nrf700x-dev                   -> refs/west/nrf700x-dev
  * [new branch]          nrf700x-test                  -> refs/west/nrf700x-test
+ * [new branch]          v2.5-branch                   -> refs/west/v2.5-branch
+ * [new branch]          v2.6-branch                   -> refs/west/v2.6-branch
  * [new tag]             fix_sauce_tag_snapshot        -> fix_sauce_tag_snapshot
  * [new tag]             hostap_2_11_devel-ncs1        -> hostap_2_11_devel-ncs1
  * [new tag]             prepare_upmerge_snapshot      -> prepare_upmerge_snapshot
-HEAD is now at eb6119524 [nrf fromlist] zephyr: Fix MBO build with GAS dependency
-HEAD is now at eb6119524 [nrf fromlist] zephyr: Fix MBO build with GAS dependency
+HEAD is now at e080aa8d0 [nrf fromlist] wpa_supplicant: Add an option to disable SNR capping
+HEAD is now at e080aa8d0 [nrf fromlist] wpa_supplicant: Add an option to disable SNR capping
 === updating wfa-qt-control-app (modules/lib/wfa-qt-control-app):
 --- wfa-qt-control-app: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/wfa-qt-control-app/.git/
---- wfa-qt-control-app: fetching, need revision 0e213ab6a421298484a81a9d18f5c31c4b8084a8
-remote: Enumerating objects: 2679, done.
-remote: Counting objects: 100% (1009/1009), done.
-remote: Compressing objects: 100% (108/108), done.
-remote: Total 2679 (delta 934), reused 958 (delta 900), pack-reused 1670
-Receiving objects: 100% (2679/2679), 754.17 KiB | 1.55 MiB/s, done.
-Resolving deltas: 100% (1913/1913), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/wfa-qt-control-app/.git/
+--- wfa-qt-control-app: fetching, need revision d649bd1342215e089d4211757186705cda179013
+remote: Enumerating objects: 2702, done.
+remote: Counting objects: 100% (930/930), done.
+remote: Compressing objects: 100% (95/95), done.
+remote: Total 2702 (delta 864), reused 836 (delta 834), pack-reused 1772
+Receiving objects: 100% (2702/2702), 764.96 KiB | 2.33 MiB/s, done.
+Resolving deltas: 100% (1931/1931), done.
 From https://github.com/nrfconnect/sdk-wi-fiquicktrack-controlappc
  * [new branch]      main                           -> refs/west/main
+ * [new branch]      qt_v2.5.1                      -> refs/west/qt_v2.5.1
  * [new tag]         R2.1-snapshot1                 -> R2.1-snapshot1
  * [new tag]         pre_zephyr_separation_snapshot -> pre_zephyr_separation_snapshot
-HEAD is now at 0e213ab [nrf noup]: zephyr: qt: Disconnect STA before reset
-HEAD is now at 0e213ab [nrf noup]: zephyr: qt: Disconnect STA before reset
+HEAD is now at d649bd1 [nrf noup]: qt: Fix config name
+HEAD is now at d649bd1 [nrf noup]: qt: Fix config name
 === updating mcuboot (bootloader/mcuboot):
 --- mcuboot: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/bootloader/mcuboot/.git/
---- mcuboot: fetching, need revision v1.10.99-ncs1-2
-remote: Enumerating objects: 21265, done.
-remote: Counting objects: 100% (7291/7291), done.
-remote: Compressing objects: 100% (994/994), done.
-remote: Total 21265 (delta 6566), reused 6297 (delta 6297), pack-reused 13974
-Receiving objects: 100% (21265/21265), 5.46 MiB | 3.56 MiB/s, done.
-Resolving deltas: 100% (14873/14873), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/bootloader/mcuboot/.git/
+--- mcuboot: fetching, need revision v2.0.99-ncs1-1
+remote: Enumerating objects: 23100, done.
+remote: Counting objects: 100% (8704/8704), done.
+remote: Compressing objects: 100% (1358/1358), done.
+remote: Total 23100 (delta 7675), reused 7562 (delta 7319), pack-reused 14396
+Receiving objects: 100% (23100/23100), 5.85 MiB | 3.14 MiB/s, done.
+Resolving deltas: 100% (16223/16223), done.
 From https://github.com/nrfconnect/sdk-mcuboot
- * tag                 v1.10.99-ncs1-2         -> FETCH_HEAD
+ * tag                 v2.0.99-ncs1-1          -> FETCH_HEAD
  * [new tag]           v1.10.0-ncs1            -> v1.10.0-ncs1
  * [new tag]           v1.10.0-ncs1-1          -> v1.10.0-ncs1-1
  * [new tag]           v1.10.0-ncs1-rc1        -> v1.10.0-ncs1-rc1
@@ -213,6 +223,7 @@ From https://github.com/nrfconnect/sdk-mcuboot
  * [new tag]           v1.10.99-ncs1-1         -> v1.10.99-ncs1-1
  * [new tag]           v1.10.99-ncs1-1-rc1     -> v1.10.99-ncs1-1-rc1
  * [new tag]           v1.10.99-ncs1-2         -> v1.10.99-ncs1-2
+ * [new tag]           v1.10.99-ncs1-3         -> v1.10.99-ncs1-3
  * [new tag]           v1.10.99-ncs1-rc1       -> v1.10.99-ncs1-rc1
  * [new tag]           v1.10.99-ncs1-rc2       -> v1.10.99-ncs1-rc2
  * [new tag]           v1.10.99-ncs1-snapshot1 -> v1.10.99-ncs1-snapshot1
@@ -292,52 +303,62 @@ From https://github.com/nrfconnect/sdk-mcuboot
  * [new tag]           v1.9.99-ncs4-rc2        -> v1.9.99-ncs4-rc2
  * [new tag]           v1.9.99-ncs4-snapshot1  -> v1.9.99-ncs4-snapshot1
  * [new tag]           v1.9.99-ncs4-snapshot2  -> v1.9.99-ncs4-snapshot2
-HEAD is now at edfe1e14 [nrf noup] boards: thingy53: disable GPIO ISR support
-HEAD is now at edfe1e14 [nrf noup] boards: thingy53: disable GPIO ISR support
+ * [new tag]           v2.0.99-ncs1            -> v2.0.99-ncs1
+ * [new tag]           v2.0.99-ncs1-1          -> v2.0.99-ncs1-1
+ * [new tag]           v2.0.99-ncs1-rc1        -> v2.0.99-ncs1-rc1
+ * [new tag]           v2.0.99-ncs1-rc2        -> v2.0.99-ncs1-rc2
+ * [new tag]           v2.0.99-ncs1-snapshot1  -> v2.0.99-ncs1-snapshot1
+ * [new tag]           v2.1.0-ncs1-rc1         -> v2.1.0-ncs1-rc1
+HEAD is now at 3c2f2ff1 [nrf noup] boards: thingy91x: add board config
+HEAD is now at 3c2f2ff1 [nrf noup] boards: thingy91x: add board config
 === updating qcbor (modules/tee/tf-m/qcbor):
 --- qcbor: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/qcbor/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/tee/tf-m/qcbor/.git/
 --- qcbor: fetching, need revision 751d36583a9ce1a640900c57e13c9b6b8f3a2ba2
-remote: Enumerating objects: 4130, done.
-remote: Counting objects: 100% (1265/1265), done.
-remote: Compressing objects: 100% (315/315), done.
-remote: Total 4130 (delta 1148), reused 998 (delta 948), pack-reused 2865
-Receiving objects: 100% (4130/4130), 2.16 MiB | 1.96 MiB/s, done.
-Resolving deltas: 100% (2970/2970), done.
+remote: Enumerating objects: 4472, done.
+remote: Counting objects: 100% (1629/1629), done.
+remote: Compressing objects: 100% (460/460), done.
+remote: Total 4472 (delta 1453), reused 1270 (delta 1162), pack-reused 2843
+Receiving objects: 100% (4472/4472), 2.28 MiB | 2.54 MiB/s, done.
+Resolving deltas: 100% (3261/3261), done.
 From https://github.com/laurencelundblade/QCBOR
+ * [new branch]      65-neg             -> refs/west/65-neg
  * [new branch]      BeforeSpiffyDecode -> refs/west/BeforeSpiffyDecode
- * [new branch]      CDE                -> refs/west/CDE
  * [new branch]      NaN                -> refs/west/NaN
+ * [new branch]      array-doc          -> refs/west/array-doc
  * [new branch]      arrays             -> refs/west/arrays
  * [new branch]      const              -> refs/west/const
+ * [new branch]      dcbor-decode       -> refs/west/dcbor-decode
  * [new branch]      dev                -> refs/west/dev
  * [new branch]      disable            -> refs/west/disable
  * [new branch]      enter-array        -> refs/west/enter-array
+ * [new branch]      get-simple         -> refs/west/get-simple
  * [new branch]      makewarn           -> refs/west/makewarn
  * [new branch]      mappie             -> refs/west/mappie
  * [new branch]      master             -> refs/west/master
  * [new branch]      newtag             -> refs/west/newtag
- * [new branch]      return_arrays      -> refs/west/return_arrays
+ * [new branch]      tell2              -> refs/west/tell2
  * [new branch]      ub-example         -> refs/west/ub-example
  * [new branch]      versioning         -> refs/west/versioning
  * [new branch]      warn_in_tests      -> refs/west/warn_in_tests
  * [new tag]         v1.0               -> v1.0
  * [new tag]         v1.1               -> v1.1
  * [new tag]         v1.2               -> v1.2
+ * [new tag]         v1.3               -> v1.3
 HEAD is now at 751d365 restore inc/qcbor.h for backwards compatibility (#181)
 HEAD is now at 751d365 restore inc/qcbor.h for backwards compatibility (#181)
 === updating mbedtls (modules/crypto/mbedtls):
 --- mbedtls: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/crypto/mbedtls/.git/
---- mbedtls: fetching, need revision v3.3.0-ncs2-2
-remote: Enumerating objects: 141339, done.
-remote: Counting objects: 100% (46/46), done.
-remote: Compressing objects: 100% (39/39), done.
-remote: Total 141339 (delta 9), reused 34 (delta 7), pack-reused 141293
-Receiving objects: 100% (141339/141339), 61.67 MiB | 3.18 MiB/s, done.
-Resolving deltas: 100% (109777/109777), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/crypto/mbedtls/.git/
+--- mbedtls: fetching, need revision v3.5.2-ncs1-1
+remote: Enumerating objects: 171597, done.
+remote: Counting objects: 100% (10888/10888), done.
+remote: Compressing objects: 100% (188/188), done.
+remote: Total 171597 (delta 10772), reused 10748 (delta 10700), pack-reused 160709
+Receiving objects: 100% (171597/171597), 70.67 MiB | 5.67 MiB/s, done.
+Resolving deltas: 100% (134562/134562), done.
 From https://github.com/nrfconnect/sdk-mbedtls
- * tag                   v3.3.0-ncs2-2         -> FETCH_HEAD
+ * tag                   v3.5.2-ncs1-1         -> FETCH_HEAD
  * [new tag]             mbedtls-2.26.0        -> mbedtls-2.26.0
  * [new tag]             v3.0.0-ncs1           -> v3.0.0-ncs1
  * [new tag]             v3.0.0-ncs1-rc2       -> v3.0.0-ncs1-rc2
@@ -361,22 +382,29 @@ From https://github.com/nrfconnect/sdk-mbedtls
  * [new tag]             v3.3.0-ncs2-1         -> v3.3.0-ncs2-1
  * [new tag]             v3.3.0-ncs2-1-rc1     -> v3.3.0-ncs2-1-rc1
  * [new tag]             v3.3.0-ncs2-2         -> v3.3.0-ncs2-2
+ * [new tag]             v3.3.0-ncs2-3         -> v3.3.0-ncs2-3
  * [new tag]             v3.3.0-ncs2-rc1       -> v3.3.0-ncs2-rc1
  * [new tag]             v3.3.0-ncs2-rc2       -> v3.3.0-ncs2-rc2
-HEAD is now at acea48fc8 [nrf noup]  Fix buffer overread with stream cipher
-HEAD is now at acea48fc8 [nrf noup]  Fix buffer overread with stream cipher
+ * [new tag]             v3.5.2-ncs1           -> v3.5.2-ncs1
+ * [new tag]             v3.5.2-ncs1-1         -> v3.5.2-ncs1-1
+ * [new tag]             v3.5.2-ncs1-rc1       -> v3.5.2-ncs1-rc1
+ * [new tag]             v3.5.2-ncs1-rc2       -> v3.5.2-ncs1-rc2
+ * [new tag]             v3.5.2-ncs1-snapshot1 -> v3.5.2-ncs1-snapshot1
+ * [new tag]             v3.5.2-ncs2-rc1       -> v3.5.2-ncs2-rc1
+HEAD is now at 9beb52e67 [nrf noup] tls: Adapt to final PSA PAKE APIs
+HEAD is now at 9beb52e67 [nrf noup] tls: Adapt to final PSA PAKE APIs
 === updating nrfxlib (nrfxlib):
 --- nrfxlib: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/nrfxlib/.git/
---- nrfxlib: fetching, need revision v2.5.2
-remote: Enumerating objects: 26951, done.
-remote: Counting objects: 100% (2431/2431), done.
-remote: Compressing objects: 100% (621/621), done.
-remote: Total 26951 (delta 2011), reused 1883 (delta 1800), pack-reused 24520
-Receiving objects: 100% (26951/26951), 317.49 MiB | 2.91 MiB/s, done.
-Resolving deltas: 100% (16712/16712), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/nrfxlib/.git/
+--- nrfxlib: fetching, need revision v2.6.1
+remote: Enumerating objects: 36025, done.
+remote: Counting objects: 100% (3486/3486), done.
+remote: Compressing objects: 100% (1614/1614), done.
+remote: Total 36025 (delta 1692), reused 3364 (delta 1683), pack-reused 32539
+Receiving objects: 100% (36025/36025), 361.42 MiB | 2.15 MiB/s, done.
+Resolving deltas: 100% (20941/20941), done.
 From https://github.com/nrfconnect/sdk-nrfxlib
- * tag                 v2.5.2       -> FETCH_HEAD
+ * tag                 v2.6.1       -> FETCH_HEAD
  * [new tag]           v0.1.0       -> v0.1.0
  * [new tag]           v0.1.0-rc1   -> v0.1.0-rc1
  * [new tag]           v0.3.0       -> v0.3.0
@@ -459,20 +487,26 @@ From https://github.com/nrfconnect/sdk-nrfxlib
  * [new tag]           v2.5.1       -> v2.5.1
  * [new tag]           v2.5.1-rc1   -> v2.5.1-rc1
  * [new tag]           v2.5.2       -> v2.5.2
-HEAD is now at a7ef13f9 softdevice_controller: update CHANGELOG.rst
-HEAD is now at a7ef13f9 softdevice_controller: update CHANGELOG.rst
+ * [new tag]           v2.5.3       -> v2.5.3
+ * [new tag]           v2.6.0       -> v2.6.0
+ * [new tag]           v2.6.0-rc1   -> v2.6.0-rc1
+ * [new tag]           v2.6.0-rc2   -> v2.6.0-rc2
+ * [new tag]           v2.6.1       -> v2.6.1
+ * [new tag]           v2.7.0-rc1   -> v2.7.0-rc1
+HEAD is now at 9adb63b6 nrf_wifi: Update RPU patch to rev#8fe7ff0425f
+HEAD is now at 9adb63b6 nrf_wifi: Update RPU patch to rev#8fe7ff0425f
 === updating trusted-firmware-m (modules/tee/tf-m/trusted-firmware-m):
 --- trusted-firmware-m: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/trusted-firmware-m/.git/
---- trusted-firmware-m: fetching, need revision v1.8.0-ncs1-2
-remote: Enumerating objects: 76393, done.
-remote: Counting objects: 100% (76385/76385), done.
-remote: Compressing objects: 100% (21791/21791), done.
-remote: Total 76393 (delta 52771), reused 75895 (delta 52673), pack-reused 8
-Receiving objects: 100% (76393/76393), 45.31 MiB | 2.40 MiB/s, done.
-Resolving deltas: 100% (52771/52771), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/tee/tf-m/trusted-firmware-m/.git/
+--- trusted-firmware-m: fetching, need revision v2.0.0-ncs1-1
+remote: Enumerating objects: 85813, done.
+remote: Counting objects: 100% (3282/3282), done.
+remote: Compressing objects: 100% (749/749), done.
+remote: Total 85813 (delta 2775), reused 2755 (delta 2526), pack-reused 82531
+Receiving objects: 100% (85813/85813), 47.59 MiB | 3.34 MiB/s, done.
+Resolving deltas: 100% (59891/59891), done.
 From https://github.com/nrfconnect/sdk-trusted-firmware-m
- * tag                   v1.8.0-ncs1-2          -> FETCH_HEAD
+ * tag                   v2.0.0-ncs1-1          -> FETCH_HEAD
  * [new tag]             v1.2.99-ncs1           -> v1.2.99-ncs1
  * [new tag]             v1.2.99-ncs1-1         -> v1.2.99-ncs1-1
  * [new tag]             v1.2.99-ncs1-rc1       -> v1.2.99-ncs1-rc1
@@ -515,23 +549,46 @@ From https://github.com/nrfconnect/sdk-trusted-firmware-m
  * [new tag]             v1.8.0-ncs1-1          -> v1.8.0-ncs1-1
  * [new tag]             v1.8.0-ncs1-1-rc1      -> v1.8.0-ncs1-1-rc1
  * [new tag]             v1.8.0-ncs1-2          -> v1.8.0-ncs1-2
+ * [new tag]             v1.8.0-ncs1-3          -> v1.8.0-ncs1-3
  * [new tag]             v1.8.0-ncs1-rc1        -> v1.8.0-ncs1-rc1
  * [new tag]             v1.8.0-ncs1-rc2        -> v1.8.0-ncs1-rc2
  * [new tag]             v1.8.0-ncs1-snapshot1  -> v1.8.0-ncs1-snapshot1
-HEAD is now at 1ceee7647 [nrf fromtree] platform: nordic_nrf: Fix nrf9160 non-secure peripheral regression
-HEAD is now at 1ceee7647 [nrf fromtree] platform: nordic_nrf: Fix nrf9160 non-secure peripheral regression
+ * [new tag]             v2.0.0-ncs1            -> v2.0.0-ncs1
+ * [new tag]             v2.0.0-ncs1-1          -> v2.0.0-ncs1-1
+ * [new tag]             v2.0.0-ncs1-rc1        -> v2.0.0-ncs1-rc1
+ * [new tag]             v2.0.0-ncs1-rc2        -> v2.0.0-ncs1-rc2
+ * [new tag]             v2.0.0-ncs1-snapshot1  -> v2.0.0-ncs1-snapshot1
+ * [new tag]             v2.0.0-ncs2-rc1        -> v2.0.0-ncs2-rc1
+HEAD is now at 2a2e1ce5e [nrf noup] cmake: tools: Dont add a custom command for running the manifest
+HEAD is now at 2a2e1ce5e [nrf noup] cmake: tools: Dont add a custom command for running the manifest
+=== updating psa-arch-tests (modules/tee/tf-m/psa-arch-tests):
+--- psa-arch-tests: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/tee/tf-m/psa-arch-tests/.git/
+--- psa-arch-tests: fetching, need revision 94a349db22cd0e44136c281724ffc71b6e7391c3
+remote: Enumerating objects: 12677, done.
+remote: Counting objects: 100% (12677/12677), done.
+remote: Compressing objects: 100% (3026/3026), done.
+remote: Total 12677 (delta 9504), reused 12647 (delta 9477), pack-reused 0
+Receiving objects: 100% (12677/12677), 18.41 MiB | 3.01 MiB/s, done.
+Resolving deltas: 100% (9504/9504), done.
+From https://github.com/nrfconnect/sdk-psa-arch-tests
+ * [new branch]      54l_its         -> refs/west/54l_its
+ * [new branch]      fix_wdt_address -> refs/west/fix_wdt_address
+ * [new branch]      main            -> refs/west/main
+HEAD is now at 94a349d [nrf fromlist] Fix base address for the nrf watchdog
+HEAD is now at 94a349d [nrf fromlist] Fix base address for the nrf watchdog
 === updating matter (modules/lib/matter):
 --- matter: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/.git/
---- matter: fetching, need revision v2.5.2
-remote: Enumerating objects: 315502, done.
-remote: Counting objects: 100% (35/35), done.
-remote: Compressing objects: 100% (24/24), done.
-remote: Total 315502 (delta 11), reused 24 (delta 11), pack-reused 315467
-Receiving objects: 100% (315502/315502), 251.21 MiB | 3.23 MiB/s, done.
-Resolving deltas: 100% (237750/237750), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/.git/
+--- matter: fetching, need revision v2.6.1
+remote: Enumerating objects: 353724, done.
+remote: Counting objects: 100% (37952/37952), done.
+remote: Compressing objects: 100% (8688/8688), done.
+remote: Total 353724 (delta 27845), reused 37787 (delta 27796), pack-reused 315772
+Receiving objects: 100% (353724/353724), 286.82 MiB | 4.53 MiB/s, done.
+Resolving deltas: 100% (265853/265853), done.
 From https://github.com/nrfconnect/sdk-connectedhomeip
- * tag                     v2.5.2              -> FETCH_HEAD
+ * tag                     v2.6.1              -> FETCH_HEAD
  * [new tag]               v1.5.0              -> v1.5.0
  * [new tag]               v1.5.0-rc1          -> v1.5.0-rc1
  * [new tag]               v1.5.1              -> v1.5.1
@@ -591,31 +648,40 @@ From https://github.com/nrfconnect/sdk-connectedhomeip
  * [new tag]               v2.5.1              -> v2.5.1
  * [new tag]               v2.5.1-rc1          -> v2.5.1-rc1
  * [new tag]               v2.5.2              -> v2.5.2
+ * [new tag]               v2.5.3              -> v2.5.3
  * [new tag]               v2.5.99-dev1        -> v2.5.99-dev1
-Updating files: 100% (11827/11827), done.
-HEAD is now at ed68b724d6 [nrf noup] wifi: Fix 5GHz association
-HEAD is now at ed68b724d6 [nrf noup] wifi: Fix 5GHz association
+ * [new tag]               v2.6.0              -> v2.6.0
+ * [new tag]               v2.6.0-rc1          -> v2.6.0-rc1
+ * [new tag]               v2.6.0-rc2          -> v2.6.0-rc2
+ * [new tag]               v2.6.1              -> v2.6.1
+ * [new tag]               v2.7.0-rc1          -> v2.7.0-rc1
+Updating files: 100% (14313/14313), done.
+HEAD is now at ca3672fbb9 [mrp] Increase default retry interval for Thread
+HEAD is now at ca3672fbb9 [mrp] Increase default retry interval for Thread
 Submodule 'nlio' (https://github.com/nestlabs/nlio.git) registered for path 'third_party/nlio/repo'
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlio/repo'...
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/third_party/nlio/repo'...
 Submodule path 'third_party/nlio/repo': checked out '0e725502c2b17bb0a0c22ddd4bcaee9090c8fb5c'
 Submodule 'nlassert' (https://github.com/nestlabs/nlassert.git) registered for path 'third_party/nlassert/repo'
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlassert/repo'...
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/third_party/nlassert/repo'...
 Submodule path 'third_party/nlassert/repo': checked out 'c5892c5ae43830f939ed660ff8ac5f1b91d336d3'
 Submodule 'nlunit-test' (https://github.com/nestlabs/nlunit-test.git) registered for path 'third_party/nlunit-test/repo'
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/nlunit-test/repo'...
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/third_party/nlunit-test/repo'...
 Submodule path 'third_party/nlunit-test/repo': checked out '0c8c9073af9c07aa089861295b7d7ced56ad174d'
 Submodule 'pigweed' (https://github.com/google/pigweed.git) registered for path 'third_party/pigweed/repo'
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/modules/lib/matter/third_party/pigweed/repo'...
-Submodule path 'third_party/pigweed/repo': checked out '5c4ea8e31764a8ab1c55b7df4086fe610c4bf4af'
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/third_party/pigweed/repo'...
+Submodule path 'third_party/pigweed/repo': checked out '90d97fa3b4292c39074e6f2b94dbd1cffa6ee318'
+Submodule 'third_party/jsoncpp/repo' (https://github.com/open-source-parsers/jsoncpp.git) registered for path 'third_party/jsoncpp/repo'
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/modules/lib/matter/third_party/jsoncpp/repo'...
+Submodule path 'third_party/jsoncpp/repo': checked out '69098a18b9af0c47549d9a271c054d13ca92b006'
 === updating cjson (modules/lib/cjson):
 --- cjson: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/cjson/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/cjson/.git/
 --- cjson: fetching, need revision c6af068b7f05207b28d68880740e4b9ec1e4b50a
 remote: Enumerating objects: 3965, done.
 remote: Counting objects: 100% (3965/3965), done.
 remote: Compressing objects: 100% (1371/1371), done.
 remote: Total 3965 (delta 2580), reused 3955 (delta 2571), pack-reused 0
-Receiving objects: 100% (3965/3965), 2.30 MiB | 2.99 MiB/s, done.
+Receiving objects: 100% (3965/3965), 2.30 MiB | 3.22 MiB/s, done.
 Resolving deltas: 100% (2580/2580), done.
 From https://github.com/nrfconnect/sdk-cjson
  * [new branch]      main       -> refs/west/main
@@ -624,13 +690,13 @@ HEAD is now at c6af068 [nrf fromtree] fix: potential memory leak in merge_patch(
 HEAD is now at c6af068 [nrf fromtree] fix: potential memory leak in merge_patch() (#611)
 === updating azure-sdk-for-c (modules/lib/azure-sdk-for-c):
 --- azure-sdk-for-c: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/azure-sdk-for-c/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/azure-sdk-for-c/.git/
 --- azure-sdk-for-c: fetching, need revision 308c171cb4b5eed266649012a68406487ec81fb2
 remote: Enumerating objects: 17161, done.
 remote: Counting objects: 100% (17161/17161), done.
 remote: Compressing objects: 100% (5200/5200), done.
 remote: Total 17161 (delta 10650), reused 17159 (delta 10648), pack-reused 0
-Receiving objects: 100% (17161/17161), 8.84 MiB | 2.63 MiB/s, done.
+Receiving objects: 100% (17161/17161), 8.84 MiB | 6.52 MiB/s, done.
 Resolving deltas: 100% (10650/10650), done.
 From https://github.com/nrfconnect/azure-sdk-for-c
  * [new branch]        main       -> refs/west/main
@@ -638,28 +704,28 @@ HEAD is now at 308c171c [nrf fromlist] Make repository a Zephyr module
 HEAD is now at 308c171c [nrf fromlist] Make repository a Zephyr module
 === updating cirrus (modules/hal/cirrus-logic):
 --- cirrus: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/cirrus-logic/.git/
---- cirrus: fetching, need revision 9f6b3812237fbb0d4157ba3584c13f1644fcbe3a
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/cirrus-logic/.git/
+--- cirrus: fetching, need revision 3873a08377d93a479105a75ac390d3bbcd31d690
 remote: Enumerating objects: 2150, done.
 remote: Counting objects: 100% (2150/2150), done.
 remote: Compressing objects: 100% (741/741), done.
 remote: Total 2150 (delta 1357), reused 2139 (delta 1349), pack-reused 0
-Receiving objects: 100% (2150/2150), 23.82 MiB | 3.09 MiB/s, done.
+Receiving objects: 100% (2150/2150), 23.82 MiB | 4.96 MiB/s, done.
 Resolving deltas: 100% (1357/1357), done.
 From https://github.com/nrfconnect/sdk-mcu-drivers
  * [new branch]      master     -> refs/west/master
-HEAD is now at 9f6b381 sdk-mcu-drivers: Added build system configs and generated files
-HEAD is now at 9f6b381 sdk-mcu-drivers: Added build system configs and generated files
+HEAD is now at 3873a08 Added missing curly brace for #ifdef __cplusplus
+HEAD is now at 3873a08 Added missing curly brace for #ifdef __cplusplus
 === updating openthread (modules/lib/openthread):
 --- openthread: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/openthread/.git/
---- openthread: fetching, need revision 57ef721eeed2550835c528ab7b8e77671f7039d6
-remote: Enumerating objects: 107044, done.
-remote: Counting objects: 100% (7482/7482), done.
-remote: Compressing objects: 100% (2262/2262), done.
-remote: Total 107044 (delta 5261), reused 6796 (delta 5137), pack-reused 99562
-Receiving objects: 100% (107044/107044), 87.72 MiB | 3.58 MiB/s, done.
-Resolving deltas: 100% (86332/86332), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/openthread/.git/
+--- openthread: fetching, need revision b9dcdbca4edd348e924d7579a2bada48bf085645
+remote: Enumerating objects: 110536, done.
+remote: Counting objects: 100% (10964/10964), done.
+remote: Compressing objects: 100% (3221/3221), done.
+remote: Total 110536 (delta 7819), reused 10612 (delta 7618), pack-reused 99572
+Receiving objects: 100% (110536/110536), 92.82 MiB | 5.42 MiB/s, done.
+Resolving deltas: 100% (88900/88900), done.
 From https://github.com/nrfconnect/sdk-openthread
  * [new branch]          for-testing                        -> refs/west/for-testing
  * [new branch]          main                               -> refs/west/main
@@ -675,18 +741,18 @@ From https://github.com/nrfconnect/sdk-openthread
  * [new tag]             v1.8.99-snapshot1                  -> v1.8.99-snapshot1
  * [new tag]             v1.9.99-snapshot1                  -> v1.9.99-snapshot1
  * [new tag]             v2.0.1                             -> v2.0.1
-HEAD is now at 57ef721ee [ip6] fix constant name style and simplify filtering of ICMP types (#9512)
-HEAD is now at 57ef721ee [ip6] fix constant name style and simplify filtering of ICMP types (#9512)
+HEAD is now at b9dcdbca4 [cli] add documentation for `nexthop` command in `README.md` (#9882)
+HEAD is now at b9dcdbca4 [cli] add documentation for `nexthop` command in `README.md` (#9882)
 === updating cmock (test/cmock):
 --- cmock: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/test/cmock/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/test/cmock/.git/
 --- cmock: fetching, need revision f65066f15d8248e6dcb778efb8739904a4512087
-remote: Enumerating objects: 6030, done.
-remote: Counting objects: 100% (419/419), done.
-remote: Compressing objects: 100% (195/195), done.
-remote: Total 6030 (delta 225), reused 340 (delta 191), pack-reused 5611
-Receiving objects: 100% (6030/6030), 3.67 MiB | 2.50 MiB/s, done.
-Resolving deltas: 100% (4054/4054), done.
+remote: Enumerating objects: 6147, done.
+remote: Counting objects: 100% (536/536), done.
+remote: Compressing objects: 100% (266/266), done.
+remote: Total 6147 (delta 297), reused 426 (delta 237), pack-reused 5611
+Receiving objects: 100% (6147/6147), 3.74 MiB | 4.00 MiB/s, done.
+Resolving deltas: 100% (4126/4126), done.
 From https://github.com/ThrowTheSwitch/cmock
  * [new branch]      branch_2_5_1                  -> refs/west/branch_2_5_1
  * [new branch]      cmock_2_6_rc                  -> refs/west/cmock_2_6_rc
@@ -707,22 +773,22 @@ HEAD is now at f65066f Merge pull request #404 from tz18/patch-1
 HEAD is now at f65066f Merge pull request #404 from tz18/patch-1
 Submodule 'vendor/c_exception' (https://github.com/throwtheswitch/cexception.git) registered for path 'vendor/c_exception'
 Submodule 'vendor/unity' (https://github.com/throwtheswitch/unity.git) registered for path 'vendor/unity'
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/test/cmock/vendor/c_exception'...
-Cloning into '/Users/makmorit/opt/ncs_2.5.2/test/cmock/vendor/unity'...
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/test/cmock/vendor/c_exception'...
+Cloning into '/Users/makmorit/opt/ncs_2.6.1/test/cmock/vendor/unity'...
 Submodule path 'vendor/c_exception': checked out '71b47be7c950f1bf5f7e5303779fa99a16224bb6'
 Submodule path 'vendor/unity': checked out '4389bab82ee8a4b4631a03be2e07dd5c67dab2d4'
 === updating memfault-firmware-sdk (modules/lib/memfault-firmware-sdk):
 --- memfault-firmware-sdk: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/memfault-firmware-sdk/.git/
---- memfault-firmware-sdk: fetching, need revision 1.3.3
-remote: Enumerating objects: 8561, done.
-remote: Counting objects: 100% (3908/3908), done.
-remote: Compressing objects: 100% (1433/1433), done.
-remote: Total 8561 (delta 2189), reused 3644 (delta 2121), pack-reused 4653
-Receiving objects: 100% (8561/8561), 3.13 MiB | 1.88 MiB/s, done.
-Resolving deltas: 100% (4577/4577), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/memfault-firmware-sdk/.git/
+--- memfault-firmware-sdk: fetching, need revision 1.6.0
+remote: Enumerating objects: 9478, done.
+remote: Counting objects: 100% (4825/4825), done.
+remote: Compressing objects: 100% (1709/1709), done.
+remote: Total 9478 (delta 2885), reused 4582 (delta 2710), pack-reused 4653
+Receiving objects: 100% (9478/9478), 3.20 MiB | 2.34 MiB/s, done.
+Resolving deltas: 100% (5273/5273), done.
 From https://github.com/memfault/memfault-firmware-sdk
- * tag               1.3.3      -> FETCH_HEAD
+ * tag               1.6.0      -> FETCH_HEAD
  * [new tag]         0.0.10     -> 0.0.10
  * [new tag]         0.0.11     -> 0.0.11
  * [new tag]         0.0.12     -> 0.0.12
@@ -882,17 +948,31 @@ From https://github.com/memfault/memfault-firmware-sdk
  * [new tag]         1.6.0      -> 1.6.0
  * [new tag]         1.6.1      -> 1.6.1
  * [new tag]         1.6.2      -> 1.6.2
-HEAD is now at c374e92 Memfault Firmware SDK 1.3.3 (Build 3838)
-HEAD is now at c374e92 Memfault Firmware SDK 1.3.3 (Build 3838)
+ * [new tag]         1.7.0      -> 1.7.0
+ * [new tag]         1.7.1      -> 1.7.1
+ * [new tag]         1.7.2      -> 1.7.2
+ * [new tag]         1.7.3      -> 1.7.3
+ * [new tag]         1.7.4      -> 1.7.4
+ * [new tag]         1.7.5      -> 1.7.5
+ * [new tag]         1.7.6      -> 1.7.6
+ * [new tag]         1.7.7      -> 1.7.7
+ * [new tag]         1.8.0      -> 1.8.0
+ * [new tag]         1.8.1      -> 1.8.1
+ * [new tag]         1.9.0      -> 1.9.0
+ * [new tag]         1.9.1      -> 1.9.1
+ * [new tag]         1.9.2      -> 1.9.2
+ * [new tag]         1.9.3      -> 1.9.3
+HEAD is now at 3d51c80 Memfault Firmware SDK 1.6.0 (Build 5464)
+HEAD is now at 3d51c80 Memfault Firmware SDK 1.6.0 (Build 5464)
 === updating canopennode (modules/lib/canopennode):
 --- canopennode: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/canopennode/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/canopennode/.git/
 --- canopennode: fetching, need revision dec12fa3f0d790cafa8414a4c2930ea71ab72ffd
 remote: Enumerating objects: 1902, done.
 remote: Counting objects: 100% (1902/1902), done.
 remote: Compressing objects: 100% (555/555), done.
 remote: Total 1902 (delta 1372), reused 1867 (delta 1342), pack-reused 0
-Receiving objects: 100% (1902/1902), 1.05 MiB | 1.50 MiB/s, done.
+Receiving objects: 100% (1902/1902), 1.05 MiB | 2.42 MiB/s, done.
 Resolving deltas: 100% (1372/1372), done.
 From https://github.com/zephyrproject-rtos/canopennode
  * [new branch]      master            -> refs/west/master
@@ -902,233 +982,28 @@ HEAD is now at dec12fa stack: map CANopenNode crc16_ccitt() to Zephyr crc16_itu_
 HEAD is now at dec12fa stack: map CANopenNode crc16_ccitt() to Zephyr crc16_itu_t()
 === updating chre (modules/lib/chre):
 --- chre: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/chre/.git/
---- chre: fetching, need revision b7955c27e50485b7dafdc3888d7d6afdc2ac6d96
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/chre/.git/
+--- chre: fetching, need revision 3b32c76efee705af146124fb4190f71be5a4e36e
 remote: Enumerating objects: 30752, done.
 remote: Counting objects: 100% (721/721), done.
 remote: Compressing objects: 100% (514/514), done.
 remote: Total 30752 (delta 213), reused 618 (delta 167), pack-reused 30031
-Receiving objects: 100% (30752/30752), 6.67 MiB | 2.42 MiB/s, done.
+Receiving objects: 100% (30752/30752), 6.67 MiB | 3.38 MiB/s, done.
 Resolving deltas: 100% (18385/18385), done.
 From https://github.com/zephyrproject-rtos/chre
  * [new branch]        zephyr     -> refs/west/zephyr
-HEAD is now at b7955c27 Merge pull request #7 from stephanosio/require_full_libcpp
-HEAD is now at b7955c27 Merge pull request #7 from stephanosio/require_full_libcpp
-=== updating cmsis (modules/hal/cmsis):
---- cmsis: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/cmsis/.git/
---- cmsis: fetching, need revision 1abf29132e608826752e2edd1f4799a065db4031
-remote: Enumerating objects: 1401, done.
-remote: Counting objects: 100% (218/218), done.
-remote: Compressing objects: 100% (112/112), done.
-remote: Total 1401 (delta 136), reused 106 (delta 106), pack-reused 1183
-Receiving objects: 100% (1401/1401), 3.15 MiB | 2.27 MiB/s, done.
-Resolving deltas: 100% (1014/1014), done.
-From https://github.com/zephyrproject-rtos/cmsis
- * [new branch]      master     -> refs/west/master
-HEAD is now at 1abf291 zephyr: cmake/kconfig are external
-HEAD is now at 1abf291 zephyr: cmake/kconfig are external
-=== updating edtt (tools/edtt):
---- edtt: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/edtt/.git/
---- edtt: fetching, need revision 64e5105ad82390164fb73fc654be3f73a608209a
-remote: Enumerating objects: 1239, done.
-remote: Counting objects: 100% (190/190), done.
-remote: Compressing objects: 100% (80/80), done.
-remote: Total 1239 (delta 110), reused 190 (delta 110), pack-reused 1049
-Receiving objects: 100% (1239/1239), 735.89 KiB | 1.43 MiB/s, done.
-Resolving deltas: 100% (894/894), done.
-From https://github.com/zephyrproject-rtos/edtt
- * [new branch]      le-audio      -> refs/west/le-audio
- * [new branch]      main          -> refs/west/main
- * [new branch]      public_master -> refs/west/public_master
-HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
-HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
-=== updating fatfs (modules/fs/fatfs):
---- fatfs: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/fs/fatfs/.git/
---- fatfs: fetching, need revision 427159bf95ea49b7680facffaa29ad506b42709b
-remote: Enumerating objects: 183, done.
-remote: Counting objects: 100% (47/47), done.
-remote: Compressing objects: 100% (29/29), done.
-remote: Total 183 (delta 19), reused 23 (delta 16), pack-reused 136
-Receiving objects: 100% (183/183), 1.54 MiB | 1.18 MiB/s, done.
-Resolving deltas: 100% (98/98), done.
-From https://github.com/zephyrproject-rtos/fatfs
- * [new branch]      master       -> refs/west/master
- * [new branch]      v1.14-branch -> refs/west/v1.14-branch
-HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
-HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
-=== updating hal_nordic (modules/hal/nordic):
---- hal_nordic: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/nordic/.git/
---- hal_nordic: fetching, need revision 9784731461018d3e983604698fbbed6af2bea801
-remote: Enumerating objects: 6978, done.
-remote: Counting objects: 100% (423/423), done.
-remote: Compressing objects: 100% (145/145), done.
-remote: Total 6978 (delta 297), reused 279 (delta 278), pack-reused 6555
-Receiving objects: 100% (6978/6978), 18.21 MiB | 1.69 MiB/s, done.
-Resolving deltas: 100% (5221/5221), done.
-From https://github.com/nrfconnect/sdk-hal_nordic
- * [new branch]      for-testing         -> refs/west/for-testing
- * [new branch]      main                -> refs/west/main
- * [new branch]      ncs-v.1.5-branch    -> refs/west/ncs-v.1.5-branch
- * [new branch]      v3.4.99-ncs1-branch -> refs/west/v3.4.99-ncs1-branch
- * [new tag]         v1.3.0-rc1          -> v1.3.0-rc1
- * [new tag]         v1.5.1              -> v1.5.1
- * [new tag]         v1.5.1-rc1          -> v1.5.1-rc1
- * [new tag]         v1.5.2              -> v1.5.2
-HEAD is now at 9784731 nrfx_qspi: Correct use of workaround for anomaly 215 and 43 in nrfx_qspi
-HEAD is now at 9784731 nrfx_qspi: Correct use of workaround for anomaly 215 and 43 in nrfx_qspi
-=== updating hal_st (modules/hal/st):
---- hal_st: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/st/.git/
---- hal_st: fetching, need revision 9b128caf3e7b2e750169b880e83f210ea2213473
-remote: Enumerating objects: 8379, done.
-remote: Counting objects: 100% (35/35), done.
-remote: Compressing objects: 100% (20/20), done.
-remote: Total 8379 (delta 17), reused 15 (delta 15), pack-reused 8344
-Receiving objects: 100% (8379/8379), 24.52 MiB | 2.25 MiB/s, done.
-Resolving deltas: 100% (6585/6585), done.
-From https://github.com/zephyrproject-rtos/hal_st
- * [new branch]      master       -> refs/west/master
- * [new branch]      v1.14-branch -> refs/west/v1.14-branch
-HEAD is now at 9b128ca sensor/stmemsc: Align stmemsc i/f to v2.3
-HEAD is now at 9b128ca sensor/stmemsc: Align stmemsc i/f to v2.3
-=== updating hal_wurthelektronik (modules/hal/wurthelektronik):
---- hal_wurthelektronik: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/wurthelektronik/.git/
---- hal_wurthelektronik: fetching, need revision 24ca9873c3d608fad1fea0431836bc8f144c132e
-remote: Enumerating objects: 126, done.
-remote: Counting objects: 100% (126/126), done.
-remote: Compressing objects: 100% (69/69), done.
-remote: Total 126 (delta 68), reused 108 (delta 55), pack-reused 0
-Receiving objects: 100% (126/126), 133.43 KiB | 1.26 MiB/s, done.
-Resolving deltas: 100% (68/68), done.
-From https://github.com/zephyrproject-rtos/hal_wurthelektronik
- * [new branch]      zephyr     -> refs/west/zephyr
-HEAD is now at 24ca987 Initialized WE HAL module repository.
-HEAD is now at 24ca987 Initialized WE HAL module repository.
-=== updating libmetal (modules/hal/libmetal):
---- libmetal: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/hal/libmetal/.git/
---- libmetal: fetching, need revision b91611a6f47dd29fb24c46e5621e797557f80ec6
-remote: Enumerating objects: 981, done.
-remote: Counting objects: 100% (308/308), done.
-remote: Compressing objects: 100% (165/165), done.
-remote: Total 981 (delta 169), reused 217 (delta 133), pack-reused 673
-Receiving objects: 100% (981/981), 238.11 KiB | 1.18 MiB/s, done.
-Resolving deltas: 100% (588/588), done.
-From https://github.com/zephyrproject-rtos/libmetal
- * [new branch]      master       -> refs/west/master
- * [new branch]      v1.14-branch -> refs/west/v1.14-branch
-HEAD is now at b91611a lib: update libmetal to release v2023.04.0
-HEAD is now at b91611a lib: update libmetal to release v2023.04.0
-=== updating liblc3 (modules/lib/liblc3):
---- liblc3: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/liblc3/.git/
---- liblc3: fetching, need revision 448f3de31f49a838988a162ef1e23a89ddf2d2ed
-remote: Enumerating objects: 578, done.
-remote: Counting objects: 100% (207/207), done.
-remote: Compressing objects: 100% (50/50), done.
-remote: Total 578 (delta 177), reused 157 (delta 157), pack-reused 371
-Receiving objects: 100% (578/578), 412.94 KiB | 1.87 MiB/s, done.
-Resolving deltas: 100% (384/384), done.
-From https://github.com/zephyrproject-rtos/liblc3
- * [new branch]      main       -> refs/west/main
-HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
-HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
-=== updating littlefs (modules/fs/littlefs):
---- littlefs: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/fs/littlefs/.git/
---- littlefs: fetching, need revision ca583fd297ceb48bced3c2548600dc615d67af24
-remote: Enumerating objects: 3964, done.
-remote: Counting objects: 100% (1760/1760), done.
-remote: Compressing objects: 100% (532/532), done.
-remote: Total 3964 (delta 1236), reused 1694 (delta 1201), pack-reused 2204
-Receiving objects: 100% (3964/3964), 1.92 MiB | 2.67 MiB/s, done.
-Resolving deltas: 100% (2795/2795), done.
-From https://github.com/zephyrproject-rtos/littlefs
- * [new branch]      zephyr          -> refs/west/zephyr
- * [new tag]         littlefs-v2.1.0 -> littlefs-v2.1.0
- * [new tag]         littlefs-v2.1.1 -> littlefs-v2.1.1
- * [new tag]         littlefs-v2.1.2 -> littlefs-v2.1.2
- * [new tag]         littlefs-v2.1.3 -> littlefs-v2.1.3
- * [new tag]         littlefs-v2.1.4 -> littlefs-v2.1.4
- * [new tag]         littlefs-v2.2.0 -> littlefs-v2.2.0
-HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
-HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
-=== updating loramac-node (modules/lib/loramac-node):
---- loramac-node: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/loramac-node/.git/
---- loramac-node: fetching, need revision 3029c9f304bf46a6e5205f3c8455dbc23108efec
-remote: Enumerating objects: 27557, done.
-remote: Counting objects: 100% (1179/1179), done.
-remote: Compressing objects: 100% (118/118), done.
-remote: Total 27557 (delta 1068), reused 1061 (delta 1061), pack-reused 26378
-Receiving objects: 100% (27557/27557), 23.37 MiB | 1.91 MiB/s, done.
-Resolving deltas: 100% (18195/18195), done.
-From https://github.com/zephyrproject-rtos/loramac-node
- * [new branch]        master        -> refs/west/master
- * [new branch]        v4.5.2-zephyr -> refs/west/v4.5.2-zephyr
- * [new branch]        v4.6.0-zephyr -> refs/west/v4.6.0-zephyr
- * [new branch]        v4.7.0-zephyr -> refs/west/v4.7.0-zephyr
- * [new branch]        zephyr        -> refs/west/zephyr
- * [new branch]        zephyr-v2.6   -> refs/west/zephyr-v2.6
- * [new tag]           4.4.2-rc.4    -> 4.4.2-rc.4
- * [new tag]           V3.4          -> V3.4
- * [new tag]           v2.0          -> v2.0
- * [new tag]           v2.1          -> v2.1
- * [new tag]           v2.2          -> v2.2
- * [new tag]           v2.3.RC1      -> v2.3.RC1
- * [new tag]           v2.3.RC2      -> v2.3.RC2
- * [new tag]           v3.0          -> v3.0
- * [new tag]           v3.1          -> v3.1
- * [new tag]           v3.2          -> v3.2
- * [new tag]           v3.3          -> v3.3
- * [new tag]           v3.4.1        -> v3.4.1
- * [new tag]           v4.0.0        -> v4.0.0
- * [new tag]           v4.1.0        -> v4.1.0
- * [new tag]           v4.2.0        -> v4.2.0
- * [new tag]           v4.3.0        -> v4.3.0
- * [new tag]           v4.3.1        -> v4.3.1
- * [new tag]           v4.3.2        -> v4.3.2
- * [new tag]           v4.4.0        -> v4.4.0
- * [new tag]           v4.4.1        -> v4.4.1
- * [new tag]           v4.4.2        -> v4.4.2
- * [new tag]           v4.4.2-rc.1   -> v4.4.2-rc.1
- * [new tag]           v4.4.2-rc.2   -> v4.4.2-rc.2
- * [new tag]           v4.4.2-rc.3   -> v4.4.2-rc.3
- * [new tag]           v4.4.2-rc.5   -> v4.4.2-rc.5
- * [new tag]           v4.4.2-rc.6   -> v4.4.2-rc.6
- * [new tag]           v4.4.2-rc.7   -> v4.4.2-rc.7
- * [new tag]           v4.4.3        -> v4.4.3
- * [new tag]           v4.4.3_zephyr -> v4.4.3_zephyr
-HEAD is now at 3029c9f3 utilities: fix few shadowed variables
-HEAD is now at 3029c9f3 utilities: fix few shadowed variables
-=== updating lvgl (modules/lib/gui/lvgl):
---- lvgl: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/gui/lvgl/.git/
---- lvgl: fetching, need revision 8a6a2d1d29d17d1e4bdc94c243c146a39d635fdd
-remote: Enumerating objects: 64528, done.
-remote: Counting objects: 100% (64528/64528), done.
-remote: Compressing objects: 100% (13708/13708), done.
-remote: Total 64528 (delta 50736), reused 64212 (delta 50657), pack-reused 0
-Receiving objects: 100% (64528/64528), 75.92 MiB | 2.66 MiB/s, done.
-Resolving deltas: 100% (50736/50736), done.
-From https://github.com/zephyrproject-rtos/lvgl
- * [new branch]        master     -> refs/west/master
- * [new branch]        zephyr     -> refs/west/zephyr
-HEAD is now at 8a6a2d1d zephyr: Move gluecode back to zephyr main repository
-HEAD is now at 8a6a2d1d zephyr: Move gluecode back to zephyr main repository
+HEAD is now at 3b32c76e zephyr: link the .unstable_id data in ROM
+HEAD is now at 3b32c76e zephyr: link the .unstable_id data in ROM
 === updating lz4 (modules/lib/lz4):
 --- lz4: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/lz4/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/lz4/.git/
 --- lz4: fetching, need revision 8e303c264fc21c2116dc612658003a22e933124d
 remote: Enumerating objects: 11726, done.
-remote: Total 11726 (delta 0), reused 0 (delta 0), pack-reused 11726
-Receiving objects: 100% (11726/11726), 4.98 MiB | 1.96 MiB/s, done.
-Resolving deltas: 100% (8345/8345), done.
+remote: Counting objects: 100% (3287/3287), done.
+remote: Compressing objects: 100% (122/122), done.
+remote: Total 11726 (delta 3218), reused 3165 (delta 3165), pack-reused 8439
+Receiving objects: 100% (11726/11726), 4.30 MiB | 4.32 MiB/s, done.
+Resolving deltas: 100% (8406/8406), done.
 From https://github.com/zephyrproject-rtos/lz4
  * [new branch]      zephyr     -> refs/west/zephyr
  * [new tag]         lz4-r130   -> lz4-r130
@@ -1164,30 +1039,16 @@ From https://github.com/zephyrproject-rtos/lz4
  * [new tag]         v1.9.3     -> v1.9.3
 HEAD is now at 8e303c2 zephyr: make this repo a zephyr module
 HEAD is now at 8e303c2 zephyr: make this repo a zephyr module
-=== updating mipi-sys-t (modules/debug/mipi-sys-t):
---- mipi-sys-t: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/mipi-sys-t/.git/
---- mipi-sys-t: fetching, need revision a819419603a2dfcb47f7f39092e1bc112e45d1ef
-remote: Enumerating objects: 212, done.
-remote: Counting objects: 100% (30/30), done.
-remote: Compressing objects: 100% (26/26), done.
-remote: Total 212 (delta 14), reused 5 (delta 4), pack-reused 182
-Receiving objects: 100% (212/212), 432.16 KiB | 1.02 MiB/s, done.
-Resolving deltas: 100% (69/69), done.
-From https://github.com/zephyrproject-rtos/mipi-sys-t
- * [new branch]      zephyr     -> refs/west/zephyr
-HEAD is now at a819419 library: allow building without wchar support
-HEAD is now at a819419 library: allow building without wchar support
 === updating nanopb (modules/lib/nanopb):
 --- nanopb: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/nanopb/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/nanopb/.git/
 --- nanopb: fetching, need revision 42fa8b211e946b90b9d968523fce7b1cfe27617e
-remote: Enumerating objects: 8660, done.
-remote: Counting objects: 100% (53/53), done.
-remote: Compressing objects: 100% (38/38), done.
-remote: Total 8660 (delta 17), reused 28 (delta 15), pack-reused 8607
-Receiving objects: 100% (8660/8660), 4.14 MiB | 1.78 MiB/s, done.
-Resolving deltas: 100% (5556/5556), done.
+remote: Enumerating objects: 9138, done.
+remote: Counting objects: 100% (531/531), done.
+remote: Compressing objects: 100% (269/269), done.
+remote: Total 9138 (delta 306), reused 391 (delta 243), pack-reused 8607
+Receiving objects: 100% (9138/9138), 4.30 MiB | 3.46 MiB/s, done.
+Resolving deltas: 100% (5845/5845), done.
 From https://github.com/zephyrproject-rtos/nanopb
  * [new branch]      cifuzz_test4           -> refs/west/cifuzz_test4
  * [new branch]      dev_dynamic_nanopb_pb2 -> refs/west/dev_dynamic_nanopb_pb2
@@ -1269,60 +1130,344 @@ From https://github.com/zephyrproject-rtos/nanopb
  * [new tag]         nanopb-0.4.5           -> nanopb-0.4.5
 HEAD is now at 42fa8b2 Merge pull request #2 from pdgendt/zephyr
 HEAD is now at 42fa8b2 Merge pull request #2 from pdgendt/zephyr
+=== updating tf-m-tests (modules/tee/tf-m/tf-m-tests):
+--- tf-m-tests: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/tee/tf-m/tf-m-tests/.git/
+--- tf-m-tests: fetching, need revision 08a3158f0623a4205608a52d880b17ae394e31d2
+remote: Enumerating objects: 5835, done.
+remote: Counting objects: 100% (570/570), done.
+remote: Compressing objects: 100% (105/105), done.
+remote: Total 5835 (delta 476), reused 466 (delta 465), pack-reused 5265
+Receiving objects: 100% (5835/5835), 2.75 MiB | 5.30 MiB/s, done.
+Resolving deltas: 100% (4133/4133), done.
+From https://github.com/zephyrproject-rtos/tf-m-tests
+ * [new branch]      main          -> refs/west/main
+ * [new branch]      release/1.7.x -> refs/west/release/1.7.x
+HEAD is now at 08a3158 Merge pull request #8 from mswarowsky/tfm_20_upmerge
+HEAD is now at 08a3158 Merge pull request #8 from mswarowsky/tfm_20_upmerge
+=== updating zscilib (modules/lib/zscilib):
+--- zscilib: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/zscilib/.git/
+--- zscilib: fetching, need revision 34a94b0995683822fa3626dcd5d838301c94c350
+remote: Enumerating objects: 5375, done.
+remote: Counting objects: 100% (580/580), done.
+remote: Compressing objects: 100% (145/145), done.
+remote: Total 5375 (delta 465), reused 442 (delta 434), pack-reused 4795
+Receiving objects: 100% (5375/5375), 3.02 MiB | 2.97 MiB/s, done.
+Resolving deltas: 100% (4054/4054), done.
+From https://github.com/zephyrproject-rtos/zscilib
+ * [new branch]      gh-pages                 -> refs/west/gh-pages
+ * [new branch]      master                   -> refs/west/master
+ * [new branch]      revert-38-fix_zephyr_3_1 -> refs/west/revert-38-fix_zephyr_3_1
+ * [new tag]         v0.2.0-rc1               -> v0.2.0-rc1
+HEAD is now at 34a94b0 Merge pull request #55 from nashif/remove_ztest_config
+HEAD is now at 34a94b0 Merge pull request #55 from nashif/remove_ztest_config
+=== updating cmsis (modules/hal/cmsis):
+--- cmsis: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/cmsis/.git/
+--- cmsis: fetching, need revision 4b96cbb174678dcd3ca86e11e1f24bc5f8726da0
+remote: Enumerating objects: 1401, done.
+remote: Counting objects: 100% (218/218), done.
+remote: Compressing objects: 100% (112/112), done.
+remote: Total 1401 (delta 136), reused 106 (delta 106), pack-reused 1183
+Receiving objects: 100% (1401/1401), 3.15 MiB | 1.93 MiB/s, done.
+Resolving deltas: 100% (1014/1014), done.
+From https://github.com/zephyrproject-rtos/cmsis
+ * [new branch]      master     -> refs/west/master
+HEAD is now at 4b96cbb doc: Update documentations for CMSIS 5.9.0
+HEAD is now at 4b96cbb doc: Update documentations for CMSIS 5.9.0
+=== updating cmsis-dsp (modules/lib/cmsis-dsp):
+--- cmsis-dsp: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/cmsis-dsp/.git/
+--- cmsis-dsp: fetching, need revision ff7b5fd1ea5f094665c090c343ec44e74dc0b193
+remote: Enumerating objects: 24245, done.
+remote: Counting objects: 100% (1112/1112), done.
+remote: Compressing objects: 100% (390/390), done.
+remote: Total 24245 (delta 735), reused 1042 (delta 711), pack-reused 23133
+Receiving objects: 100% (24245/24245), 57.52 MiB | 6.48 MiB/s, done.
+Resolving deltas: 100% (15084/15084), done.
+From https://github.com/zephyrproject-rtos/cmsis-dsp
+ * [new branch]        main       -> refs/west/main
+ * [new branch]        zephyr     -> refs/west/zephyr
+HEAD is now at ff7b5fd1 compute Library: fix inline function that is not static
+HEAD is now at ff7b5fd1 compute Library: fix inline function that is not static
+=== updating cmsis-nn (modules/lib/cmsis-nn):
+--- cmsis-nn: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/cmsis-nn/.git/
+--- cmsis-nn: fetching, need revision 0c8669d81381ccf3b1a01d699f3b68b50134a99f
+remote: Enumerating objects: 10512, done.
+remote: Counting objects: 100% (1270/1270), done.
+remote: Compressing objects: 100% (447/447), done.
+remote: Total 10512 (delta 895), reused 1143 (delta 805), pack-reused 9242
+Receiving objects: 100% (10512/10512), 4.93 MiB | 3.96 MiB/s, done.
+Resolving deltas: 100% (6919/6919), done.
+From https://github.com/zephyrproject-rtos/cmsis-nn
+ * [new branch]      main          -> refs/west/main
+ * [new branch]      zephyr        -> refs/west/zephyr
+ * [new branch]      zephyr-v6.0.0 -> refs/west/zephyr-v6.0.0
+HEAD is now at 0c8669d Merge pull request #1 from XenuIsWatching/zephyr
+HEAD is now at 0c8669d Merge pull request #1 from XenuIsWatching/zephyr
+=== updating edtt (tools/edtt):
+--- edtt: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/tools/edtt/.git/
+--- edtt: fetching, need revision 64e5105ad82390164fb73fc654be3f73a608209a
+remote: Enumerating objects: 1239, done.
+remote: Counting objects: 100% (190/190), done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 1239 (delta 110), reused 190 (delta 110), pack-reused 1049
+Receiving objects: 100% (1239/1239), 735.89 KiB | 2.25 MiB/s, done.
+Resolving deltas: 100% (894/894), done.
+From https://github.com/zephyrproject-rtos/edtt
+ * [new branch]      le-audio      -> refs/west/le-audio
+ * [new branch]      main          -> refs/west/main
+ * [new branch]      public_master -> refs/west/public_master
+HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
+HEAD is now at 64e5105 edttt_bsim: Avoid infinite exception loop
+=== updating fatfs (modules/fs/fatfs):
+--- fatfs: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/fs/fatfs/.git/
+--- fatfs: fetching, need revision 427159bf95ea49b7680facffaa29ad506b42709b
+remote: Enumerating objects: 183, done.
+remote: Counting objects: 100% (47/47), done.
+remote: Compressing objects: 100% (29/29), done.
+remote: Total 183 (delta 19), reused 23 (delta 16), pack-reused 136
+Receiving objects: 100% (183/183), 1.54 MiB | 1.95 MiB/s, done.
+Resolving deltas: 100% (98/98), done.
+From https://github.com/zephyrproject-rtos/fatfs
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
+HEAD is now at 427159b zephyr: fix ffconf.h override use of STRINGIZE
+=== updating hal_nordic (modules/hal/nordic):
+--- hal_nordic: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/nordic/.git/
+--- hal_nordic: fetching, need revision 5470822384781624efb2fda28cbc6a895a227677
+remote: Enumerating objects: 8763, done.
+remote: Counting objects: 100% (1330/1330), done.
+remote: Compressing objects: 100% (346/346), done.
+remote: Total 8763 (delta 1124), reused 1063 (delta 982), pack-reused 7433
+Receiving objects: 100% (8763/8763), 22.54 MiB | 3.12 MiB/s, done.
+Resolving deltas: 100% (6600/6600), done.
+From https://github.com/zephyrproject-rtos/hal_nordic
+ * [new branch]      dependabot/pip/nrfx/samples/doc/sphinx/jinja2-3.1.3 -> refs/west/dependabot/pip/nrfx/samples/doc/sphinx/jinja2-3.1.3
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+ * [new tag]         nrfx-2.10.0  -> nrfx-2.10.0
+ * [new tag]         nrfx-2.11.0  -> nrfx-2.11.0
+ * [new tag]         nrfx-3.0.0   -> nrfx-3.0.0
+HEAD is now at 5470822 nrfx: Fix compilation failures in nrfx_gppi_dppi_ppib.c
+HEAD is now at 5470822 nrfx: Fix compilation failures in nrfx_gppi_dppi_ppib.c
+=== updating hal_st (modules/hal/st):
+--- hal_st: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/st/.git/
+--- hal_st: fetching, need revision fb8e79d1a261fd02aadff7c142729f1954163cf3
+remote: Enumerating objects: 8382, done.
+remote: Counting objects: 100% (38/38), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 8382 (delta 18), reused 16 (delta 16), pack-reused 8344
+Receiving objects: 100% (8382/8382), 24.52 MiB | 2.73 MiB/s, done.
+Resolving deltas: 100% (6586/6586), done.
+From https://github.com/zephyrproject-rtos/hal_st
+ * [new branch]      master       -> refs/west/master
+ * [new branch]      v1.14-branch -> refs/west/v1.14-branch
+HEAD is now at fb8e79d sensor/vl53l1x api/core call to VL53L1_GetTickCount function
+HEAD is now at fb8e79d sensor/vl53l1x api/core call to VL53L1_GetTickCount function
+=== updating hal_wurthelektronik (modules/hal/wurthelektronik):
+--- hal_wurthelektronik: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/wurthelektronik/.git/
+--- hal_wurthelektronik: fetching, need revision 24ca9873c3d608fad1fea0431836bc8f144c132e
+remote: Enumerating objects: 126, done.
+remote: Counting objects: 100% (126/126), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 126 (delta 68), reused 108 (delta 55), pack-reused 0
+Receiving objects: 100% (126/126), 133.43 KiB | 2.52 MiB/s, done.
+Resolving deltas: 100% (68/68), done.
+From https://github.com/zephyrproject-rtos/hal_wurthelektronik
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at 24ca987 Initialized WE HAL module repository.
+HEAD is now at 24ca987 Initialized WE HAL module repository.
+=== updating libmetal (modules/hal/libmetal):
+--- libmetal: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/hal/libmetal/.git/
+--- libmetal: fetching, need revision 03140d7f4bd9ba474ebfbb6256e84a9089248e67
+remote: Enumerating objects: 1011, done.
+remote: Counting objects: 100% (338/338), done.
+remote: Compressing objects: 100% (182/182), done.
+remote: Total 1011 (delta 190), reused 236 (delta 146), pack-reused 673
+Receiving objects: 100% (1011/1011), 244.56 KiB | 2.40 MiB/s, done.
+Resolving deltas: 100% (609/609), done.
+From https://github.com/zephyrproject-rtos/libmetal
+ * [new branch]      bump_v2024.05.0 -> refs/west/bump_v2024.05.0
+ * [new branch]      master          -> refs/west/master
+ * [new branch]      v1.14-branch    -> refs/west/v1.14-branch
+HEAD is now at 03140d7 Zephyr integration: Add support for hosted test environment
+HEAD is now at 03140d7 Zephyr integration: Add support for hosted test environment
+=== updating liblc3 (modules/lib/liblc3):
+--- liblc3: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/liblc3/.git/
+--- liblc3: fetching, need revision 448f3de31f49a838988a162ef1e23a89ddf2d2ed
+remote: Enumerating objects: 578, done.
+remote: Counting objects: 100% (253/253), done.
+remote: Compressing objects: 100% (61/61), done.
+remote: Total 578 (delta 216), reused 192 (delta 192), pack-reused 325
+Receiving objects: 100% (578/578), 415.86 KiB | 2.60 MiB/s, done.
+Resolving deltas: 100% (377/377), done.
+From https://github.com/zephyrproject-rtos/liblc3
+ * [new branch]      main       -> refs/west/main
+HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
+HEAD is now at 448f3de Merge pull request #8 from carlescufi/rename
+=== updating littlefs (modules/fs/littlefs):
+--- littlefs: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/fs/littlefs/.git/
+--- littlefs: fetching, need revision ca583fd297ceb48bced3c2548600dc615d67af24
+remote: Enumerating objects: 3964, done.
+remote: Counting objects: 100% (1760/1760), done.
+remote: Compressing objects: 100% (532/532), done.
+remote: Total 3964 (delta 1236), reused 1694 (delta 1201), pack-reused 2204
+Receiving objects: 100% (3964/3964), 1.92 MiB | 2.59 MiB/s, done.
+Resolving deltas: 100% (2795/2795), done.
+From https://github.com/zephyrproject-rtos/littlefs
+ * [new branch]      zephyr          -> refs/west/zephyr
+ * [new tag]         littlefs-v2.1.0 -> littlefs-v2.1.0
+ * [new tag]         littlefs-v2.1.1 -> littlefs-v2.1.1
+ * [new tag]         littlefs-v2.1.2 -> littlefs-v2.1.2
+ * [new tag]         littlefs-v2.1.3 -> littlefs-v2.1.3
+ * [new tag]         littlefs-v2.1.4 -> littlefs-v2.1.4
+ * [new tag]         littlefs-v2.2.0 -> littlefs-v2.2.0
+HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
+HEAD is now at ca583fd Merge tag 'v2.5.0' of https://github.com/littlefs-project/littlefs into zephyr
+=== updating loramac-node (modules/lib/loramac-node):
+--- loramac-node: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/loramac-node/.git/
+--- loramac-node: fetching, need revision 842413c5fb98707eb5f26e619e8e792453877897
+remote: Enumerating objects: 27566, done.
+remote: Counting objects: 100% (1180/1180), done.
+remote: Compressing objects: 100% (119/119), done.
+remote: Total 27566 (delta 1068), reused 1061 (delta 1061), pack-reused 26386
+Receiving objects: 100% (27566/27566), 23.37 MiB | 1.64 MiB/s, done.
+Resolving deltas: 100% (18202/18202), done.
+From https://github.com/zephyrproject-rtos/loramac-node
+ * [new branch]        master        -> refs/west/master
+ * [new branch]        v4.5.2-zephyr -> refs/west/v4.5.2-zephyr
+ * [new branch]        v4.6.0-zephyr -> refs/west/v4.6.0-zephyr
+ * [new branch]        v4.7.0-zephyr -> refs/west/v4.7.0-zephyr
+ * [new branch]        zephyr        -> refs/west/zephyr
+ * [new branch]        zephyr-v2.6   -> refs/west/zephyr-v2.6
+ * [new tag]           4.4.2-rc.4    -> 4.4.2-rc.4
+ * [new tag]           V3.4          -> V3.4
+ * [new tag]           v2.0          -> v2.0
+ * [new tag]           v2.1          -> v2.1
+ * [new tag]           v2.2          -> v2.2
+ * [new tag]           v2.3.RC1      -> v2.3.RC1
+ * [new tag]           v2.3.RC2      -> v2.3.RC2
+ * [new tag]           v3.0          -> v3.0
+ * [new tag]           v3.1          -> v3.1
+ * [new tag]           v3.2          -> v3.2
+ * [new tag]           v3.3          -> v3.3
+ * [new tag]           v3.4.1        -> v3.4.1
+ * [new tag]           v4.0.0        -> v4.0.0
+ * [new tag]           v4.1.0        -> v4.1.0
+ * [new tag]           v4.2.0        -> v4.2.0
+ * [new tag]           v4.3.0        -> v4.3.0
+ * [new tag]           v4.3.1        -> v4.3.1
+ * [new tag]           v4.3.2        -> v4.3.2
+ * [new tag]           v4.4.0        -> v4.4.0
+ * [new tag]           v4.4.1        -> v4.4.1
+ * [new tag]           v4.4.2        -> v4.4.2
+ * [new tag]           v4.4.2-rc.1   -> v4.4.2-rc.1
+ * [new tag]           v4.4.2-rc.2   -> v4.4.2-rc.2
+ * [new tag]           v4.4.2-rc.3   -> v4.4.2-rc.3
+ * [new tag]           v4.4.2-rc.5   -> v4.4.2-rc.5
+ * [new tag]           v4.4.2-rc.6   -> v4.4.2-rc.6
+ * [new tag]           v4.4.2-rc.7   -> v4.4.2-rc.7
+ * [new tag]           v4.4.3        -> v4.4.3
+ * [new tag]           v4.4.3_zephyr -> v4.4.3_zephyr
+HEAD is now at 842413c5 utilities: fix one more shadowed variable
+HEAD is now at 842413c5 utilities: fix one more shadowed variable
+=== updating lvgl (modules/lib/gui/lvgl):
+--- lvgl: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/gui/lvgl/.git/
+--- lvgl: fetching, need revision 7c61a4cec26402d20c845c95dcad0e39dcd319f8
+remote: Enumerating objects: 65029, done.
+remote: Counting objects: 100% (3184/3184), done.
+remote: Compressing objects: 100% (655/655), done.
+remote: Total 65029 (delta 2620), reused 2636 (delta 2528), pack-reused 61845
+Receiving objects: 100% (65029/65029), 82.79 MiB | 4.03 MiB/s, done.
+Resolving deltas: 100% (50909/50909), done.
+From https://github.com/zephyrproject-rtos/lvgl
+ * [new branch]        master     -> refs/west/master
+ * [new branch]        zephyr     -> refs/west/zephyr
+HEAD is now at 7c61a4ce zephyr: Kconfig: Add guard checking for LVGL module
+HEAD is now at 7c61a4ce zephyr: Kconfig: Add guard checking for LVGL module
+=== updating mipi-sys-t (modules/debug/mipi-sys-t):
+--- mipi-sys-t: initializing
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/debug/mipi-sys-t/.git/
+--- mipi-sys-t: fetching, need revision a819419603a2dfcb47f7f39092e1bc112e45d1ef
+remote: Enumerating objects: 212, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 212 (delta 14), reused 5 (delta 4), pack-reused 182
+Receiving objects: 100% (212/212), 432.16 KiB | 1.94 MiB/s, done.
+Resolving deltas: 100% (69/69), done.
+From https://github.com/zephyrproject-rtos/mipi-sys-t
+ * [new branch]      zephyr     -> refs/west/zephyr
+HEAD is now at a819419 library: allow building without wchar support
+HEAD is now at a819419 library: allow building without wchar support
 === updating net-tools (tools/net-tools):
 --- net-tools: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/tools/net-tools/.git/
---- net-tools: fetching, need revision e0828aa9629b533644dc96ff6d1295c939bd713c
-remote: Enumerating objects: 1528, done.
-remote: Counting objects: 100% (80/80), done.
-remote: Compressing objects: 100% (57/57), done.
-remote: Total 1528 (delta 35), reused 57 (delta 23), pack-reused 1448
-Receiving objects: 100% (1528/1528), 2.66 MiB | 2.27 MiB/s, done.
-Resolving deltas: 100% (533/533), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/tools/net-tools/.git/
+--- net-tools: fetching, need revision d68ee9d17648a1bb3729c2023abfcb735dfe92fa
+remote: Enumerating objects: 1559, done.
+remote: Counting objects: 100% (111/111), done.
+remote: Compressing objects: 100% (72/72), done.
+remote: Total 1559 (delta 54), reused 76 (delta 39), pack-reused 1448
+Receiving objects: 100% (1559/1559), 2.67 MiB | 5.29 MiB/s, done.
+Resolving deltas: 100% (552/552), done.
 From https://github.com/zephyrproject-rtos/net-tools
  * [new branch]      master     -> refs/west/master
-HEAD is now at e0828aa net-setup: Add instructions for NAT and routing
-HEAD is now at e0828aa net-setup: Add instructions for NAT and routing
+HEAD is now at d68ee9d docker: Add Leshan demo server
+HEAD is now at d68ee9d docker: Add Leshan demo server
 === updating nrf_hw_models (modules/bsim_hw_models/nrf_hw_models):
 --- nrf_hw_models: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/bsim_hw_models/nrf_hw_models/.git/
---- nrf_hw_models: fetching, need revision 57b61a9a2da75c860f15ca79522b24d57992df2c
-remote: Enumerating objects: 2408, done.
-remote: Counting objects: 100% (1214/1214), done.
-remote: Compressing objects: 100% (522/522), done.
-remote: Total 2408 (delta 862), reused 1000 (delta 681), pack-reused 1194
-Receiving objects: 100% (2408/2408), 840.32 KiB | 1.08 MiB/s, done.
-Resolving deltas: 100% (1588/1588), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/bsim_hw_models/nrf_hw_models/.git/
+--- nrf_hw_models: fetching, need revision 52d0b4b7b7431d8da6222cc3b17a8afdcb099baf
+remote: Enumerating objects: 2741, done.
+remote: Counting objects: 100% (201/201), done.
+remote: Compressing objects: 100% (53/53), done.
+remote: Total 2741 (delta 159), reused 157 (delta 148), pack-reused 2540
+Receiving objects: 100% (2741/2741), 1.17 MiB | 3.53 MiB/s, done.
+Resolving deltas: 100% (1868/1868), done.
 From https://github.com/zephyrproject-rtos/nrf_hw_models
  * [new branch]      main       -> refs/west/main
  * [new branch]      master     -> refs/west/master
-HEAD is now at 57b61a9 INT CNTRL: Generalize to N controllers
-HEAD is now at 57b61a9 INT CNTRL: Generalize to N controllers
+HEAD is now at 52d0b4b UART: FIFO backend: Do not error out if other side disconnects Rx
+HEAD is now at 52d0b4b UART: FIFO backend: Do not error out if other side disconnects Rx
 === updating open-amp (modules/lib/open-amp):
 --- open-amp: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/open-amp/.git/
---- open-amp: fetching, need revision 42b7c577714b8f22ce82a901e19c1814af4609a8
-remote: Enumerating objects: 559, done.
-remote: Counting objects: 100% (491/491), done.
-remote: Compressing objects: 100% (271/271), done.
-remote: Total 559 (delta 243), reused 368 (delta 199), pack-reused 68
-Receiving objects: 100% (559/559), 1.62 MiB | 2.55 MiB/s, done.
-Resolving deltas: 100% (258/258), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/open-amp/.git/
+--- open-amp: fetching, need revision 214f9fc1539f8e5937c0474cb6ee29b6dcb2d4b8
+remote: Enumerating objects: 596, done.
+remote: Counting objects: 100% (528/528), done.
+remote: Compressing objects: 100% (280/280), done.
+remote: Total 596 (delta 269), reused 405 (delta 224), pack-reused 68
+Receiving objects: 100% (596/596), 1.63 MiB | 3.10 MiB/s, done.
+Resolving deltas: 100% (284/284), done.
 From https://github.com/zephyrproject-rtos/open-amp
- * [new branch]      master       -> refs/west/master
- * [new branch]      v1.14-branch -> refs/west/v1.14-branch
-HEAD is now at 42b7c57 cmake: Compile with WITH_DCACHE_RSC_TABLE
-HEAD is now at 42b7c57 cmake: Compile with WITH_DCACHE_RSC_TABLE
+ * [new branch]      bump_v2024.05.0 -> refs/west/bump_v2024.05.0
+ * [new branch]      master          -> refs/west/master
+ * [new branch]      v1.14-branch    -> refs/west/v1.14-branch
+HEAD is now at 214f9fc cmake: Compile with WITH_DCACHE
+HEAD is now at 214f9fc cmake: Compile with WITH_DCACHE
 === updating picolibc (modules/lib/picolibc):
 --- picolibc: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/picolibc/.git/
---- picolibc: fetching, need revision d07c38ff051386f8e09a143ea0a6c1d6d66dd1d8
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/picolibc/.git/
+--- picolibc: fetching, need revision 1a5c603b9f8e228f9459bdafedad15ea28efc700
 remote: Enumerating objects: 234140, done.
-remote: Counting objects: 100% (14572/14572), done.
-remote: Compressing objects: 100% (1600/1600), done.
-remote: Total 234140 (delta 13189), reused 14035 (delta 12940), pack-reused 219568
-Receiving objects: 100% (234140/234140), 128.46 MiB | 3.23 MiB/s, done.
-Resolving deltas: 100% (189132/189132), done.
+remote: Counting objects: 100% (14548/14548), done.
+remote: Compressing objects: 100% (1613/1613), done.
+remote: Total 234140 (delta 13170), reused 13968 (delta 12903), pack-reused 219592
+Receiving objects: 100% (234140/234140), 128.45 MiB | 5.17 MiB/s, done.
+Resolving deltas: 100% (189134/189134), done.
 From https://github.com/zephyrproject-rtos/picolibc
  * [new branch]          Z-emcb-cygwin_daemon                           -> refs/west/Z-emcb-cygwin_daemon
  * [new branch]          aarch64                                        -> refs/west/aarch64
@@ -2387,18 +2532,18 @@ From https://github.com/zephyrproject-rtos/picolibc
  * [new tag]             w32api-2_2                                     -> w32api-2_2
  * [new tag]             winsup-2000-02-17                              -> winsup-2000-02-17
  * [new tag]             x86_64versiong3                                -> x86_64versiong3
-HEAD is now at d07c38ff0 Version 1.8.2
-HEAD is now at d07c38ff0 Version 1.8.2
+HEAD is now at 1a5c603b9 Version 1.8.5
+HEAD is now at 1a5c603b9 Version 1.8.5
 === updating segger (modules/debug/segger):
 --- segger: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/segger/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/debug/segger/.git/
 --- segger: fetching, need revision 9d0191285956cef43daf411edc2f1a7788346def
-remote: Enumerating objects: 238, done.
-remote: Counting objects: 100% (69/69), done.
-remote: Compressing objects: 100% (40/40), done.
-remote: Total 238 (delta 41), reused 37 (delta 28), pack-reused 169
-Receiving objects: 100% (238/238), 171.77 KiB | 1.00 MiB/s, done.
-Resolving deltas: 100% (112/112), done.
+remote: Enumerating objects: 242, done.
+remote: Counting objects: 100% (73/73), done.
+remote: Compressing objects: 100% (42/42), done.
+remote: Total 242 (delta 43), reused 40 (delta 30), pack-reused 169
+Receiving objects: 100% (242/242), 172.22 KiB | 1.07 MiB/s, done.
+Resolving deltas: 100% (114/114), done.
 From https://github.com/zephyrproject-rtos/segger
  * [new branch]      master       -> refs/west/master
  * [new branch]      v1.14-branch -> refs/west/v1.14-branch
@@ -2406,101 +2551,45 @@ HEAD is now at 9d01912 segger: config: RTT spinlock implementation
 HEAD is now at 9d01912 segger: config: RTT spinlock implementation
 === updating tinycrypt (modules/crypto/tinycrypt):
 --- tinycrypt: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/crypto/tinycrypt/.git/
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/crypto/tinycrypt/.git/
 --- tinycrypt: fetching, need revision 3e9a49d2672ec01435ffbf0d788db6d95ef28de0
-remote: Enumerating objects: 46, done.
-remote: Counting objects: 100% (46/46), done.
-remote: Compressing objects: 100% (30/30), done.
-remote: Total 46 (delta 11), reused 46 (delta 11), pack-reused 0
-Unpacking objects: 100% (46/46), 66.61 KiB | 766.00 KiB/s, done.
+remote: Enumerating objects: 51, done.
+remote: Counting objects: 100% (51/51), done.
+remote: Compressing objects: 100% (32/32), done.
+remote: Total 51 (delta 15), reused 49 (delta 14), pack-reused 0
+Unpacking objects: 100% (51/51), 67.28 KiB | 1.05 MiB/s, done.
 From https://github.com/zephyrproject-rtos/tinycrypt
  * [new branch]      master     -> refs/west/master
 HEAD is now at 3e9a49d cmake: Fix conditional in root CMakeLists.txt
 HEAD is now at 3e9a49d cmake: Fix conditional in root CMakeLists.txt
-=== updating TraceRecorderSource (modules/debug/TraceRecorder):
---- TraceRecorderSource: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/debug/TraceRecorder/.git/
---- TraceRecorderSource: fetching, need revision 1ede7ce8e7ab226e9a84d95266241ba3f38d91d2
-remote: Enumerating objects: 4102, done.
-remote: Counting objects: 100% (1899/1899), done.
-remote: Compressing objects: 100% (195/195), done.
-remote: Total 4102 (delta 1777), reused 1704 (delta 1704), pack-reused 2203
-Receiving objects: 100% (4102/4102), 2.64 MiB | 2.50 MiB/s, done.
-Resolving deltas: 100% (2886/2886), done.
-From https://github.com/zephyrproject-rtos/TraceRecorderSource
- * [new branch]      main       -> refs/west/main
- * [new branch]      up2        -> refs/west/up2
- * [new branch]      zephyr     -> refs/west/zephyr
-HEAD is now at 1ede7ce Merge pull request #16 from aronlander-pe/zephyr
-HEAD is now at 1ede7ce Merge pull request #16 from aronlander-pe/zephyr
-=== updating tf-m-tests (modules/tee/tf-m/tf-m-tests):
---- tf-m-tests: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/tf-m-tests/.git/
---- tf-m-tests: fetching, need revision a878426da78fbd1486dfc29d6c6b82be4ee79e72
-remote: Enumerating objects: 5195, done.
-remote: Counting objects: 100% (5195/5195), done.
-remote: Compressing objects: 100% (1914/1914), done.
-remote: Total 5195 (delta 3574), reused 4827 (delta 3213), pack-reused 0
-Receiving objects: 100% (5195/5195), 2.69 MiB | 2.36 MiB/s, done.
-Resolving deltas: 100% (3574/3574), done.
-From https://github.com/zephyrproject-rtos/tf-m-tests
- * [new branch]      main          -> refs/west/main
- * [new branch]      release/1.7.x -> refs/west/release/1.7.x
-HEAD is now at a878426 Merge pull request #7 from d3zd3z/zephyr-1.8.0
-HEAD is now at a878426 Merge pull request #7 from d3zd3z/zephyr-1.8.0
-=== updating psa-arch-tests (modules/tee/tf-m/psa-arch-tests):
---- psa-arch-tests: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/tee/tf-m/psa-arch-tests/.git/
---- psa-arch-tests: fetching, need revision 6a17330e0dfb5f319730f974d5b05f7b7f04757b
-remote: Enumerating objects: 12893, done.
-remote: Counting objects: 100% (1001/1001), done.
-remote: Compressing objects: 100% (414/414), done.
-remote: Total 12893 (delta 640), reused 831 (delta 580), pack-reused 11892
-Receiving objects: 100% (12893/12893), 18.51 MiB | 3.16 MiB/s, done.
-Resolving deltas: 100% (9611/9611), done.
-From https://github.com/zephyrproject-rtos/psa-arch-tests
- * [new branch]      main                     -> refs/west/main
- * [new tag]         Before_Crypto_1.0        -> Before_Crypto_1.0
- * [new tag]         v18.07_0.6               -> v18.07_0.6
- * [new tag]         v18.07_TBSA0.6           -> v18.07_TBSA0.6
- * [new tag]         v18.10_FF0.5             -> v18.10_FF0.5
- * [new tag]         v19.01_API0.7            -> v19.01_API0.7
- * [new tag]         v19.02_API0.8            -> v19.02_API0.8
- * [new tag]         v19.02_EW0_0.8           -> v19.02_EW0_0.8
- * [new tag]         v19.06_API0.9            -> v19.06_API0.9
- * [new tag]         v19.08_TBSA0.9           -> v19.08_TBSA0.9
- * [new tag]         v20.03_API1.0            -> v20.03_API1.0
- * [new tag]         v20.11_API1.1            -> v20.11_API1.1
- * [new tag]         v21.07_API1.2_ADAC_ALPHA -> v21.07_API1.2_ADAC_ALPHA
-HEAD is now at 6a17330 dev-apis: platform: Increase timeout for nRF devs
-HEAD is now at 6a17330 dev-apis: platform: Increase timeout for nRF devs
 === updating uoscore-uedhoc (modules/lib/uoscore-uedhoc):
 --- uoscore-uedhoc: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/uoscore-uedhoc/.git/
---- uoscore-uedhoc: fetching, need revision 5fe2cb613bd7e4590bd1b00c2adf181ac0229379
-remote: Enumerating objects: 6975, done.
-remote: Counting objects: 100% (6975/6975), done.
-remote: Compressing objects: 100% (1801/1801), done.
-remote: Total 6975 (delta 5155), reused 6819 (delta 5000), pack-reused 0
-Receiving objects: 100% (6975/6975), 2.31 MiB | 2.17 MiB/s, done.
-Resolving deltas: 100% (5155/5155), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/uoscore-uedhoc/.git/
+--- uoscore-uedhoc: fetching, need revision 150f4eb2955eaf36ac0f9519d4f4f58d5ade5740
+remote: Enumerating objects: 7228, done.
+remote: Counting objects: 100% (7228/7228), done.
+remote: Compressing objects: 100% (1853/1853), done.
+remote: Total 7228 (delta 5360), reused 7067 (delta 5201), pack-reused 0
+Receiving objects: 100% (7228/7228), 2.35 MiB | 2.83 MiB/s, done.
+Resolving deltas: 100% (5360/5360), done.
 From https://github.com/zephyrproject-rtos/uoscore-uedhoc
  * [new branch]      zephyr     -> refs/west/zephyr
-HEAD is now at 5fe2cb6 2.2.1
-HEAD is now at 5fe2cb6 2.2.1
+HEAD is now at 150f4eb [zephyr fromlist] Adapt to changes in name generation in zcbor 0.8.0
+HEAD is now at 150f4eb [zephyr fromlist] Adapt to changes in name generation in zcbor 0.8.0
 === updating zcbor (modules/lib/zcbor):
 --- zcbor: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/zcbor/.git/
---- zcbor: fetching, need revision 67fd8bb88d3136738661fa8bb5f9989103f4599e
-remote: Enumerating objects: 5189, done.
-remote: Counting objects: 100% (1112/1112), done.
-remote: Compressing objects: 100% (358/358), done.
-remote: Total 5189 (delta 834), reused 823 (delta 737), pack-reused 4077
-Receiving objects: 100% (5189/5189), 1.60 MiB | 2.02 MiB/s, done.
-Resolving deltas: 100% (3080/3080), done.
+Initialized empty Git repository in /Users/makmorit/opt/ncs_2.6.1/modules/lib/zcbor/.git/
+--- zcbor: fetching, need revision d3093b5684f62268c7f27f8a5079f166772619de
+remote: Enumerating objects: 5228, done.
+remote: Counting objects: 100% (1134/1134), done.
+remote: Compressing objects: 100% (377/377), done.
+remote: Total 5228 (delta 836), reused 822 (delta 739), pack-reused 4094
+Receiving objects: 100% (5228/5228), 1.61 MiB | 3.42 MiB/s, done.
+Resolving deltas: 100% (3103/3103), done.
 From https://github.com/zephyrproject-rtos/zcbor
  * [new branch]      main              -> refs/west/main
  * [new branch]      release/0.6.1     -> refs/west/release/0.6.1
+ * [new branch]      release/0.8.2     -> refs/west/release/0.8.2
  * [new tag]         0.1.0             -> 0.1.0
  * [new tag]         0.2.0             -> 0.2.0
  * [new tag]         0.3.0             -> 0.3.0
@@ -2514,33 +2603,16 @@ From https://github.com/zephyrproject-rtos/zcbor
  * [new tag]         deprecated-master -> deprecated-master
  * [new tag]         inital-pr         -> inital-pr
  * [new tag]         old-structure     -> old-structure
-HEAD is now at 67fd8bb Update version from 0.6.99 to 0.7.0
-HEAD is now at 67fd8bb Update version from 0.6.99 to 0.7.0
-=== updating zscilib (modules/lib/zscilib):
---- zscilib: initializing
-Initialized empty Git repository in /Users/makmorit/opt/ncs_2.5.2/modules/lib/zscilib/.git/
---- zscilib: fetching, need revision 34c3432e81085bb717e4871d21ca419ae0058ec5
-remote: Enumerating objects: 5345, done.
-remote: Counting objects: 100% (550/550), done.
-remote: Compressing objects: 100% (126/126), done.
-remote: Total 5345 (delta 452), reused 427 (delta 423), pack-reused 4795
-Receiving objects: 100% (5345/5345), 3.00 MiB | 2.33 MiB/s, done.
-Resolving deltas: 100% (4041/4041), done.
-From https://github.com/zephyrproject-rtos/zscilib
- * [new branch]      gh-pages                 -> refs/west/gh-pages
- * [new branch]      master                   -> refs/west/master
- * [new branch]      revert-38-fix_zephyr_3_1 -> refs/west/revert-38-fix_zephyr_3_1
- * [new tag]         v0.2.0-rc1               -> v0.2.0-rc1
-HEAD is now at 34c3432 Merge pull request #50 from microbuilder/ztest_fixes
-HEAD is now at 34c3432 Merge pull request #50 from microbuilder/ztest_fixes
-(ncs_2.5.2) bash-3.2$
-(ncs_2.5.2) bash-3.2$ west zephyr-export
-Zephyr (/Users/makmorit/opt/ncs_2.5.2/zephyr/share/zephyr-package/cmake)
+HEAD is now at d3093b5 Update version from 0.8.99 to 0.8.1
+HEAD is now at d3093b5 Update version from 0.8.99 to 0.8.1
+(ncs_2.6.1) bash-3.2$
+(ncs_2.6.1) bash-3.2$ west zephyr-export
+Zephyr (/Users/makmorit/opt/ncs_2.6.1/zephyr/share/zephyr-package/cmake)
 has been added to the user package registry in:
 ~/.cmake/packages/Zephyr
 
-ZephyrUnittest (/Users/makmorit/opt/ncs_2.5.2/zephyr/share/zephyrunittest-package/cmake)
+ZephyrUnittest (/Users/makmorit/opt/ncs_2.6.1/zephyr/share/zephyrunittest-package/cmake)
 has been added to the user package registry in:
 ~/.cmake/packages/ZephyrUnittest
 
-(ncs_2.5.2) bash-3.2$
+(ncs_2.6.1) bash-3.2$
