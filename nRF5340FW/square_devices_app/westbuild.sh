@@ -5,9 +5,9 @@
 export BUILD_TARGET=nrf5340dk_nrf5340_cpuapp
 
 # Environment variables for Zephyr SDK
-export ZEPHYR_SDK_INSTALL_DIR="${HOME}/opt/zephyr-sdk-0.16.1"
+export ZEPHYR_SDK_INSTALL_DIR="${HOME}/opt/zephyr-sdk-0.16.5"
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
-export ZEPHYR_TOOLCHAIN_PATH="${HOME}/opt/zephyr-sdk-0.16.1"
+export ZEPHYR_TOOLCHAIN_PATH="${HOME}/opt/zephyr-sdk-0.16.5"
 
 # Paths for command
 export PATH=${PATH}:/usr/local/bin
@@ -16,7 +16,7 @@ export PATH=${PATH}:/usr/local/bin
 export FWLIB_PATH=../../Firmwares
 
 # bash completion
-export NCS_HOME=${HOME}/opt/ncs_2.5.2
+export NCS_HOME=${HOME}/opt/ncs_2.6.1
 export ZEPHYR_BASE=${NCS_HOME}/zephyr
 source ${ZEPHYR_BASE}/zephyr-env.sh
 
