@@ -90,11 +90,21 @@ bash-3.2$
 
 ## サンプルアプリの書込み
 
-nRF5340 DKを初期化した後、ビルドしたサンプルアプリを、nRF5340 DKに書込みます。
+nRF5340を初期化した後、ビルドしたサンプルアプリを、nRF5340に書込みます。
+
+### 開発ボードとnRF5340 DKを接続
+
+開発ボードに搭載されているnRF5340に、ビルドしたサンプルアプリを書き込むため、nRF5340 DKをJ-Linkデバイスとして使用します。<br>
+すなわち、PCとnRF5340 DK（J-Linkデバイス）を、USBケーブルを使って接続し、その上で、nRF5340 DKと開発ボードを、J-Link用のケーブル（10pin）を使用して接続します。
+
+下図は接続例になります。<br>
+注意点としては、開発ボード（下図、左上の小さいボード）に、USBケーブルを使用し、別途電源を供給する必要があります。
+
+<img src="images/NCSTEST_10.jpg" width="450">
 
 ### 開発ボードのnRF5340 Flash ROMを初期化
 
-サンプルアプリを書き込みする前に、開発ボードに搭載されている「nRF5340」のFlash ROMを初期化します。
+サンプルアプリを書き込みする前に、開発ボードに搭載されているnRF5340のFlash ROMを初期化します。
 
 [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download)のProgrammerというアプリを使用すると、nRF5340のFlash ROMに書き込まれているプログラムやデータ等が一括削除できます。<br>
 手順につきましては、別ドキュメント「[nRF5340 DK初期化手順書](../../Markdowns/nRF5340FW/NRFDKINIT.md)」をご参照願います。
