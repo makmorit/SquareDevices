@@ -1,6 +1,6 @@
 # nRF Connect SDK動作確認手順書（MDBT53V-DB）
 
-最終更新日：2024/06/17
+最終更新日：2024/06/21
 
 macOSにインストールされた「[nRF Connect SDK v2.6.1](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.6.1/nrf/index.html)」の動作確認手順について掲載します。
 
@@ -56,7 +56,7 @@ bash-3.2$
 ### ビルド用スクリプトを配置（要：一部書き換え）
 
 ビルド用スクリプト`westbuild.sh`を作成し、プロジェクトフォルダー配下に配置したのち、実行権限を付与します。<br>
-（実行時のスクリプト`westbuild.sh`は<b>[こちら](scripts/westbuild.sh)</b>）
+（実行時のスクリプト`westbuild.sh`は<b>[こちら](scripts/mdbt53v/westbuild.sh)</b>）
 
 ```
 bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
@@ -76,7 +76,7 @@ bash-3.2$
 ### ビルド実行
 
 ビルド用スクリプト`westbuild.sh`を実行し、プロジェクトをビルド（コンパイル、リンク）します。<br>
-（実行時のログ`westbuild.log`は<b>[こちら](logs/westbuild.log)</b>）
+（実行時のログ`westbuild.log`は<b>[こちら](scripts/mdbt53v/westbuild.log)</b>）
 
 ```
 bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
@@ -112,7 +112,7 @@ nRF5340を初期化した後、ビルドしたサンプルアプリを、nRF5340
 ### 書込み
 
 ビルド用スクリプト`westbuild.sh -f`を実行し、ビルドしたファームウェアを、nRF5340に書込みます。<br>
-（実行例は<b>[こちら](logs/westbuild-f.log)</b>）
+（実行例は<b>[こちら](scripts/mdbt53v/westbuild-f.log)</b>）
 
 ```
 bash-3.2$ cd ${HOME}/GitHub/SquareDevices/nRF5340FW/peripheral_uart
@@ -125,23 +125,37 @@ bash-3.2$ ./westbuild.sh -f
 bash-3.2$
 ```
 
-### ファームウェア起動確認（要：ログ内容をあらためて確認）
-
-USBケーブルを使用してnRF5340 DKとPCを接続し、`screen`コマンドでデバッグプリントを監視すると、ファームウェア書込み完了後に以下のようなログが出力されます。<br>
-（表示されない場合は、nRF5340 DKのRESETボタンを１回押下してください）
-
-```
-bash-3.2$ screen /dev/tty.usbmodem0010500847913 115200
-
-*** Booting nRF Connect SDK v3.5.99-ncs1-1 ***
-Starting Nordic UART service example
-```
-
 以上で、サンプルアプリの書込みは完了です。
 
 ## サンプルアプリの動作確認
 
 Androidアプリ「nRF Connect」を使用し、nRF5340に書き込んだ「Peripheral UART」が正常に動作することを確認します。
+
+### ファームウェア起動確認
+
+開発ボードとPCを、別途手配したUSB<-->UART変換回路を経由し、USBケーブルで接続します。<br>
+また、下図のように、開発ボードのRX（`P0.08`）、TX（`P0.09`）を、変換回路側のTX、RXにそれぞれ接続します。
+
+<img src="images/NCSTEST_14.jpg" width="500">
+
+なお、開発ボードにはRESETボタンなどの仕組みが用意されていません。<br>
+また、J-Link接続用の端子にも、RESETへの接続はありません。<br>
+
+したがって、ファームウェア書き込みをしたら、手動によりRESETをGNDに落とし、ファームウェアを起動させるという運用が必要となります。<br>
+具体的には下図のように、RESETピンとGNDピンをケーブルで一旦接続します。
+
+<img src="images/NCSTEST_12.jpg" width="360">
+
+すぐに切り離すと、回路のRESETが働き、ファームウェアのプログラムが開始します。<br>
+開発ボード右側にあるLEDがゆるく点滅することを確認します。
+
+<img src="images/NCSTEST_13.jpg" width="360">
+
+プログラムが開始したら、UART出力をscreenコマンドで表示できることを確認します。<br>
+下図のようなデバッグプリントが表示されます。<br>
+（表示されない場合は、前述の手順で、いま一度RESETをGNDに落としてください。）
+
+<img src="images/NCSTEST_11.jpg" width="600">
 
 ### サービスに接続
 
