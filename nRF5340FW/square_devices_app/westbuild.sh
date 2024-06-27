@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Usage
+#  west build:
+#   BUILD_TARGET=raytac_mdbt53v_db_40_nrf5340_cpuapp ./westbuild.sh
+#  west flash:
+#   BUILD_TARGET=raytac_mdbt53v_db_40_nrf5340_cpuapp ./westbuild.sh -f
+#  support board:
+#   nrf5340dk_nrf5340_cpuapp
+#   raytac_mdbt53v_db_40_nrf5340_cpuapp
+
 # Environment variables for Zephyr SDK
 export ZEPHYR_SDK_INSTALL_DIR="${HOME}/opt/zephyr-sdk-0.16.5"
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
