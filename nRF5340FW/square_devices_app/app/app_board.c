@@ -240,10 +240,10 @@ void app_board_prepare_for_deep_sleep(void)
 {
     // ポート番号（Port 0=0x00, Port 1=0x20）をピン番号に付加
 #if LOG_BUTTON_INITIALIZED
-    LOG_DBG("Set up button for deep sleep at %s pin %d", button_0.port->name, button_0.pin);
+    printk("Set up button for deep sleep at %s pin %d\n\r", button_0.port->name, button_0.pin);
 #endif
     uint32_t sw0_pin_number = button_0.pin;
-    if (strcmp(button_0.port->name, "GPIO_1") == 0) {
+    if (strcmp(button_0.port->name, "gpio@842800") == 0) {
         sw0_pin_number |= (0x1 << 5);
     }
 
