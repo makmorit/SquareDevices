@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Build target
-#   nrf5340dk_nrf5340_cpuapp
-export BUILD_TARGET=nrf5340dk_nrf5340_cpuapp
-
 # Environment variables for Zephyr SDK
 export ZEPHYR_SDK_INSTALL_DIR="${HOME}/opt/zephyr-sdk-0.16.5"
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
@@ -22,11 +18,7 @@ source ${ZEPHYR_BASE}/zephyr-env.sh
 
 # Retrieve config value from prj.conf
 retrieve_prj_conf() {
-    if [ "${BUILD_TARGET}" == "nrf5340dk_nrf5340_cpuapp" ]; then
-        CONFIG_FILE=boards/nrf5340dk_nrf5340_cpuapp.conf
-    else
-        CONFIG_FILE=prj.conf
-    fi
+    CONFIG_FILE="boards/${BUILD_TARGET}.conf"
     grep $1 ${CONFIG_FILE} | sed -e "s/.*\"\(.*\)\"/\1/"
 }
 
@@ -36,6 +28,15 @@ retrieve_config_yesno() {
 
 # Enter Python3 venv
 source ${NCS_HOME}/bin/activate
+
+# Retrieve build target from env
+if [ -n "${BUILD_TARGET}" ]; then
+    echo Building application for ${BUILD_TARGET}
+else
+    echo Build target not specified
+    deactivate
+    exit 1
+fi
 
 if [ "$1" == "-f" ]; then
     # Flash for nRF5340
@@ -48,20 +49,16 @@ else
     # Config for BLE DFU
     OVR_OPT="-DOVERLAY_CONFIG=overlay-smp.conf"
     # Config for target board
-    HW_REV_STR=`retrieve_prj_conf CONFIG_BT_DIS_HW_REV_STR`
-    if [ -n "${HW_REV_STR}" ]; then
-        DTS_FILE=configuration/${BUILD_TARGET}/${HW_REV_STR}.overlay
-        if [ -f ${DTS_FILE} ]; then
-            DTS_OPT="-DDTC_OVERLAY_FILE=${DTS_FILE}"
-        fi
-        OVR_FILE=configuration/${BUILD_TARGET}/${HW_REV_STR}.conf
-        if [ -f ${OVR_FILE} ]; then
-            OVR_OPT="${OVR_OPT};${OVR_FILE}"
-            # Config for tiny TFT
-            USE_TFT=`retrieve_config_yesno CONFIG_USE_TINY_TFT ${OVR_FILE}`
-            if [ "${USE_TFT}" == "y" ]; then
-                DTS_OPT="${DTS_OPT};configuration/${BUILD_TARGET}/tiny_tft.overlay"
-            fi
+    DTS_FILE=configuration/${BUILD_TARGET}/peripherals.overlay
+    if [ -f ${DTS_FILE} ]; then
+        DTS_OPT="-DDTC_OVERLAY_FILE=${DTS_FILE}"
+    fi
+    # Config for tiny TFT
+    CNF_FILE=boards/${BUILD_TARGET}.conf
+    if [ -f ${CNF_FILE} ]; then
+        USE_TFT=`retrieve_config_yesno CONFIG_USE_TINY_TFT ${CNF_FILE}`
+        if [ "${USE_TFT}" == "y" ]; then
+            DTS_OPT="${DTS_OPT};configuration/${BUILD_TARGET}/tiny_tft.overlay"
         fi
     fi
     # Build for nRF5340
@@ -72,6 +69,7 @@ else
         exit 1
     fi
     # Deploy binary file for DFU
+    HW_REV_STR=`retrieve_prj_conf CONFIG_BT_DIS_HW_REV_STR`
     FW_REV_STR=`retrieve_prj_conf CONFIG_BT_DIS_FW_REV_STR`
     cp -pv build_signed/zephyr/app_update.bin ../firmwares/square_devices_app/app_update.${HW_REV_STR}.${FW_REV_STR}.bin
     echo Application binary for secure bootloader is now available.
