@@ -14,12 +14,10 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app_tiny_tft);
 
-#define APP_NO_USE_TINY_TFT         false
-
 //
 // デバイスの初期化
 //
-#if !APP_NO_USE_TINY_TFT
+#if CONFIG_USE_TINY_TFT
 #include "app_tiny_tft_define.h"
 #include "app_tiny_tft.h"
 
