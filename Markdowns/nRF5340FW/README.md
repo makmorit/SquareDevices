@@ -1,6 +1,6 @@
 # nRF5340ファームウェア
 
-最終更新日：2024/4/12
+最終更新日：2024/6/28
 
 ## 概要
 
@@ -36,7 +36,8 @@ nRF5340ファームウェアの更新イメージファイル最終版（Version
 以下の手順書をご参照願います。
 
 - <b>[nRF Connect SDKインストール手順書](../../Markdowns/nRF5340FW/NCSINST.md)</b>
-- <b>[nRF Connect SDK動作確認手順書](../../Markdowns/nRF5340FW/NCSTEST.md)</b>
+- <b>[nRF Connect SDK動作確認手順書（MDBT53V-DB）](../../Markdowns/nRF5340FW/NCSTEST_2.md)</b>
+- <b>[nRF Connect SDK動作確認手順書（nRF5340 DK）](../../Markdowns/nRF5340FW/NCSTEST.md)</b>
 
 ### 開発資源
 
