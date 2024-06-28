@@ -43,4 +43,5 @@ nRF5340ファームウェアの更新イメージファイル最終版（Version
 
 以下のドキュメントをご参照願います。
 
+- <b>[nRF5340開発ボードについて](../../Markdowns/nRF5340FW/BOARD.md)</b>
 - <b>[ファームウェア開発用ライブラリー群](../../Markdowns/Firmwares/README.md)</b>
