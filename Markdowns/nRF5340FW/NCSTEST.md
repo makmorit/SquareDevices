@@ -94,7 +94,7 @@ nRF5340 DKを初期化した後、ビルドしたサンプルアプリを、nRF5
 サンプルアプリを書き込みする前に、nRF5340のFlash ROMを初期化します。
 
 [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download)のProgrammerというアプリを使用すると、nRF5340のFlash ROMに書き込まれているプログラムやデータ等が一括削除できます。<br>
-手順につきましては、別ドキュメント「[nRF5340 DK初期化手順書](../../Markdowns/nRF5340FW/NRFDKINIT.md)」をご参照願います。
+手順につきましては、別ドキュメント「[nRF5340 Flash ROM初期化手順書](../../Markdowns/nRF5340FW/NRFDKINIT.md)」をご参照願います。
 
 ### 書込み
 
