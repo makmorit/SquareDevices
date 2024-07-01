@@ -52,7 +52,7 @@
     status = "disabled";
 };
 &spi4 {
-    status = "disabled";
+    status = "okay";
 };
 &adc {
     status = "disabled";
