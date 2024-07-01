@@ -1,6 +1,6 @@
 # nRF5340開発ボードについて
 
-最終更新日：2024/6/28
+最終更新日：2024/7/1
 
 ## 概要
 
@@ -18,25 +18,25 @@ nRF5340を搭載する開発ボードについての技術情報を掲載して�
 |`P1.13`|SW1|メインスイッチ|業務用プッシュボタン|
 |`P0.25`|SW2|サブスイッチ|予備プッシュボタン|
 |`P0.26`|SW3|サブスイッチ|予備プッシュボタン|
-|`P0.31`|LED1|LED|状態表示用|
-|`P0.18`|LED2|LED|同上|
-|`P0.17`|LED3|LED|同上|
-|`P0.16`|LED4|LED|同上|
+|`P0.31`|LED1|LED|状態表示用（黄緑色）|
+|`P0.18`|LED2|LED|同上（赤色）|
+|`P0.17`|LED3|LED|同上（緑色）|
+|`P0.16`|LED4|LED|同上（青色）|
 |`P1.02`|RTCC-SDA（TWIM_SDA）|RTCCデータ入出力|RTCCモジュールで使用（`i2c1`）|
 |`P1.03`|RTCC-SCL（TWIM_SCL）|RTCCクロック入力|RTCCモジュールで使用（`i2c1`）|
-|`未定`|TFT-LEDA|TFTバックライト制御信号|[超小型TFT液晶ディスプレイ]()で使用|
-|`未定`|TFT-RESET|TFTのリセット|同上|
-|`未定`|TFT-D/C|TFTデータ／コマンド切替え|同上|
-|`未定`|TFT-CS|TFT通信開始|同上|
-|`未定`|TFT-SDA（SPIM_MOSI）|TFTデータ入力|同上（`spi4`）|
-|`未定`|TFT-SCL（SPIM_SCK）|TFTクロック入力|同上（`spi4`）|
+|`P1.11`|TFT-LEDA|TFTバックライト制御信号|[超小型TFT液晶ディスプレイ]()で使用|
+|`P0.13`|TFT-D/C|TFTデータ／コマンド切替え|同上|
+|`P0.14`|TFT-RESET|TFTのリセット|同上|
+|`P0.15`|TFT-CS|TFT通信開始|同上|
+|`P0.9`|TFT-SDA（SPIM_MOSI）|TFTデータ入力|同上（`spi4`）|
+|`P0.8`|TFT-SCL（SPIM_SCK）|TFTクロック入力|同上（`spi4`）|
 |`RESET`|RESET|リセットスイッチ|ファームウェアの強制再起動用|
 |`SWDIO`|SWDIO|書込み用I/O|ファームウェアの直接書込み用|
 |`SWCLK`|SWDCLK|書込み用Clock|同上|
-|`P0.9`|UART_TX|シリアル通信送信|デバッグ出力用（`uart0`）|
-|`P0.8`|UART_RX|シリアル通信受信|デバッグ入力用（`uart0`）|
-|`P0.11`|UART_RTS|シリアル通信制御|予備（`uart0`）|
-|`P0.12`|UART_CTS|シリアル通信制御|予備（`uart0`）|
+|`P0.5`|UART_TX|シリアル通信送信|デバッグ出力用（`uart0`）|
+|`P0.4`|UART_RX|シリアル通信受信|デバッグ入力用（`uart0`）|
+|`P0.2`|UART_RTS|シリアル通信制御|予備（`uart0`）|
+|`P0.3`|UART_CTS|シリアル通信制御|予備（`uart0`）|
 
 #### nRF5340 DK
 
@@ -53,8 +53,8 @@ nRF5340を搭載する開発ボードについての技術情報を掲載して�
 |`P1.02`|RTCC-SDA（TWIM_SDA）|RTCCデータ入出力|RTCCモジュールで使用（`i2c1`）|
 |`P1.03`|RTCC-SCL（TWIM_SCL）|RTCCクロック入力|RTCCモジュールで使用（`i2c1`）|
 |`P1.09`|TFT-LEDA|TFTバックライト制御信号|[超小型TFT液晶ディスプレイ]()で使用|
-|`P1.10`|TFT-RESET|TFTのリセット|同上|
-|`P1.11`|TFT-D/C|TFTデータ／コマンド切替え|同上|
+|`P1.10`|TFT-D/C|TFTデータ／コマンド切替え|同上|
+|`P1.11`|TFT-RESET|TFTのリセット|同上|
 |`P1.12`|TFT-CS|TFT通信開始|同上|
 |`P1.13`|TFT-SDA（SPIM_MOSI）|TFTデータ入力|同上（`spi4`）|
 |`P1.15`|TFT-SCL（SPIM_SCK）|TFTクロック入力|同上（`spi4`）|
