@@ -226,6 +226,30 @@ void app_board_led_light(LED_COLOR led_color, bool led_on)
     }
 }
 
+void app_board_led_test(void)
+{
+    static int status = 0;
+    switch (++status) {
+        case 1:
+            app_board_led_light(LED_COLOR_RED,   true);
+            break;
+        case 2:
+            app_board_led_light(LED_COLOR_RED,   false);
+            app_board_led_light(LED_COLOR_GREEN, true);
+            break;
+        case 3:
+            app_board_led_light(LED_COLOR_GREEN, false);
+            app_board_led_light(LED_COLOR_BLUE,  true);
+            break;
+        default:
+            app_board_led_light(LED_COLOR_RED,   false);
+            app_board_led_light(LED_COLOR_GREEN, false);
+            app_board_led_light(LED_COLOR_BLUE,  false);
+            status = 0;
+            break;
+    }
+}
+
 //
 // ディープスリープ（system off）状態に遷移
 // --> ボタン押下でシステムが再始動
