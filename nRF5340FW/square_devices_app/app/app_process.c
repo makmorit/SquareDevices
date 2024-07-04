@@ -117,7 +117,13 @@ static void button_pressed(APP_EVENT_T event)
 
 static void button_1_pressed(void)
 {
+#if CONFIG_APP_SETTINGS_BUTTON2_LED_TEST
+    // 基板評価のためのテスト処理
+    app_board_led_test();
+#else
+    // 業務関連処理
     wrapper_main_button_pressed_sub();
+#endif
 }
 
 static void led_blink(void)
