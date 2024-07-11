@@ -1731,7 +1731,7 @@ Operating Temperature: - 40 C 〜 + 85 C&lt;br&gt;
 <part name="R4" library="Parts" deviceset="RESISTOR" device="_0402N" value="5.1k"/>
 <part name="R5" library="Parts" deviceset="RESISTOR" device="_0402N" value="330"/>
 <part name="C2" library="Parts" deviceset="CAP" device="_0402N" value="0.1uF"/>
-<part name="R9" library="Parts" deviceset="RESISTOR" device="_0402N" value="10k"/>
+<part name="R9" library="Parts" deviceset="RESISTOR" device="_0402N" value="100"/>
 <part name="CN5" library="Connectors" deviceset="IF_2PIN" device="_H"/>
 <part name="BAT2" library="Connectors" deviceset="BAT-HLD-012-SMT" device=""/>
 <part name="GND5" library="Supply" deviceset="0V" device=""/>
