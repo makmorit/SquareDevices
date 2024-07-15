@@ -28,11 +28,11 @@ config APP_SETTINGS_THREAD_PRIORITY
 	help
 	  Number of scheduling priority used by application thread
 
-config APP_SETTINGS_GENERATE_RSA2048_KEYPAIR
-	bool "Generate RSA-2048 new keypair"
+config APP_SETTINGS_BUTTON2_LED_TEST
+	bool "Use LED test with button2"
 	default n
 	help
-	  Enables generating RSA-2048 new keypair
+	  Enables LED lighting test with second button
 
 #
 # Enable external RTCC
