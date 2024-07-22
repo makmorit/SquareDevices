@@ -395,16 +395,10 @@ CR1216/1225&lt;br&gt;
 <text x="-1.96" y="-4.5" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="HEADER_2PIN">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
 <pad name="1" x="0" y="0" drill="0.889" diameter="1.651" shape="square" rot="R90"/>
 <pad name="2" x="2.54" y="0" drill="0.889" diameter="1.651" rot="R90"/>
-<text x="-1.905" y="-1.27" size="0.889" layer="27" ratio="11" rot="R90">&gt;value</text>
-<text x="5.08" y="-1.27" size="0.889" layer="25" ratio="11" rot="R90">&gt;name</text>
-<rectangle x1="-1.27" y1="-1.27" x2="3.81" y2="1.27" layer="39"/>
+<text x="-1.27" y="1.27" size="0.889" layer="25" ratio="11">&gt;name</text>
+<text x="-1.27" y="-1.27" size="0.889" layer="27" ratio="11" align="top-left">&gt;value</text>
 </package>
 <package name="SOLPAD_2PIN">
 <text x="-1.27" y="1.27" size="0.889" layer="25" ratio="11">&gt;name</text>
@@ -697,7 +691,7 @@ Right Angle, Bottom Contact</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="_H" package="HEADER_2PIN">
+<device name="_SOL" package="SOLPAD_2PIN">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -706,7 +700,7 @@ Right Angle, Bottom Contact</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="_SOL" package="SOLPAD_2PIN">
+<device name="" package="HEADER_2PIN">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -1830,7 +1824,7 @@ Operating Temperature: - 40 C 〜 + 85 C&lt;br&gt;
 <part name="R5" library="Parts" deviceset="RESISTOR" device="_0402N" value="330"/>
 <part name="C2" library="Parts" deviceset="CAP" device="_0402N" value="0.1uF"/>
 <part name="R9" library="Parts" deviceset="RESISTOR" device="_0402N" value="100"/>
-<part name="CN5" library="Connectors" deviceset="IF_2PIN" device="_H"/>
+<part name="CN5" library="Connectors" deviceset="IF_2PIN" device=""/>
 <part name="BAT1" library="Connectors" deviceset="BAT-HLD-012-SMT" device=""/>
 <part name="GND5" library="Supply" deviceset="0V" device=""/>
 <part name="D2" library="Parts" deviceset="PMEG2005" device="BELD,315"/>
