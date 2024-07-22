@@ -2096,10 +2096,10 @@ SCL --&gt; 5
 <text x="167.64" y="8.89" size="3.81" layer="91">Add-in board
 for MDBT53V-DB</text>
 <text x="144.78" y="96.52" size="2.54" layer="91" align="top-left">ボタン電池電源回路</text>
-<text x="144.78" y="54.61" size="1.778" layer="91" align="top-left">ピン対応
+<text x="147.32" y="57.15" size="1.778" layer="91" align="top-left">ピン対応
 MDBT53V_DBのVDD --&gt; 1
 MDBT53V_DBのGND --&gt; 2</text>
-<text x="172.72" y="63.5" size="1.778" layer="91" align="top-left">ボタン電池からMDBT53V-DBに
+<text x="180.34" y="96.52" size="1.778" layer="91" align="top-left">ボタン電池からMDBT53V-DBに
 電源を供給するためのピンです。</text>
 <text x="66.04" y="55.88" size="2.54" layer="91" align="top-left">リセット回路</text>
 </plain>
@@ -2114,21 +2114,24 @@ MDBT53V_DBのGND --&gt; 2</text>
 <instance part="C1" gate="G$1" x="144.78" y="129.54"/>
 <instance part="C2" gate="G$1" x="170.18" y="129.54"/>
 <instance part="R9" gate="G$1" x="175.26" y="134.62"/>
-<instance part="CN5" gate="G$1" x="160.02" y="68.58" smashed="yes" rot="R180">
-<attribute name="VALUE" x="144.78" y="62.23" size="1.778" layer="96"/>
-<attribute name="NAME" x="144.78" y="74.93" size="1.778" layer="95"/>
+<instance part="CN5" gate="G$1" x="193.04" y="68.58" smashed="yes">
+<attribute name="VALUE" x="208.28" y="60.96" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="208.28" y="74.93" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="BAT1" gate="G$1" x="190.5" y="83.82" rot="R180"/>
-<instance part="GND5" gate="1" x="200.66" y="76.2"/>
-<instance part="D2" gate="G$1" x="172.72" y="76.2" smashed="yes" rot="R180">
-<attribute name="NAME" x="169.926" y="78.74" size="1.778" layer="95"/>
-<attribute name="VALUE" x="169.926" y="71.12" size="1.778" layer="96"/>
+<instance part="BAT1" gate="G$1" x="160.02" y="78.74" smashed="yes">
+<attribute name="NAME" x="158.75" y="86.36" size="1.778" layer="95"/>
+<attribute name="VALUE" x="158.75" y="82.55" size="1.778" layer="96"/>
+</instance>
+<instance part="GND5" gate="1" x="147.32" y="68.58"/>
+<instance part="D2" gate="G$1" x="182.88" y="68.58" smashed="yes">
+<attribute name="NAME" x="183.134" y="66.04" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="183.134" y="62.23" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="CN4" gate="G$1" x="96.52" y="96.52" smashed="yes" rot="R180">
 <attribute name="VALUE" x="81.28" y="90.17" size="1.778" layer="96"/>
 <attribute name="NAME" x="81.28" y="110.49" size="1.778" layer="95"/>
 </instance>
-<instance part="GND3" gate="1" x="165.1" y="60.96"/>
+<instance part="GND3" gate="1" x="187.96" y="55.88"/>
 <instance part="SW1" gate="G$1" x="99.06" y="45.72" smashed="yes" rot="R270">
 <attribute name="NAME" x="104.14" y="54.61" size="1.778" layer="95"/>
 <attribute name="VALUE" x="104.14" y="50.8" size="1.778" layer="96"/>
@@ -2159,22 +2162,10 @@ MDBT53V_DBのGND --&gt; 2</text>
 <wire x1="170.18" y1="116.84" x2="170.18" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="BAT1" gate="G$1" pin="-"/>
-<pinref part="GND5" gate="1" pin="0V"/>
-<wire x1="195.58" y1="83.82" x2="200.66" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="83.82" x2="200.66" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="CN4" gate="G$1" pin="1"/>
 <pinref part="GND4" gate="1" pin="0V"/>
 <wire x1="96.52" y1="106.68" x2="121.92" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="106.68" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="CN5" gate="G$1" pin="2"/>
-<pinref part="GND3" gate="1" pin="0V"/>
-<wire x1="160.02" y1="68.58" x2="165.1" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="68.58" x2="165.1" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="S1"/>
@@ -2186,6 +2177,18 @@ MDBT53V_DBのGND --&gt; 2</text>
 <wire x1="106.68" y1="45.72" x2="114.3" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="45.72" x2="114.3" y2="40.64" width="0.1524" layer="91"/>
 <junction x="106.68" y="45.72"/>
+</segment>
+<segment>
+<pinref part="CN5" gate="G$1" pin="1"/>
+<pinref part="GND3" gate="1" pin="0V"/>
+<wire x1="193.04" y1="66.04" x2="187.96" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="66.04" x2="187.96" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="BAT1" gate="G$1" pin="-"/>
+<pinref part="GND5" gate="1" pin="0V"/>
+<wire x1="154.94" y1="78.74" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="78.74" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TWI_SDA" class="0">
@@ -2278,22 +2281,13 @@ MDBT53V_DBのGND --&gt; 2</text>
 </segment>
 <segment>
 <pinref part="BAT1" gate="G$1" pin="+"/>
-<wire x1="185.42" y1="83.82" x2="180.34" y2="83.82" width="0.1524" layer="91"/>
-<label x="165.1" y="83.82" size="1.778" layer="95" rot="R180" xref="yes"/>
-<junction x="180.34" y="83.82"/>
-<wire x1="180.34" y1="83.82" x2="165.1" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="78.74" x2="172.72" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="78.74" x2="193.04" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="78.74" x2="172.72" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="D2" gate="G$1" pin="A"/>
-<wire x1="175.26" y1="76.2" x2="180.34" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="76.2" x2="180.34" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="CN5" gate="G$1" pin="1"/>
-<wire x1="160.02" y1="71.12" x2="165.1" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="71.12" x2="165.1" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="D2" gate="G$1" pin="C"/>
-<wire x1="165.1" y1="76.2" x2="170.18" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="68.58" x2="180.34" y2="68.58" width="0.1524" layer="91"/>
+<label x="193.04" y="78.74" size="1.778" layer="95" xref="yes"/>
+<junction x="172.72" y="78.74"/>
 </segment>
 </net>
 <net name="RESET_NRF" class="0">
@@ -2312,6 +2306,13 @@ MDBT53V_DBのGND --&gt; 2</text>
 <wire x1="91.44" y1="43.18" x2="91.44" y2="45.72" width="0.1524" layer="91"/>
 <label x="83.82" y="45.72" size="1.778" layer="95" rot="R180" xref="yes"/>
 <junction x="91.44" y="45.72"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="CN5" gate="G$1" pin="2"/>
+<pinref part="D2" gate="G$1" pin="C"/>
+<wire x1="193.04" y1="68.58" x2="185.42" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
