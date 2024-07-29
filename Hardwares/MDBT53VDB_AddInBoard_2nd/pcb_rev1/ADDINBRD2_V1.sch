@@ -215,6 +215,7 @@ DIN A4, landscape with location and doc. field</description>
 <text x="217.424" y="20.32" size="1.778" layer="91">MDBT53V-DB Add-in board 2nd</text>
 <text x="167.64" y="8.89" size="3.81" layer="91">Add-in board 2nd
 for MDBT53V-DB</text>
+<text x="129.54" y="152.4" size="3.81" layer="91" align="bottom-center">動作電源投入・遮断回路</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -229,6 +230,7 @@ for MDBT53V-DB</text>
 <text x="217.424" y="20.32" size="1.778" layer="91">MDBT53V-DB Add-in board 2nd</text>
 <text x="167.64" y="8.89" size="3.81" layer="91">Add-in board 2nd
 for MDBT53V-DB</text>
+<text x="129.54" y="152.4" size="3.81" layer="91" align="bottom-center">電源電圧測定回路</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
