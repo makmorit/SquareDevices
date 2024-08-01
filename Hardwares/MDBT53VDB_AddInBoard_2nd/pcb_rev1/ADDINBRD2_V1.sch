@@ -211,6 +211,19 @@ RECTANGULAR TYPE</description>
 <rectangle x1="-0.8" y1="-0.462" x2="-0.5" y2="0.462" layer="51"/>
 <rectangle x1="0.5" y1="-0.462" x2="0.8" y2="0.462" layer="51"/>
 </package>
+<package name="DSN1006-2">
+<description>&lt;b&gt;Ultra small Discretes Silicon No-leads package&lt;/b&gt;&lt;p&gt;
+SOD993&lt;br&gt;
+2 terminals</description>
+<smd name="2" x="0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.1" y1="-0.35" x2="0.55" y2="0.35" layer="29"/>
+<rectangle x1="-0.55" y1="-0.35" x2="-0.1" y2="0.35" layer="29"/>
+<rectangle x1="0.2" y1="-0.25" x2="0.45" y2="0.25" layer="31"/>
+<rectangle x1="-0.45" y1="-0.25" x2="-0.2" y2="0.25" layer="31"/>
+<text x="-0.5" y="0.7" size="0.6" layer="25">&gt;NAME</text>
+<text x="-0.5" y="-0.7" size="0.6" layer="27" align="top-left">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="FUSE">
@@ -226,6 +239,21 @@ RECTANGULAR TYPE</description>
 <text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="SBD">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -250,6 +278,28 @@ Resistance: 130 mOhms</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="PMEG4010" prefix="D">
+<description>&lt;b&gt;Schottky Diode&lt;/b&gt;&lt;p&gt;
+If - Forward Current: 1 A&lt;br&gt;
+Vf - Forward Voltage: 435 mV&lt;br&gt;
+Vr - Reverse Voltage: 40 V&lt;br&gt;
+Ir - Reverse Current: 325 uA&lt;br&gt;
+Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="SBD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="AESBYL" package="DSN1006-2">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="C" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -265,6 +315,7 @@ Resistance: 130 mOhms</description>
 <part name="FRAME1" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="FRAME2" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="F1" library="Parts" deviceset="FCC16" device="102ABTP"/>
+<part name="D1" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
 </parts>
 <sheets>
 <sheet>
@@ -277,6 +328,7 @@ for MDBT53V-DB</text>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="F1" gate="G$1" x="53.34" y="132.08"/>
+<instance part="D1" gate="G$1" x="71.12" y="116.84"/>
 </instances>
 <busses>
 </busses>
