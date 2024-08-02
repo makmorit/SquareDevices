@@ -450,6 +450,41 @@ type 0204, grid 5 mm</description>
 <rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
 <rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
 </package>
+<package name="U-DFN2020-6">
+<description>&lt;b&gt;U-DFN2020-6&lt;/b&gt;&lt;p&gt;
+2 x 2 mm package</description>
+<smd name="3" x="0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="EXP" x="-0.325" y="0" dx="0.95" dy="1.15" layer="1" stop="no" cream="no"/>
+<text x="-1" y="-2" size="0.6" layer="27">&gt;VALUE</text>
+<rectangle x1="0.41" y1="-0.45" x2="0.99" y2="0.45" layer="29"/>
+<rectangle x1="0.51" y1="-0.35" x2="0.89" y2="0.35" layer="31"/>
+<rectangle x1="0.525" y1="-0.975" x2="0.775" y2="-0.75" layer="31"/>
+<text x="-0.975" y="1.4175" size="0.6" layer="25">&gt;NAME</text>
+<rectangle x1="-1.7" y1="-1.7" x2="-1.1" y2="-1.1" layer="21" rot="R90"/>
+<smd name="EXP2" x="0.7" y="0" dx="0.48" dy="0.8" layer="1" stop="no" cream="no"/>
+<wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="51"/>
+<wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="51"/>
+<wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="51"/>
+<wire x1="-1" y1="-1" x2="-1" y2="1" width="0.127" layer="51"/>
+<rectangle x1="-0.75" y1="-0.525" x2="0.1" y2="0.525" layer="31"/>
+<rectangle x1="-0.85" y1="-0.625" x2="0.2" y2="0.625" layer="29"/>
+<rectangle x1="0.45" y1="-1.05" x2="0.85" y2="-0.675" layer="29"/>
+<smd name="1" x="-0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.775" y1="-0.975" x2="-0.525" y2="-0.75" layer="31"/>
+<rectangle x1="-0.85" y1="-1.05" x2="-0.45" y2="-0.675" layer="29"/>
+<smd name="2" x="0" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.125" y1="-0.975" x2="0.125" y2="-0.75" layer="31"/>
+<rectangle x1="-0.2" y1="-1.05" x2="0.2" y2="-0.675" layer="29"/>
+<smd name="4" x="0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="5" x="0" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="6" x="-0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.525" y1="0.75" x2="0.775" y2="0.975" layer="31"/>
+<rectangle x1="-0.125" y1="0.75" x2="0.125" y2="0.975" layer="31"/>
+<rectangle x1="-0.775" y1="0.75" x2="-0.525" y2="0.975" layer="31"/>
+<rectangle x1="0.45" y1="0.675" x2="0.85" y2="1.05" layer="29"/>
+<rectangle x1="-0.2" y1="0.675" x2="0.2" y2="1.05" layer="29"/>
+<rectangle x1="-0.85" y1="0.675" x2="-0.45" y2="1.05" layer="29"/>
+</package>
 </packages>
 <symbols>
 <symbol name="FUSE">
@@ -511,6 +546,43 @@ type 0204, grid 5 mm</description>
 <text x="1.27" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="10.16" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="P-MOSFET">
+<wire x1="0.762" y1="-0.762" x2="0.762" y2="0" width="0.254" layer="94"/>
+<wire x1="0.762" y1="0" x2="0.762" y2="0.762" width="0.254" layer="94"/>
+<wire x1="0.762" y1="-3.175" x2="0.762" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0.762" y1="-2.54" x2="0.762" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0.762" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0.762" y1="1.905" x2="0.762" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0.762" y1="2.54" x2="0.762" y2="3.175" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="0.762" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="0.508" x2="3.81" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="3.81" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0.762" y1="-2.54" x2="3.81" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="3.048" y1="0.762" x2="3.302" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="3.302" y1="0.508" x2="3.81" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="0.508" x2="4.318" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="4.318" y1="0.508" x2="4.572" y2="0.254" width="0.1524" layer="94"/>
+<circle x="2.54" y="2.54" radius="0.3592" width="0" layer="94"/>
+<circle x="2.54" y="-2.54" radius="0.3592" width="0" layer="94"/>
+<text x="-11.43" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-11.43" y="-1.27" size="1.778" layer="95">&gt;NAME</text>
+<pin name="S" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="G" x="-2.54" y="2.54" visible="off" length="short" direction="pas"/>
+<pin name="D" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<polygon width="0.1524" layer="94">
+<vertex x="3.81" y="0.508"/>
+<vertex x="4.318" y="-0.254"/>
+<vertex x="3.302" y="-0.254"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="2.54" y="0"/>
+<vertex x="1.524" y="0.762"/>
+<vertex x="1.524" y="-0.762"/>
+</polygon>
 </symbol>
 </symbols>
 <devicesets>
@@ -683,6 +755,29 @@ Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="DMP2035" prefix="Q">
+<description>&lt;b&gt; P-CHANNEL ENHANCEMENT MODE MOSFET&lt;/b&gt;&lt;p&gt;
+Vds - Drain-Source Breakdown Voltage: 20 V&lt;br&gt;
+Id - Continuous Drain Current: 6.9 A&lt;br&gt;
+Rds On - Drain-Source Resistance: 120 mOhms&lt;br&gt;
+Vgs th - Gate-Source Threshold Voltage: 1 V&lt;br&gt;
+Operating Temperature: from - 55 C to + 150 C</description>
+<gates>
+<gate name="G$1" symbol="P-MOSFET" x="0" y="0"/>
+</gates>
+<devices>
+<device name="UFDF-7" package="U-DFN2020-6">
+<connects>
+<connect gate="G$1" pin="D" pad="1 2 5 6 EXP"/>
+<connect gate="G$1" pin="G" pad="3"/>
+<connect gate="G$1" pin="S" pad="4 EXP2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="Supply">
@@ -730,6 +825,7 @@ Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
 <part name="GND2" library="Supply" deviceset="0V" device=""/>
 <part name="R1" library="Parts" deviceset="RESISTOR" device="_0402N" value="5.1k"/>
 <part name="D2" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
+<part name="Q1" library="Parts" deviceset="DMP2035" device="UFDF-7"/>
 </parts>
 <sheets>
 <sheet>
@@ -754,6 +850,7 @@ for MDBT53V-DB</text>
 <instance part="GND2" gate="1" x="91.44" y="81.28"/>
 <instance part="R1" gate="G$1" x="88.9" y="114.3" rot="R90"/>
 <instance part="D2" gate="G$1" x="127" y="132.08"/>
+<instance part="Q1" gate="G$1" x="106.68" y="132.08"/>
 </instances>
 <busses>
 </busses>
