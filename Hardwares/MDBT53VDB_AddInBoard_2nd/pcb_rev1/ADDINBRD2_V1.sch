@@ -454,7 +454,7 @@ type 0204, grid 5 mm</description>
 <description>&lt;b&gt;U-DFN2020-6&lt;/b&gt;&lt;p&gt;
 2 x 2 mm package</description>
 <smd name="3" x="0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<smd name="EXP" x="-0.325" y="0" dx="0.95" dy="1.15" layer="1" stop="no" cream="no"/>
+<smd name="EXP" x="-0.325" y="0" dx="0.95" dy="1" layer="1" stop="no" cream="no"/>
 <text x="-1" y="-2" size="0.6" layer="27">&gt;VALUE</text>
 <rectangle x1="0.41" y1="-0.45" x2="0.99" y2="0.45" layer="29"/>
 <rectangle x1="0.51" y1="-0.35" x2="0.89" y2="0.35" layer="31"/>
@@ -466,8 +466,8 @@ type 0204, grid 5 mm</description>
 <wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="51"/>
 <wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="51"/>
 <wire x1="-1" y1="-1" x2="-1" y2="1" width="0.127" layer="51"/>
-<rectangle x1="-0.75" y1="-0.525" x2="0.1" y2="0.525" layer="31"/>
-<rectangle x1="-0.85" y1="-0.625" x2="0.2" y2="0.625" layer="29"/>
+<rectangle x1="-0.75" y1="-0.45" x2="0.1" y2="0.45" layer="31"/>
+<rectangle x1="-0.85" y1="-0.575" x2="0.2" y2="0.575" layer="29"/>
 <rectangle x1="0.45" y1="-1.05" x2="0.85" y2="-0.675" layer="29"/>
 <smd name="1" x="-0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
 <rectangle x1="-0.775" y1="-0.975" x2="-0.525" y2="-0.75" layer="31"/>
