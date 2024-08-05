@@ -530,14 +530,14 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <wire x1="0.6" y1="0.8" x2="0.6" y2="-0.8" width="0.127" layer="51"/>
 <wire x1="0.6" y1="-0.8" x2="-0.6" y2="-0.8" width="0.127" layer="51"/>
 <wire x1="-0.6" y1="-0.8" x2="-0.6" y2="0.8" width="0.127" layer="51"/>
-<smd name="1" x="-0.74" y="0.5" dx="0.67" dy="0.3" layer="1" roundness="25" stop="no" cream="no"/>
-<rectangle x1="-1.04" y1="0.38" x2="-0.44" y2="0.62" layer="31"/>
+<smd name="1" x="-0.74" y="0.5" dx="0.67" dy="0.28" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="-1.04" y1="0.39" x2="-0.44" y2="0.61" layer="31"/>
 <rectangle x1="-1.12" y1="0.3" x2="-0.35" y2="0.7" layer="29"/>
-<smd name="2" x="-0.74" y="0" dx="0.67" dy="0.3" layer="1" roundness="25" stop="no" cream="no"/>
-<smd name="3" x="-0.74" y="-0.5" dx="0.67" dy="0.3" layer="1" roundness="25" stop="no" cream="no"/>
+<smd name="2" x="-0.74" y="0" dx="0.67" dy="0.28" layer="1" roundness="25" stop="no" cream="no"/>
+<smd name="3" x="-0.74" y="-0.5" dx="0.67" dy="0.28" layer="1" roundness="25" stop="no" cream="no"/>
 <rectangle x1="-0.8" y1="0.4" x2="-0.6" y2="0.6" layer="51"/>
-<rectangle x1="-1.04" y1="-0.12" x2="-0.44" y2="0.12" layer="31"/>
-<rectangle x1="-1.04" y1="-0.62" x2="-0.44" y2="-0.38" layer="31"/>
+<rectangle x1="-1.04" y1="-0.11" x2="-0.44" y2="0.11" layer="31"/>
+<rectangle x1="-1.04" y1="-0.61" x2="-0.44" y2="-0.39" layer="31"/>
 <rectangle x1="-1.12" y1="-0.2" x2="-0.35" y2="0.2" layer="29"/>
 <rectangle x1="-1.12" y1="-0.7" x2="-0.35" y2="-0.3" layer="29"/>
 <rectangle x1="-0.8" y1="-0.1" x2="-0.6" y2="0.1" layer="51"/>
