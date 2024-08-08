@@ -460,7 +460,6 @@ type 0204, grid 5 mm</description>
 <rectangle x1="0.51" y1="-0.35" x2="0.89" y2="0.35" layer="31"/>
 <rectangle x1="0.525" y1="-0.975" x2="0.775" y2="-0.75" layer="31"/>
 <text x="-0.975" y="1.4175" size="0.6" layer="25">&gt;NAME</text>
-<rectangle x1="-1.7" y1="-1.7" x2="-1.1" y2="-1.1" layer="21" rot="R90"/>
 <smd name="EXP2" x="0.7" y="0" dx="0.48" dy="0.8" layer="1" stop="no" cream="no"/>
 <wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="51"/>
 <wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="51"/>
@@ -484,6 +483,7 @@ type 0204, grid 5 mm</description>
 <rectangle x1="0.45" y1="0.675" x2="0.85" y2="1.05" layer="29"/>
 <rectangle x1="-0.2" y1="0.675" x2="0.2" y2="1.05" layer="29"/>
 <rectangle x1="-0.85" y1="0.675" x2="-0.45" y2="1.05" layer="29"/>
+<circle x="-1.4" y="-1.4" radius="0.3" width="0" layer="21"/>
 </package>
 <package name="SC-70-5_DEV">
 <description>&lt;b&gt;SC-70-5&lt;/b&gt;&lt;p&gt;
