@@ -552,6 +552,27 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <rectangle x1="0.35" y1="-0.7" x2="1.12" y2="-0.3" layer="29"/>
 <circle x="-1" y="1.3" radius="0.3" width="0" layer="21"/>
 </package>
+<package name="DFN1010D-3">
+<description>&lt;b&gt;DFN1010D-3&lt;/b&gt;&lt;p&gt;
+1.1 x 1 mm package&lt;br&gt;
+(SOT1215)</description>
+<text x="-0.5" y="-1.5" size="0.6" layer="27">&gt;VALUE</text>
+<text x="0.3" y="1.1" size="0.6" layer="25" align="bottom-right">&gt;NAME</text>
+<wire x1="-0.55" y1="0.5" x2="0.55" y2="0.5" width="0.127" layer="51"/>
+<wire x1="0.55" y1="0.5" x2="0.55" y2="-0.5" width="0.127" layer="51"/>
+<wire x1="0.55" y1="-0.5" x2="-0.55" y2="-0.5" width="0.127" layer="51"/>
+<wire x1="-0.55" y1="-0.5" x2="-0.55" y2="0.5" width="0.127" layer="51"/>
+<smd name="1" x="0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.25" y1="0.3" x2="0.5" y2="0.6" layer="31"/>
+<rectangle x1="0.15" y1="0.2" x2="0.6" y2="0.7" layer="29"/>
+<smd name="3" x="0" y="-0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.125" y1="-0.6" x2="0.125" y2="-0.3" layer="31"/>
+<rectangle x1="-0.225" y1="-0.7" x2="0.225" y2="-0.2" layer="29"/>
+<smd name="2" x="-0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.5" y1="0.3" x2="-0.25" y2="0.6" layer="31"/>
+<rectangle x1="-0.6" y1="0.2" x2="-0.15" y2="0.7" layer="29"/>
+<circle x="0.9" y="1.1" radius="0.25" width="0" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="FUSE">
@@ -669,6 +690,25 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <wire x1="22.86" y1="0" x2="24.13" y2="0" width="0.6096" layer="94"/>
 <pin name="VCC" x="27.94" y="0" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="Y" x="27.94" y="-5.08" length="middle" direction="out" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="NPN">
+<wire x1="5.08" y1="2.54" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="4.572" y2="-2.032" width="0.1524" layer="94"/>
+<wire x1="4.572" y1="-2.032" x2="4.826" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="4.318" y1="-1.016" x2="4.826" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="4.826" y1="-2.286" x2="5.08" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="4.826" y1="-2.286" x2="3.556" y2="-1.778" width="0.1524" layer="94"/>
+<wire x1="3.556" y1="-1.778" x2="4.318" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="4.572" y1="-2.032" x2="4.318" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="4.318" y1="-1.27" x2="3.81" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-1.778" x2="4.572" y2="-2.032" width="0.254" layer="94"/>
+<wire x1="4.064" y1="-1.778" x2="4.318" y2="-1.524" width="0.254" layer="94"/>
+<text x="7.62" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="7.62" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="2.159" y1="-2.54" x2="2.921" y2="2.54" layer="94"/>
+<pin name="B" x="0" y="0" visible="off" length="short" direction="pas"/>
+<pin name="E" x="5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="C" x="5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -903,6 +943,24 @@ Operating Temperature: from - 55 C to + 150 C</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="BC817" prefix="Q">
+<description>&lt;b&gt;NPN general-purpose transistor&lt;/b&gt;&lt;p&gt;</description>
+<gates>
+<gate name="G$1" symbol="NPN" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="-40QA" package="DFN1010D-3">
+<connects>
+<connect gate="G$1" pin="B" pad="1"/>
+<connect gate="G$1" pin="C" pad="3"/>
+<connect gate="G$1" pin="E" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="Supply">
@@ -952,6 +1010,7 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <part name="D2" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
 <part name="Q1" library="Parts" deviceset="DMP2035" device="UFDF-7"/>
 <part name="U1" library="Parts" deviceset="SN74AHC1G00" device="DRLR"/>
+<part name="Q2" library="Parts" deviceset="BC817" device="-40QA"/>
 </parts>
 <sheets>
 <sheet>
@@ -978,6 +1037,7 @@ for MDBT53V-DB</text>
 <instance part="D2" gate="G$1" x="127" y="132.08"/>
 <instance part="Q1" gate="G$1" x="106.68" y="132.08"/>
 <instance part="U1" gate="G$1" x="144.78" y="104.14"/>
+<instance part="Q2" gate="G$1" x="203.2" y="99.06"/>
 </instances>
 <busses>
 </busses>
