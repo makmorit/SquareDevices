@@ -21,13 +21,12 @@ https://www.nordicsemi.com/Products/Development-hardware/nrf5340-dk
 - その他、LED3点（３色LED想定）、ボタン２点（タクトスイッチ想定）を装備
 - USB接続についてはサポート無し
 
+## 製作中の基板
+
 ### [MDBT53V-DB用拡張基板](../../Markdowns/Hardwares/MDBT53VDBEXT.md)
 
 MDBT53V-DBに、超小型TFTディスプレイ、RTCC（リアルタイムクロック・カレンダー）を接続するための拡張基板です。
 
-## 製作中の基板
+### [MDBT53V-DB用拡張基板２](../../Markdowns/Hardwares/MDBT53VDBEXT2.md)
 
-### [MDBT53 Slim Board](../../Hardwares/MDBT53SlimBoard)
-Nordic社のSoC「nRF5340」を使用したBLEデバイスです。<br>
-日本国内の技適取得済みであるnRF5340搭載モジュール「MDBT53」を使用します。<br>
-小型ボタン乾電池（CR1225）で駆動し、BLEペリフェラルデバイスとして動作します。
+MDBT53V-DBに、電源スイッチ／電源電圧測定回路を接続するための拡張基板です。
