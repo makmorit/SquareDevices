@@ -1012,8 +1012,8 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <part name="U1" library="Parts" deviceset="SN74AHC1G00" device="DRLR"/>
 <part name="Q2" library="Parts" deviceset="BC817" device="-40QA"/>
 <part name="GND3" library="Supply" deviceset="0V" device=""/>
-<part name="R2" library="Parts" deviceset="RESISTOR" device="_0402N" value="10k"/>
-<part name="R3" library="Parts" deviceset="RESISTOR" device="_0402N" value="100k"/>
+<part name="R2" library="Parts" deviceset="RESISTOR" device="_0402N" value="5.1k"/>
+<part name="R3" library="Parts" deviceset="RESISTOR" device="_0402N" value="51k"/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
 </parts>
 <sheets>
@@ -1023,6 +1023,13 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <text x="167.64" y="8.89" size="3.81" layer="91">Add-in board 2nd
 for MDBT53V-DB</text>
 <text x="129.54" y="152.4" size="3.81" layer="91" align="bottom-center">動作電源投入・遮断回路</text>
+<text x="78.74" y="99.06" size="1.778" layer="91" align="top-left">動作電源投入：
+タクトスイッチを約１秒間押し続けると
+VINに電源が供給されます。</text>
+<text x="78.74" y="40.64" size="1.778" layer="91" align="top-left">動作電源遮断：
+PWR_OFFにHIGHを入力すると、
+PWR_Gが閉塞され、VINに電源が
+供給されなくなります。</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
