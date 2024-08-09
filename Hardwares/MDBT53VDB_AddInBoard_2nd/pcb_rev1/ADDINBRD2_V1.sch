@@ -989,6 +989,110 @@ Operating Temperature: from - 55 C to + 150 C</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="ICs">
+<packages>
+<package name="RSE0008A">
+<description>&lt;b&gt;UQFN&lt;/b&gt;&lt;p&gt;
+PLASTIC QUAD FLATPACK - NO LEAD</description>
+<text x="-0.4" y="-2" size="0.6" layer="27">&gt;VALUE</text>
+<text x="-0.4" y="1.4" size="0.6" layer="25">&gt;NAME</text>
+<wire x1="-0.75" y1="0.75" x2="0.75" y2="0.75" width="0.127" layer="51"/>
+<wire x1="0.75" y1="0.75" x2="0.75" y2="-0.75" width="0.127" layer="51"/>
+<wire x1="0.75" y1="-0.75" x2="-0.75" y2="-0.75" width="0.127" layer="51"/>
+<wire x1="-0.75" y1="-0.75" x2="-0.75" y2="0.75" width="0.127" layer="51"/>
+<smd name="1" x="-0.675" y="0.5" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="-0.92" y1="0.4" x2="-0.43" y2="0.6" layer="31"/>
+<rectangle x1="-1" y1="0.33" x2="-0.35" y2="0.68" layer="29"/>
+<smd name="2" x="-0.675" y="0" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<smd name="3" x="-0.675" y="-0.5" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="-0.92" y1="-0.1" x2="-0.43" y2="0.1" layer="31"/>
+<rectangle x1="-0.92" y1="-0.6" x2="-0.43" y2="-0.4" layer="31"/>
+<rectangle x1="-1" y1="-0.175" x2="-0.35" y2="0.175" layer="29"/>
+<rectangle x1="-1" y1="-0.68" x2="-0.35" y2="-0.33" layer="29"/>
+<rectangle x1="-0.75" y1="-0.625" x2="-0.4" y2="-0.375" layer="51"/>
+<circle x="-1" y="1.3" radius="0.3" width="0" layer="21"/>
+<rectangle x1="-0.75" y1="-0.1" x2="-0.4" y2="0.1" layer="51"/>
+<rectangle x1="-0.75" y1="0.375" x2="-0.4" y2="0.625" layer="51"/>
+<rectangle x1="0.4" y1="-0.1" x2="0.75" y2="0.1" layer="51"/>
+<rectangle x1="0.4" y1="0.375" x2="0.75" y2="0.625" layer="51"/>
+<rectangle x1="0.4" y1="-0.625" x2="0.75" y2="-0.375" layer="51"/>
+<rectangle x1="-0.15" y1="0.35" x2="0.15" y2="0.75" layer="51"/>
+<rectangle x1="-0.15" y1="-0.75" x2="0.15" y2="-0.35" layer="51"/>
+<smd name="4" x="0" y="-0.65" dx="0.3" dy="0.6" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="-0.2" y1="-1" x2="0.2" y2="-0.3" layer="29"/>
+<rectangle x1="-0.12" y1="-0.92" x2="0.12" y2="-0.38" layer="31"/>
+<smd name="5" x="0.675" y="-0.5" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<smd name="6" x="0.675" y="0" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<smd name="7" x="0.675" y="0.5" dx="0.55" dy="0.25" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="0.35" y1="-0.68" x2="1" y2="-0.33" layer="29"/>
+<rectangle x1="0.35" y1="-0.18" x2="1" y2="0.17" layer="29"/>
+<rectangle x1="0.35" y1="0.32" x2="1" y2="0.67" layer="29"/>
+<rectangle x1="0.43" y1="0.4" x2="0.92" y2="0.6" layer="31"/>
+<rectangle x1="0.43" y1="-0.1" x2="0.92" y2="0.1" layer="31"/>
+<rectangle x1="0.43" y1="-0.6" x2="0.92" y2="-0.4" layer="31"/>
+<smd name="8" x="0" y="0.65" dx="0.3" dy="0.6" layer="1" roundness="25" stop="no" cream="no"/>
+<rectangle x1="-0.12" y1="0.38" x2="0.12" y2="0.92" layer="31"/>
+<rectangle x1="-0.2" y1="0.3" x2="0.2" y2="1" layer="29"/>
+</package>
+</packages>
+<symbols>
+<symbol name="REF33">
+<description>&lt;b&gt;Voltage Reference&lt;/b&gt;&lt;p&gt;</description>
+<wire x1="12.065" y1="-5.08" x2="-12.065" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-11.43" y1="5.08" x2="-10.16" y2="5.08" width="0.6096" layer="94"/>
+<wire x1="-11.43" y1="-2.54" x2="-10.16" y2="-2.54" width="0.6096" layer="94"/>
+<wire x1="-12.065" y1="7.62" x2="-12.065" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="12.065" y1="-5.08" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="-12.065" y1="7.62" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
+<text x="-12.7" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-12.7" y="8.89" size="1.778" layer="95">&gt;NAME</text>
+<pin name="GND" x="-15.24" y="-2.54" length="middle" direction="pas" swaplevel="1"/>
+<pin name="NC3" x="15.24" y="0" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="NC0" x="-15.24" y="5.08" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="10.16" y1="0" x2="11.43" y2="0" width="0.6096" layer="94"/>
+<wire x1="10.16" y1="-2.54" x2="11.43" y2="-2.54" width="0.6096" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="11.43" y2="5.08" width="0.6096" layer="94"/>
+<pin name="OUT" x="15.24" y="5.08" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="IN" x="15.24" y="-2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="NC1" x="-15.24" y="2.54" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="-11.43" y1="2.54" x2="-10.16" y2="2.54" width="0.6096" layer="94"/>
+<pin name="NC2" x="-15.24" y="0" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="-11.43" y1="0" x2="-10.16" y2="0" width="0.6096" layer="94"/>
+<pin name="NC4" x="15.24" y="2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<wire x1="10.16" y1="2.54" x2="11.43" y2="2.54" width="0.6096" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="REF33" prefix="U">
+<description>&lt;b&gt;Voltage Reference&lt;/b&gt;&lt;p&gt;
+Output Voltage:	2.5 V&lt;br&gt;
+Initial Accuracy:	0.15 %&lt;br&gt;
+Temperature Coefficient:	30 PPM / C&lt;br&gt;
+Series VREF - Input Voltage - Max:	5.5 V&lt;br&gt;
+Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="REF33" x="-15.24" y="0"/>
+</gates>
+<devices>
+<device name="25AIRSER" package="RSE0008A">
+<connects>
+<connect gate="G$1" pin="GND" pad="4"/>
+<connect gate="G$1" pin="IN" pad="5"/>
+<connect gate="G$1" pin="NC0" pad="1"/>
+<connect gate="G$1" pin="NC1" pad="2"/>
+<connect gate="G$1" pin="NC2" pad="3"/>
+<connect gate="G$1" pin="NC3" pad="6"/>
+<connect gate="G$1" pin="NC4" pad="7"/>
+<connect gate="G$1" pin="OUT" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1015,6 +1119,7 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <part name="R2" library="Parts" deviceset="RESISTOR" device="_0402N" value="5.1k"/>
 <part name="R3" library="Parts" deviceset="RESISTOR" device="_0402N" value="51k"/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
+<part name="U2" library="ICs" deviceset="REF33" device="25AIRSER"/>
 </parts>
 <sheets>
 <sheet>
@@ -1208,6 +1313,7 @@ for MDBT53V-DB</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
+<instance part="U2" gate="G$1" x="81.28" y="119.38"/>
 </instances>
 <busses>
 </busses>
