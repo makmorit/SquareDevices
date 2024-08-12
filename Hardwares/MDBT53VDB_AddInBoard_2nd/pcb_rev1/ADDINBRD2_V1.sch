@@ -1093,6 +1093,72 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SMDs">
+<packages>
+<package name="C0402">
+<wire x1="-0.425" y1="0.2" x2="0.425" y2="0.2" width="0.1016" layer="51"/>
+<wire x1="0.425" y1="-0.2" x2="-0.425" y2="-0.2" width="0.1016" layer="51"/>
+<smd name="1" x="-0.65" y="0" dx="0.925" dy="0.7" layer="1"/>
+<smd name="2" x="0.65" y="0" dx="0.925" dy="0.7" layer="1"/>
+<text x="-1.1" y="0.7" size="0.6" layer="25">&gt;NAME</text>
+<text x="-1.1" y="-1.3" size="0.6" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
+<rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CAP">
+<wire x1="0" y1="-2.54" x2="0" y2="-3.048" width="0.1524" layer="94"/>
+<wire x1="0" y1="-5.08" x2="0" y2="-4.572" width="0.1524" layer="94"/>
+<text x="1.524" y="-2.159" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.524" y="-7.239" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-1.524" y1="-4.572" x2="1.524" y2="-4.064" layer="94"/>
+<rectangle x1="-1.524" y1="-3.556" x2="1.524" y2="-3.048" layer="94"/>
+<pin name="1" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="2" x="0" y="-7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="JMK105BBJ" prefix="C" uservalue="yes">
+<description>&lt;b&gt;MLCC&lt;/b&gt;&lt;p&gt;
+TAIYO YUDEN&lt;br&gt;
+Multilayer Ceramic Capacitors</description>
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="475MVHF" package="C0402">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="GRM155" prefix="C" uservalue="yes">
+<description>&lt;b&gt;MLCC&lt;/b&gt;&lt;p&gt;
+Murata Electronics&lt;br&gt;
+Multilayer Ceramic Capacitors</description>
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="R70J105KA12J" package="C0402">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1120,6 +1186,14 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <part name="R3" library="Parts" deviceset="RESISTOR" device="_0402N" value="51k"/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
 <part name="U2" library="ICs" deviceset="REF33" device="25AIRSER"/>
+<part name="R4" library="Parts" deviceset="RESISTOR" device="_0402N"/>
+<part name="R5" library="Parts" deviceset="RESISTOR" device="_0402N"/>
+<part name="GND5" library="Supply" deviceset="0V" device=""/>
+<part name="GND6" library="Supply" deviceset="0V" device=""/>
+<part name="GND7" library="Supply" deviceset="0V" device=""/>
+<part name="GND8" library="Supply" deviceset="0V" device=""/>
+<part name="C1" library="SMDs" deviceset="JMK105BBJ" device="475MVHF" value="4.7uF"/>
+<part name="C2" library="SMDs" deviceset="GRM155" device="R70J105KA12J" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -1310,14 +1384,87 @@ PWR_Gが閉塞され、VINに電源が
 <text x="167.64" y="8.89" size="3.81" layer="91">Add-in board 2nd
 for MDBT53V-DB</text>
 <text x="129.54" y="152.4" size="3.81" layer="91" align="bottom-center">電源電圧測定回路</text>
+<text x="48.26" y="142.24" size="2.54" layer="91" align="top-left">電源電圧分圧</text>
+<text x="48.26" y="106.68" size="2.54" layer="91" align="top-left">基準電圧生成（2.5V）</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
-<instance part="U2" gate="G$1" x="81.28" y="119.38"/>
+<instance part="U2" gate="G$1" x="76.2" y="86.36"/>
+<instance part="R4" gate="G$1" x="68.58" y="127"/>
+<instance part="R5" gate="G$1" x="96.52" y="127"/>
+<instance part="GND5" gate="1" x="114.3" y="116.84"/>
+<instance part="GND6" gate="1" x="53.34" y="73.66"/>
+<instance part="GND7" gate="1" x="96.52" y="58.42"/>
+<instance part="GND8" gate="1" x="109.22" y="58.42"/>
+<instance part="C1" gate="G$1" x="96.52" y="76.2"/>
+<instance part="C2" gate="G$1" x="109.22" y="76.2"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="VIN" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="127" x2="60.96" y2="127" width="0.1524" layer="91"/>
+<label x="60.96" y="127" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="IN"/>
+<wire x1="91.44" y1="83.82" x2="96.52" y2="83.82" width="0.1524" layer="91"/>
+<label x="119.38" y="83.82" size="1.778" layer="95" xref="yes"/>
+<wire x1="96.52" y1="83.82" x2="119.38" y2="83.82" width="0.1524" layer="91"/>
+<junction x="96.52" y="83.82"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="96.52" y1="83.82" x2="96.52" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="AVBAT" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="127" x2="86.36" y2="127" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="127" x2="96.52" y2="127" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="127" x2="86.36" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="134.62" x2="104.14" y2="134.62" width="0.1524" layer="91"/>
+<junction x="86.36" y="127"/>
+<label x="104.14" y="134.62" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="0V" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="GND5" gate="1" pin="0V"/>
+<wire x1="106.68" y1="127" x2="114.3" y2="127" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="127" x2="114.3" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="GND"/>
+<pinref part="GND6" gate="1" pin="0V"/>
+<wire x1="60.96" y1="83.82" x2="53.34" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="83.82" x2="53.34" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="GND7" gate="1" pin="0V"/>
+<wire x1="96.52" y1="68.58" x2="96.52" y2="60.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="GND8" gate="1" pin="0V"/>
+<wire x1="109.22" y1="68.58" x2="109.22" y2="60.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="AVREF" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="OUT"/>
+<wire x1="91.44" y1="91.44" x2="109.22" y2="91.44" width="0.1524" layer="91"/>
+<label x="121.92" y="91.44" size="1.778" layer="95" xref="yes"/>
+<wire x1="109.22" y1="91.44" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
+<junction x="109.22" y="91.44"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="91.44" x2="109.22" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
