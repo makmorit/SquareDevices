@@ -757,32 +757,24 @@ PLASTIC QUAD FLATPACK - NO LEAD</description>
 <pin name="NC4" x="15.24" y="2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <wire x1="10.16" y1="2.54" x2="11.43" y2="2.54" width="0.6096" layer="94"/>
 </symbol>
-<symbol name="MCP6232">
-<description>&lt;b&gt;Rail-to-Rail Op Amp&lt;/b&gt;&lt;p&gt;</description>
-<wire x1="12.065" y1="-7.62" x2="-12.065" y2="-7.62" width="0.4064" layer="94"/>
-<wire x1="-11.43" y1="2.54" x2="-10.16" y2="2.54" width="0.6096" layer="94"/>
-<wire x1="-11.43" y1="-5.08" x2="-10.16" y2="-5.08" width="0.6096" layer="94"/>
-<wire x1="-12.065" y1="7.62" x2="-12.065" y2="-7.62" width="0.4064" layer="94"/>
-<wire x1="12.065" y1="-7.62" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
-<wire x1="-12.065" y1="7.62" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
-<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-12.7" y="8.89" size="1.778" layer="95">&gt;NAME</text>
-<pin name="VSS" x="-15.24" y="-5.08" length="middle" direction="pas" swaplevel="1"/>
-<pin name="VINB-" x="15.24" y="-2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="VOUTA" x="-15.24" y="2.54" length="middle" direction="pas" swaplevel="1"/>
-<wire x1="10.16" y1="-2.54" x2="11.43" y2="-2.54" width="0.6096" layer="94"/>
-<wire x1="10.16" y1="-5.08" x2="11.43" y2="-5.08" width="0.6096" layer="94"/>
-<wire x1="10.16" y1="2.54" x2="11.43" y2="2.54" width="0.6096" layer="94"/>
-<pin name="VDD" x="15.24" y="2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="VINB+" x="15.24" y="-5.08" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="VINA-" x="-15.24" y="0" length="middle" direction="pas" swaplevel="1"/>
-<wire x1="-11.43" y1="0" x2="-10.16" y2="0" width="0.6096" layer="94"/>
-<pin name="VINA+" x="-15.24" y="-2.54" length="middle" direction="pas" swaplevel="1"/>
-<wire x1="-11.43" y1="-2.54" x2="-10.16" y2="-2.54" width="0.6096" layer="94"/>
-<pin name="VOUTB" x="15.24" y="0" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<wire x1="10.16" y1="0" x2="11.43" y2="0" width="0.6096" layer="94"/>
-<pin name="EP" x="15.24" y="5.08" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<wire x1="10.16" y1="5.08" x2="11.43" y2="5.08" width="0.6096" layer="94"/>
+<symbol name="OP">
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.032" y1="2.54" x2="-1.016" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="3.048" x2="-1.524" y2="2.032" width="0.1524" layer="94"/>
+<wire x1="-2.032" y1="-2.54" x2="-1.016" y2="-2.54" width="0.1524" layer="94"/>
+<text x="3.81" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="3.81" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="IN+" x="-5.08" y="2.54" visible="pad" length="short" direction="in"/>
+<pin name="IN-" x="-5.08" y="-2.54" visible="pad" length="short" direction="in"/>
+<pin name="OUT" x="10.16" y="0" visible="pad" length="short" direction="out" rot="R180"/>
+</symbol>
+<symbol name="PWR+-">
+<text x="1.27" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.27" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="V+" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
+<pin name="V-" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -819,20 +811,21 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 Microchip&lt;br&gt;
 2 Channel Rail to Rail Operational Amplifier</description>
 <gates>
-<gate name="G$1" symbol="MCP6232" x="0" y="0"/>
+<gate name="A" symbol="OP" x="-10.16" y="7.62"/>
+<gate name="B" symbol="OP" x="-10.16" y="-7.62"/>
+<gate name="P" symbol="PWR+-" x="7.62" y="0"/>
 </gates>
 <devices>
 <device name="T-E/MNY" package="TDFN-2X3">
 <connects>
-<connect gate="G$1" pin="EP" pad="9"/>
-<connect gate="G$1" pin="VDD" pad="8"/>
-<connect gate="G$1" pin="VINA+" pad="3"/>
-<connect gate="G$1" pin="VINA-" pad="2"/>
-<connect gate="G$1" pin="VINB+" pad="5"/>
-<connect gate="G$1" pin="VINB-" pad="6"/>
-<connect gate="G$1" pin="VOUTA" pad="1"/>
-<connect gate="G$1" pin="VOUTB" pad="7"/>
-<connect gate="G$1" pin="VSS" pad="4"/>
+<connect gate="A" pin="IN+" pad="3"/>
+<connect gate="A" pin="IN-" pad="2"/>
+<connect gate="A" pin="OUT" pad="1"/>
+<connect gate="B" pin="IN+" pad="5"/>
+<connect gate="B" pin="IN-" pad="6"/>
+<connect gate="B" pin="OUT" pad="7"/>
+<connect gate="P" pin="V+" pad="8"/>
+<connect gate="P" pin="V-" pad="4 9"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1315,7 +1308,12 @@ for MDBT53V-DB</text>
 <instance part="C2" gate="G$1" x="109.22" y="73.66"/>
 <instance part="R4" gate="G$1" x="81.28" y="127"/>
 <instance part="R5" gate="G$1" x="109.22" y="127"/>
-<instance part="U3" gate="G$1" x="193.04" y="127"/>
+<instance part="U3" gate="A" x="167.64" y="119.38" smashed="yes">
+<attribute name="NAME" x="171.45" y="123.19" size="1.778" layer="95"/>
+<attribute name="VALUE" x="171.45" y="114.3" size="1.778" layer="96"/>
+</instance>
+<instance part="U3" gate="B" x="167.64" y="88.9"/>
+<instance part="U3" gate="P" x="187.96" y="101.6"/>
 </instances>
 <busses>
 </busses>
