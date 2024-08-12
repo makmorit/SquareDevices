@@ -1105,17 +1105,38 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
 <rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
 </package>
+<package name="R0402N">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
+<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
+<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
+<smd name="1" x="-0.7" y="0" dx="0.8" dy="0.7" layer="1"/>
+<smd name="2" x="0.7" y="0" dx="0.8" dy="0.7" layer="1"/>
+<text x="-0.5" y="0.7" size="0.6" layer="25">&gt;NAME</text>
+<text x="-0.5" y="-1.3" size="0.6" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
+<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
-<wire x1="0" y1="-2.54" x2="0" y2="-3.048" width="0.1524" layer="94"/>
-<wire x1="0" y1="-5.08" x2="0" y2="-4.572" width="0.1524" layer="94"/>
-<text x="1.524" y="-2.159" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.524" y="-7.239" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-1.524" y1="-4.572" x2="1.524" y2="-4.064" layer="94"/>
-<rectangle x1="-1.524" y1="-3.556" x2="1.524" y2="-3.048" layer="94"/>
-<pin name="1" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+<wire x1="0" y1="0" x2="0" y2="-0.508" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-2.032" width="0.1524" layer="94"/>
+<text x="1.524" y="0.381" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.524" y="-4.699" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-1.524" y1="-2.032" x2="1.524" y2="-1.524" layer="94"/>
+<rectangle x1="-1.524" y1="-1.016" x2="1.524" y2="-0.508" layer="94"/>
+<pin name="1" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="RESISTOR">
+<wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-0.889" x2="2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1157,6 +1178,25 @@ Multilayer Ceramic Capacitors</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="ERA-2A" prefix="R" uservalue="yes">
+<description>&lt;b&gt;Chip resistor&lt;/b&gt;&lt;p&gt;
+Panasonic&lt;br&gt;
+Thin Film Resistors</description>
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="PB153X" package="R0402N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -1186,14 +1226,14 @@ Multilayer Ceramic Capacitors</description>
 <part name="R3" library="Parts" deviceset="RESISTOR" device="_0402N" value="51k"/>
 <part name="GND4" library="Supply" deviceset="0V" device=""/>
 <part name="U2" library="ICs" deviceset="REF33" device="25AIRSER"/>
-<part name="R4" library="Parts" deviceset="RESISTOR" device="_0402N"/>
-<part name="R5" library="Parts" deviceset="RESISTOR" device="_0402N"/>
 <part name="GND5" library="Supply" deviceset="0V" device=""/>
 <part name="GND6" library="Supply" deviceset="0V" device=""/>
 <part name="GND7" library="Supply" deviceset="0V" device=""/>
 <part name="GND8" library="Supply" deviceset="0V" device=""/>
 <part name="C1" library="SMDs" deviceset="JMK105BBJ" device="475MVHF" value="4.7uF"/>
 <part name="C2" library="SMDs" deviceset="GRM155" device="R70J105KA12J" value="1uF"/>
+<part name="R4" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
+<part name="R5" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 </parts>
 <sheets>
 <sheet>
@@ -1390,23 +1430,23 @@ for MDBT53V-DB</text>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="U2" gate="G$1" x="76.2" y="86.36"/>
-<instance part="R4" gate="G$1" x="68.58" y="127"/>
-<instance part="R5" gate="G$1" x="96.52" y="127"/>
-<instance part="GND5" gate="1" x="114.3" y="116.84"/>
+<instance part="GND5" gate="1" x="121.92" y="116.84"/>
 <instance part="GND6" gate="1" x="53.34" y="73.66"/>
 <instance part="GND7" gate="1" x="96.52" y="58.42"/>
 <instance part="GND8" gate="1" x="109.22" y="58.42"/>
-<instance part="C1" gate="G$1" x="96.52" y="76.2"/>
-<instance part="C2" gate="G$1" x="109.22" y="76.2"/>
+<instance part="C1" gate="G$1" x="96.52" y="73.66"/>
+<instance part="C2" gate="G$1" x="109.22" y="73.66"/>
+<instance part="R4" gate="G$1" x="81.28" y="127"/>
+<instance part="R5" gate="G$1" x="109.22" y="127"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="VIN" class="0">
 <segment>
+<wire x1="76.2" y1="127" x2="68.58" y2="127" width="0.1524" layer="91"/>
+<label x="68.58" y="127" size="1.778" layer="95" rot="R180" xref="yes"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="68.58" y1="127" x2="60.96" y2="127" width="0.1524" layer="91"/>
-<label x="60.96" y="127" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="IN"/>
@@ -1420,22 +1460,22 @@ for MDBT53V-DB</text>
 </net>
 <net name="AVBAT" class="0">
 <segment>
+<wire x1="86.36" y1="127" x2="93.98" y2="127" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="127" x2="104.14" y2="127" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="127" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="134.62" x2="111.76" y2="134.62" width="0.1524" layer="91"/>
+<junction x="93.98" y="127"/>
+<label x="111.76" y="134.62" size="1.778" layer="95" xref="yes"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="127" x2="86.36" y2="127" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="127" x2="96.52" y2="127" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="127" x2="86.36" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="134.62" x2="104.14" y2="134.62" width="0.1524" layer="91"/>
-<junction x="86.36" y="127"/>
-<label x="104.14" y="134.62" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="0V" class="0">
 <segment>
-<pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="GND5" gate="1" pin="0V"/>
-<wire x1="106.68" y1="127" x2="114.3" y2="127" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="127" x2="114.3" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="127" x2="121.92" y2="127" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="127" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="GND"/>
