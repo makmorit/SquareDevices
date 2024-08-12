@@ -676,6 +676,60 @@ PLASTIC QUAD FLATPACK - NO LEAD</description>
 <rectangle x1="-0.12" y1="0.38" x2="0.12" y2="0.92" layer="31"/>
 <rectangle x1="-0.2" y1="0.3" x2="0.2" y2="1" layer="29"/>
 </package>
+<package name="TDFN-2X3">
+<description>&lt;b&gt;8-Lead Plastic Dual Flat, No Lead Package (MNY)&lt;/b&gt; &lt;p&gt;
+2x3x0.8 mm Body [TDFN]</description>
+<smd name="1" x="-0.75" y="-1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="2" x="-0.25" y="-1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="3" x="0.25" y="-1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="4" x="0.75" y="-1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="5" x="0.75" y="1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="6" x="0.25" y="1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="7" x="-0.25" y="1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<smd name="8" x="-0.75" y="1.45" dx="0.25" dy="0.85" layer="1" stop="no" cream="no"/>
+<text x="0" y="2.3" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-2.3" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
+<rectangle x1="-0.925" y1="-1.925" x2="-0.575" y2="-0.975" layer="29"/>
+<rectangle x1="-0.85" y1="-1.85" x2="-0.65" y2="-1.05" layer="31"/>
+<wire x1="-1" y1="1.5" x2="-0.75" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-0.75" y1="1.5" x2="-0.25" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-0.25" y1="1.5" x2="0.25" y2="1.5" width="0.127" layer="51"/>
+<wire x1="0.25" y1="1.5" x2="0.75" y2="1.5" width="0.127" layer="51"/>
+<wire x1="0.75" y1="1.5" x2="1" y2="1.5" width="0.127" layer="51"/>
+<wire x1="1" y1="1.5" x2="1" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="1" y1="-1.5" x2="0.75" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="0.75" y1="-1.5" x2="0.25" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="0.25" y1="-1.5" x2="-0.25" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-0.25" y1="-1.5" x2="-0.75" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-0.75" y1="-1.5" x2="-1" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-1" y1="-1.5" x2="-1" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-0.75" y1="1.5" x2="-0.75" y2="1.1" width="0.127" layer="51"/>
+<wire x1="-0.25" y1="1.5" x2="-0.25" y2="1.1" width="0.127" layer="51"/>
+<wire x1="0.25" y1="1.5" x2="0.25" y2="1.1" width="0.127" layer="51"/>
+<wire x1="0.75" y1="1.5" x2="0.75" y2="1.1" width="0.127" layer="51"/>
+<wire x1="0.75" y1="-1.1" x2="0.75" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="0.25" y1="-1.1" x2="0.25" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-0.25" y1="-1.1" x2="-0.25" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-0.75" y1="-1.1" x2="-0.75" y2="-1.5" width="0.127" layer="51"/>
+<circle x="-1.6" y="-1.9" radius="0.3" width="0" layer="21"/>
+<rectangle x1="-0.425" y1="-1.925" x2="-0.075" y2="-0.975" layer="29"/>
+<rectangle x1="0.075" y1="-1.925" x2="0.425" y2="-0.975" layer="29"/>
+<rectangle x1="0.575" y1="-1.925" x2="0.925" y2="-0.975" layer="29"/>
+<rectangle x1="-0.35" y1="-1.85" x2="-0.15" y2="-1.05" layer="31"/>
+<rectangle x1="0.15" y1="-1.85" x2="0.35" y2="-1.05" layer="31"/>
+<rectangle x1="0.65" y1="-1.85" x2="0.85" y2="-1.05" layer="31"/>
+<rectangle x1="-0.925" y1="0.975" x2="-0.575" y2="1.925" layer="29"/>
+<rectangle x1="-0.425" y1="0.975" x2="-0.075" y2="1.925" layer="29"/>
+<rectangle x1="0.075" y1="0.975" x2="0.425" y2="1.925" layer="29"/>
+<rectangle x1="0.575" y1="0.975" x2="0.925" y2="1.925" layer="29"/>
+<rectangle x1="-0.85" y1="1.05" x2="-0.65" y2="1.85" layer="31"/>
+<rectangle x1="-0.35" y1="1.05" x2="-0.15" y2="1.85" layer="31"/>
+<rectangle x1="0.15" y1="1.05" x2="0.35" y2="1.85" layer="31"/>
+<rectangle x1="0.65" y1="1.05" x2="0.85" y2="1.85" layer="31"/>
+<smd name="9" x="0" y="0" dx="1.6" dy="1.5" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.85" y1="-0.8" x2="0.85" y2="0.8" layer="29"/>
+<rectangle x1="-0.775" y1="-0.725" x2="0.775" y2="0.725" layer="31"/>
+</package>
 </packages>
 <symbols>
 <symbol name="REF33">
@@ -703,6 +757,33 @@ PLASTIC QUAD FLATPACK - NO LEAD</description>
 <pin name="NC4" x="15.24" y="2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <wire x1="10.16" y1="2.54" x2="11.43" y2="2.54" width="0.6096" layer="94"/>
 </symbol>
+<symbol name="MCP6232">
+<description>&lt;b&gt;Rail-to-Rail Op Amp&lt;/b&gt;&lt;p&gt;</description>
+<wire x1="12.065" y1="-7.62" x2="-12.065" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="-11.43" y1="2.54" x2="-10.16" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="-11.43" y1="-5.08" x2="-10.16" y2="-5.08" width="0.6096" layer="94"/>
+<wire x1="-12.065" y1="7.62" x2="-12.065" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="12.065" y1="-7.62" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="-12.065" y1="7.62" x2="12.065" y2="7.62" width="0.4064" layer="94"/>
+<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-12.7" y="8.89" size="1.778" layer="95">&gt;NAME</text>
+<pin name="VSS" x="-15.24" y="-5.08" length="middle" direction="pas" swaplevel="1"/>
+<pin name="VINB-" x="15.24" y="-2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="VOUTA" x="-15.24" y="2.54" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="10.16" y1="-2.54" x2="11.43" y2="-2.54" width="0.6096" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="11.43" y2="-5.08" width="0.6096" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="11.43" y2="2.54" width="0.6096" layer="94"/>
+<pin name="VDD" x="15.24" y="2.54" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="VINB+" x="15.24" y="-5.08" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="VINA-" x="-15.24" y="0" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="-11.43" y1="0" x2="-10.16" y2="0" width="0.6096" layer="94"/>
+<pin name="VINA+" x="-15.24" y="-2.54" length="middle" direction="pas" swaplevel="1"/>
+<wire x1="-11.43" y1="-2.54" x2="-10.16" y2="-2.54" width="0.6096" layer="94"/>
+<pin name="VOUTB" x="15.24" y="0" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<wire x1="10.16" y1="0" x2="11.43" y2="0" width="0.6096" layer="94"/>
+<pin name="EP" x="15.24" y="5.08" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<wire x1="10.16" y1="5.08" x2="11.43" y2="5.08" width="0.6096" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="REF33" prefix="U">
@@ -726,6 +807,32 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <connect gate="G$1" pin="NC3" pad="6"/>
 <connect gate="G$1" pin="NC4" pad="7"/>
 <connect gate="G$1" pin="OUT" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MCP6232" prefix="U">
+<description>&lt;b&gt;Operational Amplifier&lt;/b&gt;&lt;p&gt;
+Microchip&lt;br&gt;
+2 Channel Rail to Rail Operational Amplifier</description>
+<gates>
+<gate name="G$1" symbol="MCP6232" x="0" y="0"/>
+</gates>
+<devices>
+<device name="T-E/MNY" package="TDFN-2X3">
+<connects>
+<connect gate="G$1" pin="EP" pad="9"/>
+<connect gate="G$1" pin="VDD" pad="8"/>
+<connect gate="G$1" pin="VINA+" pad="3"/>
+<connect gate="G$1" pin="VINA-" pad="2"/>
+<connect gate="G$1" pin="VINB+" pad="5"/>
+<connect gate="G$1" pin="VINB-" pad="6"/>
+<connect gate="G$1" pin="VOUTA" pad="1"/>
+<connect gate="G$1" pin="VOUTB" pad="7"/>
+<connect gate="G$1" pin="VSS" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1002,6 +1109,7 @@ Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
 <part name="C2" library="SMDs" deviceset="GRM155" device="R70J105KA12J" value="1uF"/>
 <part name="R4" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 <part name="R5" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
+<part name="U3" library="ICs" deviceset="MCP6232" device="T-E/MNY"/>
 </parts>
 <sheets>
 <sheet>
@@ -1194,6 +1302,7 @@ for MDBT53V-DB</text>
 <text x="129.54" y="152.4" size="3.81" layer="91" align="bottom-center">電源電圧測定回路</text>
 <text x="48.26" y="142.24" size="2.54" layer="91" align="top-left">電源電圧分圧</text>
 <text x="48.26" y="106.68" size="2.54" layer="91" align="top-left">基準電圧生成（2.5V）</text>
+<text x="144.78" y="142.24" size="2.54" layer="91" align="top-left">電圧入力バッファ</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
@@ -1206,6 +1315,7 @@ for MDBT53V-DB</text>
 <instance part="C2" gate="G$1" x="109.22" y="73.66"/>
 <instance part="R4" gate="G$1" x="81.28" y="127"/>
 <instance part="R5" gate="G$1" x="109.22" y="127"/>
+<instance part="U3" gate="G$1" x="193.04" y="127"/>
 </instances>
 <busses>
 </busses>
