@@ -1065,6 +1065,25 @@ Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="UMK105B7" prefix="C" uservalue="yes">
+<description>&lt;b&gt;MLCC&lt;/b&gt;&lt;p&gt;
+TAIYO YUDEN&lt;br&gt;
+Multilayer Ceramic Capacitors</description>
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="104KV-FR" package="C0402">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -1103,6 +1122,7 @@ Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
 <part name="R4" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 <part name="R5" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 <part name="U3" library="ICs" deviceset="MCP6232" device="T-E/MNY"/>
+<part name="C3" library="SMDs" deviceset="UMK105B7" device="104KV-FR" value="0.1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -1314,6 +1334,7 @@ for MDBT53V-DB</text>
 </instance>
 <instance part="U3" gate="B" x="167.64" y="88.9"/>
 <instance part="U3" gate="P" x="187.96" y="101.6"/>
+<instance part="C3" gate="G$1" x="218.44" y="99.06"/>
 </instances>
 <busses>
 </busses>
