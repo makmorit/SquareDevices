@@ -198,19 +198,6 @@ DIN A4, landscape with location and doc. field</description>
 </library>
 <library name="Parts">
 <packages>
-<package name="DSN1006-2">
-<description>&lt;b&gt;Ultra small Discretes Silicon No-leads package&lt;/b&gt;&lt;p&gt;
-SOD993&lt;br&gt;
-2 terminals</description>
-<smd name="2" x="0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
-<smd name="1" x="-0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
-<rectangle x1="0.1" y1="-0.35" x2="0.55" y2="0.35" layer="29"/>
-<rectangle x1="-0.55" y1="-0.35" x2="-0.1" y2="0.35" layer="29"/>
-<rectangle x1="0.2" y1="-0.25" x2="0.45" y2="0.25" layer="31"/>
-<rectangle x1="-0.45" y1="-0.25" x2="-0.2" y2="0.25" layer="31"/>
-<text x="-0.5" y="0.7" size="0.6" layer="25">&gt;NAME</text>
-<text x="-0.5" y="-0.7" size="0.6" layer="27" align="top-left">&gt;VALUE</text>
-</package>
 <package name="SKRPACE010_DEV">
 <description>&lt;b&gt;ALPS TACT Switch&lt;/b&gt;&lt;p&gt;
 4.2×3.2mm小型重作動力タイプ(表面実装) SKRP シリーズ&lt;br&gt;
@@ -401,21 +388,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 </package>
 </packages>
 <symbols>
-<symbol name="SBD">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
-<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
 <symbol name="TS2">
 <wire x1="0" y1="1.905" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="-4.445" y1="1.905" x2="-3.175" y2="1.905" width="0.254" layer="94"/>
@@ -514,28 +486,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PMEG4010" prefix="D">
-<description>&lt;b&gt;Schottky Diode&lt;/b&gt;&lt;p&gt;
-If - Forward Current: 1 A&lt;br&gt;
-Vf - Forward Voltage: 435 mV&lt;br&gt;
-Vr - Reverse Voltage: 40 V&lt;br&gt;
-Ir - Reverse Current: 325 uA&lt;br&gt;
-Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
-<gates>
-<gate name="G$1" symbol="SBD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="AESBYL" package="DSN1006-2">
-<connects>
-<connect gate="G$1" pin="A" pad="1"/>
-<connect gate="G$1" pin="C" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SKRPACE010" prefix="SW">
 <description>&lt;b&gt;表面実装用タクトスイッチ&lt;/b&gt;&lt;p&gt;
 ４．２×３．２ｍｍ小型重作動力タイプ&lt;br&gt;
@@ -821,6 +771,19 @@ RECTANGULAR TYPE</description>
 <rectangle x1="-0.8" y1="-0.462" x2="-0.5" y2="0.462" layer="51"/>
 <rectangle x1="0.5" y1="-0.462" x2="0.8" y2="0.462" layer="51"/>
 </package>
+<package name="DSN1006-2">
+<description>&lt;b&gt;Ultra small Discretes Silicon No-leads package&lt;/b&gt;&lt;p&gt;
+SOD993&lt;br&gt;
+2 terminals</description>
+<smd name="2" x="0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-0.325" y="0" dx="0.35" dy="0.6" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.1" y1="-0.35" x2="0.55" y2="0.35" layer="29"/>
+<rectangle x1="-0.55" y1="-0.35" x2="-0.1" y2="0.35" layer="29"/>
+<rectangle x1="0.2" y1="-0.25" x2="0.45" y2="0.25" layer="31"/>
+<rectangle x1="-0.45" y1="-0.25" x2="-0.2" y2="0.25" layer="31"/>
+<text x="0" y="0.7" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.7" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -856,6 +819,21 @@ RECTANGULAR TYPE</description>
 <text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="SBD">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -965,6 +943,28 @@ Thick Film Resistors</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="PMEG4010" prefix="D">
+<description>&lt;b&gt;Schottky Diode&lt;/b&gt;&lt;p&gt;
+If - Forward Current: 1 A&lt;br&gt;
+Vf - Forward Voltage: 435 mV&lt;br&gt;
+Vr - Reverse Voltage: 40 V&lt;br&gt;
+Ir - Reverse Current: 325 uA&lt;br&gt;
+Minimum Operating Temperature: from -55C to +150C&lt;br&gt;</description>
+<gates>
+<gate name="G$1" symbol="SBD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="AESBYL" package="DSN1006-2">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="C" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -980,12 +980,12 @@ Thick Film Resistors</description>
 <part name="FRAME1" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="FRAME2" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="F1" library="SMDs" deviceset="FCC16" device="102ABTP"/>
-<part name="D1" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
+<part name="D1" library="SMDs" deviceset="PMEG4010" device="AESBYL"/>
 <part name="SW1" library="Parts" deviceset="SKRPACE010" device=""/>
 <part name="GND1" library="Supply" deviceset="0V" device=""/>
 <part name="GND2" library="Supply" deviceset="0V" device=""/>
 <part name="R1" library="SMDs" deviceset="CRCW0402" device="5K10FKEDC" value="5.1k"/>
-<part name="D2" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
+<part name="D2" library="SMDs" deviceset="PMEG4010" device="AESBYL"/>
 <part name="Q1" library="Parts" deviceset="DMP2035" device="UFDF-7"/>
 <part name="U1" library="Parts" deviceset="SN74AHC1G00" device="DRLR"/>
 <part name="Q2" library="Parts" deviceset="BC817" device="-40QA"/>
