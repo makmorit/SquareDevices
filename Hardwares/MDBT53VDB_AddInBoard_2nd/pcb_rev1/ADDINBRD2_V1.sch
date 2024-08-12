@@ -198,19 +198,6 @@ DIN A4, landscape with location and doc. field</description>
 </library>
 <library name="Parts">
 <packages>
-<package name="FCC16">
-<description>&lt;b&gt;CHIP FUSE&lt;/b&gt;&lt;p&gt;
-KAMAYA OHM&lt;br&gt; 
-RECTANGULAR TYPE</description>
-<wire x1="-0.556" y1="0.4" x2="0.556" y2="0.4" width="0.127" layer="51"/>
-<wire x1="-0.556" y1="-0.4" x2="0.556" y2="-0.4" width="0.127" layer="51"/>
-<smd name="1" x="-0.8" y="0" dx="1" dy="1" layer="1"/>
-<smd name="2" x="0.8" y="0" dx="1" dy="1" layer="1"/>
-<text x="-1.3" y="0.9" size="0.6" layer="25">&gt;NAME</text>
-<text x="-1.3" y="-1.6" size="0.6" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8" y1="-0.462" x2="-0.5" y2="0.462" layer="51"/>
-<rectangle x1="0.5" y1="-0.462" x2="0.8" y2="0.462" layer="51"/>
-</package>
 <package name="DSN1006-2">
 <description>&lt;b&gt;Ultra small Discretes Silicon No-leads package&lt;/b&gt;&lt;p&gt;
 SOD993&lt;br&gt;
@@ -575,20 +562,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 </package>
 </packages>
 <symbols>
-<symbol name="FUSE">
-<wire x1="-2.794" y1="-0.762" x2="2.794" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="2.794" y1="0.762" x2="-2.794" y2="0.762" width="0.254" layer="94"/>
-<wire x1="2.794" y1="-0.762" x2="2.794" y2="0.762" width="0.254" layer="94"/>
-<wire x1="-2.794" y1="0.762" x2="-2.794" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.524" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.524" y1="0" x2="0" y2="0" width="0.1524" layer="94" curve="92.795489"/>
-<wire x1="1.524" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="1.524" y1="0" x2="0" y2="0" width="0.1524" layer="94" curve="92.795489"/>
-<text x="-3.81" y="1.397" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-</symbol>
 <symbol name="SBD">
 <wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
@@ -712,27 +685,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FCC16" prefix="F">
-<description>&lt;b&gt;Surface Mount Fuse 0603&lt;/b&gt;&lt;p&gt;
-Current Rating: 1 A&lt;br&gt;
-Voltage Rating DC: 36 VDC&lt;br&gt;
-Operating Temperature: from -55C to +125C&lt;br&gt;
-Resistance: 130 mOhms</description>
-<gates>
-<gate name="G$1" symbol="FUSE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="102ABTP" package="FCC16">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="PMEG4010" prefix="D">
 <description>&lt;b&gt;Schottky Diode&lt;/b&gt;&lt;p&gt;
 If - Forward Current: 1 A&lt;br&gt;
@@ -1100,8 +1052,8 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <wire x1="0.425" y1="-0.2" x2="-0.425" y2="-0.2" width="0.1016" layer="51"/>
 <smd name="1" x="-0.65" y="0" dx="0.925" dy="0.7" layer="1"/>
 <smd name="2" x="0.65" y="0" dx="0.925" dy="0.7" layer="1"/>
-<text x="-1.1" y="0.7" size="0.6" layer="25">&gt;NAME</text>
-<text x="-1.1" y="-1.3" size="0.6" layer="27">&gt;VALUE</text>
+<text x="0" y="0.7" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.7" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
 <rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
 <rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
 </package>
@@ -1111,10 +1063,23 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
 <smd name="1" x="-0.7" y="0" dx="0.8" dy="0.7" layer="1"/>
 <smd name="2" x="0.7" y="0" dx="0.8" dy="0.7" layer="1"/>
-<text x="-0.5" y="0.7" size="0.6" layer="25">&gt;NAME</text>
-<text x="-0.5" y="-1.3" size="0.6" layer="27">&gt;VALUE</text>
+<text x="0" y="0.7" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.8" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
 <rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
 <rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+</package>
+<package name="FCC16">
+<description>&lt;b&gt;CHIP FUSE&lt;/b&gt;&lt;p&gt;
+KAMAYA OHM&lt;br&gt; 
+RECTANGULAR TYPE</description>
+<wire x1="-0.556" y1="0.4" x2="0.556" y2="0.4" width="0.127" layer="51"/>
+<wire x1="-0.556" y1="-0.4" x2="0.556" y2="-0.4" width="0.127" layer="51"/>
+<smd name="1" x="-0.8" y="0" dx="1" dy="1" layer="1"/>
+<smd name="2" x="0.8" y="0" dx="1" dy="1" layer="1"/>
+<text x="0" y="0.9" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.9" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
+<rectangle x1="-0.8" y1="-0.462" x2="-0.5" y2="0.462" layer="51"/>
+<rectangle x1="0.5" y1="-0.462" x2="0.8" y2="0.462" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -1135,6 +1100,20 @@ Operating Temperature: from- 40 C to + 125 C&lt;br&gt;</description>
 <wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
 <text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
 <text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="FUSE">
+<wire x1="-2.794" y1="-0.762" x2="2.794" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="2.794" y1="0.762" x2="-2.794" y2="0.762" width="0.254" layer="94"/>
+<wire x1="2.794" y1="-0.762" x2="2.794" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-2.794" y1="0.762" x2="-2.794" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.524" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="0" x2="0" y2="0" width="0.1524" layer="94" curve="92.795489"/>
+<wire x1="1.524" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.524" y1="0" x2="0" y2="0" width="0.1524" layer="94" curve="92.795489"/>
+<text x="-3.81" y="1.397" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
@@ -1197,6 +1176,27 @@ Thin Film Resistors</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="FCC16" prefix="F">
+<description>&lt;b&gt;Surface Mount Fuse 0603&lt;/b&gt;&lt;p&gt;
+Current Rating: 1 A&lt;br&gt;
+Voltage Rating DC: 36 VDC&lt;br&gt;
+Operating Temperature: from -55C to +125C&lt;br&gt;
+Resistance: 130 mOhms</description>
+<gates>
+<gate name="G$1" symbol="FUSE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="102ABTP" package="FCC16">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -1211,7 +1211,7 @@ Thin Film Resistors</description>
 <parts>
 <part name="FRAME1" library="Generic" deviceset="A4L-LOC" device=""/>
 <part name="FRAME2" library="Generic" deviceset="A4L-LOC" device=""/>
-<part name="F1" library="Parts" deviceset="FCC16" device="102ABTP"/>
+<part name="F1" library="SMDs" deviceset="FCC16" device="102ABTP"/>
 <part name="D1" library="Parts" deviceset="PMEG4010" device="AESBYL"/>
 <part name="SW1" library="Parts" deviceset="SKRPACE010" device=""/>
 <part name="GND1" library="Supply" deviceset="0V" device=""/>
