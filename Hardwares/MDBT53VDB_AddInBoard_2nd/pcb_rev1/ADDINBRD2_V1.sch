@@ -263,41 +263,6 @@ DIN A4, landscape with location and doc. field</description>
 <rectangle x1="-2.65" y1="-1.45" x2="-1.5" y2="-0.7" layer="29"/>
 <rectangle x1="1.5" y1="-1.45" x2="2.65" y2="-0.7" layer="29"/>
 </package>
-<package name="U-DFN2020-6">
-<description>&lt;b&gt;U-DFN2020-6&lt;/b&gt;&lt;p&gt;
-2 x 2 mm package</description>
-<smd name="3" x="0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<smd name="EXP" x="-0.325" y="0" dx="0.95" dy="1" layer="1" stop="no" cream="no"/>
-<text x="-1" y="-2" size="0.6" layer="27">&gt;VALUE</text>
-<rectangle x1="0.41" y1="-0.45" x2="0.99" y2="0.45" layer="29"/>
-<rectangle x1="0.51" y1="-0.35" x2="0.89" y2="0.35" layer="31"/>
-<rectangle x1="0.525" y1="-0.975" x2="0.775" y2="-0.75" layer="31"/>
-<text x="-0.975" y="1.4175" size="0.6" layer="25">&gt;NAME</text>
-<smd name="EXP2" x="0.7" y="0" dx="0.48" dy="0.8" layer="1" stop="no" cream="no"/>
-<wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="51"/>
-<wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="51"/>
-<wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="51"/>
-<wire x1="-1" y1="-1" x2="-1" y2="1" width="0.127" layer="51"/>
-<rectangle x1="-0.75" y1="-0.45" x2="0.1" y2="0.45" layer="31"/>
-<rectangle x1="-0.85" y1="-0.575" x2="0.2" y2="0.575" layer="29"/>
-<rectangle x1="0.45" y1="-1.05" x2="0.85" y2="-0.675" layer="29"/>
-<smd name="1" x="-0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<rectangle x1="-0.775" y1="-0.975" x2="-0.525" y2="-0.75" layer="31"/>
-<rectangle x1="-0.85" y1="-1.05" x2="-0.45" y2="-0.675" layer="29"/>
-<smd name="2" x="0" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<rectangle x1="-0.125" y1="-0.975" x2="0.125" y2="-0.75" layer="31"/>
-<rectangle x1="-0.2" y1="-1.05" x2="0.2" y2="-0.675" layer="29"/>
-<smd name="4" x="0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<smd name="5" x="0" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<smd name="6" x="-0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
-<rectangle x1="0.525" y1="0.75" x2="0.775" y2="0.975" layer="31"/>
-<rectangle x1="-0.125" y1="0.75" x2="0.125" y2="0.975" layer="31"/>
-<rectangle x1="-0.775" y1="0.75" x2="-0.525" y2="0.975" layer="31"/>
-<rectangle x1="0.45" y1="0.675" x2="0.85" y2="1.05" layer="29"/>
-<rectangle x1="-0.2" y1="0.675" x2="0.2" y2="1.05" layer="29"/>
-<rectangle x1="-0.85" y1="0.675" x2="-0.45" y2="1.05" layer="29"/>
-<circle x="-1.4" y="-1.4" radius="0.3" width="0" layer="21"/>
-</package>
 <package name="SC-70-5_DEV">
 <description>&lt;b&gt;SC-70-5&lt;/b&gt;&lt;p&gt;
 手はんだパターン</description>
@@ -365,27 +330,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <rectangle x1="0.35" y1="-0.7" x2="1.12" y2="-0.3" layer="29"/>
 <circle x="-1" y="1.3" radius="0.3" width="0" layer="21"/>
 </package>
-<package name="DFN1010D-3">
-<description>&lt;b&gt;DFN1010D-3&lt;/b&gt;&lt;p&gt;
-1.1 x 1 mm package&lt;br&gt;
-(SOT1215)</description>
-<text x="-0.5" y="-1.5" size="0.6" layer="27">&gt;VALUE</text>
-<text x="0.3" y="1.1" size="0.6" layer="25" align="bottom-right">&gt;NAME</text>
-<wire x1="-0.55" y1="0.5" x2="0.55" y2="0.5" width="0.127" layer="51"/>
-<wire x1="0.55" y1="0.5" x2="0.55" y2="-0.5" width="0.127" layer="51"/>
-<wire x1="0.55" y1="-0.5" x2="-0.55" y2="-0.5" width="0.127" layer="51"/>
-<wire x1="-0.55" y1="-0.5" x2="-0.55" y2="0.5" width="0.127" layer="51"/>
-<smd name="1" x="0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
-<rectangle x1="0.25" y1="0.3" x2="0.5" y2="0.6" layer="31"/>
-<rectangle x1="0.15" y1="0.2" x2="0.6" y2="0.7" layer="29"/>
-<smd name="3" x="0" y="-0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
-<rectangle x1="-0.125" y1="-0.6" x2="0.125" y2="-0.3" layer="31"/>
-<rectangle x1="-0.225" y1="-0.7" x2="0.225" y2="-0.2" layer="29"/>
-<smd name="2" x="-0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
-<rectangle x1="-0.5" y1="0.3" x2="-0.25" y2="0.6" layer="31"/>
-<rectangle x1="-0.6" y1="0.2" x2="-0.15" y2="0.7" layer="29"/>
-<circle x="0.9" y="1.1" radius="0.25" width="0" layer="21"/>
-</package>
 </packages>
 <symbols>
 <symbol name="TS2">
@@ -409,43 +353,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <pin name="S1" x="2.54" y="5.08" visible="pad" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="P1" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="2" rot="R90"/>
 </symbol>
-<symbol name="P-MOSFET">
-<wire x1="0.762" y1="-0.762" x2="0.762" y2="0" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0" x2="0.762" y2="0.762" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-3.175" x2="0.762" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-2.54" x2="0.762" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0.762" y1="1.905" x2="0.762" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0.762" y1="2.54" x2="0.762" y2="3.175" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="0.762" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="-2.54" x2="3.81" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="0.508" x2="3.81" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="3.81" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0.762" y1="-2.54" x2="3.81" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="3.048" y1="0.762" x2="3.302" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="3.302" y1="0.508" x2="3.81" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="0.508" x2="4.318" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="4.318" y1="0.508" x2="4.572" y2="0.254" width="0.1524" layer="94"/>
-<circle x="2.54" y="2.54" radius="0.3592" width="0" layer="94"/>
-<circle x="2.54" y="-2.54" radius="0.3592" width="0" layer="94"/>
-<text x="-11.43" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-11.43" y="-1.27" size="1.778" layer="95">&gt;NAME</text>
-<pin name="S" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="G" x="-2.54" y="2.54" visible="off" length="short" direction="pas"/>
-<pin name="D" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<polygon width="0.1524" layer="94">
-<vertex x="3.81" y="0.508"/>
-<vertex x="4.318" y="-0.254"/>
-<vertex x="3.302" y="-0.254"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="2.54" y="0"/>
-<vertex x="1.524" y="0.762"/>
-<vertex x="1.524" y="-0.762"/>
-</polygon>
-</symbol>
 <symbol name="SN74AHC1G00">
 <description>&lt;b&gt;Single 2-Input Positive-NAND Gate&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="24.765" y1="-7.62" x2="3.175" y2="-7.62" width="0.4064" layer="94"/>
@@ -464,25 +371,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 <wire x1="22.86" y1="0" x2="24.13" y2="0" width="0.6096" layer="94"/>
 <pin name="VCC" x="27.94" y="0" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="Y" x="27.94" y="-5.08" length="middle" direction="out" swaplevel="1" rot="R180"/>
-</symbol>
-<symbol name="NPN">
-<wire x1="5.08" y1="2.54" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="4.572" y2="-2.032" width="0.1524" layer="94"/>
-<wire x1="4.572" y1="-2.032" x2="4.826" y2="-2.286" width="0.1524" layer="94"/>
-<wire x1="4.318" y1="-1.016" x2="4.826" y2="-2.286" width="0.1524" layer="94"/>
-<wire x1="4.826" y1="-2.286" x2="5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="4.826" y1="-2.286" x2="3.556" y2="-1.778" width="0.1524" layer="94"/>
-<wire x1="3.556" y1="-1.778" x2="4.318" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="4.572" y1="-2.032" x2="4.318" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="4.318" y1="-1.27" x2="3.81" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="3.81" y1="-1.778" x2="4.572" y2="-2.032" width="0.254" layer="94"/>
-<wire x1="4.064" y1="-1.778" x2="4.318" y2="-1.524" width="0.254" layer="94"/>
-<text x="7.62" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="7.62" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="2.159" y1="-2.54" x2="2.921" y2="2.54" layer="94"/>
-<pin name="B" x="0" y="0" visible="off" length="short" direction="pas"/>
-<pin name="E" x="5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<pin name="C" x="5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -523,29 +411,6 @@ PLASTIC SMALL OUTLINE&lt;br&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="DMP2035" prefix="Q">
-<description>&lt;b&gt; P-CHANNEL ENHANCEMENT MODE MOSFET&lt;/b&gt;&lt;p&gt;
-Vds - Drain-Source Breakdown Voltage: 20 V&lt;br&gt;
-Id - Continuous Drain Current: 6.9 A&lt;br&gt;
-Rds On - Drain-Source Resistance: 120 mOhms&lt;br&gt;
-Vgs th - Gate-Source Threshold Voltage: 1 V&lt;br&gt;
-Operating Temperature: from - 55 C to + 150 C</description>
-<gates>
-<gate name="G$1" symbol="P-MOSFET" x="0" y="0"/>
-</gates>
-<devices>
-<device name="UFDF-7" package="U-DFN2020-6">
-<connects>
-<connect gate="G$1" pin="D" pad="1 2 5 6 EXP"/>
-<connect gate="G$1" pin="G" pad="3"/>
-<connect gate="G$1" pin="S" pad="4 EXP2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SN74AHC1G00" prefix="U">
 <description>&lt;b&gt;Single 2-Input Positive-NAND Gate&lt;/b&gt;&lt;p&gt;
 高レベル出力電流: - 8 mA &lt;br&gt;
@@ -578,24 +443,6 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <connect gate="G$1" pin="GND" pad="3"/>
 <connect gate="G$1" pin="VCC" pad="5"/>
 <connect gate="G$1" pin="Y" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="BC817" prefix="Q">
-<description>&lt;b&gt;NPN general-purpose transistor&lt;/b&gt;&lt;p&gt;</description>
-<gates>
-<gate name="G$1" symbol="NPN" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="-40QA" package="DFN1010D-3">
-<connects>
-<connect gate="G$1" pin="B" pad="1"/>
-<connect gate="G$1" pin="C" pad="3"/>
-<connect gate="G$1" pin="E" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -884,6 +731,62 @@ SOD993&lt;br&gt;
 <text x="0" y="0.7" size="0.6" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-0.7" size="0.6" layer="27" align="top-center">&gt;VALUE</text>
 </package>
+<package name="U-DFN2020-6">
+<description>&lt;b&gt;U-DFN2020-6&lt;/b&gt;&lt;p&gt;
+2 x 2 mm package</description>
+<smd name="3" x="0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="EXP" x="-0.325" y="0" dx="0.95" dy="1" layer="1" stop="no" cream="no"/>
+<text x="-1" y="-2" size="0.6" layer="27">&gt;VALUE</text>
+<rectangle x1="0.41" y1="-0.45" x2="0.99" y2="0.45" layer="29"/>
+<rectangle x1="0.51" y1="-0.35" x2="0.89" y2="0.35" layer="31"/>
+<rectangle x1="0.525" y1="-0.975" x2="0.775" y2="-0.75" layer="31"/>
+<text x="-0.975" y="1.4175" size="0.6" layer="25">&gt;NAME</text>
+<smd name="EXP2" x="0.7" y="0" dx="0.48" dy="0.8" layer="1" stop="no" cream="no"/>
+<wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="51"/>
+<wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="51"/>
+<wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="51"/>
+<wire x1="-1" y1="-1" x2="-1" y2="1" width="0.127" layer="51"/>
+<rectangle x1="-0.75" y1="-0.45" x2="0.1" y2="0.45" layer="31"/>
+<rectangle x1="-0.85" y1="-0.575" x2="0.2" y2="0.575" layer="29"/>
+<rectangle x1="0.45" y1="-1.05" x2="0.85" y2="-0.675" layer="29"/>
+<smd name="1" x="-0.65" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.775" y1="-0.975" x2="-0.525" y2="-0.75" layer="31"/>
+<rectangle x1="-0.85" y1="-1.05" x2="-0.45" y2="-0.675" layer="29"/>
+<smd name="2" x="0" y="-0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.125" y1="-0.975" x2="0.125" y2="-0.75" layer="31"/>
+<rectangle x1="-0.2" y1="-1.05" x2="0.2" y2="-0.675" layer="29"/>
+<smd name="4" x="0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="5" x="0" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<smd name="6" x="-0.65" y="0.863" dx="0.3" dy="0.275" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.525" y1="0.75" x2="0.775" y2="0.975" layer="31"/>
+<rectangle x1="-0.125" y1="0.75" x2="0.125" y2="0.975" layer="31"/>
+<rectangle x1="-0.775" y1="0.75" x2="-0.525" y2="0.975" layer="31"/>
+<rectangle x1="0.45" y1="0.675" x2="0.85" y2="1.05" layer="29"/>
+<rectangle x1="-0.2" y1="0.675" x2="0.2" y2="1.05" layer="29"/>
+<rectangle x1="-0.85" y1="0.675" x2="-0.45" y2="1.05" layer="29"/>
+<circle x="-1.4" y="-1.4" radius="0.3" width="0" layer="21"/>
+</package>
+<package name="DFN1010D-3">
+<description>&lt;b&gt;DFN1010D-3&lt;/b&gt;&lt;p&gt;
+1.1 x 1 mm package&lt;br&gt;
+(SOT1215)</description>
+<text x="-0.5" y="-1.5" size="0.6" layer="27">&gt;VALUE</text>
+<text x="0.3" y="1.1" size="0.6" layer="25" align="bottom-right">&gt;NAME</text>
+<wire x1="-0.55" y1="0.5" x2="0.55" y2="0.5" width="0.127" layer="51"/>
+<wire x1="0.55" y1="0.5" x2="0.55" y2="-0.5" width="0.127" layer="51"/>
+<wire x1="0.55" y1="-0.5" x2="-0.55" y2="-0.5" width="0.127" layer="51"/>
+<wire x1="-0.55" y1="-0.5" x2="-0.55" y2="0.5" width="0.127" layer="51"/>
+<smd name="1" x="0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="0.25" y1="0.3" x2="0.5" y2="0.6" layer="31"/>
+<rectangle x1="0.15" y1="0.2" x2="0.6" y2="0.7" layer="29"/>
+<smd name="3" x="0" y="-0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.125" y1="-0.6" x2="0.125" y2="-0.3" layer="31"/>
+<rectangle x1="-0.225" y1="-0.7" x2="0.225" y2="-0.2" layer="29"/>
+<smd name="2" x="-0.375" y="0.45" dx="0.35" dy="0.4" layer="1" stop="no" cream="no"/>
+<rectangle x1="-0.5" y1="0.3" x2="-0.25" y2="0.6" layer="31"/>
+<rectangle x1="-0.6" y1="0.2" x2="-0.15" y2="0.7" layer="29"/>
+<circle x="0.9" y="1.1" radius="0.25" width="0" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -934,6 +837,62 @@ SOD993&lt;br&gt;
 <text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="P-MOSFET">
+<wire x1="-1.778" y1="-0.762" x2="-1.778" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="0" x2="-1.778" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="-3.175" x2="-1.778" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="-2.54" x2="-1.778" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-1.778" y1="1.905" x2="-1.778" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="2.54" x2="-1.778" y2="3.175" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-1.778" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="0.508" x2="1.27" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="1.27" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-1.778" y1="-2.54" x2="1.27" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0.508" y1="0.762" x2="0.762" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="0.762" y1="0.508" x2="1.27" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="0.508" x2="1.778" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="0.508" x2="2.032" y2="0.254" width="0.1524" layer="94"/>
+<circle x="0" y="2.54" radius="0.3592" width="0" layer="94"/>
+<circle x="0" y="-2.54" radius="0.3592" width="0" layer="94"/>
+<text x="-13.97" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-13.97" y="-1.27" size="1.778" layer="95">&gt;NAME</text>
+<pin name="S" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="G" x="-5.08" y="2.54" visible="off" length="short" direction="pas"/>
+<pin name="D" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<polygon width="0.1524" layer="94">
+<vertex x="1.27" y="0.508"/>
+<vertex x="1.778" y="-0.254"/>
+<vertex x="0.762" y="-0.254"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0" y="0"/>
+<vertex x="-1.016" y="0.762"/>
+<vertex x="-1.016" y="-0.762"/>
+</polygon>
+</symbol>
+<symbol name="NPN">
+<wire x1="2.54" y1="2.54" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="2.032" y2="-2.032" width="0.1524" layer="94"/>
+<wire x1="2.032" y1="-2.032" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="-1.016" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-2.286" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-2.286" x2="1.016" y2="-1.778" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.778" x2="1.778" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.032" y1="-2.032" x2="1.778" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.778" y1="-1.27" x2="1.27" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.778" x2="2.032" y2="-2.032" width="0.254" layer="94"/>
+<wire x1="1.524" y1="-1.778" x2="1.778" y2="-1.524" width="0.254" layer="94"/>
+<text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-0.381" y1="-2.54" x2="0.381" y2="2.54" layer="94"/>
+<pin name="B" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1084,6 +1043,47 @@ Multilayer Ceramic Capacitors</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="DMP2035" prefix="Q">
+<description>&lt;b&gt; P-CHANNEL ENHANCEMENT MODE MOSFET&lt;/b&gt;&lt;p&gt;
+Vds - Drain-Source Breakdown Voltage: 20 V&lt;br&gt;
+Id - Continuous Drain Current: 6.9 A&lt;br&gt;
+Rds On - Drain-Source Resistance: 120 mOhms&lt;br&gt;
+Vgs th - Gate-Source Threshold Voltage: 1 V&lt;br&gt;
+Operating Temperature: from - 55 C to + 150 C</description>
+<gates>
+<gate name="G$1" symbol="P-MOSFET" x="0" y="0"/>
+</gates>
+<devices>
+<device name="UFDF-7" package="U-DFN2020-6">
+<connects>
+<connect gate="G$1" pin="D" pad="1 2 5 6 EXP"/>
+<connect gate="G$1" pin="G" pad="3"/>
+<connect gate="G$1" pin="S" pad="4 EXP2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BC817" prefix="Q">
+<description>&lt;b&gt;NPN general-purpose transistor&lt;/b&gt;&lt;p&gt;</description>
+<gates>
+<gate name="G$1" symbol="NPN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-40QA" package="DFN1010D-3">
+<connects>
+<connect gate="G$1" pin="B" pad="1"/>
+<connect gate="G$1" pin="C" pad="3"/>
+<connect gate="G$1" pin="E" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -1105,9 +1105,7 @@ Multilayer Ceramic Capacitors</description>
 <part name="GND2" library="Supply" deviceset="0V" device=""/>
 <part name="R1" library="SMDs" deviceset="CRCW0402" device="5K10FKEDC" value="5.1k"/>
 <part name="D2" library="SMDs" deviceset="PMEG4010" device="AESBYL"/>
-<part name="Q1" library="Parts" deviceset="DMP2035" device="UFDF-7"/>
 <part name="U1" library="Parts" deviceset="SN74AHC1G00" device="DRLR"/>
-<part name="Q2" library="Parts" deviceset="BC817" device="-40QA"/>
 <part name="GND3" library="Supply" deviceset="0V" device=""/>
 <part name="R2" library="SMDs" deviceset="CRCW0402" device="5K10FKEDC" value="5.1k"/>
 <part name="R3" library="SMDs" deviceset="CRCW0402" device="51K0FKEDC" value="51k"/>
@@ -1123,6 +1121,8 @@ Multilayer Ceramic Capacitors</description>
 <part name="R5" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 <part name="U3" library="ICs" deviceset="MCP6232" device="T-E/MNY"/>
 <part name="C3" library="SMDs" deviceset="UMK105B7" device="104KV-FR" value="0.1uF"/>
+<part name="Q1" library="SMDs" deviceset="DMP2035" device="UFDF-7"/>
+<part name="Q2" library="SMDs" deviceset="BC817" device="-40QA"/>
 </parts>
 <sheets>
 <sheet>
@@ -1154,19 +1154,19 @@ PWR_Gが閉塞され、VINに電源が
 <instance part="GND2" gate="1" x="132.08" y="88.9"/>
 <instance part="R1" gate="G$1" x="132.08" y="127" rot="R90"/>
 <instance part="D2" gate="G$1" x="170.18" y="137.16" smashed="yes">
-<attribute name="NAME" x="162.56" y="132.08" size="1.778" layer="95"/>
-<attribute name="VALUE" x="162.56" y="129.54" size="1.778" layer="96"/>
-</instance>
-<instance part="Q1" gate="G$1" x="152.4" y="134.62" smashed="yes" rot="R90">
-<attribute name="VALUE" x="140.97" y="140.97" size="1.778" layer="96"/>
-<attribute name="NAME" x="140.97" y="143.51" size="1.778" layer="95"/>
+<attribute name="NAME" x="160.02" y="132.08" size="1.778" layer="95"/>
+<attribute name="VALUE" x="160.02" y="129.54" size="1.778" layer="96"/>
 </instance>
 <instance part="U1" gate="G$1" x="106.68" y="68.58"/>
-<instance part="Q2" gate="G$1" x="162.56" y="63.5"/>
 <instance part="GND3" gate="1" x="101.6" y="50.8"/>
 <instance part="R2" gate="G$1" x="147.32" y="63.5"/>
 <instance part="R3" gate="G$1" x="157.48" y="53.34" rot="R90"/>
 <instance part="GND4" gate="1" x="167.64" y="35.56"/>
+<instance part="Q1" gate="G$1" x="152.4" y="137.16" smashed="yes" rot="R90">
+<attribute name="VALUE" x="143.51" y="140.97" size="1.778" layer="96"/>
+<attribute name="NAME" x="143.51" y="143.51" size="1.778" layer="95"/>
+</instance>
+<instance part="Q2" gate="G$1" x="165.1" y="63.5"/>
 </instances>
 <busses>
 </busses>
@@ -1180,10 +1180,10 @@ PWR_Gが閉塞され、VINに電源が
 <wire x1="116.84" y1="137.16" x2="116.84" y2="129.54" width="0.1524" layer="91"/>
 <junction x="116.84" y="137.16"/>
 <junction x="132.08" y="137.16"/>
-<pinref part="Q1" gate="G$1" pin="S"/>
-<wire x1="132.08" y1="137.16" x2="147.32" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="132.08" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="S"/>
+<wire x1="147.32" y1="137.16" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="0V" class="0">
@@ -1209,14 +1209,14 @@ PWR_Gが閉塞され、VINに電源が
 <wire x1="101.6" y1="53.34" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="E"/>
 <pinref part="GND4" gate="1" pin="0V"/>
-<wire x1="167.64" y1="58.42" x2="167.64" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="43.18" x2="167.64" y2="38.1" width="0.1524" layer="91"/>
 <junction x="167.64" y="43.18"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="48.26" x2="157.48" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="43.18" x2="167.64" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="E"/>
+<wire x1="167.64" y1="58.42" x2="167.64" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PWR_G" class="0">
@@ -1229,26 +1229,19 @@ PWR_Gが閉塞され、VINに電源が
 <wire x1="134.62" y1="111.76" x2="134.62" y2="109.22" width="0.1524" layer="91"/>
 <junction x="132.08" y="116.84"/>
 <wire x1="132.08" y1="116.84" x2="149.86" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="149.86" y1="132.08" x2="149.86" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="116.84" x2="149.86" y2="111.76" width="0.1524" layer="91"/>
 <label x="149.86" y="111.76" size="1.778" layer="95" rot="R270" xref="yes"/>
 <junction x="149.86" y="116.84"/>
 <junction x="132.08" y="111.76"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="132.08" y1="121.92" x2="132.08" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="G"/>
+<wire x1="149.86" y1="132.08" x2="149.86" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<label x="167.64" y="73.66" size="1.778" layer="95" rot="R90" xref="yes"/>
 <pinref part="Q2" gate="G$1" pin="C"/>
 <wire x1="167.64" y1="68.58" x2="167.64" y2="73.66" width="0.1524" layer="91"/>
-<label x="167.64" y="73.66" size="1.778" layer="95" rot="R90" xref="yes"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="Q1" gate="G$1" pin="D"/>
-<pinref part="D2" gate="G$1" pin="A"/>
-<wire x1="157.48" y1="137.16" x2="167.64" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VIN" class="0">
@@ -1259,9 +1252,9 @@ PWR_Gが閉塞され、VINに電源が
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="VCC"/>
-<wire x1="134.62" y1="68.58" x2="139.7" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="68.58" x2="139.7" y2="73.66" width="0.1524" layer="91"/>
-<label x="139.7" y="73.66" size="1.778" layer="95" rot="R90" xref="yes"/>
+<wire x1="134.62" y1="68.58" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="68.58" x2="157.48" y2="73.66" width="0.1524" layer="91"/>
+<label x="157.48" y="73.66" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="EXT_BAT" class="0">
@@ -1289,13 +1282,13 @@ PWR_Gが閉塞され、VINに電源が
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="Q2" gate="G$1" pin="B"/>
-<wire x1="157.48" y1="63.5" x2="162.56" y2="63.5" width="0.1524" layer="91"/>
 <junction x="157.48" y="63.5"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="152.4" y1="63.5" x2="157.48" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="157.48" y1="58.42" x2="157.48" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="B"/>
+<wire x1="162.56" y1="63.5" x2="157.48" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -1303,6 +1296,13 @@ PWR_Gが閉塞され、VINに電源が
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="U1" gate="G$1" pin="Y"/>
 <wire x1="142.24" y1="63.5" x2="134.62" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="Q1" gate="G$1" pin="D"/>
+<pinref part="D2" gate="G$1" pin="A"/>
+<wire x1="157.48" y1="137.16" x2="167.64" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
