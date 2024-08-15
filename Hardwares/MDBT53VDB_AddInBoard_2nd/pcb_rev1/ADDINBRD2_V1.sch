@@ -898,6 +898,15 @@ Thin Film Resistors</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="PB512X" package="R0402N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="FCC16" prefix="F">
@@ -1063,7 +1072,7 @@ Operating Temperature: from - 55 C to + 150 C</description>
 <part name="GND8" library="Supply" deviceset="0V" device=""/>
 <part name="C1" library="SMDs" deviceset="JMK105BBJ" device="475MVHF" value="4.7uF"/>
 <part name="C2" library="SMDs" deviceset="GRM155" device="R70J105KA12J" value="1uF"/>
-<part name="R4" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
+<part name="R4" library="SMDs" deviceset="ERA-2A" device="PB512X" value="5.1k"/>
 <part name="R5" library="SMDs" deviceset="ERA-2A" device="PB153X" value="15k"/>
 <part name="U3" library="ICs" deviceset="MCP6232" device="T-E/MNY"/>
 <part name="C3" library="SMDs" deviceset="UMK105B7" device="104KV-FR" value="0.1uF"/>
