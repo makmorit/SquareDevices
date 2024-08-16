@@ -1288,6 +1288,13 @@ PWR_OFFにHIGHを入力すると、
 PWR_Gが閉塞され、VINに電源が
 供給されなくなります。</text>
 <text x="175.26" y="124.46" size="2.54" layer="91" align="top-left">外部接続用端子</text>
+<text x="172.72" y="45.72" size="1.778" layer="91" align="top-left">動作電源：
+乾電池などの電源を、
+EXT_BATから供給します。</text>
+<text x="172.72" y="78.74" size="1.778" layer="91" align="top-left">リセット同期：
+ボード側のNRST端子を、NRSTに接続します。
+ボード側でリセット実行した場合でも、
+動作電源をVINに供給し続けます。</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -1318,8 +1325,8 @@ PWR_Gが閉塞され、VINに電源が
 <instance part="Q2" gate="G$1" x="142.24" y="63.5"/>
 <instance part="U1" gate="G$1" x="99.06" y="66.04"/>
 <instance part="CN2" gate="G$1" x="198.12" y="96.52"/>
-<instance part="CN3" gate="G$1" x="198.12" y="71.12"/>
-<instance part="GND12" gate="1" x="193.04" y="60.96"/>
+<instance part="CN3" gate="G$1" x="198.12" y="58.42"/>
+<instance part="GND12" gate="1" x="193.04" y="48.26"/>
 <instance part="GND13" gate="1" x="193.04" y="81.28"/>
 </instances>
 <busses>
@@ -1375,8 +1382,8 @@ PWR_Gが閉塞され、VINに電源が
 <segment>
 <pinref part="CN3" gate="G$1" pin="1"/>
 <pinref part="GND12" gate="1" pin="0V"/>
-<wire x1="198.12" y1="68.58" x2="193.04" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="68.58" x2="193.04" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="55.88" x2="193.04" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="55.88" x2="193.04" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="CN2" gate="G$1" pin="1"/>
@@ -1436,8 +1443,8 @@ PWR_Gが閉塞され、VINに電源が
 </segment>
 <segment>
 <pinref part="CN3" gate="G$1" pin="2"/>
-<wire x1="198.12" y1="71.12" x2="187.96" y2="71.12" width="0.1524" layer="91"/>
-<label x="187.96" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="198.12" y1="58.42" x2="187.96" y2="58.42" width="0.1524" layer="91"/>
+<label x="187.96" y="58.42" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="PWR_OFF" class="0">
@@ -1505,6 +1512,19 @@ for MDBT53V-DB</text>
 <text x="48.26" y="106.68" size="2.54" layer="91" align="top-left">基準電圧生成（2.5V）</text>
 <text x="144.78" y="142.24" size="2.54" layer="91" align="top-left">電圧入力バッファ</text>
 <text x="48.26" y="53.34" size="2.54" layer="91" align="top-left">外部接続用端子</text>
+<text x="114.3" y="45.72" size="1.778" layer="91" align="top-left">電源共有：
+動作電源投入・遮断回路の
+VINをAVINとして利用します。
+</text>
+<text x="193.04" y="71.12" size="1.778" layer="91" align="top-left">動作電源：
+電源電圧測定回路の動作電源を
+AVINに供給します。</text>
+<text x="193.04" y="91.44" size="1.778" layer="91" align="top-left">基準電圧出力：
+動作電源電圧の変化にかかわらず、
+常に2.5Vを出力します。</text>
+<text x="193.04" y="116.84" size="1.778" layer="91" align="top-left">測定対象電圧出力：
+動作電源電圧を約75%に分圧した
+電圧を出力します。</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
@@ -1517,10 +1537,10 @@ for MDBT53V-DB</text>
 <instance part="C2" gate="G$1" x="109.22" y="71.12"/>
 <instance part="R4" gate="G$1" x="78.74" y="127"/>
 <instance part="R5" gate="G$1" x="106.68" y="127"/>
-<instance part="C3" gate="G$1" x="175.26" y="71.12"/>
+<instance part="C3" gate="G$1" x="175.26" y="68.58"/>
 <instance part="U3" gate="G$1" x="170.18" y="109.22"/>
 <instance part="GND9" gate="1" x="175.26" y="106.68"/>
-<instance part="GND11" gate="1" x="175.26" y="58.42"/>
+<instance part="GND11" gate="1" x="175.26" y="55.88"/>
 <instance part="CN1" gate="G$1" x="76.2" y="30.48"/>
 <instance part="GND10" gate="1" x="71.12" y="15.24"/>
 <instance part="CN4" gate="G$1" x="111.76" y="27.94"/>
@@ -1576,7 +1596,7 @@ for MDBT53V-DB</text>
 <segment>
 <pinref part="GND11" gate="1" pin="0V"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="175.26" y1="60.96" x2="175.26" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="58.42" x2="175.26" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="CN1" gate="G$1" pin="1"/>
@@ -1664,9 +1684,9 @@ for MDBT53V-DB</text>
 </segment>
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="175.26" y1="73.66" x2="175.26" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="78.74" x2="195.58" y2="78.74" width="0.1524" layer="91"/>
-<label x="195.58" y="78.74" size="1.778" layer="95" xref="yes"/>
+<wire x1="175.26" y1="71.12" x2="175.26" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="76.2" x2="195.58" y2="76.2" width="0.1524" layer="91"/>
+<label x="195.58" y="76.2" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="VDD"/>
