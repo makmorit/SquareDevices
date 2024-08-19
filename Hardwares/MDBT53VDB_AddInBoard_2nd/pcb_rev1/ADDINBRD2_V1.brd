@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -170,6 +170,7 @@
 <text x="22.5" y="16.7" size="0.6" layer="21" rot="R90" align="top-center">POFF</text>
 <dimension x1="0" y1="0" x2="0" y2="31" x3="-2" y3="15.5" textsize="1.778" layer="51"/>
 <dimension x1="0" y1="31" x2="25" y2="31" x3="12.5" y3="33" textsize="1.778" layer="51"/>
+<text x="5.1" y="22.9" size="0.6" layer="21" rot="R90" align="top-center">VBAT--&gt;AVIN</text>
 </plain>
 <libraries>
 <library name="Parts">
@@ -664,20 +665,20 @@ design rules under a new name.</description>
 <element name="D2" library="SMDs" package="DSN1006-2" value="PMEG4010AESBYL" x="13" y="10"/>
 <element name="R2" library="SMDs" package="R0402N" value="5.1k" x="10" y="16"/>
 <element name="R3" library="SMDs" package="R0402N" value="51k" x="13" y="16"/>
-<element name="U2" library="ICs" package="RSE0008A" value="REF3325AIRSER" x="5" y="18"/>
-<element name="C1" library="SMDs" package="C0402" value="1uF" x="10" y="26"/>
-<element name="C2" library="SMDs" package="C0402" value="1uF" x="10" y="24"/>
-<element name="R4" library="SMDs" package="R0402N" value="5.1k" x="10" y="22"/>
-<element name="R5" library="SMDs" package="R0402N" value="15k" x="10" y="20"/>
-<element name="C3" library="SMDs" package="C0402" value="0.1uF" x="17" y="23"/>
+<element name="U2" library="ICs" package="RSE0008A" value="REF3325AIRSER" x="11.7" y="22.2" rot="R270"/>
+<element name="C1" library="SMDs" package="C0402" value="1uF" x="10.9" y="20.4" rot="R180"/>
+<element name="C2" library="SMDs" package="C0402" value="1uF" x="13.5" y="20.8" rot="R270"/>
+<element name="R4" library="SMDs" package="R0402N" value="5.1k" x="11.7" y="24.2"/>
+<element name="R5" library="SMDs" package="R0402N" value="15k" x="11.7" y="25.5" rot="R180"/>
+<element name="C3" library="SMDs" package="C0402" value="0.1uF" x="17.1" y="20.4" rot="R90"/>
 <element name="Q1" library="SMDs" package="U-DFN2020-6" value="DMP2035UFDF-7" x="9" y="9"/>
 <element name="Q2" library="SMDs" package="DFN1010D-3" value="BC817-40QA" x="5" y="14"/>
 <element name="U1" library="ICs" package="DRL0005A" value="SN74AHC1G00DRLR" x="10" y="12.5"/>
-<element name="U3" library="ICs" package="TDFN-2X3" value="MCP6232T-E/MNY" x="14" y="23"/>
+<element name="U3" library="ICs" package="TDFN-2X3" value="MCP6232T-E/MNY" x="16" y="24" rot="R180"/>
 <element name="CN1" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="20" rot="R90"/>
 <element name="CN2" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="9" rot="R90"/>
 <element name="CN3" library="Connectors" package="HEADER_2PIN" value="IF_2PIN" x="21.2" y="3" rot="R90"/>
-<element name="CN4" library="Connectors" package="HEADER_2PIN" value="IF_2PIN" x="3.5" y="25" rot="R90"/>
+<element name="CN4" library="Connectors" package="HEADER_2PIN" value="IF_2PIN" x="7.2" y="24.2" rot="R270"/>
 </elements>
 <signals>
 <signal name="0V">
@@ -710,8 +711,8 @@ design rules under a new name.</description>
 <contactref element="CN1" pad="1"/>
 <contactref element="CN3" pad="1"/>
 <contactref element="CN2" pad="1"/>
-<wire x1="14" y1="23" x2="14.75" y2="21.55" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="17.35" x2="4.625" y2="14.45" width="0" layer="19" extent="1-1"/>
+<wire x1="16" y1="24" x2="15.25" y2="25.45" width="0" layer="19" extent="1-1"/>
+<wire x1="11.05" y1="22.2" x2="10.25" y2="20.4" width="0" layer="19" extent="1-1"/>
 <wire x1="9.26" y1="12" x2="12.3" y2="16" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
@@ -743,7 +744,7 @@ design rules under a new name.</description>
 <contactref element="CN4" pad="2"/>
 <wire x1="13.325" y1="10" x2="21.2" y2="11.54" width="0" layer="19" extent="1-1"/>
 <wire x1="10.74" y1="13" x2="13.325" y2="10" width="0" layer="19" extent="1-1"/>
-<wire x1="3.5" y1="27.54" x2="10.74" y2="13" width="0" layer="19" extent="1-1"/>
+<wire x1="7.2" y1="21.66" x2="10.74" y2="13" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EXT_BAT">
 <contactref element="F1" pad="1"/>
@@ -761,15 +762,15 @@ design rules under a new name.</description>
 <contactref element="U2" pad="8"/>
 <contactref element="C2" pad="1"/>
 <contactref element="U3" pad="5"/>
-<wire x1="9.35" y1="24" x2="14.75" y2="24.45" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="18.65" x2="9.35" y2="24" width="0" layer="19" extent="1-1"/>
+<wire x1="13.5" y1="21.45" x2="15.25" y2="22.55" width="0" layer="19" extent="1-1"/>
+<wire x1="12.35" y1="22.2" x2="13.5" y2="21.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AVBAT_IN">
 <contactref element="R4" pad="2"/>
 <contactref element="R5" pad="1"/>
 <contactref element="U3" pad="3"/>
-<wire x1="10.7" y1="22" x2="14.25" y2="21.55" width="0" layer="19" extent="1-1"/>
-<wire x1="9.3" y1="20" x2="10.7" y2="22" width="0" layer="19" extent="1-1"/>
+<wire x1="12.4" y1="25.5" x2="15.75" y2="25.45" width="0" layer="19" extent="1-1"/>
+<wire x1="12.4" y1="24.2" x2="12.4" y2="25.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
 <contactref element="Q1" pad="6"/>
@@ -803,15 +804,19 @@ design rules under a new name.</description>
 <contactref element="U3" pad="1"/>
 <contactref element="U3" pad="2"/>
 <contactref element="CN1" pad="3"/>
-<wire x1="13.75" y1="21.55" x2="21.2" y2="25.08" width="0" layer="19" extent="1-1"/>
-<wire x1="13.25" y1="21.55" x2="13.75" y2="21.55" width="0" layer="19" extent="1-1"/>
+<via x="16.5" y="26.6" extent="1-16" drill="0.3"/>
+<wire x1="16.75" y1="25.45" x2="21.2" y2="25.08" width="0" layer="19" extent="1-1"/>
+<wire x1="16.25" y1="25.45" x2="16.75" y2="25.45" width="0" layer="19" extent="1-1"/>
+<wire x1="16.5" y1="26.6" x2="16.75" y2="25.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AVREF">
 <contactref element="U3" pad="7"/>
 <contactref element="U3" pad="6"/>
 <contactref element="CN1" pad="2"/>
-<wire x1="14.25" y1="24.45" x2="21.2" y2="22.54" width="0" layer="19" extent="1-1"/>
-<wire x1="13.75" y1="24.45" x2="14.25" y2="24.45" width="0" layer="19" extent="1-1"/>
+<via x="16" y="21.4" extent="1-16" drill="0.3"/>
+<wire x1="16.25" y1="22.55" x2="21.2" y2="22.54" width="0" layer="19" extent="1-1"/>
+<wire x1="15.75" y1="22.55" x2="16.25" y2="22.55" width="0" layer="19" extent="1-1"/>
+<wire x1="16" y1="21.4" x2="16.25" y2="22.55" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AVIN">
 <contactref element="CN1" pad="4"/>
@@ -821,12 +826,12 @@ design rules under a new name.</description>
 <contactref element="C3" pad="1"/>
 <contactref element="U3" pad="8"/>
 <contactref element="CN4" pad="1"/>
-<wire x1="16.35" y1="23" x2="21.2" y2="27.62" width="0" layer="19" extent="1-1"/>
-<wire x1="13.25" y1="24.45" x2="16.35" y2="23" width="0" layer="19" extent="1-1"/>
-<wire x1="9.35" y1="26" x2="13.25" y2="24.45" width="0" layer="19" extent="1-1"/>
-<wire x1="9.3" y1="22" x2="9.35" y2="26" width="0" layer="19" extent="1-1"/>
-<wire x1="5.675" y1="17.5" x2="9.3" y2="22" width="0" layer="19" extent="1-1"/>
-<wire x1="3.5" y1="25" x2="9.35" y2="26" width="0" layer="19" extent="1-1"/>
+<wire x1="16.75" y1="22.55" x2="21.2" y2="27.62" width="0" layer="19" extent="1-1"/>
+<wire x1="17.1" y1="19.75" x2="16.75" y2="22.55" width="0" layer="19" extent="1-1"/>
+<wire x1="11.55" y1="20.4" x2="17.1" y2="19.75" width="0" layer="19" extent="1-1"/>
+<wire x1="11.2" y1="21.525" x2="11.55" y2="20.4" width="0" layer="19" extent="1-1"/>
+<wire x1="11" y1="24.2" x2="11.2" y2="21.525" width="0" layer="19" extent="1-1"/>
+<wire x1="7.2" y1="24.2" x2="11" y2="24.2" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <errors>
