@@ -668,19 +668,37 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="15" y="17.8" size="0.6" layer="27" rot="R180" align="top-center"/>
 </element>
 <element name="R3" library="SMDs" package="R0402N" value="51k" x="12" y="17"/>
-<element name="U2" library="ICs" package="RSE0008A" value="REF3325AIRSER" x="11.7" y="22.2" rot="R270"/>
+<element name="U2" library="ICs" package="RSE0008A" value="REF3325AIRSER" x="11.7" y="22.2" smashed="yes" rot="R270">
+<attribute name="VALUE" x="9.7" y="22.6" size="0.6" layer="27" rot="R270"/>
+<attribute name="NAME" x="10.3" y="22.2" size="0.6" layer="25" rot="R90" align="bottom-center"/>
+</element>
 <element name="C1" library="SMDs" package="C0402" value="1uF" x="10.9" y="20.4" rot="R180"/>
-<element name="C2" library="SMDs" package="C0402" value="1uF" x="13.5" y="20.8" rot="R270"/>
-<element name="R4" library="SMDs" package="R0402N" value="5.1k" x="11.7" y="24.2"/>
-<element name="R5" library="SMDs" package="R0402N" value="15k" x="11.7" y="25.5" rot="R180"/>
-<element name="C3" library="SMDs" package="C0402" value="0.1uF" x="17.1" y="20.4" rot="R90"/>
+<element name="C2" library="SMDs" package="C0402" value="1uF" x="13.5" y="20.8" smashed="yes" rot="R270">
+<attribute name="NAME" x="14.2" y="20.8" size="0.6" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="12.8" y="20.8" size="0.6" layer="27" rot="R270" align="top-center"/>
+</element>
+<element name="R4" library="SMDs" package="R0402N" value="5.1k" x="11.7" y="24.2" smashed="yes">
+<attribute name="NAME" x="13.3" y="25.5" size="0.6" layer="25" rot="R90" align="top-center"/>
+<attribute name="VALUE" x="11.7" y="23.4" size="0.6" layer="27" align="top-center"/>
+</element>
+<element name="R5" library="SMDs" package="R0402N" value="15k" x="11.7" y="25.5" smashed="yes" rot="R180">
+<attribute name="NAME" x="13.3" y="24.2" size="0.6" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="11.7" y="26.3" size="0.6" layer="27" rot="R180" align="top-center"/>
+</element>
+<element name="C3" library="SMDs" package="C0402" value="0.1uF" x="17.1" y="20.4" smashed="yes" rot="R90">
+<attribute name="NAME" x="17.8" y="20.4" size="0.6" layer="25" rot="R90" align="top-center"/>
+<attribute name="VALUE" x="17.8" y="20.4" size="0.6" layer="27" rot="R90" align="top-center"/>
+</element>
 <element name="Q1" library="SMDs" package="U-DFN2020-6" value="DMP2035UFDF-7" x="9" y="9"/>
 <element name="Q2" library="SMDs" package="DFN1010D-3" value="BC817-40QA" x="13.5" y="15" smashed="yes">
 <attribute name="VALUE" x="13" y="13.5" size="0.6" layer="27"/>
-<attribute name="NAME" x="11.9" y="14.8" size="0.6" layer="25" align="bottom-center"/>
+<attribute name="NAME" x="13.5" y="13.9" size="0.6" layer="25" align="top-center"/>
 </element>
 <element name="U1" library="ICs" package="DRL0005A" value="SN74AHC1G00DRLR" x="16.5" y="15" rot="R180"/>
-<element name="U3" library="ICs" package="TDFN-2X3" value="MCP6232T-E/MNY" x="16" y="24" rot="R180"/>
+<element name="U3" library="ICs" package="TDFN-2X3" value="MCP6232T-E/MNY" x="16" y="24" smashed="yes" rot="R180">
+<attribute name="NAME" x="17.4" y="24" size="0.6" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="16" y="26.3" size="0.6" layer="27" rot="R180" align="top-center"/>
+</element>
 <element name="CN1" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="20" rot="R90"/>
 <element name="CN2" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="9" rot="R90"/>
 <element name="CN3" library="Connectors" package="HEADER_2PIN" value="IF_2PIN" x="21.2" y="3" rot="R90"/>
