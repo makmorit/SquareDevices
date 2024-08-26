@@ -663,8 +663,11 @@ design rules under a new name.</description>
 <element name="SW1" library="Parts" package="SKRPACE010" value="SKRPACE010" x="10" y="4"/>
 <element name="R1" library="SMDs" package="R0402N" value="5.1k" x="12" y="8"/>
 <element name="D2" library="SMDs" package="DSN1006-2" value="PMEG4010AESBYL" x="13" y="10"/>
-<element name="R2" library="SMDs" package="R0402N" value="5.1k" x="10" y="16"/>
-<element name="R3" library="SMDs" package="R0402N" value="51k" x="13" y="16"/>
+<element name="R2" library="SMDs" package="R0402N" value="5.1k" x="15" y="17" smashed="yes" rot="R180">
+<attribute name="NAME" x="15" y="17.7" size="0.6" layer="25" align="bottom-center"/>
+<attribute name="VALUE" x="15" y="17.8" size="0.6" layer="27" rot="R180" align="top-center"/>
+</element>
+<element name="R3" library="SMDs" package="R0402N" value="51k" x="12" y="17"/>
 <element name="U2" library="ICs" package="RSE0008A" value="REF3325AIRSER" x="11.7" y="22.2" rot="R270"/>
 <element name="C1" library="SMDs" package="C0402" value="1uF" x="10.9" y="20.4" rot="R180"/>
 <element name="C2" library="SMDs" package="C0402" value="1uF" x="13.5" y="20.8" rot="R270"/>
@@ -672,8 +675,11 @@ design rules under a new name.</description>
 <element name="R5" library="SMDs" package="R0402N" value="15k" x="11.7" y="25.5" rot="R180"/>
 <element name="C3" library="SMDs" package="C0402" value="0.1uF" x="17.1" y="20.4" rot="R90"/>
 <element name="Q1" library="SMDs" package="U-DFN2020-6" value="DMP2035UFDF-7" x="9" y="9"/>
-<element name="Q2" library="SMDs" package="DFN1010D-3" value="BC817-40QA" x="5" y="14"/>
-<element name="U1" library="ICs" package="DRL0005A" value="SN74AHC1G00DRLR" x="10" y="12.5"/>
+<element name="Q2" library="SMDs" package="DFN1010D-3" value="BC817-40QA" x="13.5" y="15" smashed="yes">
+<attribute name="VALUE" x="13" y="13.5" size="0.6" layer="27"/>
+<attribute name="NAME" x="11.9" y="14.8" size="0.6" layer="25" align="bottom-center"/>
+</element>
+<element name="U1" library="ICs" package="DRL0005A" value="SN74AHC1G00DRLR" x="16.5" y="15" rot="R180"/>
 <element name="U3" library="ICs" package="TDFN-2X3" value="MCP6232T-E/MNY" x="16" y="24" rot="R180"/>
 <element name="CN1" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="20" rot="R90"/>
 <element name="CN2" library="Connectors" package="HEADER_4PIN" value="IF_4PIN" x="21.2" y="9" rot="R90"/>
@@ -713,7 +719,7 @@ design rules under a new name.</description>
 <contactref element="CN2" pad="1"/>
 <wire x1="16" y1="24" x2="15.25" y2="25.45" width="0" layer="19" extent="1-1"/>
 <wire x1="11.05" y1="22.2" x2="10.25" y2="20.4" width="0" layer="19" extent="1-1"/>
-<wire x1="9.26" y1="12" x2="12.3" y2="16" width="0" layer="19" extent="1-1"/>
+<wire x1="17.24" y1="15.5" x2="13.125" y2="15.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="F1" pad="2"/>
@@ -732,19 +738,19 @@ design rules under a new name.</description>
 <contactref element="R1" pad="1"/>
 <contactref element="Q2" pad="3"/>
 <contactref element="Q1" pad="3"/>
+<wire x1="11.3" y1="8" x2="13.5" y2="14.55" width="0" layer="19" extent="1-1"/>
 <wire x1="9.65" y1="8.137" x2="11.3" y2="8" width="0" layer="19" extent="1-1"/>
 <wire x1="12.075" y1="2.925" x2="11.3" y2="8" width="0" layer="19" extent="1-1"/>
 <wire x1="7.925" y1="2.925" x2="12.075" y2="2.925" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="13.55" x2="9.65" y2="8.137" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VIN">
 <contactref element="D2" pad="2"/>
 <contactref element="U1" pad="5"/>
 <contactref element="CN2" pad="2"/>
 <contactref element="CN4" pad="2"/>
-<wire x1="13.325" y1="10" x2="21.2" y2="11.54" width="0" layer="19" extent="1-1"/>
-<wire x1="10.74" y1="13" x2="13.325" y2="10" width="0" layer="19" extent="1-1"/>
-<wire x1="7.2" y1="21.66" x2="10.74" y2="13" width="0" layer="19" extent="1-1"/>
+<wire x1="15.76" y1="14.5" x2="21.2" y2="11.54" width="0" layer="19" extent="1-1"/>
+<wire x1="13.325" y1="10" x2="15.76" y2="14.5" width="0" layer="19" extent="1-1"/>
+<wire x1="7.2" y1="21.66" x2="15.76" y2="14.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EXT_BAT">
 <contactref element="F1" pad="1"/>
@@ -755,8 +761,8 @@ design rules under a new name.</description>
 <contactref element="R2" pad="2"/>
 <contactref element="R3" pad="2"/>
 <contactref element="Q2" pad="1"/>
-<wire x1="10.7" y1="16" x2="13.7" y2="16" width="0" layer="19" extent="1-1"/>
-<wire x1="5.375" y1="14.45" x2="10.7" y2="16" width="0" layer="19" extent="1-1"/>
+<wire x1="12.7" y1="17" x2="14.3" y2="17" width="0" layer="19" extent="1-1"/>
+<wire x1="13.875" y1="15.45" x2="14.3" y2="17" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AVREF_IN">
 <contactref element="U2" pad="8"/>
@@ -788,17 +794,17 @@ design rules under a new name.</description>
 <signal name="N$3">
 <contactref element="U1" pad="4"/>
 <contactref element="R2" pad="1"/>
-<wire x1="10.74" y1="12" x2="9.3" y2="16" width="0" layer="19" extent="1-1"/>
+<wire x1="15.7" y1="17" x2="15.76" y2="15.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="NRST">
 <contactref element="U1" pad="2"/>
 <contactref element="CN2" pad="3"/>
-<wire x1="9.26" y1="12.5" x2="21.2" y2="14.08" width="0" layer="19" extent="1-1"/>
+<wire x1="17.24" y1="15" x2="21.2" y2="14.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PWR_OFF">
 <contactref element="U1" pad="1"/>
 <contactref element="CN2" pad="4"/>
-<wire x1="9.26" y1="13" x2="21.2" y2="16.62" width="0" layer="19" extent="1-1"/>
+<wire x1="17.24" y1="14.5" x2="21.2" y2="16.62" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AVBAT">
 <contactref element="U3" pad="1"/>
