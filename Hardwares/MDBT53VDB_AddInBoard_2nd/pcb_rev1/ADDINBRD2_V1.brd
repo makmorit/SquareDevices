@@ -734,7 +734,7 @@ design rules under a new name.</description>
 <contactref element="D1" pad="1"/>
 <contactref element="SW1" pad="1"/>
 <contactref element="SW1" pad="2"/>
-<via x="8" y="17" extent="1-16" drill="0.5"/>
+<via x="16.5" y="16.7" extent="1-16" drill="0.5"/>
 <contactref element="U2" pad="4"/>
 <contactref element="C1" pad="2"/>
 <contactref element="C2" pad="2"/>
@@ -748,9 +748,16 @@ design rules under a new name.</description>
 <contactref element="CN1" pad="1"/>
 <contactref element="CN3" pad="1"/>
 <contactref element="CN2" pad="1"/>
+<wire x1="15.74" y1="15.5" x2="16.3" y2="15.5" width="0.2032" layer="1"/>
+<wire x1="16.3" y1="15.5" x2="16.5" y2="15.7" width="0.2032" layer="1"/>
+<wire x1="16.5" y1="16.7" x2="16.5" y2="15.7" width="0.2032" layer="1"/>
+<via x="10.3" y="16" extent="1-16" drill="0.5"/>
+<wire x1="11.625" y1="15.45" x2="11.625" y2="15.875" width="0.2032" layer="1"/>
+<wire x1="11.625" y1="15.875" x2="11.5" y2="16" width="0.2032" layer="1"/>
+<wire x1="10.3" y1="16" x2="11.5" y2="16" width="0.2032" layer="1"/>
 <wire x1="14.5" y1="24" x2="13.75" y2="25.45" width="0" layer="19" extent="1-1"/>
+<wire x1="9.5" y1="25.5" x2="13.75" y2="25.45" width="0" layer="19" extent="1-1"/>
 <wire x1="9.55" y1="22.2" x2="9.5" y2="25.5" width="0" layer="19" extent="1-1"/>
-<wire x1="15.74" y1="15.5" x2="11.625" y2="15.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="F1" pad="2"/>
@@ -783,26 +790,31 @@ design rules under a new name.</description>
 <wire x1="6.075" y1="11.075" x2="6.075" y2="6.925" width="0.2032" layer="1"/>
 <wire x1="11.137" y1="8.85" x2="10.65" y2="8.85" width="0.2032" layer="1"/>
 <wire x1="10.65" y1="8.85" x2="10.1" y2="9.4" width="0.2032" layer="1"/>
-<wire x1="10.1" y1="9.4" x2="10.1" y2="11.5" width="0.2032" layer="1"/>
-<wire x1="10.1" y1="11.5" x2="12" y2="13.4" width="0.2032" layer="1"/>
-<wire x1="12" y1="14.55" x2="12" y2="13.4" width="0.2032" layer="1"/>
+<wire x1="10.1" y1="9.4" x2="10.1" y2="11.7" width="0.2032" layer="1"/>
 <wire x1="10.65" y1="8.85" x2="10.3" y2="8.5" width="0.2032" layer="1"/>
 <wire x1="10.3" y1="7" x2="10.3" y2="8.5" width="0.2032" layer="1"/>
+<wire x1="10.1" y1="11.7" x2="12" y2="13.6" width="0.2032" layer="1"/>
+<wire x1="12" y1="13.6" x2="12" y2="14.55" width="0.2032" layer="1"/>
 </signal>
 <signal name="VIN">
 <contactref element="D2" pad="2"/>
 <contactref element="U1" pad="5"/>
 <contactref element="CN2" pad="2"/>
 <contactref element="CN4" pad="2"/>
-<via x="13.2" y="13.5" extent="1-16" drill="0.3"/>
-<wire x1="14.26" y1="14.5" x2="21.2" y2="11.54" width="0" layer="19" extent="1-1"/>
-<wire x1="13.2" y1="13.5" x2="14.26" y2="14.5" width="0" layer="19" extent="1-1"/>
-<wire x1="12" y1="12.325" x2="13.2" y2="13.5" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="21.46" x2="13.2" y2="13.5" width="0" layer="19" extent="1-1"/>
+<via x="13.1" y="14.1" extent="1-16" drill="0.3"/>
+<wire x1="21.2" y1="11.54" x2="19.14" y2="14.1" width="0.2032" layer="16"/>
+<wire x1="19.14" y1="14.1" x2="13.1" y2="14.1" width="0.2032" layer="16"/>
+<wire x1="14.26" y1="14.5" x2="13.5" y2="14.5" width="0.2032" layer="1"/>
+<wire x1="13.5" y1="14.5" x2="13.1" y2="14.1" width="0.2032" layer="1"/>
+<wire x1="12" y1="12.325" x2="12" y2="12.8" width="0.2032" layer="1"/>
+<wire x1="13.1" y1="14.1" x2="12" y2="13" width="0.2032" layer="1"/>
+<wire x1="12" y1="13" x2="12" y2="12.325" width="0.2032" layer="1"/>
+<wire x1="13.1" y1="14.1" x2="5" y2="21.46" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="EXT_BAT">
 <contactref element="F1" pad="1"/>
 <contactref element="CN3" pad="2"/>
+<wire x1="16.3" y1="5.4" x2="16" y2="5.7" width="0.2032" layer="1"/>
 <wire x1="21.2" y1="5.54" x2="16.16" y2="5.54" width="0.2032" layer="1"/>
 <wire x1="16.16" y1="5.54" x2="16" y2="5.7" width="0.2032" layer="1"/>
 </signal>
@@ -810,8 +822,14 @@ design rules under a new name.</description>
 <contactref element="R2" pad="2"/>
 <contactref element="R3" pad="2"/>
 <contactref element="Q2" pad="1"/>
-<wire x1="11.2" y1="17" x2="12.8" y2="17" width="0" layer="19" extent="1-1"/>
-<wire x1="12.375" y1="15.45" x2="12.8" y2="17" width="0" layer="19" extent="1-1"/>
+<wire x1="12.375" y1="15.45" x2="12.375" y2="16.075" width="0.2032" layer="1"/>
+<wire x1="12.375" y1="16.075" x2="12.8" y2="16.5" width="0.2032" layer="1"/>
+<wire x1="12.8" y1="17" x2="12.8" y2="16.5" width="0.2032" layer="1"/>
+<wire x1="12.375" y1="16.075" x2="12.375" y2="16.125" width="0.2032" layer="1"/>
+<wire x1="12.375" y1="16.125" x2="12.1" y2="16.4" width="0.2032" layer="1"/>
+<wire x1="12.1" y1="16.4" x2="11.6" y2="16.4" width="0.2032" layer="1"/>
+<wire x1="11.2" y1="17" x2="11.2" y2="16.8" width="0.2032" layer="1"/>
+<wire x1="11.2" y1="16.8" x2="11.6" y2="16.4" width="0.2032" layer="1"/>
 </signal>
 <signal name="AVREF_IN">
 <contactref element="U2" pad="8"/>
@@ -858,19 +876,33 @@ design rules under a new name.</description>
 <signal name="N$3">
 <contactref element="U1" pad="4"/>
 <contactref element="R2" pad="1"/>
-<wire x1="14.2" y1="17" x2="14.26" y2="15.5" width="0" layer="19" extent="1-1"/>
+<wire x1="14.26" y1="15.5" x2="14.8" y2="15.5" width="0.2032" layer="1"/>
+<wire x1="14.8" y1="15.5" x2="15" y2="15.7" width="0.2032" layer="1"/>
+<wire x1="15" y1="15.7" x2="15" y2="16.7" width="0.2032" layer="1"/>
+<wire x1="14.2" y1="17" x2="14.7" y2="17" width="0.2032" layer="1"/>
+<wire x1="14.7" y1="17" x2="15" y2="16.7" width="0.2032" layer="1"/>
 </signal>
 <signal name="NRST">
 <contactref element="U1" pad="2"/>
 <contactref element="CN2" pad="3"/>
-<via x="16.9" y="15.2" extent="1-16" drill="0.3"/>
-<wire x1="16.9" y1="15.2" x2="21.2" y2="14.08" width="0" layer="19" extent="1-1"/>
-<wire x1="15.74" y1="15" x2="16.9" y2="15.2" width="0" layer="19" extent="1-1"/>
+<via x="16.7" y="15" extent="1-16" drill="0.3"/>
+<wire x1="16.7" y1="15" x2="20.28" y2="15" width="0.2032" layer="16"/>
+<wire x1="20.28" y1="15" x2="21.2" y2="14.08" width="0.2032" layer="16"/>
+<wire x1="15.74" y1="15" x2="16.7" y2="15" width="0.2032" layer="1"/>
 </signal>
 <signal name="PWR_OFF">
 <contactref element="U1" pad="1"/>
 <contactref element="CN2" pad="4"/>
-<wire x1="15.74" y1="14.5" x2="21.2" y2="16.62" width="0" layer="19" extent="1-1"/>
+<via x="17.2" y="15.7" extent="1-16" drill="0.3"/>
+<wire x1="19.98" y1="15.4" x2="21.2" y2="16.62" width="0.2032" layer="16"/>
+<wire x1="15.74" y1="14.5" x2="16.3" y2="14.5" width="0.2032" layer="1"/>
+<wire x1="16.3" y1="14.5" x2="16.4" y2="14.4" width="0.2032" layer="1"/>
+<wire x1="16.4" y1="14.4" x2="17.2" y2="14.4" width="0.2032" layer="1"/>
+<wire x1="17.2" y1="14.4" x2="17.5" y2="14.7" width="0.2032" layer="1"/>
+<wire x1="17.5" y1="14.7" x2="17.5" y2="15.4" width="0.2032" layer="1"/>
+<wire x1="17.2" y1="15.7" x2="17.5" y2="15.4" width="0.2032" layer="1"/>
+<wire x1="19.98" y1="15.4" x2="17.5" y2="15.4" width="0.2032" layer="16"/>
+<wire x1="17.5" y1="15.4" x2="17.2" y2="15.7" width="0.2032" layer="16"/>
 </signal>
 <signal name="AVBAT">
 <contactref element="U3" pad="1"/>
@@ -908,6 +940,32 @@ design rules under a new name.</description>
 <wire x1="9" y1="20.15" x2="10.2" y2="20.6" width="0" layer="19" extent="1-1"/>
 <wire x1="9.5" y1="24.2" x2="9.7" y2="21.525" width="0" layer="19" extent="1-1"/>
 <wire x1="5" y1="24" x2="9.5" y2="24.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$4">
+<polygon width="0" layer="1" pour="cutout" isolate="0.2032">
+<vertex x="13.8" y="16"/>
+<vertex x="16.2" y="16"/>
+<vertex x="16.2" y="14"/>
+<vertex x="13.8" y="14"/>
+</polygon>
+<polygon width="0" layer="1" pour="cutout" isolate="0.2032">
+<vertex x="11.2" y="16.2"/>
+<vertex x="12.8" y="16.2"/>
+<vertex x="12.8" y="13.5"/>
+<vertex x="11.2" y="13.5"/>
+</polygon>
+<polygon width="0" layer="1" pour="cutout" isolate="0.2032">
+<vertex x="8.7" y="23.7"/>
+<vertex x="11.6" y="23.7"/>
+<vertex x="11.6" y="21"/>
+<vertex x="8.7" y="21"/>
+</polygon>
+<polygon width="0" layer="1" pour="cutout" isolate="0.2032">
+<vertex x="13.2" y="26.6"/>
+<vertex x="15.8" y="26.6"/>
+<vertex x="15.8" y="22"/>
+<vertex x="13.2" y="22"/>
+</polygon>
 </signal>
 </signals>
 <errors>
