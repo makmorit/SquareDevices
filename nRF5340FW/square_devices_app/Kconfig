@@ -34,6 +34,13 @@ config APP_SETTINGS_BUTTON2_LED_TEST
 	help
 	  Enables LED lighting test with second button
 
+config APP_SETTINGS_BUTTON2_BAS_NOTIFY_TEST
+	bool "Use BAS notify test with button2"
+	default n
+	depends on BT_BAS
+	help
+	  Enables BAS notify test with second button
+
 #
 # Enable external RTCC
 #
