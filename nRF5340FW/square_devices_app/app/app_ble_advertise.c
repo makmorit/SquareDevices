@@ -69,12 +69,12 @@ bool app_ble_advertise_is_stopped(void)
 }
 
 // advertising data
-static struct bt_data ad[3];
+static struct bt_data ad[4];
 static struct bt_data ad_nobredr = BT_DATA_BYTES(BT_DATA_FLAGS, BT_LE_AD_NO_BREDR);
 static struct bt_data ad_limited = BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_LIMITED | BT_LE_AD_NO_BREDR));
 
 // UUID for FIDO BLE service (0xfffd)
-static struct bt_data ad_uuid_fido = BT_DATA_BYTES(BT_DATA_UUID16_ALL, BT_UUID_16_ENCODE(BT_UUID_FIDO_VAL), BT_UUID_16_ENCODE(BT_UUID_DIS_VAL));
+static struct bt_data ad_uuid_fido = BT_DATA_BYTES(BT_DATA_UUID16_ALL, BT_UUID_16_ENCODE(BT_UUID_FIDO_VAL), BT_UUID_16_ENCODE(BT_UUID_DIS_VAL), BT_UUID_16_ENCODE(BT_UUID_BAS_VAL));
 
 // UUID for BLE SMP service
 static struct bt_data ad_uuid_smp = BT_DATA_BYTES(BT_DATA_UUID128_ALL, 0x84, 0xaa, 0x60, 0x74, 0x52, 0x8a, 0x8b, 0x86, 0xd3, 0x4c, 0xb7, 0x1d, 0x1d, 0xdc, 0x53, 0x8d);
