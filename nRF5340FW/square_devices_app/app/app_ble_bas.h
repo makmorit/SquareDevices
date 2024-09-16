@@ -17,6 +17,7 @@ extern "C" {
 // 関数群
 //
 void        app_ble_bas_notify(uint8_t battery_level);
+void        app_ble_bas_test(void);
 
 #ifdef __cplusplus
 }

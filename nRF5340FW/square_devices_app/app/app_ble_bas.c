@@ -16,3 +16,18 @@ void app_ble_bas_notify(uint8_t battery_level)
 {
     bt_bas_set_battery_level(battery_level);
 }
+
+//
+// Battery Service Profile simulation test
+//
+void app_ble_bas_test(void)
+{
+    static uint8_t battery_level = 100;
+    LOG_DBG("Battery level: %d", battery_level);
+    app_ble_bas_notify(battery_level);
+
+    battery_level--;
+    if (!battery_level) {
+        battery_level = 100U;
+    }
+}
