@@ -51,10 +51,33 @@ static int app_batt_adc_init_channel(void)
 
 SYS_INIT(app_batt_adc_init_channel, APPLICATION, CONFIG_KERNEL_INIT_PRIORITY_DEVICE);
 
+bool app_batt_adc_read_millivolts_value(int *val_mv)
+{
+    // Read a sample from the ADC
+    int err = adc_read(adc_channel.dev, &sequence);
+    if (err < 0) {
+        LOG_ERR("Could not read (%d)", err);
+        return false;
+    }
+    // Convert raw value to mV
+    *val_mv = (int)buf;
+    err = adc_raw_to_millivolts_dt(&adc_channel, val_mv);
+    if (err < 0) {
+        // conversion to mV may not be supported
+        LOG_WRN("Value in mV not available");
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //
 // Battery measurement simulation test
 //
 void app_batt_adc_test(void)
 {
-    LOG_DBG("Battery measurement test");
+    int val_mv;
+    if (app_batt_adc_read_millivolts_value(&val_mv)) {
+        LOG_DBG("Battery measurement test: %d mV", val_mv);
+    }
 }
