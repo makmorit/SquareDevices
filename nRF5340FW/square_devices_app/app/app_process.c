@@ -7,6 +7,7 @@
 #include <zephyr/types.h>
 #include <zephyr/kernel.h>
 
+#include "app_batt_adc.h"
 #include "app_ble_advertise.h"
 #include "app_ble_bas.h"
 #include "app_ble_init.h"
@@ -125,6 +126,10 @@ static void button_1_pressed(void)
 #ifdef CONFIG_APP_SETTINGS_BUTTON2_BAS_NOTIFY_TEST
     // BAS Notifyテスト処理
     app_ble_bas_test();
+#endif
+#ifdef CONFIG_APP_SETTINGS_BUTTON2_ADC_MEASURE_TEST
+    // ADCによる電圧測定テスト処理
+    app_batt_adc_test();
 #endif
     // 業務関連処理
     wrapper_main_button_pressed_sub();
