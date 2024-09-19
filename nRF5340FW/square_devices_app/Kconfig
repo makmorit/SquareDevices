@@ -41,6 +41,13 @@ config APP_SETTINGS_BUTTON2_BAS_NOTIFY_TEST
 	help
 	  Enables BAS notify test with second button
 
+config APP_SETTINGS_BUTTON2_ADC_MEASURE_TEST
+	bool "Use ADC measurement test with button2"
+	default n
+	depends on ADC
+	help
+	  Enables ADC measurement test with second button
+
 #
 # Enable external RTCC
 #
