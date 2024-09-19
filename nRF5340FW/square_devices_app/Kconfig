@@ -68,4 +68,14 @@ config USE_TINY_TFT
 	help
 	  Enables using of KWH009ST01-F01 as external TFT display
 
+#
+# Enable battery measurement
+#
+config USE_BATT_ADC
+	bool "Use ADC for battery measurement"
+	default n
+	depends on ADC
+	help
+	  Enables using of ADC for battery measurement
+
 source "Kconfig.zephyr"
