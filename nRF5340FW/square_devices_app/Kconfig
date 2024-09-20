@@ -41,6 +41,13 @@ config APP_SETTINGS_BUTTON2_BAS_NOTIFY_TEST
 	help
 	  Enables BAS notify test with second button
 
+config APP_SETTINGS_BUTTON2_ADC_MEASURE_TEST
+	bool "Use ADC measurement test with button2"
+	default n
+	depends on ADC
+	help
+	  Enables ADC measurement test with second button
+
 #
 # Enable external RTCC
 #
@@ -60,5 +67,15 @@ config USE_TINY_TFT
 	depends on SPI
 	help
 	  Enables using of KWH009ST01-F01 as external TFT display
+
+#
+# Enable battery measurement
+#
+config USE_BATT_ADC
+	bool "Use ADC for battery measurement"
+	default n
+	depends on ADC
+	help
+	  Enables using of ADC for battery measurement
 
 source "Kconfig.zephyr"

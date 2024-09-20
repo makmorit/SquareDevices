@@ -69,6 +69,10 @@ else
         if [ "${USE_TFT}" == "y" ]; then
             DTS_OPT="${DTS_OPT};configuration/${BUILD_TARGET}/tiny_tft.overlay"
         fi
+        USE_BATT_ADC=`retrieve_config_yesno CONFIG_USE_BATT_ADC ${CNF_FILE}`
+        if [ "${USE_BATT_ADC}" == "y" ]; then
+            DTS_OPT="${DTS_OPT};configuration/${BUILD_TARGET}/adc.overlay"
+        fi
     fi
     # Build for nRF5340
     rm -rf build_signed
