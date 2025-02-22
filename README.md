@@ -16,4 +16,4 @@ PC環境から、nRF5340基板の動作に必要な各種設定／動作テス�
 ## ハードウェア
 
 - <b>[nRF5340基板の製作](Markdowns/Hardwares/README.md)</b><br>
-Nordic社のSoC「nRF5340」を使用したBLEデバイスを製作しています。
+Nordic社のSoC「nRF5340」搭載モジュールを使用したBLEデバイスを製作しています。
