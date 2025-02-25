@@ -10,7 +10,7 @@
 Nordic社のSoC「nRF5340」搭載モジュールで動作するファームウェアです。
 
 - <b>[デスクトップツール](Markdowns/DesktopTools/README.md)</b><br>
-PC環境から、nRF5340基板の動作に必要な各種設定／動作テスト等を行うためのツールです。<br>
+PC環境から、nRF5340基板の動作に必要な各種設定／テスト等を行うためのツールです。<br>
 [Windows版](Markdowns/DesktopTools/dotNET/README.md)と、[macOS版](Markdowns/DesktopTools/macOSApp/README.md)を用意しております。
 
 ## ハードウェア
