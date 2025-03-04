@@ -7,7 +7,7 @@
 ## プログラム
 
 - <b>[ファームウェア](Markdowns/nRF5340FW)</b><br>
-Nordic社のSoC「nRF5340」搭載モジュールで動作するファームウェアです。
+Nordic社のSoC「nRF5340」で動作するファームウェアです。
 
 - <b>[デスクトップツール](Markdowns/DesktopTools/README.md)</b><br>
 PC環境から、nRF5340基板の動作に必要な各種設定／テスト等を行うためのツールです。<br>
