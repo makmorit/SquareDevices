@@ -2,12 +2,12 @@
 
 # Square devices
 
-最終更新日：2024/4/12
+最終更新日：2025/3/5
 
 ## プログラム
 
 - <b>[ファームウェア](Markdowns/nRF5340FW)</b><br>
-Nordic社のSoC「nRF5340」搭載モジュールで動作するファームウェアです。
+Nordic社のSoC「nRF5340」搭載モジュール上で動作するアプリケーション・プログラムです。
 
 - <b>[デスクトップツール](Markdowns/DesktopTools/README.md)</b><br>
 PC環境から、nRF5340基板の動作に必要な各種設定／テスト等を行うためのツールです。<br>
